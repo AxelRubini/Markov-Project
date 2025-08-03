@@ -1,26 +1,6 @@
-#include "../include/utf8_reader.h"
+#include "../include/utf8_tools.h"
 #include <stdio.h>
-
-/*
- * Hacker's Delight, 2nd edition, by Henry S. Warren, Jr.
- * Chapter 5, page 79
- * counts the number of leading zeros in a byte
- */
-static unsigned num_of_Leading_zeros(unsigned char x) {
-  unsigned b = 0;
-  if (!(x & 0xF0)) {
-    x <<= 4;
-    b += 4;
-  }
-  if (!(x & 0xC0)) {
-    x <<= 2;
-    b += 2;
-  }
-  if (!(x & 0x80)) {
-    b += 1;
-  }
-  return b;
-}
+#include <unistd.h>
 
 /*
  * Expected length of character sequence referenced by the leading byte.
@@ -29,9 +9,15 @@ static unsigned num_of_Leading_zeros(unsigned char x) {
  * 4 for 4-byte sequences.
  */
 static unsigned utf8_length(unsigned char lead) {
-  if (lead < 0x80) // is ASCII
-    return 1;
-  return num_of_Leading_zeros(lead);
+  if (lead < 0x80)
+    return 1; // 0xxxxxxx
+  if ((lead >> 5) == 0x6)
+    return 2; // 110xxxxx
+  if ((lead >> 4) == 0xE)
+    return 3; // 1110xxxx
+  if ((lead >> 3) == 0x1E)
+    return 4; // 11110xxx
+  return 0;   // invalid
 }
 /*
  * https://en.wikipedia.org/wiki/UTF-8
@@ -68,4 +54,59 @@ int utf8_getchar(void) {
   }
 
   return (int)codepoint;
+}
+
+int utf8_getchar_fd(int fd) {
+  unsigned char lead;
+  if (read(fd, &lead, 1) != 1) {
+    return EOF; // end of input
+  }
+
+  unsigned len = utf8_length(lead);
+  if (len == 1) {
+    return lead; // ASCII character
+  }
+
+  if (len < 2 || len > 4) {
+    return UTF8_ERROR; // invalid leading byte
+  }
+
+  uint32_t codepoint =
+      lead & ((1u << (7 - len)) - 1); // Mask to get the leading bits
+  for (unsigned i = 1; i < len; ++i) {
+    if (read(fd, &lead, 1) != 1) // Read the next byte
+      return EOF; // End of input before completing the character
+    if ((lead >> 6) != 0x2)
+      return UTF8_ERROR; // invalid continuation byte
+    codepoint = (codepoint << 6) | (lead & 0x3F); // append the continuation byte
+  }
+
+  return (int)codepoint;
+}
+
+void utf8_putchar(int codepoint, int fd) {
+  if (codepoint < 0 || codepoint > 0x10FFFF) {
+    return; // Invalid codepoint
+  }
+
+  unsigned char buffer[4];
+  unsigned len = 0;
+
+  if (codepoint < 0x80) {
+    buffer[len++] = (unsigned char)codepoint; // 1-byte sequence
+  } else if (codepoint < 0x800) {
+    buffer[len++] = (unsigned char)((codepoint >> 6) | 0xC0); // 2-byte sequence
+    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+  } else if (codepoint < 0x10000) {
+    buffer[len++] = (unsigned char)((codepoint >> 12) | 0xE0); // 3-byte sequence
+    buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+  } else {
+    buffer[len++] = (unsigned char)((codepoint >> 18) | 0xF0); // 4-byte sequence
+    buffer[len++] = (unsigned char)(((codepoint >> 12) & 0x3F) | 0x80);
+    buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+  }
+
+  write(fd, buffer, len); // Write the UTF-8 sequence to the file descriptor
 }

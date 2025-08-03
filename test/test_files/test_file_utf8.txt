@@ -1,0 +1,8 @@
+ASCII: Hello, World!
+Latin-1: Caffè, già, perché?
+Euro sign: €
+Greek: Καλημέρα κόσμε
+Japanese: こんにちは世界
+Emoji: 😊👍🏽🌍
+Combining characters: ñaïve — résumé
+Four‑byte code points: 𐍈 𝄞
