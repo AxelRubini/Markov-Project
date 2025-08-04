@@ -22,6 +22,11 @@ OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
 TEST_UTF8_SRC = $(TEST_DIR)/test_utf8.c $(SRC_DIR)/utf8_reader.c
 TEST_UTF8_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_UTF8_SRC))
 
+# Files for data structures testing
+#
+TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_data_struct.c $(SRC_DIR)/linked_list.c $(SRC_DIR)/next_word.c
+TEST_DATA_STRUCT_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_DATA_STRUCT_SRC))
+
 .PHONY: all clean test_utf8 test
 
 all: $(TARGET) 

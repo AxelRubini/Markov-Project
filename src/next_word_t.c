@@ -13,17 +13,18 @@ next_word_t *create_next_word(void *next_word){
     return new_next_word;
 }
 
-void update_next_word_frequency(next_word_t *next_word_t) {
-    if (next_word_t == NULL) {
-        fprintf(stderr, "next_word_t is NULL\n");
-    }
-    next_word_t->frequency++;
-}
-
-void free_next_word(next_word_t *next_word_t) {
-    if (next_word_t == NULL) {
+void update_next_word_frequency(next_word_t *next_word) {
+    if (next_word == NULL) {
         fprintf(stderr, "next_word_t is NULL\n");
         return;
     }
-    free(next_word_t);
+    next_word->frequency++;
+}
+
+void free_next_word(next_word_t *next_word) {
+    if (next_word == NULL) {
+        fprintf(stderr, "next_word_t is NULL\n");
+        return;
+    }
+    free(next_word);
 }

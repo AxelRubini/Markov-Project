@@ -24,6 +24,24 @@ int utf8_getchar_fd(int fd);
  */
 void utf8_putchar(int codepoint, int fd);
 
+/*
+ * The function reads a UTF-8 codepoint and returns the lowercase equivalent
+ * If the codepoint does not have a lowercase equivalent, it returns the original codepoint.
+ */
+int utf8_char_to_lower(int codepoint);
+
+/*
+ * The function reads a UTF-8 codepoint and returns the uppercase equivalent
+ * If the codepoint does not have an uppercase equivalent, it returns the original codepoint.
+ */
+int utf8_char_to_upper(int codepoint);
+
+void utf8_print_word(const int** word, int fd);
+
+
+
+
+
 
 
 #endif

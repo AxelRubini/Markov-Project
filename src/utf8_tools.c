@@ -75,10 +75,11 @@ int utf8_getchar_fd(int fd) {
       lead & ((1u << (7 - len)) - 1); // Mask to get the leading bits
   for (unsigned i = 1; i < len; ++i) {
     if (read(fd, &lead, 1) != 1) // Read the next byte
-      return EOF; // End of input before completing the character
+      return EOF;                // End of input before completing the character
     if ((lead >> 6) != 0x2)
       return UTF8_ERROR; // invalid continuation byte
-    codepoint = (codepoint << 6) | (lead & 0x3F); // append the continuation byte
+    codepoint =
+        (codepoint << 6) | (lead & 0x3F); // append the continuation byte
   }
 
   return (int)codepoint;
@@ -98,15 +99,61 @@ void utf8_putchar(int codepoint, int fd) {
     buffer[len++] = (unsigned char)((codepoint >> 6) | 0xC0); // 2-byte sequence
     buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
   } else if (codepoint < 0x10000) {
-    buffer[len++] = (unsigned char)((codepoint >> 12) | 0xE0); // 3-byte sequence
+    buffer[len++] =
+        (unsigned char)((codepoint >> 12) | 0xE0); // 3-byte sequence
     buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
     buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
   } else {
-    buffer[len++] = (unsigned char)((codepoint >> 18) | 0xF0); // 4-byte sequence
+    buffer[len++] =
+        (unsigned char)((codepoint >> 18) | 0xF0); // 4-byte sequence
     buffer[len++] = (unsigned char)(((codepoint >> 12) & 0x3F) | 0x80);
     buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
     buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
   }
 
   write(fd, buffer, len); // Write the UTF-8 sequence to the file descriptor
+}
+
+int utf8_char_to_lower(int codepoint) {
+  // Handle ASCII characters
+  if (codepoint >= 'A' && codepoint <= 'Z') {
+    return codepoint + ('a' - 'A');
+  }
+
+  // Handle specific Unicode characters
+  switch (codepoint) {
+  case 0x0116:
+    return 0x0117; // Ė -> ė
+  default:
+    return codepoint; // No lowercase equivalent found, return original
+                      // codepoint
+  }
+}
+
+int utf8_char_to_upper(int codepoint) {
+  // Handle ASCII characters
+  if (codepoint >= 'a' && codepoint <= 'z') {
+    return codepoint - ('a' - 'A');
+  }
+
+  // Handle specific Unicode characters
+  switch (codepoint) {
+  case 0x0117:
+    return 0x0116; // ė -> Ė
+  default:
+    return codepoint; // No uppercase equivalent found, return original
+                      // codepoint
+  }
+}
+
+void utf8_print_word(const int **word, int fd) {
+  if (word == NULL || *word == NULL) {
+    return; // Nothing to print
+  }
+
+  const int *current = *word;
+  while (*current != 0) { // Assuming the word is null-terminated
+    utf8_putchar(*current, fd);
+    current++;
+  }
 }
