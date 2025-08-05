@@ -6,11 +6,8 @@
 
 
 hash_table_t *create_hash_table(unsigned int (*hash_func)(void *, int)) {
-    hash_table_t *ht = malloc(sizeof(hash_table_t));
-    if (ht == NULL) {
-        fprintf(stderr, "Memory allocation failed for hash table\n");
-        return NULL;
-    }
+    hash_table_t *ht = dmalloc(sizeof(hash_table_t));
+
     
     ht->size = START_SIZE;
     ht->count = 0;
