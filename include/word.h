@@ -1,8 +1,10 @@
 #ifndef WORD_H
 #define WORD_H
 
+#include "ht_item.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 /*This structure represents a word and its occurrence count*/
 
 #define MAX_WORD_LENGTH 31 // Maximum length of a word in code points with null terminator
@@ -15,6 +17,7 @@ word_t *create_word(int *word);
 void update_word_occurrences(word_t *word);
 int get_word_occurrences(const word_t *word);
 int wordcmp(const word_t *word1, const word_t *word2);
+void update_ht_item_value( const void *item, const void *new_value);
 void free_word(word_t *word);
 
 #endif

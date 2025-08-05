@@ -1,4 +1,4 @@
-#ifndef HT_H 
+#ifndef HT_H
 #define HT_H
 
 #include "ht_item.h"
@@ -8,29 +8,32 @@
 #define LOAD_FACTOR_THRESHOLD 0.75
 
 typedef struct {
-    linked_list_t **buckets;  // Array of linked lists for buckets 
-    int size;                 // actual size of the hash table
-    int count;                // Number of elements inserted
-    int (*key_compare)(void *key1, void *key2); // Function pointer for key comparison 
+  linked_list_t **buckets; // Array of linked lists for buckets
+  int size;                // actual size of the hash table
+  int count;               // Number of elements inserted
+  int (*key_compare)(void *key1,
+                     void *key2); // Function pointer for key comparison
+  ht_item *(*create_ht_item)(void *key, void *value);
 } hash_table_t;
 
 // Funzioni principali
-hash_table_t *create_hash_table();
-void ht_insert(hash_table_t *ht, void *key, void *value,
-                void (*update_value)(void *item, void *new_value));
+hash_table_t *create_hash_table(unsigned int (*hash_func)(void *, int),
+                                int (*key_compare)(void *, void *),
+                                ht_item *(*create_ht_item)(void *key,
+                                                           void *value));
+void ht_insert(hash_table_t *ht, void *key, void *value);
 void *ht_search(hash_table_t *ht, void *key);
 void ht_delete(hash_table_t *ht, void *key);
 void free_hash_table(hash_table_t *ht);
 
-/*This function resizes the hash table it is called when the load factor exceeds the threshold 
-input: hash_table_t *ht - the hash table to resize
-output: void
+/*This function resizes the hash table it is called when the load factor exceeds
+the threshold input: hash_table_t *ht - the hash table to resize output: void
 */
-void ht_resize(hash_table_t *ht);
+static void ht_resize(hash_table_t *ht);
 
 /*Calculate the load factor of the hash table,
 which is the ratio between the number of elements and the size of the table*/
-double ht_load_factor(hash_table_t *ht);
+static double ht_load_factor(hash_table_t *ht);
 
 // Funzioni di utilità
 int ht_get_count(hash_table_t *ht);

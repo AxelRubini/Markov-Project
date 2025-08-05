@@ -43,7 +43,25 @@ int utf8_char_to_lower(int codepoint);
  */
 int utf8_char_to_upper(int codepoint);
 
+/*
+ * the function takes a UTF-8 encoded word (array of codepoints) and prints it 
+ * to the specified file descriptor.
+ * parameters:
+ * word: pointer to the first codepoint of the word (integer array)
+ * fd: file descriptor to write to
+ * NOTE: the function does not add a newline at the end of the word
+ */
+
 void utf8_print_word(const int *word, int fd);
+
+/*
+ * The function takes a UTF-8 encoded word (array of codepoints) and converts
+ * it to lowercase.
+ * it returns a new allocated array of codepoints representing the lowercase
+ * version of the word
+ * NOTE: the function put the null terminator at the end of the word
+ * NOTE: the original word memory is freed by the function
+ */
 
 int *utf8_word_to_lower(const int *word, int word_length);
 

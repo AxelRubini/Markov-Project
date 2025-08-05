@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void default_update_value(void *item, void *new_value) {
+void default_update_value(const void *item,const void *new_value) {
     if (item == NULL || new_value == NULL) {
         fprintf(stderr, "Item or new value is NULL\n");
         return;
@@ -12,11 +12,11 @@ void default_update_value(void *item, void *new_value) {
     htItem->value = new_value; // Update the value directly
 }
 
-ht_item *create_ht_item(void *key, void *value, void (*update_value)(void *item, void *new_value)) {
+ht_item *default_create_ht_item(void *key, void *value) {
   ht_item *new_item = dmalloc(sizeof(ht_item));
   new_item->key = key;
   new_item->value = value;      // Initialize value to NULL}
-  new_item->update_value = update_value ? update_value : default_update_value; // Assign the function pointer
+  new_item->update_value = default_update_value; 
   return new_item;
 }
 

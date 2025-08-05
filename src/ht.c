@@ -13,7 +13,9 @@ static int default_key_compare(void *key1, void *key2) {
 }
 
 hash_table_t *create_hash_table(unsigned int (*hash_func)(void *, int),
-                                int (*key_compare)(void *, void *)) {
+                                int (*key_compare)(void *, void *),
+                                ht_item *(*create_ht_item)(void *key,
+                                                           void *value)) {
   hash_table_t *ht = dmalloc(sizeof(hash_table_t));
 
   ht->size = START_SIZE;
@@ -38,23 +40,26 @@ hash_table_t *create_hash_table(unsigned int (*hash_func)(void *, int),
   ht->key_compare =
       key_compare ? key_compare
                   : default_key_compare; // Use the provided key comparison
-                                         // function or default to strcmp
+  ht->create_ht_item =
+      create_ht_item ? create_ht_item
+                     : default_create_ht_item; // Use the provided item creation
+  // function or default to strcmp
 
   return ht;
 }
 
-double ht_load_factor(hash_table_t *ht) {
+static double ht_load_factor(hash_table_t *ht) {
   if (ht == NULL || ht->size == 0)
     return 0.0;
   return (double)ht->count / (double)ht->size;
 }
 
-int calculate_next_ht_size(int old_size) {
+static int calculate_next_ht_size(int old_size) {
   int new_size = old_size * 2;
   return next_prime(new_size);
 }
 
-void ht_resize(hash_table_t *ht) {
+static void ht_resize(hash_table_t *ht) {
   if (ht == NULL)
     return;
 
@@ -62,13 +67,13 @@ void ht_resize(hash_table_t *ht) {
   linked_list_t **old_buckets = ht->buckets;
   int old_size = ht->size;
 
-  // look for the next size min 2* old_size
+  // Look for the next size min 2* old_size
   ht->size = calculate_next_ht_size(old_size);
   ht->count = 0;
 
   // assign new buckets slot
   ht->buckets = malloc(sizeof(linked_list_t *) * ht->size);
-  if (ht->buckets == NULL) { // if allocation fails then rollback to old buckets
+  if (ht->buckets == NULL) { // If allocation fails then rollback to old buckets
     fprintf(stderr, "Memory allocation failed during resize\n");
     ht->buckets = old_buckets;
     ht->size = old_size;
@@ -116,8 +121,7 @@ void ht_resize(hash_table_t *ht) {
   free(old_buckets);
 }
 
-void ht_insert(hash_table_t *ht, void *key, void *value,
-               void (*update_value)(void *item, void *new_value)) {
+void ht_insert(hash_table_t *ht, void *key, void *value) {
   if (ht == NULL || key == NULL)
     return;
 
@@ -134,16 +138,16 @@ void ht_insert(hash_table_t *ht, void *key, void *value,
   ll_item_t *current = list->head;
   while (current != NULL) {
     ht_item *item = (ht_item *)current->data;
-    if (item != NULL && ht->key_compare(item->key,key) == 0) {
-      // Aggiorna il valore esistente
-      item->value = value;
+    if (item != NULL && ht->key_compare(item->key, key) == 0) {
+      // Key exists, update the value
+      item->update_value(item, value);
       return;
     }
     current = current->next;
   }
 
-  // Crea nuovo item e inseriscilo
-  ht_item *new_item = create_ht_item(key, value, update_value);
+  // Add a new item in the bucket
+  ht_item *new_item = ht->create_ht_item(key, value);
   if (new_item != NULL) {
     add_to_list(list, new_item);
     ht->count++;
@@ -160,13 +164,13 @@ void *ht_search(hash_table_t *ht, void *key) {
   ll_item_t *current = list->head;
   while (current != NULL) {
     ht_item *item = (ht_item *)current->data;
-    if (item != NULL && ht->key_compare(item->key,key) == 0) {
+    if (item != NULL && ht->key_compare(item->key, key) == 0) {
       return item->value;
     }
     current = current->next;
   }
 
-  return NULL; // Non trovato
+  return NULL; // Key not found
 }
 
 void ht_delete(hash_table_t *ht, void *key) {
@@ -179,7 +183,7 @@ void ht_delete(hash_table_t *ht, void *key) {
   ll_item_t *current = list->head;
   while (current != NULL) {
     ht_item *item = (ht_item *)current->data;
-    if (item != NULL && strcmp((char *)item->key, (char *)key) == 0) {
+    if (item != NULL && ht->key_compare(item->key, key) == 0) {
       remove_from_list(list, item);
       free_ht_item(item);
       ht->count--;
@@ -193,7 +197,7 @@ void free_hash_table(hash_table_t *ht) {
   if (ht == NULL)
     return;
 
-  // Libera tutti gli item in tutti i buckets
+  // Free each item in the buckets
   for (int i = 0; i < ht->size; i++) {
     if (ht->buckets[i] != NULL) {
       ll_item_t *current = ht->buckets[i]->head;
