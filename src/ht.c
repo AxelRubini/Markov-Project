@@ -128,7 +128,7 @@ void ht_insert(hash_table_t *ht, void *key, void *value) {
     }
     
     // Crea nuovo item e inseriscilo
-    ht_item *new_item = create_ht_item(key, value);
+    ht_item *new_item = create_ht_item(key, value, (*update_value)void *item, void *new_value));
     if (new_item != NULL) {
         add_to_list(list, new_item);
         ht->count++;
