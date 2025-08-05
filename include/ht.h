@@ -11,11 +11,13 @@ typedef struct {
     linked_list_t **buckets;  // Array of linked lists for buckets 
     int size;                 // actual size of the hash table
     int count;                // Number of elements inserted
+    int (*key_compare)(void *key1, void *key2); // Function pointer for key comparison 
 } hash_table_t;
 
 // Funzioni principali
 hash_table_t *create_hash_table();
-void ht_insert(hash_table_t *ht, void *key, void *value);
+void ht_insert(hash_table_t *ht, void *key, void *value,
+                void (*update_value)(void *item, void *new_value));
 void *ht_search(hash_table_t *ht, void *key);
 void ht_delete(hash_table_t *ht, void *key);
 void free_hash_table(hash_table_t *ht);

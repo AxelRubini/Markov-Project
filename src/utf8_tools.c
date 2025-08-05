@@ -1,4 +1,5 @@
 #include "../include/utf8_tools.h"
+#include "../include/utils.h"
 #include <stdio.h>
 #include <unistd.h>
 
@@ -154,5 +155,25 @@ void utf8_print_word(const int *word, int fd) {
 
   for (int i = 0; word[i] != '\0'; i++) {
     utf8_putchar(word[i], fd);
-  } 
+  }
+}
+
+int *utf8_word_to_lower(const int *word, int word_length) {
+  if (word == NULL) {
+    fprintf(stderr, "Word is NULL\n");
+    return NULL;
+  }
+
+  int *lower_word =
+      dmalloc(sizeof(int) * (word_length)); // Allocate memory for the new word
+  int i = 0;
+
+  while (word[i] != '\0') {
+    lower_word[i] = utf8_char_to_lower(word[i]);
+    i++;
+  }
+  lower_word[i] = '\0'; // Null-terminate the new word
+  free((void *)word);
+
+  return lower_word;
 }

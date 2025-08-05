@@ -1,6 +1,10 @@
 #ifndef UTF8_TOOLS_H
 #define UTF8_TOOLS_H
-
+/*
+ * This header file provides functions for reading and writing UTF-8 encoded
+ * characters. functions like strcopy,strcmp can be used to manipulate UTF-8
+ * strings, because they read and compare bytes.
+ */
 #include <stdint.h>
 
 // error codes for UTF-8 reading bad formats
@@ -13,7 +17,8 @@
  * */
 int utf8_getchar(void);
 /*
- * The function reads from the specified file descriptor and returns a Unicode codepoint.
+ * The function reads from the specified file descriptor and returns a Unicode
+ * codepoint.
  */
 int utf8_getchar_fd(int fd);
 
@@ -26,24 +31,20 @@ void utf8_putchar(int codepoint, int fd);
 
 /*
  * The function reads a UTF-8 codepoint and returns the lowercase equivalent
- * If the codepoint does not have a lowercase equivalent, it returns the original codepoint.
+ * If the codepoint does not have a lowercase equivalent, it returns the
+ * original codepoint.
  */
 int utf8_char_to_lower(int codepoint);
 
 /*
  * The function reads a UTF-8 codepoint and returns the uppercase equivalent
- * If the codepoint does not have an uppercase equivalent, it returns the original codepoint.
+ * If the codepoint does not have an uppercase equivalent, it returns the
+ * original codepoint.
  */
 int utf8_char_to_upper(int codepoint);
 
+void utf8_print_word(const int *word, int fd);
 
-
-void utf8_print_word(const int** word, int fd);
-
-
-
-
-
-
+int *utf8_word_to_lower(const int *word, int word_length);
 
 #endif

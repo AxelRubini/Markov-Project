@@ -1,10 +1,11 @@
 #include "../include/utils.h"
 
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-
-static unsigned int is_prime(int n) {
+unsigned int is_prime(int n) {
 
     if (n <= 1) return 0;
     if (n <= 3) return 1;
@@ -18,7 +19,7 @@ static unsigned int is_prime(int n) {
     
 }
 
-static int next_prime(int n) {
+unsigned int next_prime(int n) {
     if (n <= 1) return 2;
     if (n % 2 == 0) n++; // make it odd
     while (!is_prime(n)) {
@@ -27,7 +28,7 @@ static int next_prime(int n) {
     return n;
 }
 
-static unsigned int hash_function(int *key, int table_size){
+unsigned int hash_function(int *key, int table_size){
 
     unsigned int hash = 5381;
     int c;
