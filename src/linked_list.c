@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 //constructor for the linked list
-linked_list *create_linked_list(){
-    linked_list *list = malloc(sizeof(linked_list));
+linked_list_t*create_linked_list(){
+    linked_list_t*list = malloc(sizeof(linked_list_t));
     if (list==NULL) {
         fprintf(stderr, "Memory allocation failed for linked list\n");
         return NULL;
@@ -17,12 +17,12 @@ linked_list *create_linked_list(){
 
 
 
-void add_to_list(linked_list *list ,void *data) {
+void add_to_list(linked_list_t*list ,void *data) {
     if (list == NULL) {
         fprintf(stderr, "List is NULL\n");
         return;
     }
-    ll_item *new_item = malloc(sizeof(ll_item));
+    ll_item_t*new_item = malloc(sizeof(ll_item_t));
     if (new_item == NULL) {
         fprintf(stderr, "Data is NULL'\n");
         return;
@@ -43,14 +43,14 @@ void add_to_list(linked_list *list ,void *data) {
     return;
 }
 
-void remove_from_list(linked_list *list, void *data){
+void remove_from_list(linked_list_t*list, void *data){
     if (list == NULL || list->head == NULL) {
         fprintf(stderr, "List is empty or NULL\n");
         return;
     }
 
-    ll_item *current = list->head;
-    ll_item *previous = NULL;
+    ll_item_t*current = list->head;
+    ll_item_t*previous = NULL;
 
     while (current != NULL) {
         if (current->data == data) {
@@ -78,15 +78,15 @@ void remove_from_list(linked_list *list, void *data){
 
 }
 
-void free_linked_list(linked_list *list){
+void free_linked_list(linked_list_t*list){
     if (list == NULL) {
         fprintf(stderr, "list is null\n");
         return;
     }
 
-    ll_item *current = list->head;
+    ll_item_t*current = list->head;
     while (current != NULL) {
-        ll_item *next = current->next;
+        ll_item_t*next = current->next;
         free(current->data);
         free(current);
         current = next;
@@ -96,14 +96,14 @@ void free_linked_list(linked_list *list){
     return;
 }
 
-int get_list_size(linked_list *list) {
+int get_list_size(linked_list_t*list) {
     if (list == NULL) {
         fprintf(stderr, "List is NULL\n");
         return 0;
     }
 
     int size = 0;
-    ll_item *current = list->head;
+    ll_item_t*current = list->head;
     while (current != NULL) {
         size++;
         current = current->next;
@@ -111,7 +111,7 @@ int get_list_size(linked_list *list) {
     return size;
 }
 
-void* linked_list_to_array(linked_list *list){
+void* linked_list_to_array(linked_list_t*list){
     if (list == NULL || list->head == NULL){
         fprintf(stderr, "List is empty or NULL\n");
         return NULL;
@@ -122,7 +122,7 @@ void* linked_list_to_array(linked_list *list){
         fprintf(stderr, "Memory allocation failed for array\n");
         return NULL;
     }
-    ll_item *current = list->head;
+    ll_item_t*current = list->head;
     for (int i = 0; i < size; i++) {
         if (current == NULL) {
             fprintf(stderr, "Unexpected end of list\n");

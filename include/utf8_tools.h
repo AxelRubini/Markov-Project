@@ -36,6 +36,8 @@ int utf8_char_to_lower(int codepoint);
  */
 int utf8_char_to_upper(int codepoint);
 
+
+
 void utf8_print_word(const int** word, int fd);
 
 

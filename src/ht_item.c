@@ -9,18 +9,11 @@ ht_item *create_ht_item(void *key, void *value) {
     return NULL;
   }
   new_item->key = key;
-  new_item->key_Frequency = 1; // Initialize frequency to 1
   new_item->value = value;      // Initialize value to NULL}
   return new_item;
 }
 
-void update_ht_item_frequency(ht_item *item) {
-  if (item == NULL) {
-    fprintf(stderr, "ht_item is NULL\n");
-    return;
-  }
-  item->key_Frequency++;
-}
+
 
 void *get_ht_item_key(const ht_item *item) {
   if (item == NULL) {

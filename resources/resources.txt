@@ -1,0 +1,11 @@
+Costruzione dell' hash table 
+
+https://stackoverflow.com/questions/22437416/best-way-to-resize-a-hash-table
+
+https://blog.mischel.com/2008/10/16/optimizing-the-wrong-thing/
+
+https://dev.to/jihoonj/implementing-a-hash-table-3pa7
+
+Funzione Hash
+http://www.cse.yorku.ca/~oz/hash.html
+

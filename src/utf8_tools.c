@@ -146,14 +146,13 @@ int utf8_char_to_upper(int codepoint) {
   }
 }
 
-void utf8_print_word(const int **word, int fd) {
-  if (word == NULL || *word == NULL) {
-    return; // Nothing to print
+void utf8_print_word(const int *word, int fd) {
+  if (word == NULL) {
+    fprintf(stderr, "Word is NULL\n");
+    return;
   }
 
-  const int *current = *word;
-  while (*current != 0) { // Assuming the word is null-terminated
-    utf8_putchar(*current, fd);
-    current++;
-  }
+  for (int i = 0; word[i] != '\0'; i++) {
+    utf8_putchar(word[i], fd);
+  } 
 }
