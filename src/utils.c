@@ -1,5 +1,8 @@
 #include "../include/utils.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
 
 static unsigned int is_prime(int n) {
 
@@ -22,4 +25,25 @@ static int next_prime(int n) {
         n += 2; // check only odd numbers
     }
     return n;
+}
+
+static unsigned int hash_function(int *key, int table_size){
+
+    unsigned int hash = 5381;
+    int c;
+
+    while ((c = *key++)) {
+        hash = ((hash << 5) + hash) + c; // hash * 33 + c
+    }
+
+    return hash % table_size;
+}
+
+void *dmalloc(size_t size) {
+    void *ptr = malloc(size);
+    if (ptr == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    return ptr;
 }

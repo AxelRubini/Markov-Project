@@ -1,4 +1,5 @@
 #include "../include/ht.h"
+#include "../include/utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -90,7 +91,7 @@ void ht_resize(hash_table_t *ht) {
                 ht_item *item = (ht_item *)current->data;
                 if (item != NULL) {
                     // Calcola nuovo indice con la nuova dimensione
-                    unsigned int index = ht->hash_function(item->key, ht->size);
+                    unsigned int index = hash_function(item->key,ht->size);
                     add_to_list(ht->buckets[index], item);
                     ht->count++;
                 }
@@ -114,7 +115,7 @@ void ht_insert(hash_table_t *ht, void *key, void *value) {
         ht_resize(ht);
     }
     
-    unsigned int index = ht->hash_function(key, ht->size);
+    unsigned int index = hash_function(key,ht->size);
     linked_list_t *list = ht->buckets[index];
     
     // Controlla se la chiave esiste già
@@ -140,7 +141,7 @@ void ht_insert(hash_table_t *ht, void *key, void *value) {
 void *ht_search(hash_table_t *ht, void *key) {
     if (ht == NULL || key == NULL) return NULL;
     
-    unsigned int index = ht->hash_function(key, ht->size);
+    unsigned int index = hash_function(key,ht->size);
     linked_list_t *list = ht->buckets[index];
     
     ll_item_t *current = list->head;
@@ -158,7 +159,7 @@ void *ht_search(hash_table_t *ht, void *key) {
 void ht_delete(hash_table_t *ht, void *key) {
     if (ht == NULL || key == NULL) return;
     
-    unsigned int index = ht->hash_function(key, ht->size);
+    unsigned int index = hash_function(key,ht->size);
     linked_list_t *list = ht->buckets[index];
     
     ll_item_t *current = list->head;

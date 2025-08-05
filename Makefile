@@ -14,7 +14,7 @@ TEST_DIR = test
 BUILD_DIR = build
 
 # Files for main build
-# patsubst is used to convert source files to object files using the build directory (pattern substitution with words)
+# patsubst is used to convert source files path to object files path using the build directory (pattern substitution with words)
 SRC = $(SRC_DIR)/main.c $(SRC_DIR)/utf8_reader.c
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
 

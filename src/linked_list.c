@@ -5,11 +5,7 @@
 
 //constructor for the linked list
 linked_list_t*create_linked_list(){
-    linked_list_t*list = malloc(sizeof(linked_list_t));
-    if (list==NULL) {
-        fprintf(stderr, "Memory allocation failed for linked list\n");
-        return NULL;
-    }
+    linked_list_t*list = dmalloc(sizeof(linked_list_t));
     list->head = NULL;
     list->tail = NULL;
     return list;
@@ -22,11 +18,7 @@ void add_to_list(linked_list_t*list ,void *data) {
         fprintf(stderr, "List is NULL\n");
         return;
     }
-    ll_item_t*new_item = malloc(sizeof(ll_item_t));
-    if (new_item == NULL) {
-        fprintf(stderr, "Data is NULL'\n");
-        return;
-    }
+    ll_item_t*new_item = dmalloc(sizeof(ll_item_t));
     new_item -> data = data;
     new_item -> next = NULL;
 
@@ -117,11 +109,8 @@ void* linked_list_to_array(linked_list_t*list){
         return NULL;
     }
     int size = get_list_size(list);
-    void **array = malloc(size * sizeof(void *));
-    if (array == NULL) {
-        fprintf(stderr, "Memory allocation failed for array\n");
-        return NULL;
-    }
+    void **array = dmalloc(size * sizeof(void *));
+
     ll_item_t*current = list->head;
     for (int i = 0; i < size; i++) {
         if (current == NULL) {

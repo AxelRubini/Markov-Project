@@ -9,11 +9,8 @@ word_t *create_word(int *word){
         return NULL;
     }
 
-    word_t *new_word = malloc(sizeof(word_t));
-    if (new_word == NULL) {
-        fprintf(stderr, "Failed to allocate memory for new word\n");
-        return NULL;
-    }
+    word_t *new_word = dmalloc(sizeof(word_t));
+
 
     new_word->word = word;
     new_word->occurrences = 1;

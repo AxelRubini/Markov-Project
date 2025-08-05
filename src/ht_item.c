@@ -3,11 +3,7 @@
 #include <stdlib.h>
 
 ht_item *create_ht_item(void *key, void *value) {
-  ht_item *new_item = malloc(sizeof(ht_item));
-  if (new_item == NULL) {
-    fprintf(stderr, "Memory allocation failed for ht_item\n");
-    return NULL;
-  }
+  ht_item *new_item = dmalloc(sizeof(ht_item));
   new_item->key = key;
   new_item->value = value;      // Initialize value to NULL}
   return new_item;
