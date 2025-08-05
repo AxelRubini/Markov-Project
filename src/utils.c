@@ -45,5 +45,7 @@ void *dmalloc(size_t size) {
         fprintf(stderr, "Memory allocation failed\n");
         exit(EXIT_FAILURE);
     }
+    memset(ptr, 0, size); // Initialize allocated memory to zero
     return ptr;
 }
+#define malloc(x) dont_use_malloc_usedmalloc // Use dmalloc instead

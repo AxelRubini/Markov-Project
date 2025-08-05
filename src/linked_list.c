@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 //constructor for the linked list
-linked_list_t*create_linked_list(){
-    linked_list_t*list = dmalloc(sizeof(linked_list_t));
+linked_list_t *create_linked_list(){
+    linked_list_t *list = dmalloc(sizeof(linked_list_t));
     list->head = NULL;
     list->tail = NULL;
     return list;

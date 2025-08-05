@@ -13,19 +13,14 @@ hash_table_t *create_hash_table(unsigned int (*hash_func)(void *, int)) {
     ht->count = 0;
     
     
-    // Alloca l'array di buckets
-    ht->buckets = malloc(sizeof(linked_list_t*) * ht->size);
-    if (ht->buckets == NULL) {
-        fprintf(stderr, "Memory allocation failed for buckets\n");
-        free(ht);
-        return NULL;
-    }
+    // Build array of Buckets
+    ht->buckets = dmalloc(sizeof(linked_list_t*) * ht->size);
     
-    // Inizializza ogni bucket con una linked list vuota
+    // Initialize each bucket with an empty linked list 
     for (int i = 0; i < ht->size; i++) {
         ht->buckets[i] = create_linked_list();
         if (ht->buckets[i] == NULL) {
-            // Cleanup in caso di errore
+            // de-allocate in case of error 
             for (int j = 0; j < i; j++) {
                 free_linked_list(ht->buckets[j]);
             }
@@ -43,27 +38,32 @@ double ht_load_factor(hash_table_t *ht) {
     return (double)ht->count / (double)ht->size;
 }
 
+int calculate_next_ht_size(int old_size) {
+    int new_size = old_size * 2;
+    return next_prime(new_size);
+}
+
 void ht_resize(hash_table_t *ht) {
     if (ht == NULL) return;
     
-    // Salva la vecchia configurazione
+    // Save the old-buckets to copy them later 
     linked_list_t **old_buckets = ht->buckets;
     int old_size = ht->size;
     
-    // Raddoppia la dimensione
-    ht->size = old_size * 2;
-    ht->count = 0; // Riazzerato, verrà incrementato durante il reinserimento
+    // look for the next size min 2* old_size
+    ht->size = calculate_next_ht_size(old_size);
+    ht->count = 0; 
     
-    // Alloca nuovi buckets
+    // assign new buckets slot 
     ht->buckets = malloc(sizeof(linked_list_t*) * ht->size);
-    if (ht->buckets == NULL) {
+    if (ht->buckets == NULL) { // if allocation fails then rollback to old buckets
         fprintf(stderr, "Memory allocation failed during resize\n");
         ht->buckets = old_buckets;
         ht->size = old_size;
         return;
     }
-    
-    // Inizializza i nuovi buckets
+
+    // Initialize new buckets
     for (int i = 0; i < ht->size; i++) {
         ht->buckets[i] = create_linked_list();
         if (ht->buckets[i] == NULL) {
@@ -79,7 +79,7 @@ void ht_resize(hash_table_t *ht) {
         }
     }
     
-    // Reinserisci tutti gli elementi nella nuova tabella
+    // Copy the old items from old buckets to new buckets
     for (int i = 0; i < old_size; i++) {
         linked_list_t *list = old_buckets[i];
         if (list->head != NULL) {
@@ -87,7 +87,7 @@ void ht_resize(hash_table_t *ht) {
             while (current != NULL) {
                 ht_item *item = (ht_item *)current->data;
                 if (item != NULL) {
-                    // Calcola nuovo indice con la nuova dimensione
+                    // Recalculate the index for the new table size 
                     unsigned int index = hash_function(item->key,ht->size);
                     add_to_list(ht->buckets[index], item);
                     ht->count++;
@@ -97,7 +97,7 @@ void ht_resize(hash_table_t *ht) {
         }
     }
     
-    // Libera la vecchia struttura
+    // Free the old buckets
     for (int i = 0; i < old_size; i++) {
         free_linked_list(old_buckets[i]);
     }
@@ -107,15 +107,15 @@ void ht_resize(hash_table_t *ht) {
 void ht_insert(hash_table_t *ht, void *key, void *value) {
     if (ht == NULL || key == NULL) return;
     
-    // Controlla se è necessario ridimensionare
+    // Check if resizing is needed
     if (ht_load_factor(ht) >= LOAD_FACTOR_THRESHOLD) {
         ht_resize(ht);
     }
     
-    unsigned int index = hash_function(key,ht->size);
-    linked_list_t *list = ht->buckets[index];
+    unsigned int index = hash_function(key,ht->size); // Calculate the index for the key
+    linked_list_t *list = ht->buckets[index]; 
     
-    // Controlla se la chiave esiste già
+    // 
     ll_item_t *current = list->head;
     while (current != NULL) {
         ht_item *item = (ht_item *)current->data;

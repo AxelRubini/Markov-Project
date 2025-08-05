@@ -20,8 +20,14 @@ void *ht_search(hash_table_t *ht, void *key);
 void ht_delete(hash_table_t *ht, void *key);
 void free_hash_table(hash_table_t *ht);
 
-// Funzioni per il resize
+/*This function resizes the hash table it is called when the load factor exceeds the threshold 
+input: hash_table_t *ht - the hash table to resize
+output: void
+*/
 void ht_resize(hash_table_t *ht);
+
+/*Calculate the load factor of the hash table,
+which is the ratio between the number of elements and the size of the table*/
 double ht_load_factor(hash_table_t *ht);
 
 // Funzioni di utilità
