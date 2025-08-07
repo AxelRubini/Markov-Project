@@ -121,12 +121,14 @@ int utf8_char_to_lower(int codepoint) {
     return codepoint + ('a' - 'A');
   }
 
-  // Handle specific Unicode characters
+  // Specific Unicode characters for italian accented Lowercase
   switch (codepoint) {
-  case 0x0116:
-    return 0x0117; // Ė -> ė
+  case 200:
+    return 232; 
+  case 201:
+    return 233; 
   default:
-    return codepoint; // No lowercase equivalent found, return original
+    return codepoint; // No italian special character keep it like that
                       // codepoint
   }
 }
@@ -137,13 +139,14 @@ int utf8_char_to_upper(int codepoint) {
     return codepoint - ('a' - 'A');
   }
 
-  // Handle specific Unicode characters
+  // Specific Unicode characters for italian accented Uppercase
   switch (codepoint) {
-  case 0x0117:
-    return 0x0116; // ė -> Ė
+    case 232:
+      return 200;
+    case 233:
+      return 201;
   default:
-    return codepoint; // No uppercase equivalent found, return original
-                      // codepoint
+    return codepoint; // not italian special characther keep it like that                      // codepoint
   }
 }
 

@@ -17,7 +17,12 @@ word_t *create_word(int *word);
 void update_word_occurrences(word_t *word);
 int get_word_occurrences(const word_t *word);
 int wordcmp(const word_t *word1, const word_t *word2);
+int word_str_cmp(const int *word, const int *str);
 void update_ht_item_value( const void *item, const void *new_value);
+ht_item *word_ht_item_create(word_t *key, word_t *value);
+unsigned int word_hash(const void *key, int size);
+void print_utf8_word(const word_t *word, int fd);
+void word_print(const word_t *word, int fd, int *between_char);
 void free_word(word_t *word);
 
 #endif

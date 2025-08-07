@@ -1,10 +1,11 @@
 #ifndef HT_ITEM_H
 #define HT_ITEM_H
 
+typedef void (*update_value_func_t)(const void *item, const void *new_value);
 typedef struct {
   void *key;   // Pointer to the key
   void *value; // Pointer to the value
-  void (*update_value)(const void *item, const void *new_value); // Function pointer to update the value
+  update_value_func_t update_value; // Function to update the value
 } ht_item;
 
 

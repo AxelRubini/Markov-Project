@@ -1,64 +1,75 @@
-# Programs Names
+
+# ---------------------------  Programs Names ---------------------------
 TARGET = Markov_First
 
-TEST_UTF8 = $(BUILD_DIR)/utf8 # Test for UTF-8 handling
+TEST_UTF8       = $(BUILD_DIR)/utf8            # Test for UTF-8 handling
+TEST_DATA_STRUCT = $(BUILD_DIR)/data_struct_test # Test for data structures
 
+# ---------------------------  Compiler & flags -------------------------
+CC      = gcc
+CFLAGS  = -Wall -Wextra -std=c99 -g
 
-# Compiler and flags
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -g
-
-# Directories paths
-SRC_DIR = src
-TEST_DIR = test
+# ---------------------------  Directories ------------------------------
+SRC_DIR   = src
+TEST_DIR  = test
 BUILD_DIR = build
 
-# Files for main build
-# patsubst is used to convert source files path to object files path using the build directory (pattern substitution with words)
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/utf8_reader.c
+# ---------------------------  Sources & objects ------------------------
+# Program principal
+SRC = $(SRC_DIR)/main.c \
+      $(SRC_DIR)/ht.c $(SRC_DIR)/linked_list.c $(SRC_DIR)/utf8_tools.c \
+      $(SRC_DIR)/utils.c $(SRC_DIR)/word.c $(SRC_DIR)/ht_item.c
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
 
-# Files for test UTF-8 handling
-TEST_UTF8_SRC = $(TEST_DIR)/test_utf8.c $(SRC_DIR)/utf8_reader.c
+# Test UTF-8
+TEST_UTF8_SRC = $(TEST_DIR)/test_utf8.c $(SRC_DIR)/utf8_tools.c
 TEST_UTF8_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_UTF8_SRC))
 
-# Files for data structures testing
-#
-TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_data_struct.c $(SRC_DIR)/linked_list.c $(SRC_DIR)/next_word.c
+# Test strutture dati
+TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_ds.c \
+                       $(SRC_DIR)/linked_list.c $(SRC_DIR)/ht.c \
+                       $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
+                       $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c
 TEST_DATA_STRUCT_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_DATA_STRUCT_SRC))
 
-.PHONY: all clean test_utf8 test
+# ---------------------------  Phony targets ----------------------------
+.PHONY: all clean test_utf8 test test_data_struct
 
-all: $(TARGET) 
+# ---------------------------  Build rules ------------------------------
+#  math.h need to be linked with -lm
+all: $(TARGET)
 
-# Build the main executable
 $(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
-# Build Test Executable for UTF-8 handling
-$(TEST_UTF8) : $(TEST_UTF8_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+# --- Test UTF-8 executable
+$(TEST_UTF8): $(TEST_UTF8_OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
-# Generic rules 
+# --- Test strutture dati executable
+$(TEST_DATA_STRUCT): $(TEST_DATA_STRUCT_OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ -lm
+
+# --- Pattern rule for objects (TAB obbligatorio davanti al CC)
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
-# Automatic test for UTF-8 handling
+# ---------------------------  Test targets -----------------------------
 test_utf8: $(TEST_UTF8)
 	@echo "Running UTF-8 handling test..."
 	@./$(TEST_UTF8)
 	@echo "Test completed."
 
-test: test_utf8
-	@echo "Running all tests..."
-	@./$(TEST_UTF8)
+test_data_struct: $(TEST_DATA_STRUCT)
+	@echo "Running data structures test..."
+	@./$(TEST_DATA_STRUCT)
+	@echo "Data structures test completed."
+
+test: test_utf8 test_data_struct
 	@echo "All tests completed."
 
-# Clean up build files
+# ---------------------------  Clean ------------------------------------
 clean:
-	rm -rf $(BUILD_DIR)/*.o $(TARGET) $(TEST_UTF8)
-
-
+	@rm -rf $(BUILD_DIR) $(TARGET) $(TEST_UTF8) $(TEST_DATA_STRUCT)
 
