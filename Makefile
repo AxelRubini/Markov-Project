@@ -29,7 +29,8 @@ TEST_UTF8_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_UTF8_SRC))
 TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_ds.c \
                        $(SRC_DIR)/linked_list.c $(SRC_DIR)/ht.c \
                        $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
-                       $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c
+                       $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
+											 $(SRC_DIR)/hash_table.c
 TEST_DATA_STRUCT_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_DATA_STRUCT_SRC))
 
 # ---------------------------  Phony targets ----------------------------
