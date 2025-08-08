@@ -4,9 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-static void testGit();
-
 static int default_key_compare(void *key1, void *key2) {
   if (key1 == NULL || key2 == NULL) {
     fprintf(stderr, "One or both keys are NULL\n");
@@ -62,54 +59,51 @@ static int calculate_next_ht_size(int old_size) {
   return next_prime(new_size);
 }
 
-static void free_only_nodes(linked_list_t *list) {
-  if (!list)
-    return;
-  ll_item_t *cur = list->head, *next;
-  while (cur) {
-    next = cur->next;
-    free(cur);
-    cur = next;
-  }
-  free(list);
+static void free_only_nodes(linked_list_t *list)
+{
+    if (!list) return;
+    ll_item_t *cur = list->head, *next;
+    while (cur) { next = cur->next; free(cur); cur = next; }
+    free(list);
 }
 
-static linked_list_t *check_for_bucket(hash_table_t *ht, unsigned idx) {
-  if (ht->buckets[idx] == NULL)
-    ht->buckets[idx] = create_linked_list();
-  return ht->buckets[idx];
+static linked_list_t *check_for_bucket(hash_table_t *ht, unsigned idx)
+{
+    if (ht->buckets[idx] == NULL)
+        ht->buckets[idx] = create_linked_list();
+    return ht->buckets[idx];
 }
 
-static void ht_resize(hash_table_t *ht) {
-  if (!ht)
-    return;
+static void ht_resize(hash_table_t *ht)
+{
+    if (!ht) return;
 
-  int old_size = ht->size;
-  linked_list_t **old_buckets = ht->buckets;
+    int old_size = ht->size;
+    linked_list_t **old_buckets = ht->buckets;
 
-  /* 1. dimensione nuova (p.es. primo numero primo ≥ 2×) */
-  ht->size = calculate_next_ht_size(old_size);
-  ht->buckets = calloc(ht->size, sizeof *ht->buckets);
-  if (!ht->buckets) { /* rollback se calloc fallisce */
-    perror("calloc");
-    ht->buckets = old_buckets;
-    ht->size = old_size;
-    return;
-  }
-  for (int i = 0; i < ht->size; ++i)
-    ht->buckets[i] = create_linked_list();
-
-  /* 2. reinserisci usando ht_insert (NUOVI nodi, indice corretto) */
-  ht->count = 0;
-  for (int i = 0; i < old_size; ++i) {
-    linked_list_t *bucket = old_buckets[i];
-    for (ll_item_t *n = bucket->head; n; n = n->next) {
-      ht_item *it = (ht_item *)n->data;
-      ht_insert(ht, it->key, it->value);
+    /* 1. dimensione nuova (p.es. primo numero primo ≥ 2×) */
+    ht->size    = calculate_next_ht_size(old_size);
+    ht->buckets = calloc(ht->size, sizeof *ht->buckets);
+    if (!ht->buckets) {                       /* rollback se calloc fallisce */
+        perror("calloc");
+        ht->buckets = old_buckets;
+        ht->size    = old_size;
+        return;
     }
-    free_only_nodes(bucket); /* libera SOLO i nodi vecchi */
-  }
-  free(old_buckets);
+    for (int i = 0; i < ht->size; ++i)
+        ht->buckets[i] = create_linked_list();
+
+    /* 2. reinserisci usando ht_insert (NUOVI nodi, indice corretto) */
+    ht->count = 0;
+    for (int i = 0; i < old_size; ++i) {
+        linked_list_t *bucket = old_buckets[i];
+        for (ll_item_t *n = bucket->head; n; n = n->next) {
+            ht_item *it = (ht_item *)n->data;
+            ht_insert(ht, it->key, it->value);
+        }
+        free_only_nodes(bucket);              /* libera SOLO i nodi vecchi */
+    }
+    free(old_buckets);
 }
 
 void ht_insert(hash_table_t *ht, void *key, void *value) {
@@ -122,7 +116,7 @@ void ht_insert(hash_table_t *ht, void *key, void *value) {
   }
 
   unsigned int index =
-      ht->hash_func(key, ht->size); // Calculate the index for the key
+      ht->hash_func(key, ht->size) ; // Calculate the index for the key
   linked_list_t *list = check_for_bucket(ht, index);
 
   //
@@ -149,7 +143,7 @@ void *ht_search(hash_table_t *ht, void *key) {
   if (ht == NULL || key == NULL)
     return NULL;
 
-  unsigned int index = ht->hash_func(key, ht->size);
+  unsigned int index =ht->hash_func(key, ht->size);
   linked_list_t *list = ht->buckets[index];
 
   ll_item_t *current = list->head;
@@ -168,7 +162,7 @@ void ht_delete(hash_table_t *ht, void *key) {
   if (ht == NULL || key == NULL)
     return;
 
-  unsigned int index = ht->hash_func(key, ht->size);
+  unsigned int index =ht->hash_func(key, ht->size);
   linked_list_t *list = ht->buckets[index];
 
   ll_item_t *current = list->head;
@@ -211,14 +205,11 @@ int ht_get_count(hash_table_t *ht) { return ht ? ht->count : 0; }
 
 int ht_get_size(hash_table_t *ht) { return ht ? ht->size : 0; }
 
-static void free_list_buckets(linked_list_t *list)
+
+static void free_list_buckets(linked_list_t *list) 
 
 {
-  ll_item_t *cur = list->head, *next;
-  while (cur) {
-    next = cur->next;
-    free(cur);
-    cur = next;
-  }
-  free(list);
+    ll_item_t *cur = list->head, *next;
+    while (cur) { next = cur->next; free(cur); cur = next; }
+    free(list);
 }
