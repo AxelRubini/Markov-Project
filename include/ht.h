@@ -50,4 +50,6 @@ int ht_get_size(hash_table_t *ht);
 
 static void free_list_buckets(linked_list_t *list); 
 
+void debug_hash_table(hash_table_t *ht, const char *moment);
+
 #endif
