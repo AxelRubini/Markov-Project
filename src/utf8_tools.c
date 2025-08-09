@@ -24,6 +24,7 @@ static unsigned utf8_length(unsigned char lead) {
  * https://en.wikipedia.org/wiki/UTF-8
  * https://www.youtube.com/watch?v=c_hfKgektt4
  * https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math
+ * https://utf8everywhere.org/
  */
 int utf8_getchar(void) {
   int c = getchar();
@@ -57,30 +58,30 @@ int utf8_getchar(void) {
   return (int)codepoint;
 }
 
-int utf8_getchar_fd(int fd) {
+int utf8_getchar_fd(int fd, int *bytes_read) {
   unsigned char lead;
   if (read(fd, &lead, 1) != 1) {
     return EOF; // end of input
   }
 
+  *bytes_read = 1;
   unsigned len = utf8_length(lead);
   if (len == 1) {
-    return lead; // ASCII character
+    return lead; // ASCII
   }
 
   if (len < 2 || len > 4) {
     return UTF8_ERROR; // invalid leading byte
   }
 
-  uint32_t codepoint =
-      lead & ((1u << (7 - len)) - 1); // Mask to get the leading bits
+  uint32_t codepoint = lead & ((1u << (7 - len)) - 1);
   for (unsigned i = 1; i < len; ++i) {
-    if (read(fd, &lead, 1) != 1) // Read the next byte
-      return EOF;                // End of input before completing the character
+    if (read(fd, &lead, 1) != 1)
+      return EOF;
     if ((lead >> 6) != 0x2)
-      return UTF8_ERROR; // invalid continuation byte
-    codepoint =
-        (codepoint << 6) | (lead & 0x3F); // append the continuation byte
+      return UTF8_ERROR;
+    codepoint = (codepoint << 6) | (lead & 0x3F);
+    (*bytes_read)++;
   }
 
   return (int)codepoint;
@@ -124,9 +125,9 @@ int utf8_char_to_lower(int codepoint) {
   // Specific Unicode characters for italian accented Lowercase
   switch (codepoint) {
   case 200:
-    return 232; 
+    return 232;
   case 201:
-    return 233; 
+    return 233;
   default:
     return codepoint; // No italian special character keep it like that
                       // codepoint
@@ -141,12 +142,13 @@ int utf8_char_to_upper(int codepoint) {
 
   // Specific Unicode characters for italian accented Uppercase
   switch (codepoint) {
-    case 232:
-      return 200;
-    case 233:
-      return 201;
+  case 232:
+    return 200;
+  case 233:
+    return 201;
   default:
-    return codepoint; // not italian special characther keep it like that                      // codepoint
+    return codepoint; // not italian special characther keep it like that //
+                      // codepoint
   }
 }
 

@@ -9,7 +9,7 @@
 /*This structure represents a word and its occurrence count*/
 
 #define MAX_WORD_LENGTH                                                        \
-  30 // Maximum length of a word in code points with null terminator
+  31 // Maximum length of a word in code points with null terminator
 typedef struct {
   int *word; // pointer to the first character(code point) of the word (integer
              // array)
@@ -31,5 +31,7 @@ void ht_item_free_word(ht_item *item);
 static void word_followers_free_list(linked_list_t *list);
 int word_hashtable_keycmp(const void *key1, const void *key2);
 static word_t *word_deep_copy(const word_t *original);
+void word_ht_item_print(const ht_item *item, int fd);
+void word_print_to_fd(const word_t *word, int fd, int *between_char);
 
 #endif

@@ -18,9 +18,9 @@
 int utf8_getchar(void);
 /*
  * The function reads from the specified file descriptor and returns a Unicode
- * codepoint.
+ * codepoint and the number of bytes readed.
  */
-int utf8_getchar_fd(int fd);
+int utf8_getchar_fd(int fd, int *bytes_read);
 
 /*
  * the function reads a Unicode codepoint and encodes it as a UTF-8 sequence,

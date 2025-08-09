@@ -1,0 +1,35 @@
+
+# Eseguibili compilati
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Oggetti compilati
+*.o
+*.obj
+
+# File temporanei del filesystem
+.fuse_hidden*
+
+# File temporanei dell'editor (Vim, Emacs, ecc.)
+*~
+*.swp
+*.swx
+*.tmp
+
+# File generati da Valgrind
+vgcore.*
+
+# File core dump
+core
+
+# Cartelle di build e distribuzione
+/build/
+/bin/
+/dist/
+
+# File di log
+*.log
+

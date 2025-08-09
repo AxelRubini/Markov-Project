@@ -5,8 +5,8 @@
 #include "../include/utils.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
 word_t *create_word(int *word) {
   if (word == NULL) {
@@ -29,12 +29,13 @@ ht_item *word_ht_item_create(word_t *key, word_t *value) {
   }
 
   ht_item *item = dmalloc(sizeof(ht_item));
-  item->key = word_deep_copy(key); // Create a deep copy of the key
+  item->key = word_deep_copy(key);           // Create a deep copy of the key
   item->update_value = update_ht_item_value; // Set the update function
   item->value = create_linked_list(); // Initialize value to the word_t pointer
   add_to_list((linked_list_t *)item->value,
-              word_deep_copy(value)); // Add the value to the linked list
+              word_deep_copy(value));  // Add the value to the linked list
   item->free_item = ht_item_free_word; // Set the free function to free_word
+  item->print_item = word_ht_item_print; // Set the print function
 
   return item;
 }
@@ -74,73 +75,64 @@ int wordcmp(const word_t *word1, const word_t *word2) {
 }
 
 int word_str_cmp(const int *word, const int *str) {
-    if (!word || !str) return 0;
+  if (!word || !str)
+    return 0;
 
-    int *lower_word = utf8_word_to_lower(word, MAX_WORD_LENGTH);
-    int *lower_str  = utf8_word_to_lower(str,  MAX_WORD_LENGTH);
-    if (!lower_word || !lower_str) { /* gestione minima errore */
-        if (lower_word) free(lower_word);
-        if (lower_str)  free(lower_str);
-        return 0;
+  int *lower_word = utf8_word_to_lower(word, MAX_WORD_LENGTH);
+  int *lower_str = utf8_word_to_lower(str, MAX_WORD_LENGTH);
+  if (!lower_word || !lower_str) { /* gestione minima errore */
+    if (lower_word)
+      free(lower_word);
+    if (lower_str)
+      free(lower_str);
+    return 0;
+  }
+
+  int i = 0;
+  while (lower_word[i] != 0 && lower_str[i] != 0) {
+    if (lower_word[i] != lower_str[i]) {
+      int diff = lower_word[i] - lower_str[i];
+      free(lower_word);
+      free(lower_str);
+      return diff;
     }
+    i++;
+  }
 
-    int i = 0;
-    while (lower_word[i] != 0 && lower_str[i] != 0) {
-        if (lower_word[i] != lower_str[i]) {
-            int diff = lower_word[i] - lower_str[i];
-            free(lower_word);
-            free(lower_str);
-            return diff;
-        }
-        i++;
-    }
-
-    int diff = lower_word[i] - lower_str[i];  /* include il caso del terminatore */
-    free(lower_word);
-    free(lower_str);
-    return diff;
+  int diff = lower_word[i] - lower_str[i];
+  free(lower_word);
+  free(lower_str);
+  return diff;
 }
 
-static int *update_value_helper(const ht_item *item){
-  if (item == NULL || item->value == NULL) {
-    fprintf(stderr, "Item or value is NULL\n");
-    return NULL;
-  }
-  linked_list_t *list = (linked_list_t *)item->value;
-  ll_item_t *current = list->head;
-  if (current == NULL) {
-    fprintf(stderr, "List is empty\n");
-    return NULL;
-  }
-  word_t *word = (word_t *)current->data;
-  return word->word; // Return the word array from the first item in the list
-
-}
-
-void update_ht_item_value(const void *item, const void *actual_followers) {
-  if (item == NULL || actual_followers == NULL) {
+void update_ht_item_value(const void *item, const void *follower_to_add) {
+  if (item == NULL || follower_to_add == NULL) {
     fprintf(stderr, "Item or new value is NULL\n");
     return;
   }
   ht_item *htItem = (ht_item *)item;
-  linked_list_t *af_list = (linked_list_t *)actual_followers;
+  word_t *key_word = (word_t *)htItem->key;
+  update_word_occurrences(key_word); // Update occurrences of the keyword
+  linked_list_t *af_list = (linked_list_t *)htItem->value;
   ll_item_t *current = af_list->head;
-  int *nw = update_value_helper(htItem); 
-  int *lower_nw = utf8_word_to_lower(nw, MAX_WORD_LENGTH);
+  linked_list_t *ftad_list =
+      (linked_list_t *)follower_to_add; // list of word_t followers
+  const word_t *nw = (word_t *)ftad_list->head->data; // Get the new word to add
   while (current != NULL) {
     word_t *word = (word_t *)current->data;
-    if (word_str_cmp(word->word, lower_nw) == 0) {
+    if (wordcmp(word, nw) == 0) {
       // If the word already exists, update its occurrences
       update_word_occurrences(word);
-      free(lower_nw); // Free the lower_nw array
+      printf("Word already exists, updated occurrences: %d\n",
+             word->occurrences);
       return;
     }
     current = current->next;
   }
-  free(lower_nw); // Free the lower_nw array
   // If the word does not exist, add it to the linked list
-  word_t *new_word = create_word(nw);
-  add_to_list(af_list, new_word);
+  word_t *new_word = word_deep_copy(nw); // Create a deep copy of the new word
+  add_to_list(af_list, new_word);        // Add the new word to the linked list
+  printf("New word added:  occurrences: %d\n", new_word->occurrences);
 }
 
 unsigned int word_hash(const void *key, int size) {
@@ -185,7 +177,7 @@ void free_word(word_t *word) {
   }
   if (word->word != NULL) {
     free((void *)word->word); // Free the word array
-    word->word = NULL; // Set to NULL to avoid dangling pointer
+    word->word = NULL;        // Set to NULL to avoid dangling pointer
   }
 
   free(word);
@@ -199,7 +191,8 @@ void ht_item_free_word(ht_item *item) {
     free_word((word_t *)item->key); // Free the key word
   }
   if (item->value != NULL) {
-    word_followers_free_list((linked_list_t *) item->value); // Free the linked list
+    word_followers_free_list(
+        (linked_list_t *)item->value); // Free the linked list
   }
   free(item);
 }
@@ -229,7 +222,7 @@ int word_hashtable_keycmp(const void *key1, const void *key2) {
 
 static word_t *word_deep_copy(const word_t *original) {
   if (!original || !original->word) {
-  return NULL;
+    return NULL;
   }
   size_t len = 0;
   while (len < MAX_WORD_LENGTH && original->word[len] != '\0') {
@@ -238,10 +231,50 @@ static word_t *word_deep_copy(const word_t *original) {
 
   word_t *copy = dmalloc(sizeof(word_t));
   copy->word = dmalloc((len + 1) * sizeof(int));
-  if (len) memcpy(copy->word, original->word, len * sizeof(int));
-  copy->word[len] = '\0'; 
+  if (len)
+    memcpy(copy->word, original->word, len * sizeof(int));
+  copy->word[len] = '\0';
   copy->occurrences = original->occurrences;
   return copy;
-
 }
 
+void word_ht_item_print(const ht_item *item, int fd) {
+  if (item == NULL) {
+    fprintf(stderr, "ht_item is NULL\n");
+    return;
+  }
+  if (item->key == NULL || item->value == NULL) {
+    fprintf(stderr, "ht_item key or value is NULL\n");
+    return;
+  }
+  const word_t *word = (const word_t *)item->key;
+  print_utf8_word(word, fd);
+  utf8_putchar('\t', fd); // Print a colon after the word
+  linked_list_t *followers_list =
+      (linked_list_t *)item->value; // Get the linked list of followers
+  ll_item_t *current = followers_list->head;
+  int between_char[2] ={',','\0'} ; // Character to print between words
+  while (current != NULL) {
+    word_t *follower_word = (word_t *)current->data;
+    word_print(follower_word, fd, between_char); // Print each follower word
+    current = current->next;             // Move to the next follower
+  }
+  utf8_putchar('\n',fd); // Print a newline after all followers
+}
+
+void word_print_to_fd(const word_t *word, int fd, int *between_char) {
+  if (word == NULL) {
+    fprintf(stderr, "Word is NULL\n");
+    return;
+  }
+  if (between_char != NULL) {
+    print_utf8_word(word, fd);
+    for (int i = 0; between_char[i] != '\0'; i++) {
+      utf8_putchar(between_char[i], fd); // Print the character between words
+    }
+  } else {
+    print_utf8_word(word, fd);
+  }
+  write(fd, &word->occurrences,
+        sizeof(int)); // Write the occurrences of the word
+}

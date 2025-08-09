@@ -36,4 +36,7 @@ void free_hash_table(hash_table_t *table);
 int ht_get_count(const hash_table_t *table);
 int ht_get_size(const hash_table_t *table);
 
+void print_hash_table(const hash_table_t *table, int fd);
+
+
 #endif /* HASH_TABLE_H */

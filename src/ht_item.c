@@ -12,6 +12,10 @@ void default_update_value(const void *item, const void *new_value) {
   htItem->value = new_value; // Update the value directly
 }
 
+void default_print_ht_item(const ht_item *item, int fd) {
+  printf("Need to be implemented for the specific item type\n");
+}
+
 ht_item *default_create_ht_item(void *key, void *value) {
   ht_item *new_item = dmalloc(sizeof(ht_item));
   new_item->key = key;

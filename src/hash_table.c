@@ -179,3 +179,26 @@ void free_hash_table(hash_table_t *table) {
 }
 int ht_get_count(const hash_table_t *table) { return table ? table->count : 0; }
 int ht_get_size(const hash_table_t *table) { return table ? table->size : 0; }
+
+void print_hash_table(const hash_table_t *table, int fd) {
+  if (!table || fd < 0) {
+    fprintf(stderr, "Invalid table or file descriptor\n");
+    return;
+  }
+
+  for (int i = 0; i < table->size; ++i) {
+    linked_list_t *bucket = table->buckets[i];
+    if (bucket == NULL)
+      continue;
+
+    ll_item_t *current = bucket->head;
+    while (current) {
+      ht_item *item = (ht_item *)current->data;
+      if (item && item->print_item) {
+        item->print_item(item, fd);
+      }
+      current = current->next;
+      printf("\n"); // Print a newline after each item
+    }
+  }
+}

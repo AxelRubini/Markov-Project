@@ -4,11 +4,13 @@
 typedef struct ht_item ht_item;
 typedef void (*update_value_func_t)(const void *item, const void *new_value);
 typedef void (*free_item_func_t)(ht_item *item);
+typedef void (*print_item_func_t)(const ht_item *item, int fd);
 struct ht_item {
   void *key;                        // Pointer to the key
   void *value;                      // Pointer to the value
   update_value_func_t update_value; // Function to update the value
   free_item_func_t free_item;       // Function to free the item
+  print_item_func_t print_item;// Function to print the item
 };
 
 ht_item *default_create_ht_item(void *key, void *value);
