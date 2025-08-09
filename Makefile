@@ -7,7 +7,7 @@ TEST_DATA_STRUCT = $(BUILD_DIR)/data_struct_test # Test for data structures
 
 # ---------------------------  Compiler & flags -------------------------
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c99 -g
+CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = src
@@ -27,7 +27,7 @@ TEST_UTF8_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_UTF8_SRC))
 
 # Test strutture dati
 TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_ds.c \
-                       $(SRC_DIR)/linked_list.c $(SRC_DIR)/ht.c \
+                       $(SRC_DIR)/linked_list.c \
                        $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
                        $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
 											 $(SRC_DIR)/hash_table.c

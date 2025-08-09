@@ -7,7 +7,7 @@
 #define START_SIZE 97 // prime number for initial size
 #define LOAD_FACTOR_THRESHOLD 0.75
 
-// Type for hash function of the hash table
+// Type for hash function of the hash table returning an index based on a key
 typedef unsigned int (*hash_func_t)(void *key, int size);
 
 // Type for the function that creates a hash table item

@@ -28,11 +28,10 @@ void ht_insert(hash_table_t *table, ht_item *item);
 ht_item *ht_search(const hash_table_t *table, const void *key);
 
 /* Remove an item and optionally free it (set free_item to NULL to skip). */
-int ht_remove(hash_table_t *table, const void *key,
-              void (*free_item)(ht_item *));
+int ht_remove(hash_table_t *table, const void *key);
 
 /* Destroy the entire table; free_item is applied to every stored item. */
-void free_hash_table(hash_table_t *table, void (*free_item)(ht_item *));
+void free_hash_table(hash_table_t *table);
 
 int ht_get_count(const hash_table_t *table);
 int ht_get_size(const hash_table_t *table);

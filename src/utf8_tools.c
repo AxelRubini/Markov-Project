@@ -176,7 +176,6 @@ int *utf8_word_to_lower(const int *word, int word_length) {
     i++;
   }
   lower_word[i] = '\0'; // Null-terminate the new word
-  free((void *)word);
 
   return lower_word;
 }

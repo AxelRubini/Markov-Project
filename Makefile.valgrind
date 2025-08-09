@@ -1,0 +1,24 @@
+
+# Makefile.valgrind
+
+# 1) Dove si trova l'eseguibile dei test (coerente col tuo Makefile base)
+TEST_DATA_STRUCT ?= build/data_struct_test
+
+# 2) Comando Valgrind
+VALGRIND ?= valgrind --leak-check=full --show-leak-kinds=all \
+           --track-origins=yes --errors-for-leak-kinds=all
+
+# 3) Importa le regole/variabili dal Makefile principale
+include Makefile
+
+# 4) Target phony che COMPILA e poi ESEGUE sotto Valgrind
+.PHONY: vdata
+vdata:
+	$(MAKE) -f Makefile $(TEST_DATA_STRUCT)
+	@echo "Running data structures test under Valgrind..."
+	@$(VALGRIND) ./$(TEST_DATA_STRUCT)
+
+# (opzionale) molti strumenti cercano 'test': facciamolo alias di vdata
+.PHONY: test
+test: vdata
+
