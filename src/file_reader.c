@@ -151,7 +151,6 @@ int f_get_next_word(int fd, int *word_buffer) {
       return 0;
     }
 
-
     // Primo carattere valido di una parola normale
     word_buffer[index++] = cp;
     break;
@@ -186,8 +185,8 @@ int f_get_next_word(int fd, int *word_buffer) {
     // Se incontriamo un apostrofo, torniamo indietro e finiamo la parola
     if (cp == '\'') {
       word_buffer[index++] = cp; // Aggiungi l'apostrofo alla parola
-      word_buffer[index] = 0; // Null-terminate
-      return 0; // Fine della parola
+      word_buffer[index] = 0;    // Null-terminate
+      return 0;                  // Fine della parola
     }
 
     // Se incontriamo punteggiatura da ignorare, la saltiamo
