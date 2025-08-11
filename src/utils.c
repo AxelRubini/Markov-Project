@@ -28,10 +28,12 @@ unsigned int next_prime(int n) {
     return n;
 }
 
-unsigned int hash_function(int *key, int table_size){
+unsigned int hash_function(const int *key, int table_size){
 
     unsigned int hash = 5381;
     int c;
+
+    
 
     while ((c = *key++)) {
         hash = ((hash << 5) + hash) + c; // hash * 33 + c
@@ -50,3 +52,11 @@ void *dmalloc(size_t size) {
     return ptr;
 }
 #define malloc(x) dont_use_malloc_usedmalloc // Use dmalloc instead
+//
+double next_word_probability(const int *word, const int *next_word) {
+double probability = 0.0;
+probability = (double)(*next_word) / (double)(*word); // Example calculation
+return probability;
+
+
+}

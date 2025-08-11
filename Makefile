@@ -5,6 +5,7 @@ TARGET = Markov_First
 TEST_UTF8       = $(BUILD_DIR)/utf8            # Test for UTF-8 handling
 TEST_DATA_STRUCT = $(BUILD_DIR)/data_struct_test # Test for data structures
 TEST_READER     = $(BUILD_DIR)/reader_test     # Test for reader and hash table
+TEST_CSV_WRITER				= $(BUILD_DIR)/csv_test         # Test for CSV handling
 
 # ---------------------------  Compiler & flags -------------------------
 CC      = gcc
@@ -43,8 +44,21 @@ TEST_READER_SRC = $(TEST_DIR)/test_reader.c \
 											 $(SRC_DIR)/file_reader.c
 TEST_READER_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_READER_SRC))
 
+TEST_CSV_WRITER_SRC = $(TEST_DIR)/test_csv_writer.c \
+											 $(SRC_DIR)/linked_list.c \
+											 $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
+											 $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
+											 $(SRC_DIR)/hash_table.c \
+											 $(SRC_DIR)/file_reader.c \
+											 $(SRC_DIR)/ht_data_manipulation.c \
+											 $(SRC_DIR)/CSV_writer.c 
+TEST_CSV_WRITER_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_CSV_WRITER_SRC))
+
+
+
+
 # ---------------------------  Phony targets ----------------------------
-.PHONY: all clean test_utf8 test test_data_struct test_reader
+.PHONY: all clean test_utf8 test test_data_struct test_reader test_csv_writer
 
 # ---------------------------  Build rules ------------------------------
 #  math.h need to be linked with -lm
@@ -62,6 +76,9 @@ $(TEST_DATA_STRUCT): $(TEST_DATA_STRUCT_OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ -lm
 # --- Test reader and hash table executable
 $(TEST_READER): $(TEST_READER_OBJ)
+	$(CC) $(CFLAGS) -o $@ $^ -lm
+# --- Test CSV writer executable
+$(TEST_CSV_WRITER): $(TEST_CSV_WRITER_OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ -lm
 
 # --- Pattern rule for objects (TAB obbligatorio davanti al CC)
@@ -83,6 +100,10 @@ test_reader: $(TEST_READER)
 	@echo "Running reader and hash table test..."
 	@./$(TEST_READER)
 	@echo "Reader and hash table test completed."
+test_csv_writer: $(TEST_CSV_WRITER)
+	@echo "Running CSV writer test..."
+	@./$(TEST_CSV_WRITER)
+	@echo "CSV writer test completed."
 
 
 

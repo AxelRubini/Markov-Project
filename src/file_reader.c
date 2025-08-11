@@ -20,6 +20,9 @@ hash_table_t *build_word_hashtable_fd(int fd) {
   int current_word[MAX_WORD_LENGTH] = {0}; // buffer for the current word
   int next_word[MAX_WORD_LENGTH] = {0};    // buffer for the next word
 
+  // memory for first word
+  int first_word[MAX_WORD_LENGTH] = {0};
+
   // Leggi la prima parola
   move_cursor_to_next_word(fd);
   int status = f_get_next_word(fd, current_word);
@@ -33,6 +36,8 @@ hash_table_t *build_word_hashtable_fd(int fd) {
     free_hash_table(table);
     return NULL;
   }
+
+  memcpy(first_word, current_word, sizeof(current_word));
 
   // Loop principale per leggere coppie di parole
   while (1) {
@@ -63,7 +68,20 @@ hash_table_t *build_word_hashtable_fd(int fd) {
     int next_status = f_get_next_word(fd, next_word);
 
     if (next_status == 1) {
-      // Fine file raggiunta - current_word era l'ultima parola
+      word_t *first_word_obj = create_word(first_word);
+      if (first_word_obj) {
+        ht_item *item = word_ht_item_create(word, first_word_obj);
+        if (item) {
+          ht_insert(table, item);
+        } else {
+          fprintf(stderr, "Failed to create hash table item for first word\n");
+          free_word(first_word_obj);
+          free_word(word);
+        }
+      } else {
+        fprintf(stderr, "Failed to create first word from first_word buffer\n");
+        free_word(word);
+      }
       free_word(word);
       break;
     }

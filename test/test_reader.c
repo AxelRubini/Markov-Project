@@ -1,6 +1,5 @@
 #include "../include/file_reader.h"
 #include "../include/hash_table.h"
-#include "../include/utf8_tools.h"
 #include "../include/word.h"
 #include <fcntl.h>
 #include <stdio.h>

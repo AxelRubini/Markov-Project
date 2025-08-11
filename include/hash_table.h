@@ -5,7 +5,9 @@
 #include "ht_item.h"
 #include "linked_list.h"
 
-/* Generic separate‑chaining hash table. */
+#define HASH_TABLE_SIZE 97 // Initial size of the hash table
+#define LOAD_FACTOR_THRESHOLD 0.75
+
 typedef struct {
   linked_list_t **buckets; /* array of bucket lists of ht_item* */
   int size;                /* current number of buckets */

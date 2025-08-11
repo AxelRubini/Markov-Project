@@ -181,3 +181,59 @@ int *utf8_word_to_lower(const int *word, int word_length) {
 
   return lower_word;
 }
+
+void utf8_append_char(unsigned int codepoint, char *buffer, int *offset) {
+  if (codepoint < 0x80) {
+    buffer[(*offset)++] = (char)codepoint; // 1-byte sequence
+  } else if (codepoint < 0x800) {
+    buffer[(*offset)++] = (char)((codepoint >> 6) | 0xC0); // 2-byte sequence
+    buffer[(*offset)++] = (char)((codepoint & 0x3F) | 0x80);
+  } else if (codepoint < 0x10000) {
+    buffer[(*offset)++] =
+        (char)((codepoint >> 12) | 0xE0); // 3-byte sequence
+    buffer[(*offset)++] = (char)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[(*offset)++] = (char)((codepoint & 0x3F) | 0x80);
+  } else {
+    buffer[(*offset)++] =
+        (char)((codepoint >> 18) | 0xF0); // 4-byte sequence
+    buffer[(*offset)++] = (char)(((codepoint >> 12) & 0x3F) | 0x80);
+    buffer[(*offset)++] = (char)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[(*offset)++] = (char)((codepoint & 0x3F) | 0x80);
+  }
+  
+  return; // Return the new offset
+
+}
+
+int utf8_strcmp(const int *str1, const int *str2) {
+  if (str1 == NULL || str2 == NULL) {
+    return (str1 == str2) ? 0 : (str1 ? 1 : -1);
+  }
+  int i = 0;
+  while (str1[i] != '\0' && str2[i] != '\0') {
+    if (str1[i] != str2[i]) {
+      return str1[i] - str2[i];
+    }
+    i++;
+  }
+  return str1[i] - str2[i];
+}
+
+int *utf8_str_deepcopy(const int *str) {
+  if (str == NULL) {
+    return NULL;
+  }
+
+  int length = 0;
+  while (str[length] != '\0') {
+    length++;
+  }
+
+  int *copy = dmalloc(sizeof(int) * (length + 1));
+  for (int i = 0; i < length; i++) {
+    copy[i] = str[i];
+  }
+  copy[length] = '\0'; // Null-terminate the copied string
+
+  return copy;
+}

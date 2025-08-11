@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define LOAD_FACTOR_THRESHOLD 0.75
 
 /* Ensure the bucket at index exists, creating a linked list if necessary. */
 static linked_list_t *ensure_bucket(hash_table_t *table, int index) {

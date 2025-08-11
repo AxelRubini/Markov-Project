@@ -63,15 +63,8 @@ int wordcmp(const word_t *word1, const word_t *word2) {
     fprintf(stderr, "One or both words are NULL\n");
     return 0;
   }
+  return utf8_strcmp(word1->word, word2->word);
 
-  int i = 0;
-  while (word1->word[i] != '\0' && word2->word[i] != '\0') {
-    if (word1->word[i] != word2->word[i]) {
-      return word1->word[i] - word2->word[i];
-    }
-    i++;
-  }
-  return word1->word[i] - word2->word[i];
 }
 
 int word_str_cmp(const int *word, const int *str) {

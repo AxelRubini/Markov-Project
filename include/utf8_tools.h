@@ -65,4 +65,44 @@ void utf8_print_word(const int *word, int fd);
 
 int *utf8_word_to_lower(const int *word, int word_length);
 
+/*
+ * The function takes a Unicode codepoint and appends it to the provided buffer
+ * in UTF-8 encoding. It updates the offset to reflect the new position in the
+ * buffer.
+ * parameters:
+ * codepoint: the Unicode codepoint to append
+ * buffer: pointer to the buffer where the UTF-8 sequence will be written
+ * offset: pointer to an integer that will be updated with the new offset
+ * returns: the number of bytes written to the buffer
+ */
+void utf8_append_char(unsigned int codepoint, char *buffer, int *offset);
+
+
+/*
+ * The function compares two UTF-8 encoded strings (arrays of codepoints) and
+ * returns an integer less than, equal to, or greater than zero if the first 
+ * string is found.
+ * less than = Not equal
+ * equal to = Match
+ * greater than = Not equal
+ * Parameters:
+ * str1: pointer to the first codepoint of the first string (integer array)
+ * str2: pointer to the first codepoint of the second string (integer array)
+ * Returns: an integer indicating the result of the comparison
+ */
+int utf8_strcmp(const int *str1, const int *str2);
+
+
+/*
+ * The function creates a deep copy of a UTF-8 encoded string (array of codepoints).
+ * It allocates new memory for the copied string and returns a pointer to it.
+ * Parameters:
+ * str: pointer to the first codepoint of the original string (integer array)
+ * Returns: a pointer to the newly allocated copy of the string
+ */
+int *utf8_str_deepcopy(const int *str);
+
+
+
+
 #endif
