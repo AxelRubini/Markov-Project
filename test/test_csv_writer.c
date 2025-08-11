@@ -13,7 +13,7 @@
 
 int main(void) {
   // Apri file di test
-  int fd = open("test/test_files/test_reader_utf8.txt", O_RDONLY);
+  int fd = open("test_files/test_reader_utf8.txt", O_RDONLY);
   if (fd < 0) {
     perror("open");
     return 1;
@@ -38,7 +38,7 @@ int main(void) {
   // Riavvolgi file e costruisci hash table
   lseek(fd, 0, SEEK_SET);
   hash_table_t *table = build_word_hashtable_fd(fd);
-  const char *output_filename = "test/test_files/out_test_reader_utf8.csv";
+  const char *output_filename = "test_files/out_test_reader_utf8.csv";
   csv_build_file(output_filename, table);
   free_hash_table(table);
   close(fd);

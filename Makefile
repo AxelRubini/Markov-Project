@@ -1,117 +1,58 @@
-
 # ---------------------------  Programs Names ---------------------------
 TARGET = Markov_First
 
-TEST_UTF8       = $(BUILD_DIR)/utf8            # Test for UTF-8 handling
-TEST_DATA_STRUCT = $(BUILD_DIR)/data_struct_test # Test for data structures
-TEST_READER     = $(BUILD_DIR)/reader_test     # Test for reader and hash table
-TEST_CSV_WRITER				= $(BUILD_DIR)/csv_test         # Test for CSV handling
-
-# ---------------------------  Compiler & flags -------------------------
+# ---------------------------  Compiler & Flags -------------------------
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3
+LDFLAGS = -lm 
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = src
-TEST_DIR  = test
+INC_DIR   = include
 BUILD_DIR = build
+TEST_DIR  = test            # test code lives here
 
-# ---------------------------  Sources & objects ------------------------
-# Program principal
-SRC = $(SRC_DIR)/main.c \
-      $(SRC_DIR)/ht.c $(SRC_DIR)/linked_list.c $(SRC_DIR)/utf8_tools.c \
-      $(SRC_DIR)/utils.c $(SRC_DIR)/word.c $(SRC_DIR)/ht_item.c
-OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
+# ---------------------------  Sources & Objects ------------------------
+# Wildcard all .c files in the source directory
+SRC      = $(wildcard $(SRC_DIR)/*.c)
+OBJ      = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 
-# Test UTF-8
-TEST_UTF8_SRC = $(TEST_DIR)/test_utf8.c $(SRC_DIR)/utf8_tools.c
-TEST_UTF8_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_UTF8_SRC))
-
-# Test strutture dati
-TEST_DATA_STRUCT_SRC = $(TEST_DIR)/test_ds.c \
-                       $(SRC_DIR)/linked_list.c \
-                       $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
-                       $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
-											 $(SRC_DIR)/hash_table.c
-TEST_DATA_STRUCT_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_DATA_STRUCT_SRC))
-
-# Test reader and hash table contextualized 
-TEST_READER_SRC = $(TEST_DIR)/test_reader.c \
-											 $(SRC_DIR)/linked_list.c \
-											 $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
-											 $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
-											 $(SRC_DIR)/hash_table.c \
-											 $(SRC_DIR)/file_reader.c
-TEST_READER_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_READER_SRC))
-
-TEST_CSV_WRITER_SRC = $(TEST_DIR)/test_csv_writer.c \
-											 $(SRC_DIR)/linked_list.c \
-											 $(SRC_DIR)/ht_item.c $(SRC_DIR)/utils.c \
-											 $(SRC_DIR)/word.c $(SRC_DIR)/utf8_tools.c \
-											 $(SRC_DIR)/hash_table.c \
-											 $(SRC_DIR)/file_reader.c \
-											 $(SRC_DIR)/ht_data_manipulation.c \
-											 $(SRC_DIR)/CSV_writer.c 
-TEST_CSV_WRITER_OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(TEST_CSV_WRITER_SRC))
-
-
-
-
-# ---------------------------  Phony targets ----------------------------
-.PHONY: all clean test_utf8 test test_data_struct test_reader test_csv_writer
-
-# ---------------------------  Build rules ------------------------------
-#  math.h need to be linked with -lm
+# ---------------------------  Default ---------------------------------
+.PHONY: all
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
+# ---------------------------  Link -------------------------------------
+$(TARGET): $(BUILD_DIR) $(OBJ)
+	@echo "Linking $@..."
+	@$(CC) $(OBJ) $(LDFLAGS) -o $@
+	@echo "Build completed: $@"
 
-# --- Test UTF-8 executable
-$(TEST_UTF8): $(TEST_UTF8_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
+# ---------------------------  Compile ----------------------------------
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	@echo "Compiling $<..."
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
-# --- Test strutture dati executable
-$(TEST_DATA_STRUCT): $(TEST_DATA_STRUCT_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
-# --- Test reader and hash table executable
-$(TEST_READER): $(TEST_READER_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
-# --- Test CSV writer executable
-$(TEST_CSV_WRITER): $(TEST_CSV_WRITER_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -lm
+# ---------------------------  Build Dir --------------------------------
+$(BUILD_DIR):
+	@mkdir -p $(BUILD_DIR)
 
-# --- Pattern rule for objects (TAB obbligatorio davanti al CC)
-$(BUILD_DIR)/%.o: %.c
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+# ---------------------------  Tests (/test) -------------------------
+.PHONY: test test-one tests-clean
+test:
+	@$(MAKE) -C $(TEST_DIR) run
 
-# ---------------------------  Test targets -----------------------------
-test_utf8: $(TEST_UTF8)
-	@echo "Running UTF-8 handling test..."
-	@./$(TEST_UTF8)
-	@echo "Test completed."
+# Run a single test: make test-one ONE=<test_name>
+test-one:
+	@$(MAKE) -C $(TEST_DIR) run-one ONE=$(ONE)
 
-test_data_struct: $(TEST_DATA_STRUCT)
-	@echo "Running data structures test..."
-	@./$(TEST_DATA_STRUCT)
-	@echo "Data structures test completed."
-test_reader: $(TEST_READER)
-	@echo "Running reader and hash table test..."
-	@./$(TEST_READER)
-	@echo "Reader and hash table test completed."
-test_csv_writer: $(TEST_CSV_WRITER)
-	@echo "Running CSV writer test..."
-	@./$(TEST_CSV_WRITER)
-	@echo "CSV writer test completed."
-
-
-
-test: test_utf8 test_data_struct
-	@echo "All tests completed."
+tests-clean:
+	@$(MAKE) -C $(TEST_DIR) clean
 
 # ---------------------------  Clean ------------------------------------
+.PHONY: clean distclean
 clean:
-	@rm -rf $(BUILD_DIR) $(TARGET) $(TEST_UTF8) $(TEST_DATA_STRUCT) $(TEST_READER)
-	@echo "Cleaned build directory and executables."
+	@rm -rf $(BUILD_DIR) $(TARGET)
+	@echo "Cleaned build directory and executable."
 
+distclean: clean
+	@$(MAKE) -C $(TEST_DIR) clean

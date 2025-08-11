@@ -1,4 +1,6 @@
 #include "../include/CSV_reader.h"
+#include "../include/CSV_line_parser.h"
+#include "../include/hash_table.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -34,14 +36,16 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
     ssize_t read_res = read(fd, &ch, 1);
     if (read_res == 0) {
       if (len == 0) {
-        break; // End of file reached
+        (*buf)[0] = '\0'; // If no data read, return empty string
+        return 0;         // End of file reached with no data read
       }
+      break; // End of file reached, return what we have
     }
     if (read_res < 0) {
       if (errno == EINTR) {
         continue; // Interrupted, try again
       }
-      fprintf(stderr, "Error reading from file descriptor %d\n", fd);
+      fprintf(stderr, "Error reading from file descriptor %d\n",fd);
       free(*buf);
       *buf = NULL;
       return -1; // Error reading
@@ -61,6 +65,9 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
       *buf = new_buf;
       *cap = new_cap;
     }
+    if (ch == ' ' || ch == '\t') {
+      continue; // Skip whitespace characters
+    }
     (*buf)[len++] = ch;
     if (ch == '\n') {
       break; // End of line reached
@@ -69,6 +76,63 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
 
   (*buf)[len] = '\0';  // Null-terminate the string
   return (ssize_t)len; // Return the number of bytes read
+}
+
+hash_table_t *read_csv_file_sp(const int fd) {
+  hash_table_t *ht = create_hash_table(HASH_TABLE_SIZE,next_word_hash, keycmp_next_word);
+  if (!ht) {
+    fprintf(stderr, "Failed to create hash table\n");
+    return NULL;
+  }
+
+  char *line = NULL;
+  size_t cap = 0;
+
+  while (1) {
+    ssize_t n = read_csv_line(fd, &line, &cap);
+
+    if (n < 0) {
+      perror("read_csv_line");
+      free(line);
+      free_hash_table(ht);
+      return NULL;
+    }
+
+    if (n == 0) {
+      break; // End of file reached
+    }
+
+    int key[MAX_WORD_LENGTH] = {0};
+    size_t offset = get_key_from_line(line, key);
+    if (offset < 0) {
+      fprintf(stderr, "Error getting key from line\n");
+      free(line);
+      free_hash_table(ht);
+      return NULL;
+    }
+
+    linked_list_t *next_words = get_next_words_from_line(line, &offset);
+    if (!next_words) {
+      fprintf(stderr, "Error getting next words from line\n");
+      free(line);
+      free_hash_table(ht);
+      return NULL;
+    }
+
+    ht_item *item = next_word_ht_item_create(key, next_words);
+    if (!item) {
+      fprintf(stderr, "Error creating hash table item\n");
+      free_linked_list(next_words);
+      free(line);
+      free_hash_table(ht);
+      return NULL;
+    }
+
+    ht_insert(ht, item);
+  }
+
+  free(line);
+  return ht;
 }
 
 int publish_line_on_pipe(int in_fd, int out_fd) {

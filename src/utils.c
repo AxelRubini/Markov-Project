@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define MAX_WORD_LENGTH_BUF 31
+
 
 unsigned int is_prime(int n) {
 

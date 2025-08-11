@@ -6,7 +6,6 @@
 #include <string.h>
 #include <unistd.h>
 
-
 next_word_t *create_next_word(const int *word, double probability) {
   if (word == NULL) {
     fprintf(stderr, "Word is NULL\n");
@@ -22,11 +21,14 @@ next_word_t *create_next_word(const int *word, double probability) {
   }
   next_word->word = word_copy;
   next_word->probability = probability;
+  double test_sum = next_word->probability +1;
+  fflush(stdout);
+
   return next_word;
 }
 
 ht_item *next_word_ht_item_create(const int *key, linked_list_t *next_words) {
-  if (key== NULL) {
+  if (key == NULL) {
     fprintf(stderr, "Word is NULL\n");
     return NULL;
   }
@@ -46,21 +48,15 @@ ht_item *next_word_ht_item_create(const int *key, linked_list_t *next_words) {
     return NULL;
   }
 
-  linked_list_t *next_words_list = linked_list_deepcopy(next_words);
 
   item->key = key_copy;
-  item->value = next_words_list;
+  item->value = next_words; // Set the value to the linked list of next words
   item->update_value = update_ht_item_next_word; // Set the update function
-  item->free_item = free_next_word_ht_item;   
-  item->print_item = print_ht_item_next_word; 
+  item->free_item = free_next_word_ht_item;
+  item->print_item = print_ht_item_next_word;
 
   return item;
 }
-
-
-
-
-
 
 void free_next_word(next_word_t *next_word) {
   if (next_word == NULL) {
@@ -117,7 +113,9 @@ void print_next_word(const next_word_t *next_word, int fd) {
   }
 
   utf8_print_word(next_word->word, fd);
-  write(fd, &next_word->probability, sizeof(double)); // Print the probability
+  char buffer[FLOATING_POINT_CHAR_SPACE];
+  snprintf(buffer, FLOATING_POINT_CHAR_SPACE, " %.6f", next_word->probability);
+  write(fd, buffer, strlen(buffer)); // Print the probability with 6 decimal places
 }
 
 void print_ht_item_next_word(const ht_item *item, int fd) {
@@ -130,7 +128,7 @@ void print_ht_item_next_word(const ht_item *item, int fd) {
   linked_list_t *next_words_list = (linked_list_t *)item->value;
 
   utf8_print_word(key, fd); // Print the key word
-  write(fd, "\t", 1); // Print a tab character
+  write(fd, "\t", 1);       // Print a tab character
 
   ll_item_t *current = next_words_list->head;
   while (current != NULL) {
@@ -160,8 +158,6 @@ unsigned int next_word_hash(const void *key, int table_size) {
   }
 
   const int *word = (const int *)key;
-  return hash_function(word, table_size); // Use the hash function defined in utils.h
+  return hash_function(word,
+                       table_size); // Use the hash function defined in utils.h
 }
-
-
-
