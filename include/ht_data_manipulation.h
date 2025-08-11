@@ -8,10 +8,12 @@
 #include "word.h"
 
 
-#define FLOATING_POINT_CHAR_SPACE 24
+
 
 void create_csv_line(ht_item *item, char *buffer);
 int calculate_buffer_size(ht_item *item);
+
+
 
 
 

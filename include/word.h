@@ -8,8 +8,6 @@
 
 /*This structure represents a word and its occurrence count*/
 
-#define MAX_WORD_LENGTH                                                        \
-  31 // Maximum length of a word in code points with null terminator
 typedef struct {
   int *word; // pointer to the first character(code point) of the word (integer
              // array)

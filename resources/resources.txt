@@ -1,13 +1,26 @@
 Costruzione dell' hash table 
 
+
 https://stackoverflow.com/questions/22437416/best-way-to-resize-a-hash-table
 
 https://blog.mischel.com/2008/10/16/optimizing-the-wrong-thing/
 
 https://dev.to/jihoonj/implementing-a-hash-table-3pa7 
-
+risolve problema di resize
 https://gist.github.com/cellularmitosis/9db34df37d3df91709ad3e4faf93c417
 
 Funzione Hash
 http://www.cse.yorku.ca/~oz/hash.html
+
+Gestione comunicazione Pipe 
+
+https://people.cs.rutgers.edu/~pxk/416/notes/c-tutorials/pipe.html
+ho bisogno di implementare questa versione di scrittura per evitare problemi di buffer pieno 
+https://stackoverflow.com/questions/8242318/trouble-when-trying-to-define-a-write-all-socket-function-in-c
+
+P1 - - write() -> pipe -- -> read() - - P2
+
+- Buffer vuoto: read() ritorna subito quello che c’è, anche se è meno di quanto chiesto.
+- Buffer pieno: write() scrive solo una parte, ritorna quel numero, richiamo.
+- Reader chiuso: Errore su pipe.
 

@@ -6,6 +6,7 @@
  * strings, because they read and compare bytes.
  */
 #include <stdint.h>
+#include "utils.h"
 
 // error codes for UTF-8 reading bad formats
 #define UTF8_ERROR (-2)
@@ -21,6 +22,18 @@ int utf8_getchar(void);
  * codepoint and the number of bytes readed.
  */
 int utf8_getchar_fd(int fd, int *bytes_read);
+
+/*
+ * the function reads a UTF-8 encoded character from a buffer and returns the
+ * Unicode codepoint of the character. It updates the offset to reflect the new
+ * position in the buffer.
+ * parameters:
+ * buf: pointer to the buffer containing the UTF-8 encoded character
+ * offset: pointer to an integer that will be updated with the new offset
+ * returns: the Unicode codepoint of the character, or -1 if the character is not
+ * a valid UTF-8 character.
+ */
+int utf8_getchar_from_buf(const unsigned char *buf, size_t *offset);
 
 /*
  * the function reads a Unicode codepoint and encodes it as a UTF-8 sequence,
@@ -101,6 +114,16 @@ int utf8_strcmp(const int *str1, const int *str2);
  * Returns: a pointer to the newly allocated copy of the string
  */
 int *utf8_str_deepcopy(const int *str);
+
+/*
+* The function returns the codepoint of UTF-8 encoded character in a buffer.
+* prameters:
+* buffer: pointer to the buffer containing the UTF-8 encoded character
+* offset: pointer to an integer that will be updated with the new offset
+* returns: the Unicode codepoint of the character, or -1 if the character is not
+* a valid UTF-8 character.
+*/
+int utf8_get_codepoint(const char *buffer, int *offset);
 
 
 

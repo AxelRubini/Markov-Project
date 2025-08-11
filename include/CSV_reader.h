@@ -17,17 +17,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 
-enum {
-  CSV_OK = 0,         // Maximum length of a word
-  CSV_END_OF_LINE = 1, // Maximum size of the buffer for reading lines
-  CSV_ERROR = -1,     // Error reading the CSV file
-  CSV_END_OF_FILE = 2 // End of file reached
-}csv_status_t;
-
-hash_table_t *csv_to_hashtable(const char *filename);
-ht_item *parse_csv_line(int fd);
-int get_key_from_line(int fd, int *buffer);
-next_word_t *get_next_word_from_line(int fd, int *end_status);
+/**
+ * @Reads a line from the CSV file and populates the hash table with the data.
+ *
+ * @param fd The file descriptor of the CSV file.
+ * @param table The hash table to populate with the data.
+ * @return csv_status_t indicating the status of the operation.
+ */
+ssize_t read_csv_line(int fd, char **buf, size_t *cap);
+int publish_line_on_pipe(int in_fd, int out_fd);
 
 #endif // CSV_READER_H

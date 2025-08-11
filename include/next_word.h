@@ -21,7 +21,7 @@ struct next_word_t {
 };
 
 next_word_t *create_next_word(const int *word, double problability);
-ht_item *next_word_ht_item_create(const int *word, next_word_t *next_word);
+ht_item *next_word_ht_item_create(const int *word, linked_list_t *next_word);
 void free_next_word(next_word_t *next_word);
 void free_next_word_ht_item(ht_item *item);
 void update_ht_item_next_word(const void *item, const void *next_word_to_add);

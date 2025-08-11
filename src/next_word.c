@@ -25,14 +25,14 @@ next_word_t *create_next_word(const int *word, double probability) {
   return next_word;
 }
 
-ht_item *next_word_ht_item_create(const int *key, next_word_t *next_word) {
+ht_item *next_word_ht_item_create(const int *key, linked_list_t *next_words) {
   if (key== NULL) {
     fprintf(stderr, "Word is NULL\n");
     return NULL;
   }
 
-  if (next_word == NULL) {
-    fprintf(stderr, "Failed to create next word\n");
+  if (next_words == NULL) {
+    fprintf(stderr, "Failed to create next words list on ht_item\n");
     return NULL;
   }
 
@@ -41,19 +41,12 @@ ht_item *next_word_ht_item_create(const int *key, next_word_t *next_word) {
   int *key_copy = utf8_str_deepcopy(key);
   if (key_copy == NULL) {
     fprintf(stderr, "Failed to create a deep copy of the word for key\n");
-    free_next_word(next_word); // Free the next_word_t if key_copy fails
+    free_linked_list(next_words); // Free the linked list if it was created
     free(item);
     return NULL;
   }
-  linked_list_t *next_words_list = create_linked_list();
-  if (next_words_list == NULL) {
-    fprintf(stderr, "Failed to create linked list for next words\n");
-    free(key_copy);
-    free_next_word(next_word); // Free the next_word_t if list creation fails
-    free(item);
-    return NULL;
-  }
-  add_to_list(next_words_list, next_word); // Add the next_word_t to the list
+
+  linked_list_t *next_words_list = linked_list_deepcopy(next_words);
 
   item->key = key_copy;
   item->value = next_words_list;

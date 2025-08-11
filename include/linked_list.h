@@ -21,4 +21,5 @@ void remove_from_list(linked_list_t *list, void *data);
 void free_linked_list(linked_list_t *list);
 int get_list_size(const linked_list_t *list);
 void **linked_list_to_array(const linked_list_t *list);
+linked_list_t *linked_list_deepcopy(const linked_list_t *list);
 #endif

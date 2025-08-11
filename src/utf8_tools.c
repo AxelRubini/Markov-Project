@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
 /*
  * Expected length of character sequence referenced by the leading byte.
  * return 1 for ASCII characters (ASCII is Subset of UTF-8)
@@ -85,6 +86,35 @@ int utf8_getchar_fd(int fd, int *bytes_read) {
   }
 
   return (int)codepoint;
+}
+
+int utf8_getchar_from_buf(const unsigned char *buf, size_t *offset) {
+    if (!buf || !offset) return UTF8_ERROR;
+
+    unsigned char lead = buf[*offset];
+    if (lead == '\0') return EOF;               // end of buffer
+
+    unsigned len = utf8_length(lead);           // expect 1..4
+    if (len < 1 || len > 4) return UTF8_ERROR;
+
+    // Fast path: ASCII
+    if (len == 1) {
+        (*offset) += 1;
+        return (int)lead;
+    }
+
+    uint32_t cp = lead & ((1u << (7 - len)) - 1);
+
+    // Validate continuation bytes and assemble code point
+    for (unsigned i = 1; i < len; ++i) {
+        unsigned char c = buf[*offset + i];
+        if (c == '\0') return EOF;              // truncated at end
+        if ((c & 0xC0) != 0x80) return UTF8_ERROR; // not 10xxxxxx
+        cp = (cp << 6) | (uint32_t)(c & 0x3F);
+    }
+
+    (*offset) += len;
+    return (int)cp;
 }
 
 void utf8_putchar(int codepoint, int fd) {
