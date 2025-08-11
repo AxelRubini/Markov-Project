@@ -11,6 +11,7 @@ size_t get_key_from_line(const char *line, int *key) {
 
   size_t offset = 0;
   int cp;
+  int k_index = 0;
   while ((cp = utf8_getchar_from_buf((const unsigned char *)line, &offset)) !=
          EOF) {
     if (cp == UTF8_ERROR) {
@@ -20,8 +21,10 @@ size_t get_key_from_line(const char *line, int *key) {
     if (cp == ',') { // End of key when we reach a comma
       break;
     }
-    key[offset] = cp; // Store the codepoint in the key array
+    key[k_index++] = cp; // Store the codepoint in the key array
   }
+
+  key[k_index] = '\0';
 
   return offset; // Return the offset to start reading next words
 }
