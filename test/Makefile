@@ -1,6 +1,7 @@
 # ---------------------------  Compiler & Flags -------------------------
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3
+LDLIBS = -lm -lgsl -lgslcblas
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = ../src
@@ -27,7 +28,7 @@ all: $(TESTS)
 # ---------------------------  Link & Compile ---------------------------
 %: %.c $(COMMON_SRC)
 	@echo "Building $@..."
-	@$(CC) $(CFLAGS) -I$(INC_DIR) $^ -o $@ -lm 
+	@$(CC) $(CFLAGS) -I$(INC_DIR) $^ -o $@ $(LDLIBS) 
 
 # ---------------------------  Run All ----------------------------------
 run: all

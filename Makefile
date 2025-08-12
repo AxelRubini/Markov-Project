@@ -4,7 +4,7 @@ TARGET = Markov_First
 # ---------------------------  Compiler & Flags -------------------------
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3
-LDFLAGS = -lm 
+LDLIBS = -lm -lgsl -lgslcblas
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = src
@@ -30,7 +30,7 @@ $(TARGET): $(BUILD_DIR) $(OBJ)
 # ---------------------------  Compile ----------------------------------
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	@echo "Compiling $<..."
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@ $(LDLIBS)
 
 # ---------------------------  Build Dir --------------------------------
 $(BUILD_DIR):

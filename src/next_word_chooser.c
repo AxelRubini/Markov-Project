@@ -1,5 +1,12 @@
 #include "../include/next_word_chooser.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <gsl/gsl_randist.h>
+#include <gsl/gsl_rng.h>  
+#include "../include/utils.h"
+#include "../include/utf8_tools.h"
+#include "../include/next_word.h" 
 
 next_word_chooser_t *create_next_word_chooser(hash_table_t *table) {
   if (table == NULL) {
@@ -32,6 +39,12 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
   ht_item *item = ht_search(chooser->table, current_word);
   double *probabilities = ht_item_next_word_probabilities_array(item);
   if (probabilities == NULL) {
+    printf("\n");
+    fflush(stdout);
+    utf8_print_word(current_word, 1);
+    printf("\n");
+    fflush(stdout);
+    print_ht_item_next_word(item, 1);
     fprintf(stderr, "No next words found for the current word\n");
     return NULL;
   }
@@ -60,7 +73,6 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
     fprintf(stderr, "Failed to create a deep copy of the chosen word\n");
     return NULL;
   }
-  gsl_rng_free(chooser->rng); // Free the random number generator
   return chosen_word;         // Return the deep copy of the chosen word
 }
 void next_word_chooser_free(next_word_chooser_t *chooser) {
