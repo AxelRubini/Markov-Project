@@ -21,7 +21,7 @@ next_word_t *create_next_word(const int *word, double probability) {
   }
   next_word->word = word_copy;
   next_word->probability = probability;
-  double test_sum = next_word->probability +1;
+  double test_sum = next_word->probability + 1;
   fflush(stdout);
 
   return next_word;
@@ -47,7 +47,6 @@ ht_item *next_word_ht_item_create(const int *key, linked_list_t *next_words) {
     free(item);
     return NULL;
   }
-
 
   item->key = key_copy;
   item->value = next_words; // Set the value to the linked list of next words
@@ -115,7 +114,8 @@ void print_next_word(const next_word_t *next_word, int fd) {
   utf8_print_word(next_word->word, fd);
   char buffer[FLOATING_POINT_CHAR_SPACE];
   snprintf(buffer, FLOATING_POINT_CHAR_SPACE, " %.6f", next_word->probability);
-  write(fd, buffer, strlen(buffer)); // Print the probability with 6 decimal places
+  write(fd, buffer,
+        strlen(buffer)); // Print the probability with 6 decimal places
 }
 
 void print_ht_item_next_word(const ht_item *item, int fd) {
@@ -160,4 +160,29 @@ unsigned int next_word_hash(const void *key, int table_size) {
   const int *word = (const int *)key;
   return hash_function(word,
                        table_size); // Use the hash function defined in utils.h
+}
+
+double *ht_item_next_word_probabilities_array(const ht_item *item) {
+  if (item == NULL || item->value == NULL) {
+    fprintf(stderr, "Item or its value is NULL\n");
+    return NULL;
+  }
+
+  linked_list_t *next_words_list = (linked_list_t *)item->value;
+  int size = get_list_size(next_words_list);
+  double *probabilities = dmalloc(size * sizeof(double));
+  if (probabilities == NULL) {
+    fprintf(stderr, "Memory allocation failed for probabilities array\n");
+    return NULL;
+  }
+
+  ll_item_t *current = next_words_list->head;
+  int index = 0;
+  while (current != NULL) {
+    next_word_t *next_word = (next_word_t *)current->data;
+    probabilities[index++] = next_word->probability; 
+    current = current->next;
+  }
+
+  return probabilities; // Return the array of probabilities
 }

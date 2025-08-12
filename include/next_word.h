@@ -29,5 +29,5 @@ void print_next_word(const next_word_t *next_word, int fd);
 void print_ht_item_next_word(const ht_item *item, int fd);
 int keycmp_next_word(const void *key1, const void *key2);
 unsigned int next_word_hash(const void *key, int table_size);
-
+double *ht_item_next_word_probabilities_array(const ht_item *item); 
 #endif // NEXT_WORD_H
