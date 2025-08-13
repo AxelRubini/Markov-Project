@@ -45,7 +45,7 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
       if (errno == EINTR) {
         continue; // Interrupted, try again
       }
-      fprintf(stderr, "Error reading from file descriptor %d\n",fd);
+      fprintf(stderr, "Error reading from file descriptor %d\n", fd);
       free(*buf);
       *buf = NULL;
       return -1; // Error reading
@@ -79,7 +79,8 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
 }
 
 hash_table_t *read_csv_file_sp(const int fd) {
-  hash_table_t *ht = create_hash_table(HASH_TABLE_SIZE,next_word_hash, keycmp_next_word);
+  hash_table_t *ht =
+      create_hash_table(HASH_TABLE_SIZE, next_word_hash, keycmp_next_word);
   if (!ht) {
     fprintf(stderr, "Failed to create hash table\n");
     return NULL;
@@ -103,13 +104,14 @@ hash_table_t *read_csv_file_sp(const int fd) {
     }
 
     int key[MAX_WORD_LENGTH] = {0};
-    size_t offset = get_key_from_line(line, key);
-    if (offset < 0) {
+    ssize_t off = get_key_from_line(line, key);
+    if (off < 0) {
       fprintf(stderr, "Error getting key from line\n");
       free(line);
       free_hash_table(ht);
       return NULL;
     }
+    size_t offset = (size_t)off;
 
     linked_list_t *next_words = get_next_words_from_line(line, &offset);
     if (!next_words) {
@@ -165,10 +167,12 @@ int publish_line_on_pipe(int in_fd, int out_fd) {
   return 0;
 }
 
-hash_table_t *read_line_from_pipe(int in_fd) {
+hash_table_t *read_lines_from_pipe(int in_fd) {
   char *line = NULL;
   size_t cap = 0;
-  hash_table_t *table = create_hash_table(HASH_TABLE_SIZE, next_word_hash, keycmp_next_word);
+  hash_table_t *table =
+      create_hash_table(HASH_TABLE_SIZE, next_word_hash, keycmp_next_word);
+  int key[MAX_WORD_LENGTH] = {0};
 
   while (1) {
     ssize_t n = recv_frame(in_fd, &line, &cap);
@@ -182,9 +186,37 @@ hash_table_t *read_line_from_pipe(int in_fd) {
     if (n == 0) {
       break; // End of file reached
     }
+    if (line[0] == '\0') {
+      continue; // Skip empty lines
 
+    }
+    ssize_t off = get_key_from_line(line, key);
+    if (off < 0) {
+      fprintf(stderr, "Error getting key from line\n");
+      free(line);
+      free_hash_table(table);
+      return NULL;
+    }
+    size_t offset = (size_t)off;
 
+    linked_list_t *next_words = get_next_words_from_line(line, &offset);
+    if (!next_words) {
+      fprintf(stderr, "Error getting next words from line\n");
+      free(line);
+      free_hash_table(table);
+      return NULL;
+    }
+    ht_item *item = next_word_ht_item_create(key, next_words);
+    if (!item) {
+      fprintf(stderr, "Error creating hash table item\n");
+      free_linked_list(next_words);
+      free(line);
+      free_hash_table(table);
+      return NULL;
+    }
+    ht_insert(table, item);
+    memset(key, 0, sizeof(key)); 
   }
-
+  free(line);
   return table;
 }

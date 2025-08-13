@@ -39,7 +39,7 @@ enum read_nxt_word_st_t{
  *  @return the offset to offset to start reading the next words
  *  or -1 if an error occurs.
  */
-size_t get_key_from_line(const char *line, int *key);
+ssize_t get_key_from_line(const char *line, int *key);
 /*
  * This function extracts the next words from a CSV line.
  * It starts reading from the given offset and returns a linked list of next words.

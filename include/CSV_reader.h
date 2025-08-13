@@ -45,4 +45,13 @@ hash_table_t *read_csv_file_sp(int fd);
  */
 int publish_line_on_pipe(int in_fd, int out_fd);
 
+/**
+ * Reads lines from a pipe and populates a hash table with the data.
+ *
+ * @param in_fd The file descriptor of the input pipe.
+ * @return A pointer to the populated hash table, or NULL on error.
+ */
+hash_table_t *read_lines_from_pipe(int in_fd);
+
+
 #endif // CSV_READER_H

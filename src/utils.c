@@ -133,47 +133,49 @@ int send_frame(int fd, const char *data_to_send, size_t len) {
   return 0;
 }
 
-ssize_t receive_frame(int fd, char **buf, size_t *cap) {
-  if (!buf || !cap) {
-    errno = EINVAL;
-    return -1;
-  }
-  /* Read the first 4 bytes to get the length of the data that follows.
-   * This is the frame header.
-   */
-  uint32_t be_len = 0;
-  int st = read_all(fd, &be_len, sizeof(be_len));
-  if (st == 1)
-    return 0;
-  if (st < 0)
-    return -1;
-
-  uint32_t n =
-      ntohl(be_len);       // Convert from network byte order to host byte order
-  size_t need = (size_t)n; // Number of bytes needed for the data
-
-  if (*buf == NULL ||
-      *cap <
-          need +
-              1) { // +1 per '\0' // check if buffer is NULL or not large enough
-    size_t ncap = need + 1;
-    char *nb = (char *)realloc(*buf, ncap);
-    if (!nb)
-      return -1;
-    *buf = nb;
-    *cap = ncap;
-  }
-  if (need == 0) {
-    (*buf)[0] = '\0';
-    return 1;
-  }
-
-  st = read_all(fd, *buf, need);
-  if (st == 1)
-    return -1;
-  if (st < 0)
-    return -1;
-
-  (*buf)[need] = '\0';
-  return (ssize_t)need;
+/*
+ * Receive a frame from the file descriptor.
+ * It reads the length of the data first, then the data itself.
+ * The buffer is allocated or reallocated as needed this is way double **.
+ * returns: number of bytes read, or -1 on error, or 0 if end of file reached.
+ * parameters:
+ * fd: file descriptor to receive data from
+ * buf: pointer to the buffer to store the received data
+ * cap: pointer to the capacity of the buffer
+ */
+ssize_t recv_frame(int fd, char **buf, size_t *cap) {
+    if (!buf || !cap) {
+        fprintf(stderr, "Invalid arguments to recv_frame\n");
+        return -1;
+    }
+    
+    uint32_t be_len = 0;
+    int st = read_all(fd, &be_len, sizeof(be_len));
+    
+    if (st == 0) return 0;                    // EOF
+    if (st < sizeof(be_len)) return 0;        // EOF parziale
+    if (st < 0) return -1;                    // Errore
+    
+    uint32_t n = ntohl(be_len);
+    size_t need = (size_t)n;
+    
+    if (*buf == NULL || *cap < need + 1) {
+        size_t ncap = need + 1;
+        char *nb = realloc(*buf, ncap);
+        if (!nb) return -1;
+        *buf = nb;
+        *cap = ncap;
+    }
+    
+    if (need == 0) {
+        (*buf)[0] = '\0';
+        return 0;  // Frame vuoto
+    }
+    
+    st = read_all(fd, *buf, need);
+    if (st < need) return -1;  // Dati incompleti = errore
+    if (st < 0) return -1;     // Errore
+    
+    (*buf)[need] = '\0';
+    return (ssize_t)need;
 }

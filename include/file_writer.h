@@ -15,6 +15,8 @@
 
 
 int write_output_sp(const char *filename, const int num_words,  char *start_sym, hash_table_t *table);
+int send_output_mp(int fd, hash_table_t *ht, const int num_words, const char *start_sym);
+int write_output_mp(int fd, const char *filename);
 #endif // FILE_WRITER_H
 
 

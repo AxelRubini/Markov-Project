@@ -7,6 +7,7 @@
 #include <time.h>
 #include <errno.h>
 #include "../include/CSV_reader.h"
+#include "../include/utils.h"
 
 
 

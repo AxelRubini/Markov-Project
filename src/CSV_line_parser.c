@@ -2,7 +2,7 @@
 #include "../include/utf8_tools.h"
 #include "../include/utils.h"
 
-size_t get_key_from_line(const char *line, int *key) {
+ssize_t get_key_from_line(const char *line, int *key) {
 
   if (line == NULL || key == NULL) {
     fprintf(stderr, "Invalid arguments to get_key_from_line\n");
@@ -29,7 +29,7 @@ size_t get_key_from_line(const char *line, int *key) {
     key[k_index++] = cp; // Store the codepoint in the key array
   }
 
-  return offset; // Return the offset to start reading next words
+  return (ssize_t)offset; // Return the offset to start reading next words
 }
 
 linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {

@@ -8,6 +8,73 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+
+int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
+    if (!bytes || len == 0) {
+        return NULL;
+    }
+    
+    int *word = malloc(sizeof(int) * MAX_WORD_LENGTH);
+    if (!word) {
+        return NULL;
+    }
+    
+    size_t offset = 0;
+    int word_index = 0;
+    
+    while (offset < len && word_index < MAX_WORD_LENGTH - 1) {
+        int cp = utf8_getchar_from_buf(bytes, &offset);
+        if (cp == EOF || cp == UTF8_ERROR) {
+            break;
+        }
+        word[word_index++] = cp;
+    }
+    
+    word[word_index] = '\0';
+    return word;
+}
+
+int calcuate_len_frame(const int *word) {
+  if (word == NULL) {
+    fprintf(stderr, "Invalid word pointer\n");
+    return -1; // Error
+  }
+  int len = 0;
+  while (word[len] != '\0') {
+    len++;
+  }
+  return len;
+}
+
+int *utf8_read_word_from_buf(const u8 *buf, size_t *offset) {
+  if (!buf || !offset) {
+    fprintf(stderr, "Invalid arguments to utf8_create_word_from_buf\n");
+    return NULL;
+  }
+
+  int *word = dmalloc(sizeof(int) * MAX_WORD_LENGTH);
+  if (!word) {
+    fprintf(stderr, "Memory allocation failed for word\n");
+    return NULL;
+  }
+
+  size_t i = 0;
+  while (1) {
+    int cp = utf8_getchar_from_buf(buf, offset);
+    if (cp == EOF || cp == UTF8_ERROR || cp == '\0') {
+      break; // End of buffer or invalid UTF-8 sequence
+    }
+    if (i >= MAX_WORD_LENGTH - 1) {
+      fprintf(stderr, "Word exceeds maximum length\n");
+      free(word);
+      return NULL; // Exceeded max length
+    }
+    word[i++] = cp; // Store codepoint in the word
+  }
+  word[i] = '\0'; // Null-terminate the word
+
+  return word;
+}
 int is_last_terminator(const int *word) {
   if (word == NULL) {
     fprintf(stderr, "Word is NULL\n");
@@ -90,5 +157,157 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     current_word = next_word; // Update current_word to the new word
   }
 
+  return 0; // Success
+}
+
+int write_output_mp(int fd, const char *filename) {
+    if (fd < 0 || filename == NULL) {
+        fprintf(stderr, "Invalid file descriptor or filename\n");
+        return -1;
+    }
+    
+    int file_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (file_fd < 0) {
+        perror("write_output_mp: open file");
+        return -1;
+    }
+    
+    char *buff = NULL;
+    size_t cap = 0;
+    int *last_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with period as last word
+    if (last_word == NULL) {
+        fprintf(stderr, "Failed to create initial last word\n");
+        close(file_fd);
+        return -1;
+    }
+    
+    int words_written = 0;
+    while (1) {
+        ssize_t frm_st = recv_frame(fd, &buff, &cap);
+        if (frm_st < 0) {
+            perror("write_output_mp: recv_frame");
+            free(buff);
+            free(last_word);
+            close(file_fd);
+            return -1;
+        }
+        if (frm_st == 0) {
+            break; // End of stream
+        }
+        
+        // Convert received bytes back to UTF-8 codepoints
+        int *current_word = utf8_rawbytes_to_cp((const u8 *)buff, frm_st);
+        if (current_word == NULL) {
+            fprintf(stderr, "Failed to convert frame to UTF-8 word\n");
+            free(buff);
+            free(last_word);
+            close(file_fd);
+            return -1;
+        }
+        
+        // Apply capitalization rules
+        if (is_last_terminator(last_word)) {
+            current_word[0] = utf8_char_to_upper(current_word[0]);
+        }
+        
+        // Write space before word (except for first word and after terminators)
+        if (words_written > 0 && !is_last_terminator(current_word)) {
+            write(file_fd, " ", 1);
+        }
+        
+        // Write the word to file
+        utf8_print_word(current_word, file_fd);
+        words_written++;
+        
+        // Convert first letter to lowercase for next iteration
+        current_word[0] = utf8_char_to_lower(current_word[0]);
+        
+        // Update last_word for next iteration
+        free(last_word);
+        last_word = current_word; // Transfer ownership
+    }
+    
+    free(buff);
+    free(last_word);
+    close(file_fd);
+    return 0;
+}
+
+int send_output_mp(int fd, hash_table_t *ht, const int num_words,
+                   const char *start_sym) {
+
+  if (fd < 0 || num_words <= 0 || start_sym == NULL) {
+    fprintf(stderr,
+            "Invalid file descriptor, number of words, or start symbol\n");
+    return -1;
+  }
+  next_word_chooser_t *chooser = create_next_word_chooser(ht);
+  if (chooser == NULL) {
+    fprintf(stderr, "Failed to create next word chooser\n");
+    return -1;
+  }
+  int *start_word = NULL;
+  if (*start_sym == '.') {
+    start_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with a period
+  } else if (*start_sym == '!') {
+    start_word =
+        utf8_str_deepcopy((int[]){'!', '\0'}); // Start with an exclamation mark
+  } else if (*start_sym == '?') {
+    start_word =
+        utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
+  } else {
+    fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
+    gsl_rng_free(chooser->rng);
+    free(chooser);
+    return -1;
+  }
+  if (start_word == NULL) {
+    fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
+    gsl_rng_free(chooser->rng);
+    free(chooser);
+    return -1;
+  }
+  int *current_word =
+      start_word; // Initialize current_word with the start symbol
+  if (current_word == NULL) {
+    fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
+    gsl_rng_free(chooser->rng);
+    free(chooser);
+    return -1;
+  }
+  int words_written = 0;
+  char frm_buf[(MAX_WORD_LENGTH - 1) * sizeof(int) + 1] = {
+      0}; // Buffer for the frame
+  while (words_written < num_words) {
+    int *next_word = next_word_chooser_choose(chooser, current_word);
+    utf8_print_word(next_word, 1); // Print the next word to stdout
+    printf("\n");
+    fflush(stdout); // Ensure the output is flushed to stdout
+    if (next_word == NULL) {
+      fprintf(stderr, "No next word found for the current word\n");
+      gsl_rng_free(chooser->rng);
+      free(chooser);
+      return -1;
+    }
+    size_t frame_size = utf8_cp_to_rawbytes(next_word, (u8 *)frm_buf);
+    if (frame_size == 0) {
+      fprintf(stderr, "Failed to convert next word to raw bytes\n");
+      gsl_rng_free(chooser->rng);
+      free(chooser);
+      return -1;
+    }
+    if (send_frame(fd, frm_buf, frame_size) < 0) {
+      perror("send_output_mp: send_frame");
+      gsl_rng_free(chooser->rng);
+      free(chooser);
+      return -1;
+    }
+    free((void *)current_word); // Free the previous word
+    current_word = next_word; // Update current_word to the new word
+    words_written++;
+  }
+  free((void *)current_word); // Free the last word
+  gsl_rng_free(chooser->rng);
+  free(chooser);
   return 0; // Success
 }

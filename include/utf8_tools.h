@@ -125,6 +125,15 @@ int *utf8_str_deepcopy(const int *str);
 */
 int utf8_get_codepoint(const char *buffer, int *offset);
 
+/*
+* The function get an array of codepoints and writes raw UTF-8 bytes to a buffer.
+* It returns the number of bytes written to the buffer.
+* Parameters:
+* word: pointer to the first codepoint of the word (integer array)
+* buffer: pointer to the buffer where the UTF-8 sequence will be written
+*/
+int utf8_cp_to_rawbytes(const int *word, u8 *buf);
+
 
 
 
