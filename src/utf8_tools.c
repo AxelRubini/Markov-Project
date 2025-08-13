@@ -10,7 +10,7 @@
  * return 2 for 2-byte sequences, 3 for 3-byte sequences, and
  * 4 for 4-byte sequences.
  */
-static unsigned utf8_length(unsigned char lead) {
+static unsigned utf8_length(u8 lead) {
   if (lead < 0x80)
     return 1; // 0xxxxxxx
   if ((lead >> 5) == 0x6)
@@ -32,7 +32,7 @@ int utf8_getchar(void) {
   if (c == EOF) {
     return EOF; // end of input
   }
-  unsigned char lead = (unsigned char)c;
+  u8 lead = (u8)c;
 
   unsigned len = utf8_length(lead);
   if (len == 1) {
@@ -49,7 +49,7 @@ int utf8_getchar(void) {
     int ci = getchar();
     if (ci == EOF)
       return EOF; // End of input before completing the character
-    unsigned char byte = (unsigned char)ci;
+    u8 byte = (u8)ci;
     if ((byte >> 6) != 0x2)
       return UTF8_ERROR; // invalid continuation byte
     codepoint =
@@ -60,7 +60,7 @@ int utf8_getchar(void) {
 }
 
 int utf8_getchar_fd(int fd, int *bytes_read) {
-  unsigned char lead;
+  u8 lead;
   if (read(fd, &lead, 1) != 1) {
     return EOF; // end of input
   }
@@ -107,7 +107,7 @@ int utf8_getchar_from_buf(const u8 *buf, size_t *offset) {
 
     // Validate continuation bytes and assemble code point
     for (unsigned i = 1; i < len; ++i) {
-        unsigned char c = buf[*offset + i];
+        u8 c = buf[*offset + i];
         if (c == '\0') return EOF;              // truncated at end
         if ((c & 0xC0) != 0x80) return UTF8_ERROR; // not 10xxxxxx
         cp = (cp << 6) | (uint32_t)(c & 0x3F);
@@ -122,25 +122,25 @@ void utf8_putchar(int codepoint, int fd) {
     return; // Invalid codepoint
   }
 
-  unsigned char buffer[4];
+  u8 buffer[4];
   unsigned len = 0;
 
   if (codepoint < 0x80) {
-    buffer[len++] = (unsigned char)codepoint; // 1-byte sequence
+    buffer[len++] = (u8)codepoint; // 1-byte sequence
   } else if (codepoint < 0x800) {
-    buffer[len++] = (unsigned char)((codepoint >> 6) | 0xC0); // 2-byte sequence
-    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+    buffer[len++] = (u8)((codepoint >> 6) | 0xC0); // 2-byte sequence
+    buffer[len++] = (u8)((codepoint & 0x3F) | 0x80);
   } else if (codepoint < 0x10000) {
     buffer[len++] =
-        (unsigned char)((codepoint >> 12) | 0xE0); // 3-byte sequence
-    buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
-    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+        (u8)((codepoint >> 12) | 0xE0); // 3-byte sequence
+    buffer[len++] = (u8)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[len++] = (u8)((codepoint & 0x3F) | 0x80);
   } else {
     buffer[len++] =
-        (unsigned char)((codepoint >> 18) | 0xF0); // 4-byte sequence
-    buffer[len++] = (unsigned char)(((codepoint >> 12) & 0x3F) | 0x80);
-    buffer[len++] = (unsigned char)(((codepoint >> 6) & 0x3F) | 0x80);
-    buffer[len++] = (unsigned char)((codepoint & 0x3F) | 0x80);
+        (u8)((codepoint >> 18) | 0xF0); // 4-byte sequence
+    buffer[len++] = (u8)(((codepoint >> 12) & 0x3F) | 0x80);
+    buffer[len++] = (u8)(((codepoint >> 6) & 0x3F) | 0x80);
+    buffer[len++] = (u8)((codepoint & 0x3F) | 0x80);
   }
 
   write(fd, buffer, len); // Write the UTF-8 sequence to the file descriptor
@@ -231,7 +231,7 @@ void utf8_append_char(unsigned int codepoint, char *buffer, int *offset) {
     buffer[(*offset)++] = (char)((codepoint & 0x3F) | 0x80);
   }
   
-  return; // Return the new offset
+  return; 
 
 }
 

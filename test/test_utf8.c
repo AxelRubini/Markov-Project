@@ -5,7 +5,7 @@
 #include <string.h>
 
 void print_utf8_char(int codepoint) {
-    unsigned char utf8[5] = {0}; // max 4 byte + terminatore
+    u8 utf8[5] = {0}; // max 4 byte + terminatore
     if (codepoint <= 0x7F) {
         utf8[0] = codepoint;
     } else if (codepoint <= 0x7FF) {

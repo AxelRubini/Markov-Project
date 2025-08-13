@@ -26,7 +26,7 @@
  * Helpers for <char*, int> table used in basic tests
  * -----------------------------------------------------*/
 static unsigned int str_hash(const void *key, int size) {
-  const unsigned char *str = (const unsigned char *)key;
+  const u8 *str = (const u8 *)key;
   unsigned long hash = 5381;
   int c;
   while ((c = *str++)) {

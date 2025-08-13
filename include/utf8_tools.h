@@ -33,7 +33,7 @@ int utf8_getchar_fd(int fd, int *bytes_read);
  * returns: the Unicode codepoint of the character, or -1 if the character is not
  * a valid UTF-8 character.
  */
-int utf8_getchar_from_buf(const unsigned char *buf, size_t *offset);
+int utf8_getchar_from_buf(const u8 *buf, size_t *offset);
 
 /*
  * the function reads a Unicode codepoint and encodes it as a UTF-8 sequence,

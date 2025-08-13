@@ -12,7 +12,7 @@ size_t get_key_from_line(const char *line, int *key) {
   size_t offset = 0;
   int cp;
   int k_index = 0;
-  while ((cp = utf8_getchar_from_buf((const unsigned char *)line, &offset)) !=
+  while ((cp = utf8_getchar_from_buf((const u8 *)line, &offset)) !=
          EOF) {
     if (cp == UTF8_ERROR) {
       fprintf(stderr, "Error reading UTF-8 character from line\n");
@@ -55,7 +55,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
   while (1) {
     switch (state) {
     case READING_NXT_WORD: {
-      cp = utf8_getchar_from_buf((const unsigned char *)line, offset);
+      cp = utf8_getchar_from_buf((const u8 *)line, offset);
 
       if (cp == EOF) {
         // word not completed, end of file reached
@@ -138,7 +138,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         return next_words;
       }
 
-      unsigned char ch = line[*offset];
+      u8 ch = line[*offset];
       (*offset)++;
 
       if (ch == '\n' || ch == '\0' || ch == EOF) {
