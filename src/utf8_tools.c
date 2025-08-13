@@ -88,13 +88,13 @@ int utf8_getchar_fd(int fd, int *bytes_read) {
   return (int)codepoint;
 }
 
-int utf8_getchar_from_buf(const unsigned char *buf, size_t *offset) {
+int utf8_getchar_from_buf(const u8 *buf, size_t *offset) {
     if (!buf || !offset) return UTF8_ERROR;
 
-    unsigned char lead = buf[*offset];
+    u8 lead = buf[*offset];
     if (lead == '\0') return EOF;               // end of buffer
 
-    unsigned len = utf8_length(lead);           // expect 1..4
+    uint32_t len = utf8_length(lead);           // expect 1..4
     if (len < 1 || len > 4) return UTF8_ERROR;
 
     // Fast path: ASCII

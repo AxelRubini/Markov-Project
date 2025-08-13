@@ -45,17 +45,19 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
   if (*start_sym == '.') {
     start_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with a period
   } else if (*start_sym == '!') {
-    start_word = utf8_str_deepcopy((int[]){'!', '\0'}); // Start with an exclamation mark
+    start_word =
+        utf8_str_deepcopy((int[]){'!', '\0'}); // Start with an exclamation mark
   } else if (*start_sym == '?') {
-    start_word = utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
+    start_word =
+        utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
   } else {
     fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
     gsl_rng_free(chooser->rng);
     free(chooser);
     close(fd);
     return -1;
-  } 
-  
+  }
+
   int *current_word =
       start_word; // Initialize current_word with the start symbol;
   if (current_word == NULL) {
@@ -78,15 +80,14 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     if (is_last_terminator(current_word)) {
       next_word[0] = utf8_char_to_upper(next_word[0]);
     }
-    if (is_last_terminator(next_word)) {
-      lseek(fd, -2, SEEK_SET);
+    if (!is_last_terminator(next_word)) {
+      write(fd, " ", 1); // Write a space after each word
     }
     utf8_print_word(next_word, fd);
-    write(fd, " ", 1); // Write a space after each word
     words_written++;
     next_word[0] = utf8_char_to_lower(next_word[0]); // Convert to lowercase
-    free((void *)current_word); // Free the previous word
-    current_word = next_word;   // Update current_word to the new word
+    free((void *)current_word);                      // Free the previous word
+    current_word = next_word; // Update current_word to the new word
   }
 
   return 0; // Success

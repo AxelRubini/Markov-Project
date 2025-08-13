@@ -10,8 +10,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-
-
 unsigned int is_prime(int n) {
 
   if (n <= 1)
@@ -67,7 +65,7 @@ double next_word_probability(const int *word, const int *next_word) {
   return probability;
 }
 int write_all(int fd, const void *buf, size_t len) {
-  const char *ptr = buf;
+  const char *ptr = buf; // bytes to send
   size_t left = len;
   while (left > 0) {
     ssize_t written = write(fd, ptr, left);
@@ -87,7 +85,7 @@ int write_all(int fd, const void *buf, size_t len) {
 }
 
 int read_all(int fd, void *buf, size_t len) {
-  char *ptr = buf;
+  char *ptr = buf; // Destination buffer
   size_t left = len;
   while (left > 0) {
     ssize_t read_bytes = read(fd, ptr, left);
@@ -113,20 +111,26 @@ int send_frame(int fd, const char *data_to_send, size_t len) {
     fprintf(stderr, "Invalid data to send or length is zero\n");
     return -1;
   }
+  /*Header:
+   * The first 4 bytes of the frame contain the length of the data that follows.
+   * This allows the receiver to know how many bytes to expect.
+   */
   uint32_t frame_length =
-      htonl((uint32_t)len); // frame length in network byte order
-  if (write_all(fd, &frame_length, sizeof(frame_length)) < 0) {
+      htonl((uint32_t)len); // Convert the length to network byte order so the
+                            // receiver can interpret the length correctly
+  if (write_all(fd, &frame_length, sizeof(frame_length)) <
+      0) { // Write the frame length first
     perror("send_frame: write frame length");
     return -1;
   }
   if (len == 0) {
     return 0; // No data to send, just sent the frame length
   }
-  if (write_all(fd, data_to_send, len) < 0) {
+  if (write_all(fd, data_to_send, len) < 0) { // Write the actual data
     perror("send_frame: write data");
     return -1;
   }
-  return 0; // Success
+  return 0;
 }
 
 ssize_t receive_frame(int fd, char **buf, size_t *cap) {
@@ -134,17 +138,24 @@ ssize_t receive_frame(int fd, char **buf, size_t *cap) {
     errno = EINVAL;
     return -1;
   }
+  /* Read the first 4 bytes to get the length of the data that follows.
+   * This is the frame header.
+   */
   uint32_t be_len = 0;
   int st = read_all(fd, &be_len, sizeof(be_len));
   if (st == 1)
-    return 0; 
+    return 0;
   if (st < 0)
-    return -1; 
+    return -1;
 
-  uint32_t n = ntohl(be_len); 
-  size_t need = (size_t)n;
+  uint32_t n =
+      ntohl(be_len);       // Convert from network byte order to host byte order
+  size_t need = (size_t)n; // Number of bytes needed for the data
 
-  if (*buf == NULL || *cap < need + 1) { // +1 per '\0'
+  if (*buf == NULL ||
+      *cap <
+          need +
+              1) { // +1 per '\0' // check if buffer is NULL or not large enough
     size_t ncap = need + 1;
     char *nb = (char *)realloc(*buf, ncap);
     if (!nb)
@@ -155,14 +166,14 @@ ssize_t receive_frame(int fd, char **buf, size_t *cap) {
   if (need == 0) {
     (*buf)[0] = '\0';
     return 1;
-  } 
+  }
 
   st = read_all(fd, *buf, need);
   if (st == 1)
-    return -1; 
+    return -1;
   if (st < 0)
     return -1;
 
-  (*buf)[need] = '\0'; 
+  (*buf)[need] = '\0';
   return (ssize_t)need;
 }

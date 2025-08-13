@@ -24,3 +24,4 @@ P1 - - write() -> pipe -- -> read() - - P2
 - Buffer pieno: write() scrive solo una parte, ritorna quel numero, richiamo.
 - Reader chiuso: Errore su pipe.
 
+https://stackoverflow.com/questions/19127398/socket-programming-read-is-reading-all-of-my-writes

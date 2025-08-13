@@ -164,3 +164,27 @@ int publish_line_on_pipe(int in_fd, int out_fd) {
   free(line);
   return 0;
 }
+
+hash_table_t *read_line_from_pipe(int in_fd) {
+  char *line = NULL;
+  size_t cap = 0;
+  hash_table_t *table = create_hash_table(HASH_TABLE_SIZE, next_word_hash, keycmp_next_word);
+
+  while (1) {
+    ssize_t n = recv_frame(in_fd, &line, &cap);
+
+    if (n < 0) {
+      perror("recv_frame");
+      free(line);
+      return NULL;
+    }
+
+    if (n == 0) {
+      break; // End of file reached
+    }
+
+
+  }
+
+  return table;
+}
