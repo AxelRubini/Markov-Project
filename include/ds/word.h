@@ -26,10 +26,7 @@ void print_utf8_word(const word_t *word, int fd);
 void word_print(const word_t *word, int fd, int *between_char);
 void free_word(word_t *word);
 void ht_item_free_word(ht_item *item);
-static void word_followers_free_list(linked_list_t *list);
 int word_hashtable_keycmp(const void *key1, const void *key2);
-static word_t *word_deep_copy(const word_t *original);
 void word_ht_item_print(const ht_item *item, int fd);
-void word_print_to_fd(const word_t *word, int fd, int *between_char);
 
 #endif
