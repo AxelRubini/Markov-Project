@@ -29,7 +29,6 @@ int main(void) {
   close(fd);
 
   // Print the hash table to verify its contents
-  print_hash_table(ht, STDOUT_FILENO);
 
   // Free the hash table
   free_hash_table(ht);

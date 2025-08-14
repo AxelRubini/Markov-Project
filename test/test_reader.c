@@ -7,7 +7,7 @@
 
 int main() {
   // Apri file di test
-  int fd = open("test/test_files/test_reader_utf8.txt", O_RDONLY);
+  int fd = open("test_files/test_reader_utf8.txt", O_RDONLY);
   if (fd < 0) {
     perror("open");
     return 1;
@@ -21,10 +21,6 @@ int main() {
       continue; // salta parole vuote
     word_t *w = create_word(word_buf);
     if (w) {
-      printf("Parola: ");
-      fflush(stdout);                    // Assicura che il buffer sia svuotato
-      print_utf8_word(w, STDOUT_FILENO); // stampa come testo
-      printf("\n");
       free_word(w);
     }
     move_cursor_to_next_word(fd);
@@ -33,7 +29,7 @@ int main() {
   // Riavvolgi file e costruisci hash table
   lseek(fd, 0, SEEK_SET);
   hash_table_t *table = build_word_hashtable_fd(fd);
-  int fd1 = open("test/test_files/out_test_reader_utf8.txt",
+  int fd1 = open("test_files/out_test_reader_utf8.txt",
                  O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (table) {
     printf("\n=== Hash table parole ===\n");

@@ -20,12 +20,7 @@ static unsigned utf8_length(u8 lead) {
     return 4; // 11110xxx
   return 0;   // invalid
 }
-/*
- * https://en.wikipedia.org/wiki/UTF-8
- * https://www.youtube.com/watch?v=c_hfKgektt4
- * https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math
- * https://utf8everywhere.org/
- */
+
 int utf8_getchar(void) {
   int c = getchar();
   if (c == EOF) {

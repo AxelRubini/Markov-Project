@@ -24,12 +24,12 @@ void print_utf8_char(int codepoint) {
     printf("%s", utf8);
 }
 int main() {
-    FILE *file = freopen("test/test_files/test_file_utf8.txt", "rb", stdin);
+    FILE *file = freopen("test_files/test_file_utf8.txt", "rb", stdin);
     if (!file) {
         fprintf(stderr, "Could not open file\n");
         return 1;
     }
-    FILE *output_file = freopen("test/test_files/output_utf8.txt", "w+", stdout);
+    FILE *output_file = freopen("test_files/output_utf8.txt", "w+", stdout);
     if (!output_file) {
         fprintf(stderr, "Could not open output file\n");
         fclose(file);
@@ -44,7 +44,6 @@ int main() {
         }
         // Print the Unicode code point in hexadecimal format
         printf("U+%04X\n", c);
-        print_utf8_char(c);
         printf("\n");
 
         fprintf(stderr, "DEBUG: codepoint=%d (0x%X)\n", c, c);

@@ -1,0 +1,9 @@
+-std=c99
+-Wall
+-Wextra
+-Iinclude
+-Iinclude/core
+-Iinclude/csv
+-Iinclude/ds
+-Iinclude/io
+

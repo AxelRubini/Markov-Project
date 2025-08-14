@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-static int is_punctuation(const int cp);
 hash_table_t *build_word_hashtable_fd(int fd) {
   if (fd < 0) {
     fprintf(stderr, "Invalid file descriptor\n");
