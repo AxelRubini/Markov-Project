@@ -9,16 +9,6 @@
  * 4. p3 chiude il file e termina
  */
 
-int is_punctuation_to_ignore(char c) {
-  // Define punctuation characters to ignore
-  return (c == ',' || c == ';' || c == ':' || c == '-' || c == '\"');
-}
-
-int is_sentence_terminator(char c) {
-  // Define characters that end a sentence
-  return (c == '.' || c == '?' || c == '!');
-}
-
 char move_to_next_word(int fd) {
   if (fd < 0) {
     fprintf(stderr, "Invalid file descriptor\n");
@@ -29,7 +19,7 @@ char move_to_next_word(int fd) {
 
   while ((rd_st = read(fd, buf, 1)) > 0) {
     // Read until finding a character that is not space or newline
-    if (buf[0] == ' ' || buf[0] == '\n' || (is_punctuation_to_ignore(buf[0]))) {
+    if (buf[0] == ' ' || buf[0] == '\n' || is_punctuation(buf[0])) {
       continue;
     }
     // If we find a valid character, return it
@@ -113,7 +103,7 @@ int read_next_word(int fd, char *nxt_buf, size_t *len) {
       return 0;
     }
 
-    if (is_punctuation_to_ignore(c)) {
+    if (is_punctuation(c)) {
       continue; // Ignore punctuation
     }
 

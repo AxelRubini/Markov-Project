@@ -253,7 +253,3 @@ void move_cursor_to_next_word(int fd) {
     return;
   }
 }
-
-static int is_punctuation(const int cp) {
-  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"');
-}
