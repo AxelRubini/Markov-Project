@@ -1,5 +1,5 @@
-#include "../include/file_writer.h"
-#include "../include/next_word_chooser.h"
+#include "file_writer.h"
+#include "next_word_chooser.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -119,7 +119,6 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
         utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
   } else {
     fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
-    gsl_rng_free(chooser->rng);
     free(chooser);
     close(fd);
     return -1;
@@ -129,7 +128,6 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
       start_word; // Initialize current_word with the start symbol;
   if (current_word == NULL) {
     fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-    gsl_rng_free(chooser->rng);
     free(chooser);
     close(fd);
     return -1;
@@ -139,7 +137,6 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     int *next_word = next_word_chooser_choose(chooser, current_word);
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
-      gsl_rng_free(chooser->rng);
       free(chooser);
       close(fd);
       return -1;
@@ -257,13 +254,11 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
         utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
   } else {
     fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
-    gsl_rng_free(chooser->rng);
     free(chooser);
     return -1;
   }
   if (start_word == NULL) {
     fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-    gsl_rng_free(chooser->rng);
     free(chooser);
     return -1;
   }
@@ -271,7 +266,6 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
       start_word; // Initialize current_word with the start symbol
   if (current_word == NULL) {
     fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-    gsl_rng_free(chooser->rng);
     free(chooser);
     return -1;
   }
@@ -285,20 +279,17 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
     fflush(stdout); // Ensure the output is flushed to stdout
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
-      gsl_rng_free(chooser->rng);
       free(chooser);
       return -1;
     }
     size_t frame_size = utf8_cp_to_rawbytes(next_word, (u8 *)frm_buf);
     if (frame_size == 0) {
       fprintf(stderr, "Failed to convert next word to raw bytes\n");
-      gsl_rng_free(chooser->rng);
       free(chooser);
       return -1;
     }
     if (send_frame(fd, frm_buf, frame_size) < 0) {
       perror("send_output_mp: send_frame");
-      gsl_rng_free(chooser->rng);
       free(chooser);
       return -1;
     }
@@ -307,7 +298,6 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
     words_written++;
   }
   free((void *)current_word); // Free the last word
-  gsl_rng_free(chooser->rng);
   free(chooser);
   return 0; // Success
 }

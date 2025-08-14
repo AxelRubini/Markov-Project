@@ -1,6 +1,6 @@
-#include "../include/CSV_line_parser.h"
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
+#include "CSV_line_parser.h"
+#include "utf8_tools.h"
+#include "utils.h"
 
 ssize_t get_key_from_line(const char *line, int *key) {
 

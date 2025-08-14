@@ -7,10 +7,10 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#include "../include/file_reader_mp.h"   
-#include "../include/CSV_writer.h"       
-#include "../include/hash_table.h"       
-#include "../include/word.h"
+#include "file_reader_mp.h"   
+#include "CSV_writer.h"       
+#include "hash_table.h"       
+#include "word.h"
 
 static void die(const char *msg) {
     perror(msg);

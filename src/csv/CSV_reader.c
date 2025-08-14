@@ -1,6 +1,6 @@
-#include "../include/CSV_reader.h"
-#include "../include/CSV_line_parser.h"
-#include "../include/hash_table.h"
+#include "CSV_reader.h"
+#include "CSV_line_parser.h"
+#include "hash_table.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>

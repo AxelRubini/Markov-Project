@@ -1,8 +1,8 @@
-#include "../include/word.h"
-#include "../include/ht_item.h"
-#include "../include/linked_list.h"
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
+#include "word.h"
+#include "ht_item.h"
+#include "linked_list.h"
+#include "utf8_tools.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

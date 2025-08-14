@@ -1,5 +1,5 @@
-#include "../include/hash_table.h"
-#include "../include/CSV_reader.h"
+#include "hash_table.h"
+#include "CSV_reader.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

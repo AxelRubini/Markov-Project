@@ -10,11 +10,11 @@
  * NB:  All malloc calls must be replaced by the project-provided dmalloc()!
  * -----------------------------------------------------*/
 
-#include "../include/hash_table.h"
-#include "../include/ht_item.h"
-#include "../include/linked_list.h"
-#include "../include/utils.h"
-#include "../include/word.h"
+#include "hash_table.h"
+#include "ht_item.h"
+#include "linked_list.h"
+#include "utils.h"
+#include "word.h"
 
 #include <assert.h>
 #include <stdio.h>

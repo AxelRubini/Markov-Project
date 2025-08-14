@@ -3,11 +3,11 @@
 #include <string.h>
 #include <math.h>
 
-#include "../include/CSV_line_parser.h"
-#include "../include/next_word.h"
-#include "../include/linked_list.h"
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
+#include "CSV_line_parser.h"
+#include "next_word.h"
+#include "linked_list.h"
+#include "utf8_tools.h"
+#include "utils.h"
 
 // Helper: iterate linked_list_t assuming it stores next_word_t*
 static size_t list_count_and_sum(linked_list_t *lst, double *psum) {

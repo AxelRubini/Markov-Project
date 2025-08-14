@@ -1,5 +1,5 @@
-#include "../include/hash_table.h"
-#include "../include/utils.h"
+#include "hash_table.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 

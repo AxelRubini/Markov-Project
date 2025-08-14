@@ -1,4 +1,4 @@
-#include "../include/ht_data_manipulation.h"
+#include "ht_data_manipulation.h"
 
 int create_csv_line(ht_item *item, char *buffer) {
   if (!item || !buffer) {

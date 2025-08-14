@@ -1,6 +1,6 @@
-#include "../include/next_word.h"
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
+#include "next_word.h"
+#include "utf8_tools.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
