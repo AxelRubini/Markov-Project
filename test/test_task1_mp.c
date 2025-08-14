@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
     const char *in_path = "test_files/test_reader_utf8.txt"; // Default input path
     const char *out_path = "test_files/out_test_csv_writer_mp.csv"; // Default output path
 
-    // Due pipe: p1 -> p2 (pipe12) e p2 -> p3 (pipe23)
+    // Two pipes: p1 -> p2 (pipe12) and p2 -> p3 (pipe23)
     int pipe12[2];
     int pipe23[2];
     if (pipe(pipe12) == -1) die("pipe12");
@@ -33,13 +33,13 @@ int main(int argc, char **argv) {
     pid_t p3 = fork();
     if (p3 == -1) die("fork p3");
     if (p3 == 0) {
-        // Child p3: legge CSV line da pipe23[0] e scrive su out_path
-        // Chiude estremi inutili
+        // Child p3: read CSV line from pipe23[0] and write to out_path
+        // Close unused ends
         close(pipe12[0]);
         close(pipe12[1]);
         close(pipe23[1]);
 
-        // Riceve e scrive
+        // Receive and write
         if (csv_line_recv(pipe23[0], out_path) < 0) {
             fprintf(stderr, "p3: csv_line_recv fallita\n");
             close(pipe23[0]);
@@ -54,14 +54,14 @@ int main(int argc, char **argv) {
     pid_t p2 = fork();
     if (p2 == -1) die("fork p2");
     if (p2 == 0) {
-        // Child p2: legge coppie di parole da pipe12[0], le inserisce in HT,
-        // poi invia le righe CSV su pipe23[1]
-        close(pipe12[1]);      // scrittura non usata
-        close(pipe23[0]);      // lettura non usata
+        // Child p2: read word pairs from pipe12[0], insert into HT,
+        // then send CSV lines on pipe23[1]
+        close(pipe12[1]);      // write end unused
+        close(pipe23[0]);      // read end unused
 
-        // Crea hash table (adatta alla tua API: ht_create, ht_new, ecc.)
-        // Se la tua funzione differisce, cambia la riga seguente.
-        hash_table_t *ht = create_hash_table(HASH_TABLE_SIZE, word_hash, word_hashtable_keycmp);  // <— dimensione a scelta
+        // Create hash table (adapt to your API: ht_create, ht_new, etc.)
+        // If your function differs, change the line below.
+        hash_table_t *ht = create_hash_table(HASH_TABLE_SIZE, word_hash, word_hashtable_keycmp);  // choose size
         if (!ht) {
             fprintf(stderr, "p2: impossibile creare hash table\n");
             _exit(1);
@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
             close(pipe23[1]);
             _exit(1);
         }
-        close(pipe12[0]); // finita la lettura
+        close(pipe12[0]); // reading done
 
         if (csv_line_send(pipe23[1], ht) < 0) {
             fprintf(stderr, "p2: csv_line_send fallita\n");
@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
     pid_t p1 = fork();
     if (p1 == -1) die("fork p1");
     if (p1 == 0) {
-        // Child p1: apre il file di input e pubblica le coppie di parole su pipe12[1]
+        // Child p1: open input file and publish word pairs on pipe12[1]
         close(pipe12[0]);
         close(pipe23[0]);
         close(pipe23[1]);
@@ -109,11 +109,11 @@ int main(int argc, char **argv) {
         }
 
         close(fd_in);
-        close(pipe12[1]); // segnala EOF a p2
+        close(pipe12[1]); // signal EOF to p2
         _exit(0);
     }
 
-    // Processo padre: chiude tutte le estremità che non usa e attende
+    // Parent process: close all unused ends and wait
     close(pipe12[0]);
     close(pipe12[1]);
     close(pipe23[0]);

@@ -14,21 +14,27 @@ typedef struct {
 } next_word_chooser_t;
 
 /**
- * Initializes the next word chooser with a hash table and a random number generator.
- * @param table The hash table containing next words.
- * @return A pointer to the initialized next_word_chooser_t.
+ * @brief Create a chooser for next-word selection.
+ *
+ * @param table Hash table containing transitions.
+ * @return Allocated chooser or NULL on error.
  */
 next_word_chooser_t *create_next_word_chooser(hash_table_t *table);
+
 /**
- * Chooses the next word based on the current word and the probabilities of next words.
- * @param chooser The next word chooser.
- * @param current_word The current word as an array of UTF-8 code points.
- * @return A pointer to the chosen next_word_t, or NULL if no next word is found.
+ * @brief Pick the next word according to probabilities.
+ *
+ * @param chooser Initialized chooser.
+ * @param current_word Current word as code points.
+ * @return Newly allocated next word or NULL if unavailable.
  */
-int *next_word_chooser_choose(next_word_chooser_t *chooser, const int *current_word);
+int *next_word_chooser_choose(next_word_chooser_t *chooser,
+                              const int *current_word);
+
 /**
- * Frees the resources used by the next word chooser.
- * @param chooser The next word chooser to free.
+ * @brief Free a next word chooser.
+ *
+ * @param chooser Instance to release.
  */
 void next_word_chooser_free(next_word_chooser_t *chooser);
 

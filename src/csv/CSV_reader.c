@@ -151,7 +151,7 @@ int publish_line_on_pipe(int in_fd, int out_fd) {
     }
 
     if (n == 0) {
-      break; // Tutte le righe processate
+      break; // All lines processed
     }
 
     // Send the line as frame

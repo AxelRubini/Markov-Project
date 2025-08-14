@@ -1,14 +1,12 @@
 #include "file_reader_mp.h"
 
 
-/*
- * Schema per file reader multi-process
- * 1. dal file di testo, leggi le parole la corrente e la successiva
- * 2. Spedisci le coppie a p2 che processa le coppie e le mette nella hash table
- * 3. p2 genera le righe csv e le passa a p3 che le scrive su file
- * 4. p3 chiude il file e termina
+/**
+ * @brief Read and return the next non-space character.
+ *
+ * @param fd Source file descriptor.
+ * @return Character found or EOF on error/end.
  */
-
 char move_to_next_word(int fd) {
   if (fd < 0) {
     fprintf(stderr, "Invalid file descriptor\n");
@@ -28,6 +26,15 @@ char move_to_next_word(int fd) {
   return EOF; // EOF or read error
 }
 
+/**
+ * @brief Create a "current next" frame string.
+ *
+ * @param cw_data Current word bytes.
+ * @param cw_len Length of current word.
+ * @param nxw_data Next word bytes.
+ * @param nxw_len Length of next word.
+ * @return Newly allocated frame or NULL on error.
+ */
 char *create_string_for_frame(const char *cw_data, size_t cw_len,
                               const char *nxw_data, size_t nxw_len) {
   if (cw_len == 0 || nxw_len == 0) {
@@ -63,6 +70,16 @@ char *create_string_for_frame(const char *cw_data, size_t cw_len,
   return frame;
 }
 
+/**
+ * @brief Read the next word from a descriptor.
+ *
+ * @param fd Source descriptor.
+ * @param nxt_buf Buffer for the word bytes.
+ * @param len Output length.
+ * @retval 0 Success.
+ * @retval 1 End of file.
+ * @retval -1 Error.
+ */
 int read_next_word(int fd, char *nxt_buf, size_t *len) {
   if (fd < 0 || !nxt_buf || !len) {
     fprintf(stderr, "Invalid file descriptor or buffer\n");
@@ -80,8 +97,8 @@ int read_next_word(int fd, char *nxt_buf, size_t *len) {
   if (is_sentence_terminator(c)) {
     nxt_buf[b_index] = c; // Add sentence terminator
     *len = 1;
-    nxt_buf[1] = '\0'; // Null terminate
-    return 0;          // Single word terminated
+    nxt_buf[1] = '\0';
+    return 0; // Single word terminated
   } else {
     nxt_buf[b_index++] = c; // Add first character of word
     (*len)++;

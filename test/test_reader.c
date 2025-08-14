@@ -6,19 +6,19 @@
 #include <unistd.h>
 
 int main() {
-  // Apri file di test
+  // open test file
   int fd = open("test_files/test_reader_utf8.txt", O_RDONLY);
   if (fd < 0) {
     perror("open");
     return 1;
   }
-  lseek(fd, 0, SEEK_SET); // Assicurati di partire dall'inizio del file
-  // Test lettura parola per parola
-  printf("=== Test lettura parole ===\n");
+  lseek(fd, 0, SEEK_SET); // ensure start from file beginning
+  // test reading word by word
+  printf("=== Test reading words ===\n");
   int word_buf[MAX_WORD_LENGTH];
   while (f_get_next_word(fd, word_buf) == 0) {
     if (word_buf[0] == 0)
-      continue; // salta parole vuote
+      continue; // skip empty words
     word_t *w = create_word(word_buf);
     if (w) {
       free_word(w);
@@ -26,15 +26,11 @@ int main() {
     move_cursor_to_next_word(fd);
   }
 
-  // Riavvolgi file e costruisci hash table
+  // rewind file and build hash table
   lseek(fd, 0, SEEK_SET);
   hash_table_t *table = build_word_hashtable_fd(fd);
   if (table) {
-    printf("\n=== Hash table parole ===\n");
-//    print_hash_table(table,
-//                    STDOUT_FILENO); // stampa usando la tua funzione di stampa
-//    int fd1 = open("test_files/out_test_reader_utf8.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-//    print_hash_table(table, fd1);
+    printf("\n=== Word hash table ===\n");
     free_hash_table(table);
   }
 

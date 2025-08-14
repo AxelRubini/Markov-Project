@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @brief Default update_value implementation swapping the pointer.
+ *
+ * @param item Hash-table item to modify.
+ * @param new_value New value pointer.
+ */
 void default_update_value(const void *item, const void *new_value) {
   if (item == NULL || new_value == NULL) {
     fprintf(stderr, "Item or new value is NULL\n");
@@ -12,6 +18,12 @@ void default_update_value(const void *item, const void *new_value) {
   htItem->value = (void *)new_value; // Update the value directly
 }
 
+/**
+ * @brief Placeholder print function for custom items.
+ *
+ * @param item Item to print.
+ * @param fd Destination descriptor.
+ */
 void default_print_ht_item(const ht_item *item, int fd) {
   (void)item;
   (void)fd;
