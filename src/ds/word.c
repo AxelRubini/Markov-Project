@@ -8,6 +8,9 @@
 #include <string.h>
 #include <unistd.h>
 
+static word_t *word_deep_copy(const word_t *original);
+static void word_followers_free_list(linked_list_t *list);
+
 word_t *create_word(int *word) {
   if (word == NULL) {
     fprintf(stderr, "Word is NULL\n");
@@ -253,21 +256,4 @@ void word_ht_item_print(const ht_item *item, int fd) {
     current = current->next;             // Move to the next follower
   }
   utf8_putchar('\n',fd); // Print a newline after all followers
-}
-
-void word_print_to_fd(const word_t *word, int fd, int *between_char) {
-  if (word == NULL) {
-    fprintf(stderr, "Word is NULL\n");
-    return;
-  }
-  if (between_char != NULL) {
-    print_utf8_word(word, fd);
-    for (int i = 0; between_char[i] != '\0'; i++) {
-      utf8_putchar(between_char[i], fd); // Print the character between words
-    }
-  } else {
-    print_utf8_word(word, fd);
-  }
-  write(fd, &word->occurrences,
-        sizeof(int)); // Write the occurrences of the word
 }
