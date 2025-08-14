@@ -6,11 +6,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
-
-
-
-
 int main(void) {
   // Apri file di test
   int fd = open("test_files/test_reader_utf8.txt", O_RDONLY);
@@ -27,10 +22,11 @@ int main(void) {
       continue; // salta parole vuote
     word_t *w = create_word(word_buf);
     if (w) {
-      printf("Parola: ");
-      fflush(stdout);                    // Assicura che il buffer sia svuotato     
-      print_utf8_word(w, STDOUT_FILENO); // stampa come testo
-      printf("\n");
+      // printf("Parola: ");
+      // fflush(stdout);                    // Assicura che il buffer sia
+      // svuotato
+      // print_utf8_word(w, STDOUT_FILENO); // stampa come testo
+      // printf("\n");
       free_word(w);
     }
     move_cursor_to_next_word(fd);
@@ -44,4 +40,3 @@ int main(void) {
   close(fd);
   return 0;
 }
-

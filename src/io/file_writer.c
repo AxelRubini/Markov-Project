@@ -274,9 +274,6 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
       0}; // Buffer for the frame
   while (words_written < num_words) {
     int *next_word = next_word_chooser_choose(chooser, current_word);
-    utf8_print_word(next_word, 1); // Print the next word to stdout
-    printf("\n");
-    fflush(stdout); // Ensure the output is flushed to stdout
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
       free(chooser);

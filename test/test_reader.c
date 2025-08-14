@@ -33,9 +33,9 @@ int main() {
                  O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (table) {
     printf("\n=== Hash table parole ===\n");
-    print_hash_table(table,
-                     STDOUT_FILENO); // stampa usando la tua funzione di stampa
-    print_hash_table(table, fd1);
+//    print_hash_table(table,
+ //                    STDOUT_FILENO); // stampa usando la tua funzione di stampa
+  //  print_hash_table(table, fd1);
     free_hash_table(table);
   }
 

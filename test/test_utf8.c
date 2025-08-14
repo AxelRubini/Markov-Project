@@ -42,11 +42,7 @@ int main() {
             fclose(file);
             return 1;
         }
-        // Print the Unicode code point in hexadecimal format
-        printf("U+%04X\n", c);
-        printf("\n");
 
-        fprintf(stderr, "DEBUG: codepoint=%d (0x%X)\n", c, c);
 
     }
     return 0;

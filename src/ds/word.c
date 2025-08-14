@@ -119,8 +119,6 @@ void update_ht_item_value(const void *item, const void *follower_to_add) {
     if (wordcmp(word, nw) == 0) {
       // If the word already exists, update its occurrences
       update_word_occurrences(word);
-      printf("Word already exists, updated occurrences: %d\n",
-             word->occurrences);
       return;
     }
     current = current->next;
@@ -128,7 +126,6 @@ void update_ht_item_value(const void *item, const void *follower_to_add) {
   // If the word does not exist, add it to the linked list
   word_t *new_word = word_deep_copy(nw); // Create a deep copy of the new word
   add_to_list(af_list, new_word);        // Add the new word to the linked list
-  printf("New word added:  occurrences: %d\n", new_word->occurrences);
 }
 
 unsigned int word_hash(const void *key, int size) {
