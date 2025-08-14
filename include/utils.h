@@ -8,6 +8,7 @@
 #define MAX_WORD_LENGTH_NO_BUF 30 // Maximum length of a word in code points with null terminator
 #define FLOATING_POINT_CHAR_SPACE 24
 #define MAX_WORD_LENGTH 31 // Maximum length of a word in code points without null terminator
+#define MAX_WORD_LENGTH_BYTES ((MAX_WORD_LENGTH - 1) * 4 +1) // Maximum length of a word in bytes (UTF-8) with null terminator
 
 typedef unsigned char u8;
 typedef unsigned int u32;

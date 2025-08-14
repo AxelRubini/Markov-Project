@@ -15,5 +15,7 @@
 
 
 int csv_build_file(const char *filename, hash_table_t *table);
+int csv_line_send(int fd, const hash_table_t *ht);
+int csv_line_recv(int fd, const char *filename);
 
 #endif // CSV_WRITER_H

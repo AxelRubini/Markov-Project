@@ -1,11 +1,11 @@
 #include "../include/ht_data_manipulation.h"
 
-void create_csv_line(ht_item *item, char *buffer) {
+int create_csv_line(ht_item *item, char *buffer) {
   if (!item || !buffer) {
     if (!buffer) {
       fprintf(stderr, "Invalid buffer pointer\n");
     }
-    return;
+    return -1;
   }
   
   int offset = 0;
@@ -16,7 +16,7 @@ void create_csv_line(ht_item *item, char *buffer) {
   // Controllo di sicurezza
   if (!key || !word || !next_words) {
     fprintf(stderr, "Invalid item structure\n");
-    return;
+    return -1;
   }
   
   // Scrivi la parola chiave
@@ -26,9 +26,10 @@ void create_csv_line(ht_item *item, char *buffer) {
   
   // Se non ci sono parole successive, termina solo con la chiave
   if (!next_words->head) {
-    buffer[offset++] = '\n';
-    buffer[offset] = '\0';
-    return;
+    fprintf(stderr, "No next words found for key\n");
+    buffer[offset++] = '\n'; // Newline at the end
+    buffer[offset] = '\0';   // Null-terminate
+    return -1;
   }
   
   buffer[offset++] = ','; // Virgola dopo la parola chiave
@@ -58,6 +59,7 @@ void create_csv_line(ht_item *item, char *buffer) {
     if (probability < 0.0 || probability > 1.0) {
       fprintf(stderr, "Invalid probability value: %f\n", probability);
       probability = 0.0; // Imposta a zero se la probabilità è fuori i limiti
+      return -1; // Indica errore
     } 
     char prob_str[FLOATING_POINT_CHAR_SPACE];
     snprintf(prob_str, FLOATING_POINT_CHAR_SPACE, "%.6f", probability);
@@ -76,6 +78,7 @@ void create_csv_line(ht_item *item, char *buffer) {
   
   buffer[offset++] = '\n'; // Newline alla fine
   buffer[offset] = '\0';   // Null-terminate
+  return 0;
 }
 /*
  * This function calculates the size of the buffer needed to store a
@@ -87,15 +90,36 @@ void create_csv_line(ht_item *item, char *buffer) {
  * time being it is a good approximation.
  */
 int calculate_buffer_size(ht_item *item) {
-  if (!item) {
+  if (!item || !item->value) {
     return 0;
   }
-  int size = MAX_WORD_LENGTH * 4; // Assuming a maximum word length
-  const linked_list_t *next_words = (linked_list_t *)item->value;
+  
+  int total_size = 0;
+  
+  // Size for key (assuming worst case UTF-8)
+  total_size += MAX_WORD_LENGTH * 4;
+  
+  // Size for formatting around key
+  total_size += 10; // Extra space for formatting
+  
+  const linked_list_t *next_words = (const linked_list_t *)item->value;
   int list_size = get_list_size(next_words);
-  size += ((list_size * MAX_WORD_LENGTH * 4) +
-           (list_size * FLOATING_POINT_CHAR_SPACE) +
-           2 * list_size); // Add size for next words
-
-  return size;
+  
+  if (list_size <= 0) {
+    return total_size + 10; // Minimum size with padding
+  }
+  
+  // Calculate size for all next words and their metadata
+  int words_section_size = list_size * (
+    MAX_WORD_LENGTH * 4 +           // Word content (UTF-8)
+    FLOATING_POINT_CHAR_SPACE +     // Probability value
+    10                              // Formatting characters
+  );
+  
+  total_size += words_section_size;
+  
+  // Add padding (20% extra for safety)
+  total_size += total_size / 5;
+  
+  return total_size;
 }
