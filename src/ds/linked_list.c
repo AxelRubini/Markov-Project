@@ -118,21 +118,3 @@ void **linked_list_to_array(const linked_list_t *list) {
   }
   return array;
 }
-
-linked_list_t *linked_list_deepcopy(const linked_list_t *list) {
-  if (list == NULL) {
-    fprintf(stderr, "List is NULL\n");
-    return NULL;
-  }
-
-  linked_list_t *new_list = create_linked_list();
-  ll_item_t *current = list->head;
-
-  while (current != NULL) {
-    void *data_copy = dmalloc(sizeof(current->data)); // Assuming data is a pointer
-    memcpy(data_copy, current->data, sizeof(current->data));
-    add_to_list(new_list, data_copy);
-    current = current->next;
-  }
-  return new_list;
-}
