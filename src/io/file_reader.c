@@ -1,5 +1,5 @@
-#include "../include/file_reader.h"
-#include "../include/utf8_tools.h"
+#include "file_reader.h"
+#include "utf8_tools.h"
 
 #include <stdio.h>
 #include <sys/types.h>

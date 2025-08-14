@@ -1,11 +1,9 @@
-#include "../include/CSV_reader.h"
-#include "../include/file_writer.h"
+#include "CSV_reader.h"
+#include "file_writer.h"
 
-#include "../include/hash_table.h"
+#include "hash_table.h"
 #include <assert.h>
 #include <fcntl.h>
-#include <gsl/gsl_randist.h>
-#include <gsl/gsl_rng.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

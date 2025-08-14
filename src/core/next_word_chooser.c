@@ -1,12 +1,10 @@
-#include "../include/next_word_chooser.h"
+#include "next_word_chooser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <gsl/gsl_randist.h>
-#include <gsl/gsl_rng.h>  
-#include "../include/utils.h"
-#include "../include/utf8_tools.h"
-#include "../include/next_word.h" 
+#include "utils.h"
+#include "utf8_tools.h"
+#include "next_word.h"
 
 next_word_chooser_t *create_next_word_chooser(hash_table_t *table) {
   if (table == NULL) {
@@ -19,9 +17,7 @@ next_word_chooser_t *create_next_word_chooser(hash_table_t *table) {
   chooser->table = table;
 
   // Initialize the random number generator
-  gsl_rng_env_setup();
-  chooser->rng = gsl_rng_alloc(gsl_rng_default);
-  gsl_rng_set(chooser->rng, time(NULL)); // Seed with current time
+  srand((unsigned int)time(NULL));
 
   return chooser;
 }
@@ -49,15 +45,16 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
     return NULL;
   }
   int num_next_words = get_list_size((linked_list_t *)item->value);
-  gsl_ran_discrete_t *distribution =
-      gsl_ran_discrete_preproc(num_next_words, probabilities);
-  if (distribution == NULL) {
-    fprintf(stderr, "Failed to create discrete distribution\n");
-    free(probabilities);
-    return NULL;
+  double r = (double)rand() / RAND_MAX;
+  double cumulative = 0.0;
+  int chosen_index = 0;
+  for (int i = 0; i < num_next_words; i++) {
+    cumulative += probabilities[i];
+    if (r <= cumulative) {
+      chosen_index = i;
+      break;
+    }
   }
-  int chosen_index = gsl_ran_discrete(chooser->rng, distribution);
-  gsl_ran_discrete_free(distribution);
   free(probabilities);
   ll_item_t *current = ((linked_list_t *)item->value)->head;
   for (int i = 0; i < chosen_index && current != NULL; i++) {
@@ -78,9 +75,6 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
 void next_word_chooser_free(next_word_chooser_t *chooser) {
   if (chooser == NULL) {
     return;
-  }
-  if (chooser->rng != NULL) {
-    gsl_rng_free(chooser->rng); // Free the random number generator
   }
   free(chooser); // Free the chooser structure
 }

@@ -1,5 +1,5 @@
-#include "../include/ht_item.h"
-#include "../include/utils.h"
+#include "ht_item.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 

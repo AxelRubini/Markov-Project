@@ -2,8 +2,8 @@
 // ----------------------------------------------------------------------
 // ADAPTER: DICHIARAZIONI (allinea qui le firme alle tue funzioni reali)
 #define _POSIX_C_SOURCE 200809L
-#include "../include/CSV_reader.h"
-#include "../include/file_writer.h"
+#include "CSV_reader.h"
+#include "file_writer.h"
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>

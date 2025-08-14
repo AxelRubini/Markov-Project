@@ -1,7 +1,7 @@
-#include "../include/CSV_writer.h"
+#include "CSV_writer.h"
 
-#include "../include/ht_data_manipulation.h"
-#include "../include/utils.h"
+#include "ht_data_manipulation.h"
+#include "utils.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>

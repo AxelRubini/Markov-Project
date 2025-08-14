@@ -1,7 +1,7 @@
-#include "../include/hash_table.h"
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
-#include "../include/word.h"
+#include "hash_table.h"
+#include "utf8_tools.h"
+#include "utils.h"
+#include "word.h"
 
 #include <stdio.h>
 #include <string.h>

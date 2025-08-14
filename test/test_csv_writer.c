@@ -1,7 +1,7 @@
-#include "../include/CSV_writer.h"
-#include "../include/file_reader.h"
-#include "../include/hash_table.h"
-#include "../include/word.h"
+#include "CSV_writer.h"
+#include "file_reader.h"
+#include "hash_table.h"
+#include "word.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>

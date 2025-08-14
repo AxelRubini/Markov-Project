@@ -1,5 +1,5 @@
-#include "../include/utf8_tools.h"
-#include "../include/utils.h"
+#include "utf8_tools.h"
+#include "utils.h"
 #include <stdio.h>
 #include <unistd.h>
 

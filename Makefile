@@ -3,8 +3,9 @@ TARGET = Markov_First
 
 # ---------------------------  Compiler & Flags -------------------------
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3
-LDLIBS = -lm -lgsl -lgslcblas
+CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3 \
+          -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core
+LDLIBS = -lm
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = src
@@ -13,8 +14,8 @@ BUILD_DIR = build
 TEST_DIR  = test            # test code lives here
 
 # ---------------------------  Sources & Objects ------------------------
-# Wildcard all .c files in the source directory
-SRC      = $(wildcard $(SRC_DIR)/*.c)
+# Discover all source files recursively
+SRC      = $(shell find $(SRC_DIR) -name '*.c')
 OBJ      = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 
 # ---------------------------  Default ---------------------------------
@@ -24,13 +25,14 @@ all: $(TARGET)
 # ---------------------------  Link -------------------------------------
 $(TARGET): $(BUILD_DIR) $(OBJ)
 	@echo "Linking $@..."
-	@$(CC) $(OBJ) $(LDFLAGS) -o $@
+	@$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 	@echo "Build completed: $@"
 
 # ---------------------------  Compile ----------------------------------
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	@mkdir -p $(dir $@)
 	@echo "Compiling $<..."
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@ $(LDLIBS)
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 # ---------------------------  Build Dir --------------------------------
 $(BUILD_DIR):
