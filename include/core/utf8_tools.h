@@ -1,148 +1,128 @@
 #ifndef UTF8_TOOLS_H
 #define UTF8_TOOLS_H
-/*
- * This header file provides functions for reading and writing UTF-8 encoded
- * characters. functions like strcopy,strcmp can be used to manipulate UTF-8
- * strings, because they read and compare bytes.
- */
 #include <stdint.h>
 #include "utils.h"
 
 // error codes for UTF-8 reading bad formats
 #define UTF8_ERROR (-2)
 
-/*
- * The function is a substitute for getchar() that reads a UTF-8 encoded
- * character from the standard input. returns the Unicode of the character read,
- * or UTF8_ERROR if the input is not a valid UTF-8 sequence.
- * */
+/**
+ * @brief Read a UTF-8 code point from stdin.
+ *
+ * @return Code point, EOF on end, or UTF8_ERROR on malformed input.
+ */
 int utf8_getchar(void);
-/*
- * The function reads from the specified file descriptor and returns a Unicode
- * codepoint and the number of bytes readed.
+
+/**
+ * @brief Read a UTF-8 code point from a descriptor.
+ *
+ * @param fd File descriptor.
+ * @param bytes_read Output byte count.
+ * @return Code point, EOF on end, or UTF8_ERROR on malformed input.
  */
 int utf8_getchar_fd(int fd, int *bytes_read);
 
-/*
- * the function reads a UTF-8 encoded character from a buffer and returns the
- * Unicode codepoint of the character. It updates the offset to reflect the new
- * position in the buffer.
- * parameters:
- * buf: pointer to the buffer containing the UTF-8 encoded character
- * offset: pointer to an integer that will be updated with the new offset
- * returns: the Unicode codepoint of the character, or -1 if the character is not
- * a valid UTF-8 character.
+/**
+ * @brief Fetch a UTF-8 code point from a buffer at an offset.
+ *
+ * @param buf Byte buffer.
+ * @param offset In/out offset.
+ * @return Code point, EOF on end, or UTF8_ERROR on malformed input.
  */
 int utf8_getchar_from_buf(const u8 *buf, size_t *offset);
 
-/*
- * the function reads a Unicode codepoint and encodes it as a UTF-8 sequence,
- * and writes it to the specified file descriptor/ fd: file descriptor to write
- * to codepoint: the Unicode codepoint to encode
+/**
+ * @brief Write a Unicode code point to a descriptor in UTF-8.
+ *
+ * @param codepoint Unicode code point.
+ * @param fd Destination descriptor.
  */
 void utf8_putchar(int codepoint, int fd);
 
-/*
- * The function reads a UTF-8 codepoint and returns the lowercase equivalent
- * If the codepoint does not have a lowercase equivalent, it returns the
- * original codepoint.
+/**
+ * @brief Convert a code point to lowercase.
+ *
+ * @param codepoint Input code point.
+ * @return Lowercase code point.
  */
 int utf8_char_to_lower(int codepoint);
 
-/*
- * The function reads a UTF-8 codepoint and returns the uppercase equivalent
- * If the codepoint does not have an uppercase equivalent, it returns the
- * original codepoint.
+/**
+ * @brief Convert a code point to uppercase.
+ *
+ * @param codepoint Input code point.
+ * @return Uppercase code point.
  */
 int utf8_char_to_upper(int codepoint);
 
-/*
- * the function takes a UTF-8 encoded word (array of codepoints) and prints it 
- * to the specified file descriptor.
- * parameters:
- * word: pointer to the first codepoint of the word (integer array)
- * fd: file descriptor to write to
- * NOTE: the function does not add a newline at the end of the word
+/**
+ * @brief Print a UTF-8 word to a descriptor.
+ *
+ * @param word Array of code points terminated by 0.
+ * @param fd Destination descriptor.
  */
-
 void utf8_print_word(const int *word, int fd);
 
-/*
- * The function takes a UTF-8 encoded word (array of codepoints) and converts
- * it to lowercase.
- * it returns a new allocated array of codepoints representing the lowercase
- * version of the word
- * NOTE: the function put the null terminator at the end of the word
- * NOTE: the original word memory is freed by the function
+/**
+ * @brief Convert a word to lowercase and free the original.
+ *
+ * @param word Array of code points.
+ * @param word_length Number of code points including terminator.
+ * @return Newly allocated lowercase word or NULL on error.
  */
-
 int *utf8_word_to_lower(const int *word, int word_length);
 
-/*
- * The function takes a Unicode codepoint and appends it to the provided buffer
- * in UTF-8 encoding. It updates the offset to reflect the new position in the
- * buffer.
- * parameters:
- * codepoint: the Unicode codepoint to append
- * buffer: pointer to the buffer where the UTF-8 sequence will be written
- * offset: pointer to an integer that will be updated with the new offset
- * returns: the number of bytes written to the buffer
+/**
+ * @brief Append a code point to a UTF-8 buffer.
+ *
+ * @param codepoint Code point to append.
+ * @param buffer Destination buffer.
+ * @param offset In/out byte offset.
  */
 void utf8_append_char(unsigned int codepoint, char *buffer, int *offset);
 
-
-/*
- * The function compares two UTF-8 encoded strings (arrays of codepoints) and
- * returns an integer less than, equal to, or greater than zero if the first 
- * string is found.
- * less than = Not equal
- * equal to = Match
- * greater than = Not equal
- * Parameters:
- * str1: pointer to the first codepoint of the first string (integer array)
- * str2: pointer to the first codepoint of the second string (integer array)
- * Returns: an integer indicating the result of the comparison
+/**
+ * @brief Compare two UTF-8 strings.
+ *
+ * @param str1 First string of code points.
+ * @param str2 Second string of code points.
+ * @return 0 if equal, non-zero otherwise.
  */
 int utf8_strcmp(const int *str1, const int *str2);
 
-
-/*
- * The function creates a deep copy of a UTF-8 encoded string (array of codepoints).
- * It allocates new memory for the copied string and returns a pointer to it.
- * Parameters:
- * str: pointer to the first codepoint of the original string (integer array)
- * Returns: a pointer to the newly allocated copy of the string
+/**
+ * @brief Deep copy a UTF-8 string.
+ *
+ * @param str Source string of code points.
+ * @return Newly allocated copy or NULL on error.
  */
 int *utf8_str_deepcopy(const int *str);
 
-/*
-* The function returns the codepoint of UTF-8 encoded character in a buffer.
-* prameters:
-* buffer: pointer to the buffer containing the UTF-8 encoded character
-* offset: pointer to an integer that will be updated with the new offset
-* returns: the Unicode codepoint of the character, or -1 if the character is not
-* a valid UTF-8 character.
-*/
+/**
+ * @brief Extract a code point from a raw UTF-8 buffer.
+ *
+ * @param buffer Byte buffer.
+ * @param offset In/out offset.
+ * @return Code point or -1 on error.
+ */
 int utf8_get_codepoint(const char *buffer, int *offset);
 
-/*
-* The function get an array of codepoints and writes raw UTF-8 bytes to a buffer.
-* It returns the number of bytes written to the buffer.
-* Parameters:
-* word: pointer to the first codepoint of the word (integer array)
-* buffer: pointer to the buffer where the UTF-8 sequence will be written
-*/
+/**
+ * @brief Encode code points into raw UTF-8 bytes.
+ *
+ * @param word Array of code points.
+ * @param buf Output byte buffer.
+ * @return Bytes written or -1 on error.
+ */
 int utf8_cp_to_rawbytes(const int *word, u8 *buf);
 
-/*
- * Utility helpers for classifying code points.
- * Returns non-zero if the code point represents punctuation that should be
- * ignored when parsing words.
+/**
+ * @brief Return non-zero if code point is ignorable punctuation.
  */
 int is_punctuation(int cp);
 
-/*
- * Returns non-zero if the code point terminates a sentence (e.g. '.', '?', '!').
+/**
+ * @brief Return non-zero if code point terminates a sentence.
  */
 int is_sentence_terminator(int cp);
 

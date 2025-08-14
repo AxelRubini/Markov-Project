@@ -76,7 +76,7 @@ int word_str_cmp(const int *word, const int *str) {
 
   int *lower_word = utf8_word_to_lower(word, MAX_WORD_LENGTH);
   int *lower_str = utf8_word_to_lower(str, MAX_WORD_LENGTH);
-  if (!lower_word || !lower_str) { /* gestione minima errore */
+  if (!lower_word || !lower_str) { /* minimal error handling */
     if (lower_word)
       free(lower_word);
     if (lower_str)
@@ -190,6 +190,11 @@ void ht_item_free_word(ht_item *item) {
   free(item);
 }
 
+/**
+ * @brief Free a linked list of follower words.
+ *
+ * @param list List to free.
+ */
 static void word_followers_free_list(linked_list_t *list) {
   if (list == NULL) {
     fprintf(stderr, "List is NULL\n");
@@ -213,6 +218,12 @@ int word_hashtable_keycmp(const void *key1, const void *key2) {
   return wordcmp((const word_t *)key1, (const word_t *)key2);
 }
 
+/**
+ * @brief Create a deep copy of a word.
+ *
+ * @param original Source word.
+ * @return Newly allocated copy or NULL on error.
+ */
 static word_t *word_deep_copy(const word_t *original) {
   if (!original || !original->word) {
     return NULL;

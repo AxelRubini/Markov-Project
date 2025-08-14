@@ -153,7 +153,7 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap) {
     ssize_t st = read_all(fd, &be_len, sizeof(be_len));
 
     if (st == 0) return 0;                    // EOF
-    if (st < (ssize_t)sizeof(be_len)) return 0;        // EOF parziale
+    if (st < (ssize_t)sizeof(be_len)) return 0;        // partial EOF
     if (st < 0) return -1;                    // Errore
     
     uint32_t n = ntohl(be_len);
@@ -169,7 +169,7 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap) {
     
     if (need == 0) {
         (*buf)[0] = '\0';
-        return 0;  // Frame vuoto
+        return 0;  // empty frame
     }
     
     st = read_all(fd, *buf, need);

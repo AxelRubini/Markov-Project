@@ -26,26 +26,20 @@ enum read_nxt_word_st_t{
 };
 
 /**
- * The CSV_line_parser is responsible for parsing a single line from a CSV file
- * and creating a hash table item from it. It provides methods to create a CSV
- * line from a hash table item and to read a CSV line from a file descriptor.
- */
-
-/*
- *  This function extracts the key from a CSV line.
- *  because is the first word in the line.
- *  @param line The CSV line to parse.
- *  @param key Pointer to an integer where the key will be stored.
- *  @return the offset to offset to start reading the next words
- *  or -1 if an error occurs.
+ * @brief Extract the key from a CSV line.
+ *
+ * @param line NUL-terminated CSV line.
+ * @param key Output buffer for the key as code points.
+ * @return Offset after the key or -1 on error.
  */
 ssize_t get_key_from_line(const char *line, int *key);
-/*
- * This function extracts the next words from a CSV line.
- * It starts reading from the given offset and returns a linked list of next words.
- * @param line The CSV line to parse.
- * @param offset Pointer to an integer that will be updated with the new offset.
- * @return A linked list containing the next words, or NULL if an error occurs.
+
+/**
+ * @brief Parse next words and probabilities from a CSV line.
+ *
+ * @param line NUL-terminated CSV line.
+ * @param offset In/out byte offset to continue parsing.
+ * @return Linked list of next_word_t or NULL on error.
  */
 linked_list_t *get_next_words_from_line(const char *line, size_t *offset);
 

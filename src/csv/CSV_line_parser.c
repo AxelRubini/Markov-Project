@@ -175,7 +175,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
       }
 
       if (ch == ',') {
-        // Fine della probabilità, crea next_word e continua
+        // end of probability; create next_word and continue
         if (p_index == 0) {
           fprintf(stderr, "Empty probability encountered in line\n");
           state = READING_PROBABILITY_ERROR;
@@ -199,7 +199,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         }
         add_to_list(next_words, next_word);
 
-        // Reset per la prossima coppia parola-probabilità
+        // reset for next word-probability pair
         w_index = 0;
         p_index = 0;
         memset(word, 0, sizeof(word));
@@ -208,7 +208,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         break;
       }
 
-      // Aggiungi carattere alla stringa probabilità
+      // append character to probability string
       if (p_index >= FLOATING_POINT_CHAR_SPACE - 1) {
         fprintf(stderr, "Probability string exceeds maximum length in line\n");
         state = READING_PROBABILITY_ERROR;

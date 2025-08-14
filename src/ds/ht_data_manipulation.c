@@ -13,18 +13,18 @@ int create_csv_line(ht_item *item, char *buffer) {
   const int *word = key->word;
   const linked_list_t *next_words = (const linked_list_t *)item->value;
   
-  // Controllo di sicurezza
+  // sanity check
   if (!key || !word || !next_words) {
     fprintf(stderr, "Invalid item structure\n");
     return -1;
   }
   
-  // Scrivi la parola chiave
+  // write key word
   for (int i = 0; word[i] != '\0'; i++) {
     utf8_append_char(word[i], buffer, &offset);
   }
   
-  // Se non ci sono parole successive, termina solo con la chiave
+  // if no next words, terminate after key
   if (!next_words->head) {
     fprintf(stderr, "No next words found for key\n");
     buffer[offset++] = '\n'; // Newline at the end
@@ -32,9 +32,9 @@ int create_csv_line(ht_item *item, char *buffer) {
     return -1;
   }
   
-  buffer[offset++] = ','; // Virgola dopo la parola chiave
+  buffer[offset++] = ','; // comma after key
   
-  // Processa tutti gli elementi della lista
+  // process all list elements
   ll_item_t *current = next_words->head;
   while (current) {
     const word_t *next_word = (const word_t *)current->data;
@@ -47,19 +47,19 @@ int create_csv_line(ht_item *item, char *buffer) {
     
     const int *next_word_codepoints = next_word->word;
     
-    // Scrivi la parola successiva
+    // write next word
     for (int j = 0; next_word_codepoints[j] != '\0'; j++) {
       utf8_append_char(next_word_codepoints[j], buffer, &offset);
     }
     
-    buffer[offset++] = ','; // Virgola dopo la parola
+    buffer[offset++] = ','; // comma after word
     
-    // Calcola e scrivi la probabilità
+    // compute and write probability
     double probability = next_word_probability(&key->occurrences, &next_word->occurrences);
     if (probability < 0.0 || probability > 1.0) {
       fprintf(stderr, "Invalid probability value: %f\n", probability);
-      probability = 0.0; // Imposta a zero se la probabilità è fuori i limiti
-      return -1; // Indica errore
+      probability = 0.0; // clamp out-of-range probability
+      return -1; // signal error
     } 
     char prob_str[FLOATING_POINT_CHAR_SPACE];
     snprintf(prob_str, FLOATING_POINT_CHAR_SPACE, "%.6f", probability);
@@ -70,14 +70,14 @@ int create_csv_line(ht_item *item, char *buffer) {
     
     current = current->next;
     
-    // Se non è l'ultimo elemento, aggiungi virgola
+    // add comma if not last element
     if (current) {
       buffer[offset++] = ',';
     }
   }
   
-  buffer[offset++] = '\n'; // Newline alla fine
-  buffer[offset] = '\0';   // Null-terminate
+  buffer[offset++] = '\n'; // newline at end
+  buffer[offset] = '\0';   // null-terminate
   return 0;
 }
 /*

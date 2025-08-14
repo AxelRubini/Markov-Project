@@ -1,11 +1,6 @@
 #ifndef CSV_READER_H
 #define CSV_READER_H
 
-/*
- * The CSV_reader is responsible for reading a CSV file and populating a hash
- * table with the data. It provides methods to read a CSV file, parse its
- * contents, and store the data in a hash table.
- */
 
 #include "hash_table.h"
 #include "ht_item.h"
@@ -20,36 +15,37 @@
 #include <sys/types.h>
 
 /**
- * @Reads a line from the CSV file and populates the hash table with the data.
+ * @brief Read a line from a CSV descriptor.
  *
- * @param fd The file descriptor of the CSV file.
- * @param table The hash table to populate with the data.
- * @return csv_status_t indicating the status of the operation.
+ * @param fd CSV file descriptor.
+ * @param buf Pointer to a reusable buffer; reallocated if needed.
+ * @param cap Pointer to current buffer capacity.
+ * @return Bytes read, 0 on EOF, or -1 on error.
  */
 ssize_t read_csv_line(int fd, char **buf, size_t *cap);
+
 /**
- * Reads a CSV file from the given file descriptor and populates a hash table
- * with the data.
+ * @brief Populate a hash table by reading a CSV file.
  *
- * @param fd The file descriptor of the CSV file.
- * @return A pointer to the populated hash table, or NULL on error.
+ * @param fd CSV file descriptor.
+ * @return Populated hash table or NULL on error.
  */
 hash_table_t *read_csv_file_sp(int fd);
+
 /**
- * Publishes a line from the input file descriptor to the output file descriptor.
- * It reads a line from the input, parses it, and writes the result to the output.
+ * @brief Forward a parsed CSV line from one descriptor to another.
  *
- * @param in_fd The input file descriptor to read from.
- * @param out_fd The output file descriptor to write to.
- * @return 0 on success, or -1 on error.
+ * @param in_fd Source descriptor.
+ * @param out_fd Destination descriptor.
+ * @return 0 on success, -1 on error.
  */
 int publish_line_on_pipe(int in_fd, int out_fd);
 
 /**
- * Reads lines from a pipe and populates a hash table with the data.
+ * @brief Build a hash table from CSV lines read on a pipe.
  *
- * @param in_fd The file descriptor of the input pipe.
- * @return A pointer to the populated hash table, or NULL on error.
+ * @param in_fd Source pipe descriptor.
+ * @return Populated hash table or NULL on error.
  */
 hash_table_t *read_lines_from_pipe(int in_fd);
 

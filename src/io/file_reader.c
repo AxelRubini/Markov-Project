@@ -21,30 +21,29 @@ hash_table_t *build_word_hashtable_fd(int fd) {
   int current_word[MAX_WORD_LENGTH] = {0}; // buffer for the current word
   int next_word[MAX_WORD_LENGTH] = {0};    // buffer for the next word
 
-  // memory for first word
+  // buffer for first word
   int first_word[MAX_WORD_LENGTH] = {0};
-
-  // Leggi la prima parola
+  // read initial word
   move_cursor_to_next_word(fd);
   int status = f_get_next_word(fd, current_word);
 
   if (status == 1) {
-    // File vuoto
+    // empty file
     return table;
   }
   if (status == -1) {
-    // Errore nella lettura
+    // read error
     free_hash_table(table);
     return NULL;
   }
 
   memcpy(first_word, current_word, sizeof(current_word));
 
-  // Loop principale per leggere coppie di parole
+  // main loop to read word pairs
   while (1) {
-    // Verifica che current_word sia valida
+    // ensure current_word is valid
     if (current_word[0] == 0) {
-      // Parola vuota, prova a leggere la prossima
+      // empty word, attempt to read next
       move_cursor_to_next_word(fd);
       status = f_get_next_word(fd, current_word);
       if (status != 0)
@@ -52,11 +51,11 @@ hash_table_t *build_word_hashtable_fd(int fd) {
       continue;
     }
 
-    // Crea word_t per current_word
+    // create word_t for current_word
     word_t *word = create_word(current_word);
     if (word == NULL) {
       fprintf(stderr, "Failed to create word from current_word\n");
-      // Prova a continuare con la prossima parola
+      // skip and try next word
       move_cursor_to_next_word(fd);
       status = f_get_next_word(fd, current_word);
       if (status != 0)
@@ -64,7 +63,7 @@ hash_table_t *build_word_hashtable_fd(int fd) {
       continue;
     }
 
-    // Leggi la parola successiva
+    // read the following word
     move_cursor_to_next_word(fd);
     int next_status = f_get_next_word(fd, next_word);
 
@@ -88,16 +87,16 @@ hash_table_t *build_word_hashtable_fd(int fd) {
     }
 
     if (next_status == -1) {
-      // Errore nella lettura della parola successiva
+      // error reading following word
       free_word(word);
       break;
     }
 
-    // Verifica che next_word sia valida
+    // ensure next_word is valid
     if (next_word[0] == 0) {
-      // Parola successiva vuota, libera current_word e continua
+      // empty next word, discard current and continue
       free_word(word);
-      // Sposta current_word per il prossimo ciclo
+      // move current_word forward for next iteration
       memset(current_word, 0, sizeof(current_word));
       move_cursor_to_next_word(fd);
       status = f_get_next_word(fd, current_word);
@@ -106,30 +105,30 @@ hash_table_t *build_word_hashtable_fd(int fd) {
       continue;
     }
 
-    // Crea word_t per next_word
+    // create word_t for next_word
     word_t *next_word_obj = create_word(next_word);
     if (next_word_obj == NULL) {
       fprintf(stderr, "Failed to create next word from next_word\n");
       free_word(word);
-      // Copia next_word in current_word per il prossimo ciclo
+      // copy next_word into current_word for next iteration
       memcpy(current_word, next_word, sizeof(current_word));
       continue;
     }
 
-    // Crea e inserisci l'item nella hash table
+    // create and insert item into hash table
     ht_item *item = word_ht_item_create(word, next_word_obj);
     if (item == NULL) {
       fprintf(stderr, "Failed to create hash table item\n");
       free_word(word);
       free_word(next_word_obj);
-      // Copia next_word in current_word per il prossimo ciclo
+      // copy next_word into current_word for next iteration
       memcpy(current_word, next_word, sizeof(current_word));
       continue;
     }
 
     ht_insert(table, item);
 
-    // Prepara per il prossimo ciclo: next_word diventa current_word
+    // prepare for next iteration: next_word becomes current_word
     memcpy(current_word, next_word, sizeof(current_word));
     memset(next_word, 0, sizeof(next_word));
   }
@@ -146,84 +145,83 @@ int f_get_next_word(int fd, int *word_buffer) {
   int index = 0;
   int cp;
 
-  // Prima salta spazi e punteggiatura ignorabile
+  // skip spaces and ignorable punctuation
   while ((cp = utf8_getchar_fd(fd, &bytes_read)) != EOF) {
     if (cp == UTF8_ERROR) {
       fprintf(stderr, "Error reading UTF-8 character\n");
       return -1;
     }
 
-    // Se troviamo spazi o newline, continuiamo
+    // skip spaces or newline
     if (cp == ' ' || cp == '\n') {
       continue;
     }
 
-    // Se troviamo punteggiatura da ignorare, continuiamo
+    // skip punctuation
     if (is_punctuation(cp)) {
       continue;
     }
 
-    // Se troviamo terminatori di frase, li restituiamo come parole singole
+    // sentence terminators become standalone words
     if (cp == '.' || cp == '?' || cp == '!') {
       word_buffer[index++] = cp;
       word_buffer[index] = 0;
       return 0;
     }
 
-    // Primo carattere valido di una parola normale
+    // first valid character of a word
     word_buffer[index++] = cp;
     break;
   }
 
-  // Se abbiamo raggiunto EOF senza trovare caratteri
+  // EOF without any character
   if (cp == EOF) {
     if (index == 0) {
       return 1; // EOF
     }
   }
 
-  // Continua a leggere il resto della parola
+  // read rest of the word
   while ((cp = utf8_getchar_fd(fd, &bytes_read)) != EOF) {
     if (cp == UTF8_ERROR) {
       fprintf(stderr, "Error reading UTF-8 character\n");
       return -1;
     }
 
-    // Se incontriamo uno spazio, fine parola
+    // stop on space or newline
     if (cp == ' ' || cp == '\n') {
       break;
     }
 
-    // Se incontriamo terminatori di frase, torniamo indietro e finiamo la
-    // parola
+    // stop on sentence terminator and rewind
     if (cp == '.' || cp == '?' || cp == '!') {
       lseek(fd, -bytes_read, SEEK_CUR);
       break;
     }
 
-    // Se incontriamo un apostrofo, torniamo indietro e finiamo la parola
+    // stop at apostrophe
     if (cp == '\'') {
-      word_buffer[index++] = cp; // Aggiungi l'apostrofo alla parola
-      word_buffer[index] = 0;    // Null-terminate
-      return 0;                  // Fine della parola
+      word_buffer[index++] = cp; // keep apostrophe
+      word_buffer[index] = 0;    // null-terminate
+      return 0;                  // word complete
     }
 
-    // Se incontriamo punteggiatura da ignorare, la saltiamo
+    // skip ignorable punctuation
     if (is_punctuation(cp)) {
       continue;
     }
 
-    // Controlla lunghezza massima
+    // enforce maximum length
     if (index >= MAX_WORD_LENGTH - 1) {
       fprintf(stderr, "Word exceeds maximum length\n");
       return -1;
     }
 
-    // Aggiungi carattere alla parola
+    // append character
     word_buffer[index++] = cp;
   }
 
-  word_buffer[index] = 0; // Null-terminate
+  word_buffer[index] = 0; // null-terminate
   return 0;
 }
 
@@ -232,24 +230,23 @@ void move_cursor_to_next_word(int fd) {
   int bytes_read = 0;
 
   while ((cp = utf8_getchar_fd(fd, &bytes_read)) != EOF) {
-    // Errore nella lettura UTF-8 → avanza di 1 byte e continua
+    // on UTF-8 error advance one byte and continue
     if (cp == UTF8_ERROR) {
       lseek(fd, 1, SEEK_CUR);
       continue;
     }
 
-    // Spazi o newline → continua avanzando
+    // skip spaces or newline
     if (cp == ' ' || cp == '\n') {
       continue;
     }
 
-    // Punteggiatura da scartare → continua avanzando
+    // skip punctuation
     if (is_punctuation(cp)) {
       continue;
     }
 
-    // Primo carattere valido → torna indietro e lascia che lo legga
-    // f_get_next_word
+    // rewind to let f_get_next_word read first valid character
     lseek(fd, -bytes_read, SEEK_CUR);
     return;
   }

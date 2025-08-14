@@ -9,6 +9,13 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+/**
+ * @brief Convert raw UTF-8 bytes to code points.
+ *
+ * @param bytes Input byte buffer.
+ * @param len Number of bytes in buffer.
+ * @return Newly allocated array of code points or NULL on error.
+ */
 int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
     if (!bytes || len == 0) {
         return NULL;
@@ -34,6 +41,12 @@ int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
     return word;
 }
 
+/**
+ * @brief Compute length of a code-point word.
+ *
+ * @param word Null-terminated code-point array.
+ * @return Length in code points or -1 on error.
+ */
 int calcuate_len_frame(const int *word) {
   if (word == NULL) {
     fprintf(stderr, "Invalid word pointer\n");
@@ -46,6 +59,13 @@ int calcuate_len_frame(const int *word) {
   return len;
 }
 
+/**
+ * @brief Read a word from a UTF-8 byte buffer.
+ *
+ * @param buf Source buffer.
+ * @param offset In/out byte offset.
+ * @return Newly allocated word or NULL on error.
+ */
 int *utf8_read_word_from_buf(const u8 *buf, size_t *offset) {
   if (!buf || !offset) {
     fprintf(stderr, "Invalid arguments to utf8_create_word_from_buf\n");
@@ -75,6 +95,12 @@ int *utf8_read_word_from_buf(const u8 *buf, size_t *offset) {
 
   return word;
 }
+/**
+ * @brief Check if word is a sentence terminator.
+ *
+ * @param word Code-point word.
+ * @return Non-zero if word is '.', '!' or '?'.
+ */
 int is_last_terminator(const int *word) {
   if (word == NULL) {
     fprintf(stderr, "Word is NULL\n");
