@@ -282,3 +282,11 @@ int utf8_cp_to_rawbytes(const int *word, u8 *buf) {
   return offset; // Return the number of bytes written
 
 }
+
+int is_punctuation(int cp) {
+  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"');
+}
+
+int is_sentence_terminator(int cp) {
+  return (cp == '.' || cp == '?' || cp == '!');
+}

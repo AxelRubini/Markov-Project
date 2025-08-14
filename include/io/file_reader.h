@@ -20,7 +20,6 @@
 
 hash_table_t *build_word_hashtable_fd(int fd);
 int f_get_next_word(int fd, int *word_buffer);
-static int is_punctuation(const int cp);
 void move_cursor_to_next_word(int fd);
 
 #endif // FILE_READER_H

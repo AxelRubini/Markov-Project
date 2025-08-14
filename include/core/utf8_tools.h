@@ -134,6 +134,18 @@ int utf8_get_codepoint(const char *buffer, int *offset);
 */
 int utf8_cp_to_rawbytes(const int *word, u8 *buf);
 
+/*
+ * Utility helpers for classifying code points.
+ * Returns non-zero if the code point represents punctuation that should be
+ * ignored when parsing words.
+ */
+int is_punctuation(int cp);
+
+/*
+ * Returns non-zero if the code point terminates a sentence (e.g. '.', '?', '!').
+ */
+int is_sentence_terminator(int cp);
+
 
 
 
