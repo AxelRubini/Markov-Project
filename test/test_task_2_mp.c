@@ -104,6 +104,8 @@ static int child_p3(int rfd23, const char *out_path, size_t *out_count) {
 }
 
 int main(int argc, char **argv) {
+  (void)argc;
+  (void)argv;
   const char *in_csv = "test_files/out_test_reader_utf8.csv";
   const char *out_txt = "test_files/out_test_writer_mp.txt";
   size_t max_items = 100;

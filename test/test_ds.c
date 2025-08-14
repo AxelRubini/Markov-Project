@@ -105,6 +105,7 @@ static void test_ht_table_basic(void) {
  *   1) primitive types via default_update_value
  *   2) word follower logic via update_ht_item_value
  * -----------------------------------------------------*/
+static void test_ht_item_update_value(void) __attribute__((unused));
 static void test_ht_item_update_value(void) {
   /* --- 1. Primitive <char*,int> pair ---------------------------------- */
   char *pkey = dmalloc(4); /* "foo" */

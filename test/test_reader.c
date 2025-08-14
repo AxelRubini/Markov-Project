@@ -29,13 +29,12 @@ int main() {
   // Riavvolgi file e costruisci hash table
   lseek(fd, 0, SEEK_SET);
   hash_table_t *table = build_word_hashtable_fd(fd);
-  int fd1 = open("test_files/out_test_reader_utf8.txt",
-                 O_WRONLY | O_CREAT | O_TRUNC, 0644);
   if (table) {
     printf("\n=== Hash table parole ===\n");
 //    print_hash_table(table,
- //                    STDOUT_FILENO); // stampa usando la tua funzione di stampa
-  //  print_hash_table(table, fd1);
+//                    STDOUT_FILENO); // stampa usando la tua funzione di stampa
+//    int fd1 = open("test_files/out_test_reader_utf8.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+//    print_hash_table(table, fd1);
     free_hash_table(table);
   }
 

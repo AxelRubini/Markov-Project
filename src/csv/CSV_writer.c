@@ -138,7 +138,7 @@ int csv_line_send(int fd, const hash_table_t *ht) {
 
       // Ensure line ends with newline if not already present
       if (line_length > 0 && buffer[line_length - 1] != '\n') {
-        if (line_length < buf_sz - 1) {
+        if (line_length < (size_t)(buf_sz - 1)) {
           buffer[line_length] = '\n';
           buffer[line_length + 1] = '\0';
           line_length++;

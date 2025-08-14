@@ -142,15 +142,15 @@ int ht_remove(hash_table_t *table, const void *key) {
       }
       if (it->free_item) {
         it->free_item(it);
-        free(current);
-        table->count--;
-        return 1; /* Removed. */
       }
-      previous = current;
-      current = current->next;
+      free(current);
+      table->count--;
+      return 1; /* Removed. */
     }
-    return 0; /* Not found. */
+    previous = current;
+    current = current->next;
   }
+  return 0; /* Not found. */
 }
 
 void free_hash_table(hash_table_t *table) {
