@@ -150,10 +150,10 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap) {
     }
     
     uint32_t be_len = 0;
-    int st = read_all(fd, &be_len, sizeof(be_len));
-    
+    ssize_t st = read_all(fd, &be_len, sizeof(be_len));
+
     if (st == 0) return 0;                    // EOF
-    if (st < sizeof(be_len)) return 0;        // EOF parziale
+    if (st < (ssize_t)sizeof(be_len)) return 0;        // EOF parziale
     if (st < 0) return -1;                    // Errore
     
     uint32_t n = ntohl(be_len);
@@ -173,8 +173,8 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap) {
     }
     
     st = read_all(fd, *buf, need);
-    if (st < need) return -1;  // Dati incompleti = errore
     if (st < 0) return -1;     // Errore
+    if ((size_t)st < need) return -1;  // Dati incompleti = errore
     
     (*buf)[need] = '\0';
     return (ssize_t)need;

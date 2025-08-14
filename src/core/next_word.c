@@ -21,8 +21,6 @@ next_word_t *create_next_word(const int *word, double probability) {
   }
   next_word->word = word_copy;
   next_word->probability = probability;
-  double test_sum = next_word->probability + 1;
-  fflush(stdout);
 
   return next_word;
 }

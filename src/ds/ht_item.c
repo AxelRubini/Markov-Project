@@ -9,10 +9,12 @@ void default_update_value(const void *item, const void *new_value) {
     return;
   }
   ht_item *htItem = (ht_item *)item;
-  htItem->value = new_value; // Update the value directly
+  htItem->value = (void *)new_value; // Update the value directly
 }
 
 void default_print_ht_item(const ht_item *item, int fd) {
+  (void)item;
+  (void)fd;
   printf("Need to be implemented for the specific item type\n");
 }
 

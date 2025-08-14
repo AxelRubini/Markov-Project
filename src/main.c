@@ -19,6 +19,8 @@ static int stage1_reader_task1(int input_fd, int out_fd) {
 }
 
 static int stage2_builder_task1(int in_fd, int out_fd) {
+  (void)in_fd;
+  (void)out_fd;
   // TODO: parse tokens from in_fd, build hash table, write CSV to out_fd
   return 0;
 }
@@ -37,6 +39,8 @@ static int stage1_reader_task2(int input_csv_fd, int out_fd) {
 static int stage2_generator_task2(int in_fd, int out_fd, int words_to_gen,
                                   const char *prev_word) {
   // TODO: rebuild distribution from CSV read on in_fd, generate to out_fd
+  (void)in_fd;
+  (void)out_fd;
   (void)words_to_gen;
   (void)prev_word;
   return 0;
@@ -181,14 +185,14 @@ int run_mp_fd_mode(int task,             // 1 or 2
 // Example CLI glue (merge into your main):
 int main(int argc, char **argv) {
   if (argc < 5) {
-    dprintf(2,
-            "Usage:\n  %s mp 1 <input_txt> <output_csv>\n  %s mp 2 <input_csv> "
-            "<output_txt> <nWords> [prevWord]\n",
-            argv[0], argv[0]);
+      fprintf(stderr,
+              "Usage:\n  %s mp 1 <input_txt> <output_csv>\n  %s mp 2 <input_csv> "
+              "<output_txt> <nWords> [prevWord]\n",
+              argv[0], argv[0]);
     return 1;
   }
   if (strcmp(argv[1], "mp") != 0) {
-    dprintf(2, "Use 'mp' for multiprocess mode\n");
+      fprintf(stderr, "Use 'mp' for multiprocess mode\n");
     return 1;
   }
   int task = atoi(argv[2]);
@@ -196,13 +200,13 @@ int main(int argc, char **argv) {
     return run_mp_fd_mode(1, argv[3], argv[4], 0, NULL);
   } else if (task == 2) {
     if (argc < 6) {
-      dprintf(2, "Missing nWords for task 2\n");
+        fprintf(stderr, "Missing nWords for task 2\n");
       return 1;
     }
     int n = atoi(argv[5]);
     const char *prev = (argc >= 7) ? argv[6] : NULL;
     return run_mp_fd_mode(2, argv[3], argv[4], n, prev);
   }
-  dprintf(2, "Task must be 1 or 2\n");
+    fprintf(stderr, "Task must be 1 or 2\n");
   return 1;
 }

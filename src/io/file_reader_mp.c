@@ -255,7 +255,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
     memset(nxt_word, 0, sizeof(nxt_word));
 
     // Parse the first word (key)
-    while (off < n && line[off] != ' ' && line[off] != '\0') {
+    while (off < (size_t)n && line[off] != ' ' && line[off] != '\0') {
       if (key_index >= MAX_WORD_LENGTH - 1) {
         fprintf(stderr, "Key exceeds maximum length\n");
         free(line);
@@ -290,7 +290,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
     key[key_index] = '\0'; // Null-terminate the key
 
     // Skip the space character
-    if (off < n && line[off] == ' ') {
+    if (off < (size_t)n && line[off] == ' ') {
       off++;
     } else {
       fprintf(stderr, "Expected space between key and next word\n");
@@ -299,7 +299,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
     }
 
     // Parse the second word (next word)
-    while (off < n && line[off] != '\0') {
+    while (off < (size_t)n && line[off] != '\0') {
       if (nxt_word_index >= MAX_WORD_LENGTH - 1) {
         fprintf(stderr, "Next word exceeds maximum length\n");
         free(line);

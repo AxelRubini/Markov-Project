@@ -18,6 +18,8 @@ static void die(const char *msg) {
 }
 
 int main(int argc, char **argv) {
+    (void)argc;
+    (void)argv;
     const char *in_path = "test_files/test_reader_utf8.txt"; // Default input path
     const char *out_path = "test_files/out_test_csv_writer_mp.csv"; // Default output path
 
