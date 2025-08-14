@@ -1,5 +1,5 @@
-#ifndef HT_DATA_MANIPULATION_H
-#define HT_DATA_MANIPULATION_H
+#ifndef CSV_LINE_BUILDER_H
+#define CSV_LINE_BUILDER_H
 #include "hash_table.h"
 #include "ht_item.h"
 #include "linked_list.h"
@@ -34,4 +34,4 @@ int calculate_buffer_size(ht_item *item);
 
 
 
-#endif // HT_DATA_MANIPULATION_H
+#endif // CSV_LINE_BUILDER_H

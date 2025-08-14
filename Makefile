@@ -14,8 +14,8 @@ BUILD_DIR = build
 TEST_DIR  = test            # test code lives here
 
 # ---------------------------  Sources & Objects ------------------------
-# Discover all source files recursively
-SRC      = $(shell find $(SRC_DIR) -name '*.c')
+# Discover all source files recursively, excluding legacy ds implementation
+SRC      = $(shell find $(SRC_DIR) -name '*.c' ! -path "$(SRC_DIR)/ds/ht_data_manipulation.c")
 OBJ      = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 
 # ---------------------------  Default ---------------------------------
