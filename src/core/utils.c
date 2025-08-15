@@ -1,16 +1,11 @@
 #include "utils.h"
 
-#include <arpa/inet.h>
-#include <errno.h>
 #include <math.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
-#include <unistd.h>
 
-unsigned int is_prime(int n) {
+uint32_t is_prime(int n) {
 
   if (n <= 1)
     return 0;
@@ -25,7 +20,7 @@ unsigned int is_prime(int n) {
   return 1; // prime
 }
 
-unsigned int next_prime(int n) {
+uint32_t next_prime(int n) {
   if (n <= 1)
     return 2;
   if (n % 2 == 0)
@@ -36,16 +31,16 @@ unsigned int next_prime(int n) {
   return n;
 }
 
-unsigned int hash_function(const int *key, int table_size) {
+uint32_t hash_function(const int *key, int table_size) {
 
-  unsigned int hash = 5381;
+  uint32_t hash = 5381;
   int c;
 
   while ((c = *key++)) {
     hash = ((hash << 5) + hash) + c; // hash * 33 + c
   }
 
-  return hash % table_size;
+  return hash % (uint32_t)table_size;
 }
 
 void *dmalloc(size_t size) {
@@ -58,124 +53,9 @@ void *dmalloc(size_t size) {
   return ptr;
 }
 #define malloc(x) dont_use_malloc_usedmalloc // Use dmalloc instead
-//
+
 double next_word_probability(const int *word, const int *next_word) {
   double probability = 0.0;
   probability = (double)(*next_word) / (double)(*word); // Example calculation
   return probability;
-}
-int write_all(int fd, const void *buf, size_t len) {
-  const char *ptr = buf; // bytes to send
-  size_t left = len;
-  while (left > 0) {
-    ssize_t written = write(fd, ptr, left);
-    if (written < 0) {
-      if (errno == EINTR) {
-        continue; // Interrupted, try again
-                  //     }
-        perror("write_all");
-        return -1; // Error writing
-      }
-    }
-    left -= written;
-    ptr += written;
-  }
-
-  return 0; // All bytes written successfully
-}
-
-int read_all(int fd, void *buf, size_t len) {
-  char *ptr = buf; // Destination buffer
-  size_t left = len;
-  while (left > 0) {
-    ssize_t read_bytes = read(fd, ptr, left);
-    if (read_bytes < 0) {
-      if (errno == EINTR) {
-        continue; // Interrupted, try again
-      }
-      perror("read_all");
-      return -1; // Error reading
-    }
-    if (read_bytes == 0) {
-      break; // End of file reached
-    }
-    left -= read_bytes;
-    ptr += read_bytes;
-  }
-
-  return len - left; // Return number of bytes read
-}
-
-int send_frame(int fd, const char *data_to_send, size_t len) {
-  if (data_to_send == NULL || len == 0) {
-    fprintf(stderr, "Invalid data to send or length is zero\n");
-    return -1;
-  }
-  /*Header:
-   * The first 4 bytes of the frame contain the length of the data that follows.
-   * This allows the receiver to know how many bytes to expect.
-   */
-  uint32_t frame_length =
-      htonl((uint32_t)len); // Convert the length to network byte order so the
-                            // receiver can interpret the length correctly
-  if (write_all(fd, &frame_length, sizeof(frame_length)) <
-      0) { // Write the frame length first
-    perror("send_frame: write frame length");
-    return -1;
-  }
-  if (len == 0) {
-    return 0; // No data to send, just sent the frame length
-  }
-  if (write_all(fd, data_to_send, len) < 0) { // Write the actual data
-    perror("send_frame: write data");
-    return -1;
-  }
-  return 0;
-}
-
-/*
- * Receive a frame from the file descriptor.
- * It reads the length of the data first, then the data itself.
- * The buffer is allocated or reallocated as needed this is way double **.
- * returns: number of bytes read, or -1 on error, or 0 if end of file reached.
- * parameters:
- * fd: file descriptor to receive data from
- * buf: pointer to the buffer to store the received data
- * cap: pointer to the capacity of the buffer
- */
-ssize_t recv_frame(int fd, char **buf, size_t *cap) {
-    if (!buf || !cap) {
-        fprintf(stderr, "Invalid arguments to recv_frame\n");
-        return -1;
-    }
-    
-    uint32_t be_len = 0;
-    ssize_t st = read_all(fd, &be_len, sizeof(be_len));
-
-    if (st == 0) return 0;                    // EOF
-    if (st < (ssize_t)sizeof(be_len)) return 0;        // partial EOF
-    if (st < 0) return -1;                    // Errore
-    
-    uint32_t n = ntohl(be_len);
-    size_t need = (size_t)n;
-    
-    if (*buf == NULL || *cap < need + 1) {
-        size_t ncap = need + 1;
-        char *nb = realloc(*buf, ncap);
-        if (!nb) return -1;
-        *buf = nb;
-        *cap = ncap;
-    }
-    
-    if (need == 0) {
-        (*buf)[0] = '\0';
-        return 0;  // empty frame
-    }
-    
-    st = read_all(fd, *buf, need);
-    if (st < 0) return -1;     // Errore
-    if ((size_t)st < need) return -1;  // Dati incompleti = errore
-    
-    (*buf)[need] = '\0';
-    return (ssize_t)need;
 }

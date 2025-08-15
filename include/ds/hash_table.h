@@ -3,6 +3,7 @@
 
 #include "ht_item.h"
 #include "linked_list.h"
+#include <stdint.h>
 
 #define HASH_TABLE_SIZE 97 // Initial size of the hash table
 #define LOAD_FACTOR_THRESHOLD 0.75
@@ -11,8 +12,8 @@ typedef struct {
   linked_list_t **buckets; /* array of bucket lists of ht_item* */
   int size;                /* current number of buckets */
   int count;               /* number of stored items  */
-  unsigned int (*hash_func)(const void *key, int size); /* key -> hash */
-  int (*key_cmp)(const void *key1, const void *key2);   /* key compare */
+  uint32_t (*hash_func)(const void *key, int size);   /* key -> hash */
+  int (*key_cmp)(const void *key1, const void *key2); /* key compare */
 } hash_table_t;
 
 /**
@@ -24,7 +25,7 @@ typedef struct {
  * @return Newly allocated table or NULL on error.
  */
 hash_table_t *create_hash_table(int initial_size,
-                                unsigned int (*hash_func)(const void *, int),
+                                uint32_t (*hash_func)(const void *, int),
                                 int (*key_cmp)(const void *, const void *));
 
 /**
@@ -83,6 +84,5 @@ int ht_get_size(const hash_table_t *table);
  * @param fd Destination descriptor.
  */
 void print_hash_table(const hash_table_t *table, int fd);
-
 
 #endif /* HASH_TABLE_H */

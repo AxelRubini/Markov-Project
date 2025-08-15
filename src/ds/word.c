@@ -36,8 +36,8 @@ ht_item *word_ht_item_create(word_t *key, word_t *value) {
   item->update_value = update_ht_item_value; // Set the update function
   item->value = create_linked_list(); // Initialize value to the word_t pointer
   add_to_list((linked_list_t *)item->value,
-              word_deep_copy(value));  // Add the value to the linked list
-  item->free_item = ht_item_free_word; // Set the free function to free_word
+              word_deep_copy(value));    // Add the value to the linked list
+  item->free_item = ht_item_free_word;   // Set the free function to free_word
   item->print_item = word_ht_item_print; // Set the print function
 
   return item;
@@ -67,7 +67,6 @@ int wordcmp(const word_t *word1, const word_t *word2) {
     return 0;
   }
   return utf8_strcmp(word1->word, word2->word);
-
 }
 
 int word_str_cmp(const int *word, const int *str) {
@@ -128,14 +127,13 @@ void update_ht_item_value(const void *item, const void *follower_to_add) {
   add_to_list(af_list, new_word);        // Add the new word to the linked list
 }
 
-unsigned int word_hash(const void *key, int size) {
+uint32_t word_hash(const void *key, int size) {
   if (key == NULL) {
     fprintf(stderr, "Key is NULL\n");
     return 0;
   }
   const word_t *word = (const word_t *)key;
-  return hash_function(word->word,
-                       size); // Use the hash function on the word array
+  return hash_function(word->word, size);
 }
 
 void print_utf8_word(const word_t *word, int fd) {
@@ -257,11 +255,11 @@ void word_ht_item_print(const ht_item *item, int fd) {
   linked_list_t *followers_list =
       (linked_list_t *)item->value; // Get the linked list of followers
   ll_item_t *current = followers_list->head;
-  int between_char[2] ={',','\0'} ; // Character to print between words
+  int between_char[2] = {',', '\0'}; // Character to print between words
   while (current != NULL) {
     word_t *follower_word = (word_t *)current->data;
     word_print(follower_word, fd, between_char); // Print each follower word
-    current = current->next;             // Move to the next follower
+    current = current->next;                     // Move to the next follower
   }
-  utf8_putchar('\n',fd); // Print a newline after all followers
+  utf8_putchar('\n', fd); // Print a newline after all followers
 }

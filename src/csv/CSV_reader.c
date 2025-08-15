@@ -1,5 +1,6 @@
 #include "CSV_reader.h"
 #include "CSV_line_parser.h"
+#include "frame.h"
 #include "hash_table.h"
 #include <errno.h>
 #include <fcntl.h>
@@ -188,7 +189,6 @@ hash_table_t *read_lines_from_pipe(int in_fd) {
     }
     if (line[0] == '\0') {
       continue; // Skip empty lines
-
     }
     ssize_t off = get_key_from_line(line, key);
     if (off < 0) {
@@ -215,7 +215,7 @@ hash_table_t *read_lines_from_pipe(int in_fd) {
       return NULL;
     }
     ht_insert(table, item);
-    memset(key, 0, sizeof(key)); 
+    memset(key, 0, sizeof(key));
   }
   free(line);
   return table;

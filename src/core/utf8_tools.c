@@ -209,7 +209,7 @@ int *utf8_word_to_lower(const int *word, int word_length) {
   return lower_word;
 }
 
-void utf8_append_char(unsigned int codepoint, char *buffer, int *offset) {
+void utf8_append_char(uint32_t codepoint, char *buffer, int *offset) {
   if (codepoint < 0x80) {
     buffer[(*offset)++] = (u8)codepoint; // 1-byte sequence
   } else if (codepoint < 0x800) {
@@ -275,7 +275,6 @@ int utf8_cp_to_rawbytes(const int *word, u8 *buf) {
   buf[offset] = '\0'; // Null-terminate the buffer
 
   return offset; // Return the number of bytes written
-
 }
 
 int is_punctuation(int cp) {

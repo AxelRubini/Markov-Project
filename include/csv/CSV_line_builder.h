@@ -3,12 +3,10 @@
 #include "hash_table.h"
 #include "ht_item.h"
 #include "linked_list.h"
-#include "utils.h"
 #include "utf8_tools.h"
+#include "utils.h"
 #include "word.h"
-
-
-
+#include <stddef.h>
 
 /**
  * @brief Build a CSV line from a hash-table item.
@@ -25,13 +23,6 @@ int create_csv_line(ht_item *item, char *buffer);
  * @param item Hash-table item to serialize.
  * @return Required byte count.
  */
-int calculate_buffer_size(ht_item *item);
-
-
-
-
-
-
-
+size_t calculate_buffer_size(ht_item *item);
 
 #endif // CSV_LINE_BUILDER_H

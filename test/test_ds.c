@@ -17,6 +17,7 @@
 #include "word.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,14 +26,14 @@
 /* -----------------------------------------------------
  * Helpers for <char*, int> table used in basic tests
  * -----------------------------------------------------*/
-static unsigned int str_hash(const void *key, int size) {
+static uint32_t str_hash(const void *key, int size) {
   const u8 *str = (const u8 *)key;
-  unsigned long hash = 5381;
+  uint32_t hash = 5381;
   int c;
   while ((c = *str++)) {
-    hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+    hash = ((hash << 5) + hash) + (uint32_t)c; /* hash * 33 + c */
   }
-  return (unsigned int)(hash % size);
+  return hash % (uint32_t)size;
 }
 
 static int str_cmp(const void *a, const void *b) {
@@ -138,9 +139,9 @@ static void test_ht_item_update_value(void) {
 
   ht_item *wit = word_ht_item_create(wkey, wf1);
 
-/* same follower again → occurrences must grow to 2 */
+  /* same follower again → occurrences must grow to 2 */
   wit->update_value(wit, w_follow1);
-/* new follower → lista deve contenere due nodi */
+  /* new follower → lista deve contenere due nodi */
   wit->update_value(wit, w_follow2);
 
   linked_list_t *followers = (linked_list_t *)wit->value;
@@ -161,8 +162,7 @@ static void test_ht_item_update_value(void) {
   assert(found_tempo && found_caldo);
 
   /* cleanup word case */
-   wit->free_item(wit); /* frees key + follower list */
-
+  wit->free_item(wit); /* frees key + follower list */
 }
 
 /* -----------------------------------------------------
@@ -185,7 +185,6 @@ static void test_word_followers_hash_table(void) {
   ht_insert(ht, word_ht_item_create(k_oggi, v_tempo));
   ht_insert(ht, word_ht_item_create(k_oggi, v_incerto));
   ht_insert(ht, word_ht_item_create(k_oggi, v_tempo));
- 
 
   /* ---- verifiche ---- */
   ht_item *res = ht_search(ht, k_oggi);
@@ -224,7 +223,7 @@ int main(void) {
   test_ht_table_basic();
   printf("Hash table basic tests passed.\n");
 
-  //test_ht_item_update_value();
+  // test_ht_item_update_value();
   printf("Hash table item update value tests passed.\n");
 
   test_word_followers_hash_table();
