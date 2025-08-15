@@ -1,5 +1,5 @@
 #include "file_reader_mp.h"
-
+#include "frame.h"
 
 /**
  * @brief Read and return the next non-space character.
@@ -41,32 +41,16 @@ char *create_string_for_frame(const char *cw_data, size_t cw_len,
     fprintf(stderr, "Invalid word lengths\n");
     return NULL;
   }
-  size_t total_len = cw_len + nxw_len + 2; // +2 for space and null terminator
+  size_t total_len = cw_len + nxw_len + 2; // space + null terminator
   char *frame = malloc(total_len);
   if (!frame) {
     fprintf(stderr, "Memory allocation failed\n");
     return NULL;
   }
-  size_t frame_index = 0;
-  size_t cw_index;
-  size_t nxw_index;
-
-  for (cw_index = 0; cw_index < cw_len; cw_index++) {
-    frame[frame_index++] = cw_data[cw_index];
-  }
-  frame[frame_index++] = ' '; // Add space between words
-  for (nxw_index = 0; nxw_index < nxw_len; nxw_index++) {
-    frame[frame_index++] = nxw_data[nxw_index];
-  }
-  frame[frame_index] = '\0'; // Null-terminate the string
-
-  if (frame_index != total_len - 1) {
-    fprintf(stderr, "Frame length mismatch: expected %zu, got %zu\n",
-            total_len - 1, frame_index);
-    free(frame);
-    return NULL;
-  }
-
+  memcpy(frame, cw_data, cw_len);
+  frame[cw_len] = ' ';
+  memcpy(frame + cw_len + 1, nxw_data, nxw_len);
+  frame[total_len - 1] = '\0';
   return frame;
 }
 
@@ -85,58 +69,41 @@ int read_next_word(int fd, char *nxt_buf, size_t *len) {
     fprintf(stderr, "Invalid file descriptor or buffer\n");
     return -1;
   }
-
   size_t b_index = 0;
-  *len = 0; // Initialize length
+  *len = 0;
   char c = move_to_next_word(fd);
-
-  if (c == EOF) {
-    return 1; // EOF
-  }
+  if (c == EOF)
+    return 1;
 
   if (is_sentence_terminator(c)) {
-    nxt_buf[b_index] = c; // Add sentence terminator
-    *len = 1;
+    nxt_buf[0] = c;
     nxt_buf[1] = '\0';
-    return 0; // Single word terminated
-  } else {
-    nxt_buf[b_index++] = c; // Add first character of word
-    (*len)++;
+    *len = 1;
+    return 0;
   }
 
-  while (1) {
-    int read_result = read(fd, &c, 1);
-    if (read_result <= 0) {
-      // EOF or read error
-      nxt_buf[b_index] = '\0'; // Null terminate
-      return (b_index == 1)
-                 ? 1
-                 : 0; // Return EOF if only had one char, else complete word
-    }
+  nxt_buf[b_index++] = c;
+  (*len)++;
 
+  while (read(fd, &c, 1) > 0) {
     if (is_sentence_terminator(c)) {
-      lseek(fd, -1, SEEK_CUR); // Go back one byte
-      nxt_buf[b_index] = '\0'; // Null terminate
-      return 0;
+      lseek(fd, -1, SEEK_CUR);
+      break;
     }
-
-    if (is_punctuation(c)) {
-      continue; // Ignore punctuation
-    }
-
-    if (c == ' ' || c == '\n') {
-      nxt_buf[b_index] = '\0'; // Null terminate
-      return 0;
-    }
-
-    if (b_index >= MAX_WORD_LENGTH - 2) { // Leave room for null terminator
+    if (c == ' ' || c == '\n')
+      break;
+    if (is_punctuation(c))
+      continue;
+    if (b_index >= MAX_WORD_LENGTH - 2) {
       fprintf(stderr, "Word exceeds maximum length\n");
-      return -1; // Error: word too long
+      return -1;
     }
-
-    nxt_buf[b_index++] = c; // Add character to word
+    nxt_buf[b_index++] = c;
     (*len)++;
   }
+
+  nxt_buf[b_index] = '\0';
+  return 0;
 }
 
 int publish_word_on_pipe(int fd, int wfd) {
@@ -279,7 +246,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
         return -1; // Error: key too long
       }
 
-      cp = utf8_getchar_from_buf((unsigned char *)line, &off);
+      cp = utf8_getchar_from_buf((u8 *)line, &off);
       if (cp == UTF8_ERROR) {
         fprintf(stderr, "Error reading UTF-8 character from line\n");
         free(line);
@@ -323,7 +290,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
         return -1; // Error: next word too long
       }
 
-      cp = utf8_getchar_from_buf((unsigned char *)line, &off);
+      cp = utf8_getchar_from_buf((u8 *)line, &off);
       if (cp == UTF8_ERROR) {
         fprintf(stderr, "Error reading UTF-8 character from line\n");
         free(line);
@@ -377,6 +344,6 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
     ht_insert(ht, item); // Insert item into hash table
   }
 
-    free(line); // Free the line buffer
-    return 0;   // Success
-  }
+  free(line); // Free the line buffer
+  return 0;   // Success
+}

@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /* Ensure the bucket at index exists, creating a linked list if necessary. */
 static linked_list_t *ensure_bucket(hash_table_t *table, int index) {
   if (table->buckets[index] == NULL) {
@@ -45,7 +44,7 @@ static void ht_resize(hash_table_t *table) {
 }
 
 hash_table_t *create_hash_table(int initial_size,
-                                unsigned int (*hash_func)(const void *, int),
+                                uint32_t (*hash_func)(const void *, int),
                                 int (*key_cmp)(const void *, const void *)) {
   if (!hash_func || !key_cmp) {
     fprintf(stderr, "Hash function and key compare cannot be NULL\n");

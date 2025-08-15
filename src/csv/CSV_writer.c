@@ -1,6 +1,7 @@
 #include "CSV_writer.h"
 
 #include "CSV_line_builder.h"
+#include "frame.h"
 #include "utils.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -33,8 +34,8 @@ int csv_build_file(const char *filename, hash_table_t *table) {
     current = bucket->head;
     while (current) {
       ht_item *item = (ht_item *)current->data;
-      int buffer_size = calculate_buffer_size(item) * 2;
-      if (buffer_size < 0) {
+      size_t buffer_size = calculate_buffer_size(item) * 2;
+      if (buffer_size == 0) {
         fprintf(stderr, "Failed to calculate buffer size for item\n");
         free(buffer);
         fclose(file);
@@ -43,6 +44,7 @@ int csv_build_file(const char *filename, hash_table_t *table) {
       char *new_buffer = realloc(buffer, buffer_size);
       if (!new_buffer) {
         fprintf(stderr, "Memory allocation failed for buffer\n");
+        free(buffer);
         fclose(file);
         return -1;
       }
@@ -82,7 +84,7 @@ int csv_line_send(int fd, const hash_table_t *ht) {
   }
 
   ll_item_t *current = NULL;
-  int items_sent = 0;
+  size_t items_sent = 0;
 
   for (int i = 0; i < ht->size; ++i) {
     linked_list_t *bucket = ht->buckets[i];
@@ -99,19 +101,21 @@ int csv_line_send(int fd, const hash_table_t *ht) {
       }
 
       ht_item *item = (ht_item *)current->data;
-      
+
       // Calculate buffer size
-      int buf_sz = calculate_buffer_size(item);
-      if (buf_sz <= 0) {
-        fprintf(stderr, "Invalid buffer size (%d) for item in bucket %d\n", buf_sz, i);
+      size_t buf_sz = calculate_buffer_size(item);
+      if (buf_sz == 0) {
+        fprintf(stderr, "Invalid buffer size (%zu) for item in bucket %d\n",
+                buf_sz, i);
         current = current->next;
         continue;
       }
 
       // Allocate buffer
-      char *buffer = (char*)dmalloc(buf_sz);
+      char *buffer = (char *)dmalloc(buf_sz);
       if (!buffer) {
-        fprintf(stderr, "Memory allocation failed for buffer of size %d\n", buf_sz);
+        fprintf(stderr, "Memory allocation failed for buffer of size %zu\n",
+                buf_sz);
         return -1;
       }
 
@@ -138,7 +142,7 @@ int csv_line_send(int fd, const hash_table_t *ht) {
 
       // Ensure line ends with newline if not already present
       if (line_length > 0 && buffer[line_length - 1] != '\n') {
-        if (line_length < (size_t)(buf_sz - 1)) {
+        if (line_length < buf_sz - 1) {
           buffer[line_length] = '\n';
           buffer[line_length + 1] = '\0';
           line_length++;
@@ -162,7 +166,7 @@ int csv_line_send(int fd, const hash_table_t *ht) {
     }
   }
 
-  fprintf(stdout, "Successfully sent %d CSV lines\n", items_sent);
+  fprintf(stdout, "Successfully sent %zu CSV lines\n", items_sent);
   return 0;
 }
 
@@ -186,11 +190,11 @@ int csv_line_recv(int fd, const char *filename) {
 
   char *line = NULL;
   size_t cap = 0;
-  int lines_received = 0;
+  size_t lines_received = 0;
 
   while (1) {
     ssize_t n = recv_frame(fd, &line, &cap);
-    
+
     if (n < 0) {
       perror("recv_frame failed");
       if (line) {
@@ -212,12 +216,13 @@ int csv_line_recv(int fd, const char *filename) {
     // Write the received data to file
     size_t bytes_to_write = (size_t)n;
     size_t bytes_written = fwrite(line, sizeof(char), bytes_to_write, file);
-    
+
     if (bytes_written < bytes_to_write) {
       if (ferror(file)) {
-        fprintf(stderr, "Error writing to file %s after %d lines\n", filename, lines_received);
+        fprintf(stderr, "Error writing to file %s after %zu lines\n", filename,
+                lines_received);
       } else {
-        fprintf(stderr, "Partial write to file %s: wrote %zu of %zu bytes\n", 
+        fprintf(stderr, "Partial write to file %s: wrote %zu of %zu bytes\n",
                 filename, bytes_written, bytes_to_write);
       }
       if (line) {
@@ -238,9 +243,10 @@ int csv_line_recv(int fd, const char *filename) {
     }
 
     lines_received++;
-    
+
     // Note: Don't free line here as recv_frame manages the buffer reallocation
-    // The line buffer will be reused/reallocated by recv_frame in next iteration
+    // The line buffer will be reused/reallocated by recv_frame in next
+    // iteration
   }
 
   // Clean up
@@ -253,7 +259,7 @@ int csv_line_recv(int fd, const char *filename) {
     return -1;
   }
 
-  fprintf(stdout, "Successfully received and wrote %d CSV lines to %s\n", 
+  fprintf(stdout, "Successfully received and wrote %zu CSV lines to %s\n",
           lines_received, filename);
   return 0;
 }

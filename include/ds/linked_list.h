@@ -1,6 +1,8 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#include <stddef.h>
+
 typedef struct ll_item {
   void *data;
   struct ll_item *next;
@@ -53,7 +55,7 @@ void free_linked_list(linked_list_t *list);
  * @param list List to inspect.
  * @return Element count.
  */
-int get_list_size(const linked_list_t *list);
+size_t get_list_size(const linked_list_t *list);
 
 /**
  * @brief Convert a list to an array of pointers.

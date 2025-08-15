@@ -7,10 +7,11 @@
 
 /*
  * The next_word_t structure represents a word as string of UTF-8 codepoints
- * and its probability as following word respectrfully to the key of the relative ht_item.
- * In this header file, we define the structure and functions to create,
- * manipulate, and print next_word_t objects and define the specialization to create
- * a hash table item (ht_item) that uses next_word_t as value.
+ * and its probability as following word respectrfully to the key of the
+ * relative ht_item. In this header file, we define the structure and functions
+ * to create, manipulate, and print next_word_t objects and define the
+ * specialization to create a hash table item (ht_item) that uses next_word_t as
+ * value.
  */
 
 typedef struct next_word_t next_word_t;
@@ -92,7 +93,7 @@ int keycmp_next_word(const void *key1, const void *key2);
  * @param table_size Number of buckets.
  * @return Hash index.
  */
-unsigned int next_word_hash(const void *key, int table_size);
+uint32_t next_word_hash(const void *key, int table_size);
 
 /**
  * @brief Build an array of probabilities from an item.

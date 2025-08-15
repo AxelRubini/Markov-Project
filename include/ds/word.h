@@ -3,6 +3,7 @@
 
 #include "ht_item.h"
 #include "linked_list.h"
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -79,7 +80,7 @@ ht_item *word_ht_item_create(word_t *key, word_t *value);
  * @param size Table size.
  * @return Hash index.
  */
-unsigned int word_hash(const void *key, int size);
+uint32_t word_hash(const void *key, int size);
 
 /**
  * @brief Print a word in UTF-8.

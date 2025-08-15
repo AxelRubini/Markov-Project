@@ -1,4 +1,5 @@
 #include "file_writer.h"
+#include "frame.h"
 #include "next_word_chooser.h"
 
 #include <errno.h>
@@ -7,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <time.h>
 #include <unistd.h>
 
 /**
@@ -17,46 +19,28 @@
  * @return Newly allocated array of code points or NULL on error.
  */
 int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
-    if (!bytes || len == 0) {
-        return NULL;
-    }
-    
-    int *word = malloc(sizeof(int) * MAX_WORD_LENGTH);
-    if (!word) {
-        return NULL;
-    }
-    
-    size_t offset = 0;
-    int word_index = 0;
-    
-    while (offset < len && word_index < MAX_WORD_LENGTH - 1) {
-        int cp = utf8_getchar_from_buf(bytes, &offset);
-        if (cp == EOF || cp == UTF8_ERROR) {
-            break;
-        }
-        word[word_index++] = cp;
-    }
-    
-    word[word_index] = '\0';
-    return word;
-}
+  if (!bytes || len == 0) {
+    return NULL;
+  }
 
-/**
- * @brief Compute length of a code-point word.
- *
- * @param word Null-terminated code-point array.
- * @return Length in code points or -1 on error.
- */
-int calcuate_len_frame(const int *word) {
-  if (word == NULL) {
-    fprintf(stderr, "Invalid word pointer\n");
-    return -1; // Error
+  int *word = malloc(sizeof(int) * MAX_WORD_LENGTH);
+  if (!word) {
+    return NULL;
   }
-  int len = 0;
-  while (word[len] != '\0') {
-    len++;
+
+  size_t offset = 0;
+  int word_index = 0;
+
+  while (offset < len && word_index < MAX_WORD_LENGTH - 1) {
+    int cp = utf8_getchar_from_buf(bytes, &offset);
+    if (cp == EOF || cp == UTF8_ERROR) {
+      break;
+    }
+    word[word_index++] = cp;
   }
-  return len;
+
+  word[word_index] = '\0';
+  return word;
 }
 
 /**
@@ -109,6 +93,21 @@ int is_last_terminator(const int *word) {
   // Check if the word is one of the valid terminators
   return (word[0] == '.' || word[0] == '!' || word[0] == '?');
 }
+
+/**
+ * @brief Create a deep-copied start word from a punctuation symbol.
+ */
+static int *create_start_word(char sym) {
+  switch (sym) {
+  case '.':
+  case '!':
+  case '?':
+    return utf8_str_deepcopy((int[]){sym, '\0'});
+  default:
+    fprintf(stderr, "Invalid start symbol: %c\n", sym);
+    return NULL;
+  }
+}
 int write_output_sp(const char *filename, const int num_words, char *start_sym,
                     hash_table_t *table) {
   if (filename == NULL || num_words <= 0) {
@@ -121,11 +120,15 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     perror("write_output_sp: open file");
     return -1;
   }
-  if (start_sym == NULL) {
-    int len = sizeof(valid_start_symbols) / sizeof(valid_start_symbols[0]);
-    srand(time(NULL)); // Seed the random number generator with current time
-    *start_sym = valid_start_symbols[rand() % len];
-    return -1;
+  char sym;
+  if (start_sym && *start_sym) {
+    sym = *start_sym;
+  } else {
+    size_t len = sizeof(valid_start_symbols) / sizeof(valid_start_symbols[0]);
+    srand(time(NULL));
+    sym = valid_start_symbols[rand() % len];
+    if (start_sym)
+      *start_sym = sym;
   }
 
   next_word_chooser_t *chooser = create_next_word_chooser(table);
@@ -134,27 +137,10 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     close(fd);
     return -1;
   }
-  int *start_word = NULL;
-  if (*start_sym == '.') {
-    start_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with a period
-  } else if (*start_sym == '!') {
-    start_word =
-        utf8_str_deepcopy((int[]){'!', '\0'}); // Start with an exclamation mark
-  } else if (*start_sym == '?') {
-    start_word =
-        utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
-  } else {
-    fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
-      next_word_chooser_free(chooser);
-    close(fd);
-    return -1;
-  }
 
-  int *current_word =
-      start_word; // Initialize current_word with the start symbol;
-  if (current_word == NULL) {
-    fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-      next_word_chooser_free(chooser);
+  int *current_word = create_start_word(sym);
+  if (!current_word) {
+    next_word_chooser_free(chooser);
     close(fd);
     return -1;
   }
@@ -184,82 +170,83 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
 }
 
 int write_output_mp(int fd, const char *filename) {
-    if (fd < 0 || filename == NULL) {
-        fprintf(stderr, "Invalid file descriptor or filename\n");
-        return -1;
-    }
-    
-    int file_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-    if (file_fd < 0) {
-        perror("write_output_mp: open file");
-        return -1;
-    }
-    
-    char *buff = NULL;
-    size_t cap = 0;
-    int *last_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with period as last word
-    if (last_word == NULL) {
-        fprintf(stderr, "Failed to create initial last word\n");
-        close(file_fd);
-        return -1;
-    }
-    
-    int words_written = 0;
-    while (1) {
-        ssize_t frm_st = recv_frame(fd, &buff, &cap);
-        if (frm_st < 0) {
-            perror("write_output_mp: recv_frame");
-            free(buff);
-            free(last_word);
-            close(file_fd);
-            return -1;
-        }
-        if (frm_st == 0) {
-            break; // End of stream
-        }
-        
-        // Convert received bytes back to UTF-8 codepoints
-        int *current_word = utf8_rawbytes_to_cp((const u8 *)buff, frm_st);
-        if (current_word == NULL) {
-            fprintf(stderr, "Failed to convert frame to UTF-8 word\n");
-            free(buff);
-            free(last_word);
-            close(file_fd);
-            return -1;
-        }
-        
-        // Apply capitalization rules
-        if (is_last_terminator(last_word)) {
-            current_word[0] = utf8_char_to_upper(current_word[0]);
-        }
-        
-        // Write space before word (except for first word and after terminators)
-        if (words_written > 0 && !is_last_terminator(current_word)) {
-            write(file_fd, " ", 1);
-        }
-        
-        // Write the word to file
-        utf8_print_word(current_word, file_fd);
-        words_written++;
-        
-        // Convert first letter to lowercase for next iteration
-        current_word[0] = utf8_char_to_lower(current_word[0]);
-        
-        // Update last_word for next iteration
-        free(last_word);
-        last_word = current_word; // Transfer ownership
-    }
-    
-    free(buff);
-    free(last_word);
+  if (fd < 0 || filename == NULL) {
+    fprintf(stderr, "Invalid file descriptor or filename\n");
+    return -1;
+  }
+
+  int file_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+  if (file_fd < 0) {
+    perror("write_output_mp: open file");
+    return -1;
+  }
+
+  char *buff = NULL;
+  size_t cap = 0;
+  int *last_word =
+      utf8_str_deepcopy((int[]){'.', '\0'}); // Start with period as last word
+  if (last_word == NULL) {
+    fprintf(stderr, "Failed to create initial last word\n");
     close(file_fd);
-    return 0;
+    return -1;
+  }
+
+  int words_written = 0;
+  while (1) {
+    ssize_t frm_st = recv_frame(fd, &buff, &cap);
+    if (frm_st < 0) {
+      perror("write_output_mp: recv_frame");
+      free(buff);
+      free(last_word);
+      close(file_fd);
+      return -1;
+    }
+    if (frm_st == 0) {
+      break; // End of stream
+    }
+
+    // Convert received bytes back to UTF-8 codepoints
+    int *current_word = utf8_rawbytes_to_cp((const u8 *)buff, frm_st);
+    if (current_word == NULL) {
+      fprintf(stderr, "Failed to convert frame to UTF-8 word\n");
+      free(buff);
+      free(last_word);
+      close(file_fd);
+      return -1;
+    }
+
+    // Apply capitalization rules
+    if (is_last_terminator(last_word)) {
+      current_word[0] = utf8_char_to_upper(current_word[0]);
+    }
+
+    // Write space before word (except for first word and after terminators)
+    if (words_written > 0 && !is_last_terminator(current_word)) {
+      write(file_fd, " ", 1);
+    }
+
+    // Write the word to file
+    utf8_print_word(current_word, file_fd);
+    words_written++;
+
+    // Convert first letter to lowercase for next iteration
+    current_word[0] = utf8_char_to_lower(current_word[0]);
+
+    // Update last_word for next iteration
+    free(last_word);
+    last_word = current_word; // Transfer ownership
+  }
+
+  free(buff);
+  free(last_word);
+  close(file_fd);
+  return 0;
 }
 
 int send_output_mp(int fd, hash_table_t *ht, const int num_words,
                    const char *start_sym) {
 
-  if (fd < 0 || num_words <= 0 || start_sym == NULL) {
+  if (fd < 0 || num_words <= 0 || !start_sym || !start_sym[0]) {
     fprintf(stderr,
             "Invalid file descriptor, number of words, or start symbol\n");
     return -1;
@@ -269,30 +256,10 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
     fprintf(stderr, "Failed to create next word chooser\n");
     return -1;
   }
-  int *start_word = NULL;
-  if (*start_sym == '.') {
-    start_word = utf8_str_deepcopy((int[]){'.', '\0'}); // Start with a period
-  } else if (*start_sym == '!') {
-    start_word =
-        utf8_str_deepcopy((int[]){'!', '\0'}); // Start with an exclamation mark
-  } else if (*start_sym == '?') {
-    start_word =
-        utf8_str_deepcopy((int[]){'?', '\0'}); // Start with a question mark
-  } else {
-    fprintf(stderr, "Invalid start symbol: %c\n", *start_sym);
-      next_word_chooser_free(chooser);
-    return -1;
-  }
-  if (start_word == NULL) {
-    fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-    free(chooser);
-    return -1;
-  }
-  int *current_word =
-      start_word; // Initialize current_word with the start symbol
-  if (current_word == NULL) {
-    fprintf(stderr, "Failed to create a deep copy of the start symbol\n");
-      next_word_chooser_free(chooser);
+
+  int *current_word = create_start_word(start_sym[0]);
+  if (!current_word) {
+    next_word_chooser_free(chooser);
     return -1;
   }
   int words_written = 0;
@@ -317,10 +284,10 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
       return -1;
     }
     free((void *)current_word); // Free the previous word
-    current_word = next_word; // Update current_word to the new word
+    current_word = next_word;   // Update current_word to the new word
     words_written++;
   }
-  free((void *)current_word); // Free the last word
+  free((void *)current_word);      // Free the last word
   next_word_chooser_free(chooser); // Free the chooser
-  return 0; // Success
+  return 0;                        // Success
 }

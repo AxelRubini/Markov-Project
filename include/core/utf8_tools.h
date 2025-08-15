@@ -1,7 +1,7 @@
 #ifndef UTF8_TOOLS_H
 #define UTF8_TOOLS_H
-#include <stdint.h>
 #include "utils.h"
+#include <stdint.h>
 
 // error codes for UTF-8 reading bad formats
 #define UTF8_ERROR (-2)
@@ -79,7 +79,7 @@ int *utf8_word_to_lower(const int *word, int word_length);
  * @param buffer Destination buffer.
  * @param offset In/out byte offset.
  */
-void utf8_append_char(unsigned int codepoint, char *buffer, int *offset);
+void utf8_append_char(uint32_t codepoint, char *buffer, int *offset);
 
 /**
  * @brief Compare two UTF-8 strings.
@@ -125,8 +125,5 @@ int is_punctuation(int cp);
  * @brief Return non-zero if code point terminates a sentence.
  */
 int is_sentence_terminator(int cp);
-
-
-
 
 #endif

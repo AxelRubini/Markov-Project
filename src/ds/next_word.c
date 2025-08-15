@@ -149,15 +149,14 @@ int keycmp_next_word(const void *key1, const void *key2) {
   return utf8_strcmp(word1, word2); // Compare the two words
 }
 
-unsigned int next_word_hash(const void *key, int table_size) {
+uint32_t next_word_hash(const void *key, int table_size) {
   if (key == NULL) {
     fprintf(stderr, "Key is NULL\n");
     return -1; // Return an invalid index
   }
 
   const int *word = (const int *)key;
-  return hash_function(word,
-                       table_size); // Use the hash function defined in utils.h
+  return hash_function(word, table_size);
 }
 
 double *ht_item_next_word_probabilities_array(const ht_item *item) {
@@ -167,7 +166,7 @@ double *ht_item_next_word_probabilities_array(const ht_item *item) {
   }
 
   linked_list_t *next_words_list = (linked_list_t *)item->value;
-  int size = get_list_size(next_words_list);
+  size_t size = get_list_size(next_words_list);
   double *probabilities = dmalloc(size * sizeof(double));
   if (probabilities == NULL) {
     fprintf(stderr, "Memory allocation failed for probabilities array\n");
@@ -175,10 +174,10 @@ double *ht_item_next_word_probabilities_array(const ht_item *item) {
   }
 
   ll_item_t *current = next_words_list->head;
-  int index = 0;
+  size_t index = 0;
   while (current != NULL) {
     next_word_t *next_word = (next_word_t *)current->data;
-    probabilities[index++] = next_word->probability; 
+    probabilities[index++] = next_word->probability;
     current = current->next;
   }
 

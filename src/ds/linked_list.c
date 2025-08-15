@@ -13,29 +13,26 @@ linked_list_t *create_linked_list() {
 }
 
 void add_to_list(linked_list_t *list, void *data) {
-  if (list == NULL) {
+  if (!list) {
     fprintf(stderr, "List is NULL\n");
     return;
   }
-  ll_item_t *new_item = dmalloc(sizeof(ll_item_t));
-  new_item->data = data;
-  new_item->next = NULL;
 
-  if (list->head == NULL) {
-    list->head = new_item;
-    list->tail = new_item;
+  ll_item_t *node = dmalloc(sizeof(ll_item_t));
+  node->data = data;
+  node->next = NULL;
 
-  } else {
-    list->tail->next = new_item;
-    list->tail = new_item;
+  if (!list->head) {
+    list->head = list->tail = node;
+    return;
   }
-  list->tail->next = NULL;
 
-  return;
+  list->tail->next = node;
+  list->tail = node;
 }
 
 void remove_from_list(linked_list_t *list, void *data) {
-  if (list == NULL || list->head == NULL) {
+  if (!list || !list->head) {
     fprintf(stderr, "List is empty or NULL\n");
     return;
   }
@@ -43,19 +40,16 @@ void remove_from_list(linked_list_t *list, void *data) {
   ll_item_t *current = list->head;
   ll_item_t *previous = NULL;
 
-  while (current != NULL) {
+  while (current) {
     if (current->data == data) {
-      if (previous == NULL) {
-        // Removing the head
-        list->head = current->next;
-        if (list->head == NULL) {
-          list->tail = NULL; // List is now empty
-        }
-      } else {
+      if (previous) {
         previous->next = current->next;
-        if (current->next == NULL) {
-          list->tail = previous; // Update tail if we removed the last item
-        }
+        if (!current->next)
+          list->tail = previous;
+      } else {
+        list->head = current->next;
+        if (!list->head)
+          list->tail = NULL;
       }
       free(current);
       return;
@@ -63,35 +57,35 @@ void remove_from_list(linked_list_t *list, void *data) {
     previous = current;
     current = current->next;
   }
+
   fprintf(stderr, "Data not found in the list\n");
 }
 
 void free_linked_list(linked_list_t *list) {
-  if (list == NULL) {
+  if (!list) {
     fprintf(stderr, "list is null\n");
     return;
   }
 
   ll_item_t *current = list->head;
-  while (current != NULL) {
+  while (current) {
     ll_item_t *next = current->next;
     free(current->data);
     free(current);
     current = next;
   }
   free(list);
-  return;
 }
 
-int get_list_size(const linked_list_t *list) {
-  if (list == NULL) {
+size_t get_list_size(const linked_list_t *list) {
+  if (!list) {
     fprintf(stderr, "List is NULL\n");
     return 0;
   }
 
-  int size = 0;
+  size_t size = 0;
   ll_item_t *current = list->head;
-  while (current != NULL) {
+  while (current) {
     size++;
     current = current->next;
   }
@@ -99,16 +93,17 @@ int get_list_size(const linked_list_t *list) {
 }
 
 void **linked_list_to_array(const linked_list_t *list) {
-  if (list == NULL || list->head == NULL) {
+  if (!list || !list->head) {
     fprintf(stderr, "List is empty or NULL\n");
     return NULL;
   }
-  int size = get_list_size(list);
+
+  size_t size = get_list_size(list);
   void **array = dmalloc(size * sizeof(void *));
 
   ll_item_t *current = list->head;
-  for (int i = 0; i < size; i++) {
-    if (current == NULL) {
+  for (size_t i = 0; i < size; i++) {
+    if (!current) {
       fprintf(stderr, "Unexpected end of list\n");
       free(array);
       return NULL;
