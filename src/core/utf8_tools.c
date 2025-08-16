@@ -278,9 +278,16 @@ int utf8_cp_to_rawbytes(const int *word, u8 *buf) {
 }
 
 int is_punctuation(int cp) {
-  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"');
+  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"' ||cp == '*');
 }
 
 int is_sentence_terminator(int cp) {
   return (cp == '.' || cp == '?' || cp == '!');
+}
+
+int is_typographic(int cp) {
+  return (
+      cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||
+      cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||
+      cp == 0x00BF);
 }

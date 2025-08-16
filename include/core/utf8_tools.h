@@ -126,4 +126,12 @@ int is_punctuation(int cp);
  */
 int is_sentence_terminator(int cp);
 
+/**
+ * @brief Check if a code point is a typographic.
+ *
+ * @param cp Code point to check.
+ * @return Non-zero if typographic, zero otherwise.
+ */
+int is_typographic(int cp);
+
 #endif

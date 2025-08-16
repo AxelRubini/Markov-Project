@@ -149,17 +149,20 @@ void word_print(const word_t *word, int fd, int *between_char) {
     fprintf(stderr, "Word is NULL\n");
     return;
   }
+  char occ_buf[32];
   int occurrences = get_word_occurrences(word);
+  snprintf(occ_buf, sizeof(occ_buf), "%d", occurrences);
   if (between_char != NULL) {
     print_utf8_word(word, fd);
     for (int i = 0; between_char[i] != '\0'; i++) {
       utf8_putchar(between_char[i], fd); // Print the character between words
     }
-    write(fd, &occurrences, sizeof(int)); // Write the occurrences of the word
+    write(fd, occ_buf, strlen(occ_buf)); // Write the occurrences to the file descriptor
     return;                               // Print the occurrences of the word
   }
   print_utf8_word(word, fd);
-  write(fd, &occurrences, sizeof(int)); // Write the occurrences of the word
+  write(fd, ":", 1); // Print a colon after the word
+  write(fd, occ_buf, strlen(occ_buf)); // Write occurrences to the file descriptor
 }
 
 void free_word(word_t *word) {
@@ -249,8 +252,14 @@ void word_ht_item_print(const ht_item *item, int fd) {
     fprintf(stderr, "ht_item key or value is NULL\n");
     return;
   }
+  char occ_buf[32];
   const word_t *word = (const word_t *)item->key;
   print_utf8_word(word, fd);
+  write(fd, ":", 1); // Print a colon after the word
+  // Print the occurrences of the word
+  int occurrences = word->occurrences;
+  snprintf(occ_buf, sizeof(occ_buf), "%d", occurrences);
+  write(fd, occ_buf, strlen(occ_buf)); // Write occurrences to the file descriptor
   utf8_putchar('\t', fd); // Print a colon after the word
   linked_list_t *followers_list =
       (linked_list_t *)item->value; // Get the linked list of followers

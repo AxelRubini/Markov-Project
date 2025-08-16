@@ -13,20 +13,14 @@
 
 int main(void) {
   
- int fd = open("test_files/out_test_reader_utf8.csv", O_RDONLY);
-  if (fd < 0) {
-    perror("Failed to open test file");
-    return EXIT_FAILURE;
-  }
+  const char *input_csv = "test_files/test_reader_utf8.csv"; 
 
-  hash_table_t *ht = read_csv_file_sp(fd);
+  hash_table_t *ht = read_csv_file_sp(input_csv);
   if (!ht) {
     fprintf(stderr, "Failed to read CSV file into hash table\n");
-    close(fd);
     return EXIT_FAILURE;
   }
   
-  close(fd);
 
   // Print the hash table to verify its contents
 

@@ -67,7 +67,6 @@ int csv_build_file(const char *filename, hash_table_t *table) {
     fprintf(stderr, "Failed to close file %s\n", filename);
     return -1;
   }
-  printf("CSV file %s created successfully\n", filename);
 
   return 0;
 }

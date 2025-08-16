@@ -2,6 +2,32 @@
 #include "frame.h"
 
 /**
+ * @brief Skip the next bytes if typographic character.
+ *
+ * @param fd File descriptor to read from.
+ * @return 0 on success, -1 on error.
+ */
+static int check_next_typograph(int fd) {
+  if (fd < 0) {
+    fprintf(stderr, "Invalid file descriptor\n");
+    return -1;
+  }
+  int bytes_read = 0;
+  int cp = utf8_getchar_fd(fd, &bytes_read);
+  if (is_typographic(cp)) {
+    fflush(stdout); // Ensure output is flushed before printing
+    printf("Skipping typographic character: %c\n", cp);
+    fflush(stdout);
+    utf8_putchar(cp, STDOUT_FILENO); // Print typographic character
+    printf("Skipping next bytes\n");
+
+    return -1;
+  }
+  lseek(fd, -bytes_read, SEEK_CUR); // Rewind to allow next read
+  return 0;                         // Successfully skipped
+}
+
+/**
  * @brief Read and return the next non-space character.
  *
  * @param fd Source file descriptor.
@@ -14,10 +40,12 @@ char move_to_next_word(int fd) {
   }
   char buf[1] = {0};
   int rd_st;
+  check_next_typograph(fd); // Check if next is typographic
 
   while ((rd_st = read(fd, buf, 1)) > 0) {
     // Read until finding a character that is not space or newline
     if (buf[0] == ' ' || buf[0] == '\n' || is_punctuation(buf[0])) {
+      check_next_typograph(fd); // Check if next is typographic
       continue;
     }
     // If we find a valid character, return it
@@ -79,6 +107,7 @@ int read_next_word(int fd, char *nxt_buf, size_t *len) {
     nxt_buf[0] = c;
     nxt_buf[1] = '\0';
     *len = 1;
+    check_next_typograph(fd); // Check if next is typographic
     return 0;
   }
 
@@ -98,8 +127,15 @@ int read_next_word(int fd, char *nxt_buf, size_t *len) {
       fprintf(stderr, "Word exceeds maximum length\n");
       return -1;
     }
+    if (c == '\'') {
+      // Keep apostrophe in the word
+      nxt_buf[b_index++] = c;
+      (*len)++;
+      break;
+    }
     nxt_buf[b_index++] = c;
     (*len)++;
+    check_next_typograph(fd); // Check if next is typographic
   }
 
   nxt_buf[b_index] = '\0';
@@ -202,7 +238,7 @@ int publish_word_on_pipe(int fd, int wfd) {
 }
 
 int read_words_from_pipe(int rfd, hash_table_t *ht) {
-  if (rfd < 0 || !ht) {
+  if (rfd < 0 || ht == NULL) {
     fprintf(stderr, "Invalid file descriptor or hash table\n");
     return -1;
   }
@@ -304,6 +340,8 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
       }
       nxt_word[nxt_word_index++] = cp; // Store character in next word buffer
     }
+    utf8_print_word(nxt_word, STDERR_FILENO); // Debug print next word
+    printf("\n");
 
     // Check if next word is empty
     if (nxt_word_index == 0) {

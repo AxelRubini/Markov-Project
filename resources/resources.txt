@@ -33,3 +33,34 @@ https://stackoverflow.com/questions/19127398/socket-programming-read-is-reading-
  * https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math
  * https://utf8everywhere.org/
  */
+
+
+ [[current_word,occorrenze come parola attuale ],[parola successiva alla corrente,occorrenze come parola successiva rispetto alla corrente],...]
+
+struct c_w{
+    int *chiave;
+    nxt_w *next;
+    int occorrenze_come_chiave;
+
+}
+
+struct nxt_w{
+    int *parola_successiva;
+    int occorrenze_come_parola_successiva;
+}
+
+c_w array[size];
+nxt_w array2[size];
+
+leggo una parola 
+
+  controllo se esiste in array
+  se esiste incremento le occorrenze come chiave
+  e leggo la parola successiva e la aggiungo a array2 che e contenuto in c_w
+  controlle se la parola succesiva esiste in array2 se esiste incremento altrimenti la creo con occorrenza uguale a 1
+
+
+
+
+
+

@@ -79,7 +79,12 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
   return (ssize_t)len; // Return the number of bytes read
 }
 
-hash_table_t *read_csv_file_sp(const int fd) {
+hash_table_t *read_csv_file_sp(const char *filename) {
+  int fd = open(filename, O_RDONLY);
+  if (fd < 0) {
+    perror("Failed to open CSV file");
+    return NULL;
+  }
   hash_table_t *ht =
       create_hash_table(HASH_TABLE_SIZE, next_word_hash, keycmp_next_word);
   if (!ht) {
@@ -97,6 +102,7 @@ hash_table_t *read_csv_file_sp(const int fd) {
       perror("read_csv_line");
       free(line);
       free_hash_table(ht);
+      close(fd);
       return NULL;
     }
 
@@ -110,6 +116,7 @@ hash_table_t *read_csv_file_sp(const int fd) {
       fprintf(stderr, "Error getting key from line\n");
       free(line);
       free_hash_table(ht);
+      close(fd);
       return NULL;
     }
     size_t offset = (size_t)off;
@@ -119,6 +126,7 @@ hash_table_t *read_csv_file_sp(const int fd) {
       fprintf(stderr, "Error getting next words from line\n");
       free(line);
       free_hash_table(ht);
+      close(fd);
       return NULL;
     }
 
@@ -128,11 +136,13 @@ hash_table_t *read_csv_file_sp(const int fd) {
       free_linked_list(next_words);
       free(line);
       free_hash_table(ht);
+      close(fd);
       return NULL;
     }
 
     ht_insert(ht, item);
   }
+  close(fd);
 
   free(line);
   return ht;

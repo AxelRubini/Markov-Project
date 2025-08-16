@@ -194,7 +194,7 @@ int main(int argc, char **argv) {
   if (WIFEXITED(st1) && WEXITSTATUS(st1) == 0 && 
       WIFEXITED(st2) && WEXITSTATUS(st2) == 0 && 
       WIFEXITED(st3) && WEXITSTATUS(st3) == 0) {
-    printf("OK: test multi-processo P1->P2->P3 passato.\n");
+    printf("OK\n");
     return 0;
   }
 

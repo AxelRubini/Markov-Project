@@ -30,7 +30,7 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap);
  * @param fd CSV file descriptor.
  * @return Populated hash table or NULL on error.
  */
-hash_table_t *read_csv_file_sp(int fd);
+hash_table_t *read_csv_file_sp(const char *filename);
 
 /**
  * @brief Forward a parsed CSV line from one descriptor to another.

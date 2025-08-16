@@ -1,12 +1,15 @@
 # ---------------------------  Compiler & Flags -------------------------
 CC      = gcc
-CFLAGS  = -Wall -Wextra -std=c99 -O0 -g3 \
-	  -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core
-LDLIBS = -lm
+CFLAGS  = -Wall -Wextra -std=gnu99 -O0 -g3 \
+	  -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core \
+		-I$(INC_LIB)/argtable3 -I$(INC_DIR)/app -I$(INC_DIR)/modes/sp \
+		-I$(INC_DIR)/modes/mp
+LDLIBS = -lm $(INC_LIB)/argtable3/libargtable3.a 
 
 # ---------------------------  Directories ------------------------------
 SRC_DIR   = ../src
 INC_DIR   = ../include
+INC_LIB   = ../lib
 
 # ---------------------------  Project Modules --------------------------
 # Gather all project sources except main.c

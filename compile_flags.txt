@@ -1,4 +1,4 @@
--std=c99
+-std=gnu99
 -Wall
 -Wextra
 -Iinclude
@@ -6,4 +6,8 @@
 -Iinclude/csv
 -Iinclude/ds
 -Iinclude/io
+-Ilib/argtable3
+-Iinclude/app
+-Iinclude/modes/sp
+-Iinclude/modes/mp
 

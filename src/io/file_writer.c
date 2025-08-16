@@ -150,6 +150,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
       next_word_chooser_free(chooser);
+      utf8_print_word(current_word, 1);
       close(fd);
       return -1;
     }
