@@ -14,6 +14,8 @@
   ((MAX_WORD_LENGTH - 1) * 4 +                                                 \
    1) // Maximum length of a word in bytes (UTF-8) with null terminator
 
+#define ARR_SZ(arr) (sizeof(arr) / sizeof((arr)[0]))
+
 typedef uint8_t u8;
 typedef uint32_t u32;
 
@@ -58,4 +60,19 @@ double next_word_probability(const int *word, const int *next_word);
  * @return Pointer to cleared memory.
  */
 void *dmalloc(size_t size);
+
+/**
+ * @brief Close an fd safely.
+ * @param fd File descriptor to close.
+ * @return 0 on success, -1 on error.
+ */
+int safe_close(int *fd);
+
+/**
+ * @brief Close a series of pipes safely.
+ * @param fds Array of file descriptors to close.
+ * @param count Number of file descriptors.
+ * @return 0 on success, -1 on error.
+ */
+int safe_close_pipes(int *fds, size_t count);
 #endif

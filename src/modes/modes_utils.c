@@ -1,0 +1,138 @@
+#include "modes_utils.h"
+#include "utils.h"
+
+#include <signal.h>
+#include <sys/wait.h>
+static int read_from_stdin(const char *output_txt) {
+  fprintf(stderr, "Reading from stdin \n" 
+                  "if you not redirect stdin, write on the console and press" 
+                  "Ctrl+D to finish input\n");
+  int fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+  if (fd < 0) {
+    perror("Failed to open output file");
+    return -1;
+  }
+
+  char buffer[1024];
+  ssize_t bytes_read;
+  while ((bytes_read = read(STDIN_FILENO, buffer, sizeof(buffer))) > 0) {
+    if (write(fd, buffer, bytes_read) < 0) {
+      perror("Failed to write to temporary file");
+      close(fd);
+      return -1;
+    }
+  }
+  close(fd);
+  return 0;
+}
+
+const char *validate_input_file(const char *input_txt, int *is_stdin) {
+  if (input_txt == NULL) {
+    if (read_from_stdin("tmp_read_from_stdin.txt") != 0) {
+      fprintf(stderr, "Failed to read from stdin\n");
+      return NULL; // Error reading from stdin
+    }
+    *is_stdin = 1; // Indicate that input is from stdin
+    return "tmp_read_from_stdin.txt"; // Return temporary file name
+  }else {
+    *is_stdin = 0; // Indicate that input is from a file
+    int fd = open(input_txt, O_RDONLY);
+    if (fd < 0) {
+      perror("Failed to open input file");
+      return NULL; // Error opening file
+    }
+    if (close(fd) < 0) {
+      perror("Failed to close input file");
+      return NULL; // Error closing file
+    }
+    return input_txt; // Return the original file name
+  }
+}
+
+int print_file_content_to_stdout(const char *filename) {
+  if (filename == NULL) {
+    fprintf(stderr, "No file from read specified, to write to stdout\n");
+    return 1; // Use stdout
+  }
+  int fd = open(filename, O_RDONLY);
+  if (fd < 0) {
+    perror("Failed to open output file");
+    return -1; // Error opening file
+  }
+  char buffer[1024];
+  ssize_t bytes_read;
+  while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
+    if (write(STDOUT_FILENO, buffer, bytes_read) < 0) {
+      perror("Failed to write to stdout");
+      close(fd);
+      return -1;
+    }
+  }
+  if (bytes_read < 0) {
+    perror("Failed to read from output file");
+    close(fd);
+    return -1;
+  }
+  if (close(fd) < 0) {
+    perror("Failed to close output file");
+    return -1;
+  }
+  return 0;
+}
+
+static char *generate_random_symbol() {
+  char *symbol = malloc(2 * sizeof(char));
+  if (symbol == NULL) {
+    fprintf(stderr, "Memory allocation failed\n");
+    return NULL; // Memory allocation failed
+  }
+  const char charset[] = ".?!";
+  int index = rand() % (sizeof(charset) - 1);
+  symbol[0] = charset[index];
+  symbol[1] = '\0';
+  return symbol;
+}
+
+static char *validate_symbol(const char *symbol) {
+  char *result = malloc(2 * sizeof(char));
+  if (result == NULL) {
+    fprintf(stderr, "Memory allocation failed\n");
+    return NULL; // Memory allocation failed
+  }
+  const char valid_symbols[] = {'.', '?', '!'};
+  for (size_t i = 0; symbol[i] != '\0'; i++) {
+    for (size_t j = 0; j < sizeof(valid_symbols) / sizeof(valid_symbols[0]);
+         j++) {
+      if (symbol[i] == valid_symbols[j]) {
+        result[0] = symbol[i];
+        result[1] = '\0';
+        return result; // Valid symbol found
+        break;
+      }
+    }
+  }
+  fprintf(stderr, "Invalid symbol: %s\n", symbol);
+  return generate_random_symbol(); // Return a random symbol if invalid
+}
+
+char *validate_word(const char *word) {
+  if (word == NULL) {
+    char *valid_word = generate_random_symbol();
+    return valid_word; // Generate a random symbol if word is NULL
+  } else {
+    // Validate the input word
+    char *valid_word = validate_symbol(word);
+    if (valid_word == NULL) {
+      return NULL;
+    }
+    return valid_word; // Return the validated word
+  }
+}
+
+void kill_and_wait(pid_t pid) {
+  if (pid > 0) {
+    kill(pid, SIGTERM); // Send termination signal to the process
+    waitpid(pid, NULL, 0); // Wait for the process to terminate
+  }
+}
+

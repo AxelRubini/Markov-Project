@@ -36,7 +36,7 @@ int run(const options_t *options) {
       task1_sp(options->input_txt, options->output_csv);
     } else if (options->task == TASK_2) {
       printf("Executing Task 2...\n");
-      task2_sp(options->input_txt, options->output_txt, options->n_words, options->word);
+      task2_sp(options->input_csv, options->output_txt, options->n_words, options->word);
     } else {
       printf("Executing both tasks...\n");
       both_sp(options->input_txt, options->output_csv, 
@@ -50,7 +50,7 @@ int run(const options_t *options) {
       task1_mp(options->input_txt, options->output_csv);
     } else if (options->task == TASK_2) {
       printf("Executing Task 2...\n");
-      task2_mp(options->input_txt, options->output_txt, options->n_words, options->word);
+      task2_mp(options->input_csv, options->output_txt, options->n_words, options->word);
     } else {
       printf("Executing both tasks...\n");
       both_mp(options->input_txt, options->output_csv, 

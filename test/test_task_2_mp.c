@@ -1,6 +1,3 @@
-//
-// ----------------------------------------------------------------------
-// ADAPTER: DICHIARAZIONI (allinea qui le firme alle tue funzioni reali)
 #define _POSIX_C_SOURCE 200809L
 #include "CSV_reader.h"
 #include "file_writer.h"
@@ -16,9 +13,6 @@
 #include <signal.h>
 
 
-// ----------------------------------------------------------------------
-// TEST LOGIC P1->P2->P3
-// ----------------------------------------------------------------------
 
 // Producer P1: read CSV and send each line with publish_line()
 static int child_p1(int wfd, const char *csv_path) {

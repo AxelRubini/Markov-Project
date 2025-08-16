@@ -15,11 +15,6 @@ static int check_next_typograph(int fd) {
   int bytes_read = 0;
   int cp = utf8_getchar_fd(fd, &bytes_read);
   if (is_typographic(cp)) {
-    fflush(stdout); // Ensure output is flushed before printing
-    printf("Skipping typographic character: %c\n", cp);
-    fflush(stdout);
-    utf8_putchar(cp, STDOUT_FILENO); // Print typographic character
-    printf("Skipping next bytes\n");
 
     return -1;
   }

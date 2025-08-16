@@ -108,6 +108,57 @@ static int *create_start_word(char sym) {
     return NULL;
   }
 }
+/**
+ * @brief Check if the start character is present in the hash table if not will
+ *      choose the first start character available in the hash table.
+ *      @param start_sym Pointer to the start symbol character.
+ *      @param table Pointer to the hash table.
+ *      @return 0 if the start symbol is valid, -1 if not.
+ */
+int *check_start_sym(char *start_sym, hash_table_t *table) {
+  if (start_sym == NULL || table == NULL) {
+    fprintf(stderr, "Invalid start symbol or hash table\n");
+    return NULL;
+  }
+
+  // Check if the start symbol is in the hash table
+  int *start_word = create_start_word(start_sym[0]);
+  if (start_word == NULL) {
+    fprintf(stderr, "Failed to create start word from symbol: %c\n",
+            *start_sym);
+    return NULL;
+  }
+  if (ht_search(table, start_word) == NULL) {
+    // if not found, choose a valid symbol from the hash table
+    fprintf(stderr, "Start symbol '%c' not found in the table, searching for "
+                    "valid start symbol\n",
+            start_sym[0]);
+    free(start_word);
+    char arr[3] = GENERATED_TEST_STARTERS;
+    size_t len = sizeof(arr) / sizeof(arr[0]);
+    for (size_t i = 0; i < len; i++) {
+      if (arr[i] == start_sym[0]) {
+        continue; // Skip the current start symbol
+      }
+      start_word = create_start_word(arr[i]);
+      if (start_word == NULL) {
+        fprintf(stderr, "Failed to create start word from symbol: %c\n",
+                arr[i]);
+        return NULL;
+      }
+      if (ht_search(table, start_word) != NULL) {
+        fprintf(stderr, "Found valid start symbol: %c\n", arr[i]);
+        start_sym[0] = arr[i]; // Update the start symbol
+        return start_word;     // Return the valid start word
+      }
+      free(start_word); // Free the previous start word
+    }
+    fprintf(stderr, "No valid start symbol found in the hash table\n");
+    return NULL;
+  }
+  return start_word;
+}
+
 int write_output_sp(const char *filename, const int num_words, char *start_sym,
                     hash_table_t *table) {
   if (filename == NULL || num_words <= 0) {
@@ -138,12 +189,14 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     return -1;
   }
 
-  int *current_word = create_start_word(sym);
-  if (!current_word) {
+  int *current_word = check_start_sym(&sym, table);
+  if (current_word == NULL) {
+    fprintf(stderr, "Failed to create start word from symbol: %c\n", sym);
     next_word_chooser_free(chooser);
     close(fd);
     return -1;
   }
+
   int words_written = 0;
   while (words_written < num_words) {
     int *next_word = next_word_chooser_choose(chooser, current_word);
@@ -258,11 +311,14 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
     return -1;
   }
 
-  int *current_word = create_start_word(start_sym[0]);
-  if (!current_word) {
+  int *current_word = check_start_sym((char *)start_sym, ht);
+  if (current_word == NULL) {
+    fprintf(stderr, "Failed to create start word from symbol: %c\n",
+            start_sym[0]);
     next_word_chooser_free(chooser);
     return -1;
   }
+
   int words_written = 0;
   char frm_buf[(MAX_WORD_LENGTH - 1) * sizeof(int) + 1] = {
       0}; // Buffer for the frame

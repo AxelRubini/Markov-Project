@@ -2,6 +2,7 @@
 #include "CSV_reader.h"
 #include "file_writer.h"
 #include "hash_table.h"
+#include "modes_utils.h"
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -141,26 +142,9 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
     output_txt = "tmp_output.txt"; // Temporary file for stdout
   }
 
-  if (word == NULL) {
-    // generate random character from {.,?,!}
-    char random_symbol = generate_random_symbol();
-    word = &random_symbol;
-  } else {
-    // find the first valid character to be the starter symbol
-    size_t len = strlen(word);
-    size_t i = 0;
-    while (i < len && word[i] != '.' && word[i] != '?' && word[i] != '!') {
-      i++;
-    }
-    if (i == len) {
-      fprintf(stderr, "No valid starter symbol found in the provided word\n");
-      fprintf(stderr, "Using a random starter symbol instead\n");
-      char random_symbol = generate_random_symbol();
-      word = &random_symbol;
-    }
-    word = &word[i];
-  }
+  char *validated_word = validate_word(word);
 
+ 
   int pipe12[2], pipe23[2];
   if (pipe(pipe12) != 0) {
     perror("pipe12");
@@ -208,7 +192,7 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
   if (p2 == 0) {
     close(pipe12[1]); 
     close(pipe23[0]); 
-    int rc = w_p2(pipe12[0], pipe23[1], n_words, word);
+    int rc = w_p2(pipe12[0], pipe23[1], n_words, validated_word);
     if (rc != 0) {
       fprintf(stderr, "p2 failed with error code %d\n", rc);
       close(pipe12[0]);

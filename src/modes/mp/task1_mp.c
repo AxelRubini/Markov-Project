@@ -13,10 +13,7 @@
 #include <stdlib.h>
 
 
-static void die(const char *msg) {
-  perror(msg);
-  _exit(1);
-}
+
 
 static int w_p1(int pipe_to_write, const char *input_txt) {
   if (pipe_to_write < 0 || !input_txt) {

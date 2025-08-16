@@ -10,4 +10,5 @@
 -Iinclude/app
 -Iinclude/modes/sp
 -Iinclude/modes/mp
+-Iinclude/modes
 
