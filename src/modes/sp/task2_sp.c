@@ -34,6 +34,9 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
   char *validated_word = validate_word(word);
 
   int result = write_output_sp(output_txt, n_words, validated_word, ht);
+  if (validated_word && validated_word != word) {
+    free(validated_word);
+  }
   if (result < 0) {
     fprintf(stderr, "Failed to send output: %d\n", result);
     free_hash_table(ht);

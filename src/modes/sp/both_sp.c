@@ -63,6 +63,9 @@ int both_sp(const char *input_txt, const char *output_csv,
   char *validated_word = validate_word(word);
 
   int result = write_output_sp(output_txt, n_words, validated_word, freq_table);
+  if (validated_word && validated_word != word) {
+    free(validated_word);
+  }
   if (result < 0) {
     fprintf(stderr, "Failed to send output: %d\n", result);
     free_hash_table(ht);
