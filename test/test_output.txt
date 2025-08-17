@@ -1,1 +1,1 @@
-We will use this text for testing
+The program should be able to count
