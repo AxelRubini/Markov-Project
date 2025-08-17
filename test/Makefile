@@ -1,63 +1,75 @@
-# ---------------------------  Compiler & Flags -------------------------
-CC      = gcc
-CFLAGS  = -Wall -Wextra -std=gnu99 -O0 -g3 \
-	  -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core \
-		-I$(INC_LIB)/argtable3 -I$(INC_DIR)/app -I$(INC_DIR)/modes/sp \
-		-I$(INC_DIR)/modes/mp -I$(INC_DIR)/modes
-LDLIBS = -lm $(INC_LIB)/argtable3/libargtable3.a 
+SHELL ?= /bin/sh
 
-# ---------------------------  Directories ------------------------------
-SRC_DIR   = ../src
-INC_DIR   = ../include
-INC_LIB   = ../lib
+# Compiler and flags
+CC ?= gcc
+STD ?= -std=gnu99
+WARN ?= -Wall -Wextra -Wpedantic
+DEBUG ?= -O0 -g3 -fno-omit-frame-pointer
 
-# ---------------------------  Project Modules --------------------------
-# Gather all project sources except main.c
-COMMON_SRC = $(shell find $(SRC_DIR) -name '*.c' \! -name 'main.c')
+ROOT ?= ..
+BUILD_TEST ?= $(ROOT)/build/test
+BUILD_TESTCORE ?= $(ROOT)/build/test_core
+BIN_TEST ?= $(ROOT)/bin/test
 
-# ---------------------------  Tests Auto-Discovery ---------------------
-TEST_SRCS = $(wildcard test_*.c)
-TESTS     = $(patsubst %.c,%,$(TEST_SRCS))
+INCLUDES ?= -I$(ROOT)/include -I$(ROOT)/include/csv -I$(ROOT)/include/io -I$(ROOT)/include/ds -I$(ROOT)/include/core -I$(ROOT)/include/app -I$(ROOT)/include/modes/sp
 
-# ---------------------------  Default ---------------------------------
-.PHONY: all run run-one clean list
-all: $(TESTS)
+CFLAGS ?= $(STD) $(WARN) $(DEBUG) $(INCLUDES) -MMD -MP
 
-# ---------------------------  Link & Compile ---------------------------
-%: %.c $(COMMON_SRC)
-	@echo "Building $@..."
-	@$(CC) $(CFLAGS) -I$(INC_DIR) $^ -o $@ $(LDLIBS)
+COMMON_SRCS := $(shell find $(ROOT)/src -name '*.c' ! -name 'main.c')
+COMMON_OBJS := $(patsubst $(ROOT)/src/%.c,$(BUILD_TESTCORE)/%.o,$(COMMON_SRCS))
+COMMON_DEPS := $(COMMON_OBJS:.o=.d)
 
-# ---------------------------  Run All ----------------------------------
-run: all
-	@set -e; \
-	for t in $(TESTS); do \
-	        echo "Running $$t..."; \
-	        ./$$t; \
-	done
-	@echo "All tests completed."
+TEST_SRCS := $(wildcard *_test.c test_*.c)
+TEST_OBJS := $(patsubst %.c,$(BUILD_TEST)/%.o,$(TEST_SRCS))
+TEST_DEPS := $(TEST_OBJS:.o=.d)
+TEST_BINS := $(patsubst %.c,$(BIN_TEST)/%,$(TEST_SRCS))
 
-# ---------------------------  Run Single -------------------------------
-# Usage: make run-one ONE=test_read_csv_line
-run-one: %: $(ONE)
-	@if [ -z "$(ONE)" ]; then \
-	        echo "Error: specify ONE=<test_name>"; \
-	        exit 1; \
-	fi
-	@$(MAKE) $(ONE)
-	@echo "Running $(ONE)..."
-	@./$(ONE)
+.PHONY: all test run one clean distclean test-vars
 
-# ---------------------------  Utility ----------------------------------
-list:
-	@echo "CFLAGS = $(CFLAGS)"
-	@echo "INC_DIR = $(INC_DIR)"
-	@echo "SRC_DIR = $(SRC_DIR)"
-	@echo "COMMON_SRC = $(COMMON_SRC)"
-	@echo "TESTS = $(TESTS)"
+all: $(TEST_BINS)
 
-# ---------------------------  Clean ------------------------------------
+test: all
+	@set -e; for t in $(TEST_BINS); do echo "Running $(notdir $$t)..."; $$t; done
+
+run:
+	@set -e; for t in $(TEST_BINS); do echo "Running $(notdir $$t)..."; $$t; done
+
+one:
+	@if [ -z "$(NOME)" ]; then echo "Error: specify NOME=<test_file.c>"; exit 1; fi; $(MAKE) $(BIN_TEST)/$(basename $(NOME)); echo "Running $(basename $(NOME))..."; $(BIN_TEST)/$(basename $(NOME))
+
+%_test: $(BIN_TEST)/%_test
+	@echo "Running $<..."; $<
+
+$(BIN_TEST)/%: $(BUILD_TEST)/%.o $(COMMON_OBJS) | $(BIN_TEST)
+	$(CC) $(CFLAGS) $^ -o $@ -lm
+
+$(BUILD_TEST)/%.o: %.c | $(BUILD_TEST)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_TESTCORE)/%.o: $(ROOT)/src/%.c | $(BUILD_TESTCORE)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_TEST) $(BUILD_TESTCORE) $(BIN_TEST):
+	@mkdir -p $@
+
+test-vars:
+	@echo "ROOT=$(ROOT)"
+	@echo "BUILD_TEST=$(BUILD_TEST)"
+	@echo "BUILD_TESTCORE=$(BUILD_TESTCORE)"
+	@echo "BIN_TEST=$(BIN_TEST)"
+	@echo "COMMON_SRCS=$(COMMON_SRCS)"
+	@echo "COMMON_OBJS=$(COMMON_OBJS)"
+	@echo "TEST_SRCS=$(TEST_SRCS)"
+	@echo "TEST_OBJS=$(TEST_OBJS)"
+	@echo "TEST_BINS=$(TEST_BINS)"
+
 clean:
-	@rm -f $(TESTS)
-	@echo "Cleaned test executables."
+	@rm -rf $(BUILD_TEST) $(BUILD_TESTCORE)
+	@echo "Cleaned test build directories."
+
+distclean: clean
+	@rm -rf $(BIN_TEST)
+	@echo "Removed test binaries."
+
+-include $(COMMON_DEPS) $(TEST_DEPS)
 
