@@ -35,6 +35,5 @@ int task1_sp(const char *input_txt, const char *output_csv) {
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   remove("tmp.txt"); // Remove the temporary file if it was created
-  close(in_fd);
   return 0;
 }

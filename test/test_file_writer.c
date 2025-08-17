@@ -19,7 +19,7 @@ int main(void) {
     fprintf(stderr, "Failed to read CSV file into hash table\n");
     return EXIT_FAILURE;
   }
-  print_hash_table(ht,1);
+  //print_hash_table(ht,1);
   int result = write_output_sp(filename, num_words, &start_sym, ht);
   if (result < 0) {
     fprintf(stderr, "Failed to write output to file\n");

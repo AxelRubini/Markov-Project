@@ -47,7 +47,6 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
     return result;
   }
   fprintf(stderr, "Output written to %s\n", output_txt);
-  close(out_fd);
   free_hash_table(ht);
   if (output_txt != NULL) {
     if (close(out_fd) < 0) {
