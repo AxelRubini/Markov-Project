@@ -144,16 +144,21 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
 
   char *validated_word = validate_word(word);
 
- 
   int pipe12[2], pipe23[2];
   if (pipe(pipe12) != 0) {
     perror("pipe12");
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
     return 1;
   }
   if (pipe(pipe23) != 0) {
     perror("pipe23");
     close(pipe12[0]); // Clean up pipe12 in case of error
     close(pipe12[1]);
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
     return 1;
   }
   pid_t p1 = fork();
@@ -164,6 +169,9 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
     close(pipe12[1]);
     close(pipe23[0]);
     close(pipe23[1]);
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
     return 1;
   }
   if (p1 == 0) {
@@ -181,12 +189,15 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
   pid_t p2 = fork();
   if (p2 < 0) {
     perror("fork p2");
-    
+
     kill(p1, SIGTERM);
     close(pipe12[0]);
     close(pipe12[1]);
     close(pipe23[0]);
     close(pipe23[1]);
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
     return 1;
   }
   if (p2 == 0) {
@@ -204,13 +215,16 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
   pid_t p3 = fork();
   if (p3 < 0) {
     perror("fork p3");
-    
+
     kill(p1, SIGTERM);
     kill(p2, SIGTERM);
     close(pipe12[0]);
     close(pipe12[1]);
     close(pipe23[0]);
     close(pipe23[1]);
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
     return 1;
   }
   if (p3 == 0) {
@@ -264,17 +278,26 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
     rc = 1;
   }
   if (rc != 0) {
-    remove(output_txt); 
-    return rc; 
+    remove(output_txt);
+    if (validated_word && validated_word != word) {
+      free(validated_word);
+    }
+    return rc;
   }
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_text_on_stdout(output_txt) < 0) {
       fprintf(stderr, "Failed to print output to stdout\n");
       remove(output_txt); // Remove the temporary file
+      if (validated_word && validated_word != word) {
+        free(validated_word);
+      }
       return -1;
     }
     remove(output_txt); // Remove the temporary file after printing
+  }
+  if (validated_word && validated_word != word) {
+    free(validated_word);
   }
   return 0;
 }

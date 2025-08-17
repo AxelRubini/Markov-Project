@@ -73,6 +73,8 @@ hash_table_t *build_word_hashtable_fd(int fd) {
         ht_item *item = word_ht_item_create(word, first_word_obj);
         if (item) {
           ht_insert(table, item);
+          free_word(first_word_obj);
+          free_word(word);
         } else {
           fprintf(stderr, "Failed to create hash table item for first word\n");
           free_word(first_word_obj);
@@ -82,7 +84,6 @@ hash_table_t *build_word_hashtable_fd(int fd) {
         fprintf(stderr, "Failed to create first word from first_word buffer\n");
         free_word(word);
       }
-      free_word(word);
       break;
     }
 
@@ -127,6 +128,8 @@ hash_table_t *build_word_hashtable_fd(int fd) {
     }
 
     ht_insert(table, item);
+    free_word(word);
+    free_word(next_word_obj);
 
     // prepare for next iteration: next_word becomes current_word
     memcpy(current_word, next_word, sizeof(current_word));
