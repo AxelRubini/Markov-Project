@@ -9,9 +9,9 @@ BUILD_TEST ?= $(ROOT)/build/test
 BUILD_TESTCORE ?= $(ROOT)/build/test_core
 BIN_TEST ?= $(ROOT)/bin/test
 
-INCLUDES ?= -I$(ROOT)/include -I$(ROOT)/include/csv -I$(ROOT)/include/io -I$(ROOT)/include/ds -I$(ROOT)/include/core -I$(ROOT)/include/app -I$(ROOT)/include/modes/sp
+INCLUDES ?= -I$(ROOT)/include -I$(ROOT)/include/csv -I$(ROOT)/include/io -I$(ROOT)/include/ds -I$(ROOT)/include/core -I$(ROOT)/include/app -I$(ROOT)/include/modes/sp -I$(ROOT)/lib/argtable3
 
-CFLAGS ?= $(STD) $(WARN) $(DEBUG) $(INCLUDES) -MMD -MP
+CFLAGS ?= $(STD) $(WARN) $(DEBUG) $(INCLUDES)
 
 COMMON_SRCS := $(shell find $(ROOT)/src -name '*.c' ! -name 'main.c')
 COMMON_OBJS := $(patsubst $(ROOT)/src/%.c,$(BUILD_TESTCORE)/%.o,$(COMMON_SRCS))
@@ -39,13 +39,13 @@ one:
 	@echo "Running $<..."; $<
 
 $(BIN_TEST)/%: $(BUILD_TEST)/%.o $(COMMON_OBJS) | $(BIN_TEST)
-	$(CC) $(CFLAGS) $^ -o $@ -lm
+	$(CC) $(CFLAGS) $^ -o $@ -lm $(ROOT)/lib/argtable3/libargtable3.a
 
 $(BUILD_TEST)/%.o: %.c | $(BUILD_TEST)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ $(ROOT)/lib/argtable3/libargtable3.a 
 
 $(BUILD_TESTCORE)/%.o: $(ROOT)/src/%.c | $(BUILD_TESTCORE)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ $(ROOT)/lib/argtable3/libargtable3.a 
 
 $(BUILD_TEST) $(BUILD_TESTCORE) $(BIN_TEST):
 	@mkdir -p $@
