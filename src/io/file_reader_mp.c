@@ -359,7 +359,7 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
       fprintf(stderr, "Failed to create word from next word buffer\n");
       // Note: Need to free key_word properly - this depends on implementation
       // Assuming create_word allocates memory that needs to be freed
-      free(key_word);
+      free_word(key_word);
       free(line);
       return -1; // Error creating word
     }
@@ -368,13 +368,15 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
     if (!item) {
       fprintf(stderr, "Failed to create hash table item\n");
       // Free the word objects - implementation dependent
-      free(key_word);
-      free(value_word);
+      free_word(key_word);
+      free_word(value_word);
       free(line);
       return -1; // Error creating hash table item
     }
 
     ht_insert(ht, item); // Insert item into hash table
+    free_word(key_word);
+    free_word(value_word);
   }
 
   free(line); // Free the line buffer
