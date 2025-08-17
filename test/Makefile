@@ -39,9 +39,12 @@ CFLAGS_REL := $(CFLAGS_BASE) $(OPT_REL)
 CFLAGS_SAN := $(CFLAGS_BASE) $(OPT_DBG) -fsanitize=address,undefined
 LDFLAGS_SAN:= -fsanitize=address,undefined
 
+
 # ----------------------------- Targets ----------------------------------
-.PHONY: all debug release asan tests run-one valgrind clean distclean list
+.PHONY: all test debug release asan tests run-one valgrind clean distclean list
+
 all: debug
+ 
 
 debug: CFLAGS := $(CFLAGS_DBG)
 debug: tests
@@ -80,7 +83,7 @@ TEST ?= $(firstword $(TEST_BINS))
 valgrind: debug
 	@test -n "$(TEST)" || (echo "Nessun test trovato"; exit 2)
 	@echo ">>> VALGRIND su $(TEST)"
-	@MALLOC_CHECK_=3 MALLOC_PERTURB_=204 $(VALGRIND) ./$(TEST)
+	@MALLOC_CHECK_=3 MALLOC_PERTURB_=204 $(VALGRIND) --log-file=valgrind.out ./$(TEST)
 
 list:
 	@echo "COMMON_SRCS = $(COMMON_SRCS)"
@@ -96,5 +99,6 @@ distclean: clean
 	@rm -rf $(BIN_TEST)
 	@echo "Distclean test: eseguibili rimossi."
 
+# Includo i file .d generati da -MMD -MP (ricompilo se cambiano gli .h)
 -include $(COMMON_OBJS:.o=.d)
 -include $(TEST_OBJS:.o=.d)

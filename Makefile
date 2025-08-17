@@ -25,13 +25,16 @@ INC_LIB   = lib
 BUILD_DIR = build
 TEST_DIR  = test
 
+#-----------------------------	Test Profile -------------------
+TEST_PROFILE ?= debug 
+
 # ---------------------------  Sources & Objects ------------------------
 # Tutti i .c sotto src/ (ricorsivo), escluso eventuale file legacy
 SRC       = $(shell find $(SRC_DIR) -name '*.c' ! -path "$(SRC_DIR)/ds/ht_data_manipulation.c")
 OBJ       = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 
 # ---------------------------  Default ----------------------------------
-.PHONY: all debug release run list tests asan-tests valgrind test-one tests-clean clean distclean
+.PHONY: all test debug release run list tests asan-tests valgrind test-one tests-clean clean distclean
 all: debug
 
 debug: CFLAGS := $(WARN) $(CSTD) $(OPT_DBG) $(CINCS) $(CDEPS)
@@ -57,6 +60,13 @@ run: $(TARGET)
 	@MALLOC_CHECK_=3 MALLOC_PERTURB_=204 ./$(TARGET)
 
 # ---------------------------  Tests (delegati) -------------------------
+test: 
+	@$(MAKE) -C $(TEST_DIR) test $(TEST_PROFILE)
+	@echo "Starting tests in $(TEST_DIR)..."
+	@for t in $(find bin/test -type f -executable); do \
+		echo "Running $$t..."; \
+		MALLOC_CHECK_=3 MALLOC_PERTURB_=204 ./$$t; \
+	done
 tests:
 	@$(MAKE) -C $(TEST_DIR) tests
 

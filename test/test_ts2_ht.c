@@ -13,7 +13,7 @@
 
 int main(void) {
   
-  const char *input_csv = "test_files/test_reader_utf8.csv"; 
+  const char *input_csv = "test_files/out_test_csv_writer_mp.csv"; 
 
   hash_table_t *ht = read_csv_file_sp(input_csv);
   if (!ht) {
