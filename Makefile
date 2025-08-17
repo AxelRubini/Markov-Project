@@ -24,8 +24,10 @@ OBJ      = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 # ---------------------------  Libraries --------------------------------
 
 # ---------------------------  Default ---------------------------------
-.PHONY: all
+.PHONY: all main
 all: $(TARGET)
+
+main: $(TARGET)
 
 # ---------------------------  Link -------------------------------------
 $(TARGET): $(BUILD_DIR) $(OBJ)
@@ -46,14 +48,14 @@ $(BUILD_DIR):
 # ---------------------------  Tests (/test) -------------------------
 .PHONY: test test-one tests-clean
 test:
-	@$(MAKE) -C $(TEST_DIR) run
+	@$(MAKE) -C $(TEST_DIR) test
 
-# Run a single test: make test-one ONE=<test_name>
+# Run a single test: make test-one NOME=<test_file.c>
 test-one:
-	@$(MAKE) -C $(TEST_DIR) run-one ONE=$(ONE)
+	@$(MAKE) -C $(TEST_DIR) one NOME=$(NOME)
 
 tests-clean:
-	@$(MAKE) -C $(TEST_DIR) clean
+	@$(MAKE) -C $(TEST_DIR) distclean
 
 # ---------------------------  Clean ------------------------------------
 .PHONY: clean distclean
@@ -62,4 +64,4 @@ clean:
 	@echo "Cleaned build directory and executable."
 
 distclean: clean
-	@$(MAKE) -C $(TEST_DIR) clean
+	@$(MAKE) -C $(TEST_DIR) distclean
