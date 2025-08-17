@@ -41,7 +41,7 @@ ht_item *next_word_ht_item_create(const int *key, linked_list_t *next_words) {
   int *key_copy = utf8_str_deepcopy(key);
   if (key_copy == NULL) {
     fprintf(stderr, "Failed to create a deep copy of the word for key\n");
-    free_linked_list(next_words); // Free the linked list if it was created
+    free_linked_list(next_words, (void (*)(void *))free_next_word);
     free(item);
     return NULL;
   }
@@ -75,12 +75,7 @@ void free_next_word_ht_item(ht_item *item) {
   }
   if (item->value != NULL) {
     linked_list_t *next_words_list = (linked_list_t *)item->value;
-    ll_item_t *current = next_words_list->head;
-    while (current != NULL) {
-      free_next_word((next_word_t *)current->data); // Free each next_word_t
-      current = current->next;
-    }
-    free(next_words_list); // Free the linked list itself
+    free_linked_list(next_words_list, (void (*)(void *))free_next_word);
   }
   free(item);
 }

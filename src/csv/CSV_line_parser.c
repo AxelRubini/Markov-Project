@@ -61,7 +61,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         // word not completed, end of file reached
         if (w_index > 0) {
           fprintf(stderr, "Incomplete word at end of line\n");
-          free_linked_list(next_words);
+          free_linked_list(next_words, (void (*)(void *))free_next_word);
           return NULL;
         }
         state = READING_END_OF_FILE;
@@ -89,7 +89,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         // end of line reached without using probability
         if (w_index > 0) {
           fprintf(stderr, "Word without probability at end of line\n");
-          free_linked_list(next_words);
+          free_linked_list(next_words, (void (*)(void *))free_next_word);
           return NULL;
         }
         return next_words;
@@ -130,7 +130,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
           next_word_t *next_word = create_next_word(word, probability);
           if (next_word == NULL) {
             fprintf(stderr, "Failed to create next word from line\n");
-            free_linked_list(next_words);
+            free_linked_list(next_words, (void (*)(void *))free_next_word);
             return NULL;
           }
           add_to_list(next_words, next_word);
@@ -167,7 +167,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         next_word_t *next_word = create_next_word(word, probability);
         if (next_word == NULL) {
           fprintf(stderr, "Failed to create next word from line\n");
-          free_linked_list(next_words);
+          free_linked_list(next_words, (void (*)(void *))free_next_word);
           return NULL;
         }
         add_to_list(next_words, next_word);
@@ -194,7 +194,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
         next_word_t *next_word = create_next_word(word, probability);
         if (next_word == NULL) {
           fprintf(stderr, "Failed to create next word from line\n");
-          free_linked_list(next_words);
+          free_linked_list(next_words, (void (*)(void *))free_next_word);
           return NULL;
         }
         add_to_list(next_words, next_word);
@@ -223,12 +223,12 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
 
     case READING_NXT_WORD_ERROR:
       fprintf(stderr, "Error reading next word from line\n");
-      free_linked_list(next_words);
+      free_linked_list(next_words, (void (*)(void *))free_next_word);
       return NULL;
 
     case READING_PROBABILITY_ERROR:
       fprintf(stderr, "Error reading probability from line\n");
-      free_linked_list(next_words);
+      free_linked_list(next_words, (void (*)(void *))free_next_word);
       if (sum_probability > 1.0) {
         fprintf(stderr, "Total probability exceeds 1.0 in line\n");
       }
@@ -245,7 +245,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
 
     default:
       fprintf(stderr, "Unexpected state in get_next_words_from_line\n");
-      free_linked_list(next_words);
+      free_linked_list(next_words, (void (*)(void *))free_next_word);
       return NULL;
     }
   }

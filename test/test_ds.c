@@ -67,7 +67,7 @@ static void test_linked_list(void) {
   free(b);                   /* free it explicitly          */
   assert(get_list_size(list) == 2);
 
-  free_linked_list(list); /* frees nodes + (a and c)     */
+  free_linked_list(list, free); /* frees nodes + (a and c) */
 }
 
 /* -----------------------------------------------------
