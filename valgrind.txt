@@ -1,0 +1,374 @@
+
+Direct leak of 1008 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904a960 in build_word_hashtable_fd ../src/io/file_reader.c:55
+    #4 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #5 0x557d390358e2 in run ../src/app/runner.c:36
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 1008 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904ac74 in build_word_hashtable_fd ../src/io/file_reader.c:109
+    #4 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #5 0x557d39035e07 in run ../src/app/runner.c:42
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 1008 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904a960 in build_word_hashtable_fd ../src/io/file_reader.c:55
+    #4 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #5 0x557d39035e07 in run ../src/app/runner.c:42
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 1008 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904ac74 in build_word_hashtable_fd ../src/io/file_reader.c:109
+    #4 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #5 0x557d390358e2 in run ../src/app/runner.c:36
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 480 byte(s) in 30 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39045133 in add_to_list ../src/ds/linked_list.c:21
+    #3 0x557d3903d70f in get_next_words_from_line ../src/csv/CSV_line_parser.c:173
+    #4 0x557d3903f28c in read_csv_file_sp ../src/csv/CSV_reader.c:124
+    #5 0x557d3905b088 in both_sp ../src/modes/sp/both_sp.c:52
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 192 byte(s) in 12 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39045133 in add_to_list ../src/ds/linked_list.c:21
+    #3 0x557d3903da85 in get_next_words_from_line ../src/csv/CSV_line_parser.c:200
+    #4 0x557d3903f28c in read_csv_file_sp ../src/csv/CSV_reader.c:124
+    #5 0x557d3905b088 in both_sp ../src/modes/sp/both_sp.c:52
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904aa52 in build_word_hashtable_fd ../src/io/file_reader.c:71
+    #4 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #5 0x557d39035e07 in run ../src/app/runner.c:42
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39047a43 in create_word ../src/ds/word.c:20
+    #3 0x557d3904aa52 in build_word_hashtable_fd ../src/io/file_reader.c:71
+    #4 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #5 0x557d390358e2 in run ../src/app/runner.c:36
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39039bc0 in utf8_str_deepcopy ../src/core/utf8_tools.c:256
+    #3 0x557d39036ccf in next_word_chooser_choose ../src/core/next_word_chooser.c:68
+    #4 0x557d39051397 in write_output_sp ../src/io/file_writer.c:202
+    #5 0x557d3905b1b8 in both_sp ../src/modes/sp/both_sp.c:65
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d390365b2 in create_next_word_chooser ../src/core/next_word_chooser.c:16
+    #3 0x557d3905120b in write_output_sp ../src/io/file_writer.c:185
+    #4 0x557d3905b1b8 in both_sp ../src/modes/sp/both_sp.c:65
+    #5 0x557d39035e07 in run ../src/app/runner.c:42
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 2 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3905392a in generate_random_symbol ../src/modes/modes_utils.c:84
+    #2 0x557d39054230 in validate_symbol ../src/modes/modes_utils.c:113
+    #3 0x557d390542c4 in validate_word ../src/modes/modes_utils.c:122
+    #4 0x557d39059ae1 in task2_mp ../src/modes/mp/task2_mp.c:145
+    #5 0x557d3903625d in run ../src/app/runner.c:53
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Direct leak of 2 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3905392a in generate_random_symbol ../src/modes/modes_utils.c:84
+    #2 0x557d39054230 in validate_symbol ../src/modes/modes_utils.c:113
+    #3 0x557d390542c4 in validate_word ../src/modes/modes_utils.c:122
+    #4 0x557d3905b18b in both_sp ../src/modes/sp/both_sp.c:63
+    #5 0x557d39035e07 in run ../src/app/runner.c:42
+    #6 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #7 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #8 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #9 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187c
+ec4c03a504fccc917f9af55568a53)
+    #10 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 7812 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904a960 in build_word_hashtable_fd ../src/io/file_reader.c:55
+    #5 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #6 0x557d390358e2 in run ../src/app/runner.c:36
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 7812 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904a960 in build_word_hashtable_fd ../src/io/file_reader.c:55
+    #5 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 7812 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904ac74 in build_word_hashtable_fd ../src/io/file_reader.c:109
+    #5 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #6 0x557d390358e2 in run ../src/app/runner.c:36
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 7812 byte(s) in 63 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904ac74 in build_word_hashtable_fd ../src/io/file_reader.c:109
+    #5 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 192 byte(s) in 12 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39045133 in add_to_list ../src/ds/linked_list.c:21
+    #3 0x557d3903d70f in get_next_words_from_line ../src/csv/CSV_line_parser.c:173
+    #4 0x557d3903f28c in read_csv_file_sp ../src/csv/CSV_reader.c:124
+    #5 0x557d3905b088 in both_sp ../src/modes/sp/both_sp.c:52
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 124 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904aa52 in build_word_hashtable_fd ../src/io/file_reader.c:71
+    #5 0x557d3905aee8 in both_sp ../src/modes/sp/both_sp.c:31
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 124 byte(s) in 1 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39038558 in utf8_word_to_lower ../src/core/utf8_tools.c:200
+    #3 0x557d39047a58 in create_word ../src/ds/word.c:22
+    #4 0x557d3904aa52 in build_word_hashtable_fd ../src/io/file_reader.c:71
+    #5 0x557d3905b67e in task1_sp ../src/modes/sp/task1_sp.c:28
+    #6 0x557d390358e2 in run ../src/app/runner.c:36
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+Indirect leak of 112 byte(s) in 7 object(s) allocated from:
+    #0 0x7fa65c920cb5 in malloc /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_malloc_linux.cp
+p:67
+    #1 0x557d3903a5c7 in dmalloc ../src/core/utils.c:48
+    #2 0x557d39045133 in add_to_list ../src/ds/linked_list.c:21
+    #3 0x557d3903da85 in get_next_words_from_line ../src/csv/CSV_line_parser.c:200
+    #4 0x557d3903f28c in read_csv_file_sp ../src/csv/CSV_reader.c:124
+    #5 0x557d3905b088 in both_sp ../src/modes/sp/both_sp.c:52
+    #6 0x557d39035e07 in run ../src/app/runner.c:42
+    #7 0x557d390314a6 in test_configuration /mnt/Data/projects/coding/so2/test/test_main_mp.c
+:123
+    #8 0x557d39032639 in main /mnt/Data/projects/coding/so2/test/test_main_mp.c:286
+    #9 0x7fa65bc27674  (/usr/lib/libc.so.6+0x27674) (BuildId: 1d7c9b9187cec4c03a504fccc917f9a
+f55568a53)
+    #10 0x7fa65bc27728 in __libc_start_main (/usr/lib/libc.so.6+0x27728) (BuildId: 1d7c9b9187
+cec4c03a504fccc917f9af55568a53)
+    #11 0x557d39030634 in _start (/mnt/Data/projects/coding/so2/bin/test/test_main_mp+0x3b634
+) (BuildId: b0859eea19cb07a0e1f758071d1d4f6cc81726f3)
+
+SUMMARY: AddressSanitizer: 36560 byte(s) leaked in 573 allocation(s).
+=86747== ERROR SUMMARY: 16 errors from 16 contexts (suppressed: 0 from 0) ho un free() invalid pointer quando provo a fare un test ma quando faccio girare valgrind scompare, questo e' l' output di valgrind, fammi sapere se ti serve qualche altro dato 

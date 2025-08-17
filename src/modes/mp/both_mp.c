@@ -63,10 +63,6 @@ static int w_p2_1(int pipe_to_write_csv, hash_table_t *ht) {
     fprintf(stderr, "Error writing CSV lines to pipe\n");
     return -1;
   }
-  if (close(pipe_to_write_csv) < 0) {
-    perror("Failed to close pipe after writing CSV lines");
-    return -1;
-  }
   safe_close(&pipe_to_write_csv);
   return 0;
 }
@@ -88,10 +84,6 @@ static int w_p2_2(int pipe_to_write_ts2, hash_table_t *ht) {
   int result = csv_line_send(pipe_to_write_ts2, ht);
   if (result < 0) {
     fprintf(stderr, "Error writing CSV lines to pipe for task 2_2\n");
-    return -1;
-  }
-  if (close(pipe_to_write_ts2) < 0) {
-    perror("Failed to close pipe after writing task 2_2");
     return -1;
   }
   safe_close(&pipe_to_write_ts2);
@@ -237,16 +229,9 @@ static int w_p5(int pipe_to_read, const char *output_txt) {
     fprintf(stderr, "Invalid pipe descriptor for reading\n");
     return -1;
   }
-  int fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-  if (fd < 0) {
-    perror("Failed to open output file for writing");
-    return -1;
-  }
-  safe_close(&fd);
   int result = write_output_mp(pipe_to_read, output_txt);
   if (result < 0) {
     fprintf(stderr, "Error reading from pipe and writing to file\n");
-    close(fd);
     return -1;
   }
   return 0;
@@ -398,7 +383,6 @@ fail_pipes:
 fail_input_word:; // no-op
 
 done:
-  free(validated_input_txt);
   free(validated_word);
   return status;
 }

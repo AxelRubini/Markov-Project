@@ -94,25 +94,23 @@ static char *generate_random_symbol() {
 }
 
 static char *validate_symbol(const char *symbol) {
-  char *result = malloc(2 * sizeof(char));
-  if (result == NULL) {
-    fprintf(stderr, "Memory allocation failed\n");
-    return NULL; // Memory allocation failed
-  }
   const char valid_symbols[] = {'.', '?', '!'};
   for (size_t i = 0; symbol[i] != '\0'; i++) {
-    for (size_t j = 0; j < sizeof(valid_symbols) / sizeof(valid_symbols[0]);
-         j++) {
+    for (size_t j = 0; j < sizeof(valid_symbols) / sizeof(valid_symbols[0]); j++) {
       if (symbol[i] == valid_symbols[j]) {
+        char *result = malloc(2);
+        if (result == NULL) {
+          fprintf(stderr, "Memory allocation failed\n");
+          return NULL;
+        }
         result[0] = symbol[i];
         result[1] = '\0';
-        return result; // Valid symbol found
-        break;
+        return result;
       }
     }
   }
   fprintf(stderr, "Invalid symbol: %s\n", symbol);
-  return generate_random_symbol(); // Return a random symbol if invalid
+  return generate_random_symbol();
 }
 
 char *validate_word(const char *word) {
