@@ -244,7 +244,7 @@ int both_mp(const char *input_txt, const char *output_csv,
 
   // --- Validazioni input/word
   int is_stdin = 0;
-  char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
+  const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
   char *validated_word = validate_word(word);
   if (!validated_input_txt || !validated_word) {
     fprintf(stderr, "Invalid input/word\n");

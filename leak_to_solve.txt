@@ -1,0 +1,3036 @@
+
+==127413== 
+==127413== HEAP SUMMARY:
+==127413==     in use at exit: 36,868 bytes in 598 blocks
+==127413==   total heap usage: 2,463 allocs, 1,865 frees, 186,548 bytes allocated
+==127413== 
+==127413== 2 bytes in 1 blocks are still reachable in loss record 1 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127413==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400D024: both_mp (both_mp.c:248)
+==127413==    by 0x4003CAA: run (runner.c:56)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 2 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 3 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127413==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 4 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 5 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127413==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 6 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127413==    by 0x4003C66: run (runner.c:53)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 7 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127413==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127413==    by 0x4003C66: run (runner.c:53)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 2 bytes in 1 blocks are definitely lost in loss record 8 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127413==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127413==    by 0x400D024: both_mp (both_mp.c:248)
+==127413==    by 0x4003CAA: run (runner.c:56)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8 bytes in 1 blocks are definitely lost in loss record 9 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127413==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127413==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8 bytes in 1 blocks are definitely lost in loss record 10 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127413==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127413==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 12 bytes in 1 blocks are definitely lost in loss record 11 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127413==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127413==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127413==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 16 bytes in 1 blocks are definitely lost in loss record 13 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127413==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127413==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127413==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400ED61: both_sp (both_sp.c:52)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 128 bytes in 8 blocks are definitely lost in loss record 18 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127413==    by 0x4003B8E: run (runner.c:39)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400ED61: both_sp (both_sp.c:52)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 480 bytes in 30 blocks are definitely lost in loss record 23 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400ED61: both_sp (both_sp.c:52)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127413==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127413==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127413==    by 0x400ED61: both_sp (both_sp.c:52)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127413==    by 0x4008670: create_word (word.c:22)
+==127413==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 29 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 30 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127413==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127413==    by 0x4003B46: run (runner.c:36)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 32
+==127413==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127413==    by 0x4004CFD: dmalloc (utils.c:48)
+==127413==    by 0x400865B: create_word (word.c:20)
+==127413==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127413==    by 0x400EC90: both_sp (both_sp.c:31)
+==127413==    by 0x4003BD5: run (runner.c:42)
+==127413==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127413==    by 0x40030DE: main (test_main_mp.c:286)
+==127413== 
+==127413== LEAK SUMMARY:
+==127413==    definitely lost: 4,986 bytes in 319 blocks
+==127413==    indirectly lost: 31,880 bytes in 278 blocks
+==127413==      possibly lost: 0 bytes in 0 blocks
+==127413==    still reachable: 2 bytes in 1 blocks
+==127413==         suppressed: 0 bytes in 0 blocks
+==127413== 
+==127413== For lists of detected and suppressed errors, rerun with: -s
+==127413== ERROR SUMMARY: 21 errors from 21 contexts (suppressed: 0 from 0)
+==127415== 
+==127415== HEAP SUMMARY:
+==127415==     in use at exit: 36,868 bytes in 598 blocks
+==127415==   total heap usage: 2,402 allocs, 1,804 frees, 190,511 bytes allocated
+==127415== 
+==127419== 
+==127419== HEAP SUMMARY:
+==127419==     in use at exit: 54,788 bytes in 854 blocks
+==127419==   total heap usage: 3,284 allocs, 2,430 frees, 234,539 bytes allocated
+==127419== 
+==127418== 
+==127418== HEAP SUMMARY:
+==127418==     in use at exit: 54,788 bytes in 854 blocks
+==127418==   total heap usage: 3,284 allocs, 2,430 frees, 234,539 bytes allocated
+==127418== 
+==127415== 2 bytes in 1 blocks are still reachable in loss record 1 of 32
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400D024: both_mp (both_mp.c:248)
+==127415==    by 0x4003CAA: run (runner.c:56)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 2 of 32
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 3 of 32
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 4 of 32
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419== 2 bytes in 1 blocks are still reachable in loss record 1 of 36
+==127415==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415== 
+==127419==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 5 of 32
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400D024: both_mp (both_mp.c:248)
+==127415==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127415==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127419== 
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 2 of 36
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415== 
+==127419==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 6 of 32
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4003C66: run (runner.c:53)
+==127419== 
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 3 of 36
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415== 
+==127419==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 7 of 32
+==127419==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127419==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4003C66: run (runner.c:53)
+==127419== 
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 4 of 36
+==127415== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415== 2 bytes in 1 blocks are definitely lost in loss record 8 of 32
+==127419==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127415==    by 0x400D024: both_mp (both_mp.c:248)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x4003CAA: run (runner.c:56)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 
+==127415== 
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 5 of 36
+==127415== 8 bytes in 1 blocks are definitely lost in loss record 9 of 32
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127419==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127415==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418== 2 bytes in 1 blocks are still reachable in loss record 1 of 36
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127418==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 6 of 36
+==127418==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415== 8 bytes in 1 blocks are definitely lost in loss record 10 of 32
+==127419==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418==    by 0x400D024: both_mp (both_mp.c:248)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127419==    by 0x4003C66: run (runner.c:53)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 
+==127415==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 2 of 36
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127419== 
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 7 of 36
+==127418==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415== 
+==127419==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127418==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415== 12 bytes in 1 blocks are definitely lost in loss record 11 of 32
+==127419==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127415==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127419==    by 0x4003C66: run (runner.c:53)
+==127418== 
+==127415==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 3 of 36
+==127415==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127419== 
+==127418==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 2 bytes in 1 blocks are definitely lost in loss record 8 of 36
+==127418==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127415== 
+==127419==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127415== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 32
+==127419==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400D024: both_mp (both_mp.c:248)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418== 
+==127419== 
+==127415==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 4 of 36
+==127419== 8 bytes in 1 blocks are definitely lost in loss record 9 of 36
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127419==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127415== 
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415== 16 bytes in 1 blocks are definitely lost in loss record 13 of 32
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 5 of 36
+==127419== 
+==127415==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419== 8 bytes in 1 blocks are definitely lost in loss record 10 of 36
+==127415==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127418==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127418==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127419==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415== 
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 32
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 6 of 36
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419== 12 bytes in 1 blocks are definitely lost in loss record 11 of 36
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127419==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127415==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418==    by 0x4003C66: run (runner.c:53)
+==127419==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415== 
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 7 of 36
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 32
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 36
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127418==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    by 0x4003C66: run (runner.c:53)
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x400ED61: both_sp (both_sp.c:52)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 
+==127419==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 2 bytes in 1 blocks are definitely lost in loss record 8 of 36
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415== 
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 32
+==127418==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400D024: both_mp (both_mp.c:248)
+==127419== 16 bytes in 1 blocks are definitely lost in loss record 13 of 36
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418== 
+==127419==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127418== 8 bytes in 1 blocks are definitely lost in loss record 9 of 36
+==127419==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415== 
+==127418==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 32
+==127418==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127419== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 36
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4008670: create_word (word.c:22)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418== 
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418== 8 bytes in 1 blocks are definitely lost in loss record 10 of 36
+==127419==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415== 
+==127418==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415== 128 bytes in 8 blocks are definitely lost in loss record 18 of 32
+==127418==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 36
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418== 
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418== 12 bytes in 1 blocks are definitely lost in loss record 11 of 36
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127419==    by 0x400ED61: both_sp (both_sp.c:52)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415== 
+==127418==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 32
+==127418==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419== 
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 36
+==127415==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127418== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 36
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127415== 
+==127418==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127415== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 32
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127419==    by 0x4003B46: run (runner.c:36)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127415==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 36
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418== 16 bytes in 1 blocks are definitely lost in loss record 13 of 36
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415== 
+==127419==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127418==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127415== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 32
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127419== 
+==127415==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 128 bytes in 8 blocks are definitely lost in loss record 18 of 36
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418== 
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4003B8E: run (runner.c:39)
+==127418== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 36
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415== 
+==127419==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 32
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419== 
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 36
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x400ED61: both_sp (both_sp.c:52)
+==127418== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 36
+==127419==    by 0x400865B: create_word (word.c:20)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127419== 
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415== 480 bytes in 30 blocks are definitely lost in loss record 23 of 32
+==127419== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 36
+==127418==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400ED61: both_sp (both_sp.c:52)
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x400ED61: both_sp (both_sp.c:52)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418== 
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 36
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419== 
+==127415== 
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 36
+==127415== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 32
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127415==    by 0x400ED61: both_sp (both_sp.c:52)
+==127418== 
+==127419==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 36
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127415== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 32
+==127419== 
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 36
+==127415==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4008670: create_word (word.c:22)
+==127415==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127418==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127418== 
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 32
+==127418== 128 bytes in 8 blocks are definitely lost in loss record 18 of 36
+==127419==    by 0x400ED61: both_sp (both_sp.c:52)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x4008670: create_word (word.c:22)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127415==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419== 
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419== 480 bytes in 30 blocks are definitely lost in loss record 23 of 36
+==127418==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418== 
+==127415== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 32
+==127419==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127418== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 36
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400ED61: both_sp (both_sp.c:52)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x400865B: create_word (word.c:20)
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127419== 
+==127415==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127419== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 36
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 
+==127419==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127418== 
+==127415== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 32
+==127419==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127418== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 36
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x400ED61: both_sp (both_sp.c:52)
+==127418==    by 0x400865B: create_word (word.c:20)
+==127415==    by 0x4008670: create_word (word.c:22)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127415==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 36
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415== 
+==127418== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 36
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 29 of 32
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127415==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127418==    by 0x4003B8E: run (runner.c:39)
+==127419==    by 0x4003B46: run (runner.c:36)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 36
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419== 
+==127415== 
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 36
+==127415== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 30 of 32
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x400865B: create_word (word.c:20)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x400ED61: both_sp (both_sp.c:52)
+==127415==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127415==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4003B46: run (runner.c:36)
+==127418== 
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 480 bytes in 30 blocks are definitely lost in loss record 23 of 36
+==127415== 
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 32
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419== 
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 36
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127415==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127415==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400ED61: both_sp (both_sp.c:52)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127415== 
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127415== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 32
+==127418== 
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127415==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 36
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127415==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419== 
+==127415==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127418==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127419== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 36
+==127415==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127415==    by 0x4003BD5: run (runner.c:42)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127415==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400ED61: both_sp (both_sp.c:52)
+==127415==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127415== 
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127415== LEAK SUMMARY:
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127415==    definitely lost: 4,986 bytes in 319 blocks
+==127419==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127415==    indirectly lost: 31,880 bytes in 278 blocks
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127415==      possibly lost: 0 bytes in 0 blocks
+==127418== 
+==127415==    still reachable: 2 bytes in 1 blocks
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 36
+==127415==         suppressed: 0 bytes in 0 blocks
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127415== 
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127415== For lists of detected and suppressed errors, rerun with: -s
+==127419== 
+==127415== ERROR SUMMARY: 21 errors from 21 contexts (suppressed: 0 from 0)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419== 7,936 bytes in 64 blocks are indirectly lost in loss record 29 of 36
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127418== 
+==127419==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127418== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 36
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419== 
+==127418==    by 0x4008670: create_word (word.c:22)
+==127418==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419== 7,936 bytes in 64 blocks are indirectly lost in loss record 30 of 36
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x4008670: create_word (word.c:22)
+==127418== 
+==127419==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127418== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 36
+==127419==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127419==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419== 
+==127418==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127419== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 36
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 
+==127419==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127418== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 36
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4003B46: run (runner.c:36)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419== 
+==127418==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 36
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127416== 
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127418== 
+==127419==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127418== 7,936 bytes in 64 blocks are indirectly lost in loss record 29 of 36
+==127416== HEAP SUMMARY:
+==127416==     in use at exit: 37,844 bytes in 659 blocks
+==127416==   total heap usage: 2,801 allocs, 2,142 frees, 194,819 bytes allocated
+==127416== 
+==127419==    by 0x4003B46: run (runner.c:36)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419== 
+==127419== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 33 of 36
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416== 2 bytes in 1 blocks are still reachable in loss record 1 of 36
+==127418==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127418==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127419==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127418==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418== 
+==127419== 
+==127416==    by 0x400D024: both_mp (both_mp.c:248)
+==127418== 7,936 bytes in 64 blocks are indirectly lost in loss record 30 of 36
+==127419== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 34 of 36
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416== 
+==127418==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 2 of 36
+==127418==    by 0x4008670: create_word (word.c:22)
+==127419==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127419==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127419==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127419== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 35 of 36
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 
+==127416== 
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 36
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 3 of 36
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127419==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127418==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127416==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127419==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127416== 
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 4 of 36
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127416==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127419== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 36 of 36
+==127418== 
+==127416==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127419==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127419==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 36
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127416== 
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127419==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 5 of 36
+==127418==    by 0x400865B: create_word (word.c:20)
+==127419==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127419==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127418==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127419==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127418==    by 0x4003B46: run (runner.c:36)
+==127419==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== 
+==127416==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127419== LEAK SUMMARY:
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127419==    definitely lost: 7,034 bytes in 447 blocks
+==127418== 
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419==    indirectly lost: 47,752 bytes in 406 blocks
+==127418== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 33 of 36
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127419==      possibly lost: 0 bytes in 0 blocks
+==127416== 
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==    still reachable: 2 bytes in 1 blocks
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 6 of 36
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127419==         suppressed: 0 bytes in 0 blocks
+==127418==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127419== 
+==127416==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4003C66: run (runner.c:53)
+==127419== For lists of detected and suppressed errors, rerun with: -s
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127419== ERROR SUMMARY: 23 errors from 23 contexts (suppressed: 0 from 0)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== 
+==127416== 
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 7 of 36
+==127418== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 34 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127418==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127418==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    by 0x4003C66: run (runner.c:53)
+==127418==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416== 2 bytes in 1 blocks are definitely lost in loss record 8 of 36
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== 
+==127416==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127418== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 35 of 36
+==127416==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127416==    by 0x400D024: both_mp (both_mp.c:248)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x400865B: create_word (word.c:20)
+==127416== 
+==127418==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127416== 8 bytes in 1 blocks are definitely lost in loss record 9 of 36
+==127418==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127418== 
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 36 of 36
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416== 
+==127418==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416== 8 bytes in 1 blocks are definitely lost in loss record 10 of 36
+==127418==    by 0x400865B: create_word (word.c:20)
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127416==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127416==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127416==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127418==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127418==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416== 
+==127418==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 12 bytes in 1 blocks are definitely lost in loss record 11 of 36
+==127418== 
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127418== LEAK SUMMARY:
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127418==    definitely lost: 7,034 bytes in 447 blocks
+==127416==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127418==    indirectly lost: 47,752 bytes in 406 blocks
+==127416==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127418==      possibly lost: 0 bytes in 0 blocks
+==127416==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127418==    still reachable: 2 bytes in 1 blocks
+==127416==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127418==         suppressed: 0 bytes in 0 blocks
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127418== 
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127418== For lists of detected and suppressed errors, rerun with: -s
+==127416== 
+==127418== ERROR SUMMARY: 23 errors from 23 contexts (suppressed: 0 from 0)
+==127416== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 16 bytes in 1 blocks are definitely lost in loss record 13 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127416==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127416==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127416==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400ED61: both_sp (both_sp.c:52)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 112 bytes in 7 blocks are indirectly lost in loss record 16 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x400664C: read_lines_from_pipe (CSV_reader.c:212)
+==127416==    by 0x400CE12: w_p4 (both_mp.c:201)
+==127416==    by 0x400D47B: both_mp (both_mp.c:329)
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 124 bytes in 1 blocks are indirectly lost in loss record 18 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 128 bytes in 8 blocks are definitely lost in loss record 19 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 21 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+22 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127416==    by 0x4003B8E: run (runner.c:39)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 192 bytes in 12 blocks are indirectly lost in loss record 23 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400ED61: both_sp (both_sp.c:52)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 192 bytes in 12 blocks are indirectly lost in loss record 24 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x400664C: read_lines_from_pipe (CSV_reader.c:212)
+==127416==    by 0x400CE12: w_p4 (both_mp.c:201)
+==127416==    by 0x400D47B: both_mp (both_mp.c:329)
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 480 bytes in 30 blocks are definitely lost in loss record 25 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400ED61: both_sp (both_sp.c:52)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 480 bytes in 30 blocks are definitely lost in loss record 26 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127416==    by 0x400664C: read_lines_from_pipe (CSV_reader.c:212)
+==127416==    by 0x400CE12: w_p4 (both_mp.c:201)
+==127416==    by 0x400D47B: both_mp (both_mp.c:329)
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 27 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127416==    by 0x400ED61: both_sp (both_sp.c:52)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 28 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127416==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127416==    by 0x400664C: read_lines_from_pipe (CSV_reader.c:212)
+==127416==    by 0x400CE12: w_p4 (both_mp.c:201)
+==127416==    by 0x400D47B: both_mp (both_mp.c:329)
+==127416==    by 0x4003CAA: run (runner.c:56)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 7,812 bytes in 63 blocks are indirectly lost in loss record 29 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 7,812 bytes in 63 blocks are indirectly lost in loss record 30 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 7,812 bytes in 63 blocks are indirectly lost in loss record 31 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 7,812 bytes in 63 blocks are indirectly lost in loss record 32 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127416==    by 0x4008670: create_word (word.c:22)
+==127416==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 33 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 34 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127416==    by 0x4003B46: run (runner.c:36)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 35 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 36 of 36
+==127416==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127416==    by 0x4004CFD: dmalloc (utils.c:48)
+==127416==    by 0x400865B: create_word (word.c:20)
+==127416==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127416==    by 0x400EC90: both_sp (both_sp.c:31)
+==127416==    by 0x4003BD5: run (runner.c:42)
+==127416==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127416==    by 0x40030DE: main (test_main_mp.c:286)
+==127416== 
+==127416== LEAK SUMMARY:
+==127416==    definitely lost: 5,658 bytes in 361 blocks
+==127416==    indirectly lost: 32,184 bytes in 297 blocks
+==127416==      possibly lost: 0 bytes in 0 blocks
+==127416==    still reachable: 2 bytes in 1 blocks
+==127416==         suppressed: 0 bytes in 0 blocks
+==127416== 
+==127416== For lists of detected and suppressed errors, rerun with: -s
+==127416== ERROR SUMMARY: 23 errors from 23 contexts (suppressed: 0 from 0)
+==127417== 
+==127417== HEAP SUMMARY:
+==127417==     in use at exit: 36,868 bytes in 598 blocks
+==127417==   total heap usage: 2,409 allocs, 1,811 frees, 186,769 bytes allocated
+==127417== 
+==127417== 2 bytes in 1 blocks are still reachable in loss record 1 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127417==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400D024: both_mp (both_mp.c:248)
+==127417==    by 0x4003CAA: run (runner.c:56)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 2 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 3 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127417==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 4 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 5 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127417==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 6 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127417==    by 0x4003C66: run (runner.c:53)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 7 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127417==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127417==    by 0x4003C66: run (runner.c:53)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 2 bytes in 1 blocks are definitely lost in loss record 8 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127417==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127417==    by 0x400D024: both_mp (both_mp.c:248)
+==127417==    by 0x4003CAA: run (runner.c:56)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8 bytes in 1 blocks are definitely lost in loss record 9 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127417==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127417==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8 bytes in 1 blocks are definitely lost in loss record 10 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127417==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127417==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 12 bytes in 1 blocks are definitely lost in loss record 11 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127417==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127417==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127417==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 16 bytes in 1 blocks are definitely lost in loss record 13 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127417==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127417==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127417==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400ED61: both_sp (both_sp.c:52)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 128 bytes in 8 blocks are definitely lost in loss record 18 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127417==    by 0x4003B8E: run (runner.c:39)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400ED61: both_sp (both_sp.c:52)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 480 bytes in 30 blocks are definitely lost in loss record 23 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400ED61: both_sp (both_sp.c:52)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127417==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127417==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127417==    by 0x400ED61: both_sp (both_sp.c:52)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127417==    by 0x4008670: create_word (word.c:22)
+==127417==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 29 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 30 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127417==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127417==    by 0x4003B46: run (runner.c:36)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 32
+==127417==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127417==    by 0x4004CFD: dmalloc (utils.c:48)
+==127417==    by 0x400865B: create_word (word.c:20)
+==127417==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127417==    by 0x400EC90: both_sp (both_sp.c:31)
+==127417==    by 0x4003BD5: run (runner.c:42)
+==127417==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127417==    by 0x40030DE: main (test_main_mp.c:286)
+==127417== 
+==127417== LEAK SUMMARY:
+==127417==    definitely lost: 4,986 bytes in 319 blocks
+==127417==    indirectly lost: 31,880 bytes in 278 blocks
+==127417==      possibly lost: 0 bytes in 0 blocks
+==127417==    still reachable: 2 bytes in 1 blocks
+==127417==         suppressed: 0 bytes in 0 blocks
+==127417== 
+==127417== For lists of detected and suppressed errors, rerun with: -s
+==127417== ERROR SUMMARY: 21 errors from 21 contexts (suppressed: 0 from 0)
+==127414== 
+==127414== HEAP SUMMARY:
+==127414==     in use at exit: 54,788 bytes in 854 blocks
+==127414==   total heap usage: 3,242 allocs, 2,388 frees, 216,235 bytes allocated
+==127414== 
+==127414== 2 bytes in 1 blocks are still reachable in loss record 1 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127414==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400D024: both_mp (both_mp.c:248)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 2 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 3 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127414==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 4 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 5 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127414==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 6 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127414==    by 0x4003C66: run (runner.c:53)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 7 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127414==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127414==    by 0x4003C66: run (runner.c:53)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 2 bytes in 1 blocks are definitely lost in loss record 8 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127414==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127414==    by 0x400D024: both_mp (both_mp.c:248)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8 bytes in 1 blocks are definitely lost in loss record 9 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127414==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127414==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8 bytes in 1 blocks are definitely lost in loss record 10 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127414==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127414==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 12 bytes in 1 blocks are definitely lost in loss record 11 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127414==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127414==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127414==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 16 bytes in 1 blocks are indirectly lost in loss record 12 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 16 bytes in 1 blocks are definitely lost in loss record 13 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127414==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127414==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127414==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 64 bytes in 4 blocks are indirectly lost in loss record 14 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 112 bytes in 7 blocks are indirectly lost in loss record 15 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400ED61: both_sp (both_sp.c:52)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 124 bytes in 1 blocks are indirectly lost in loss record 17 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 128 bytes in 8 blocks are definitely lost in loss record 18 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 20 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+21 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127414==    by 0x4003B8E: run (runner.c:39)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 192 bytes in 12 blocks are indirectly lost in loss record 22 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400ED61: both_sp (both_sp.c:52)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 480 bytes in 30 blocks are definitely lost in loss record 23 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400ED61: both_sp (both_sp.c:52)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 24 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127414==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127414==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127414==    by 0x400ED61: both_sp (both_sp.c:52)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,812 bytes in 63 blocks are indirectly lost in loss record 28 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,936 bytes in 64 blocks are indirectly lost in loss record 29 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127414==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127414==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 7,936 bytes in 64 blocks are indirectly lost in loss record 30 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127414==    by 0x4008670: create_word (word.c:22)
+==127414==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127414==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127414==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 31 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 32 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127414==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127414==    by 0x4003B46: run (runner.c:36)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 33 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 34 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127414==    by 0x400EC90: both_sp (both_sp.c:31)
+==127414==    by 0x4003BD5: run (runner.c:42)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 35 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x400AD6C: read_words_from_pipe (file_reader_mp.c:350)
+==127414==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127414==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== 8,960 (1,024 direct, 7,936 indirect) bytes in 64 blocks are definitely lost in los
+s record 36 of 36
+==127414==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127414==    by 0x4004CFD: dmalloc (utils.c:48)
+==127414==    by 0x400865B: create_word (word.c:20)
+==127414==    by 0x400ADC5: read_words_from_pipe (file_reader_mp.c:357)
+==127414==    by 0x400CA85: w_p2 (both_mp.c:108)
+==127414==    by 0x400D2E5: both_mp (both_mp.c:299)
+==127414==    by 0x4003CAA: run (runner.c:56)
+==127414==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127414==    by 0x40030DE: main (test_main_mp.c:286)
+==127414== 
+==127414== LEAK SUMMARY:
+==127414==    definitely lost: 7,034 bytes in 447 blocks
+==127414==    indirectly lost: 47,752 bytes in 406 blocks
+==127414==      possibly lost: 0 bytes in 0 blocks
+==127414==    still reachable: 2 bytes in 1 blocks
+==127414==         suppressed: 0 bytes in 0 blocks
+==127414== 
+==127414== For lists of detected and suppressed errors, rerun with: -s
+==127414== ERROR SUMMARY: 23 errors from 23 contexts (suppressed: 0 from 0)
+==127372== Invalid free() / delete / delete[] / realloc()
+==127372==    at 0x486B8EF: free (vg_replace_malloc.c:989)
+==127372==    by 0x400D685: both_mp (both_mp.c:386)
+==127372==    by 0x4003CAA: run (runner.c:56)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372==  Address 0x401643c is in a r-- mapped file /mnt/Data/projects/coding/so2/test/test
+_main_mp segment
+==127372== 
+Esecuzione terminata con codice: 0
+✅ Test completato con successo: Both Tasks - Multi Process
+
+============================================================
+RISULTATI FINALI DEI TEST
+============================================================
+Test eseguiti: 6
+Test passati: 6
+Test falliti: 0
+🎉 TUTTI I TEST SONO PASSATI! 🎉
+==127372== 
+==127372== HEAP SUMMARY:
+==127372==     in use at exit: 36,866 bytes in 597 blocks
+==127372==   total heap usage: 2,399 allocs, 1,803 frees, 185,880 bytes allocated
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 1 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 2 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127372==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400F18B: task2_sp (task2_sp.c:34)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 3 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 4 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127372==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400EDDF: both_sp (both_sp.c:63)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 5 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127372==    by 0x4003C66: run (runner.c:53)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 6 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C45A: generate_random_symbol (modes_utils.c:84)
+==127372==    by 0x400C601: validate_symbol (modes_utils.c:115)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400E66F: task2_mp (task2_mp.c:145)
+==127372==    by 0x4003C66: run (runner.c:53)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 2 bytes in 1 blocks are definitely lost in loss record 7 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x400C51A: validate_symbol (modes_utils.c:97)
+==127372==    by 0x400C64A: validate_word (modes_utils.c:124)
+==127372==    by 0x400D024: both_mp (both_mp.c:248)
+==127372==    by 0x4003CAA: run (runner.c:56)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8 bytes in 1 blocks are definitely lost in loss record 8 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127372==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127372==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8 bytes in 1 blocks are definitely lost in loss record 9 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4003CF5: create_next_word_chooser (next_word_chooser.c:16)
+==127372==    by 0x400B551: write_output_sp (file_writer.c:185)
+==127372==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 12 bytes in 1 blocks are definitely lost in loss record 10 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127372==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127372==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127372==    by 0x400EDFD: both_sp (both_sp.c:65)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 16 bytes in 1 blocks are indirectly lost in loss record 11 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 16 bytes in 1 blocks are definitely lost in loss record 12 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x40049DE: utf8_str_deepcopy (utf8_tools.c:256)
+==127372==    by 0x4003F3A: next_word_chooser_choose (next_word_chooser.c:68)
+==127372==    by 0x400B612: write_output_sp (file_writer.c:202)
+==127372==    by 0x400F1A9: task2_sp (task2_sp.c:36)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 64 bytes in 4 blocks are indirectly lost in loss record 13 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 112 bytes in 7 blocks are indirectly lost in loss record 14 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400ED61: both_sp (both_sp.c:52)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 124 bytes in 1 blocks are indirectly lost in loss record 15 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 124 bytes in 1 blocks are indirectly lost in loss record 16 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 128 bytes in 8 blocks are definitely lost in loss record 17 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 18 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 140 (16 direct, 124 indirect) bytes in 1 blocks are definitely lost in loss record
+ 19 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x4009414: build_word_hashtable_fd (file_reader.c:71)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 144 (64 direct, 80 indirect) bytes in 4 blocks are definitely lost in loss record 
+20 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400F10D: task2_sp (task2_sp.c:23)
+==127372==    by 0x4003B8E: run (runner.c:39)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 192 bytes in 12 blocks are indirectly lost in loss record 21 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400ED61: both_sp (both_sp.c:52)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 480 bytes in 30 blocks are definitely lost in loss record 22 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005A68: get_next_words_from_line (CSV_line_parser.c:173)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400ED61: both_sp (both_sp.c:52)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 496 (192 direct, 304 indirect) bytes in 12 blocks are definitely lost in loss reco
+rd 23 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4007BDF: add_to_list (linked_list.c:21)
+==127372==    by 0x4005BA3: get_next_words_from_line (CSV_line_parser.c:200)
+==127372==    by 0x40062AC: read_csv_file_sp (CSV_reader.c:124)
+==127372==    by 0x400ED61: both_sp (both_sp.c:52)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 7,812 bytes in 63 blocks are indirectly lost in loss record 24 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 7,812 bytes in 63 blocks are indirectly lost in loss record 25 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 7,812 bytes in 63 blocks are indirectly lost in loss record 26 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 7,812 bytes in 63 blocks are indirectly lost in loss record 27 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x4004616: utf8_word_to_lower (utf8_tools.c:200)
+==127372==    by 0x4008670: create_word (word.c:22)
+==127372==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in los
+s record 28 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in lo
+ss record 29 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127372==    by 0x400F009: task1_sp (task1_sp.c:28)
+==127372==    by 0x4003B46: run (runner.c:36)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in lo
+ss record 30 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x4009361: build_word_hashtable_fd (file_reader.c:55)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== 8,820 (1,008 direct, 7,812 indirect) bytes in 63 blocks are definitely lost in lo
+ss record 31 of 31
+==127372==    at 0x48687A8: malloc (vg_replace_malloc.c:446)
+==127372==    by 0x4004CFD: dmalloc (utils.c:48)
+==127372==    by 0x400865B: create_word (word.c:20)
+==127372==    by 0x400958B: build_word_hashtable_fd (file_reader.c:109)
+==127372==    by 0x400EC90: both_sp (both_sp.c:31)
+==127372==    by 0x4003BD5: run (runner.c:42)
+==127372==    by 0x4002BA5: test_configuration (test_main_mp.c:123)
+==127372==    by 0x40030DE: main (test_main_mp.c:286)
+==127372== 
+==127372== LEAK SUMMARY:
+==127372==    definitely lost: 4,986 bytes in 319 blocks
+==127372==    indirectly lost: 31,880 bytes in 278 blocks
+==127372==      possibly lost: 0 bytes in 0 blocks
+==127372==    still reachable: 0 bytes in 0 blocks
+==127372==         suppressed: 0 bytes in 0 blocks
+==127372== 
+==127372== For lists of detected and suppressed errors, rerun with: -s
+==127372== ERROR SUMMARY: 22 errors from 22 contexts (suppressed: 0 from 0)
+

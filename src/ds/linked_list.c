@@ -61,7 +61,7 @@ void remove_from_list(linked_list_t *list, void *data) {
   fprintf(stderr, "Data not found in the list\n");
 }
 
-void free_linked_list(linked_list_t *list) {
+void free_linked_list(linked_list_t *list, void (*free_func)(void *)) {
   if (!list) {
     fprintf(stderr, "list is null\n");
     return;
@@ -70,7 +70,9 @@ void free_linked_list(linked_list_t *list) {
   ll_item_t *current = list->head;
   while (current) {
     ll_item_t *next = current->next;
-    free(current->data);
+    if (free_func) {
+      free_func(current->data);
+    }
     free(current);
     current = next;
   }

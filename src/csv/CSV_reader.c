@@ -133,7 +133,7 @@ hash_table_t *read_csv_file_sp(const char *filename) {
     ht_item *item = next_word_ht_item_create(key, next_words);
     if (!item) {
       fprintf(stderr, "Error creating hash table item\n");
-      free_linked_list(next_words);
+      free_linked_list(next_words, (void (*)(void *))free_next_word);
       free(line);
       free_hash_table(ht);
       close(fd);
@@ -219,7 +219,7 @@ hash_table_t *read_lines_from_pipe(int in_fd) {
     ht_item *item = next_word_ht_item_create(key, next_words);
     if (!item) {
       fprintf(stderr, "Error creating hash table item\n");
-      free_linked_list(next_words);
+      free_linked_list(next_words, (void (*)(void *))free_next_word);
       free(line);
       free_hash_table(table);
       return NULL;

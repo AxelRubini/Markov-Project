@@ -9,7 +9,6 @@
 #include <unistd.h>
 
 static word_t *word_deep_copy(const word_t *original);
-static void word_followers_free_list(linked_list_t *list);
 
 word_t *create_word(int *word) {
   if (word == NULL) {
@@ -185,30 +184,10 @@ void ht_item_free_word(ht_item *item) {
     free_word((word_t *)item->key); // Free the key word
   }
   if (item->value != NULL) {
-    word_followers_free_list(
-        (linked_list_t *)item->value); // Free the linked list
+    free_linked_list((linked_list_t *)item->value,
+                     (void (*)(void *))free_word);
   }
   free(item);
-}
-
-/**
- * @brief Free a linked list of follower words.
- *
- * @param list List to free.
- */
-static void word_followers_free_list(linked_list_t *list) {
-  if (list == NULL) {
-    fprintf(stderr, "List is NULL\n");
-    return;
-  }
-  ll_item_t *current = list->head;
-  while (current != NULL) {
-    ll_item_t *next = current->next;
-    free_word((word_t *)current->data); // Free each word in the list
-    free(current);
-    current = next;
-  }
-  free(list);
 }
 
 int word_hashtable_keycmp(const void *key1, const void *key2) {
