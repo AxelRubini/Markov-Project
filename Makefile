@@ -7,7 +7,7 @@ CSTD     = -std=gnu99
 WARN     = -Wall -Wextra -Wpedantic
 OPT_DBG  = -O0 -g3 -fno-omit-frame-pointer
 OPT_REL  = -O2
-CDEPS    = -MMD -MP
+
 
 # Include dirs (aderenti alla tua tree)
 CINCS    = -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core \
@@ -37,11 +37,12 @@ OBJ       = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 .PHONY: all test debug release run list tests asan-tests valgrind test-one tests-clean clean distclean
 all: debug
 
-debug: CFLAGS := $(WARN) $(CSTD) $(OPT_DBG) $(CINCS) $(CDEPS)
-debug: $(TARGET)
 
-release: CFLAGS := $(WARN) $(CSTD) $(OPT_REL) $(CINCS) $(CDEPS)
-release: $(TARGET)
+# ---------------------------  Default ---------------------------------
+.PHONY: all main
+all: $(TARGET)
+
+main: $(TARGET)
 
 # ---------------------------  Link -------------------------------------
 $(TARGET): $(OBJ) | $(BUILD_DIR)
@@ -55,40 +56,17 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 $(BUILD_DIR):
 	@mkdir -p $@
 
-# ---------------------------  Run --------------------------------------
-run: $(TARGET)
-	@MALLOC_CHECK_=3 MALLOC_PERTURB_=204 ./$(TARGET)
+# ---------------------------  Tests (/test) -------------------------
+.PHONY: test test-one tests-clean
+test:
+	@$(MAKE) -C $(TEST_DIR) test
 
-# ---------------------------  Tests (delegati) -------------------------
-test: 
-	@$(MAKE) -C $(TEST_DIR) test $(TEST_PROFILE)
-	@echo "Starting tests in $(TEST_DIR)..."
-	@for t in $(find bin/test -type f -executable); do \
-		echo "Running $$t..."; \
-		MALLOC_CHECK_=3 MALLOC_PERTURB_=204 ./$$t; \
-	done
-tests:
-	@$(MAKE) -C $(TEST_DIR) tests
-
-asan-tests:
-	@$(MAKE) -C $(TEST_DIR) asan
-
-# Esempio: make valgrind TEST=../bin/test/test_main_mp
-valgrind:
-	@$(MAKE) -C $(TEST_DIR) valgrind TEST=$(TEST)
-
-# Esempio: make test-one ONE=test_main_mp
+# Run a single test: make test-one NOME=<test_file.c>
 test-one:
-	@$(MAKE) -C $(TEST_DIR) run-one ONE=$(ONE)
+	@$(MAKE) -C $(TEST_DIR) one NOME=$(NOME)
 
 tests-clean:
 	@$(MAKE) -C $(TEST_DIR) distclean
-
-# ---------------------------  Utils ------------------------------------
-list:
-	@echo "SRC        = $(SRC)"
-	@echo "OBJ        = $(OBJ)"
-	@echo "CFLAGS     = $(CFLAGS)"
 
 # ---------------------------  Clean ------------------------------------
 clean:
@@ -98,5 +76,3 @@ clean:
 distclean: clean
 	@$(MAKE) -C $(TEST_DIR) distclean
 
-# ---------------------------  Deps --------------------------------------
--include $(OBJ:.o=.d)
