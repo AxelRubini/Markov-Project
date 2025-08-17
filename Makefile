@@ -9,7 +9,11 @@ OPT_DBG = -O0 -g3 -fno-omit-frame-pointer
 OPT_REL = -O2
 
 # Include directories
-CINCS = -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core         -I$(INC_LIB)/argtable3 -I$(INC_DIR)/app -I$(INC_DIR)/modes/sp         -I$(INC_DIR)/modes/mp -I$(INC_DIR)/modes
+
+CINCS = -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core \
+        -I$(INC_LIB)/argtable3 -I$(INC_DIR)/app -I$(INC_DIR)/modes/sp \
+        -I$(INC_DIR)/modes/mp -I$(INC_DIR)/modes
+
 
 CFLAGS = $(WARN) $(CSTD) $(OPT_DBG) $(CINCS)
 LDLIBS = -lm $(INC_LIB)/argtable3/libargtable3.a
@@ -25,17 +29,14 @@ TEST_DIR  = test
 SRC = $(shell find $(SRC_DIR) -name '*.c' ! -path "$(SRC_DIR)/ds/ht_data_manipulation.c")
 OBJ = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC))
 
+
 # ---------------------------  Targets --------------------------------
-.PHONY: all main run test tests test-one tests-clean debug release clean distclean
+TEST_TARGETS := test tests run one valgrind debug release asan ubsan
+
+.PHONY: all main run-app tests-clean $(TEST_TARGETS) test-proxy clean distclean
+
 all: $(TARGET)
 
-main: $(TARGET)
-
-debug: CFLAGS := $(WARN) $(CSTD) $(OPT_DBG) $(CINCS)
-debug: clean all
-
-release: CFLAGS := $(WARN) $(CSTD) $(OPT_REL) $(CINCS)
-release: clean all
 
 run: $(TARGET)
 	./$(TARGET)
@@ -45,6 +46,25 @@ test tests:
 
 test-one:
 	$(MAKE) -C $(TEST_DIR) one NOME=$(NOME)
+
+
+run-app: $(TARGET)
+	./$(TARGET)
+
+
+
+$(TEST_TARGETS): test-proxy
+	@:
+
+%_test: test-proxy
+	@:
+
+test_%: test-proxy
+	@:
+
+test-proxy:
+	$(MAKE) -C $(TEST_DIR) $(MAKECMDGOALS) $(if $(NOME),NOME=$(NOME),)
+
 
 tests-clean:
 	$(MAKE) -C $(TEST_DIR) distclean
@@ -65,5 +85,6 @@ clean:
 	@rm -rf $(BUILD_DIR) $(TARGET)
 	@echo "Cleaned build directory and executable."
 
-distclean: clean
-	$(MAKE) -C $(TEST_DIR) distclean
+
+distclean: clean tests-clean
+
