@@ -1,0 +1,106 @@
+# ========= Makefile.san (test con sanitizers e per-test extra sources) =========
+TEST_DIR  ?= test
+BUILD_DIR ?= build/san
+LIB_DIR   ?= lib
+INC_DIR   ?= include
+
+# ---- Flags ----
+CFLAGS  ?= -Wall -Wextra -std=gnu99 -O0 -g3 \
+  -I$(INC_DIR)/csv -I$(INC_DIR)/io -I$(INC_DIR)/ds -I$(INC_DIR)/core \
+  -I$(INC_DIR)/app -I$(INC_DIR)/modes/sp -I$(INC_DIR)/modes/mp -I$(INC_DIR)/modes \
+  -I$(LIB_DIR)/argtable3 \
+  -Wpedantic -fno-omit-frame-pointer \
+  -fsanitize=address,undefined
+LDFLAGS ?= -fsanitize=address,undefined
+LDLIBS  ?= -lm $(LIB_DIR)/argtable3/libargtable3.a
+
+# ---- Sorgenti base del progetto (escludi test/ e main.c) ----
+SRC_GLOBS := src core csv io ds app modes modes/sp modes/mp .
+
+# Tutti i .c (profondità 0–2 livelli)
+BASE_SRC  := $(foreach d,$(SRC_GLOBS),$(wildcard $(d)/*.c))
+BASE_SRC  += $(foreach d,$(SRC_GLOBS),$(wildcard $(d)/*/*.c))
+
+# Escludi qualsiasi cosa in test/
+BASE_SRC  := $(filter-out $(TEST_DIR)/% ./$(TEST_DIR)/%,$(BASE_SRC))
+# Escludi SEMPRE l'entrypoint principale
+BASE_SRC  := $(filter-out src/main.c ./src/main.c,$(BASE_SRC))
+
+# ---- Test rilevati ----
+TEST_SRC  := $(wildcard $(TEST_DIR)/test_*.c)
+TEST_BINS := $(patsubst $(TEST_DIR)/%.c,$(BUILD_DIR)/$(TEST_DIR)/%,$(TEST_SRC))
+TEST ?= test_main_mp   # default
+
+# ---- Dichiarazioni per-test: aggiungi qui i .c extra che ti servono per un test ----
+# Esempi:
+#  - questo test usa runner + options + tutte le modalità sp/mp
+EXTRA_SRCS_test_main_mp := \
+  src/app/runner.c src/app/options.c \
+  src/modes/sp/task1_sp.c src/modes/sp/task2_sp.c src/modes/sp/both_sp.c \
+  src/modes/mp/task1_mp.c src/modes/mp/task2_mp.c src/modes/mp/both_mp.c \
+  src/modes/modes_utils.c
+
+#  - questo test NON ha bisogno di runner/options (lascia vuoto)
+EXTRA_SRCS_test_csv_line_parser :=
+EXTRA_SRCS_test_csv_reader     :=
+EXTRA_SRCS_test_csv_writer     :=
+EXTRA_SRCS_test_ds             :=
+EXTRA_SRCS_test_file_writer    :=
+EXTRA_SRCS_test_reader         :=
+EXTRA_SRCS_test_task1_mp       := src/modes/mp/task1_mp.c src/modes/modes_utils.c
+EXTRA_SRCS_test_task_2_mp      := src/modes/mp/task2_mp.c src/modes/modes_utils.c
+EXTRA_SRCS_test_ts2_ht         :=
+EXTRA_SRCS_test_utf8           :=
+
+# ---- Obiettivi phony ----
+.PHONY: all clean list build-tests run run-all print-%
+
+all: $(TEST_BINS)
+
+list:
+	@echo "Test trovati:"; for t in $(TEST_BINS); do echo "  $$t"; done
+
+build-tests: $(TEST_BINS)
+
+# Esegue un singolo test: make -f Makefile.san run TEST=test_csv_line_parser
+run: $(BUILD_DIR)/$(TEST_DIR)/$(TEST)
+	ASAN_OPTIONS=detect_leaks=1 $<
+
+# Esegue tutti i test
+run-all: $(TEST_BINS)
+	@set -e; for t in $^; do echo "==> $$t"; ASAN_OPTIONS=detect_leaks=1 $$t; echo; done
+
+clean:
+	rm -rf $(BUILD_DIR)
+
+# ---- Regole di compilazione ----
+# Oggetti base (di progetto), costruiti in build/san/...
+BASE_OBJ  := $(patsubst %.c,$(BUILD_DIR)/%.o,$(BASE_SRC))
+
+# Regola generica .c -> .o per qualsiasi path
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@ $(LDLIBS)
+
+# Oggetto del test
+$(BUILD_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@ $(LDLIBS)
+
+# Link per-test:
+#   Per ciascun test <name>, calcola la lista di extra sources EXTRA_SRCS_<name>,
+#   convertila in oggetti e linka: test.o + BASE_OBJ + EXTRA_OBJ_<name>
+define make_one_test_rule
+EXTRA_SRCS_$* ?=
+EXTRA_OBJ_$*  := $(patsubst %.c,$(BUILD_DIR)/%.o,$(EXTRA_SRCS_$*))
+
+$(BUILD_DIR)/$(TEST_DIR)/$*: $(BUILD_DIR)/$(TEST_DIR)/$*.o $(BASE_OBJ) $$(EXTRA_OBJ_$*)
+	@mkdir -p $$(@D)
+	$(CC) $$^ -o $$@ $(LDFLAGS) $(LDLIBS)
+endef
+# Istanzia la regola per ogni test trovato
+$(foreach t,$(notdir $(basename $(TEST_SRC))),$(eval $(call make_one_test_rule,$(t))))
+
+# ---- Utility ----
+print-%:
+	@echo '$* = $($*)'

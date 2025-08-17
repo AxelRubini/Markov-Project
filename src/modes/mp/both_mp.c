@@ -67,6 +67,7 @@ static int w_p2_1(int pipe_to_write_csv, hash_table_t *ht) {
     perror("Failed to close pipe after writing CSV lines");
     return -1;
   }
+  safe_close(&pipe_to_write_csv);
   return 0;
 }
 
@@ -93,6 +94,7 @@ static int w_p2_2(int pipe_to_write_ts2, hash_table_t *ht) {
     perror("Failed to close pipe after writing task 2_2");
     return -1;
   }
+  safe_close(&pipe_to_write_ts2);
   return 0;
 }
 
@@ -176,6 +178,7 @@ static int w_p2(int pipe_to_read, int pipe_to_write_csv,
   // Parent process waits for child processes to finish
   int st;
   while (waitpid(-1, &st, 0) > 0);
+  free_hash_table(ht);
   return 0;
 }
 
@@ -239,14 +242,11 @@ static int w_p5(int pipe_to_read, const char *output_txt) {
     perror("Failed to open output file for writing");
     return -1;
   }
+  safe_close(&fd);
   int result = write_output_mp(pipe_to_read, output_txt);
   if (result < 0) {
     fprintf(stderr, "Error reading from pipe and writing to file\n");
     close(fd);
-    return -1;
-  }
-  if (close(fd) < 0) {
-    perror("Failed to close output file");
     return -1;
   }
   return 0;
@@ -309,7 +309,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_kill_p1;
   }
   if (p2 == 0) {
-    int not_p2[] = {pipe_csv[0], pipe_freqtab[0],pipe_out[0], pipe_out[1]};
+    int not_p2[] = {pipe_csv[0], pipe_freqtab[0],pipe_out[0], pipe_out[1],pipe_read[1]};
     safe_close_pipes(not_p2, ARR_SZ(not_p2));
     if (w_p2(pipe_read[0], pipe_csv[1], pipe_freqtab[1]) < 0)
       _exit(1);
@@ -355,7 +355,7 @@ int both_mp(const char *input_txt, const char *output_csv,
   if (p5 == 0) {
     // Child P5: read da pipe45[0] -> output_txt
     int not_p5[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
-                    pipe_csv[1], pipe_freqtab[0], pipe_freqtab[1]};
+                    pipe_csv[1], pipe_freqtab[0], pipe_freqtab[1],pipe_out[1]};
     safe_close_pipes(not_p5, ARR_SZ(not_p5));
     if (w_p5(pipe_out[0], output_txt) < 0)
       _exit(1);
