@@ -65,7 +65,7 @@ static void test_one_line(const char *line,
         }
     }
 
-    free_linked_list(lst);
+    free_linked_list(lst, (void (*)(void *))free_next_word);
 }
 
 int main(void) {

@@ -43,11 +43,14 @@ void remove_from_list(linked_list_t *list, void *data);
 /**
  * @brief Free a list and its nodes.
  *
- * Stored data pointers are freed.
+ * Each element stored in the list is freed using \p free_func if provided.
+ * This allows the caller to specify how to release the memory pointed by the
+ * data field of each node, avoiding both leaks and invalid frees.
  *
  * @param list List to free.
+ * @param free_func Function used to free the stored data (may be NULL).
  */
-void free_linked_list(linked_list_t *list);
+void free_linked_list(linked_list_t *list, void (*free_func)(void *));
 
 /**
  * @brief Get the number of elements in a list.
