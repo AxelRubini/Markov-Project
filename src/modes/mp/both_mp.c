@@ -239,7 +239,7 @@ static int w_p5(int pipe_to_read, const char *output_txt) {
 
 int both_mp(const char *input_txt, const char *output_csv,
             const char *output_txt, size_t n_words, const char *word) {
-  int status = -1; // valore di ritorno in caso di errore
+  int status = -1; // return value in case of error
   int print_to_stdout = 0;
 
   // --- Validazioni input/word
@@ -355,7 +355,7 @@ int both_mp(const char *input_txt, const char *output_csv,
   while (waitpid(-1,&st,0) > 0);
 
 
-  // Stampa su stdout se richiesto
+  // Print to stdout if requested
   if (print_to_stdout) {
     FILE *f = fopen(output_txt, "r");
     if (f) {
