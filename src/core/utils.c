@@ -67,10 +67,10 @@ int safe_close(int *fd) {
   }
   if (close(*fd) < 0) {
     perror("safe_close");
-    return -1; //    }
-    *fd = -1;
-    return 0;
+    return -1;
   }
+  *fd = -1;
+  return 0;
 }
 
 int safe_close_pipes(int *fds, size_t count) {
