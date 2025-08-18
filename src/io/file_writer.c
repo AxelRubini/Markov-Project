@@ -1,6 +1,7 @@
 #include "file_writer.h"
 #include "frame.h"
 #include "next_word_chooser.h"
+#include "utils.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -130,8 +131,9 @@ int *check_start_sym(char *start_sym, hash_table_t *table) {
   }
   if (ht_search(table, start_word) == NULL) {
     // if not found, choose a valid symbol from the hash table
-    fprintf(stderr, "Start symbol '%c' not found in the table, searching for "
-                    "valid start symbol\n",
+    fprintf(stderr,
+            "Start symbol '%c' not found in the table, searching for "
+            "valid start symbol\n",
             start_sym[0]);
     free(start_word);
     char arr[3] = GENERATED_TEST_STARTERS;
@@ -185,7 +187,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
   next_word_chooser_t *chooser = create_next_word_chooser(table);
   if (chooser == NULL) {
     fprintf(stderr, "Failed to create next word chooser\n");
-    close(fd);
+    safe_close(&fd);
     return -1;
   }
 
@@ -193,7 +195,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
   if (current_word == NULL) {
     fprintf(stderr, "Failed to create start word from symbol: %c\n", sym);
     next_word_chooser_free(chooser);
-    close(fd);
+    safe_close(&fd);
     return -1;
   }
 
@@ -203,9 +205,8 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
       next_word_chooser_free(chooser);
-      utf8_print_word(current_word, 1);
       free(current_word);
-      close(fd);
+      safe_close(&fd);
       return -1;
     }
     if (is_last_terminator(current_word)) {
@@ -223,10 +224,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
 
   free(current_word);
   next_word_chooser_free(chooser);
-  if (close(fd) < 0) {
-    perror("close");
-    return -1;
-  }
+  safe_close(&fd);
   return 0; // Success
 }
 
@@ -248,7 +246,7 @@ int write_output_mp(int fd, const char *filename) {
       utf8_str_deepcopy((int[]){'.', '\0'}); // Start with period as last word
   if (last_word == NULL) {
     fprintf(stderr, "Failed to create initial last word\n");
-    close(file_fd);
+    safe_close(&file_fd);
     return -1;
   }
 
@@ -272,7 +270,7 @@ int write_output_mp(int fd, const char *filename) {
       fprintf(stderr, "Failed to convert frame to UTF-8 word\n");
       free(buff);
       free(last_word);
-      close(file_fd);
+      safe_close(&file_fd);
       return -1;
     }
 
@@ -300,32 +298,32 @@ int write_output_mp(int fd, const char *filename) {
 
   free(buff);
   free(last_word);
-  close(file_fd);
+  safe_close(&file_fd);
   return 0;
 }
 
 int send_output_mp(int fd, hash_table_t *ht, const int num_words,
                    const char *start_sym) {
 
-   if (fd < 0 || num_words <= 0 || !start_sym || !start_sym[0]) {
-      fprintf(stderr,
-              "Invalid file descriptor, number of words, or start symbol\n");
-      return -1;
-   }
-   next_word_chooser_t *chooser = create_next_word_chooser(ht);
-   if (chooser == NULL) {
-      fprintf(stderr, "Failed to create next word chooser\n");
-      return -1;
-   }
+  if (fd < 0 || num_words <= 0 || !start_sym || !start_sym[0]) {
+    fprintf(stderr,
+            "Invalid file descriptor, number of words, or start symbol\n");
+    return -1;
+  }
+  next_word_chooser_t *chooser = create_next_word_chooser(ht);
+  if (chooser == NULL) {
+    fprintf(stderr, "Failed to create next word chooser\n");
+    return -1;
+  }
 
-   char sym = start_sym[0];
-   int *current_word = check_start_sym(&sym, ht);
-   if (current_word == NULL) {
-      fprintf(stderr, "Failed to create start word from symbol: %c\n",
-              start_sym[0]);
-      next_word_chooser_free(chooser);
-      return -1;
-   }
+  char sym = start_sym[0];
+  int *current_word = check_start_sym(&sym, ht);
+  if (current_word == NULL) {
+    fprintf(stderr, "Failed to create start word from symbol: %c\n",
+            start_sym[0]);
+    next_word_chooser_free(chooser);
+    return -1;
+  }
 
   int words_written = 0;
   char frm_buf[(MAX_WORD_LENGTH - 1) * sizeof(int) + 1] = {

@@ -1,0 +1,9 @@
+<map id="f_get_next_word" name="f_get_next_word">
+<area shape="rect" id="Node000001" title="Read the next word from a descriptor." alt="" coords="5,31,122,56"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="173,5,278,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,32,157,26,158,31,123,37"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="170,55,281,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,50,155,54,154,60,122,55"/>
+<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="329,55,414,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,65,314,65,314,70,281,70"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="generate_random_symbol" name="generate_random_symbol">
+<area shape="rect" id="Node000001" title=" " alt="" coords="628,80,797,106"/>
+<area shape="rect" id="Node000002" href="$modes__utils_8c.html#ac7f082edde138494859074675f7afbdc" title=" " alt="" coords="466,55,580,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="612,82,580,78,581,72,613,77"/>
+<area shape="rect" id="Node000003" href="$modes__utils_8c.html#ac7a990ac61c94569ccf103a3f6407f54" title="Validate a word or generate a random symbol." alt="" coords="316,80,418,106"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="612,96,418,96,418,90,612,90"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,82,418,87,417,82,450,77"/>
+<area shape="rect" id="Node000004" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="327,75,254,34,256,29,330,70"/>
+<area shape="rect" id="Node000007" href="$both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,55,263,80"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="300,83,263,76,264,71,301,78"/>
+<area shape="rect" id="Node000008" href="$task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,104,268,130"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="301,107,269,113,268,107,300,102"/>
+<area shape="rect" id="Node000009" href="$task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,153,266,179"/>
+<area shape="poly" id="edge10_Node000003_Node000009" title=" " alt="" coords="329,116,256,155,254,150,327,111"/>
+<area shape="rect" id="Node000005" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
+<area shape="rect" id="Node000006" href="$_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="192,147,188,144,139,108,142,104,192,140,195,142"/>
+</map>

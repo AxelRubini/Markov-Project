@@ -1,0 +1,20 @@
+<map id="include/ds/next_word.h" name="include/ds/next_word.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,224,31"/>
+<area shape="rect" id="Node000002" href="$ht__item_8h.html" title=" " alt="" coords="5,79,80,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,34,74,72,71,68,128,29"/>
+<area shape="rect" id="Node000003" href="$linked__list_8h.html" title=" " alt="" coords="103,79,192,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,31,150,63,145,63,145,31"/>
+<area shape="rect" id="Node000005" href="$utf8__tools_8h.html" title=" " alt="" coords="217,79,305,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="168,29,230,68,228,73,166,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="114,153,182,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,105,150,137,145,137,145,105"/>
+<area shape="rect" id="Node000006" href="$utils_8h.html" title=" " alt="" coords="219,153,274,178"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="261,105,255,138,249,137,256,104"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="296,226,360,252"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="269,104,318,211,314,213,264,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="126,226,186,252"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="233,181,184,219,181,215,229,177"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="262,177,305,214,301,218,259,181"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="210,226,272,252"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="248,179,246,211,241,211,243,178"/>
+</map>

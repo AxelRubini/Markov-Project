@@ -1,0 +1,36 @@
+<map id="include/ds/next_word.h" name="include/ds/next_word.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,5,739,31"/>
+<area shape="rect" id="Node000002" href="$next__word__chooser_8h.html" title=" " alt="" coords="333,79,488,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="610,39,474,81,473,76,608,34"/>
+<area shape="rect" id="Node000009" href="$next__word__chooser_8c.html" title=" " alt="" coords="453,168,584,208"/>
+<area shape="poly" id="edge19_Node000001_Node000009" title=" " alt="" coords="644,45,537,169,533,166,640,41"/>
+<area shape="rect" id="Node000010" href="$CSV__line__parser_8h.html" title=" " alt="" coords="922,168,1067,208"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="678,43,703,82,720,101,740,117,784,141,831,158,878,170,922,178,921,183,877,176,829,164,781,146,737,122,717,105,699,85,673,46"/>
+<area shape="rect" id="Node000013" href="$CSV__reader_8h.html" title=" " alt="" coords="609,175,780,201"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="670,46,695,174,690,175,665,47"/>
+<area shape="rect" id="Node000014" href="$next__word_8c.html" title=" " alt="" coords="751,86,881,112"/>
+<area shape="poly" id="edge20_Node000001_Node000014" title=" " alt="" coords="701,36,794,84,791,88,698,41"/>
+<area shape="rect" id="Node000003" href="$file__writer_8h.html" title=" " alt="" coords="283,175,428,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,134,366,176,361,173,388,132"/>
+<area shape="rect" id="Node000004" href="$file__writer_8c.html" title=" " alt="" coords="5,256,128,282"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="357,129,272,170,92,258,90,253,269,165,354,124"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="449,128,496,165,492,169,445,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="297,208,112,258,110,253,296,203"/>
+<area shape="rect" id="Node000005" href="$both__mp_8c.html" title=" " alt="" coords="344,256,512,282"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="379,210,419,254,415,258,375,214"/>
+<area shape="rect" id="Node000006" href="$task2__mp_8c.html" title=" " alt="" coords="536,256,712,282"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="412,203,583,253,582,258,411,208"/>
+<area shape="rect" id="Node000007" href="$both__sp_8c.html" title=" " alt="" coords="736,256,896,282"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="423,202,442,206,736,254,735,259,441,211,422,207"/>
+<area shape="rect" id="Node000008" href="$task2__sp_8c.html" title=" " alt="" coords="152,256,320,282"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="327,211,256,258,253,254,324,207"/>
+<area shape="rect" id="Node000011" href="$CSV__line__parser_8c.html" title=" " alt="" coords="1092,256,1268,282"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1056,212,1152,253,1150,258,1054,217"/>
+<area shape="rect" id="Node000012" href="$CSV__reader_8c.html" title=" " alt="" coords="920,256,1069,282"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="997,224,997,256,992,256,992,224"/>
+<area shape="poly" id="edge15_Node000013_Node000005" title=" " alt="" coords="640,208,470,258,468,253,638,203"/>
+<area shape="poly" id="edge16_Node000013_Node000006" title=" " alt="" coords="676,214,637,258,633,254,672,211"/>
+<area shape="poly" id="edge17_Node000013_Node000007" title=" " alt="" coords="727,207,799,254,796,258,724,211"/>
+<area shape="poly" id="edge18_Node000013_Node000008" title=" " alt="" coords="619,207,596,211,313,258,312,253,595,206,618,202"/>
+<area shape="poly" id="edge14_Node000013_Node000012" title=" " alt="" coords="756,203,949,253,948,258,755,208"/>
+</map>

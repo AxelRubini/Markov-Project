@@ -1,0 +1,13 @@
+<map id="w_p1" name="w_p1">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,58,80"/>
+<area shape="rect" id="Node000002" href="$CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="106,29,247,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,60,90,55,91,60,59,66"/>
+<area shape="rect" id="Node000006" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="134,79,218,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="59,69,119,79,118,85,58,74"/>
+<area shape="rect" id="Node000003" href="$CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="295,5,396,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="247,29,279,25,280,30,248,35"/>
+<area shape="rect" id="Node000004" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="301,55,390,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="248,50,286,56,285,61,247,55"/>
+<area shape="rect" id="Node000005" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="444,55,514,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="391,65,429,65,429,70,391,70"/>
+</map>

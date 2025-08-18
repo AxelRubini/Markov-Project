@@ -1,0 +1,8 @@
+<map id="validate_word" name="validate_word">
+<area shape="rect" id="Node000001" title="Validate a word or generate a random symbol." alt="" coords="5,5,107,31"/>
+<area shape="rect" id="Node000002" href="$modes__utils_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276" title=" " alt="" coords="317,5,486,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,16,302,16,302,21,107,21"/>
+<area shape="rect" id="Node000003" href="$modes__utils_8c.html#ac7f082edde138494859074675f7afbdc" title=" " alt="" coords="155,31,269,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,24,139,29,139,34,107,29"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="269,33,301,29,302,34,270,39"/>
+</map>

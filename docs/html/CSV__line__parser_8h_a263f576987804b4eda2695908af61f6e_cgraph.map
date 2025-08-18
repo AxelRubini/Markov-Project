@@ -1,0 +1,24 @@
+<map id="get_next_words_from_line" name="get_next_words_from_line">
+<area shape="rect" id="Node000001" title="Parse next words and probabilities from a CSV line." alt="" coords="5,131,178,156"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="446,5,531,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,128,159,94,225,61,278,44,333,32,431,19,431,25,334,38,280,50,227,66,162,99,112,132"/>
+<area shape="rect" id="Node000004" href="$linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="428,55,550,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,128,168,108,225,90,322,74,412,67,413,72,323,79,226,95,170,113,122,133"/>
+<area shape="rect" id="Node000005" href="$next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="240,105,363,131"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="178,130,224,125,225,130,179,136"/>
+<area shape="rect" id="Node000007" href="$linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="247,155,356,180"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="179,151,232,157,231,162,178,156"/>
+<area shape="rect" id="Node000008" href="$next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="247,204,356,230"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="129,154,227,190,244,196,242,201,225,195,127,159"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="226,253,377,279"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="109,155,159,196,227,240,238,245,236,250,224,244,156,200,106,159"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="600,80,667,106"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="529,29,554,40,603,69,600,74,551,45,527,34"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="551,76,585,82,584,87,550,81"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="363,111,585,94,585,99,364,116"/>
+<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="425,156,552,182"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="352,129,425,149,423,154,351,134"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="515,153,551,134,594,111,596,116,554,139,517,158"/>
+<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="446,253,531,279"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="377,264,431,264,431,269,377,269"/>
+</map>

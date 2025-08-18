@@ -1,0 +1,14 @@
+<map id="f_get_next_word" name="f_get_next_word">
+<area shape="rect" id="Node000001" title="Read the next word from a descriptor." alt="" coords="525,31,641,56"/>
+<area shape="rect" id="Node000002" href="$file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="312,31,477,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="509,46,477,46,477,41,509,41"/>
+<area shape="rect" id="Node000003" href="$both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="194,5,261,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,31,261,26,262,21,297,26"/>
+<area shape="rect" id="Node000006" href="$task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="190,55,264,80"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="297,60,265,65,264,60,296,55"/>
+<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="179,33,143,41,142,36,178,27"/>
+<area shape="rect" id="Node000005" href="$_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="174,58,142,51,143,45,175,53"/>
+</map>

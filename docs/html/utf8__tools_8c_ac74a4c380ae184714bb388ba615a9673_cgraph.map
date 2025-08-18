@@ -1,0 +1,7 @@
+<map id="utf8_word_to_lower" name="utf8_word_to_lower">
+<area shape="rect" id="Node000001" title="Convert a word to lowercase and free the original." alt="" coords="5,31,140,56"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="220,5,286,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,31,204,22,205,28,141,37"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9" title="Convert a code point to lowercase." alt="" coords="188,55,319,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,50,173,54,172,59,140,55"/>
+</map>

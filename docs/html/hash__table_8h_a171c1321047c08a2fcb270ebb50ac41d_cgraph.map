@@ -1,0 +1,9 @@
+<map id="create_hash_table" name="create_hash_table">
+<area shape="rect" id="Node000001" title="Create a hash table." alt="" coords="5,31,133,56"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="190,5,256,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,30,174,23,175,29,134,36"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="181,55,265,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,51,166,56,165,61,133,56"/>
+<area shape="rect" id="Node000004" href="$utils_8c.html#a1d8eddef9f888ac973de205c457bd89d" title="Check if a number is prime." alt="" coords="313,55,383,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,65,297,65,297,70,265,70"/>
+</map>

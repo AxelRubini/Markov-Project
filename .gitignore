@@ -32,4 +32,5 @@ core
 
 # File di log
 *.log
+*.warnings
 

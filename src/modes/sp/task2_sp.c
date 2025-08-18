@@ -48,13 +48,7 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
   }
   fprintf(stderr, "Output written to %s\n", output_txt);
   free_hash_table(ht);
-  if (output_txt != NULL) {
-    if (close(out_fd) < 0) {
-      perror("Failed to close output file");
-      remove(output_txt); // Remove the output file if it was created
-      return -1;
-    }
-  }
+ 
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {

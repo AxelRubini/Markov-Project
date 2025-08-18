@@ -38,7 +38,7 @@ int both_sp(const char *input_txt, const char *output_csv,
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove("tmp.txt"); // Remove the temporary file if it was created
+    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was created
   }
 
   int print_to_stdout = 0;
@@ -76,15 +76,8 @@ int both_sp(const char *input_txt, const char *output_csv,
     return result;
   }
   fprintf(stderr, "Output written to %s\n", output_txt);
-  close(out_fd);
   free_hash_table(freq_table);
-  if (output_txt != NULL) {
-    if (close(out_fd) < 0) {
-      perror("Failed to close output file");
-      remove(output_txt); // Remove the output file if it was created
-      return -1;
-    }
-  }
+  
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {
