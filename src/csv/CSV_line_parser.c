@@ -142,7 +142,7 @@ linked_list_t *get_next_words_from_line(const char *line, size_t *offset) {
       (*offset)++;
 
       if (ch == '\n' || ch == '\0') {
-        // Fine della riga
+        // end of line
         if (p_index == 0) {
           fprintf(stderr, "Empty probability encountered in line\n");
           state = READING_PROBABILITY_ERROR;
