@@ -70,7 +70,7 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
     fprintf(stderr, "Failed to create a deep copy of the chosen word\n");
     return NULL;
   }
-  return chosen_word;         // Return the deep copy of the chosen word
+  return chosen_word;
 }
 void next_word_chooser_free(next_word_chooser_t *chooser) {
   if (chooser == NULL) {
