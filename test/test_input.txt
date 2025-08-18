@@ -1,1 +1,0 @@
-This is a sample text for testing purposes. The text contains multiple words and sentences. We will use this text to test the word analysis functionality. The program should be able to count word frequencies and generate reports. This is just a simple example with common English words like the, and, of, to, in, is, that, for, with, on.
