@@ -1,6 +1,7 @@
 #include "file_writer.h"
 #include "frame.h"
 #include "next_word_chooser.h"
+#include "utils.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -185,7 +186,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
   next_word_chooser_t *chooser = create_next_word_chooser(table);
   if (chooser == NULL) {
     fprintf(stderr, "Failed to create next word chooser\n");
-    close(fd);
+    safe_close(&fd);
     return -1;
   }
 
@@ -193,7 +194,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
   if (current_word == NULL) {
     fprintf(stderr, "Failed to create start word from symbol: %c\n", sym);
     next_word_chooser_free(chooser);
-    close(fd);
+    safe_close(&fd);
     return -1;
   }
 
@@ -203,9 +204,8 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
     if (next_word == NULL) {
       fprintf(stderr, "No next word found for the current word\n");
       next_word_chooser_free(chooser);
-      utf8_print_word(current_word, 1);
       free(current_word);
-      close(fd);
+      safe_close(&fd);
       return -1;
     }
     if (is_last_terminator(current_word)) {

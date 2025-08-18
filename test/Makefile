@@ -60,7 +60,10 @@ CFLAGS  = $(STD) $(WARN) $(OPT) $(INCLUDES)
 LDFLAGS = $(SAN)
 LDLIBS  = -lm $(ROOT)/lib/argtable3/libargtable3.a
 
-COMMON_SRCS := $(shell find $(ROOT)/src -name '*.c' ! -name 'main.c')
+COMMON_SRCS := $(shell find $(ROOT)/src -type f -name '*.c' \
+                  -not -name 'main.c' \
+                  -not -name '.null-ls_*' \
+                  -not -path '*/.*')
 COMMON_OBJS := $(patsubst $(ROOT)/src/%.c,$(BUILD_CORE)/%.o,$(COMMON_SRCS))
 COMMON_DEPS := $(COMMON_OBJS:.o=.d)
 

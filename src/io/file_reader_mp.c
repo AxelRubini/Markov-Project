@@ -335,8 +335,6 @@ int read_words_from_pipe(int rfd, hash_table_t *ht) {
       }
       nxt_word[nxt_word_index++] = cp; // Store character in next word buffer
     }
-    utf8_print_word(nxt_word, STDERR_FILENO); // Debug print next word
-    printf("\n");
 
     // Check if next word is empty
     if (nxt_word_index == 0) {
