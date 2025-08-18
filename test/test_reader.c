@@ -31,7 +31,7 @@ int main() {
   hash_table_t *table = build_word_hashtable_fd(fd);
   if (table) {
     printf("\n=== Word hash table ===\n");
-    print_hash_table(table, STDOUT_FILENO);
+    //print_hash_table(table, STDOUT_FILENO);
     free_hash_table(table);
   }
 
