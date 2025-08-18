@@ -2,6 +2,7 @@
 #include "CSV_line_parser.h"
 #include "frame.h"
 #include "hash_table.h"
+#include "utils.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -102,7 +103,7 @@ hash_table_t *read_csv_file_sp(const char *filename) {
       perror("read_csv_line");
       free(line);
       free_hash_table(ht);
-      close(fd);
+      safe_close(&fd);
       return NULL;
     }
 
@@ -136,13 +137,13 @@ hash_table_t *read_csv_file_sp(const char *filename) {
       free_linked_list(next_words, (void (*)(void *))free_next_word);
       free(line);
       free_hash_table(ht);
-      close(fd);
+      safe_close(&fd);
       return NULL;
     }
 
     ht_insert(ht, item);
   }
-  close(fd);
+  safe_close(&fd);
 
   free(line);
   return ht;

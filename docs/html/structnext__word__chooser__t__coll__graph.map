@@ -1,0 +1,10 @@
+<map id="next_word_chooser_t" name="next_word_chooser_t">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,316,150,341"/>
+<area shape="rect" id="Node000002" href="$structhash__table__t.html" title=" " alt="" coords="30,219,125,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,260,80,315,75,315,75,260"/>
+<area shape="rect" id="Node000003" href="$structlinked__list__t.html" title=" " alt="" coords="32,122,123,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="80,163,80,218,75,218,75,163"/>
+<area shape="rect" id="Node000004" href="$structll__item.html" title=" " alt="" coords="48,5,107,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="80,47,80,122,75,122,75,47"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="124,6,131,11,134,19,125,29,108,32,107,26,123,25,129,18,127,14,121,11"/>
+</map>

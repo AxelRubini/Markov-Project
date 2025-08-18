@@ -1,0 +1,22 @@
+PROJECT_NAME           = "Markov"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = include src README.md
+FILE_PATTERNS          = *.h *.c *.md
+RECURSIVE              = YES
+
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_STATIC         = YES
+EXTRACT_PRIVATE        = NO
+
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_LOGFILE           = doxygen.warnings
+
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+MARKDOWN_SUPPORT       = YES
+USE_MDFILE_AS_MAINPAGE = README.md

@@ -1,0 +1,28 @@
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:11: warning: Compound hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:8: warning: Compound ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:16: warning: Compound linked_list_iterator_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:11: warning: Compound linked_list_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:6: warning: Compound ll_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/core/next_word_chooser.h:12: warning: Compound next_word_chooser_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/next_word.h:19: warning: Compound next_word_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/word.h:12: warning: Compound word_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:12: warning: Member buckets (variable) of struct hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:13: warning: Member size (variable) of struct hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:14: warning: Member count (variable) of struct hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:15: warning: Member hash_func)(const void *key, int size) (variable) of struct hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/hash_table.h:16: warning: Member key_cmp)(const void *key1, const void *key2) (variable) of struct hash_table_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:9: warning: Member key (variable) of struct ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:10: warning: Member value (variable) of struct ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:11: warning: Member update_value (variable) of struct ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:12: warning: Member free_item (variable) of struct ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/ht_item.h:13: warning: Member print_item (variable) of struct ht_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:17: warning: Member current (variable) of struct linked_list_iterator_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:12: warning: Member head (variable) of struct linked_list_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:13: warning: Member tail (variable) of struct linked_list_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:7: warning: Member data (variable) of struct ll_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/linked_list.h:8: warning: Member next (variable) of struct ll_item is not documented.
+/home/axel/so2Proj/Markov-Project/include/core/next_word_chooser.h:13: warning: Member table (variable) of struct next_word_chooser_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/next_word.h:20: warning: Member word (variable) of struct next_word_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/next_word.h:21: warning: Member probability (variable) of struct next_word_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/word.h:13: warning: Member word (variable) of struct word_t is not documented.
+/home/axel/so2Proj/Markov-Project/include/ds/word.h:15: warning: Member occurrences (variable) of struct word_t is not documented.
