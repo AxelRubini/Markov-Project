@@ -1,0 +1,7 @@
+<map id="update_ht_item_next_word" name="update_ht_item_next_word">
+<area shape="rect" id="Node000001" title="Append a next word to an existing item." alt="" coords="5,5,182,31"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="230,5,314,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,16,214,16,214,21,182,21"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="362,5,428,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="314,16,347,16,347,21,314,21"/>
+</map>

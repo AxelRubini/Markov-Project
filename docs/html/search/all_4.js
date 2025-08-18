@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['input_5fcsv_0',['input_csv',['../structoptions__t.html#a7ff37a0a30d66ea153c759be38984138',1,'options_t']]],
-  ['input_5ftxt_1',['input_txt',['../structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543',1,'options_t']]]
+  ['data_0',['data',['../structll__item.html#a814e6fa74180bcb393c01fec8d461967',1,'ll_item']]],
+  ['default_5fcreate_5fht_5fitem_1',['default_create_ht_item',['../ht__item_8h.html#a0c315b9b33c33e9ebb11f0d9d90200f4',1,'default_create_ht_item(void *key, void *value):&#160;ht_item.c'],['../ht__item_8c.html#a0c315b9b33c33e9ebb11f0d9d90200f4',1,'default_create_ht_item(void *key, void *value):&#160;ht_item.c']]],
+  ['default_5ffree_5fht_5fitem_2',['default_free_ht_item',['../ht__item_8h.html#a08d9a68d69e59db693a9f98f022e0cb4',1,'default_free_ht_item(ht_item *item):&#160;ht_item.c'],['../ht__item_8c.html#a08d9a68d69e59db693a9f98f022e0cb4',1,'default_free_ht_item(ht_item *item):&#160;ht_item.c']]],
+  ['default_5fprint_5fht_5fitem_3',['default_print_ht_item',['../ht__item_8c.html#a23e7311974ac14d3d168da79759536d1',1,'ht_item.c']]],
+  ['default_5fupdate_5fvalue_4',['default_update_value',['../ht__item_8c.html#aa4b5fd3adf825447b8737855be9a208f',1,'ht_item.c']]],
+  ['del_20progetto_5',['Struttura del progetto',['../index.html#autotoc_md1',1,'']]],
+  ['dmalloc_6',['dmalloc',['../utils_8h.html#a78a9dba3711a7a17ad34044953f6937b',1,'dmalloc(size_t size):&#160;utils.c'],['../utils_8c.html#a78a9dba3711a7a17ad34044953f6937b',1,'dmalloc(size_t size):&#160;utils.c']]]
 ];

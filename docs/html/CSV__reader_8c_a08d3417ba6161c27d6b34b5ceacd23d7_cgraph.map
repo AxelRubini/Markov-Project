@@ -1,0 +1,9 @@
+<map id="publish_line_on_pipe" name="publish_line_on_pipe">
+<area shape="rect" id="Node000001" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="5,31,147,56"/>
+<area shape="rect" id="Node000002" href="$CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="195,5,296,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,30,179,25,180,31,147,36"/>
+<area shape="rect" id="Node000003" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="201,55,290,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,51,186,56,185,62,147,56"/>
+<area shape="rect" id="Node000004" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="344,55,413,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,65,329,65,329,70,291,70"/>
+</map>

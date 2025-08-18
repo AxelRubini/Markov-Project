@@ -1,0 +1,5 @@
+<map id="send_frame" name="send_frame">
+<area shape="rect" id="Node000001" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="5,5,95,31"/>
+<area shape="rect" id="Node000002" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="143,5,212,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,16,127,16,127,21,95,21"/>
+</map>

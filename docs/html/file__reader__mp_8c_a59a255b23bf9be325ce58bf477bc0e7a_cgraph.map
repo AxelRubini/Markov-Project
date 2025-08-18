@@ -1,0 +1,9 @@
+<map id="check_next_typograph" name="check_next_typograph">
+<area shape="rect" id="Node000001" title="Skip the next bytes if typographic character." alt="" coords="5,31,156,56"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="207,5,312,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,30,191,25,192,30,156,35"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="204,55,315,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,51,188,55,188,61,156,56"/>
+<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="363,55,448,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="315,65,348,65,348,70,315,70"/>
+</map>

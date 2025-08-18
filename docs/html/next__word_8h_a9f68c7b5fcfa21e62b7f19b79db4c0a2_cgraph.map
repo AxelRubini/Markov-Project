@@ -1,0 +1,8 @@
+<map id="create_next_word" name="create_next_word">
+<area shape="rect" id="Node000001" title="Create a next_word_t with probability." alt="" coords="5,5,129,31"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="352,5,418,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,16,336,16,336,21,129,21"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="177,31,304,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,25,162,29,161,35,129,30"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="304,30,336,24,337,29,305,35"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['compilazione_0',['Compilazione',['../index.html#autotoc_md2',1,'']]]
+  ['_2enull_2dls_5f532589_5fmain_2ec_0',['.null-ls_532589_main.c',['../_8null-ls__532589__main_8c.html',1,'']]]
 ];

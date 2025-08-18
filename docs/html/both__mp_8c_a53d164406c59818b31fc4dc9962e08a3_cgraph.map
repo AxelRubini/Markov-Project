@@ -1,0 +1,23 @@
+<map id="w_p2_2" name="w_p2_2">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,72,131"/>
+<area shape="rect" id="Node000002" href="$CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="120,80,224,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,109,104,103,105,108,73,115"/>
+<area shape="rect" id="Node000011" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="130,129,214,155"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="73,121,115,129,114,134,72,127"/>
+<area shape="rect" id="Node000003" href="$CSV__line__builder_8c.html#ae48a785eb93f0a85e556774ae5da83f3" title="Compute the buffer size required for an item&#39;s CSV line." alt="" coords="272,5,414,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,77,271,40,285,34,287,39,273,45,198,82"/>
+<area shape="rect" id="Node000005" href="$CSV__line__builder_8c.html#aabdbfd470415d59c0a775ff597904c32" title="Build a CSV line from a hash&#45;table item." alt="" coords="287,55,399,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="224,83,271,75,272,81,225,88"/>
+<area shape="rect" id="Node000008" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="310,104,376,130"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="225,97,295,107,294,113,224,103"/>
+<area shape="rect" id="Node000009" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="298,153,388,179"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="203,104,225,114,273,140,286,145,284,150,271,145,223,119,201,109"/>
+<area shape="rect" id="Node000004" href="$linked__list_8c.html#a5aa85f2acd1a248ebb3f009e8aa01fc5" title="Get the number of elements in a list." alt="" coords="488,5,582,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="415,16,473,16,473,21,415,21"/>
+<area shape="rect" id="Node000006" href="$utils_8c.html#a5864ea11a063d13bed6a1b528747f4d3" title="Estimate probability of a follower word." alt="" coords="462,55,608,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="400,65,447,65,447,70,400,70"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="473,104,597,130"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="397,78,468,97,467,102,396,84"/>
+<area shape="rect" id="Node000010" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="500,153,570,179"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="388,164,485,164,485,169,388,169"/>
+</map>

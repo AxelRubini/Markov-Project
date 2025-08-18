@@ -1,0 +1,11 @@
+<map id="publish_line_on_pipe" name="publish_line_on_pipe">
+<area shape="rect" id="Node000001" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="417,5,558,31"/>
+<area shape="rect" id="Node000002" href="$task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="316,5,369,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,21,369,21,369,16,401,16"/>
+<area shape="rect" id="Node000003" href="$task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
+<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,5,142,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="175,21,143,21,143,16,175,16"/>
+<area shape="rect" id="Node000005" href="$_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

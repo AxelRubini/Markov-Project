@@ -1,0 +1,7 @@
+<map id="free_next_word_ht_item" name="free_next_word_ht_item">
+<area shape="rect" id="Node000001" title="Free a hash&#45;table item storing next_word_t values." alt="" coords="5,31,165,56"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="213,5,322,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,30,197,25,198,30,166,35"/>
+<area shape="rect" id="Node000003" href="$next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="213,55,322,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,51,197,56,197,61,165,57"/>
+</map>

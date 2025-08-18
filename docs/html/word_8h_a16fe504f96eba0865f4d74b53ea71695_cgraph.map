@@ -1,0 +1,7 @@
+<map id="word_hashtable_keycmp" name="word_hashtable_keycmp">
+<area shape="rect" id="Node000001" title="Compare keys for a word hash table." alt="" coords="5,5,170,31"/>
+<area shape="rect" id="Node000002" href="$word_8c.html#a62140fcceec37578888d60a4cadaa20e" title="Compare two words." alt="" coords="218,5,292,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,16,202,16,202,21,170,21"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="340,5,430,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,16,325,16,325,21,292,21"/>
+</map>

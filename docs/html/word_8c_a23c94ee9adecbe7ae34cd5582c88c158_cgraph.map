@@ -1,0 +1,16 @@
+<map id="word_ht_item_print" name="word_ht_item_print">
+<area shape="rect" id="Node000001" title="Print a hash&#45;table item containing words." alt="" coords="5,33,137,59"/>
+<area shape="rect" id="Node000002" href="$word_8c.html#a86cf11bbcc696d1368d33b0f4615c823" title="Print a word in UTF&#45;8." alt="" coords="335,33,445,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,43,320,43,320,49,137,49"/>
+<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="673,33,766,59"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="137,31,184,25,308,11,405,4,502,5,625,18,663,26,662,31,624,23,501,11,405,9,308,16,185,30,137,37"/>
+<area shape="rect" id="Node000005" href="$word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc" title="Print word and optional separator then occurrences." alt="" coords="185,84,266,110"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="113,57,171,76,169,81,112,62"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="514,33,625,59"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,43,499,43,499,49,446,49"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="625,43,657,43,657,49,625,49"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="266,82,331,61,332,66,267,87"/>
+<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="266,94,424,89,524,82,624,69,660,61,662,66,625,74,524,87,424,95,267,100"/>
+<area shape="rect" id="Node000006" href="$word_8c.html#a9f12560cca650c40e1483b6f7280326a" title="Get the occurrence count of a word." alt="" coords="314,135,466,160"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="267,107,332,127,331,132,266,112"/>
+</map>

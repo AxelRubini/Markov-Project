@@ -1,0 +1,5 @@
+<map id="utf8_cp_to_rawbytes" name="utf8_cp_to_rawbytes">
+<area shape="rect" id="Node000001" title="Encode code points into raw UTF&#45;8 bytes." alt="" coords="5,5,147,31"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="195,5,319,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,16,179,16,179,21,147,21"/>
+</map>

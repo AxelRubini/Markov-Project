@@ -1,0 +1,7 @@
+<map id="print_next_word" name="print_next_word">
+<area shape="rect" id="Node000001" title="Print a next_word_t." alt="" coords="5,5,118,31"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="166,5,276,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,16,150,16,150,21,118,21"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="324,5,417,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,16,308,16,308,21,277,21"/>
+</map>

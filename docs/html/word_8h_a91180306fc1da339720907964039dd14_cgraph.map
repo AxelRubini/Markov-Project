@@ -1,0 +1,7 @@
+<map id="ht_item_free_word" name="ht_item_free_word">
+<area shape="rect" id="Node000001" title="Free a hash&#45;table item storing words." alt="" coords="5,31,134,56"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="182,5,290,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,31,166,26,167,31,135,36"/>
+<area shape="rect" id="Node000003" href="$word_8c.html#a0335ce93a939befe544176deae07ff1d" title="Free a word object." alt="" coords="197,55,275,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,50,182,57,181,62,134,55"/>
+</map>

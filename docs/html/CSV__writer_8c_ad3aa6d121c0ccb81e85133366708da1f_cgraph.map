@@ -1,0 +1,7 @@
+<map id="csv_line_recv" name="csv_line_recv">
+<area shape="rect" id="Node000001" title="Receive CSV frames and write them to a file." alt="" coords="5,5,107,31"/>
+<area shape="rect" id="Node000002" href="$frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="155,5,241,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,16,139,16,139,21,107,21"/>
+<area shape="rect" id="Node000003" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title=" " alt="" coords="289,5,355,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,16,274,16,274,21,241,21"/>
+</map>

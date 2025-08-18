@@ -1,0 +1,9 @@
+<map id="default_create_ht_item" name="default_create_ht_item">
+<area shape="rect" id="Node000001" title="Create a generic hash&#45;table item." alt="" coords="5,55,159,80"/>
+<area shape="rect" id="Node000002" href="$ht__item_8c.html#a08d9a68d69e59db693a9f98f022e0cb4" title="Default deallocator for ht_item." alt="" coords="209,5,348,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,51,209,33,211,38,137,57"/>
+<area shape="rect" id="Node000003" href="$ht__item_8c.html#aa4b5fd3adf825447b8737855be9a208f" title="Default update_value implementation swapping the pointer." alt="" coords="207,55,351,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,65,191,65,191,70,159,70"/>
+<area shape="rect" id="Node000004" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="246,104,312,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,78,231,102,230,107,136,84"/>
+</map>

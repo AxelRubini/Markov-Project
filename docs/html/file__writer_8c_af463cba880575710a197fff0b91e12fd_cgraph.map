@@ -1,0 +1,7 @@
+<map id="create_start_word" name="create_start_word">
+<area shape="rect" id="Node000001" title="Create a deep&#45;copied start word from a punctuation symbol." alt="" coords="5,5,131,31"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="179,5,306,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,16,163,16,163,21,131,21"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="354,5,420,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="306,16,338,16,338,21,306,21"/>
+</map>

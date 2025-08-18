@@ -1,0 +1,40 @@
+<map id="create_hash_table" name="create_hash_table">
+<area shape="rect" id="Node000001" title="Create a hash table." alt="" coords="721,172,848,198"/>
+<area shape="rect" id="Node000002" href="$file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,29,481,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="749,166,672,125,560,85,460,58,461,53,562,80,674,120,752,161"/>
+<area shape="rect" id="Node000007" href="$CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="339,79,458,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="713,170,455,108,456,102,714,165"/>
+<area shape="rect" id="Node000009" href="$CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="529,172,673,198"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="705,188,674,188,674,182,705,182"/>
+<area shape="rect" id="Node000014" href="$task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="575,272,627,298"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="756,210,718,236,674,262,628,280,626,275,672,257,715,232,753,205"/>
+<area shape="rect" id="Node000016" href="$both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="575,221,627,247"/>
+<area shape="poly" id="edge21_Node000001_Node000016" title=" " alt="" coords="720,205,628,230,627,225,719,200"/>
+<area shape="rect" id="Node000003" href="$both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,55,263,80"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,59,264,65,263,60,301,54"/>
+<area shape="rect" id="Node000006" href="$task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,5,266,31"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="301,31,266,26,267,21,301,26"/>
+<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,129,142,155"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="195,91,192,94,142,131,139,127,188,89,192,87"/>
+<area shape="rect" id="Node000005" href="$_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,129,55,155"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,145,55,145,55,140,87,140"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="193,43,192,44,156,89,132,130,128,128,152,86,188,40,190,39"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="323,84,263,75,264,70,324,78"/>
+<area shape="rect" id="Node000008" href="$task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,104,266,130"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="324,105,267,114,266,109,324,100"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="177,132,143,140,142,135,176,127"/>
+<area shape="rect" id="Node000010" href="$task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="372,128,425,154"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="523,171,425,149,426,144,524,166"/>
+<area shape="rect" id="Node000012" href="$both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="372,177,425,203"/>
+<area shape="poly" id="edge15_Node000009_Node000012" title=" " alt="" coords="514,190,425,192,425,187,513,184"/>
+<area shape="rect" id="Node000011" href="$task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,153,268,179"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="357,150,269,163,268,158,356,144"/>
+<area shape="poly" id="edge14_Node000011_Node000004" title=" " alt="" coords="174,157,142,149,143,144,176,151"/>
+<area shape="rect" id="Node000013" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,203,265,228"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="357,199,266,213,265,208,357,194"/>
+<area shape="poly" id="edge17_Node000013_Node000004" title=" " alt="" coords="192,196,188,194,139,158,142,153,192,189,195,192"/>
+<area shape="rect" id="Node000015" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="359,279,438,304"/>
+<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="559,289,438,293,438,288,559,284"/>
+<area shape="poly" id="edge20_Node000015_Node000004" title=" " alt="" coords="344,292,267,278,226,264,188,243,166,223,149,199,126,157,131,154,153,196,170,219,192,239,228,259,268,273,345,286"/>
+<area shape="poly" id="edge22_Node000016_Node000013" title=" " alt="" coords="559,235,265,220,266,215,559,229"/>
+</map>

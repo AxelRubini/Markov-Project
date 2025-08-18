@@ -1,0 +1,30 @@
+<map id="next_word_ht_item_create" name="next_word_ht_item_create">
+<area shape="rect" id="Node000001" title="Create a hash&#45;table item storing followers." alt="" coords="5,183,179,208"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="633,283,700,308"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,207,123,233,151,264,187,295,228,318,279,334,333,342,388,345,442,342,541,327,618,308,619,313,542,332,442,347,388,350,333,348,278,339,226,323,184,300,148,268,119,236,100,210"/>
+<area shape="rect" id="Node000003" href="$linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="453,132,561,158"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,180,159,146,191,129,226,117,284,108,343,108,399,115,447,125,446,130,398,121,343,114,284,113,227,122,194,134,162,151,112,184"/>
+<area shape="rect" id="Node000004" href="$next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="452,181,562,207"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,193,437,192,437,197,179,198"/>
+<area shape="rect" id="Node000005" href="$next__word_8c.html#a8f687a592f3b524819df414a96f8f193" title="Free a hash&#45;table item storing next_word_t values." alt="" coords="235,132,394,158"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="151,179,240,159,241,164,152,185"/>
+<area shape="rect" id="Node000006" href="$next__word_8c.html#a52447d13454294c20e582056b7400ecc" title="Print an ht_item containing next words." alt="" coords="234,31,396,56"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="103,180,153,129,188,100,225,73,252,60,254,65,228,78,191,104,157,133,107,184"/>
+<area shape="rect" id="Node000010" href="$next__word_8c.html#aa3f541601012b84e488c3af2b0bde068" title="Append a next word to an existing item." alt="" coords="227,233,403,259"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="152,206,241,227,240,232,151,212"/>
+<area shape="rect" id="Node000012" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="251,283,378,308"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="115,207,165,238,228,269,243,275,241,280,226,274,162,242,112,211"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="395,142,437,142,437,148,395,148"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="369,156,440,174,439,180,367,161"/>
+<area shape="rect" id="Node000007" href="$next__word_8c.html#a853f57b435b8f7d8d606c06b0a92d3a9" title="Print a next_word_t." alt="" coords="451,5,563,31"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="396,30,435,25,436,30,397,35"/>
+<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="611,31,722,56"/>
+<area shape="poly" id="edge11_Node000006_Node000008" title=" " alt="" coords="396,41,596,41,596,46,396,46"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="564,24,596,30,596,35,563,30"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="770,31,863,56"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="722,41,754,41,754,46,722,46"/>
+<area shape="rect" id="Node000011" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="465,232,549,258"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="403,243,450,243,450,248,403,248"/>
+<area shape="poly" id="edge14_Node000011_Node000002" title=" " alt="" coords="550,256,619,278,617,283,549,261"/>
+<area shape="poly" id="edge16_Node000012_Node000002" title=" " alt="" coords="379,293,618,293,618,298,379,298"/>
+</map>

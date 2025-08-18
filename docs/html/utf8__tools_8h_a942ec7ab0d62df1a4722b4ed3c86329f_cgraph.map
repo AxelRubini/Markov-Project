@@ -1,0 +1,5 @@
+<map id="utf8_getchar" name="utf8_getchar">
+<area shape="rect" id="Node000001" title="Read a UTF&#45;8 code point from stdin." alt="" coords="5,5,99,31"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="147,5,232,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,16,131,16,131,21,99,21"/>
+</map>
