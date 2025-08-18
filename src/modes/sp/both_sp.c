@@ -38,7 +38,7 @@ int both_sp(const char *input_txt, const char *output_csv,
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove("tmp.txt"); // Remove the temporary file if it was created
+    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was created
   }
 
   int print_to_stdout = 0;
