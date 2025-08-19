@@ -1,6 +1,6 @@
 # Markov
 
-Il programma analizza un testo di input, costruisce le probabilità di transizione tra parole e può produrre nuovo testo partendo da queste statistiche.
+Il programma analizza un testo di input, costruisce le probabilità di transizione tra parole e produce nuovo testo partendo da queste statistiche.
 
 ## Struttura del progetto
 
@@ -12,7 +12,7 @@ Il programma analizza un testo di input, costruisce le probabilità di transizio
   - `app/` – dichiarazioni per il parser degli argomenti e il runner.
   - `core/` – funzioni di utilità generiche.
   - `csv/` – gestione della lettura e scrittura CSV.
-  - `ds/` – strutture dati (liste, tabelle hash, ecc.).
+  - `ds/` – strutture dati (linked list,hash table, ecc.).
   - `io/` – funzioni di input/output su file e pipe.
   - `modes/` – interfacce per le modalità *single process* (`sp`) e *multi process* (`mp`).
 - **src/** – sorgenti C organizzati come in `include/`:
