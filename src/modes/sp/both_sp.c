@@ -42,11 +42,12 @@ int both_sp(const char *input_txt, const char *output_csv,
   }
 
   int print_to_stdout = 0;
-  if (output_txt == NULL) {
+  if (is_empty(output_txt)) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
     output_txt = "tmp_output.txt"; // Temporary file for stdout
   }
+  fprintf(stderr, "Output file: %s\n", output_txt);
 
   hash_table_t *freq_table = read_csv_file_sp(output_csv);
   if (ht == NULL) {
