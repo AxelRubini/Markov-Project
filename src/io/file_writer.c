@@ -29,11 +29,7 @@ int is_last_terminator(const int *word) {
 }
 
 static char *generate_random_symbol() {
-  char *symbol = malloc(2 * sizeof(char));
-  if (symbol == NULL) {
-    fprintf(stderr, "Memory allocation failed\n");
-    return NULL; // Memory allocation failed
-  }
+  char *symbol = dmalloc(2 * sizeof(char));
   const char charset[] = ".?!";
   int index = rand() % (sizeof(charset) - 1);
   symbol[0] = charset[index];
