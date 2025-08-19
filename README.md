@@ -6,7 +6,6 @@ Il programma analizza un testo di input, costruisce le probabilità di transizio
 
 - **Makefile** – script di compilazione principale; genera l'eseguibile `markov`.
 - **compile_flags.txt** – opzioni di compilazione utilizzate dagli editor.
-- **resources/** – risorse usate per la realizzazione del progetto.
 - **lib/argtable3/** – libreria statica per il parsing della riga di comando.
 - **include/** – file header suddivisi per sottosistemi:
   - `app/` – dichiarazioni per il parser degli argomenti e il runner.

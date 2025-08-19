@@ -1,15 +1,15 @@
 <map id="safe_close_pipes" name="safe_close_pipes">
-<area shape="rect" id="Node000001" title="Close a series of pipes safely." alt="" coords="316,55,439,80"/>
-<area shape="rect" id="Node000002" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="321,52,264,32,266,27,323,47"/>
-<area shape="rect" id="Node000005" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
-<area shape="rect" id="Node000006" href="$task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,104,268,130"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="323,88,270,106,268,101,321,83"/>
-<area shape="rect" id="Node000003" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,55,142,80"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,41,144,61,141,56,184,36"/>
-<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="175,70,143,70,143,65,175,65"/>
-<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="184,99,141,79,144,74,187,94"/>
+<area shape="rect" id="Node000001" title="Close a series of pipes safely." alt="" coords="331,57,464,85"/>
+<area shape="rect" id="Node000002" href="$both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="338,54,279,35,281,29,340,49"/>
+<area shape="rect" id="Node000005" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,57,283,85"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="316,74,284,74,284,68,316,68"/>
+<area shape="rect" id="Node000006" href="$task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,109,283,137"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="340,93,285,112,283,107,338,88"/>
+<area shape="rect" id="Node000003" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,57,150,85"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,43,152,64,149,59,194,38"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,57,60,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="92,74,60,74,60,68,92,68"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="182,74,150,74,150,68,182,68"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="194,105,149,83,152,78,196,100"/>
 </map>

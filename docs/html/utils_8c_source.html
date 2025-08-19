@@ -145,7 +145,7 @@ $(function(){initNavTree('utils_8c_source.html','',''); });
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">   47</a></span><span class="keywordtype">void</span> *<a class="code hl_function" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordtype">void</span> *ptr = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(size);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordtype">void</span> *ptr = malloc(size);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordflow">if</span> (ptr == NULL) {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    exit(EXIT_FAILURE);</div>
@@ -154,52 +154,50 @@ $(function(){initNavTree('utils_8c_source.html','',''); });
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">   56</a></span><span class="preprocessor">#define malloc(x) dont_use_malloc_usedmalloc </span><span class="comment">// Use dmalloc instead</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">   58</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="utils_8c.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordtype">double</span> probability = 0.0;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  probability = (double)(*next_word) / (double)(*word); <span class="comment">// Example calculation</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">return</span> probability;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">   57</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="utils_8c.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordtype">double</span> probability = 0.0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  probability = (double)(*next_word) / (double)(*word); <span class="comment">// Example calculation</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordflow">return</span> probability;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">   64</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(<span class="keywordtype">int</span> *fd) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordflow">if</span> (fd == NULL || *fd &lt; 0) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordflow">if</span> (close(*fd) &lt; 0) {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    perror(<span class="stringliteral">&quot;safe_close&quot;</span>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  *fd = -1;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">   63</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(<span class="keywordtype">int</span> *fd) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordflow">if</span> (fd == NULL || *fd &lt; 0) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keywordflow">if</span> (close(*fd) &lt; 0) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    perror(<span class="stringliteral">&quot;safe_close&quot;</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  *fd = -1;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">   76</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(<span class="keywordtype">int</span> *fds, <span class="keywordtype">size_t</span> count) {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordflow">if</span> (fds == NULL || count == 0) {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Nothing to close</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; i++) {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fds[i]) &lt; 0) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error closing one of the pipes</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> 0; <span class="comment">// All pipes closed successfully</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">   75</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(<span class="keywordtype">int</span> *fds, <span class="keywordtype">size_t</span> count) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordflow">if</span> (fds == NULL || count == 0) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Nothing to close</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; i++) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fds[i]) &lt; 0) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error closing one of the pipes</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keywordflow">return</span> 0; <span class="comment">// All pipes closed successfully</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
 </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="ttc" id="autils_8c_html_a1d8eddef9f888ac973de205c457bd89d"><div class="ttname"><a href="utils_8c.html#a1d8eddef9f888ac973de205c457bd89d">is_prime</a></div><div class="ttdeci">uint32_t is_prime(int n)</div><div class="ttdoc">Check if a number is prime.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">utils.c:9</a></div></div>
 <div class="ttc" id="autils_8c_html_a3c20d7e2acdc0a0099f46371c8335ee4"><div class="ttname"><a href="utils_8c.html#a3c20d7e2acdc0a0099f46371c8335ee4">hash_function</a></div><div class="ttdeci">uint32_t hash_function(const int *key, int table_size)</div><div class="ttdoc">Hash a word for a table size.</div><div class="ttdef"><b>Definition</b> <a href="#l00035">utils.c:35</a></div></div>
-<div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">utils.c:56</a></div></div>
-<div class="ttc" id="autils_8c_html_a5864ea11a063d13bed6a1b528747f4d3"><div class="ttname"><a href="utils_8c.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a></div><div class="ttdeci">double next_word_probability(const int *word, const int *next_word)</div><div class="ttdoc">Estimate probability of a follower word.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">utils.c:58</a></div></div>
+<div class="ttc" id="autils_8c_html_a5864ea11a063d13bed6a1b528747f4d3"><div class="ttname"><a href="utils_8c.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a></div><div class="ttdeci">double next_word_probability(const int *word, const int *next_word)</div><div class="ttdoc">Estimate probability of a follower word.</div><div class="ttdef"><b>Definition</b> <a href="#l00057">utils.c:57</a></div></div>
 <div class="ttc" id="autils_8c_html_a6a8b81a369ded1d2e86198541cba82bf"><div class="ttname"><a href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf">next_prime</a></div><div class="ttdeci">uint32_t next_prime(int n)</div><div class="ttdoc">Compute the next prime greater or equal to n.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">utils.c:24</a></div></div>
 <div class="ttc" id="autils_8c_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">utils.c:47</a></div></div>
-<div class="ttc" id="autils_8c_html_a9e8583cecaa2142a642e0ffd5f25dfdd"><div class="ttname"><a href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a></div><div class="ttdeci">int safe_close_pipes(int *fds, size_t count)</div><div class="ttdoc">Close a series of pipes safely.</div><div class="ttdef"><b>Definition</b> <a href="#l00076">utils.c:76</a></div></div>
-<div class="ttc" id="autils_8c_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="#l00064">utils.c:64</a></div></div>
+<div class="ttc" id="autils_8c_html_a9e8583cecaa2142a642e0ffd5f25dfdd"><div class="ttname"><a href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a></div><div class="ttdeci">int safe_close_pipes(int *fds, size_t count)</div><div class="ttdoc">Close a series of pipes safely.</div><div class="ttdef"><b>Definition</b> <a href="#l00075">utils.c:75</a></div></div>
+<div class="ttc" id="autils_8c_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">utils.c:63</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

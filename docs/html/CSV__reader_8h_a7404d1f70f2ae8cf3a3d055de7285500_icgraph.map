@@ -1,16 +1,16 @@
 <map id="read_lines_from_pipe" name="read_lines_from_pipe">
-<area shape="rect" id="Node000001" title="Build a hash table from CSV lines read on a pipe." alt="" coords="417,31,561,56"/>
-<area shape="rect" id="Node000002" href="$task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="316,5,369,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,31,369,25,369,20,402,26"/>
-<area shape="rect" id="Node000006" href="$both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="316,55,369,80"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="402,61,369,66,369,61,401,55"/>
-<area shape="rect" id="Node000003" href="$task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
-<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="176,34,143,41,142,36,174,28"/>
-<area shape="rect" id="Node000005" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
-<area shape="rect" id="Node000007" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,55,265,80"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="301,70,265,70,265,65,301,65"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="178,59,142,50,143,45,179,53"/>
+<area shape="rect" id="Node000001" title="Build a hash table from CSV lines read on a pipe." alt="" coords="435,32,596,60"/>
+<area shape="rect" id="Node000002" href="$task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="331,5,387,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="419,32,387,26,388,21,420,27"/>
+<area shape="rect" id="Node000006" href="$both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="331,57,387,85"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="420,64,388,69,387,64,419,59"/>
+<area shape="rect" id="Node000003" href="$task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,22,284,22,284,16,316,16"/>
+<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="183,36,151,43,150,38,182,30"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="rect" id="Node000007" href="$both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="316,74,280,74,280,68,316,68"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="186,61,149,53,151,48,187,56"/>
 </map>

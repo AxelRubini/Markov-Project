@@ -1,11 +1,11 @@
 var searchData=
 [
   ['w_5fp1_0',['w_p1',['../both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de',1,'w_p1(int pipe_to_write, const char *input_txt):&#160;both_mp.c'],['../task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de',1,'w_p1(int pipe_to_write, const char *input_txt):&#160;task1_mp.c'],['../task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a',1,'w_p1(int pipe_to_write, const char *input_csv):&#160;task2_mp.c']]],
-  ['w_5fp2_1',['w_p2',['../both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038',1,'w_p2(int pipe_to_read, int pipe_to_write_csv, int pipe_to_write_ts2):&#160;both_mp.c'],['../task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a',1,'w_p2(int pipe_to_read, int pipe_to_write):&#160;task1_mp.c'],['../task2__mp_8c.html#a463678e007fda00ee347521ff7788e28',1,'w_p2(int pipe_to_read, int pipe_to_write, size_t n_words, const char *word):&#160;task2_mp.c']]],
+  ['w_5fp2_1',['w_p2',['../both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038',1,'w_p2(int pipe_to_read, int pipe_to_write_csv, int pipe_to_write_ts2):&#160;both_mp.c'],['../task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a',1,'w_p2(int pipe_to_read, int pipe_to_write):&#160;task1_mp.c'],['../task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791',1,'w_p2(int pipe_to_read, int pipe_to_write, size_t n_words):&#160;task2_mp.c']]],
   ['w_5fp2_5f1_2',['w_p2_1',['../both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9',1,'both_mp.c']]],
   ['w_5fp2_5f2_3',['w_p2_2',['../both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3',1,'both_mp.c']]],
   ['w_5fp3_4',['w_p3',['../both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4',1,'w_p3(int pipe_to_read, const char *output_csv):&#160;both_mp.c'],['../task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4',1,'w_p3(int pipe_to_read, const char *output_csv):&#160;task1_mp.c'],['../task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d',1,'w_p3(int pipe_to_read, const char *output_txt):&#160;task2_mp.c']]],
-  ['w_5fp4_5',['w_p4',['../both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16',1,'both_mp.c']]],
+  ['w_5fp4_5',['w_p4',['../both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470',1,'both_mp.c']]],
   ['w_5fp5_6',['w_p5',['../both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078',1,'both_mp.c']]],
   ['word_5fdeep_5fcopy_7',['word_deep_copy',['../word_8c.html#a538516353f7d77bdf23dfad46051d02b',1,'word.c']]],
   ['word_5fhash_8',['word_hash',['../word_8h.html#a54fad11816a4a1797849e959d310fa0d',1,'word_hash(const void *key, int size):&#160;word.c'],['../word_8c.html#a54fad11816a4a1797849e959d310fa0d',1,'word_hash(const void *key, int size):&#160;word.c']]],
@@ -17,5 +17,5 @@ var searchData=
   ['wordcmp_14',['wordcmp',['../word_8h.html#a62140fcceec37578888d60a4cadaa20e',1,'wordcmp(const word_t *word1, const word_t *word2):&#160;word.c'],['../word_8c.html#a62140fcceec37578888d60a4cadaa20e',1,'wordcmp(const word_t *word1, const word_t *word2):&#160;word.c']]],
   ['write_5fall_15',['write_all',['../frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc',1,'frame.c']]],
   ['write_5foutput_5fmp_16',['write_output_mp',['../file__writer_8h.html#a366461dc2bef9f344dd7135de8f2187d',1,'write_output_mp(int fd, const char *filename):&#160;file_writer.c'],['../file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d',1,'write_output_mp(int fd, const char *filename):&#160;file_writer.c']]],
-  ['write_5foutput_5fsp_17',['write_output_sp',['../file__writer_8h.html#aacc4ca64994b0da56133db65c1f30c21',1,'write_output_sp(const char *filename, const int num_words, char *start_sym, hash_table_t *table):&#160;file_writer.c'],['../file__writer_8c.html#aacc4ca64994b0da56133db65c1f30c21',1,'write_output_sp(const char *filename, const int num_words, char *start_sym, hash_table_t *table):&#160;file_writer.c']]]
+  ['write_5foutput_5fsp_17',['write_output_sp',['../file__writer_8h.html#a92953edab6e16d827c2f7e1bb08c7fb4',1,'write_output_sp(const char *filename, const int num_words, hash_table_t *table):&#160;file_writer.c'],['../file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4',1,'write_output_sp(const char *filename, const int num_words, hash_table_t *table):&#160;file_writer.c']]]
 ];

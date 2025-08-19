@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main_2ec_0',['main.c',['../main_8c.html',1,'']]],
-  ['modes_5futils_2ec_1',['modes_utils.c',['../modes__utils_8c.html',1,'']]],
-  ['modes_5futils_2eh_2',['modes_utils.h',['../modes__utils_8h.html',1,'']]]
+  ['next_5fword_2ec_0',['next_word.c',['../next__word_8c.html',1,'']]],
+  ['next_5fword_2eh_1',['next_word.h',['../next__word_8h.html',1,'']]],
+  ['next_5fword_5fchooser_2ec_2',['next_word_chooser.c',['../next__word__chooser_8c.html',1,'']]],
+  ['next_5fword_5fchooser_2eh_3',['next_word_chooser.h',['../next__word__chooser_8h.html',1,'']]]
 ];

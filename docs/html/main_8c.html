@@ -153,7 +153,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   15</span>  <span class="keywordflow">return</span> result &lt; 0 ? EXIT_FAILURE : EXIT_SUCCESS;</div>
 <div class="line"><span class="lineno">   16</span> </div>
 <div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aoptions_8h_html_aa3dea22abd024052e9168eb410d1015e"><div class="ttname"><a href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a></div><div class="ttdeci">int parse_options(int argc, char **argv, options_t *out)</div><div class="ttdoc">Parse command line arguments into an options structure.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00091">options.c:91</a></div></div>
+<div class="ttc" id="aoptions_8h_html_aa3dea22abd024052e9168eb410d1015e"><div class="ttname"><a href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a></div><div class="ttdeci">int parse_options(int argc, char **argv, options_t *out)</div><div class="ttdoc">Parse command line arguments into an options structure.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00084">options.c:84</a></div></div>
 <div class="ttc" id="arunner_8h_html_a632c18351b8eb8158132b5be8f604d78"><div class="ttname"><a href="runner_8h.html#a632c18351b8eb8158132b5be8f604d78">run</a></div><div class="ttdeci">int run(const options_t *options)</div><div class="ttdoc">Run the application with the provided options.</div><div class="ttdef"><b>Definition</b> <a href="runner_8c_source.html#l00013">runner.c:13</a></div></div>
 <div class="ttc" id="astructoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Aggregates command line options for the program.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00029">options.h:29</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -161,170 +161,168 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" loading="lazy" alt=""/></div>
 <map name="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,475,55,500"/>
-<area shape="rect" href="options_8c.html#aa3dea22abd024052e9168eb410d1015e" title="Parse command line arguments into an options structure." alt="" coords="103,300,205,326"/>
-<area shape="poly" title=" " alt="" coords="38,473,133,337,137,340,43,476"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="134,776,174,802"/>
-<area shape="poly" title=" " alt="" coords="39,500,144,760,139,762,34,502"/>
-<area shape="rect" href="options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="268,147,373,172"/>
-<area shape="poly" title=" " alt="" coords="167,298,291,181,295,185,171,302"/>
-<area shape="rect" href="options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="253,300,387,326"/>
-<area shape="poly" title=" " alt="" coords="206,310,237,310,237,316,206,316"/>
-<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="481,89,554,115"/>
-<area shape="poly" title=" " alt="" coords="366,143,465,114,467,120,368,149"/>
-<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="441,139,594,180"/>
-<area shape="poly" title=" " alt="" coords="373,157,425,157,425,162,373,162"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="284,701,356,727"/>
-<area shape="poly" title=" " alt="" coords="173,778,274,732,276,736,175,783"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="286,1116,354,1142"/>
-<area shape="poly" title=" " alt="" coords="163,801,255,1002,307,1101,302,1103,251,1005,158,803"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="281,776,359,802"/>
-<area shape="poly" title=" " alt="" coords="174,786,265,786,265,792,174,792"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="283,1495,357,1520"/>
-<area shape="poly" title=" " alt="" coords="161,801,315,1479,310,1480,156,803"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="281,455,359,480"/>
-<area shape="poly" title=" " alt="" coords="160,774,303,493,308,496,164,777"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="283,965,357,991"/>
-<area shape="poly" title=" " alt="" coords="168,800,300,952,296,956,164,804"/>
-<area shape="rect" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="693,965,766,991"/>
-<area shape="poly" title=" " alt="" coords="347,725,369,741,389,762,401,782,407,801,410,836,416,868,423,884,437,900,454,912,479,922,543,942,679,968,678,974,541,947,477,927,452,916,434,904,419,887,410,870,405,836,402,802,396,784,385,765,366,745,344,730"/>
-<area shape="rect" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99" title="Terminate a process and wait for its completion." alt="" coords="469,553,566,579"/>
-<area shape="poly" title=" " alt="" coords="328,699,369,645,399,614,434,588,454,578,456,583,437,592,403,618,373,649,332,702"/>
-<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="458,850,577,890"/>
-<area shape="poly" title=" " alt="" coords="345,725,389,762,404,783,412,801,421,818,437,836,446,842,443,847,434,840,417,821,408,803,400,785,385,765,342,730"/>
-<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="456,455,579,480"/>
-<area shape="poly" title=" " alt="" coords="322,700,333,659,355,602,387,542,409,514,434,489,441,484,444,488,437,494,413,517,392,545,359,605,338,661,327,702"/>
-<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="455,1067,580,1092"/>
-<area shape="poly" title=" " alt="" coords="348,725,370,741,389,762,404,787,413,810,419,852,423,894,438,945,468,1004,500,1052,495,1055,464,1006,433,947,418,895,414,852,407,811,399,789,385,765,367,745,345,730"/>
-<area shape="rect" href="modes__utils_8c.html#ac7a990ac61c94569ccf103a3f6407f54" title="Validate a word or generate a random symbol." alt="" coords="467,255,568,280"/>
-<area shape="poly" title=" " alt="" coords="323,700,385,492,391,461,393,433,394,384,396,361,402,338,414,314,433,290,451,277,454,281,437,293,418,317,407,340,401,362,399,384,399,433,396,462,390,493,328,702"/>
-<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="491,652,544,678"/>
-<area shape="poly" title=" " alt="" coords="356,703,476,672,477,677,357,708"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="491,1420,544,1446"/>
-<area shape="poly" title=" " alt="" coords="350,725,372,741,390,762,416,816,429,864,434,908,434,951,428,1042,429,1094,438,1154,474,1295,509,1404,504,1406,469,1297,433,1155,424,1095,423,1042,428,951,429,909,424,865,411,818,385,765,368,745,347,730"/>
-<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="491,751,544,776"/>
-<area shape="poly" title=" " alt="" coords="357,720,477,751,476,756,356,726"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="491,603,544,628"/>
-<area shape="poly" title=" " alt="" coords="337,699,380,668,434,637,475,622,477,627,436,642,382,673,340,703"/>
-<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="491,353,544,379"/>
-<area shape="poly" title=" " alt="" coords="322,700,359,588,391,513,433,441,458,411,484,387,488,391,462,415,438,444,396,516,364,590,327,702"/>
-<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="902,915,987,940"/>
-<area shape="poly" title=" " alt="" coords="578,880,648,893,776,909,887,920,887,926,776,915,647,898,577,885"/>
-<area shape="poly" title=" " alt="" coords="533,452,564,425,598,390,611,369,618,350,627,332,646,316,692,295,732,285,752,286,772,291,814,316,831,334,846,359,873,424,895,506,912,595,934,773,944,899,939,900,929,773,907,596,889,507,868,426,842,361,827,337,810,320,770,296,752,291,733,291,693,300,649,320,631,335,623,352,615,371,602,393,568,429,537,456"/>
-<area shape="poly" title=" " alt="" coords="560,1064,598,1045,612,1034,621,1023,631,1011,646,1000,677,987,679,992,649,1004,635,1015,625,1026,616,1038,601,1050,563,1069"/>
-<area shape="poly" title=" " alt="" coords="580,1083,632,1084,691,1080,752,1070,811,1050,846,1030,877,1004,923,951,927,955,880,1008,849,1034,813,1055,754,1075,692,1086,632,1089,580,1088"/>
-<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="673,1015,787,1040"/>
-<area shape="poly" title=" " alt="" coords="572,1064,659,1042,660,1047,573,1069"/>
-<area shape="poly" title=" " alt="" coords="782,1012,811,1001,864,975,910,947,912,951,866,979,813,1006,784,1017"/>
-<area shape="rect" href="modes__utils_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276" title=" " alt="" coords="860,56,1029,82"/>
-<area shape="poly" title=" " alt="" coords="567,252,598,234,614,213,621,191,628,169,646,148,682,129,735,111,855,83,856,88,736,117,684,134,649,152,633,172,626,193,619,215,601,237,570,256"/>
-<area shape="rect" href="modes__utils_8c.html#ac7f082edde138494859074675f7afbdc" title=" " alt="" coords="673,5,787,31"/>
-<area shape="poly" title=" " alt="" coords="536,252,568,226,597,190,608,169,613,150,616,113,622,77,631,59,646,40,657,32,660,36,650,44,635,62,627,79,622,113,618,151,613,171,602,193,571,229,540,256"/>
-<area shape="poly" title=" " alt="" coords="788,29,873,49,872,54,787,34"/>
-<area shape="poly" title=" " alt="" coords="544,658,571,650,598,639,612,628,621,617,631,606,647,597,693,580,733,572,771,576,813,597,849,628,877,665,899,706,916,750,937,834,945,899,939,899,931,835,911,751,894,708,873,668,845,631,811,602,770,581,733,577,694,586,649,602,634,610,625,621,616,632,601,643,573,655,545,663"/>
-<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="655,661,804,687"/>
-<area shape="poly" title=" " alt="" coords="544,663,640,668,640,673,544,669"/>
-<area shape="poly" title=" " alt="" coords="537,1417,585,1386,647,1354,695,1341,735,1337,772,1330,791,1320,810,1304,844,1264,872,1219,894,1170,911,1120,931,1026,939,956,945,956,936,1027,916,1121,899,1172,877,1221,849,1267,814,1308,793,1325,774,1335,736,1342,696,1346,649,1359,588,1391,540,1422"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="881,1621,1008,1647"/>
-<area shape="poly" title=" " alt="" coords="545,1440,662,1488,813,1557,910,1611,907,1615,811,1562,660,1493,543,1445"/>
-<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="888,1521,1001,1547"/>
-<area shape="poly" title=" " alt="" coords="544,1430,662,1435,738,1445,813,1462,867,1485,913,1510,910,1515,864,1489,811,1467,737,1450,661,1440,544,1435"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="654,1572,806,1598"/>
-<area shape="poly" title=" " alt="" coords="532,1444,580,1495,613,1524,649,1551,673,1563,671,1568,646,1555,610,1528,576,1499,528,1448"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="697,1369,763,1395"/>
-<area shape="poly" title=" " alt="" coords="543,1424,681,1391,682,1396,545,1429"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="697,1268,763,1294"/>
-<area shape="poly" title=" " alt="" coords="528,1418,576,1367,610,1337,646,1311,681,1293,683,1298,649,1315,613,1341,580,1371,532,1421"/>
-<area shape="rect" href="word_8c.html#a54fad11816a4a1797849e959d310fa0d" title="Hash function for word keys." alt="" coords="688,1723,772,1748"/>
-<area shape="poly" title=" " alt="" coords="527,1445,573,1537,608,1599,650,1658,675,1686,702,1710,698,1714,671,1690,646,1661,604,1601,568,1540,522,1447"/>
-<area shape="rect" href="word_8c.html#a16fe504f96eba0865f4d74b53ea71695" title="Compare keys for a word hash table." alt="" coords="648,1824,812,1850"/>
-<area shape="poly" title=" " alt="" coords="524,1445,538,1498,563,1578,601,1671,624,1716,650,1759,674,1788,700,1812,696,1816,670,1792,645,1762,619,1719,596,1673,558,1580,533,1500,519,1446"/>
-<area shape="poly" title=" " alt="" coords="762,1374,788,1364,810,1348,846,1301,875,1249,897,1193,914,1137,933,1032,940,956,945,956,939,1033,919,1138,902,1195,880,1251,851,1304,814,1352,790,1369,764,1379"/>
-<area shape="poly" title=" " alt="" coords="763,1272,788,1262,810,1247,839,1213,864,1175,885,1134,901,1093,925,1015,937,955,942,956,930,1016,906,1094,890,1136,869,1177,844,1216,814,1251,790,1267,765,1277"/>
-<area shape="poly" title=" " alt="" coords="544,759,596,758,664,761,740,773,777,784,813,798,849,820,880,847,927,900,923,904,876,851,845,824,811,803,776,789,739,778,664,766,596,763,544,764"/>
-<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="679,813,780,839"/>
-<area shape="poly" title=" " alt="" coords="545,768,600,785,670,806,668,811,599,790,544,774"/>
-<area shape="poly" title=" " alt="" coords="543,606,599,589,622,577,647,566,694,554,734,544,772,546,792,554,814,567,851,601,881,642,904,688,921,736,940,829,946,899,940,900,935,829,916,738,899,690,877,645,847,604,810,571,790,559,771,552,734,550,696,559,649,571,624,581,601,594,545,612"/>
-<area shape="poly" title=" " alt="" coords="543,607,607,595,687,584,763,582,793,587,814,597,833,625,846,665,853,713,857,766,859,872,863,953,942,1506,937,1507,857,953,854,872,852,766,848,714,841,666,828,628,810,602,791,592,762,587,687,589,608,600,544,612"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="658,612,802,638"/>
-<area shape="poly" title=" " alt="" coords="544,614,642,618,642,624,544,619"/>
-<area shape="rect" href="file__writer_8c.html#a49154041d01ed32276ecb401ccd1048d" title="Send generated words over a file descriptor." alt="" coords="671,409,788,435"/>
-<area shape="poly" title=" " alt="" coords="543,611,572,605,598,589,611,573,618,557,622,523,625,488,632,470,646,452,660,441,664,445,650,456,637,473,630,490,627,524,623,558,616,576,601,594,574,610,545,617"/>
-<area shape="poly" title=" " alt="" coords="802,636,814,647,825,670,833,707,842,812,846,948,846,1100,846,1390,851,1497,856,1535,862,1558,883,1587,910,1610,906,1614,879,1591,858,1561,850,1536,845,1498,840,1390,840,1100,841,948,837,812,828,707,820,672,810,650,798,640"/>
-<area shape="poly" title=" " alt="" coords="801,636,814,648,871,1022,942,1505,937,1506,866,1023,810,650,798,640"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="671,207,788,232"/>
-<area shape="poly" title=" " alt="" coords="544,361,572,354,598,340,615,319,622,297,628,273,646,250,664,237,667,241,650,253,633,276,627,298,620,321,601,344,573,359,545,366"/>
-<area shape="poly" title=" " alt="" coords="788,231,814,250,830,273,844,303,869,379,890,470,908,570,932,763,944,899,939,899,927,764,903,571,885,471,864,380,839,305,825,276,810,253,785,235"/>
-<area shape="poly" title=" " alt="" coords="336,1113,379,1083,434,1052,498,1027,564,1008,677,984,678,989,565,1013,500,1032,436,1057,382,1087,339,1118"/>
-<area shape="poly" title=" " alt="" coords="329,1114,489,901,494,904,334,1117"/>
-<area shape="poly" title=" " alt="" coords="355,1138,441,1162,497,1173,559,1181,624,1183,689,1178,752,1163,811,1136,835,1118,856,1097,891,1047,917,997,933,954,938,956,922,999,896,1050,860,1100,838,1122,813,1140,754,1168,690,1183,624,1189,558,1186,496,1178,440,1167,354,1143"/>
-<area shape="poly" title=" " alt="" coords="353,1118,448,1094,449,1099,355,1123"/>
-<area shape="poly" title=" " alt="" coords="329,1114,358,1066,373,1035,385,1003,395,934,396,845,388,637,385,531,389,433,395,390,404,351,417,317,433,290,451,276,454,280,437,293,421,319,409,352,400,391,395,434,391,531,393,637,402,845,400,934,390,1004,378,1037,363,1069,333,1117"/>
-<area shape="poly" title=" " alt="" coords="327,1141,381,1412,414,1562,428,1613,437,1635,467,1653,510,1666,562,1675,618,1679,675,1679,729,1675,776,1668,811,1657,827,1647,836,1636,858,1607,914,1556,918,1560,862,1611,840,1639,830,1651,813,1662,777,1673,730,1680,676,1684,618,1684,561,1680,509,1671,465,1658,433,1639,423,1615,409,1564,375,1413,321,1142"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="435,1772,600,1798"/>
-<area shape="poly" title=" " alt="" coords="327,1142,390,1482,395,1526,395,1565,391,1633,392,1664,398,1694,413,1726,437,1759,439,1761,435,1764,433,1763,408,1728,393,1696,387,1664,386,1633,390,1565,390,1526,385,1483,321,1143"/>
-<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="468,1821,567,1847"/>
-<area shape="poly" title=" " alt="" coords="327,1142,390,1482,396,1556,400,1652,412,1745,422,1782,437,1808,455,1822,452,1826,433,1812,417,1784,407,1746,395,1653,390,1556,385,1483,322,1143"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="671,1621,789,1647"/>
-<area shape="poly" title=" " alt="" coords="326,1142,338,1227,361,1354,377,1420,395,1481,415,1530,437,1563,460,1582,486,1597,543,1619,601,1630,655,1634,655,1639,600,1635,541,1624,484,1602,457,1586,433,1567,410,1533,390,1483,372,1422,356,1355,333,1228,320,1142"/>
-<area shape="rect" href="file__writer_8c.html#aacc4ca64994b0da56133db65c1f30c21" title="Generate text and write it to a file (single process)." alt="" coords="461,1116,574,1142"/>
-<area shape="poly" title=" " alt="" coords="354,1126,445,1126,445,1132,354,1132"/>
-<area shape="poly" title=" " alt="" coords="587,1796,602,1807,619,1833,626,1859,626,1886,623,1912,620,1937,621,1961,630,1984,649,2005,690,2030,710,2036,729,2038,768,2029,810,2005,849,1970,879,1928,901,1881,918,1831,929,1781,936,1735,941,1662,946,1663,941,1736,934,1782,923,1832,906,1883,883,1931,853,1974,814,2010,770,2034,729,2043,709,2041,688,2035,646,2010,625,1987,616,1963,615,1937,618,1911,621,1886,621,1860,614,1835,598,1811,584,1800"/>
-<area shape="poly" title=" " alt="" coords="584,1796,601,1807,612,1819,619,1831,625,1856,631,1878,638,1888,649,1897,693,1920,733,1929,752,1928,771,1922,810,1897,838,1866,850,1834,852,1801,847,1766,841,1729,837,1691,841,1650,858,1608,880,1578,908,1554,911,1558,884,1581,862,1610,847,1651,843,1691,846,1729,852,1765,857,1800,855,1835,842,1869,814,1902,773,1927,752,1933,732,1934,691,1925,646,1902,634,1892,626,1881,620,1857,614,1833,608,1822,598,1811,581,1800"/>
-<area shape="poly" title=" " alt="" coords="576,1769,672,1746,673,1751,577,1774"/>
-<area shape="poly" title=" " alt="" coords="573,1796,660,1817,659,1822,572,1801"/>
-<area shape="poly" title=" " alt="" coords="788,1623,810,1608,827,1572,846,1503,884,1310,917,1102,937,955,942,956,922,1103,889,1311,851,1505,832,1574,814,1612,791,1628"/>
-<area shape="poly" title=" " alt="" coords="789,1632,865,1632,865,1637,789,1637"/>
-<area shape="poly" title=" " alt="" coords="782,1618,811,1608,864,1581,910,1554,912,1558,866,1586,813,1613,784,1623"/>
-<area shape="poly" title=" " alt="" coords="575,1131,627,1131,688,1127,751,1114,811,1089,850,1060,883,1023,909,986,928,953,933,956,914,988,887,1027,854,1064,813,1094,753,1119,689,1132,627,1137,574,1136"/>
-<area shape="poly" title=" " alt="" coords="344,774,366,758,385,738,397,718,402,699,405,662,410,625,418,607,434,588,453,575,456,579,437,592,423,610,415,627,410,662,408,700,401,720,389,741,370,762,347,778"/>
-<area shape="poly" title=" " alt="" coords="346,773,367,758,385,738,401,704,407,672,406,641,403,611,400,581,402,551,412,521,433,490,441,483,445,487,437,493,416,523,407,552,405,581,408,611,411,641,412,673,406,706,390,741,371,762,349,778"/>
-<area shape="poly" title=" " alt="" coords="333,801,501,1052,497,1055,328,804"/>
-<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="491,701,544,727"/>
-<area shape="poly" title=" " alt="" coords="348,773,434,736,475,722,477,727,436,741,350,778"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="491,1723,544,1748"/>
-<area shape="poly" title=" " alt="" coords="331,801,360,865,377,908,390,952,406,1028,414,1093,418,1205,420,1316,426,1382,438,1458,454,1529,474,1599,509,1707,504,1709,468,1600,449,1530,433,1459,421,1382,415,1317,413,1205,409,1093,400,1029,385,953,372,909,355,867,326,803"/>
-<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="491,800,544,826"/>
-<area shape="poly" title=" " alt="" coords="360,791,476,805,476,811,360,796"/>
-<area shape="poly" title=" " alt="" coords="544,710,596,710,665,715,741,731,778,744,813,761,853,792,887,829,913,867,932,899,928,902,909,869,882,832,849,796,811,766,776,749,740,736,665,721,596,715,544,715"/>
-<area shape="poly" title=" " alt="" coords="544,707,643,688,644,693,545,712"/>
-<area shape="poly" title=" " alt="" coords="544,1739,607,1754,687,1768,762,1772,791,1768,810,1759,819,1728,833,1649,871,1407,937,955,942,956,877,1408,838,1650,824,1729,814,1763,792,1773,762,1777,686,1773,606,1759,543,1745"/>
-<area shape="poly" title=" " alt="" coords="545,1734,574,1741,601,1758,616,1777,623,1796,624,1836,626,1872,634,1889,649,1904,690,1927,729,1934,768,1926,811,1904,840,1880,865,1852,886,1819,902,1784,925,1717,937,1662,942,1663,930,1718,907,1786,891,1822,870,1855,844,1884,813,1908,769,1931,729,1939,689,1932,646,1908,629,1892,621,1874,619,1836,617,1797,611,1779,598,1761,572,1746,544,1740"/>
-<area shape="poly" title=" " alt="" coords="545,1735,574,1742,601,1757,613,1771,620,1785,625,1813,630,1838,637,1850,649,1860,692,1883,732,1892,751,1890,770,1885,810,1860,835,1833,846,1805,848,1776,845,1746,838,1680,843,1645,858,1608,881,1578,908,1554,911,1558,885,1581,862,1610,848,1646,844,1680,851,1745,854,1776,851,1806,839,1836,814,1864,772,1890,752,1896,732,1897,691,1888,646,1864,633,1853,625,1840,619,1814,615,1786,609,1774,598,1762,572,1747,543,1740"/>
-<area shape="poly" title=" " alt="" coords="527,1721,574,1666,608,1634,646,1607,655,1602,658,1606,649,1611,611,1638,578,1669,531,1724"/>
-<area shape="poly" title=" " alt="" coords="544,1733,672,1733,672,1738,544,1738"/>
-<area shape="poly" title=" " alt="" coords="545,1737,573,1745,601,1757,616,1769,626,1780,635,1791,649,1803,673,1815,671,1820,646,1807,631,1795,622,1783,613,1772,598,1762,571,1750,543,1742"/>
-<area shape="poly" title=" " alt="" coords="545,818,648,849,888,911,887,916,647,854,543,823"/>
-<area shape="poly" title=" " alt="" coords="544,812,664,819,664,825,544,817"/>
-<area shape="poly" title=" " alt="" coords="334,1492,434,1405,536,1323,583,1290,646,1253,694,1234,733,1226,771,1215,790,1204,810,1188,836,1161,858,1131,894,1066,919,1004,934,954,939,956,924,1006,899,1069,862,1134,840,1165,814,1192,793,1209,773,1220,735,1231,695,1239,649,1258,586,1295,539,1327,437,1410,338,1496"/>
-<area shape="poly" title=" " alt="" coords="318,1494,320,1425,332,1320,346,1262,367,1204,396,1150,433,1102,440,1096,444,1100,437,1105,400,1153,372,1206,351,1264,338,1321,325,1426,324,1494"/>
-<area shape="poly" title=" " alt="" coords="324,1521,329,1581,345,1671,359,1720,379,1770,405,1816,437,1858,462,1881,485,1897,508,1909,531,1916,583,1925,648,1934,697,1946,737,1957,755,1959,772,1956,791,1949,810,1935,828,1917,841,1899,854,1863,855,1825,849,1786,841,1745,836,1701,840,1656,858,1608,880,1578,907,1554,911,1558,884,1581,862,1610,845,1657,841,1701,846,1744,854,1785,860,1825,859,1864,846,1902,832,1920,814,1939,793,1953,774,1961,755,1964,736,1962,695,1951,647,1939,582,1930,530,1921,506,1914,483,1902,459,1885,433,1861,400,1819,374,1772,354,1722,340,1672,324,1581,319,1521"/>
-<area shape="poly" title=" " alt="" coords="326,1520,336,1566,356,1630,389,1699,411,1731,437,1759,440,1761,437,1766,434,1763,407,1735,384,1702,351,1632,331,1567,321,1521"/>
-<area shape="poly" title=" " alt="" coords="325,1520,332,1573,349,1651,364,1693,383,1735,407,1774,437,1808,455,1820,452,1824,434,1812,403,1777,378,1738,359,1695,344,1653,327,1574,320,1521"/>
-<area shape="poly" title=" " alt="" coords="346,452,399,430,466,412,503,408,538,411,572,421,601,440,613,454,623,473,634,519,639,576,640,637,639,760,642,811,650,851,678,906,710,951,705,954,673,909,645,852,637,812,634,760,635,637,634,576,629,520,618,475,609,457,598,444,569,426,537,416,503,414,467,417,400,435,348,457"/>
-<area shape="poly" title=" " alt="" coords="340,479,382,509,436,540,455,547,453,552,434,545,380,513,337,483"/>
-<area shape="poly" title=" " alt="" coords="328,480,388,681,438,837,446,844,443,848,433,840,383,682,323,482"/>
-<area shape="poly" title=" " alt="" coords="360,465,441,465,441,470,360,470"/>
-<area shape="poly" title=" " alt="" coords="324,453,338,420,361,376,393,329,434,289,451,279,454,284,437,294,397,333,366,379,343,422,329,455"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="704,55,756,80"/>
-<area shape="poly" title=" " alt="" coords="326,453,385,337,396,309,403,285,413,263,434,240,455,225,477,218,517,214,557,210,577,203,598,190,615,169,622,148,629,126,646,103,666,88,688,78,690,82,669,93,650,107,634,128,627,150,619,172,601,193,579,208,558,215,517,219,478,223,458,230,437,244,418,266,408,287,401,310,390,339,331,456"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="491,504,544,530"/>
-<area shape="poly" title=" " alt="" coords="361,475,477,504,476,509,359,480"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="491,304,544,330"/>
-<area shape="poly" title=" " alt="" coords="328,453,369,398,399,366,434,339,475,322,477,327,437,343,403,370,373,401,332,456"/>
-<area shape="poly" title=" " alt="" coords="751,79,784,108,801,128,814,149,840,216,862,307,883,414,901,529,928,749,943,899,938,900,923,750,896,530,878,415,857,308,834,217,810,151,796,131,780,112,748,83"/>
-<area shape="poly" title=" " alt="" coords="543,513,572,506,598,491,611,474,617,457,619,420,622,384,630,366,646,351,689,326,731,317,751,319,772,325,814,351,830,368,845,391,871,452,892,528,909,612,933,778,944,899,939,899,927,779,904,613,887,529,866,454,840,393,826,371,810,355,770,330,750,324,731,323,691,331,649,355,634,370,627,385,624,420,622,458,616,477,601,495,574,511,545,518"/>
-<area shape="poly" title=" " alt="" coords="544,512,572,505,598,491,608,479,614,468,620,442,626,417,633,405,646,395,691,371,733,361,753,362,773,368,793,379,814,395,822,408,829,430,840,492,853,667,863,953,906,1277,941,1505,936,1506,901,1278,857,953,848,668,835,493,824,431,818,410,810,399,791,383,771,373,752,368,733,367,693,376,649,399,637,409,631,419,625,443,619,469,613,482,601,495,574,510,545,517"/>
-<area shape="poly" title=" " alt="" coords="545,520,601,538,655,569,701,600,698,605,652,573,599,543,543,525"/>
-<area shape="poly" title=" " alt="" coords="544,509,571,502,598,491,622,472,646,452,672,439,675,444,649,456,626,476,601,495,572,507,545,515"/>
-<area shape="poly" title=" " alt="" coords="544,312,572,305,598,291,609,279,615,267,620,241,625,215,633,203,646,192,691,169,732,159,752,161,772,167,814,192,834,214,852,245,881,325,904,425,921,535,932,646,940,750,946,899,940,899,934,750,927,646,915,535,899,426,876,327,847,247,830,218,810,196,770,171,751,166,732,165,693,174,649,196,637,206,630,217,625,242,620,269,613,282,601,295,574,310,545,317"/>
-<area shape="poly" title=" " alt="" coords="544,310,571,302,598,290,612,281,622,271,646,249,672,236,674,241,649,254,626,274,616,285,601,295,573,307,545,315"/>
-<area shape="poly" title=" " alt="" coords="358,976,677,976,677,981,358,981"/>
-<area shape="poly" title=" " alt="" coords="344,962,464,896,467,901,347,967"/>
-<area shape="poly" title=" " alt="" coords="326,964,355,900,372,858,385,814,392,763,393,697,391,544,392,466,398,395,411,334,421,310,433,290,451,276,454,280,437,293,425,312,416,336,403,396,398,467,397,544,399,697,397,763,390,815,377,859,360,902,331,966"/>
-<area shape="poly" title=" " alt="" coords="333,990,361,1038,390,1103,397,1138,400,1183,402,1288,405,1341,410,1389,421,1429,437,1456,467,1476,512,1493,567,1505,630,1515,760,1527,873,1531,872,1536,760,1532,629,1520,566,1511,510,1498,465,1481,433,1460,416,1431,405,1390,399,1341,397,1288,395,1183,391,1139,385,1104,357,1041,328,993"/>
-<area shape="poly" title=" " alt="" coords="333,990,362,1038,390,1103,403,1163,405,1217,395,1313,391,1357,394,1402,408,1449,438,1501,455,1521,472,1534,509,1548,552,1558,601,1577,625,1593,649,1608,662,1613,660,1618,646,1613,622,1598,598,1582,550,1563,508,1553,470,1539,451,1525,433,1504,403,1452,389,1403,386,1357,389,1312,400,1217,398,1164,385,1104,357,1041,328,993"/>
-<area shape="poly" title=" " alt="" coords="332,990,373,1045,403,1076,437,1103,448,1109,445,1113,434,1107,399,1080,369,1048,328,993"/>
+<area shape="rect" title=" " alt="" coords="5,556,60,584"/>
+<area shape="rect" href="options_8c.html#aa3dea22abd024052e9168eb410d1015e" title="Parse command line arguments into an options structure." alt="" coords="108,266,220,294"/>
+<area shape="poly" title=" " alt="" coords="38,555,148,307,153,309,43,557"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="143,839,185,867"/>
+<area shape="poly" title=" " alt="" coords="43,584,152,824,147,826,38,586"/>
+<area shape="rect" href="options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="286,74,400,102"/>
+<area shape="poly" title=" " alt="" coords="176,263,317,111,320,114,180,267"/>
+<area shape="rect" href="options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="268,266,417,294"/>
+<area shape="poly" title=" " alt="" coords="220,277,252,277,252,282,220,282"/>
+<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="516,74,598,102"/>
+<area shape="poly" title=" " alt="" coords="400,85,501,85,501,90,400,90"/>
+<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="473,5,641,50"/>
+<area shape="poly" title=" " alt="" coords="394,71,459,52,461,57,395,76"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="304,762,382,790"/>
+<area shape="poly" title=" " alt="" coords="184,842,294,794,296,799,186,847"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="306,1143,379,1171"/>
+<area shape="poly" title=" " alt="" coords="176,866,328,1128,323,1131,171,869"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="300,839,385,867"/>
+<area shape="poly" title=" " alt="" coords="185,850,284,850,284,856,185,856"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="303,1244,382,1272"/>
+<area shape="poly" title=" " alt="" coords="170,867,179,921,198,1001,228,1092,248,1138,270,1181,291,1208,314,1232,310,1236,287,1212,266,1184,243,1140,223,1094,193,1002,174,922,165,868"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="300,574,385,602"/>
+<area shape="poly" title=" " alt="" coords="172,837,321,613,326,616,177,840"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="517,1118,597,1146"/>
+<area shape="poly" title=" " alt="" coords="187,865,525,1107,522,1111,184,869"/>
+<area shape="rect" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="747,1730,828,1758"/>
+<area shape="poly" title=" " alt="" coords="378,788,401,804,420,826,434,861,443,904,448,952,449,1006,444,1125,434,1252,425,1377,423,1493,427,1544,436,1590,449,1629,467,1659,479,1667,503,1676,573,1696,732,1731,731,1736,572,1701,501,1681,477,1672,463,1663,444,1631,431,1591,422,1545,418,1493,419,1377,428,1251,438,1125,444,1006,442,953,438,905,429,863,415,829,397,808,375,792"/>
+<area shape="rect" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99" title="Terminate a process and wait for its completion." alt="" coords="503,812,611,840"/>
+<area shape="poly" title=" " alt="" coords="383,782,489,808,488,813,382,787"/>
+<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="721,847,855,891"/>
+<area shape="poly" title=" " alt="" coords="382,772,503,775,576,783,649,798,696,815,738,837,736,841,694,820,648,804,576,788,502,780,382,777"/>
+<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="491,394,623,422"/>
+<area shape="poly" title=" " alt="" coords="349,760,380,697,415,612,422,585,426,560,428,516,435,475,446,454,463,432,475,423,479,427,467,436,450,457,440,477,433,517,431,561,428,586,420,614,385,699,354,762"/>
+<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="486,966,628,994"/>
+<area shape="poly" title=" " alt="" coords="371,788,395,805,419,826,435,846,444,864,453,882,467,902,496,930,525,954,522,958,492,934,463,905,448,885,439,866,430,849,415,829,392,809,368,792"/>
+<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="529,556,585,584"/>
+<area shape="poly" title=" " alt="" coords="347,761,363,727,387,682,421,635,464,595,488,582,513,574,515,579,490,587,467,599,425,639,392,685,367,729,352,763"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="529,1424,585,1452"/>
+<area shape="poly" title=" " alt="" coords="377,788,400,804,420,826,443,871,455,912,460,949,460,986,457,1062,460,1106,468,1156,509,1299,547,1409,542,1411,504,1301,463,1158,454,1107,452,1063,455,986,455,949,450,913,438,873,415,829,396,808,374,792"/>
+<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="529,660,585,688"/>
+<area shape="poly" title=" " alt="" coords="373,759,515,691,517,696,375,764"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="529,498,585,526"/>
+<area shape="poly" title=" " alt="" coords="347,761,399,647,432,585,464,543,488,528,513,518,515,523,490,532,467,547,437,587,403,650,352,763"/>
+<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="529,266,585,294"/>
+<area shape="poly" title=" " alt="" coords="349,760,381,697,415,612,429,548,433,495,440,443,449,414,463,381,492,337,525,302,529,306,496,341,468,384,454,416,445,444,439,496,435,549,420,614,386,699,354,762"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="952,855,1042,883"/>
+<area shape="poly" title=" " alt="" coords="855,866,936,866,936,872,855,872"/>
+<area shape="poly" title=" " alt="" coords="569,391,647,303,667,270,678,256,695,244,746,222,792,211,814,212,835,217,858,228,881,244,898,263,913,288,938,355,958,437,973,529,991,710,998,839,992,839,986,710,968,530,953,438,933,356,908,290,893,266,877,248,855,232,834,222,813,217,792,217,748,227,698,249,681,260,672,273,651,307,573,395"/>
+<area shape="poly" title=" " alt="" coords="575,992,614,1040,635,1071,651,1105,663,1165,666,1241,661,1420,659,1511,662,1595,675,1665,685,1693,699,1715,714,1728,733,1736,731,1741,711,1733,695,1719,680,1695,669,1666,657,1595,653,1511,655,1420,661,1241,658,1165,646,1107,630,1074,610,1043,571,996"/>
+<area shape="poly" title=" " alt="" coords="623,963,878,901,937,885,938,890,880,906,624,968"/>
+<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="724,966,852,994"/>
+<area shape="poly" title=" " alt="" coords="628,977,709,977,709,982,628,982"/>
+<area shape="poly" title=" " alt="" coords="836,963,878,945,924,918,964,890,967,895,927,923,880,950,838,968"/>
+<area shape="poly" title=" " alt="" coords="584,562,616,551,647,535,661,520,669,505,678,490,695,477,746,456,791,446,812,447,834,452,857,462,881,478,903,503,922,542,940,591,955,645,980,755,994,840,989,841,974,756,950,646,935,592,917,544,898,506,877,482,854,467,833,457,812,452,791,451,748,461,698,482,682,494,674,508,666,524,650,539,618,556,586,567"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="705,592,870,620"/>
+<area shape="poly" title=" " alt="" coords="585,572,690,588,689,594,585,577"/>
+<area shape="poly" title=" " alt="" coords="563,1423,582,1389,611,1344,649,1298,695,1257,721,1243,745,1236,791,1232,834,1227,855,1217,877,1200,907,1166,931,1127,950,1085,965,1042,984,961,991,898,997,899,989,962,970,1043,955,1087,936,1129,911,1169,881,1204,858,1222,835,1232,791,1238,746,1241,723,1248,698,1262,653,1302,615,1348,587,1392,568,1425"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="927,1424,1067,1452"/>
+<area shape="poly" title=" " alt="" coords="585,1436,911,1436,911,1441,585,1441"/>
+<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="934,1502,1060,1530"/>
+<area shape="poly" title=" " alt="" coords="581,1450,633,1480,664,1494,697,1505,754,1516,813,1521,919,1520,919,1525,813,1526,754,1521,696,1510,662,1499,630,1485,578,1455"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="703,1678,872,1706"/>
+<area shape="poly" title=" " alt="" coords="573,1451,766,1664,762,1668,569,1454"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="753,1271,823,1299"/>
+<area shape="poly" title=" " alt="" coords="568,1422,620,1368,656,1336,695,1309,737,1293,739,1298,698,1314,659,1341,623,1371,572,1426"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="753,1323,823,1351"/>
+<area shape="poly" title=" " alt="" coords="583,1422,696,1367,737,1350,739,1355,698,1371,586,1426"/>
+<area shape="rect" href="word_8c.html#a54fad11816a4a1797849e959d310fa0d" title="Hash function for word keys." alt="" coords="742,1782,834,1810"/>
+<area shape="poly" title=" " alt="" coords="573,1451,612,1499,633,1531,651,1565,662,1596,666,1624,666,1674,666,1697,670,1720,680,1743,699,1767,712,1778,728,1785,726,1790,709,1782,695,1771,676,1746,665,1722,661,1698,660,1674,661,1624,656,1597,646,1567,628,1534,607,1502,569,1454"/>
+<area shape="rect" href="word_8c.html#a16fe504f96eba0865f4d74b53ea71695" title="Compare keys for a word hash table." alt="" coords="697,1834,879,1862"/>
+<area shape="poly" title=" " alt="" coords="574,1451,613,1499,634,1531,651,1565,663,1604,667,1639,663,1702,662,1731,666,1759,677,1789,699,1819,702,1823,698,1826,695,1823,672,1791,660,1761,657,1731,658,1701,662,1639,658,1605,646,1567,629,1534,608,1502,570,1454"/>
+<area shape="rect" href="word_8c.html#ad9211cc1d1d93a007b67c12c167c8662" title="Create a word object from code points." alt="" coords="946,1780,1048,1808"/>
+<area shape="poly" title=" " alt="" coords="848,1704,880,1716,927,1741,967,1769,964,1773,924,1746,878,1721,846,1709"/>
+<area shape="rect" href="word_8c.html#a0335ce93a939befe544176deae07ff1d" title="Free a word object." alt="" coords="954,1934,1040,1962"/>
+<area shape="poly" title=" " alt="" coords="861,1704,881,1716,902,1740,911,1764,918,1789,929,1819,983,1919,978,1921,925,1821,913,1790,906,1765,897,1743,877,1720,858,1708"/>
+<area shape="poly" title=" " alt="" coords="823,1278,852,1268,877,1251,910,1210,936,1163,956,1114,970,1063,987,969,993,898,998,899,993,970,975,1065,961,1116,940,1166,914,1213,881,1255,854,1273,824,1283"/>
+<area shape="poly" title=" " alt="" coords="823,1332,852,1325,877,1308,898,1278,917,1232,950,1114,975,991,989,897,995,898,980,992,955,1115,922,1234,903,1280,881,1312,854,1329,824,1337"/>
+<area shape="poly" title=" " alt="" coords="585,671,642,672,718,679,801,697,842,712,880,731,913,755,942,784,983,840,978,843,937,787,910,759,878,735,840,717,800,703,717,685,642,677,585,676"/>
+<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="733,744,842,772"/>
+<area shape="poly" title=" " alt="" coords="586,681,650,704,698,724,731,736,729,741,696,729,648,709,584,686"/>
+<area shape="poly" title=" " alt="" coords="584,504,615,496,647,483,661,473,670,462,680,451,696,443,747,424,792,414,813,413,835,418,857,427,881,443,904,471,925,514,943,568,958,627,982,748,995,840,990,840,976,749,953,629,938,569,920,516,900,474,877,447,855,432,833,423,813,419,793,419,749,429,698,447,683,455,674,465,665,477,650,487,617,501,586,509"/>
+<area shape="poly" title=" " alt="" coords="585,513,753,541,836,560,865,570,881,579,892,601,900,636,910,738,913,870,912,1018,912,1300,917,1404,922,1440,929,1462,941,1478,956,1491,952,1495,937,1482,925,1465,917,1441,912,1404,906,1300,907,1018,907,870,904,738,895,637,887,603,877,583,863,575,834,565,752,546,584,518"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="707,491,868,519"/>
+<area shape="poly" title=" " alt="" coords="585,508,692,505,692,510,585,514"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="723,339,852,367"/>
+<area shape="poly" title=" " alt="" coords="585,507,617,499,647,483,658,471,664,460,670,435,676,409,683,396,695,383,711,372,714,376,698,387,688,399,681,411,676,436,669,462,662,474,650,487,619,504,586,512"/>
+<area shape="poly" title=" " alt="" coords="858,517,881,536,932,916,995,1409,989,1409,927,917,877,538,855,522"/>
+<area shape="poly" title=" " alt="" coords="860,517,881,535,901,572,915,616,924,668,928,726,925,855,916,994,904,1134,899,1265,900,1325,905,1378,914,1424,929,1462,941,1478,956,1491,952,1495,937,1482,925,1465,909,1426,900,1379,895,1325,893,1265,899,1134,910,994,920,855,922,726,918,669,910,617,896,574,877,539,856,522"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="722,136,854,164"/>
+<area shape="poly" title=" " alt="" coords="577,263,695,180,723,167,726,172,698,185,580,267"/>
+<area shape="poly" title=" " alt="" coords="856,162,881,180,897,204,911,234,935,311,955,404,970,505,989,701,997,839,992,840,984,702,964,505,949,405,930,312,906,236,892,207,877,184,852,166"/>
+<area shape="poly" title=" " alt="" coords="366,1169,395,1196,420,1232,432,1278,436,1338,432,1480,431,1553,435,1618,446,1673,455,1694,467,1710,495,1732,527,1747,562,1757,598,1763,670,1763,732,1754,732,1759,670,1768,598,1768,561,1763,525,1752,492,1736,463,1714,451,1696,441,1674,430,1619,426,1553,427,1480,430,1338,427,1279,415,1234,391,1199,362,1173"/>
+<area shape="poly" title=" " alt="" coords="346,1142,360,1104,384,1052,418,998,440,974,464,952,705,887,706,892,467,957,443,977,422,1002,388,1055,365,1106,351,1144"/>
+<area shape="poly" title=" " alt="" coords="359,1141,404,1106,433,1088,464,1073,526,1054,580,1046,630,1044,676,1046,722,1047,770,1042,821,1029,878,1003,910,980,938,951,978,895,983,898,942,955,913,984,880,1007,823,1034,771,1048,723,1052,676,1052,630,1050,580,1051,527,1059,466,1078,436,1093,407,1111,362,1145"/>
+<area shape="poly" title=" " alt="" coords="350,1141,393,1079,426,1042,464,1009,485,997,488,1002,467,1014,430,1046,397,1082,354,1144"/>
+<area shape="poly" title=" " alt="" coords="366,1169,395,1196,420,1232,433,1283,439,1349,436,1507,435,1587,438,1661,448,1724,456,1750,467,1770,497,1798,544,1825,601,1850,665,1869,729,1883,790,1889,841,1885,861,1879,877,1871,888,1855,902,1824,934,1731,986,1544,991,1545,939,1733,907,1826,893,1858,881,1875,863,1884,842,1890,790,1894,729,1888,663,1875,599,1855,541,1830,494,1802,463,1773,451,1752,443,1726,433,1662,430,1587,431,1507,433,1350,428,1284,415,1234,391,1199,362,1173"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="465,1935,649,1963"/>
+<area shape="poly" title=" " alt="" coords="366,1169,395,1196,420,1232,430,1262,436,1298,440,1383,431,1585,427,1689,429,1784,433,1826,441,1863,452,1895,467,1921,470,1924,466,1927,463,1924,447,1898,436,1865,428,1827,423,1784,422,1689,426,1585,435,1383,431,1298,425,1263,415,1234,391,1199,362,1173"/>
+<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="502,1883,612,1911"/>
+<area shape="poly" title=" " alt="" coords="366,1169,395,1196,420,1232,429,1259,435,1292,440,1370,434,1555,430,1650,432,1737,444,1810,454,1840,467,1863,490,1881,486,1885,463,1867,449,1842,438,1812,427,1737,425,1650,428,1555,434,1370,430,1293,424,1261,415,1234,391,1199,362,1173"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="724,1119,852,1147"/>
+<area shape="poly" title=" " alt="" coords="379,1156,499,1159,648,1154,708,1146,709,1152,649,1160,499,1165,379,1162"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="725,1067,850,1095"/>
+<area shape="poly" title=" " alt="" coords="370,1140,414,1121,465,1104,528,1091,593,1084,709,1078,710,1083,594,1089,529,1097,466,1109,416,1125,373,1145"/>
+<area shape="poly" title=" " alt="" coords="649,1951,707,1947,769,1934,828,1910,854,1893,877,1871,895,1848,908,1825,916,1802,920,1780,919,1735,911,1690,902,1643,897,1595,902,1544,911,1517,925,1489,937,1472,953,1459,956,1463,941,1476,929,1492,916,1519,908,1545,902,1595,907,1643,916,1689,925,1735,925,1780,921,1804,913,1827,900,1851,881,1875,857,1897,830,1915,771,1939,708,1952,649,1956"/>
+<area shape="poly" title=" " alt="" coords="591,1961,651,1982,727,1998,767,2000,806,1996,844,1985,877,1966,899,1945,911,1924,917,1903,919,1880,917,1829,919,1800,924,1768,985,1544,990,1545,930,1770,924,1801,923,1829,924,1880,922,1904,916,1926,903,1948,881,1970,846,1990,807,2002,767,2005,726,2003,649,1987,589,1966"/>
+<area shape="poly" title=" " alt="" coords="570,1962,590,1988,620,2019,656,2050,698,2073,749,2092,792,2102,812,2102,833,2097,854,2088,877,2074,894,2058,904,2042,912,2007,913,1968,917,1945,925,1921,951,1867,977,1820,982,1823,956,1869,929,1923,922,1947,919,1968,917,2008,909,2044,898,2061,881,2078,857,2093,834,2103,813,2107,791,2107,747,2097,696,2078,653,2055,616,2023,586,1991,566,1965"/>
+<area shape="poly" title=" " alt="" coords="567,1962,584,1996,612,2040,650,2084,673,2103,698,2117,747,2137,788,2144,830,2138,878,2117,916,2088,946,2050,969,2010,984,1975,989,1977,973,2012,951,2053,920,2092,880,2122,831,2143,788,2150,745,2142,695,2122,670,2107,647,2088,608,2043,580,1999,562,1964"/>
+<area shape="poly" title=" " alt="" coords="628,1932,647,1920,658,1909,664,1897,670,1872,676,1846,683,1833,695,1820,726,1803,729,1808,698,1824,688,1836,681,1848,675,1873,669,1899,662,1912,650,1924,630,1937"/>
+<area shape="poly" title=" " alt="" coords="619,1932,647,1920,661,1910,671,1899,681,1889,695,1877,720,1865,722,1870,698,1882,684,1892,675,1903,665,1914,650,1925,622,1937"/>
+<area shape="rect" href="file__reader_8c.html#a4345bffc4cf6e7885d465b215477172b" title="Read the next word from a descriptor." alt="" coords="723,2036,852,2064"/>
+<area shape="poly" title=" " alt="" coords="586,1961,698,2016,729,2028,727,2033,696,2021,583,1966"/>
+<area shape="poly" title=" " alt="" coords="851,1119,877,1104,900,1082,920,1056,952,999,974,943,987,897,992,899,979,945,957,1001,925,1059,904,1085,881,1108,854,1124"/>
+<area shape="poly" title=" " alt="" coords="802,1146,881,1258,981,1410,976,1412,877,1261,797,1149"/>
+<area shape="poly" title=" " alt="" coords="804,1146,843,1194,864,1225,881,1259,893,1289,898,1316,901,1364,906,1410,914,1435,929,1462,942,1478,958,1491,954,1495,938,1481,925,1465,909,1437,901,1411,896,1364,893,1317,887,1290,877,1261,859,1228,838,1197,800,1149"/>
+<area shape="poly" title=" " alt="" coords="846,1064,877,1047,913,1012,943,971,966,931,982,896,987,898,970,933,947,974,917,1015,881,1051,848,1069"/>
+<area shape="poly" title=" " alt="" coords="385,845,488,832,488,837,386,850"/>
+<area shape="poly" title=" " alt="" coords="374,836,397,821,415,799,428,774,437,749,443,702,439,656,430,612,423,568,422,524,434,479,446,456,463,433,475,422,479,426,467,436,450,459,439,481,427,525,428,568,436,611,444,656,448,702,442,751,433,776,420,803,400,825,377,841"/>
+<area shape="poly" title=" " alt="" coords="369,865,520,955,517,960,367,870"/>
+<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="529,608,585,636"/>
+<area shape="poly" title=" " alt="" coords="371,836,395,820,415,799,427,779,433,760,435,722,440,685,448,666,464,647,487,632,513,624,515,629,489,636,467,651,453,669,445,686,441,722,438,761,432,781,419,803,398,824,374,841"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="529,1578,585,1606"/>
+<area shape="poly" title=" " alt="" coords="351,867,382,976,420,1131,432,1225,434,1300,441,1373,451,1415,468,1463,499,1519,534,1564,530,1568,494,1522,463,1465,446,1416,436,1374,429,1301,427,1226,415,1132,377,977,346,868"/>
+<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="529,864,585,892"/>
+<area shape="poly" title=" " alt="" coords="386,855,514,871,514,876,386,861"/>
+<area shape="poly" title=" " alt="" coords="586,622,740,644,823,662,856,673,881,685,919,720,950,762,973,804,988,840,983,842,968,806,945,765,915,724,877,690,854,678,822,668,739,649,585,628"/>
+<area shape="poly" title=" " alt="" coords="585,618,690,610,690,616,585,623"/>
+<area shape="poly" title=" " alt="" coords="576,1575,695,1489,750,1456,796,1434,837,1407,857,1387,877,1361,911,1301,938,1236,958,1169,973,1103,989,983,993,898,999,898,994,984,978,1104,963,1171,943,1238,916,1303,881,1364,861,1391,840,1411,799,1439,753,1461,698,1494,580,1580"/>
+<area shape="poly" title=" " alt="" coords="584,1580,940,1455,941,1460,586,1585"/>
+<area shape="poly" title=" " alt="" coords="586,1597,641,1610,714,1621,797,1622,838,1617,878,1606,906,1594,931,1576,972,1539,976,1543,935,1581,908,1598,880,1612,839,1622,797,1628,714,1627,640,1616,584,1602"/>
+<area shape="poly" title=" " alt="" coords="586,1596,617,1607,650,1621,674,1640,698,1657,725,1670,722,1674,695,1662,671,1644,647,1626,615,1612,584,1601"/>
+<area shape="poly" title=" " alt="" coords="568,1605,587,1638,615,1682,653,1728,698,1767,728,1781,726,1786,695,1771,649,1731,611,1685,582,1641,563,1607"/>
+<area shape="poly" title=" " alt="" coords="565,1605,581,1647,608,1705,647,1766,671,1794,698,1819,706,1824,703,1829,695,1823,667,1798,643,1770,604,1708,576,1649,560,1607"/>
+<area shape="poly" title=" " alt="" coords="584,868,648,849,671,839,696,832,747,824,788,822,879,832,944,847,942,852,879,837,788,827,748,829,697,837,673,844,650,854,586,873"/>
+<area shape="poly" title=" " alt="" coords="584,872,616,864,647,849,662,835,671,820,679,804,695,788,717,775,720,780,698,792,683,807,675,823,666,838,650,854,618,869,586,877"/>
+<area shape="poly" title=" " alt="" coords="383,1251,660,1209,801,1182,850,1168,877,1156,905,1129,928,1096,947,1061,962,1025,981,954,990,898,996,899,986,955,967,1026,952,1063,933,1099,909,1132,881,1161,852,1173,802,1187,661,1214,383,1256"/>
+<area shape="poly" title=" " alt="" coords="358,1242,415,1181,440,1144,463,1105,534,1005,538,1008,468,1108,444,1146,419,1184,362,1246"/>
+<area shape="poly" title=" " alt="" coords="347,1272,355,1404,375,1614,391,1725,412,1828,437,1914,452,1947,467,1973,492,2001,517,2022,541,2037,566,2047,624,2060,697,2073,751,2088,795,2099,815,2101,835,2098,855,2089,877,2074,893,2051,904,2018,911,1976,915,1931,918,1839,924,1769,956,1642,984,1543,990,1545,961,1644,930,1769,923,1839,920,1931,916,1977,909,2019,898,2054,881,2078,858,2094,836,2103,815,2106,794,2104,749,2093,696,2078,623,2065,565,2052,539,2042,514,2026,489,2005,463,1976,447,1950,432,1916,406,1829,386,1726,370,1614,350,1404,342,1273"/>
+<area shape="poly" title=" " alt="" coords="347,1272,355,1397,375,1592,391,1695,411,1790,437,1868,451,1898,467,1921,471,1924,467,1928,463,1924,447,1901,432,1870,406,1791,386,1696,370,1593,350,1397,342,1273"/>
+<area shape="poly" title=" " alt="" coords="348,1272,357,1386,380,1564,396,1658,416,1744,440,1815,453,1842,467,1863,490,1880,486,1884,463,1867,448,1845,435,1817,411,1745,391,1659,374,1565,352,1387,342,1273"/>
+<area shape="poly" title=" " alt="" coords="355,601,388,663,406,706,420,750,426,811,429,915,430,1191,432,1334,438,1463,450,1562,458,1595,467,1615,487,1634,507,1644,528,1649,549,1649,597,1649,623,1655,650,1667,665,1679,675,1691,684,1703,698,1715,733,1730,731,1735,695,1719,680,1707,671,1695,662,1683,647,1671,621,1660,596,1655,549,1654,527,1654,505,1650,484,1639,463,1619,453,1597,444,1562,433,1463,427,1334,425,1191,423,915,421,812,415,751,401,707,383,666,350,603"/>
+<area shape="poly" title=" " alt="" coords="356,601,402,664,467,742,529,800,525,804,463,745,398,667,352,604"/>
+<area shape="poly" title=" " alt="" coords="358,600,403,647,434,674,467,697,515,722,557,733,599,745,650,767,703,800,749,834,746,839,700,804,647,771,597,750,555,739,513,726,464,702,430,678,400,651,354,604"/>
+<area shape="poly" title=" " alt="" coords="349,572,391,505,424,466,464,432,475,425,478,430,467,437,428,470,396,508,354,575"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="760,35,816,63"/>
+<area shape="poly" title=" " alt="" coords="345,573,405,347,440,223,463,162,486,144,508,133,550,127,596,125,620,120,647,111,671,95,695,79,745,59,747,64,698,83,674,100,650,115,622,125,596,130,551,132,509,138,489,148,468,165,446,225,410,348,350,574"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="529,446,585,474"/>
+<area shape="poly" title=" " alt="" coords="355,571,401,529,431,505,464,484,513,466,515,471,467,489,434,509,404,533,359,575"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="529,175,585,203"/>
+<area shape="poly" title=" " alt="" coords="344,573,354,517,376,434,412,341,435,295,463,253,487,228,515,208,518,212,491,232,467,256,440,298,417,343,381,436,359,518,349,574"/>
+<area shape="poly" title=" " alt="" coords="816,49,850,58,867,67,881,79,899,106,915,142,941,231,961,339,976,456,993,683,998,839,993,840,987,684,970,457,956,340,936,232,910,143,894,109,877,83,864,71,848,63,815,54"/>
+<area shape="poly" title=" " alt="" coords="584,456,617,448,633,441,647,431,660,413,667,394,668,355,670,317,678,298,695,282,743,254,766,247,789,244,812,246,834,253,881,282,897,299,911,323,936,385,955,462,970,548,990,717,997,840,992,840,984,717,965,548,950,463,931,386,907,325,893,302,877,286,832,258,811,251,789,249,767,252,745,259,698,286,683,301,675,318,673,356,672,395,665,416,651,435,636,446,619,454,586,461"/>
+<area shape="poly" title=" " alt="" coords="585,455,617,448,647,431,658,418,664,405,668,378,674,350,682,337,695,325,745,299,768,291,791,288,814,289,836,295,859,308,881,326,896,353,907,396,915,455,919,526,921,696,918,887,910,1251,914,1386,920,1433,929,1462,941,1478,956,1491,952,1495,937,1482,925,1465,915,1434,909,1387,905,1251,913,886,916,696,914,526,910,456,902,397,891,355,877,329,856,312,834,300,813,294,792,293,770,296,747,304,698,330,686,341,679,352,674,379,669,407,662,421,650,435,619,453,586,460"/>
+<area shape="poly" title=" " alt="" coords="585,462,700,485,699,490,584,468"/>
+<area shape="poly" title=" " alt="" coords="584,453,616,445,647,431,662,419,671,408,680,395,695,383,719,370,721,375,698,387,684,399,675,411,665,423,650,435,617,450,586,458"/>
+<area shape="poly" title=" " alt="" coords="585,184,616,178,647,167,661,156,670,144,680,132,695,123,748,103,793,92,814,91,836,96,858,106,881,123,901,146,918,177,933,214,947,258,967,359,982,470,991,583,996,688,999,840,993,840,991,688,986,584,976,471,962,360,941,260,928,216,913,179,896,149,877,127,855,111,834,101,814,97,793,97,749,108,698,127,683,136,674,148,665,160,650,171,617,183,586,189"/>
+<area shape="poly" title=" " alt="" coords="585,182,706,161,707,166,585,187"/>
+<area shape="poly" title=" " alt="" coords="566,1145,605,1255,630,1332,651,1412,659,1460,660,1502,653,1576,653,1610,658,1644,672,1679,699,1715,714,1728,733,1735,731,1740,711,1732,695,1719,668,1681,653,1646,648,1611,648,1576,654,1502,653,1460,646,1414,625,1334,600,1257,561,1147"/>
+<area shape="poly" title=" " alt="" coords="566,1116,619,1044,695,953,747,900,751,904,699,956,623,1047,571,1119"/>
+<area shape="poly" title=" " alt="" coords="566,1145,583,1186,612,1243,650,1304,699,1360,756,1405,819,1443,882,1472,937,1494,935,1499,880,1477,817,1447,753,1410,695,1364,646,1308,607,1245,578,1188,561,1147"/>
+<area shape="poly" title=" " alt="" coords="597,1129,708,1130,708,1135,597,1135"/>
+<area shape="poly" title=" " alt="" coords="596,1120,709,1095,711,1101,598,1126"/>
 </map>
 </div>
 

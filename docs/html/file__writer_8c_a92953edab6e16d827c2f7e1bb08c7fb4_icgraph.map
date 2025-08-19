@@ -1,0 +1,12 @@
+<map id="write_output_sp" name="write_output_sp">
+<area shape="rect" id="Node000001" title="Generate text and write it to a file (single process)." alt="" coords="325,32,451,60"/>
+<area shape="rect" id="Node000002" href="$both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="202,5,274,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,35,274,28,275,23,310,29"/>
+<area shape="rect" id="Node000005" href="$task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="198,57,277,85"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="310,62,278,67,277,62,309,56"/>
+<area shape="rect" id="Node000003" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,34,151,43,150,38,186,29"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="182,61,150,53,151,48,183,56"/>
+</map>

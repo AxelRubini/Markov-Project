@@ -1,6 +1,5 @@
 var utils_8c =
 [
-    [ "malloc", "utils_8c.html#a5046e1cbf958143f3bf7aded35204202", null ],
     [ "dmalloc", "utils_8c.html#a78a9dba3711a7a17ad34044953f6937b", null ],
     [ "hash_function", "utils_8c.html#a3c20d7e2acdc0a0099f46371c8335ee4", null ],
     [ "is_prime", "utils_8c.html#a1d8eddef9f888ac973de205c457bd89d", null ],

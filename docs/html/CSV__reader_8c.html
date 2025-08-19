@@ -220,36 +220,36 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00152">152</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  152</span>                                                {</div>
-<div class="line"><span class="lineno">  153</span>  <span class="keywordtype">char</span> *line = NULL;</div>
-<div class="line"><span class="lineno">  154</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>  <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><span class="lineno">  157</span>    ssize_t n = <a class="code hl_function" href="#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a>(in_fd, &amp;line, &amp;cap);</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
-<div class="line"><span class="lineno">  160</span>      perror(<span class="stringliteral">&quot;read_line_fd&quot;</span>);</div>
-<div class="line"><span class="lineno">  161</span>      free(line);</div>
-<div class="line"><span class="lineno">  162</span>      <span class="keywordflow">return</span> -1;</div>
+<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00148">148</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>                                                {</div>
+<div class="line"><span class="lineno">  149</span>  <span class="keywordtype">char</span> *line = NULL;</div>
+<div class="line"><span class="lineno">  150</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  153</span>    ssize_t n = <a class="code hl_function" href="#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a>(in_fd, &amp;line, &amp;cap);</div>
+<div class="line"><span class="lineno">  154</span> </div>
+<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><span class="lineno">  156</span>      perror(<span class="stringliteral">&quot;read_line_fd&quot;</span>);</div>
+<div class="line"><span class="lineno">  157</span>      free(line);</div>
+<div class="line"><span class="lineno">  158</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  159</span>    }</div>
+<div class="line"><span class="lineno">  160</span> </div>
+<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><span class="lineno">  162</span>      <span class="keywordflow">break</span>; <span class="comment">// All lines processed</span></div>
 <div class="line"><span class="lineno">  163</span>    }</div>
 <div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><span class="lineno">  166</span>      <span class="keywordflow">break</span>; <span class="comment">// All lines processed</span></div>
-<div class="line"><span class="lineno">  167</span>    }</div>
-<div class="line"><span class="lineno">  168</span> </div>
-<div class="line"><span class="lineno">  169</span>    <span class="comment">// Send the line as frame</span></div>
-<div class="line"><span class="lineno">  170</span> </div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(out_fd, line, (<span class="keywordtype">size_t</span>)n) &lt; 0) {</div>
-<div class="line"><span class="lineno">  172</span>      perror(<span class="stringliteral">&quot;send_frame&quot;</span>);</div>
-<div class="line"><span class="lineno">  173</span>      free(line);</div>
-<div class="line"><span class="lineno">  174</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  175</span>    }</div>
-<div class="line"><span class="lineno">  176</span>  }</div>
-<div class="line"><span class="lineno">  177</span> </div>
-<div class="line"><span class="lineno">  178</span>  free(line);</div>
-<div class="line"><span class="lineno">  179</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  180</span>}</div>
+<div class="line"><span class="lineno">  165</span>    <span class="comment">// Send the line as frame</span></div>
+<div class="line"><span class="lineno">  166</span> </div>
+<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(out_fd, line, (<span class="keywordtype">size_t</span>)n) &lt; 0) {</div>
+<div class="line"><span class="lineno">  168</span>      perror(<span class="stringliteral">&quot;send_frame&quot;</span>);</div>
+<div class="line"><span class="lineno">  169</span>      free(line);</div>
+<div class="line"><span class="lineno">  170</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  171</span>    }</div>
+<div class="line"><span class="lineno">  172</span>  }</div>
+<div class="line"><span class="lineno">  173</span> </div>
+<div class="line"><span class="lineno">  174</span>  free(line);</div>
+<div class="line"><span class="lineno">  175</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  176</span>}</div>
 <div class="ttc" id="aCSV__reader_8c_html_a3476ca0a6bfb1cf6045c0344a6f4ef1f"><div class="ttname"><a href="#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a></div><div class="ttdeci">ssize_t read_csv_line(int fd, char **buf, size_t *cap)</div><div class="ttdoc">Read a line from a CSV descriptor.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00022">CSV_reader.c:22</a></div></div>
 <div class="ttc" id="aframe_8h_html_a25f328b1efd54fde993d7060fdf970c8"><div class="ttname"><a href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a></div><div class="ttdeci">int send_frame(int fd, const char *data_to_send, size_t len)</div><div class="ttdoc">Send a length-prefixed frame over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00049">frame.c:49</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -257,13 +257,15 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_cgraph.png" border="0" usemap="#aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_cgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_cgraph" id="aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_cgraph">
-<area shape="rect" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="5,31,147,56"/>
-<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="195,5,296,31"/>
-<area shape="poly" title=" " alt="" coords="147,30,179,25,180,31,147,36"/>
-<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="201,55,290,80"/>
-<area shape="poly" title=" " alt="" coords="147,51,186,56,185,62,147,56"/>
-<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="344,55,413,80"/>
-<area shape="poly" title=" " alt="" coords="291,65,329,65,329,70,291,70"/>
+<area shape="rect" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="5,32,163,60"/>
+<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="211,5,321,33"/>
+<area shape="poly" title=" " alt="" coords="162,32,195,27,195,32,163,37"/>
+<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="217,57,315,85"/>
+<area shape="poly" title=" " alt="" coords="163,54,201,60,201,65,163,59"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="371,5,444,33"/>
+<area shape="poly" title=" " alt="" coords="321,16,355,16,355,22,321,22"/>
+<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="369,57,446,85"/>
+<area shape="poly" title=" " alt="" coords="315,68,353,68,353,74,315,74"/>
 </map>
 </div>
 <div class="dynheader">
@@ -271,15 +273,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_icgraph.png" border="0" usemap="#aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_icgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_icgraph" id="aCSV__reader_8c_a08d3417ba6161c27d6b34b5ceacd23d7_icgraph">
-<area shape="rect" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="417,5,558,31"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="316,5,369,31"/>
-<area shape="poly" title=" " alt="" coords="401,21,369,21,369,16,401,16"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
-<area shape="poly" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,5,142,31"/>
-<area shape="poly" title=" " alt="" coords="175,21,143,21,143,16,175,16"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,31"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+<area shape="rect" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="435,5,592,33"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="331,5,387,33"/>
+<area shape="poly" title=" " alt="" coords="419,22,387,22,387,16,419,16"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="316,22,284,22,284,16,316,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,5,150,33"/>
+<area shape="poly" title=" " alt="" coords="182,22,150,22,150,16,182,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,33"/>
+<area shape="poly" title=" " alt="" coords="92,22,60,22,60,16,92,16"/>
 </map>
 </div>
 
@@ -309,82 +311,82 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Populated hash table or NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00083">83</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                     {</div>
-<div class="line"><span class="lineno">   84</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
-<div class="line"><span class="lineno">   85</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   86</span>    perror(<span class="stringliteral">&quot;Failed to open CSV file&quot;</span>);</div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   88</span>  }</div>
-<div class="line"><span class="lineno">   89</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht =</div>
-<div class="line"><span class="lineno">   90</span>      <a class="code hl_function" href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a>(<a class="code hl_define" href="hash__table_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>, <a class="code hl_function" href="next__word_8h.html#a9a0868a1187fd888c75486beef77eace">next_word_hash</a>, <a class="code hl_function" href="next__word_8h.html#a91442a41c1fdbebf5c46a84964e8e797">keycmp_next_word</a>);</div>
-<div class="line"><span class="lineno">   91</span>  <span class="keywordflow">if</span> (!ht) {</div>
-<div class="line"><span class="lineno">   92</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to create hash table\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   94</span>  }</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>  <span class="keywordtype">char</span> *line = NULL;</div>
-<div class="line"><span class="lineno">   97</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>  <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><span class="lineno">  100</span>    ssize_t n = <a class="code hl_function" href="#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a>(fd, &amp;line, &amp;cap);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
-<div class="line"><span class="lineno">  103</span>      perror(<span class="stringliteral">&quot;read_csv_line&quot;</span>);</div>
-<div class="line"><span class="lineno">  104</span>      free(line);</div>
-<div class="line"><span class="lineno">  105</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><span class="lineno">  106</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">  107</span>      <span class="keywordflow">return</span> NULL;</div>
+<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00079">79</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   79</span>                                                     {</div>
+<div class="line"><span class="lineno">   80</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
+<div class="line"><span class="lineno">   81</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   82</span>    perror(<span class="stringliteral">&quot;Failed to open CSV file&quot;</span>);</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   84</span>  }</div>
+<div class="line"><span class="lineno">   85</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht =</div>
+<div class="line"><span class="lineno">   86</span>      <a class="code hl_function" href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a>(<a class="code hl_define" href="hash__table_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>, <a class="code hl_function" href="next__word_8h.html#a9a0868a1187fd888c75486beef77eace">next_word_hash</a>, <a class="code hl_function" href="next__word_8h.html#a91442a41c1fdbebf5c46a84964e8e797">keycmp_next_word</a>);</div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">if</span> (!ht) {</div>
+<div class="line"><span class="lineno">   88</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to create hash table\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   90</span>  }</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>  <span class="keywordtype">char</span> *line = NULL;</div>
+<div class="line"><span class="lineno">   93</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">   96</span>    ssize_t n = <a class="code hl_function" href="#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a>(fd, &amp;line, &amp;cap);</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><span class="lineno">   99</span>      perror(<span class="stringliteral">&quot;read_csv_line&quot;</span>);</div>
+<div class="line"><span class="lineno">  100</span>      free(line);</div>
+<div class="line"><span class="lineno">  101</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><span class="lineno">  102</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">  103</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><span class="lineno">  107</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached</span></div>
 <div class="line"><span class="lineno">  108</span>    }</div>
 <div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><span class="lineno">  111</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached</span></div>
-<div class="line"><span class="lineno">  112</span>    }</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0};</div>
-<div class="line"><span class="lineno">  115</span>    ssize_t off = <a class="code hl_function" href="CSV__line__parser_8h.html#ac41412a9c9a5ea77fa5a8203b5925826">get_key_from_line</a>(line, key);</div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">if</span> (off &lt; 0) {</div>
-<div class="line"><span class="lineno">  117</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting key from line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  118</span>      free(line);</div>
-<div class="line"><span class="lineno">  119</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><span class="lineno">  120</span>      close(fd);</div>
-<div class="line"><span class="lineno">  121</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  122</span>    }</div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordtype">size_t</span> offset = (size_t)off;</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = <a class="code hl_function" href="CSV__line__parser_8h.html#a263f576987804b4eda2695908af61f6e">get_next_words_from_line</a>(line, &amp;offset);</div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> (!next_words) {</div>
-<div class="line"><span class="lineno">  127</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting next words from line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  128</span>      free(line);</div>
-<div class="line"><span class="lineno">  129</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><span class="lineno">  130</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">  131</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  132</span>    }</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="next__word_8h.html#a4a6703557871fd3e4fa275bb65e7f86c">next_word_ht_item_create</a>(key, next_words);</div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span> (!item) {</div>
-<div class="line"><span class="lineno">  136</span>      fprintf(stderr, <span class="stringliteral">&quot;Error creating hash table item\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  137</span>      <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>(next_words, (<span class="keywordtype">void</span> (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="next__word_8h.html#ab97b73c49b36a3e241f563d1b68d7366">free_next_word</a>);</div>
-<div class="line"><span class="lineno">  138</span>      free(line);</div>
-<div class="line"><span class="lineno">  139</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><span class="lineno">  140</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">  141</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  142</span>    }</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0};</div>
+<div class="line"><span class="lineno">  111</span>    ssize_t off = <a class="code hl_function" href="CSV__line__parser_8h.html#ac41412a9c9a5ea77fa5a8203b5925826">get_key_from_line</a>(line, key);</div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">if</span> (off &lt; 0) {</div>
+<div class="line"><span class="lineno">  113</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting key from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  114</span>      free(line);</div>
+<div class="line"><span class="lineno">  115</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><span class="lineno">  116</span>      close(fd);</div>
+<div class="line"><span class="lineno">  117</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  118</span>    }</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordtype">size_t</span> offset = (size_t)off;</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = <a class="code hl_function" href="CSV__line__parser_8h.html#a263f576987804b4eda2695908af61f6e">get_next_words_from_line</a>(line, &amp;offset);</div>
+<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">if</span> (!next_words) {</div>
+<div class="line"><span class="lineno">  123</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting next words from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span>      free(line);</div>
+<div class="line"><span class="lineno">  125</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><span class="lineno">  126</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">  127</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="next__word_8h.html#a4a6703557871fd3e4fa275bb65e7f86c">next_word_ht_item_create</a>(key, next_words);</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">if</span> (!item) {</div>
+<div class="line"><span class="lineno">  132</span>      fprintf(stderr, <span class="stringliteral">&quot;Error creating hash table item\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  133</span>      <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>(next_words, (<span class="keywordtype">void</span> (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="next__word_8h.html#ab97b73c49b36a3e241f563d1b68d7366">free_next_word</a>);</div>
+<div class="line"><span class="lineno">  134</span>      free(line);</div>
+<div class="line"><span class="lineno">  135</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><span class="lineno">  136</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">  137</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  138</span>    }</div>
+<div class="line"><span class="lineno">  139</span> </div>
+<div class="line"><span class="lineno">  140</span>    <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(ht, item);</div>
+<div class="line"><span class="lineno">  141</span>  }</div>
+<div class="line"><span class="lineno">  142</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
 <div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>    <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(ht, item);</div>
-<div class="line"><span class="lineno">  145</span>  }</div>
-<div class="line"><span class="lineno">  146</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">  147</span> </div>
-<div class="line"><span class="lineno">  148</span>  free(line);</div>
-<div class="line"><span class="lineno">  149</span>  <span class="keywordflow">return</span> ht;</div>
-<div class="line"><span class="lineno">  150</span>}</div>
+<div class="line"><span class="lineno">  144</span>  free(line);</div>
+<div class="line"><span class="lineno">  145</span>  <span class="keywordflow">return</span> ht;</div>
+<div class="line"><span class="lineno">  146</span>}</div>
 <div class="ttc" id="aCSV__line__parser_8h_html_a263f576987804b4eda2695908af61f6e"><div class="ttname"><a href="CSV__line__parser_8h.html#a263f576987804b4eda2695908af61f6e">get_next_words_from_line</a></div><div class="ttdeci">linked_list_t * get_next_words_from_line(const char *line, size_t *offset)</div><div class="ttdoc">Parse next words and probabilities from a CSV line.</div><div class="ttdef"><b>Definition</b> <a href="CSV__line__parser_8c_source.html#l00035">CSV_line_parser.c:35</a></div></div>
 <div class="ttc" id="aCSV__line__parser_8h_html_ac41412a9c9a5ea77fa5a8203b5925826"><div class="ttname"><a href="CSV__line__parser_8h.html#ac41412a9c9a5ea77fa5a8203b5925826">get_key_from_line</a></div><div class="ttdeci">ssize_t get_key_from_line(const char *line, int *key)</div><div class="ttdoc">Extract the key from a CSV line.</div><div class="ttdef"><b>Definition</b> <a href="CSV__line__parser_8c_source.html#l00005">CSV_line_parser.c:5</a></div></div>
-<div class="ttc" id="ahash__table_8h_html_a171c1321047c08a2fcb270ebb50ac41d"><div class="ttname"><a href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a></div><div class="ttdeci">hash_table_t * create_hash_table(int initial_size, uint32_t(*hash_func)(const void *, int), int(*key_cmp)(const void *, const void *))</div><div class="ttdoc">Create a hash table.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00046">hash_table.c:46</a></div></div>
-<div class="ttc" id="ahash__table_8h_html_a48c22d52e879fb10712c37f9e16aefdb"><div class="ttname"><a href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a></div><div class="ttdeci">void free_hash_table(hash_table_t *table)</div><div class="ttdoc">Destroy a hash table and its contents.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00155">hash_table.c:155</a></div></div>
-<div class="ttc" id="ahash__table_8h_html_a4d0789bb28431f8c9d03a0ecc71a0bf6"><div class="ttname"><a href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a></div><div class="ttdeci">void ht_insert(hash_table_t *table, ht_item *item)</div><div class="ttdoc">Insert an item into the table.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00070">hash_table.c:70</a></div></div>
+<div class="ttc" id="ahash__table_8h_html_a171c1321047c08a2fcb270ebb50ac41d"><div class="ttname"><a href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a></div><div class="ttdeci">hash_table_t * create_hash_table(int initial_size, uint32_t(*hash_func)(const void *, int), int(*key_cmp)(const void *, const void *))</div><div class="ttdoc">Create a hash table.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00055">hash_table.c:55</a></div></div>
+<div class="ttc" id="ahash__table_8h_html_a48c22d52e879fb10712c37f9e16aefdb"><div class="ttname"><a href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a></div><div class="ttdeci">void free_hash_table(hash_table_t *table)</div><div class="ttdoc">Destroy a hash table and its contents.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00175">hash_table.c:175</a></div></div>
+<div class="ttc" id="ahash__table_8h_html_a4d0789bb28431f8c9d03a0ecc71a0bf6"><div class="ttname"><a href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a></div><div class="ttdeci">void ht_insert(hash_table_t *table, ht_item *item)</div><div class="ttdoc">Insert an item into the table.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00084">hash_table.c:84</a></div></div>
 <div class="ttc" id="ahash__table_8h_html_abfd8510b1fadf533d685965730e2969b"><div class="ttname"><a href="hash__table_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a></div><div class="ttdeci">#define HASH_TABLE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00008">hash_table.h:8</a></div></div>
-<div class="ttc" id="alinked__list_8h_html_a571429872dd4128dfa88e460ccddcf12"><div class="ttname"><a href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a></div><div class="ttdeci">void free_linked_list(linked_list_t *list, void(*free_func)(void *))</div><div class="ttdoc">Free a list and its nodes.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00064">linked_list.c:64</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_a571429872dd4128dfa88e460ccddcf12"><div class="ttname"><a href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a></div><div class="ttdeci">void free_linked_list(linked_list_t *list, void(*free_func)(void *))</div><div class="ttdoc">Free a list and its nodes.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00076">linked_list.c:76</a></div></div>
 <div class="ttc" id="anext__word_8h_html_a4a6703557871fd3e4fa275bb65e7f86c"><div class="ttname"><a href="next__word_8h.html#a4a6703557871fd3e4fa275bb65e7f86c">next_word_ht_item_create</a></div><div class="ttdeci">ht_item * next_word_ht_item_create(const int *word, linked_list_t *next_word)</div><div class="ttdoc">Create a hash-table item storing followers.</div><div class="ttdef"><b>Definition</b> <a href="next__word_8c_source.html#l00028">next_word.c:28</a></div></div>
 <div class="ttc" id="anext__word_8h_html_a91442a41c1fdbebf5c46a84964e8e797"><div class="ttname"><a href="next__word_8h.html#a91442a41c1fdbebf5c46a84964e8e797">keycmp_next_word</a></div><div class="ttdeci">int keycmp_next_word(const void *key1, const void *key2)</div><div class="ttdoc">Compare keys for next-word table.</div><div class="ttdef"><b>Definition</b> <a href="next__word_8c_source.html#l00135">next_word.c:135</a></div></div>
 <div class="ttc" id="anext__word_8h_html_a9a0868a1187fd888c75486beef77eace"><div class="ttname"><a href="next__word_8h.html#a9a0868a1187fd888c75486beef77eace">next_word_hash</a></div><div class="ttdeci">uint32_t next_word_hash(const void *key, int table_size)</div><div class="ttdoc">Hash function for next-word keys.</div><div class="ttdef"><b>Definition</b> <a href="next__word_8c_source.html#l00147">next_word.c:147</a></div></div>
@@ -392,104 +394,105 @@ Here is the caller graph for this function:</div>
 <div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 <div class="ttc" id="astructht__item_html"><div class="ttname"><a href="structht__item.html">ht_item</a></div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00008">ht_item.h:8</a></div></div>
 <div class="ttc" id="astructlinked__list__t_html"><div class="ttname"><a href="structlinked__list__t.html">linked_list_t</a></div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00011">linked_list.h:11</a></div></div>
-<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00064">utils.c:64</a></div></div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
 <div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_cgraph.png" border="0" usemap="#aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_cgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_cgraph" id="aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_cgraph">
-<area shape="rect" title="Populate a hash table by reading a CSV file." alt="" coords="5,703,124,729"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="418,23,545,49"/>
-<area shape="poly" title=" " alt="" coords="64,702,75,607,97,460,128,311,148,251,169,209,195,179,224,152,289,108,356,74,416,51,418,56,359,79,292,112,227,156,199,183,174,212,153,253,133,313,102,461,81,607,70,703"/>
-<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="202,779,315,805"/>
-<area shape="poly" title=" " alt="" coords="98,727,173,757,207,771,205,776,171,762,96,732"/>
-<area shape="rect" href="linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="639,551,747,577"/>
-<area shape="poly" title=" " alt="" coords="91,700,171,663,279,610,327,591,392,573,453,563,514,558,623,557,623,563,515,564,454,569,394,578,329,596,281,615,173,668,94,705"/>
-<area shape="rect" href="next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="638,652,748,678"/>
-<area shape="poly" title=" " alt="" coords="124,715,227,717,345,713,457,703,569,685,623,676,624,681,570,690,458,708,345,718,227,722,124,721"/>
-<area shape="rect" href="CSV__line__parser_8c.html#ac41412a9c9a5ea77fa5a8203b5925826" title="Extract the key from a CSV line." alt="" coords="195,475,322,501"/>
-<area shape="poly" title=" " alt="" coords="67,702,79,666,99,617,129,564,148,540,170,518,188,505,191,510,173,522,152,543,134,567,104,619,84,668,72,704"/>
-<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="395,424,567,450"/>
-<area shape="poly" title=" " alt="" coords="64,702,71,655,87,588,101,552,119,518,142,486,170,460,196,445,223,433,282,419,341,416,395,419,395,425,341,421,283,425,225,438,198,449,173,465,146,490,123,521,106,554,92,590,76,656,69,703"/>
-<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="223,223,294,249"/>
-<area shape="poly" title=" " alt="" coords="68,702,107,584,169,417,241,261,246,264,174,420,112,586,73,703"/>
-<area shape="rect" href="next__word_8c.html#a91442a41c1fdbebf5c46a84964e8e797" title="Compare keys for next&#45;word table." alt="" coords="192,828,324,854"/>
-<area shape="poly" title=" " alt="" coords="78,727,117,771,143,794,173,815,183,820,180,824,170,819,140,799,113,774,74,731"/>
-<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="201,878,316,903"/>
-<area shape="poly" title=" " alt="" coords="74,728,109,793,138,832,173,864,188,873,185,877,170,869,134,835,105,796,69,730"/>
-<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="172,678,345,703"/>
-<area shape="poly" title=" " alt="" coords="124,705,156,701,157,706,125,711"/>
-<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="208,927,309,953"/>
-<area shape="poly" title=" " alt="" coords="71,728,82,765,102,815,132,868,151,893,173,914,194,926,192,930,170,918,147,896,128,871,97,818,77,767,66,730"/>
-<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="216,976,300,1002"/>
-<area shape="poly" title=" " alt="" coords="70,728,78,773,96,837,127,905,148,936,173,963,202,979,200,983,170,967,144,939,122,907,91,839,73,775,65,729"/>
-<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="1006,350,1072,375"/>
-<area shape="poly" title=" " alt="" coords="539,20,626,7,678,3,733,4,790,9,845,22,898,42,946,72,973,100,995,133,1012,169,1024,206,1037,278,1040,334,1035,335,1031,278,1018,207,1007,170,990,135,969,103,942,77,895,47,844,27,789,15,733,9,678,9,626,12,540,25"/>
-<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="651,87,735,113"/>
-<area shape="poly" title=" " alt="" coords="527,47,637,80,635,85,526,52"/>
-<area shape="rect" href="utils_8c.html#a1d8eddef9f888ac973de205c457bd89d" title="Check if a number is prime." alt="" coords="845,87,916,113"/>
-<area shape="poly" title=" " alt="" coords="736,97,830,97,830,102,736,102"/>
-<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="617,475,769,501"/>
-<area shape="poly" title=" " alt="" coords="322,485,602,485,602,490,322,490"/>
-<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="838,500,923,526"/>
-<area shape="poly" title=" " alt="" coords="769,495,823,503,822,508,769,501"/>
-<area shape="poly" title=" " alt="" coords="506,448,658,541,656,545,503,453"/>
-<area shape="poly" title=" " alt="" coords="496,449,619,587,670,639,666,643,615,591,492,452"/>
-<area shape="poly" title=" " alt="" coords="539,448,622,468,621,473,537,453"/>
-<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="651,323,735,349"/>
-<area shape="poly" title=" " alt="" coords="544,421,568,411,582,400,592,389,601,378,616,366,639,353,641,358,619,370,605,382,596,393,586,404,571,415,546,426"/>
-<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="819,350,942,375"/>
-<area shape="poly" title=" " alt="" coords="553,421,803,374,804,379,554,426"/>
-<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="631,424,755,450"/>
-<area shape="poly" title=" " alt="" coords="568,434,616,434,616,440,568,440"/>
-<area shape="poly" title=" " alt="" coords="736,330,831,327,888,329,944,335,991,345,990,350,944,340,888,335,831,333,736,335"/>
-<area shape="poly" title=" " alt="" coords="942,360,990,360,990,365,942,365"/>
-<area shape="poly" title=" " alt="" coords="755,424,943,385,990,373,991,378,945,390,756,429"/>
-<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="817,451,944,477"/>
-<area shape="poly" title=" " alt="" coords="756,443,802,450,801,455,755,449"/>
-<area shape="poly" title=" " alt="" coords="909,448,943,430,1008,383,1011,387,945,434,911,453"/>
-<area shape="poly" title=" " alt="" coords="293,247,394,281,523,309,636,326,635,332,522,314,392,286,291,252"/>
-<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="640,274,746,299"/>
-<area shape="poly" title=" " alt="" coords="295,241,393,259,516,272,625,280,624,285,515,277,393,264,294,246"/>
-<area shape="rect" href="ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="635,148,751,174"/>
-<area shape="poly" title=" " alt="" coords="266,221,286,196,314,164,350,133,392,109,440,95,480,93,520,99,570,109,614,122,654,139,652,144,613,127,569,114,519,104,480,98,441,100,394,114,353,137,318,168,290,199,271,224"/>
-<area shape="rect" href="ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="418,124,545,150"/>
-<area shape="poly" title=" " alt="" coords="278,220,329,190,392,159,408,153,410,158,394,164,331,195,281,225"/>
-<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="444,223,518,249"/>
-<area shape="poly" title=" " alt="" coords="295,233,429,233,429,238,295,238"/>
-<area shape="rect" href="hash__table_8c.html#ad0646f0cb7f70b230e7a4a718cbe5056" title=" " alt="" coords="438,174,524,199"/>
-<area shape="poly" title=" " alt="" coords="294,225,423,197,424,202,295,231"/>
-<area shape="poly" title=" " alt="" coords="740,297,770,308,841,340,839,345,768,313,738,302"/>
-<area shape="poly" title=" " alt="" coords="518,234,631,240,700,248,769,259,859,280,945,312,1002,339,1000,344,943,317,857,285,768,264,699,253,630,246,518,239"/>
-<area shape="poly" title=" " alt="" coords="517,229,543,222,568,210,584,192,592,174,599,154,616,134,639,117,642,122,619,138,604,157,597,176,588,195,571,214,545,227,519,235"/>
-<area shape="poly" title=" " alt="" coords="505,247,556,277,618,309,637,317,635,322,616,314,553,282,502,252"/>
-<area shape="poly" title=" " alt="" coords="519,242,625,268,624,273,518,247"/>
-<area shape="poly" title=" " alt="" coords="518,224,568,209,648,178,650,183,570,214,519,230"/>
-<area shape="rect" href="utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="436,930,526,955"/>
-<area shape="poly" title=" " alt="" coords="324,852,346,863,362,876,371,890,380,904,394,916,422,929,420,934,392,921,376,907,367,893,358,880,344,867,322,857"/>
-<area shape="rect" href="utils_8c.html#a3c20d7e2acdc0a0099f46371c8335ee4" title="Hash a word for a table size." alt="" coords="430,979,532,1005"/>
-<area shape="poly" title=" " alt="" coords="318,899,346,912,362,926,371,940,380,953,394,966,417,976,414,981,392,970,376,957,367,943,358,929,344,917,316,904"/>
-<area shape="poly" title=" " alt="" coords="280,702,330,731,361,745,394,756,500,782,544,791,586,796,626,796,669,789,715,775,767,752,822,718,869,675,910,625,945,572,974,518,997,468,1026,390,1031,391,1002,470,979,521,950,574,914,628,873,678,825,722,770,757,717,780,670,794,627,801,585,801,543,796,499,787,392,761,359,750,328,736,277,706"/>
-<area shape="poly" title=" " alt="" coords="277,675,327,643,392,612,452,594,513,581,623,566,624,571,514,586,453,599,394,617,330,648,280,679"/>
-<area shape="poly" title=" " alt="" coords="345,683,623,667,623,672,346,688"/>
-<area shape="poly" title=" " alt="" coords="296,701,388,728,448,740,513,748,580,750,647,742,710,722,740,707,767,688,787,667,796,644,797,620,794,594,791,568,791,541,798,513,815,486,816,485,820,488,819,489,803,515,796,541,797,567,800,593,802,619,801,645,791,670,770,692,742,712,712,727,648,747,580,755,512,754,447,746,387,733,295,706"/>
-<area shape="rect" href="next__word_8c.html#a8f687a592f3b524819df414a96f8f193" title="Free a hash&#45;table item storing next_word_t values." alt="" coords="402,627,561,653"/>
-<area shape="poly" title=" " alt="" coords="317,674,406,654,407,659,319,680"/>
-<area shape="rect" href="next__word_8c.html#a52447d13454294c20e582056b7400ecc" title="Print an ht_item containing next words." alt="" coords="400,880,562,906"/>
-<area shape="poly" title=" " alt="" coords="280,702,313,729,347,765,362,792,369,815,377,837,395,859,412,871,409,876,391,863,372,840,364,817,357,794,343,768,310,733,277,706"/>
-<area shape="rect" href="next__word_8c.html#aa3f541601012b84e488c3af2b0bde068" title="Append a next word to an existing item." alt="" coords="393,375,569,401"/>
-<area shape="poly" title=" " alt="" coords="264,676,343,512,354,482,360,457,370,433,391,410,395,407,399,411,395,414,375,436,365,459,359,484,347,514,269,678"/>
-<area shape="poly" title=" " alt="" coords="519,624,640,580,641,585,520,629"/>
-<area shape="poly" title=" " alt="" coords="561,647,624,654,623,660,561,652"/>
-<area shape="rect" href="next__word_8c.html#a853f57b435b8f7d8d606c06b0a92d3a9" title="Print a next_word_t." alt="" coords="637,931,749,957"/>
-<area shape="poly" title=" " alt="" coords="539,904,622,924,621,929,537,909"/>
-<area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="825,906,936,931"/>
-<area shape="poly" title=" " alt="" coords="563,896,810,911,810,917,563,901"/>
-<area shape="poly" title=" " alt="" coords="749,934,810,925,810,931,750,939"/>
-<area shape="rect" href="utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="992,906,1085,931"/>
-<area shape="poly" title=" " alt="" coords="936,916,976,916,976,921,936,921"/>
-<area shape="poly" title=" " alt="" coords="536,372,635,347,636,352,537,377"/>
+<area shape="rect" title="Populate a hash table by reading a CSV file." alt="" coords="5,713,134,741"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="453,75,593,102"/>
+<area shape="poly" title=" " alt="" coords="68,713,70,639,84,523,97,457,117,391,144,326,179,267,206,235,237,207,271,182,307,161,379,127,445,104,447,110,381,132,309,166,274,187,240,211,210,239,184,270,149,329,122,393,102,459,89,524,76,639,73,713"/>
+<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="216,940,342,968"/>
+<area shape="poly" title=" " alt="" coords="77,740,90,776,112,825,143,876,162,899,183,920,203,932,200,937,180,924,158,903,138,879,107,827,85,778,72,742"/>
+<area shape="rect" href="linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="695,560,815,588"/>
+<area shape="poly" title=" " alt="" coords="98,710,181,673,300,623,353,605,423,588,491,578,559,572,680,569,680,574,559,578,491,583,425,594,355,610,301,628,183,678,100,715"/>
+<area shape="rect" href="next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="694,763,816,790"/>
+<area shape="poly" title=" " alt="" coords="96,739,135,759,182,775,249,787,318,794,454,799,578,793,678,784,679,789,579,799,454,804,317,800,248,792,181,780,133,764,93,744"/>
+<area shape="rect" href="CSV__line__parser_8c.html#ac41412a9c9a5ea77fa5a8203b5925826" title="Extract the key from a CSV line." alt="" coords="208,739,350,766"/>
+<area shape="poly" title=" " alt="" coords="134,732,193,739,192,745,134,737"/>
+<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="426,484,620,512"/>
+<area shape="poly" title=" " alt="" coords="71,712,83,674,103,623,135,570,156,547,180,527,235,501,294,486,354,480,411,481,411,486,355,485,295,491,237,506,183,532,160,551,139,573,108,625,88,676,77,714"/>
+<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="240,280,318,308"/>
+<area shape="poly" title=" " alt="" coords="74,712,179,478,260,320,265,322,184,480,79,714"/>
+<area shape="rect" href="next__word_8c.html#a91442a41c1fdbebf5c46a84964e8e797" title="Compare keys for next&#45;word table." alt="" coords="205,992,352,1020"/>
+<area shape="poly" title=" " alt="" coords="75,740,84,786,103,850,136,919,157,950,183,977,193,984,190,988,180,981,153,953,131,921,98,852,79,787,70,741"/>
+<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="215,1044,342,1072"/>
+<area shape="poly" title=" " alt="" coords="74,741,80,795,97,873,111,915,130,957,154,995,183,1029,202,1042,199,1046,180,1033,149,999,125,959,106,917,92,874,75,796,69,742"/>
+<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="182,687,376,714"/>
+<area shape="poly" title=" " alt="" coords="134,716,166,712,167,717,134,722"/>
+<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="903,24,1014,52"/>
+<area shape="poly" title=" " alt="" coords="69,713,80,610,101,451,116,368,134,290,155,226,179,180,214,142,252,109,295,82,340,59,388,41,437,27,539,9,640,3,735,5,820,13,888,22,888,27,819,18,735,11,640,9,539,15,438,32,389,46,342,64,297,87,255,114,217,146,184,183,160,228,140,292,122,369,107,452,85,610,75,713"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="234,1096,324,1124"/>
+<area shape="poly" title=" " alt="" coords="73,741,77,803,91,895,105,945,124,995,150,1041,183,1081,200,1093,220,1101,218,1106,198,1098,180,1085,146,1044,119,997,100,947,86,896,71,804,68,742"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="1092,357,1165,385"/>
+<area shape="poly" title=" " alt="" coords="594,80,704,75,832,74,894,78,950,84,997,95,1030,112,1056,135,1077,163,1094,194,1106,226,1122,290,1129,341,1123,342,1117,291,1101,228,1089,196,1073,166,1052,139,1028,116,995,101,949,90,894,83,832,79,704,80,594,86"/>
+<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="707,125,803,153"/>
+<area shape="poly" title=" " alt="" coords="590,100,693,123,691,128,589,105"/>
+<area shape="rect" href="utils_8c.html#a1d8eddef9f888ac973de205c457bd89d" title="Check if a number is prime." alt="" coords="920,125,997,153"/>
+<area shape="poly" title=" " alt="" coords="803,136,904,136,904,142,803,142"/>
+<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="670,687,840,714"/>
+<area shape="poly" title=" " alt="" coords="350,747,477,738,622,723,671,715,672,720,623,728,477,744,350,752"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="911,687,1006,714"/>
+<area shape="poly" title=" " alt="" coords="840,698,895,698,895,703,840,703"/>
+<area shape="poly" title=" " alt="" coords="570,510,623,527,697,552,696,557,621,532,568,515"/>
+<area shape="poly" title=" " alt="" coords="533,511,583,607,624,667,672,724,711,753,708,757,669,728,620,671,579,609,528,513"/>
+<area shape="poly" title=" " alt="" coords="542,510,729,675,725,679,539,514"/>
+<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="709,383,801,410"/>
+<area shape="poly" title=" " alt="" coords="592,481,621,469,635,459,645,448,654,437,669,426,693,414,696,418,672,431,658,441,649,452,639,463,624,473,594,486"/>
+<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="891,332,1026,360"/>
+<area shape="poly" title=" " alt="" coords="596,481,731,451,794,434,839,419,885,394,925,367,928,372,888,399,841,424,795,439,732,456,597,486"/>
+<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="686,484,824,512"/>
+<area shape="poly" title=" " alt="" coords="620,495,670,495,670,500,620,500"/>
+<area shape="poly" title=" " alt="" coords="802,391,1076,372,1077,377,802,396"/>
+<area shape="poly" title=" " alt="" coords="1027,353,1077,361,1076,366,1026,358"/>
+<area shape="poly" title=" " alt="" coords="798,481,1077,386,1078,391,799,486"/>
+<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="888,739,1029,766"/>
+<area shape="poly" title=" " alt="" coords="794,510,819,525,842,547,856,571,863,595,864,639,867,681,874,702,890,724,893,727,889,731,886,727,870,705,861,682,859,639,858,596,851,573,838,550,816,530,791,514"/>
+<area shape="poly" title=" " alt="" coords="1011,736,1027,724,1056,686,1078,643,1095,598,1108,552,1121,466,1125,400,1130,401,1127,466,1113,553,1100,599,1083,645,1060,689,1031,728,1015,740"/>
+<area shape="poly" title=" " alt="" coords="317,306,425,340,569,369,694,387,693,392,568,375,423,346,315,311"/>
+<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="697,331,813,358"/>
+<area shape="poly" title=" " alt="" coords="319,299,424,316,561,330,682,338,682,344,561,335,424,322,318,304"/>
+<area shape="rect" href="ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="690,191,820,218"/>
+<area shape="poly" title=" " alt="" coords="298,277,353,243,387,227,423,214,488,201,555,194,675,195,675,200,555,200,489,206,425,219,389,232,355,248,301,282"/>
+<area shape="rect" href="ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="452,127,594,154"/>
+<area shape="poly" title=" " alt="" coords="292,277,346,226,383,196,423,170,450,157,453,162,425,175,386,200,349,230,295,281"/>
+<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="483,228,563,256"/>
+<area shape="poly" title=" " alt="" coords="318,283,467,251,468,256,319,288"/>
+<area shape="rect" href="hash__table_8c.html#ad0646f0cb7f70b230e7a4a718cbe5056" title=" " alt="" coords="476,280,570,308"/>
+<area shape="poly" title=" " alt="" coords="318,291,460,291,460,296,318,296"/>
+<area shape="poly" title=" " alt="" coords="813,342,875,343,875,348,813,347"/>
+<area shape="poly" title=" " alt="" coords="564,241,649,247,766,261,898,283,1030,318,1093,347,1091,352,1028,323,897,289,765,266,649,253,563,246"/>
+<area shape="poly" title=" " alt="" coords="556,225,707,157,709,162,558,230"/>
+<area shape="poly" title=" " alt="" coords="564,242,595,250,624,266,636,279,643,292,649,318,655,344,661,356,672,368,695,382,692,386,669,372,657,359,650,345,644,319,638,294,632,282,621,271,593,255,563,247"/>
+<area shape="poly" title=" " alt="" coords="565,247,623,266,648,281,672,297,714,320,711,325,669,301,645,285,621,271,563,252"/>
+<area shape="poly" title=" " alt="" coords="563,233,674,215,675,220,564,238"/>
+<area shape="rect" href="utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="474,992,573,1020"/>
+<area shape="poly" title=" " alt="" coords="353,1003,458,1003,458,1008,353,1008"/>
+<area shape="rect" href="utils_8c.html#a3c20d7e2acdc0a0099f46371c8335ee4" title="Hash a word for a table size." alt="" coords="467,1044,579,1072"/>
+<area shape="poly" title=" " alt="" coords="343,1055,451,1055,451,1060,343,1060"/>
+<area shape="poly" title=" " alt="" coords="361,683,839,597,880,576,921,551,996,495,1058,439,1103,394,1106,398,1062,443,999,499,924,555,883,580,841,602,362,689"/>
+<area shape="poly" title=" " alt="" coords="304,684,357,655,423,629,490,610,558,596,679,578,680,583,559,601,491,615,425,634,360,660,306,688"/>
+<area shape="poly" title=" " alt="" coords="361,712,424,723,679,763,678,768,424,728,360,717"/>
+<area shape="poly" title=" " alt="" coords="345,712,377,725,401,743,411,752,425,759,536,801,583,813,628,820,673,821,722,818,839,799,880,787,917,771,919,776,882,792,840,804,722,824,673,827,628,825,582,818,535,806,423,764,408,756,398,747,375,729,343,717"/>
+<area shape="rect" href="next__word_8c.html#a8f687a592f3b524819df414a96f8f193" title="Free a hash&#45;table item storing next_word_t values." alt="" coords="434,687,613,714"/>
+<area shape="poly" title=" " alt="" coords="376,698,418,698,418,703,376,703"/>
+<area shape="rect" href="next__word_8c.html#a52447d13454294c20e582056b7400ecc" title="Print an ht_item containing next words." alt="" coords="432,940,615,968"/>
+<area shape="poly" title=" " alt="" coords="360,712,378,725,393,743,401,761,407,795,410,831,416,850,426,870,455,903,488,929,485,933,452,906,422,873,411,852,405,832,401,796,396,762,388,746,374,729,357,717"/>
+<area shape="rect" href="next__word_8c.html#aa3f541601012b84e488c3af2b0bde068" title="Append a next word to an existing item." alt="" coords="424,432,622,460"/>
+<area shape="poly" title=" " alt="" coords="283,685,299,643,328,585,369,523,394,495,422,470,431,465,434,469,426,475,398,499,373,526,333,587,304,645,287,687"/>
+<area shape="poly" title=" " alt="" coords="549,684,713,593,716,598,552,688"/>
+<area shape="poly" title=" " alt="" coords="569,712,696,755,695,760,567,717"/>
+<area shape="rect" href="next__word_8c.html#a853f57b435b8f7d8d606c06b0a92d3a9" title="Print a next_word_t." alt="" coords="692,965,818,993"/>
+<area shape="poly" title=" " alt="" coords="615,961,677,968,676,973,615,966"/>
+<area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="897,940,1020,968"/>
+<area shape="poly" title=" " alt="" coords="615,951,881,951,881,956,615,956"/>
+<area shape="poly" title=" " alt="" coords="818,969,881,961,882,966,819,974"/>
+<area shape="rect" href="utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="1077,940,1180,968"/>
+<area shape="poly" title=" " alt="" coords="1020,951,1062,951,1062,956,1020,956"/>
+<area shape="poly" title=" " alt="" coords="591,429,693,407,694,412,592,434"/>
+<area shape="poly" title=" " alt="" coords="1007,50,1031,68,1056,101,1076,137,1105,213,1121,286,1128,342,1123,343,1116,287,1100,215,1071,139,1051,104,1027,72,1004,54"/>
 </map>
 </div>
 <div class="dynheader">
@@ -497,16 +500,16 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_icgraph.png" border="0" usemap="#aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_icgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_icgraph" id="aCSV__reader_8c_a71360bacc7e01a6c665df648bfc86ecc_icgraph">
-<area shape="rect" title="Populate a hash table by reading a CSV file." alt="" coords="312,31,431,56"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="194,5,261,31"/>
-<area shape="poly" title=" " alt="" coords="296,33,261,27,262,21,297,28"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="190,55,264,80"/>
-<area shape="poly" title=" " alt="" coords="297,59,265,64,264,59,296,53"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
-<area shape="poly" title=" " alt="" coords="179,33,143,41,142,36,178,27"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
-<area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
-<area shape="poly" title=" " alt="" coords="174,58,142,51,143,45,175,53"/>
+<area shape="rect" title="Populate a hash table by reading a CSV file." alt="" coords="325,32,454,60"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="202,5,274,33"/>
+<area shape="poly" title=" " alt="" coords="310,35,274,28,275,23,311,29"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="198,57,277,85"/>
+<area shape="poly" title=" " alt="" coords="311,62,278,67,277,62,310,56"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" title=" " alt="" coords="187,34,151,43,150,38,186,29"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="poly" title=" " alt="" coords="182,61,150,53,151,48,183,56"/>
 </map>
 </div>
 
@@ -555,84 +558,90 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   26</span>  }</div>
 <div class="line"><span class="lineno">   27</span>  <span class="keywordflow">if</span> (*buf == NULL || *cap == 0) {</div>
 <div class="line"><span class="lineno">   28</span>    *cap = 1024; <span class="comment">// Initial capacity</span></div>
-<div class="line"><span class="lineno">   29</span>    *buf = (<span class="keywordtype">char</span> *)<a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(*cap);</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">if</span> (*buf == NULL) {</div>
-<div class="line"><span class="lineno">   31</span>      fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed for buffer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   32</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   33</span>    }</div>
-<div class="line"><span class="lineno">   34</span>  }</div>
-<div class="line"><span class="lineno">   35</span>  <span class="keywordtype">size_t</span> len = 0;</div>
-<div class="line"><span class="lineno">   36</span>  <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">char</span> ch;</div>
-<div class="line"><span class="lineno">   38</span>    ssize_t read_res = read(fd, &amp;ch, 1);</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span> (read_res == 0) {</div>
-<div class="line"><span class="lineno">   40</span>      <span class="keywordflow">if</span> (len == 0) {</div>
-<div class="line"><span class="lineno">   41</span>        (*buf)[0] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// If no data read, return empty string</span></div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> 0;         <span class="comment">// End of file reached with no data read</span></div>
-<div class="line"><span class="lineno">   43</span>      }</div>
-<div class="line"><span class="lineno">   44</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached, return what we have</span></div>
-<div class="line"><span class="lineno">   45</span>    }</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (read_res &lt; 0) {</div>
-<div class="line"><span class="lineno">   47</span>      <span class="keywordflow">if</span> (errno == EINTR) {</div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">continue</span>; <span class="comment">// Interrupted, try again</span></div>
-<div class="line"><span class="lineno">   49</span>      }</div>
-<div class="line"><span class="lineno">   50</span>      fprintf(stderr, <span class="stringliteral">&quot;Error reading from file descriptor %d\n&quot;</span>, fd);</div>
-<div class="line"><span class="lineno">   51</span>      free(*buf);</div>
-<div class="line"><span class="lineno">   52</span>      *buf = NULL;</div>
-<div class="line"><span class="lineno">   53</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error reading</span></div>
-<div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">if</span> (len + 1 &gt;= *cap) {</div>
-<div class="line"><span class="lineno">   56</span>      <span class="keywordtype">size_t</span> new_cap = (*cap &lt; 4096)</div>
-<div class="line"><span class="lineno">   57</span>                           ? (*cap * 2)</div>
-<div class="line"><span class="lineno">   58</span>                           : (*cap + 4096); <span class="comment">// increase capacity if greater than</span></div>
-<div class="line"><span class="lineno">   59</span>                                            <span class="comment">// 4096 than plus 4096 not double</span></div>
-<div class="line"><span class="lineno">   60</span>      <span class="keywordtype">char</span> *new_buf = (<span class="keywordtype">char</span> *)realloc(*buf, new_cap);</div>
-<div class="line"><span class="lineno">   61</span>      <span class="keywordflow">if</span> (new_buf == NULL) {</div>
-<div class="line"><span class="lineno">   62</span>        fprintf(stderr, <span class="stringliteral">&quot;Memory reallocation failed for buffer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   63</span>        free(*buf);</div>
-<div class="line"><span class="lineno">   64</span>        *buf = NULL;</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error reallocating</span></div>
-<div class="line"><span class="lineno">   66</span>      }</div>
-<div class="line"><span class="lineno">   67</span>      *buf = new_buf;</div>
-<div class="line"><span class="lineno">   68</span>      *cap = new_cap;</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39; &#39;</span> || ch == <span class="charliteral">&#39;\t&#39;</span>) {</div>
-<div class="line"><span class="lineno">   71</span>      <span class="keywordflow">continue</span>; <span class="comment">// Skip whitespace characters</span></div>
+<div class="line"><span class="lineno">   29</span>    *buf = (<span class="keywordtype">char</span> *)<a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(*cap);</div>
+<div class="line"><span class="lineno">   30</span>  }</div>
+<div class="line"><span class="lineno">   31</span>  <span class="keywordtype">size_t</span> len = 0;</div>
+<div class="line"><span class="lineno">   32</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">char</span> ch;</div>
+<div class="line"><span class="lineno">   34</span>    ssize_t read_res = read(fd, &amp;ch, 1);</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (read_res == 0) {</div>
+<div class="line"><span class="lineno">   36</span>      <span class="keywordflow">if</span> (len == 0) {</div>
+<div class="line"><span class="lineno">   37</span>        (*buf)[0] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// If no data read, return empty string</span></div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> 0;         <span class="comment">// End of file reached with no data read</span></div>
+<div class="line"><span class="lineno">   39</span>      }</div>
+<div class="line"><span class="lineno">   40</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached, return what we have</span></div>
+<div class="line"><span class="lineno">   41</span>    }</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (read_res &lt; 0) {</div>
+<div class="line"><span class="lineno">   43</span>      <span class="keywordflow">if</span> (errno == EINTR) {</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">continue</span>; <span class="comment">// Interrupted, try again</span></div>
+<div class="line"><span class="lineno">   45</span>      }</div>
+<div class="line"><span class="lineno">   46</span>      fprintf(stderr, <span class="stringliteral">&quot;Error reading from file descriptor %d\n&quot;</span>, fd);</div>
+<div class="line"><span class="lineno">   47</span>      free(*buf);</div>
+<div class="line"><span class="lineno">   48</span>      *buf = NULL;</div>
+<div class="line"><span class="lineno">   49</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error reading</span></div>
+<div class="line"><span class="lineno">   50</span>    }</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">if</span> (len + 1 &gt;= *cap) {</div>
+<div class="line"><span class="lineno">   52</span>      <span class="keywordtype">size_t</span> new_cap = (*cap &lt; 4096)</div>
+<div class="line"><span class="lineno">   53</span>                           ? (*cap * 2)</div>
+<div class="line"><span class="lineno">   54</span>                           : (*cap + 4096); <span class="comment">// increase capacity if greater than</span></div>
+<div class="line"><span class="lineno">   55</span>                                            <span class="comment">// 4096 than plus 4096 not double</span></div>
+<div class="line"><span class="lineno">   56</span>      <span class="keywordtype">char</span> *new_buf = (<span class="keywordtype">char</span> *)realloc(*buf, new_cap);</div>
+<div class="line"><span class="lineno">   57</span>      <span class="keywordflow">if</span> (new_buf == NULL) {</div>
+<div class="line"><span class="lineno">   58</span>        fprintf(stderr, <span class="stringliteral">&quot;Memory reallocation failed for buffer\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span>        free(*buf);</div>
+<div class="line"><span class="lineno">   60</span>        *buf = NULL;</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error reallocating</span></div>
+<div class="line"><span class="lineno">   62</span>      }</div>
+<div class="line"><span class="lineno">   63</span>      *buf = new_buf;</div>
+<div class="line"><span class="lineno">   64</span>      *cap = new_cap;</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39; &#39;</span> || ch == <span class="charliteral">&#39;\t&#39;</span>) {</div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">continue</span>; <span class="comment">// Skip whitespace characters</span></div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>    (*buf)[len++] = ch;</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39;\n&#39;</span>) {</div>
+<div class="line"><span class="lineno">   71</span>      <span class="keywordflow">break</span>; <span class="comment">// End of line reached</span></div>
 <div class="line"><span class="lineno">   72</span>    }</div>
-<div class="line"><span class="lineno">   73</span>    (*buf)[len++] = ch;</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39;\n&#39;</span>) {</div>
-<div class="line"><span class="lineno">   75</span>      <span class="keywordflow">break</span>; <span class="comment">// End of line reached</span></div>
-<div class="line"><span class="lineno">   76</span>    }</div>
-<div class="line"><span class="lineno">   77</span>  }</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>  (*buf)[len] = <span class="charliteral">&#39;\0&#39;</span>;  <span class="comment">// Null-terminate the string</span></div>
-<div class="line"><span class="lineno">   80</span>  <span class="keywordflow">return</span> (ssize_t)len; <span class="comment">// Return the number of bytes read</span></div>
-<div class="line"><span class="lineno">   81</span>}</div>
-<div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
+<div class="line"><span class="lineno">   73</span>  }</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>  (*buf)[len] = <span class="charliteral">&#39;\0&#39;</span>;  <span class="comment">// Null-terminate the string</span></div>
+<div class="line"><span class="lineno">   76</span>  <span class="keywordflow">return</span> (ssize_t)len; <span class="comment">// Return the number of bytes read</span></div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
 </div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="CSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_cgraph.png" border="0" usemap="#aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_cgraph" loading="lazy" alt=""/></div>
+<map name="aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_cgraph" id="aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_cgraph">
+<area shape="rect" title="Read a line from a CSV descriptor." alt="" coords="5,5,116,33"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="164,5,237,33"/>
+<area shape="poly" title=" " alt="" coords="116,16,148,16,148,22,116,22"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_icgraph.png" border="0" usemap="#aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_icgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_icgraph" id="aCSV__reader_8c_a3476ca0a6bfb1cf6045c0344a6f4ef1f_icgraph">
-<area shape="rect" title="Read a line from a CSV descriptor." alt="" coords="672,31,773,56"/>
-<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="483,5,624,31"/>
-<area shape="poly" title=" " alt="" coords="657,36,624,31,624,26,657,31"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="316,56,435,82"/>
-<area shape="poly" title=" " alt="" coords="657,51,435,67,435,62,656,46"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="349,5,402,31"/>
-<area shape="poly" title=" " alt="" coords="467,21,402,21,402,16,467,16"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
-<area shape="poly" title=" " alt="" coords="334,21,269,21,269,16,334,16"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,55,142,80"/>
-<area shape="poly" title=" " alt="" coords="187,41,144,61,141,56,184,36"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
-<area shape="poly" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,55,263,80"/>
-<area shape="poly" title=" " alt="" coords="300,71,263,70,263,65,301,65"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,104,266,130"/>
-<area shape="poly" title=" " alt="" coords="320,90,268,107,266,102,319,85"/>
-<area shape="poly" title=" " alt="" coords="180,70,142,70,142,65,180,65"/>
-<area shape="poly" title=" " alt="" coords="184,99,141,79,144,74,187,94"/>
+<area shape="rect" title="Read a line from a CSV descriptor." alt="" coords="713,32,823,60"/>
+<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="508,7,665,34"/>
+<area shape="poly" title=" " alt="" coords="697,39,665,34,666,29,698,33"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="331,57,460,85"/>
+<area shape="poly" title=" " alt="" coords="698,53,460,70,460,64,697,48"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="368,5,423,33"/>
+<area shape="poly" title=" " alt="" coords="492,23,424,22,424,17,492,17"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="352,22,283,22,283,16,352,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,57,150,85"/>
+<area shape="poly" title=" " alt="" coords="196,43,152,64,149,59,194,38"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,57,60,85"/>
+<area shape="poly" title=" " alt="" coords="92,74,60,74,60,68,92,68"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,57,277,85"/>
+<area shape="poly" title=" " alt="" coords="316,74,277,74,277,68,316,68"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,109,280,137"/>
+<area shape="poly" title=" " alt="" coords="339,93,281,113,280,107,337,88"/>
+<area shape="poly" title=" " alt="" coords="189,74,151,74,151,68,189,68"/>
+<area shape="poly" title=" " alt="" coords="194,105,149,83,152,78,196,100"/>
 </map>
 </div>
 
@@ -662,59 +671,59 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Populated hash table or NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00182">182</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  182</span>                                              {</div>
-<div class="line"><span class="lineno">  183</span>  <span class="keywordtype">char</span> *line = NULL;</div>
-<div class="line"><span class="lineno">  184</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
-<div class="line"><span class="lineno">  185</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *table =</div>
-<div class="line"><span class="lineno">  186</span>      <a class="code hl_function" href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a>(<a class="code hl_define" href="hash__table_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>, <a class="code hl_function" href="next__word_8h.html#a9a0868a1187fd888c75486beef77eace">next_word_hash</a>, <a class="code hl_function" href="next__word_8h.html#a91442a41c1fdbebf5c46a84964e8e797">keycmp_next_word</a>);</div>
-<div class="line"><span class="lineno">  187</span>  <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0};</div>
-<div class="line"><span class="lineno">  188</span> </div>
-<div class="line"><span class="lineno">  189</span>  <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><span class="lineno">  190</span>    ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(in_fd, &amp;line, &amp;cap);</div>
-<div class="line"><span class="lineno">  191</span> </div>
-<div class="line"><span class="lineno">  192</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
-<div class="line"><span class="lineno">  193</span>      perror(<span class="stringliteral">&quot;recv_frame&quot;</span>);</div>
-<div class="line"><span class="lineno">  194</span>      free(line);</div>
-<div class="line"><span class="lineno">  195</span>      <span class="keywordflow">return</span> NULL;</div>
+<p class="definition">Definition at line <a class="el" href="CSV__reader_8c_source.html#l00178">178</a> of file <a class="el" href="CSV__reader_8c_source.html">CSV_reader.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>                                              {</div>
+<div class="line"><span class="lineno">  179</span>  <span class="keywordtype">char</span> *line = NULL;</div>
+<div class="line"><span class="lineno">  180</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
+<div class="line"><span class="lineno">  181</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *table =</div>
+<div class="line"><span class="lineno">  182</span>      <a class="code hl_function" href="hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d">create_hash_table</a>(<a class="code hl_define" href="hash__table_8h.html#abfd8510b1fadf533d685965730e2969b">HASH_TABLE_SIZE</a>, <a class="code hl_function" href="next__word_8h.html#a9a0868a1187fd888c75486beef77eace">next_word_hash</a>, <a class="code hl_function" href="next__word_8h.html#a91442a41c1fdbebf5c46a84964e8e797">keycmp_next_word</a>);</div>
+<div class="line"><span class="lineno">  183</span>  <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0};</div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  186</span>    ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(in_fd, &amp;line, &amp;cap);</div>
+<div class="line"><span class="lineno">  187</span> </div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><span class="lineno">  189</span>      perror(<span class="stringliteral">&quot;recv_frame&quot;</span>);</div>
+<div class="line"><span class="lineno">  190</span>      free(line);</div>
+<div class="line"><span class="lineno">  191</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  192</span>    }</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><span class="lineno">  195</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached</span></div>
 <div class="line"><span class="lineno">  196</span>    }</div>
-<div class="line"><span class="lineno">  197</span> </div>
-<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><span class="lineno">  199</span>      <span class="keywordflow">break</span>; <span class="comment">// End of file reached</span></div>
-<div class="line"><span class="lineno">  200</span>    }</div>
-<div class="line"><span class="lineno">  201</span>    <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  202</span>      <span class="keywordflow">continue</span>; <span class="comment">// Skip empty lines</span></div>
-<div class="line"><span class="lineno">  203</span>    }</div>
-<div class="line"><span class="lineno">  204</span>    ssize_t off = <a class="code hl_function" href="CSV__line__parser_8h.html#ac41412a9c9a5ea77fa5a8203b5925826">get_key_from_line</a>(line, key);</div>
-<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">if</span> (off &lt; 0) {</div>
-<div class="line"><span class="lineno">  206</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting key from line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  207</span>      free(line);</div>
-<div class="line"><span class="lineno">  208</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
-<div class="line"><span class="lineno">  209</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  210</span>    }</div>
-<div class="line"><span class="lineno">  211</span>    <span class="keywordtype">size_t</span> offset = (size_t)off;</div>
-<div class="line"><span class="lineno">  212</span> </div>
-<div class="line"><span class="lineno">  213</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = <a class="code hl_function" href="CSV__line__parser_8h.html#a263f576987804b4eda2695908af61f6e">get_next_words_from_line</a>(line, &amp;offset);</div>
-<div class="line"><span class="lineno">  214</span>    <span class="keywordflow">if</span> (!next_words) {</div>
-<div class="line"><span class="lineno">  215</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting next words from line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  216</span>      free(line);</div>
-<div class="line"><span class="lineno">  217</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
-<div class="line"><span class="lineno">  218</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  219</span>    }</div>
-<div class="line"><span class="lineno">  220</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="next__word_8h.html#a4a6703557871fd3e4fa275bb65e7f86c">next_word_ht_item_create</a>(key, next_words);</div>
-<div class="line"><span class="lineno">  221</span>    <span class="keywordflow">if</span> (!item) {</div>
-<div class="line"><span class="lineno">  222</span>      fprintf(stderr, <span class="stringliteral">&quot;Error creating hash table item\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  223</span>      <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>(next_words, (<span class="keywordtype">void</span> (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="next__word_8h.html#ab97b73c49b36a3e241f563d1b68d7366">free_next_word</a>);</div>
-<div class="line"><span class="lineno">  224</span>      free(line);</div>
-<div class="line"><span class="lineno">  225</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
-<div class="line"><span class="lineno">  226</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  227</span>    }</div>
-<div class="line"><span class="lineno">  228</span>    <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(table, item);</div>
-<div class="line"><span class="lineno">  229</span>    memset(key, 0, <span class="keyword">sizeof</span>(key));</div>
-<div class="line"><span class="lineno">  230</span>  }</div>
-<div class="line"><span class="lineno">  231</span>  free(line);</div>
-<div class="line"><span class="lineno">  232</span>  <span class="keywordflow">return</span> table;</div>
-<div class="line"><span class="lineno">  233</span>}</div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  198</span>      <span class="keywordflow">continue</span>; <span class="comment">// Skip empty lines</span></div>
+<div class="line"><span class="lineno">  199</span>    }</div>
+<div class="line"><span class="lineno">  200</span>    ssize_t off = <a class="code hl_function" href="CSV__line__parser_8h.html#ac41412a9c9a5ea77fa5a8203b5925826">get_key_from_line</a>(line, key);</div>
+<div class="line"><span class="lineno">  201</span>    <span class="keywordflow">if</span> (off &lt; 0) {</div>
+<div class="line"><span class="lineno">  202</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting key from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>      free(line);</div>
+<div class="line"><span class="lineno">  204</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
+<div class="line"><span class="lineno">  205</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  206</span>    }</div>
+<div class="line"><span class="lineno">  207</span>    <span class="keywordtype">size_t</span> offset = (size_t)off;</div>
+<div class="line"><span class="lineno">  208</span> </div>
+<div class="line"><span class="lineno">  209</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = <a class="code hl_function" href="CSV__line__parser_8h.html#a263f576987804b4eda2695908af61f6e">get_next_words_from_line</a>(line, &amp;offset);</div>
+<div class="line"><span class="lineno">  210</span>    <span class="keywordflow">if</span> (!next_words) {</div>
+<div class="line"><span class="lineno">  211</span>      fprintf(stderr, <span class="stringliteral">&quot;Error getting next words from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  212</span>      free(line);</div>
+<div class="line"><span class="lineno">  213</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
+<div class="line"><span class="lineno">  214</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  215</span>    }</div>
+<div class="line"><span class="lineno">  216</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="next__word_8h.html#a4a6703557871fd3e4fa275bb65e7f86c">next_word_ht_item_create</a>(key, next_words);</div>
+<div class="line"><span class="lineno">  217</span>    <span class="keywordflow">if</span> (!item) {</div>
+<div class="line"><span class="lineno">  218</span>      fprintf(stderr, <span class="stringliteral">&quot;Error creating hash table item\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  219</span>      <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>(next_words, (<span class="keywordtype">void</span> (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="next__word_8h.html#ab97b73c49b36a3e241f563d1b68d7366">free_next_word</a>);</div>
+<div class="line"><span class="lineno">  220</span>      free(line);</div>
+<div class="line"><span class="lineno">  221</span>      <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(table);</div>
+<div class="line"><span class="lineno">  222</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  223</span>    }</div>
+<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(table, item);</div>
+<div class="line"><span class="lineno">  225</span>    memset(key, 0, <span class="keyword">sizeof</span>(key));</div>
+<div class="line"><span class="lineno">  226</span>  }</div>
+<div class="line"><span class="lineno">  227</span>  free(line);</div>
+<div class="line"><span class="lineno">  228</span>  <span class="keywordflow">return</span> table;</div>
+<div class="line"><span class="lineno">  229</span>}</div>
 <div class="ttc" id="aframe_8h_html_aae8ca2c798542f0fc049ccdc5e833d20"><div class="ttname"><a href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a></div><div class="ttdeci">ssize_t recv_frame(int fd, char **buf, size_t *cap)</div><div class="ttdoc">Receive a length-prefixed frame from a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00069">frame.c:69</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -819,20 +828,20 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__reader_8c_a7404d1f70f2ae8cf3a3d055de7285500_icgraph.png" border="0" usemap="#aCSV__reader_8c_a7404d1f70f2ae8cf3a3d055de7285500_icgraph" loading="lazy" alt=""/></div>
 <map name="aCSV__reader_8c_a7404d1f70f2ae8cf3a3d055de7285500_icgraph" id="aCSV__reader_8c_a7404d1f70f2ae8cf3a3d055de7285500_icgraph">
-<area shape="rect" title="Build a hash table from CSV lines read on a pipe." alt="" coords="417,31,561,56"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="316,5,369,31"/>
-<area shape="poly" title=" " alt="" coords="401,31,369,25,369,20,402,26"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="316,55,369,80"/>
-<area shape="poly" title=" " alt="" coords="402,61,369,66,369,61,401,55"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
-<area shape="poly" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
-<area shape="poly" title=" " alt="" coords="176,34,143,41,142,36,174,28"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
-<area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,55,265,80"/>
-<area shape="poly" title=" " alt="" coords="301,70,265,70,265,65,301,65"/>
-<area shape="poly" title=" " alt="" coords="178,59,142,50,143,45,179,53"/>
+<area shape="rect" title="Build a hash table from CSV lines read on a pipe." alt="" coords="435,32,596,60"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="331,5,387,33"/>
+<area shape="poly" title=" " alt="" coords="419,32,387,26,388,21,420,27"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="331,57,387,85"/>
+<area shape="poly" title=" " alt="" coords="420,64,388,69,387,64,419,59"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="316,22,284,22,284,16,316,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" title=" " alt="" coords="183,36,151,43,150,38,182,30"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" title=" " alt="" coords="316,74,280,74,280,68,316,68"/>
+<area shape="poly" title=" " alt="" coords="186,61,149,53,151,48,187,56"/>
 </map>
 </div>
 

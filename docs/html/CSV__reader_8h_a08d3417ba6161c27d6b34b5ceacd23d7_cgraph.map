@@ -1,9 +1,11 @@
 <map id="publish_line_on_pipe" name="publish_line_on_pipe">
-<area shape="rect" id="Node000001" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="5,31,147,56"/>
-<area shape="rect" id="Node000002" href="$CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="195,5,296,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,30,179,25,180,31,147,36"/>
-<area shape="rect" id="Node000003" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="201,55,290,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,51,186,56,185,62,147,56"/>
-<area shape="rect" id="Node000004" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="344,55,413,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,65,329,65,329,70,291,70"/>
+<area shape="rect" id="Node000001" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="5,32,163,60"/>
+<area shape="rect" id="Node000002" href="$CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="211,5,321,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,32,195,27,195,32,163,37"/>
+<area shape="rect" id="Node000004" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="217,57,315,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,54,201,60,201,65,163,59"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="371,5,444,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="321,16,355,16,355,22,321,22"/>
+<area shape="rect" id="Node000005" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="369,57,446,85"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="315,68,353,68,353,74,315,74"/>
 </map>

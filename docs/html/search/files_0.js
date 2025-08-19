@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['_2enull_2dls_5f229517_5fnext_5fword_5fchooser_2eh_0',['.null-ls_229517_next_word_chooser.h',['../_8null-ls__229517__next__word__chooser_8h.html',1,'']]]
+  ['both_5fmp_2ec_0',['both_mp.c',['../both__mp_8c.html',1,'']]],
+  ['both_5fmp_2eh_1',['both_mp.h',['../both__mp_8h.html',1,'']]],
+  ['both_5fsp_2ec_2',['both_sp.c',['../both__sp_8c.html',1,'']]],
+  ['both_5fsp_2eh_3',['both_sp.h',['../both__sp_8h.html',1,'']]]
 ];

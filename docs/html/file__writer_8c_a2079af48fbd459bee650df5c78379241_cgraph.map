@@ -1,0 +1,27 @@
+<map id="create_start_word" name="create_start_word">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,136,144,164"/>
+<area shape="rect" id="Node000002" href="$file__writer_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276" title=" " alt="" coords="192,5,383,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,134,129,89,158,65,190,44,205,37,207,41,193,48,161,69,133,93,90,137"/>
+<area shape="rect" id="Node000004" href="$hash__table_8c.html#af61daf7645f441c335a455cb4ff9365a" title="Search an item by key." alt="" coords="245,109,330,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,139,230,128,231,133,144,144"/>
+<area shape="rect" id="Node000006" href="$file__writer_8c.html#a8136aa31b93b93715dd1761bdbe724ee" title=" " alt="" coords="205,161,370,189"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="144,155,190,161,189,166,144,161"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="454,187,577,214"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="102,162,143,182,192,198,256,207,321,211,438,207,438,212,321,216,256,213,191,203,141,187,99,167"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="209,263,366,290"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="92,162,135,201,193,242,219,254,217,259,190,247,132,206,88,166"/>
+<area shape="rect" id="Node000012" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="217,57,358,85"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="104,133,191,95,214,87,216,92,193,100,106,138"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="479,32,552,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,28,464,37,463,42,383,33"/>
+<area shape="rect" id="Node000005" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="451,109,580,137"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="330,120,436,120,436,126,330,126"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="370,182,439,189,438,195,370,187"/>
+<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="648,187,752,214"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="578,198,633,198,633,203,578,203"/>
+<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="431,263,600,290"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="366,274,416,274,416,279,366,279"/>
+<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="652,263,748,290"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="601,274,637,274,637,279,601,279"/>
+<area shape="poly" id="edge13_Node000012_Node000003" title=" " alt="" coords="358,61,464,49,464,54,359,66"/>
+</map>

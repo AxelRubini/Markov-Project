@@ -208,17 +208,58 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   14</span> </div>
 <div class="line"><span class="lineno">   15</span>  <a class="code hl_struct" href="structnext__word__chooser__t.html">next_word_chooser_t</a> *chooser =</div>
 <div class="line"><span class="lineno">   16</span>      (<a class="code hl_struct" href="structnext__word__chooser__t.html">next_word_chooser_t</a> *)<a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structnext__word__chooser__t.html">next_word_chooser_t</a>));</div>
-<div class="line"><span class="lineno">   17</span>  chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#aaecdb729b59187bcb82c8f35a2c9667b">table</a> = table;</div>
+<div class="line"><span class="lineno">   17</span>  chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#adac107ac1a5f57ea77763f8f68bde67b">table</a> = table;</div>
 <div class="line"><span class="lineno">   18</span> </div>
 <div class="line"><span class="lineno">   19</span>  <span class="comment">// Initialize the random number generator</span></div>
 <div class="line"><span class="lineno">   20</span>  srand((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)time(NULL));</div>
 <div class="line"><span class="lineno">   21</span> </div>
 <div class="line"><span class="lineno">   22</span>  <span class="keywordflow">return</span> chooser;</div>
 <div class="line"><span class="lineno">   23</span>}</div>
-<div class="ttc" id="astructnext__word__chooser__t_html"><div class="ttname"><a href="structnext__word__chooser__t.html">next_word_chooser_t</a></div><div class="ttdef"><b>Definition</b> <a href="_8null-ls__229517__next__word__chooser_8h_source.html#l00012">.null-ls_229517_next_word_chooser.h:12</a></div></div>
-<div class="ttc" id="astructnext__word__chooser__t_html_aaecdb729b59187bcb82c8f35a2c9667b"><div class="ttname"><a href="structnext__word__chooser__t.html#aaecdb729b59187bcb82c8f35a2c9667b">next_word_chooser_t::table</a></div><div class="ttdeci">hash_table_t * table</div><div class="ttdef"><b>Definition</b> <a href="_8null-ls__229517__next__word__chooser_8h_source.html#l00013">.null-ls_229517_next_word_chooser.h:13</a></div></div>
+<div class="ttc" id="astructnext__word__chooser__t_html"><div class="ttname"><a href="structnext__word__chooser__t.html">next_word_chooser_t</a></div><div class="ttdef"><b>Definition</b> <a href="next__word__chooser_8h_source.html#l00012">next_word_chooser.h:12</a></div></div>
+<div class="ttc" id="astructnext__word__chooser__t_html_adac107ac1a5f57ea77763f8f68bde67b"><div class="ttname"><a href="structnext__word__chooser__t.html#adac107ac1a5f57ea77763f8f68bde67b">next_word_chooser_t::table</a></div><div class="ttdeci">hash_table_t * table</div><div class="ttdef"><b>Definition</b> <a href="next__word__chooser_8h_source.html#l00013">next_word_chooser.h:13</a></div></div>
 <div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="next__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_cgraph.png" border="0" usemap="#anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_cgraph" loading="lazy" alt=""/></div>
+<map name="anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_cgraph" id="anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_cgraph">
+<area shape="rect" title="Create a chooser for next&#45;word selection." alt="" coords="5,5,182,31"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="230,5,296,31"/>
+<area shape="poly" title=" " alt="" coords="182,16,214,16,214,21,182,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="next__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_icgraph.png" border="0" usemap="#anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_icgraph" loading="lazy" alt=""/></div>
+<map name="anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_icgraph" id="anext__word__chooser_8h_ad1a65960ac555c60063993a976e5839a_icgraph">
+<area shape="rect" title="Create a chooser for next&#45;word selection." alt="" coords="682,83,877,110"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="505,57,634,85"/>
+<area shape="poly" title=" " alt="" coords="666,86,634,82,635,76,667,80"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="331,109,457,137"/>
+<area shape="poly" title=" " alt="" coords="667,107,457,122,457,116,666,102"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="366,5,422,33"/>
+<area shape="poly" title=" " alt="" coords="505,55,421,30,423,25,506,50"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="366,57,422,85"/>
+<area shape="poly" title=" " alt="" coords="489,74,422,74,422,68,489,68"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="351,22,283,22,283,16,351,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
+<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
+<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" title=" " alt="" coords="351,74,280,74,280,68,351,68"/>
+<area shape="poly" title=" " alt="" coords="187,87,151,96,149,90,186,81"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,109,277,137"/>
+<area shape="poly" title=" " alt="" coords="316,126,277,126,277,120,316,120"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,161,280,189"/>
+<area shape="poly" title=" " alt="" coords="337,145,282,164,280,159,335,140"/>
+<area shape="poly" title=" " alt="" coords="189,114,150,105,151,100,190,109"/>
+<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="ac078d1092f8f2ba03ed5d4f8fce97acb" name="ac078d1092f8f2ba03ed5d4f8fce97acb"></a>
@@ -253,12 +294,12 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="next__word__chooser_8c_source.html#l00028">28</a> of file <a class="el" href="next__word__chooser_8c_source.html">next_word_chooser.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>                                                       {</div>
-<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (chooser == NULL || chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#aaecdb729b59187bcb82c8f35a2c9667b">table</a> == NULL || current_word == NULL) {</div>
+<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (chooser == NULL || chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#adac107ac1a5f57ea77763f8f68bde67b">table</a> == NULL || current_word == NULL) {</div>
 <div class="line"><span class="lineno">   31</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to next_word_chooser_choose\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><span class="lineno">   33</span>  }</div>
 <div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>  <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="hash__table_8h.html#af61daf7645f441c335a455cb4ff9365a">ht_search</a>(chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#aaecdb729b59187bcb82c8f35a2c9667b">table</a>, current_word);</div>
+<div class="line"><span class="lineno">   35</span>  <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="hash__table_8h.html#af61daf7645f441c335a455cb4ff9365a">ht_search</a>(chooser-&gt;<a class="code hl_variable" href="structnext__word__chooser__t.html#adac107ac1a5f57ea77763f8f68bde67b">table</a>, current_word);</div>
 <div class="line"><span class="lineno">   36</span>  <span class="keywordtype">double</span> *probabilities = <a class="code hl_function" href="next__word_8h.html#a756149c3c0e489907306266de351191c">ht_item_next_word_probabilities_array</a>(item);</div>
 <div class="line"><span class="lineno">   37</span>  <span class="keywordflow">if</span> (probabilities == NULL) {</div>
 <div class="line"><span class="lineno">   38</span>    fprintf(stderr, <span class="stringliteral">&quot;No next words found for the current word\n&quot;</span>);</div>
@@ -292,9 +333,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   66</span>  }</div>
 <div class="line"><span class="lineno">   67</span>  <span class="keywordflow">return</span> chosen_word;</div>
 <div class="line"><span class="lineno">   68</span>}</div>
-<div class="ttc" id="ahash__table_8h_html_af61daf7645f441c335a455cb4ff9365a"><div class="ttname"><a href="hash__table_8h.html#af61daf7645f441c335a455cb4ff9365a">ht_search</a></div><div class="ttdeci">ht_item * ht_search(const hash_table_t *table, const void *key)</div><div class="ttdoc">Search an item by key.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00098">hash_table.c:98</a></div></div>
+<div class="ttc" id="ahash__table_8h_html_af61daf7645f441c335a455cb4ff9365a"><div class="ttname"><a href="hash__table_8h.html#af61daf7645f441c335a455cb4ff9365a">ht_search</a></div><div class="ttdeci">ht_item * ht_search(const hash_table_t *table, const void *key)</div><div class="ttdoc">Search an item by key.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00113">hash_table.c:113</a></div></div>
 <div class="ttc" id="alinked__list_8h_html_a07e3a2498e1c69f6da4f2a43e84e5257"><div class="ttname"><a href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a></div><div class="ttdeci">struct ll_item ll_item_t</div></div>
-<div class="ttc" id="alinked__list_8h_html_a5aa85f2acd1a248ebb3f009e8aa01fc5"><div class="ttname"><a href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a></div><div class="ttdeci">size_t get_list_size(const linked_list_t *list)</div><div class="ttdoc">Get the number of elements in a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00082">linked_list.c:82</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_a5aa85f2acd1a248ebb3f009e8aa01fc5"><div class="ttname"><a href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a></div><div class="ttdeci">size_t get_list_size(const linked_list_t *list)</div><div class="ttdoc">Get the number of elements in a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00097">linked_list.c:97</a></div></div>
 <div class="ttc" id="anext__word_8h_html_a756149c3c0e489907306266de351191c"><div class="ttname"><a href="next__word_8h.html#a756149c3c0e489907306266de351191c">ht_item_next_word_probabilities_array</a></div><div class="ttdeci">double * ht_item_next_word_probabilities_array(const ht_item *item)</div><div class="ttdoc">Build an array of probabilities from an item.</div><div class="ttdef"><b>Definition</b> <a href="next__word_8c_source.html#l00157">next_word.c:157</a></div></div>
 <div class="ttc" id="astructht__item_html"><div class="ttname"><a href="structht__item.html">ht_item</a></div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00008">ht_item.h:8</a></div></div>
 <div class="ttc" id="astructht__item_html_a3057dd99e88a8d9966ac2d6ae867b528"><div class="ttname"><a href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">ht_item::value</a></div><div class="ttdeci">void * value</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00010">ht_item.h:10</a></div></div>
@@ -303,7 +344,60 @@ Functions</h2></td></tr>
 <div class="ttc" id="astructll__item_html_a814e6fa74180bcb393c01fec8d461967"><div class="ttname"><a href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">ll_item::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00007">linked_list.h:7</a></div></div>
 <div class="ttc" id="astructnext__word__t_html"><div class="ttname"><a href="structnext__word__t.html">next_word_t</a></div><div class="ttdef"><b>Definition</b> <a href="next__word_8h_source.html#l00019">next_word.h:19</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a74083c77770265ea3e47531cc0666d5d"><div class="ttname"><a href="utf8__tools_8h.html#a74083c77770265ea3e47531cc0666d5d">utf8_str_deepcopy</a></div><div class="ttdeci">int * utf8_str_deepcopy(const int *str)</div><div class="ttdoc">Deep copy a UTF-8 string.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00246">utf8_tools.c:246</a></div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="next__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_cgraph.png" border="0" usemap="#anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_cgraph" loading="lazy" alt=""/></div>
+<map name="anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_cgraph" id="anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_cgraph">
+<area shape="rect" title="Pick the next word according to probabilities." alt="" coords="5,70,206,97"/>
+<area shape="rect" href="linked__list_8c.html#a5aa85f2acd1a248ebb3f009e8aa01fc5" title="Get the number of elements in a list." alt="" coords="550,11,652,39"/>
+<area shape="poly" title=" " alt="" coords="129,67,184,39,218,25,253,16,328,5,403,3,474,6,534,12,533,18,474,12,403,8,328,11,254,21,220,31,187,44,132,72"/>
+<area shape="rect" href="next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="254,31,488,75"/>
+<area shape="poly" title=" " alt="" coords="206,69,238,66,238,71,206,75"/>
+<area shape="rect" href="hash__table_8c.html#af61daf7645f441c335a455cb4ff9365a" title="Search an item by key." alt="" coords="329,151,413,179"/>
+<area shape="poly" title=" " alt="" coords="142,95,254,136,314,151,313,156,253,141,141,100"/>
+<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="300,99,442,127"/>
+<area shape="poly" title=" " alt="" coords="206,92,285,101,284,106,206,97"/>
+<area shape="poly" title=" " alt="" coords="488,36,534,30,534,36,489,41"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="564,67,637,95"/>
+<area shape="poly" title=" " alt="" coords="489,65,549,72,548,77,488,70"/>
+<area shape="rect" href="ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="536,151,665,179"/>
+<area shape="poly" title=" " alt="" coords="413,162,521,162,521,168,413,168"/>
+<area shape="poly" title=" " alt="" coords="441,100,548,85,549,91,442,106"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="next__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_icgraph.png" border="0" usemap="#anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_icgraph" loading="lazy" alt=""/></div>
+<map name="anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_icgraph" id="anext__word__chooser_8h_ac078d1092f8f2ba03ed5d4f8fce97acb_icgraph">
+<area shape="rect" title="Pick the next word according to probabilities." alt="" coords="682,83,882,110"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="505,57,634,85"/>
+<area shape="poly" title=" " alt="" coords="666,85,634,81,635,76,667,80"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="331,109,457,137"/>
+<area shape="poly" title=" " alt="" coords="666,107,457,122,457,116,666,102"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="366,5,422,33"/>
+<area shape="poly" title=" " alt="" coords="505,55,421,30,423,25,506,50"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="366,57,422,85"/>
+<area shape="poly" title=" " alt="" coords="489,74,422,74,422,68,489,68"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="351,22,283,22,283,16,351,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
+<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
+<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" title=" " alt="" coords="351,74,280,74,280,68,351,68"/>
+<area shape="poly" title=" " alt="" coords="187,87,151,96,149,90,186,81"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,109,277,137"/>
+<area shape="poly" title=" " alt="" coords="316,126,277,126,277,120,316,120"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,161,280,189"/>
+<area shape="poly" title=" " alt="" coords="337,145,282,164,280,159,335,140"/>
+<area shape="poly" title=" " alt="" coords="189,114,150,105,151,100,190,109"/>
+<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aa00d20663f502e547db0653832f34b5c" name="aa00d20663f502e547db0653832f34b5c"></a>
@@ -336,7 +430,38 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   72</span>  }</div>
 <div class="line"><span class="lineno">   73</span>  free(chooser); <span class="comment">// Free the chooser structure</span></div>
 <div class="line"><span class="lineno">   74</span>}</div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="next__word__chooser_8h_aa00d20663f502e547db0653832f34b5c_icgraph.png" border="0" usemap="#anext__word__chooser_8h_aa00d20663f502e547db0653832f34b5c_icgraph" loading="lazy" alt=""/></div>
+<map name="anext__word__chooser_8h_aa00d20663f502e547db0653832f34b5c_icgraph" id="anext__word__chooser_8h_aa00d20663f502e547db0653832f34b5c_icgraph">
+<area shape="rect" title="Free a next word chooser." alt="" coords="682,83,862,110"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="505,57,634,85"/>
+<area shape="poly" title=" " alt="" coords="666,86,634,82,634,77,667,81"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="331,109,457,137"/>
+<area shape="poly" title=" " alt="" coords="667,107,457,121,457,116,666,101"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="366,5,422,33"/>
+<area shape="poly" title=" " alt="" coords="505,55,421,30,423,25,506,50"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="366,57,422,85"/>
+<area shape="poly" title=" " alt="" coords="489,74,422,74,422,68,489,68"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="351,22,283,22,283,16,351,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
+<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
+<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" title=" " alt="" coords="351,74,280,74,280,68,351,68"/>
+<area shape="poly" title=" " alt="" coords="187,87,151,96,149,90,186,81"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,109,277,137"/>
+<area shape="poly" title=" " alt="" coords="316,126,277,126,277,120,316,120"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,161,280,189"/>
+<area shape="poly" title=" " alt="" coords="337,145,282,164,280,159,335,140"/>
+<area shape="poly" title=" " alt="" coords="189,114,150,105,151,100,190,109"/>
+<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+</map>
+</div>
+
 </div>
 </div>
 </div><!-- contents -->

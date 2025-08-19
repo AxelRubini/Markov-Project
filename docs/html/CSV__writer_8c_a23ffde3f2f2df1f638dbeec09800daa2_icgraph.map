@@ -1,21 +1,21 @@
 <map id="csv_line_send" name="csv_line_send">
-<area shape="rect" id="Node000001" title="Send CSV lines for all table entries over a descriptor." alt="" coords="531,55,635,80"/>
-<area shape="rect" id="Node000002" href="$task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="424,5,476,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,51,476,30,477,25,533,46"/>
-<area shape="rect" id="Node000006" href="$both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="417,55,483,80"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="515,70,483,70,483,65,515,65"/>
-<area shape="rect" id="Node000009" href="$both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="417,104,483,130"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="533,89,484,107,482,102,531,84"/>
-<area shape="rect" id="Node000003" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,7,268,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,21,269,22,269,17,408,16"/>
-<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,32,142,58"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="176,35,143,43,142,38,174,30"/>
-<area shape="rect" id="Node000005" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,55,58"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,48,55,48,55,42,87,42"/>
-<area shape="rect" id="Node000007" href="$both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="316,56,369,82"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="401,71,369,71,369,66,401,65"/>
-<area shape="rect" id="Node000008" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,56,265,82"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="301,72,265,72,265,66,301,66"/>
-<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="178,60,142,52,143,46,179,55"/>
-<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="404,99,368,83,370,78,407,95"/>
+<area shape="rect" id="Node000001" title="Send CSV lines for all table entries over a descriptor." alt="" coords="553,57,665,85"/>
+<area shape="rect" id="Node000002" href="$task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="442,5,498,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="555,54,497,32,499,27,557,49"/>
+<area shape="rect" id="Node000006" href="$both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="435,57,505,85"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="537,74,505,74,505,68,537,68"/>
+<area shape="rect" id="Node000009" href="$both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="435,109,505,137"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="556,94,506,113,504,108,555,89"/>
+<area shape="rect" id="Node000003" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="427,22,284,22,284,16,427,16"/>
+<area shape="rect" id="Node000004" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="183,36,151,43,150,38,182,30"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="rect" id="Node000007" href="$both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="331,57,387,85"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="419,74,387,74,387,68,419,68"/>
+<area shape="rect" id="Node000008" href="$both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="316,74,280,74,280,68,316,68"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="186,61,149,53,151,48,187,56"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="424,105,386,86,388,82,426,100"/>
 </map>

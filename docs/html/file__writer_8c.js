@@ -1,9 +1,10 @@
 var file__writer_8c =
 [
-    [ "check_start_sym", "file__writer_8c.html#a9affdf46b330e5b1db3bf8946bd593dc", null ],
-    [ "create_start_word", "file__writer_8c.html#af463cba880575710a197fff0b91e12fd", null ],
+    [ "create_start_word", "file__writer_8c.html#a2079af48fbd459bee650df5c78379241", null ],
+    [ "generate_random_symbol", "file__writer_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276", null ],
     [ "is_last_terminator", "file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f", null ],
-    [ "send_output_mp", "file__writer_8c.html#a49154041d01ed32276ecb401ccd1048d", null ],
+    [ "print_available_words", "file__writer_8c.html#a8136aa31b93b93715dd1761bdbe724ee", null ],
+    [ "send_output_mp", "file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940", null ],
     [ "write_output_mp", "file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d", null ],
-    [ "write_output_sp", "file__writer_8c.html#aacc4ca64994b0da56133db65c1f30c21", null ]
+    [ "write_output_sp", "file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4", null ]
 ];

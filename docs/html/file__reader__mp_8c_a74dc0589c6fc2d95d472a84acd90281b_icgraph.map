@@ -1,18 +1,18 @@
 <map id="create_string_for_frame" name="create_string_for_frame">
-<area shape="rect" id="Node000001" title="Create a &quot;current next&quot; frame string." alt="" coords="614,31,772,56"/>
-<area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="417,31,566,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,46,566,46,566,41,598,41"/>
-<area shape="rect" id="Node000003" href="$both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="316,5,369,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,31,369,25,370,20,402,25"/>
-<area shape="rect" id="Node000007" href="$task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="316,55,369,80"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="402,61,370,66,369,61,401,55"/>
-<area shape="rect" id="Node000004" href="$both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
-<area shape="rect" id="Node000005" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" id="Node000006" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
-<area shape="rect" id="Node000008" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
-<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="174,58,142,50,143,45,176,53"/>
+<area shape="rect" id="Node000001" title="Create a &quot;current next&quot; frame string." alt="" coords="648,32,825,60"/>
+<area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="435,32,600,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="633,48,601,48,601,43,633,43"/>
+<area shape="rect" id="Node000003" href="$both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="331,5,387,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,32,387,26,388,21,420,27"/>
+<area shape="rect" id="Node000007" href="$task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="331,57,387,85"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="420,64,388,69,387,64,419,59"/>
+<area shape="rect" id="Node000004" href="$both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="316,22,280,22,280,16,316,16"/>
+<area shape="rect" id="Node000005" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,32,150,60"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="187,35,151,44,149,38,186,29"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,32,60,60"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="92,48,60,48,60,43,92,43"/>
+<area shape="rect" id="Node000008" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,57,283,85"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="316,74,284,74,284,68,316,68"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="182,61,150,53,151,48,183,55"/>
 </map>

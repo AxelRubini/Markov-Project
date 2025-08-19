@@ -124,10 +124,6 @@ Include dependency graph for utils.c:</div>
 </div>
 <p><a href="utils_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a5046e1cbf958143f3bf7aded35204202" id="r_a5046e1cbf958143f3bf7aded35204202"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5046e1cbf958143f3bf7aded35204202">malloc</a>(x)</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1d8eddef9f888ac973de205c457bd89d" id="r_a1d8eddef9f888ac973de205c457bd89d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d8eddef9f888ac973de205c457bd89d">is_prime</a> (int n)</td></tr>
@@ -145,27 +141,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9e8583cecaa2142a642e0ffd5f25dfdd" id="r_a9e8583cecaa2142a642e0ffd5f25dfdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a> (int *fds, size_t count)</td></tr>
 <tr class="memdesc:a9e8583cecaa2142a642e0ffd5f25dfdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a series of pipes safely.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a5046e1cbf958143f3bf7aded35204202" name="a5046e1cbf958143f3bf7aded35204202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5046e1cbf958143f3bf7aded35204202">&#9670;&#160;</a></span>malloc</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define malloc</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">dont_use_malloc_usedmalloc</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00056">56</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a78a9dba3711a7a17ad34044953f6937b" name="a78a9dba3711a7a17ad34044953f6937b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78a9dba3711a7a17ad34044953f6937b">&#9670;&#160;</a></span>dmalloc()</h2>
@@ -183,6 +158,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocate zeroed memory or abort. </p>
+<p>Direct use of <span class="tt">malloc</span> is discouraged; this helper wraps <span class="tt">malloc</span> with error checking and zero-initialization. Prefer <span class="tt">dmalloc</span> in new code and rely on static analysis tools or code reviews to spot unintended uses of <span class="tt">malloc</span>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>Bytes to allocate. </td></tr>
@@ -193,7 +169,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00047">47</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>                           {</div>
-<div class="line"><span class="lineno">   48</span>  <span class="keywordtype">void</span> *ptr = <a class="code hl_define" href="#a5046e1cbf958143f3bf7aded35204202">malloc</a>(size);</div>
+<div class="line"><span class="lineno">   48</span>  <span class="keywordtype">void</span> *ptr = malloc(size);</div>
 <div class="line"><span class="lineno">   49</span>  <span class="keywordflow">if</span> (ptr == NULL) {</div>
 <div class="line"><span class="lineno">   50</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   51</span>    exit(EXIT_FAILURE);</div>
@@ -201,162 +177,160 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   53</span>  memset(ptr, 0, size); <span class="comment">// Initialize allocated memory to zero</span></div>
 <div class="line"><span class="lineno">   54</span>  <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><span class="lineno">   55</span>}</div>
-<div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a78a9dba3711a7a17ad34044953f6937b_icgraph.png" border="0" usemap="#autils_8c_a78a9dba3711a7a17ad34044953f6937b_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a78a9dba3711a7a17ad34044953f6937b_icgraph" id="autils_8c_a78a9dba3711a7a17ad34044953f6937b_icgraph">
-<area shape="rect" title="Allocate zeroed memory or abort." alt="" coords="1438,589,1504,615"/>
-<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="1030,615,1114,640"/>
-<area shape="poly" title=" " alt="" coords="1422,608,1115,627,1114,622,1422,602"/>
-<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="832,513,906,539"/>
-<area shape="poly" title=" " alt="" coords="1423,601,1241,583,1008,554,906,536,907,531,1009,549,1241,578,1423,595"/>
-<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="555,363,728,388"/>
-<area shape="poly" title=" " alt="" coords="1463,574,1453,511,1437,434,1415,363,1402,336,1388,319,1366,304,1338,292,1268,275,1185,266,1094,264,1002,268,915,276,838,288,779,301,744,313,712,330,661,364,658,360,709,326,742,308,777,296,837,282,914,271,1001,263,1094,259,1185,261,1269,270,1340,287,1369,300,1392,315,1407,333,1420,361,1442,432,1458,510,1469,573"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="571,765,713,791"/>
-<area shape="poly" title=" " alt="" coords="1462,630,1435,683,1416,710,1392,733,1342,768,1296,792,1253,806,1211,816,1120,830,1068,840,1009,857,985,866,961,873,868,887,827,886,777,873,761,865,751,856,728,835,664,794,667,789,732,831,754,852,764,861,779,868,828,880,868,882,960,868,984,861,1007,852,1067,835,1119,824,1210,811,1252,801,1294,787,1339,764,1388,729,1412,706,1431,680,1457,628"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="578,463,706,488"/>
-<area shape="poly" title=" " alt="" coords="1455,577,1428,537,1410,518,1389,503,1344,483,1298,466,1202,443,1104,431,1006,429,914,433,830,442,700,465,699,459,829,437,914,428,1006,423,1104,426,1203,438,1300,461,1346,478,1391,498,1414,514,1432,533,1459,574"/>
-<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="1226,513,1348,539"/>
-<area shape="poly" title=" " alt="" coords="1434,584,1389,561,1337,542,1338,537,1391,556,1437,579"/>
-<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="808,311,931,336"/>
-<area shape="poly" title=" " alt="" coords="1468,574,1464,526,1453,466,1443,435,1429,406,1411,380,1388,358,1354,340,1305,328,1246,321,1180,317,1044,316,931,322,931,316,1044,311,1180,311,1246,315,1306,323,1356,335,1392,353,1415,376,1434,403,1448,433,1458,464,1469,525,1473,574"/>
-<area shape="rect" href="next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a" title="Create a chooser for next&#45;word selection." alt="" coords="554,109,730,135"/>
-<area shape="poly" title=" " alt="" coords="1468,574,1468,455,1459,291,1450,207,1435,132,1415,72,1402,50,1388,34,1358,22,1301,14,1225,9,1135,9,1039,12,944,20,854,32,779,49,745,61,712,78,662,111,659,107,710,73,743,56,777,44,854,27,943,15,1039,7,1135,3,1225,4,1302,8,1359,17,1392,29,1407,47,1420,70,1440,131,1455,207,1465,290,1473,455,1473,574"/>
-<area shape="rect" href="word_8c.html#ad9211cc1d1d93a007b67c12c167c8662" title="Create a word object from code points." alt="" coords="823,968,915,994"/>
-<area shape="poly" title=" " alt="" coords="1469,631,1459,697,1443,779,1420,856,1407,886,1392,907,1337,947,1274,975,1208,993,1140,1002,1074,1005,1013,1003,915,992,916,987,1013,998,1074,999,1140,997,1207,987,1273,970,1334,942,1388,903,1402,884,1415,855,1437,778,1454,696,1464,630"/>
-<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="374,663,473,688"/>
-<area shape="poly" title=" " alt="" coords="1471,631,1464,716,1450,827,1440,882,1427,932,1411,973,1392,1000,1354,1029,1317,1046,1281,1053,1245,1053,1167,1042,1123,1037,1073,1034,868,1034,774,1037,699,1036,664,1030,629,1019,592,999,552,971,519,939,493,901,471,860,454,819,433,742,424,689,429,688,438,741,460,817,476,858,497,898,523,935,555,967,595,995,631,1014,665,1025,699,1031,774,1032,868,1029,1073,1029,1124,1031,1168,1037,1246,1048,1281,1048,1315,1041,1351,1025,1388,996,1406,970,1422,930,1435,881,1445,826,1459,715,1466,630"/>
-<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="590,260,694,286"/>
-<area shape="poly" title=" " alt="" coords="1464,574,1456,502,1440,411,1418,326,1404,294,1388,273,1347,243,1302,218,1255,200,1205,188,1154,181,1102,177,998,182,898,198,807,219,732,242,677,262,675,257,731,237,806,214,897,192,997,177,1102,172,1154,175,1206,183,1256,195,1305,214,1350,238,1392,270,1408,292,1423,324,1445,410,1461,501,1470,573"/>
-<area shape="rect" href="ht__item_8c.html#a0c315b9b33c33e9ebb11f0d9d90200f4" title="Create a generic hash&#45;table item." alt="" coords="1210,1069,1364,1095"/>
-<area shape="poly" title=" " alt="" coords="1471,631,1465,725,1451,850,1441,914,1428,971,1412,1019,1392,1052,1366,1071,1362,1067,1388,1048,1407,1016,1422,970,1435,912,1446,850,1459,724,1466,630"/>
-<area shape="rect" href="next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="1184,43,1390,84"/>
-<area shape="poly" title=" " alt="" coords="1466,574,1461,470,1448,330,1438,259,1424,194,1408,141,1388,104,1367,86,1370,82,1392,100,1413,138,1430,193,1443,258,1453,329,1466,470,1472,573"/>
-<area shape="rect" href="linked__list_8c.html#ad4ccef7d656a8ede592bd45bfa37c944" title="Convert a list to an array of pointers." alt="" coords="1221,1119,1353,1144"/>
-<area shape="poly" title=" " alt="" coords="1472,630,1468,735,1456,879,1446,951,1432,1017,1414,1072,1392,1109,1375,1122,1354,1130,1352,1125,1372,1118,1388,1106,1410,1070,1427,1016,1441,950,1451,878,1463,735,1467,630"/>
-<area shape="rect" href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="1203,1168,1371,1194"/>
-<area shape="poly" title=" " alt="" coords="1472,631,1470,745,1459,903,1449,983,1435,1057,1416,1117,1405,1140,1392,1159,1373,1173,1370,1168,1388,1155,1400,1138,1411,1115,1430,1055,1444,983,1454,903,1464,745,1467,631"/>
-<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="1008,108,1136,134"/>
-<area shape="poly" title=" " alt="" coords="1466,574,1462,479,1449,352,1439,288,1426,231,1409,185,1388,155,1361,134,1330,120,1297,110,1263,105,1195,103,1135,110,1134,105,1195,98,1263,99,1298,105,1332,115,1364,130,1392,151,1413,183,1431,230,1444,287,1454,351,1467,479,1472,574"/>
-<area shape="rect" href="utf8__tools_8c.html#ac74a4c380ae184714bb388ba615a9673" title="Convert a word to lowercase and free the original." alt="" coords="1220,867,1354,892"/>
-<area shape="poly" title=" " alt="" coords="1471,631,1466,678,1453,736,1430,796,1413,825,1392,849,1375,862,1356,871,1354,866,1372,858,1388,846,1408,821,1425,794,1448,735,1461,677,1466,630"/>
-<area shape="rect" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b" title="Create a deep copy of a word." alt="" coords="1013,765,1131,791"/>
-<area shape="poly" title=" " alt="" coords="1428,624,1105,767,1102,762,1425,619"/>
-<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="556,412,728,438"/>
-<area shape="poly" title=" " alt="" coords="1014,632,951,632,881,629,819,620,794,613,776,603,760,585,752,566,750,527,748,489,742,470,728,452,711,440,715,436,732,448,747,468,754,488,755,527,757,565,765,582,780,599,796,608,820,615,882,624,951,627,1014,627"/>
-<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="606,513,678,539"/>
-<area shape="poly" title=" " alt="" coords="1015,647,964,657,903,664,839,662,808,656,777,647,736,625,700,596,651,541,655,538,703,592,739,621,779,642,809,651,840,657,903,658,963,652,1014,641"/>
-<area shape="poly" title=" " alt="" coords="1026,609,1007,598,983,574,973,563,959,552,933,541,905,534,907,529,934,536,962,548,977,559,987,570,1010,593,1029,605"/>
-<area shape="rect" href="next__word_8c.html#aa3f541601012b84e488c3af2b0bde068" title="Append a next word to an existing item." alt="" coords="781,563,957,588"/>
-<area shape="poly" title=" " alt="" coords="1014,615,922,591,923,586,1015,610"/>
-<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="795,765,943,791"/>
-<area shape="poly" title=" " alt="" coords="1055,655,1016,702,990,727,962,748,923,767,920,762,959,744,986,723,1012,698,1051,651"/>
-<area shape="poly" title=" " alt="" coords="1021,649,961,670,683,767,681,762,959,665,1019,644"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="364,412,483,438"/>
-<area shape="poly" title=" " alt="" coords="540,427,483,427,483,422,540,422"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="351,363,496,388"/>
-<area shape="poly" title=" " alt="" coords="566,411,483,392,484,386,567,405"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="222,551,290,576"/>
-<area shape="poly" title=" " alt="" coords="399,451,352,494,295,542,280,552,277,548,292,537,348,490,396,447"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="219,403,293,428"/>
-<area shape="poly" title=" " alt="" coords="349,423,293,420,294,415,349,418"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="5,456,45,482"/>
-<area shape="poly" title=" " alt="" coords="207,558,151,544,91,522,62,504,39,484,42,480,66,499,94,517,152,539,208,553"/>
-<area shape="poly" title=" " alt="" coords="204,430,46,467,44,462,203,425"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="230,229,282,255"/>
-<area shape="poly" title=" " alt="" coords="392,355,272,257,276,253,396,351"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="230,353,282,379"/>
-<area shape="poly" title=" " alt="" coords="336,373,283,370,283,365,336,368"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="93,229,171,255"/>
-<area shape="poly" title=" " alt="" coords="214,245,171,245,171,239,214,239"/>
-<area shape="poly" title=" " alt="" coords="121,270,35,457,30,454,116,268"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="96,376,168,402"/>
-<area shape="poly" title=" " alt="" coords="215,376,169,385,168,380,214,371"/>
-<area shape="poly" title=" " alt="" coords="103,413,46,457,42,453,100,409"/>
-<area shape="poly" title=" " alt="" coords="590,516,553,503,491,471,443,440,446,436,494,467,555,498,592,511"/>
-<area shape="poly" title=" " alt="" coords="590,522,570,514,552,503,540,490,533,477,527,451,521,425,515,413,504,401,488,391,491,387,507,397,519,410,526,423,532,450,538,475,544,487,555,499,572,510,592,517"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="341,613,506,639"/>
-<area shape="poly" title=" " alt="" coords="609,550,561,578,507,605,477,615,475,610,505,600,559,573,606,545"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="347,564,500,590"/>
-<area shape="poly" title=" " alt="" coords="592,540,483,566,482,561,591,535"/>
-<area shape="poly" title=" " alt="" coords="357,611,340,605,283,579,285,574,342,600,359,606"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="219,613,293,639"/>
-<area shape="poly" title=" " alt="" coords="326,629,294,629,294,623,326,623"/>
-<area shape="poly" title=" " alt="" coords="203,613,147,589,91,555,55,518,32,483,36,480,60,515,94,551,150,584,205,608"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="230,501,282,527"/>
-<area shape="poly" title=" " alt="" coords="372,561,282,526,284,521,374,556"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="230,452,282,478"/>
-<area shape="poly" title=" " alt="" coords="389,557,292,491,276,480,279,476,295,487,392,553"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="93,481,171,507"/>
-<area shape="poly" title=" " alt="" coords="214,510,171,503,172,498,215,505"/>
-<area shape="poly" title=" " alt="" coords="77,484,45,476,46,471,78,479"/>
-<area shape="poly" title=" " alt="" coords="220,446,153,404,156,400,223,442"/>
-<area shape="poly" title=" " alt="" coords="817,529,678,529,678,523,817,523"/>
-<area shape="poly" title=" " alt="" coords="779,556,776,553,761,534,753,515,751,476,749,438,742,419,728,401,714,391,717,387,732,398,747,417,754,436,757,475,759,513,766,532,780,550,782,552"/>
-<area shape="poly" title=" " alt="" coords="567,395,484,414,483,409,566,390"/>
-<area shape="poly" title=" " alt="" coords="540,378,496,378,496,373,540,373"/>
-<area shape="poly" title=" " alt="" coords="780,781,713,781,713,775,780,775"/>
-<area shape="poly" title=" " alt="" coords="619,755,570,703,539,676,504,652,481,642,483,637,507,648,542,672,574,699,623,751"/>
-<area shape="poly" title=" " alt="" coords="625,753,605,719,578,678,544,638,504,603,484,592,487,588,507,599,548,634,583,675,610,716,630,750"/>
-<area shape="poly" title=" " alt="" coords="568,461,481,441,483,436,569,456"/>
-<area shape="poly" title=" " alt="" coords="564,459,552,452,537,439,527,426,519,414,504,402,482,391,485,386,507,397,523,410,532,423,541,436,555,448,567,454"/>
-<area shape="poly" title=" " alt="" coords="566,495,555,503,544,515,538,527,532,552,526,578,519,591,507,604,491,615,488,610,504,600,515,588,521,576,527,551,533,525,540,512,552,499,563,491"/>
-<area shape="poly" title=" " alt="" coords="563,486,283,514,283,509,562,481"/>
-<area shape="poly" title=" " alt="" coords="562,476,283,468,283,463,563,471"/>
-<area shape="poly" title=" " alt="" coords="1210,516,1135,503,728,440,729,435,1136,498,1211,511"/>
-<area shape="poly" title=" " alt="" coords="1261,551,1137,655,1073,704,1010,755,997,769,989,783,978,795,961,806,924,818,885,824,846,826,807,823,735,810,678,794,680,789,736,805,807,818,846,820,885,819,923,813,959,801,975,791,984,780,993,766,1006,751,1069,700,1134,651,1257,547"/>
-<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="1019,513,1125,539"/>
-<area shape="poly" title=" " alt="" coords="1210,529,1126,529,1126,523,1210,523"/>
-<area shape="poly" title=" " alt="" coords="1008,512,960,503,869,497,778,503,678,520,677,515,778,498,869,492,961,498,1009,507"/>
-<area shape="poly" title=" " alt="" coords="1004,529,906,529,906,523,1004,523"/>
-<area shape="poly" title=" " alt="" coords="806,345,779,358,765,369,756,380,747,392,731,403,707,414,705,409,729,398,743,388,752,377,762,365,777,353,803,340"/>
-<area shape="rect" href="file__writer_8c.html#a49154041d01ed32276ecb401ccd1048d" title="Send generated words over a file descriptor." alt="" coords="365,113,482,139"/>
-<area shape="poly" title=" " alt="" coords="538,127,483,128,482,122,538,121"/>
-<area shape="rect" href="file__writer_8c.html#aacc4ca64994b0da56133db65c1f30c21" title="Generate text and write it to a file (single process)." alt="" coords="367,163,480,188"/>
-<area shape="poly" title=" " alt="" coords="572,142,480,165,479,159,571,137"/>
-<area shape="poly" title=" " alt="" coords="352,147,343,152,319,170,298,191,268,230,264,227,294,188,316,166,340,148,349,143"/>
-<area shape="poly" title=" " alt="" coords="352,145,343,152,307,238,265,354,260,352,302,236,339,148,349,141"/>
-<area shape="poly" title=" " alt="" coords="354,192,343,201,316,243,306,283,306,324,313,364,321,405,324,448,317,493,296,541,285,552,281,548,291,538,312,492,318,448,315,406,308,365,301,324,301,283,312,241,339,198,351,188"/>
-<area shape="poly" title=" " alt="" coords="355,192,343,201,326,224,318,247,315,269,316,292,316,340,310,366,295,393,285,404,281,400,291,390,305,364,311,340,311,292,310,269,313,246,322,222,339,198,351,188"/>
-<area shape="poly" title=" " alt="" coords="808,980,747,971,678,952,643,939,610,921,579,900,552,874,533,846,525,817,524,788,528,761,531,733,530,706,522,679,504,652,491,642,494,637,508,648,527,677,535,705,536,733,533,761,530,789,530,816,538,843,556,871,582,896,612,917,645,934,679,947,748,966,808,975"/>
-<area shape="poly" title=" " alt="" coords="807,966,777,951,761,939,751,926,742,914,728,902,703,885,679,874,635,860,593,843,572,828,552,805,536,777,529,751,530,700,531,675,529,651,521,627,504,603,490,592,493,588,508,599,526,625,535,650,537,675,535,700,534,750,541,775,556,802,576,824,595,838,636,855,681,869,706,880,732,897,746,911,756,923,765,935,779,947,810,962"/>
-<area shape="poly" title=" " alt="" coords="358,663,340,654,324,642,313,630,291,603,269,579,272,575,295,599,317,627,327,638,343,649,361,658"/>
-<area shape="poly" title=" " alt="" coords="362,660,341,654,293,640,295,635,342,649,363,655"/>
-<area shape="poly" title=" " alt="" coords="575,289,434,321,374,338,343,352,329,368,322,384,317,418,314,453,307,472,295,492,284,503,280,499,291,488,303,470,308,452,312,417,317,383,325,365,340,348,372,333,433,316,574,284"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="390,261,457,287"/>
-<area shape="poly" title=" " alt="" coords="574,276,457,277,457,271,574,271"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="390,212,457,238"/>
-<area shape="poly" title=" " alt="" coords="574,261,456,235,457,229,575,256"/>
-<area shape="poly" title=" " alt="" coords="377,287,359,296,343,308,330,324,323,340,318,372,314,406,307,424,295,442,284,453,280,450,291,439,302,421,309,404,313,371,318,339,326,322,339,304,356,291,374,283"/>
-<area shape="poly" title=" " alt="" coords="376,233,358,240,343,251,326,274,318,296,315,319,316,342,316,390,310,415,295,442,285,453,281,450,291,439,305,414,311,389,311,342,310,318,313,295,322,271,339,247,356,235,374,228"/>
-<area shape="rect" href="next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="778,59,960,84"/>
-<area shape="poly" title=" " alt="" coords="1168,68,961,72,961,67,1168,63"/>
-<area shape="poly" title=" " alt="" coords="762,79,661,87,554,99,476,115,475,110,553,94,661,81,762,74"/>
-<area shape="poly" title=" " alt="" coords="784,95,780,97,769,109,763,122,758,149,752,175,745,188,731,199,712,207,685,211,619,210,546,201,480,190,481,184,547,196,619,204,685,205,710,202,729,194,741,184,747,173,753,148,758,120,764,106,776,93,780,90"/>
-<area shape="poly" title=" " alt="" coords="1018,142,905,188,841,220,780,256,755,277,732,300,660,364,656,360,728,296,751,273,776,252,838,215,903,183,1016,137"/>
-<area shape="poly" title=" " alt="" coords="1051,147,962,243,887,312,884,308,958,239,1047,144"/>
-<area shape="poly" title=" " alt="" coords="1001,106,924,87,926,82,1002,101"/>
-<area shape="rect" href="file__writer_8c.html#af463cba880575710a197fff0b91e12fd" title="Create a deep&#45;copied start word from a punctuation symbol." alt="" coords="806,108,932,134"/>
-<area shape="poly" title=" " alt="" coords="993,123,932,123,932,118,993,118"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="365,64,482,90"/>
-<area shape="poly" title=" " alt="" coords="1045,100,1006,71,959,49,893,33,824,26,755,24,687,28,564,45,473,66,471,61,563,40,686,23,754,19,824,20,894,28,961,44,1009,67,1048,96"/>
-<area shape="rect" href="file__writer_8c.html#a9affdf46b330e5b1db3bf8946bd593dc" title="Check if the start character is present in the hash table if not will choose the first start characte..." alt="" coords="582,159,702,184"/>
-<area shape="poly" title=" " alt="" coords="794,140,703,161,702,156,793,135"/>
-<area shape="poly" title=" " alt="" coords="566,159,482,141,483,136,567,153"/>
-<area shape="poly" title=" " alt="" coords="566,175,481,177,481,172,566,170"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="230,75,282,100"/>
-<area shape="poly" title=" " alt="" coords="350,84,283,88,282,83,349,79"/>
-<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="230,143,282,168"/>
-<area shape="poly" title=" " alt="" coords="355,98,343,103,306,123,276,144,273,140,303,119,340,98,353,93"/>
-<area shape="poly" title=" " alt="" coords="236,114,221,132,145,230,141,227,217,128,231,111"/>
-<area shape="poly" title=" " alt="" coords="241,183,221,218,142,377,137,374,217,216,237,180"/>
-<area shape="poly" title=" " alt="" coords="1216,899,916,972,915,967,1215,894"/>
-<area shape="rect" href="word_8c.html#a3a8a0b55ff63360c67ee71486bba5ee7" title="Compare a word with a raw string case&#45;insensitively." alt="" coords="1020,867,1124,892"/>
-<area shape="poly" title=" " alt="" coords="1204,882,1124,882,1124,877,1204,877"/>
-<area shape="poly" title=" " alt="" coords="997,781,944,781,944,775,997,775"/>
-<area shape="poly" title=" " alt="" coords="1030,800,1010,812,987,833,977,842,961,850,911,864,870,867,828,862,777,850,744,839,712,824,661,794,663,789,714,819,746,834,779,845,829,857,870,862,910,859,959,845,974,838,984,829,1007,808,1028,796"/>
+<area shape="rect" title="Allocate zeroed memory or abort." alt="" coords="1607,642,1680,670"/>
+<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="1130,516,1223,543"/>
+<area shape="poly" title=" " alt="" coords="1625,631,1597,594,1578,577,1558,564,1515,546,1470,533,1377,521,1291,520,1223,526,1223,520,1291,515,1378,515,1471,528,1517,541,1560,559,1582,573,1601,591,1629,628"/>
+<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="889,516,969,543"/>
+<area shape="poly" title=" " alt="" coords="1602,637,1558,620,1487,602,1426,590,1320,578,1213,573,1076,558,969,539,970,534,1077,552,1213,567,1320,573,1426,584,1488,596,1560,615,1604,633"/>
+<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="588,320,782,347"/>
+<area shape="poly" title=" " alt="" coords="1639,627,1633,530,1619,402,1608,338,1595,280,1578,233,1557,202,1534,187,1501,174,1408,156,1293,146,1168,143,1047,145,942,150,831,161,814,173,805,186,784,220,700,321,696,317,780,217,800,183,811,169,829,156,941,145,1047,140,1168,138,1293,141,1409,151,1502,169,1537,182,1561,198,1582,231,1600,278,1614,337,1624,401,1638,530,1644,627"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="606,662,764,690"/>
+<area shape="poly" title=" " alt="" coords="1616,682,1590,701,1560,716,1484,741,1421,752,1277,760,1150,770,1050,771,952,759,829,728,805,717,781,705,743,693,745,688,783,700,807,712,831,723,953,754,1051,766,1150,764,1276,755,1421,747,1482,736,1558,711,1587,696,1613,678"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="615,714,755,742"/>
+<area shape="poly" title=" " alt="" coords="1631,686,1603,727,1583,747,1560,763,1504,787,1446,806,1387,820,1326,829,1203,834,1083,826,970,809,870,787,725,745,727,740,871,782,971,804,1083,821,1203,829,1325,823,1386,815,1445,801,1503,782,1558,758,1580,743,1599,724,1627,683"/>
+<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="1374,629,1510,657"/>
+<area shape="poly" title=" " alt="" coords="1591,655,1510,650,1510,645,1592,650"/>
+<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="1108,414,1245,442"/>
+<area shape="poly" title=" " alt="" coords="1630,629,1603,574,1583,546,1557,522,1521,499,1481,480,1397,453,1315,438,1245,432,1246,427,1316,433,1398,448,1483,475,1523,495,1561,518,1587,542,1608,571,1635,627"/>
+<area shape="rect" href="next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a" title="Create a chooser for next&#45;word selection." alt="" coords="1079,206,1274,234"/>
+<area shape="poly" title=" " alt="" coords="1638,627,1631,539,1617,425,1606,368,1593,317,1576,277,1557,250,1521,225,1481,208,1437,198,1393,193,1306,196,1233,208,1232,203,1305,191,1393,188,1438,192,1482,203,1524,220,1561,246,1581,274,1598,316,1611,367,1622,424,1637,539,1643,627"/>
+<area shape="rect" href="word_8c.html#ad9211cc1d1d93a007b67c12c167c8662" title="Create a word object from code points." alt="" coords="634,921,736,949"/>
+<area shape="poly" title=" " alt="" coords="1641,686,1631,753,1614,836,1591,913,1577,943,1561,962,1514,996,1469,1022,1426,1042,1384,1054,1343,1062,1302,1064,1220,1057,1134,1038,1043,1014,943,990,830,971,735,952,736,947,830,966,944,985,1045,1009,1136,1033,1220,1052,1302,1059,1342,1056,1383,1049,1424,1037,1467,1018,1511,992,1557,958,1572,940,1586,911,1609,835,1626,752,1636,685"/>
+<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="393,612,503,639"/>
+<area shape="poly" title=" " alt="" coords="1640,686,1631,720,1615,760,1592,799,1561,832,1511,863,1466,883,1423,894,1381,897,1290,893,1178,887,928,887,823,882,780,874,741,863,704,846,667,823,586,755,574,742,568,729,562,703,556,678,549,666,538,654,521,643,502,636,504,631,524,639,541,650,553,663,560,676,567,702,573,727,579,739,590,752,670,818,706,841,742,858,781,869,823,877,928,882,1178,882,1290,887,1381,892,1422,889,1464,878,1509,859,1557,827,1588,796,1610,758,1625,719,1635,684"/>
+<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="629,973,741,1001"/>
+<area shape="poly" title=" " alt="" coords="1644,685,1637,774,1623,890,1612,947,1599,999,1582,1040,1561,1068,1532,1085,1495,1097,1452,1104,1402,1108,1290,1105,1166,1091,1041,1071,922,1047,740,1004,741,999,923,1042,1042,1065,1167,1086,1290,1099,1402,1102,1451,1099,1494,1091,1530,1080,1557,1064,1577,1037,1594,997,1607,946,1618,889,1632,774,1638,685"/>
+<area shape="rect" href="ht__item_8c.html#a0c315b9b33c33e9ebb11f0d9d90200f4" title="Create a generic hash&#45;table item." alt="" coords="1356,1124,1528,1151"/>
+<area shape="poly" title=" " alt="" coords="1644,686,1637,781,1622,906,1611,970,1598,1027,1581,1074,1561,1107,1546,1120,1530,1128,1527,1124,1543,1115,1557,1104,1576,1072,1593,1026,1606,969,1617,906,1631,780,1638,685"/>
+<area shape="rect" href="file__writer_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276" title=" " alt="" coords="1346,260,1538,287"/>
+<area shape="poly" title=" " alt="" coords="1637,627,1627,551,1610,454,1587,363,1573,328,1557,305,1536,290,1539,286,1561,301,1578,326,1592,361,1616,453,1632,550,1642,626"/>
+<area shape="rect" href="next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="1325,374,1559,419"/>
+<area shape="poly" title=" " alt="" coords="1634,628,1625,590,1610,545,1587,498,1557,457,1534,437,1507,421,1509,417,1537,433,1561,453,1592,496,1615,543,1630,589,1640,627"/>
+<area shape="rect" href="linked__list_8c.html#ad4ccef7d656a8ede592bd45bfa37c944" title="Convert a list to an array of pointers." alt="" coords="1368,1176,1516,1203"/>
+<area shape="poly" title=" " alt="" coords="1644,686,1639,792,1627,935,1616,1007,1602,1073,1584,1127,1561,1165,1541,1180,1517,1189,1515,1184,1538,1175,1557,1161,1579,1125,1597,1072,1611,1006,1621,934,1634,791,1639,685"/>
+<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="1387,54,1497,82"/>
+<area shape="poly" title=" " alt="" coords="1639,627,1636,512,1624,355,1613,275,1599,202,1580,142,1569,119,1557,102,1544,91,1530,83,1496,73,1498,68,1532,78,1547,87,1561,98,1574,117,1585,140,1604,201,1618,274,1629,354,1641,512,1645,627"/>
+<area shape="rect" href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="1348,1228,1536,1255"/>
+<area shape="poly" title=" " alt="" coords="1645,685,1641,801,1630,960,1619,1041,1605,1114,1586,1175,1574,1199,1561,1217,1538,1233,1535,1229,1557,1213,1570,1196,1581,1173,1600,1113,1614,1040,1625,959,1636,800,1639,685"/>
+<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="1371,314,1512,342"/>
+<area shape="poly" title=" " alt="" coords="1640,627,1637,572,1626,501,1615,463,1601,427,1581,393,1557,363,1536,348,1512,339,1514,334,1539,344,1561,360,1586,390,1605,425,1620,462,1631,499,1642,571,1646,627"/>
+<area shape="rect" href="utf8__tools_8c.html#ac74a4c380ae184714bb388ba615a9673" title="Convert a word to lowercase and free the original." alt="" coords="1367,921,1516,949"/>
+<area shape="poly" title=" " alt="" coords="1644,686,1638,733,1624,792,1600,853,1582,880,1561,905,1541,919,1518,928,1516,924,1538,914,1557,901,1578,877,1595,850,1619,791,1633,732,1638,685"/>
+<area shape="rect" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b" title="Create a deep copy of a word." alt="" coords="1111,718,1242,746"/>
+<area shape="poly" title=" " alt="" coords="1592,667,1242,724,1242,719,1591,662"/>
+<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="832,312,1026,339"/>
+<area shape="poly" title=" " alt="" coords="1114,522,1093,513,1074,499,1060,481,1053,462,1050,425,1047,389,1040,371,1027,354,1009,342,1012,338,1030,350,1045,369,1052,387,1055,424,1058,461,1065,478,1078,496,1096,509,1116,517"/>
+<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="646,522,724,550"/>
+<area shape="poly" title=" " alt="" coords="1114,516,1075,500,1061,490,1051,479,1042,470,1027,463,973,446,929,440,884,445,831,463,816,471,807,482,798,494,783,506,754,520,725,530,724,525,752,515,781,502,794,491,803,479,813,467,829,458,883,440,929,435,974,441,1029,458,1045,466,1055,476,1064,486,1078,495,1116,511"/>
+<area shape="poly" title=" " alt="" coords="1114,532,970,532,970,527,1114,527"/>
+<area shape="rect" href="next__word_8c.html#aa3f541601012b84e488c3af2b0bde068" title="Append a next word to an existing item." alt="" coords="830,364,1028,391"/>
+<area shape="poly" title=" " alt="" coords="1114,521,1094,512,1075,500,1057,477,1050,454,1043,433,1027,412,996,394,999,390,1030,408,1048,430,1055,453,1062,475,1078,496,1096,507,1116,516"/>
+<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="846,617,1012,645"/>
+<area shape="poly" title=" " alt="" coords="1128,552,966,619,964,614,1126,547"/>
+<area shape="poly" title=" " alt="" coords="1114,519,1028,507,971,498,926,490,883,490,859,496,832,506,700,664,696,660,828,502,857,491,882,485,926,485,972,493,1029,502,1115,514"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="384,370,512,398"/>
+<area shape="poly" title=" " alt="" coords="859,346,782,362,638,377,513,385,513,380,637,372,782,356,858,341"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="367,472,529,499"/>
+<area shape="poly" title=" " alt="" coords="839,349,832,354,821,366,815,378,810,405,804,431,796,444,784,456,754,473,722,486,655,501,589,505,529,501,529,496,589,499,655,496,721,481,752,468,780,451,792,441,799,429,804,404,810,377,816,363,828,350,835,345"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="232,548,305,575"/>
+<area shape="poly" title=" " alt="" coords="374,407,358,418,340,440,331,461,324,485,311,512,284,549,280,546,306,510,319,483,326,459,335,437,355,414,371,403"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="229,370,308,398"/>
+<area shape="poly" title=" " alt="" coords="368,387,309,387,309,382,368,382"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="5,549,48,577"/>
+<area shape="poly" title=" " alt="" coords="217,564,48,565,48,560,217,559"/>
+<area shape="poly" title=" " alt="" coords="225,408,163,443,97,489,65,521,40,551,36,547,61,517,94,485,160,438,223,403"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="241,218,296,246"/>
+<area shape="poly" title=" " alt="" coords="411,464,382,440,354,411,325,367,301,321,272,248,277,246,306,319,330,365,358,408,385,436,414,460"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="241,472,296,499"/>
+<area shape="poly" title=" " alt="" coords="352,488,297,488,297,483,352,483"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="99,498,178,526"/>
+<area shape="poly" title=" " alt="" coords="227,497,178,507,177,502,226,492"/>
+<area shape="poly" title=" " alt="" coords="93,535,49,556,47,551,91,531"/>
+<area shape="poly" title=" " alt="" coords="647,516,470,401,473,396,650,511"/>
+<area shape="poly" title=" " alt="" coords="630,527,516,503,517,497,631,522"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="356,560,540,587"/>
+<area shape="poly" title=" " alt="" coords="631,547,540,562,540,556,630,542"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="363,664,533,691"/>
+<area shape="poly" title=" " alt="" coords="660,563,608,609,575,633,541,653,511,666,509,661,538,648,572,628,605,605,657,559"/>
+<area shape="poly" title=" " alt="" coords="341,569,305,567,306,561,341,564"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="229,600,308,627"/>
+<area shape="poly" title=" " alt="" coords="369,594,309,607,308,602,367,589"/>
+<area shape="poly" title=" " alt="" coords="214,605,47,570,48,564,215,600"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="241,677,296,705"/>
+<area shape="poly" title=" " alt="" coords="348,688,297,691,297,686,348,682"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="241,816,296,843"/>
+<area shape="poly" title=" " alt="" coords="421,703,289,817,285,813,417,699"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="96,664,181,691"/>
+<area shape="poly" title=" " alt="" coords="226,689,181,685,182,679,226,684"/>
+<area shape="poly" title=" " alt="" coords="111,654,39,579,43,575,115,651"/>
+<area shape="poly" title=" " alt="" coords="253,802,143,527,148,525,258,800"/>
+<area shape="poly" title=" " alt="" coords="873,534,724,538,724,532,873,528"/>
+<area shape="poly" title=" " alt="" coords="833,363,765,351,766,345,834,358"/>
+<area shape="poly" title=" " alt="" coords="603,354,513,373,512,368,602,349"/>
+<area shape="poly" title=" " alt="" coords="650,358,473,473,470,469,647,354"/>
+<area shape="poly" title=" " alt="" coords="836,651,764,664,763,659,835,646"/>
+<area shape="poly" title=" " alt="" coords="646,657,596,629,539,603,504,591,506,586,541,598,598,624,648,652"/>
+<area shape="poly" title=" " alt="" coords="591,679,533,680,533,674,591,674"/>
+<area shape="poly" title=" " alt="" coords="599,714,586,703,564,673,554,644,552,615,554,586,558,527,552,495,537,462,524,443,507,426,473,401,476,396,511,422,528,439,542,459,557,494,563,526,559,586,557,615,559,643,569,671,590,700,603,710"/>
+<area shape="poly" title=" " alt="" coords="599,713,586,703,570,684,562,665,558,628,555,590,549,570,538,550,510,522,478,502,481,498,513,518,542,547,554,568,560,589,563,628,567,664,575,682,590,700,602,709"/>
+<area shape="poly" title=" " alt="" coords="599,713,586,704,574,691,567,678,561,652,555,626,549,614,538,602,519,590,521,586,541,598,553,611,560,624,566,650,572,676,578,688,589,700,602,708"/>
+<area shape="poly" title=" " alt="" coords="599,726,356,706,296,698,297,692,357,700,600,720"/>
+<area shape="poly" title=" " alt="" coords="611,749,297,826,296,820,610,744"/>
+<area shape="poly" title=" " alt="" coords="1416,619,1356,562,1317,532,1275,507,1247,495,1221,489,1172,488,1125,483,1101,473,1075,456,1063,443,1055,430,1050,404,1044,378,1038,366,1027,354,1007,342,1010,338,1030,350,1042,363,1049,376,1055,402,1060,428,1067,440,1078,451,1103,468,1127,478,1173,482,1221,484,1248,490,1278,502,1320,528,1359,558,1419,615"/>
+<area shape="poly" title=" " alt="" coords="1359,653,1277,659,994,671,765,677,764,672,994,666,1277,654,1358,648"/>
+<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="1119,617,1234,645"/>
+<area shape="poly" title=" " alt="" coords="1358,642,1234,636,1235,631,1359,636"/>
+<area shape="poly" title=" " alt="" coords="1103,620,724,546,725,541,1104,614"/>
+<area shape="poly" title=" " alt="" coords="1104,614,1075,601,1051,582,1027,564,969,542,971,537,1030,559,1054,578,1078,597,1106,609"/>
+<area shape="poly" title=" " alt="" coords="1092,412,1075,404,1059,391,1050,378,1041,366,1027,354,1000,342,1002,338,1030,350,1045,362,1054,375,1063,388,1078,399,1094,408"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="864,206,994,234"/>
+<area shape="poly" title=" " alt="" coords="1063,223,994,223,994,218,1063,218"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="866,258,992,286"/>
+<area shape="poly" title=" " alt="" coords="1093,240,993,262,992,256,1092,235"/>
+<area shape="poly" title=" " alt="" coords="886,202,837,181,781,165,662,142,566,129,521,129,472,134,419,146,357,165,335,176,315,190,284,220,280,216,311,186,332,171,355,160,418,141,472,129,520,123,567,123,663,137,783,160,838,176,888,197"/>
+<area shape="poly" title=" " alt="" coords="849,225,744,234,616,256,549,273,482,296,418,325,358,361,330,387,307,417,278,472,273,470,302,415,326,383,355,357,415,321,480,291,547,268,615,251,743,228,849,219"/>
+<area shape="poly" title=" " alt="" coords="853,291,832,302,817,316,808,331,800,346,784,361,724,391,670,407,619,412,570,413,521,413,470,419,416,433,358,462,320,500,283,549,278,545,316,497,355,458,415,428,469,413,520,408,570,407,618,407,669,401,722,386,780,357,796,343,804,328,813,313,828,298,851,287"/>
+<area shape="poly" title=" " alt="" coords="851,281,727,292,588,311,472,333,357,361,310,375,308,370,356,356,471,327,587,306,727,287,851,275"/>
+<area shape="poly" title=" " alt="" coords="665,909,626,840,585,754,573,709,570,671,562,637,553,620,538,602,521,590,524,586,541,598,557,617,567,635,575,671,578,708,590,753,631,838,669,906"/>
+<area shape="poly" title=" " alt="" coords="618,925,601,917,586,905,571,887,563,869,557,835,553,800,548,781,537,762,504,723,469,694,472,690,508,719,542,759,553,779,559,799,562,834,568,868,576,884,590,901,604,912,621,920"/>
+<area shape="poly" title=" " alt="" coords="379,609,355,601,300,578,302,573,357,596,381,604"/>
+<area shape="poly" title=" " alt="" coords="377,624,308,619,309,613,378,618"/>
+<area shape="poly" title=" " alt="" coords="613,977,586,962,567,939,559,916,553,893,538,869,477,813,409,766,345,729,295,705,298,700,348,725,412,761,480,808,542,865,558,891,564,915,572,937,589,958,615,973"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="413,954,483,982"/>
+<area shape="poly" title=" " alt="" coords="613,984,484,974,484,968,613,979"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="413,878,483,906"/>
+<area shape="poly" title=" " alt="" coords="613,972,587,963,525,935,473,909,476,904,527,931,589,958,614,967"/>
+<area shape="poly" title=" " alt="" coords="401,949,355,920,312,881,280,846,284,842,316,877,358,915,404,944"/>
+<area shape="poly" title=" " alt="" coords="397,877,296,842,298,837,399,872"/>
+<area shape="rect" href="file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="1107,258,1246,286"/>
+<area shape="poly" title=" " alt="" coords="1330,276,1246,275,1246,270,1330,270"/>
+<area shape="poly" title=" " alt="" coords="1092,257,994,236,995,231,1093,252"/>
+<area shape="poly" title=" " alt="" coords="1092,275,992,275,992,270,1092,270"/>
+<area shape="rect" href="next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="1076,362,1277,390"/>
+<area shape="poly" title=" " alt="" coords="1309,389,1277,386,1277,381,1309,384"/>
+<area shape="poly" title=" " alt="" coords="1081,356,1075,352,1063,339,1055,325,1050,299,1044,273,1038,261,1027,249,1011,239,993,232,995,227,1014,234,1030,245,1042,258,1049,271,1055,298,1060,323,1067,336,1078,348,1084,352"/>
+<area shape="poly" title=" " alt="" coords="1088,359,1075,352,1059,339,1050,327,1041,314,1027,302,991,287,993,282,1030,298,1045,311,1054,323,1063,336,1078,347,1091,354"/>
+<area shape="poly" title=" " alt="" coords="1377,52,1270,29,1204,18,1132,11,1056,8,979,12,904,24,831,45,765,77,702,118,644,164,592,214,510,307,461,372,457,368,506,304,589,210,641,160,699,113,762,72,829,40,902,19,979,7,1056,3,1132,5,1204,13,1271,23,1378,47"/>
+<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="1098,54,1255,82"/>
+<area shape="poly" title=" " alt="" coords="1371,71,1256,71,1256,66,1371,66"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="902,54,957,82"/>
+<area shape="poly" title=" " alt="" coords="1082,71,957,71,957,66,1082,66"/>
+<area shape="poly" title=" " alt="" coords="1355,319,1323,301,1311,288,1304,274,1299,245,1294,219,1287,208,1275,197,1236,180,1184,169,1122,163,1056,162,989,165,926,172,872,183,831,197,815,208,806,221,797,236,784,253,706,321,703,317,780,249,793,233,801,218,811,204,829,192,871,178,926,167,989,160,1056,157,1123,158,1185,164,1238,175,1278,193,1291,204,1299,217,1305,244,1309,272,1315,285,1326,297,1358,314"/>
+<area shape="poly" title=" " alt="" coords="1359,350,1326,364,1312,373,1303,383,1293,394,1278,404,1247,417,1245,412,1275,399,1289,390,1299,380,1309,369,1323,359,1357,345"/>
+<area shape="poly" title=" " alt="" coords="1357,313,1245,289,1246,284,1358,308"/>
+<area shape="poly" title=" " alt="" coords="1357,346,1258,364,1257,359,1356,341"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="1111,310,1242,338"/>
+<area shape="poly" title=" " alt="" coords="1356,330,1242,328,1242,323,1356,324"/>
+<area shape="poly" title=" " alt="" coords="1352,954,1277,963,1122,968,969,963,835,954,736,944,736,938,836,948,970,958,1122,963,1276,958,1351,949"/>
+<area shape="rect" href="word_8c.html#a3a8a0b55ff63360c67ee71486bba5ee7" title="Compare a word with a raw string case&#45;insensitively." alt="" coords="1120,921,1233,949"/>
+<area shape="poly" title=" " alt="" coords="1351,938,1233,938,1233,932,1351,932"/>
+<area shape="poly" title=" " alt="" coords="1126,715,964,648,966,643,1128,710"/>
+<area shape="poly" title=" " alt="" coords="1095,729,970,718,830,703,764,693,765,688,830,698,971,713,1096,724"/>
 </map>
 </div>
 
@@ -408,48 +382,48 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a3c20d7e2acdc0a0099f46371c8335ee4_icgraph.png" border="0" usemap="#autils_8c_a3c20d7e2acdc0a0099f46371c8335ee4_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a3c20d7e2acdc0a0099f46371c8335ee4_icgraph" id="autils_8c_a3c20d7e2acdc0a0099f46371c8335ee4_icgraph">
-<area shape="rect" title="Hash a word for a table size." alt="" coords="884,177,987,203"/>
-<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="721,152,836,178"/>
-<area shape="poly" title=" " alt="" coords="868,182,836,177,837,171,869,177"/>
-<area shape="rect" href="word_8c.html#a54fad11816a4a1797849e959d310fa0d" title="Hash function for word keys." alt="" coords="559,203,643,228"/>
-<area shape="poly" title=" " alt="" coords="869,198,644,215,643,210,869,192"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="339,153,458,179"/>
-<area shape="poly" title=" " alt="" coords="705,168,458,169,458,163,705,162"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="529,55,673,80"/>
-<area shape="poly" title=" " alt="" coords="739,147,625,83,628,79,741,142"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,153,263,179"/>
-<area shape="poly" title=" " alt="" coords="324,169,263,169,263,164,324,164"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,104,266,130"/>
-<area shape="poly" title=" " alt="" coords="336,151,266,130,267,125,338,146"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,129,142,155"/>
-<area shape="poly" title=" " alt="" coords="179,158,142,149,143,144,181,153"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,129,55,155"/>
-<area shape="poly" title=" " alt="" coords="87,145,55,145,55,140,87,140"/>
-<area shape="poly" title=" " alt="" coords="177,132,143,140,142,135,176,127"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="372,5,425,31"/>
-<area shape="poly" title=" " alt="" coords="530,53,425,27,426,22,531,48"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="372,55,425,80"/>
-<area shape="poly" title=" " alt="" coords="513,70,425,70,425,65,513,65"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
-<area shape="poly" title=" " alt="" coords="357,21,268,21,268,16,357,16"/>
-<area shape="poly" title=" " alt="" coords="193,43,192,44,156,89,132,130,128,128,152,86,188,40,190,39"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,55,265,80"/>
-<area shape="poly" title=" " alt="" coords="357,70,265,70,265,65,357,65"/>
-<area shape="poly" title=" " alt="" coords="195,91,192,94,142,131,139,127,188,89,192,87"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,203,481,228"/>
-<area shape="poly" title=" " alt="" coords="543,218,481,218,481,213,543,213"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,252,425,278"/>
-<area shape="poly" title=" " alt="" coords="544,232,425,261,424,256,543,227"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,104,425,130"/>
-<area shape="poly" title=" " alt="" coords="568,196,527,169,480,143,424,125,426,120,482,138,530,164,571,191"/>
-<area shape="poly" title=" " alt="" coords="336,200,263,178,264,173,338,195"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,203,266,228"/>
-<area shape="poly" title=" " alt="" coords="301,218,267,218,267,213,301,213"/>
-<area shape="poly" title=" " alt="" coords="192,196,188,194,139,158,142,153,192,189,195,192"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,252,268,278"/>
-<area shape="poly" title=" " alt="" coords="357,268,268,268,268,262,357,262"/>
-<area shape="poly" title=" " alt="" coords="190,244,188,243,152,197,128,157,133,154,156,194,192,239,193,240"/>
-<area shape="poly" title=" " alt="" coords="357,108,265,80,266,75,358,102"/>
+<area shape="rect" title="Hash a word for a table size." alt="" coords="947,187,1060,214"/>
+<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="772,161,899,189"/>
+<area shape="poly" title=" " alt="" coords="931,192,899,187,900,182,932,187"/>
+<area shape="rect" href="word_8c.html#a54fad11816a4a1797849e959d310fa0d" title="Hash function for word keys." alt="" coords="598,212,689,240"/>
+<area shape="poly" title=" " alt="" coords="932,208,690,225,689,220,931,203"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="359,161,487,189"/>
+<area shape="poly" title=" " alt="" coords="757,178,488,178,488,172,757,172"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="563,57,724,85"/>
+<area shape="poly" title=" " alt="" coords="793,156,670,88,672,83,796,151"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,161,277,189"/>
+<area shape="poly" title=" " alt="" coords="343,178,277,178,277,172,343,172"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,109,280,137"/>
+<area shape="poly" title=" " alt="" coords="356,159,280,137,282,132,358,154"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,136,150,164"/>
+<area shape="poly" title=" " alt="" coords="189,166,150,157,151,152,190,161"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,136,60,164"/>
+<area shape="poly" title=" " alt="" coords="92,152,60,152,60,147,92,147"/>
+<area shape="poly" title=" " alt="" coords="187,139,151,147,150,142,185,134"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="395,5,451,33"/>
+<area shape="poly" title=" " alt="" coords="566,56,450,28,452,23,568,51"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="395,57,451,85"/>
+<area shape="poly" title=" " alt="" coords="547,74,451,74,451,68,547,68"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,5,283,33"/>
+<area shape="poly" title=" " alt="" coords="380,22,284,22,284,16,380,16"/>
+<area shape="poly" title=" " alt="" coords="203,44,200,48,163,94,139,137,135,134,159,91,196,44,200,41"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
+<area shape="poly" title=" " alt="" coords="380,74,280,74,280,68,380,68"/>
+<area shape="poly" title=" " alt="" coords="205,96,200,100,149,138,146,134,196,96,202,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,213,515,241"/>
+<area shape="poly" title=" " alt="" coords="582,229,515,229,515,224,582,224"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,265,451,293"/>
+<area shape="poly" title=" " alt="" coords="583,243,452,275,450,270,582,238"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,109,451,137"/>
+<area shape="poly" title=" " alt="" coords="608,205,564,178,514,152,450,132,452,127,516,147,566,173,610,201"/>
+<area shape="poly" title=" " alt="" coords="356,211,276,188,278,183,358,206"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,213,280,241"/>
+<area shape="poly" title=" " alt="" coords="316,230,281,230,281,224,316,224"/>
+<area shape="poly" title=" " alt="" coords="202,207,196,203,147,166,150,162,200,198,205,202"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,265,283,293"/>
+<area shape="poly" title=" " alt="" coords="380,282,284,282,284,276,380,276"/>
+<area shape="poly" title=" " alt="" coords="200,258,196,254,159,208,135,165,139,163,164,205,200,251,203,254"/>
+<area shape="poly" title=" " alt="" coords="379,114,280,85,281,80,381,109"/>
 </map>
 </div>
 
@@ -499,59 +473,59 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a1d8eddef9f888ac973de205c457bd89d_icgraph.png" border="0" usemap="#autils_8c_a1d8eddef9f888ac973de205c457bd89d_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a1d8eddef9f888ac973de205c457bd89d_icgraph" id="autils_8c_a1d8eddef9f888ac973de205c457bd89d_icgraph">
-<area shape="rect" title="Check if a number is prime." alt="" coords="1073,129,1143,155"/>
-<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="941,129,1025,155"/>
-<area shape="poly" title=" " alt="" coords="1058,145,1026,145,1026,140,1058,140"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="644,155,771,180"/>
-<area shape="poly" title=" " alt="" coords="925,150,772,164,771,159,925,145"/>
-<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="819,104,893,130"/>
-<area shape="poly" title=" " alt="" coords="925,133,893,127,894,122,926,128"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="432,56,596,82"/>
-<area shape="poly" title=" " alt="" coords="649,150,642,146,627,132,618,119,609,107,595,95,573,85,575,80,597,91,613,103,622,116,631,129,646,141,652,145"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="455,105,573,131"/>
-<area shape="poly" title=" " alt="" coords="639,153,567,134,568,129,640,148"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="442,155,586,180"/>
-<area shape="poly" title=" " alt="" coords="629,170,587,170,587,165,629,165"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="324,305,376,331"/>
-<area shape="poly" title=" " alt="" coords="694,195,655,249,629,275,597,297,569,309,538,318,477,326,420,327,376,324,377,319,420,322,476,321,537,312,567,304,595,292,625,271,651,245,690,192"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="324,256,376,282"/>
-<area shape="poly" title=" " alt="" coords="642,187,432,246,377,263,376,258,431,241,640,182"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="316,5,384,31"/>
-<area shape="poly" title=" " alt="" coords="455,53,383,31,385,26,456,48"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,57,266,83"/>
-<area shape="poly" title=" " alt="" coords="416,72,267,73,267,67,416,67"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,133,142,159"/>
-<area shape="poly" title=" " alt="" coords="301,19,246,26,218,34,191,47,170,66,152,90,131,134,126,132,148,87,166,63,189,43,216,29,245,20,301,14"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,133,55,159"/>
-<area shape="poly" title=" " alt="" coords="87,149,55,149,55,144,87,144"/>
-<area shape="poly" title=" " alt="" coords="196,94,192,98,142,135,139,131,188,93,193,90"/>
-<area shape="poly" title=" " alt="" coords="440,101,430,96,389,65,360,33,364,30,393,61,433,92,442,97"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,108,266,134"/>
-<area shape="poly" title=" " alt="" coords="439,122,267,123,267,118,439,116"/>
-<area shape="poly" title=" " alt="" coords="177,136,143,144,142,139,176,131"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="324,157,376,183"/>
-<area shape="poly" title=" " alt="" coords="426,172,377,172,377,167,426,166"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="324,207,376,232"/>
-<area shape="poly" title=" " alt="" coords="457,188,377,214,376,209,456,183"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,157,268,183"/>
-<area shape="poly" title=" " alt="" coords="309,173,269,173,269,168,309,168"/>
-<area shape="poly" title=" " alt="" coords="174,161,142,153,143,148,176,155"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,207,265,232"/>
-<area shape="poly" title=" " alt="" coords="309,222,265,222,265,217,309,217"/>
-<area shape="poly" title=" " alt="" coords="192,200,188,198,139,162,142,157,192,193,195,196"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,280,268,306"/>
-<area shape="poly" title=" " alt="" coords="308,312,268,304,269,298,309,307"/>
-<area shape="poly" title=" " alt="" coords="206,270,188,246,130,161,134,158,192,243,210,267"/>
-<area shape="poly" title=" " alt="" coords="309,255,262,235,264,230,311,250"/>
-<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="672,105,743,131"/>
-<area shape="poly" title=" " alt="" coords="804,120,744,121,744,115,804,115"/>
-<area shape="poly" title=" " alt="" coords="657,108,567,85,568,80,658,103"/>
-<area shape="poly" title=" " alt="" coords="657,121,574,121,574,116,657,116"/>
-<area shape="poly" title=" " alt="" coords="658,133,568,157,567,151,657,128"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="438,256,590,282"/>
-<area shape="poly" title=" " alt="" coords="659,137,646,144,621,168,598,195,532,258,528,254,594,191,617,164,642,140,656,132"/>
-<area shape="poly" title=" " alt="" coords="455,289,378,313,376,308,453,284"/>
-<area shape="poly" title=" " alt="" coords="422,272,377,272,377,266,422,266"/>
+<area shape="rect" title="Check if a number is prime." alt="" coords="1143,135,1220,162"/>
+<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="1000,135,1095,162"/>
+<area shape="poly" title=" " alt="" coords="1127,151,1095,151,1095,146,1127,146"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="683,160,823,188"/>
+<area shape="poly" title=" " alt="" coords="984,157,824,170,823,165,984,151"/>
+<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="871,109,952,137"/>
+<area shape="poly" title=" " alt="" coords="984,139,952,133,953,128,985,134"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="452,56,635,84"/>
+<area shape="poly" title=" " alt="" coords="691,155,681,149,666,136,657,123,648,111,634,99,608,87,610,82,636,94,652,107,661,120,670,132,685,145,694,150"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="479,108,608,136"/>
+<area shape="poly" title=" " alt="" coords="679,158,602,139,603,134,680,153"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="463,160,624,188"/>
+<area shape="poly" title=" " alt="" coords="668,176,624,176,624,171,668,171"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="340,313,395,341"/>
+<area shape="poly" title=" " alt="" coords="738,202,697,255,669,282,636,303,605,316,571,325,504,335,443,336,395,333,396,328,443,331,504,330,570,320,603,311,634,298,665,278,693,252,734,199"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="340,261,395,289"/>
+<area shape="poly" title=" " alt="" coords="677,194,452,252,396,269,395,264,451,247,676,189"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="331,5,404,33"/>
+<area shape="poly" title=" " alt="" coords="478,54,403,32,405,27,479,49"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,56,280,84"/>
+<area shape="poly" title=" " alt="" coords="436,72,281,72,281,67,436,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,135,150,162"/>
+<area shape="poly" title=" " alt="" coords="316,19,257,25,227,33,199,47,177,66,159,90,137,135,133,133,155,88,173,63,197,42,225,28,256,19,316,14"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,135,60,162"/>
+<area shape="poly" title=" " alt="" coords="92,151,60,151,60,146,92,146"/>
+<area shape="poly" title=" " alt="" coords="205,95,200,99,149,137,146,132,196,94,202,90"/>
+<area shape="poly" title=" " alt="" coords="464,104,450,97,409,67,379,35,383,32,413,63,453,93,466,99"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,108,280,136"/>
+<area shape="poly" title=" " alt="" coords="463,124,281,124,281,119,463,119"/>
+<area shape="poly" title=" " alt="" coords="187,137,151,146,150,141,185,132"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="340,157,395,185"/>
+<area shape="poly" title=" " alt="" coords="447,175,396,174,396,169,447,170"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="340,209,395,237"/>
+<area shape="poly" title=" " alt="" coords="478,195,396,218,395,213,476,190"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,160,283,188"/>
+<area shape="poly" title=" " alt="" coords="324,175,284,176,283,170,324,169"/>
+<area shape="poly" title=" " alt="" coords="182,163,150,156,151,151,183,158"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,212,280,240"/>
+<area shape="poly" title=" " alt="" coords="324,227,280,228,280,222,324,221"/>
+<area shape="poly" title=" " alt="" coords="202,205,196,201,147,165,150,160,200,197,205,201"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,288,283,316"/>
+<area shape="poly" title=" " alt="" coords="324,321,283,313,284,308,325,316"/>
+<area shape="poly" title=" " alt="" coords="215,278,196,253,137,164,141,161,200,250,220,274"/>
+<area shape="poly" title=" " alt="" coords="324,261,277,243,279,238,326,256"/>
+<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="714,108,792,136"/>
+<area shape="poly" title=" " alt="" coords="856,125,793,125,793,119,856,120"/>
+<area shape="poly" title=" " alt="" coords="698,111,601,87,603,82,699,106"/>
+<area shape="poly" title=" " alt="" coords="698,124,608,124,608,119,698,119"/>
+<area shape="poly" title=" " alt="" coords="699,138,603,162,601,157,698,133"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="459,261,628,289"/>
+<area shape="poly" title=" " alt="" coords="701,141,685,151,660,174,637,201,565,263,561,259,633,197,656,171,681,146,699,137"/>
+<area shape="poly" title=" " alt="" coords="480,297,396,322,395,317,478,292"/>
+<area shape="poly" title=" " alt="" coords="444,278,395,278,395,272,444,272"/>
 </map>
 </div>
 
@@ -608,57 +582,57 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a6a8b81a369ded1d2e86198541cba82bf_icgraph.png" border="0" usemap="#autils_8c_a6a8b81a369ded1d2e86198541cba82bf_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a6a8b81a369ded1d2e86198541cba82bf_icgraph" id="autils_8c_a6a8b81a369ded1d2e86198541cba82bf_icgraph">
-<area shape="rect" title="Compute the next prime greater or equal to n." alt="" coords="941,129,1025,155"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="644,155,771,180"/>
-<area shape="poly" title=" " alt="" coords="925,150,772,164,771,159,925,145"/>
-<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="819,104,893,130"/>
-<area shape="poly" title=" " alt="" coords="925,133,893,127,894,122,926,128"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="432,56,596,82"/>
-<area shape="poly" title=" " alt="" coords="649,150,642,146,627,132,618,119,609,107,595,95,573,85,575,80,597,91,613,103,622,116,631,129,646,141,652,145"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="455,105,573,131"/>
-<area shape="poly" title=" " alt="" coords="639,153,567,134,568,129,640,148"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="442,155,586,180"/>
-<area shape="poly" title=" " alt="" coords="629,170,587,170,587,165,629,165"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="324,305,376,331"/>
-<area shape="poly" title=" " alt="" coords="694,195,655,249,629,275,597,297,569,309,538,318,477,326,420,327,376,324,377,319,420,322,476,321,537,312,567,304,595,292,625,271,651,245,690,192"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="324,256,376,282"/>
-<area shape="poly" title=" " alt="" coords="642,187,432,246,377,263,376,258,431,241,640,182"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="316,5,384,31"/>
-<area shape="poly" title=" " alt="" coords="455,53,383,31,385,26,456,48"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,57,266,83"/>
-<area shape="poly" title=" " alt="" coords="416,72,267,73,267,67,416,67"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,133,142,159"/>
-<area shape="poly" title=" " alt="" coords="301,19,246,26,218,34,191,47,170,66,152,90,131,134,126,132,148,87,166,63,189,43,216,29,245,20,301,14"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,133,55,159"/>
-<area shape="poly" title=" " alt="" coords="87,149,55,149,55,144,87,144"/>
-<area shape="poly" title=" " alt="" coords="196,94,192,98,142,135,139,131,188,93,193,90"/>
-<area shape="poly" title=" " alt="" coords="440,101,430,96,389,65,360,33,364,30,393,61,433,92,442,97"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,108,266,134"/>
-<area shape="poly" title=" " alt="" coords="439,122,267,123,267,118,439,116"/>
-<area shape="poly" title=" " alt="" coords="177,136,143,144,142,139,176,131"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="324,157,376,183"/>
-<area shape="poly" title=" " alt="" coords="426,172,377,172,377,167,426,166"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="324,207,376,232"/>
-<area shape="poly" title=" " alt="" coords="457,188,377,214,376,209,456,183"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,157,268,183"/>
-<area shape="poly" title=" " alt="" coords="309,173,269,173,269,168,309,168"/>
-<area shape="poly" title=" " alt="" coords="174,161,142,153,143,148,176,155"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,207,265,232"/>
-<area shape="poly" title=" " alt="" coords="309,222,265,222,265,217,309,217"/>
-<area shape="poly" title=" " alt="" coords="192,200,188,198,139,162,142,157,192,193,195,196"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,280,268,306"/>
-<area shape="poly" title=" " alt="" coords="308,312,268,304,269,298,309,307"/>
-<area shape="poly" title=" " alt="" coords="206,270,188,246,130,161,134,158,192,243,210,267"/>
-<area shape="poly" title=" " alt="" coords="309,255,262,235,264,230,311,250"/>
-<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="672,105,743,131"/>
-<area shape="poly" title=" " alt="" coords="804,120,744,121,744,115,804,115"/>
-<area shape="poly" title=" " alt="" coords="657,108,567,85,568,80,658,103"/>
-<area shape="poly" title=" " alt="" coords="657,121,574,121,574,116,657,116"/>
-<area shape="poly" title=" " alt="" coords="658,133,568,157,567,151,657,128"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="438,256,590,282"/>
-<area shape="poly" title=" " alt="" coords="659,137,646,144,621,168,598,195,532,258,528,254,594,191,617,164,642,140,656,132"/>
-<area shape="poly" title=" " alt="" coords="455,289,378,313,376,308,453,284"/>
-<area shape="poly" title=" " alt="" coords="422,272,377,272,377,266,422,266"/>
+<area shape="rect" title="Compute the next prime greater or equal to n." alt="" coords="1000,135,1095,162"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="683,160,823,188"/>
+<area shape="poly" title=" " alt="" coords="984,157,824,170,823,165,984,151"/>
+<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="871,109,952,137"/>
+<area shape="poly" title=" " alt="" coords="984,139,952,133,953,128,985,134"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="452,56,635,84"/>
+<area shape="poly" title=" " alt="" coords="691,155,681,149,666,136,657,123,648,111,634,99,608,87,610,82,636,94,652,107,661,120,670,132,685,145,694,150"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="479,108,608,136"/>
+<area shape="poly" title=" " alt="" coords="679,158,602,139,603,134,680,153"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="463,160,624,188"/>
+<area shape="poly" title=" " alt="" coords="668,176,624,176,624,171,668,171"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="340,313,395,341"/>
+<area shape="poly" title=" " alt="" coords="738,202,697,255,669,282,636,303,605,316,571,325,504,335,443,336,395,333,396,328,443,331,504,330,570,320,603,311,634,298,665,278,693,252,734,199"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="340,261,395,289"/>
+<area shape="poly" title=" " alt="" coords="677,194,452,252,396,269,395,264,451,247,676,189"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="331,5,404,33"/>
+<area shape="poly" title=" " alt="" coords="478,54,403,32,405,27,479,49"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,56,280,84"/>
+<area shape="poly" title=" " alt="" coords="436,72,281,72,281,67,436,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,135,150,162"/>
+<area shape="poly" title=" " alt="" coords="316,19,257,25,227,33,199,47,177,66,159,90,137,135,133,133,155,88,173,63,197,42,225,28,256,19,316,14"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,135,60,162"/>
+<area shape="poly" title=" " alt="" coords="92,151,60,151,60,146,92,146"/>
+<area shape="poly" title=" " alt="" coords="205,95,200,99,149,137,146,132,196,94,202,90"/>
+<area shape="poly" title=" " alt="" coords="464,104,450,97,409,67,379,35,383,32,413,63,453,93,466,99"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,108,280,136"/>
+<area shape="poly" title=" " alt="" coords="463,124,281,124,281,119,463,119"/>
+<area shape="poly" title=" " alt="" coords="187,137,151,146,150,141,185,132"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="340,157,395,185"/>
+<area shape="poly" title=" " alt="" coords="447,175,396,174,396,169,447,170"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="340,209,395,237"/>
+<area shape="poly" title=" " alt="" coords="478,195,396,218,395,213,476,190"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,160,283,188"/>
+<area shape="poly" title=" " alt="" coords="324,175,284,176,283,170,324,169"/>
+<area shape="poly" title=" " alt="" coords="182,163,150,156,151,151,183,158"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,212,280,240"/>
+<area shape="poly" title=" " alt="" coords="324,227,280,228,280,222,324,221"/>
+<area shape="poly" title=" " alt="" coords="202,205,196,201,147,165,150,160,200,197,205,201"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,288,283,316"/>
+<area shape="poly" title=" " alt="" coords="324,321,283,313,284,308,325,316"/>
+<area shape="poly" title=" " alt="" coords="215,278,196,253,137,164,141,161,200,250,220,274"/>
+<area shape="poly" title=" " alt="" coords="324,261,277,243,279,238,326,256"/>
+<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="714,108,792,136"/>
+<area shape="poly" title=" " alt="" coords="856,125,793,125,793,119,856,120"/>
+<area shape="poly" title=" " alt="" coords="698,111,601,87,603,82,699,106"/>
+<area shape="poly" title=" " alt="" coords="698,124,608,124,608,119,698,119"/>
+<area shape="poly" title=" " alt="" coords="699,138,603,162,601,157,698,133"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="459,261,628,289"/>
+<area shape="poly" title=" " alt="" coords="701,141,685,151,660,174,637,201,565,263,561,259,633,197,656,171,681,146,699,137"/>
+<area shape="poly" title=" " alt="" coords="480,297,396,322,395,317,478,292"/>
+<area shape="poly" title=" " alt="" coords="444,278,395,278,395,272,444,272"/>
 </map>
 </div>
 
@@ -693,48 +667,48 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Probability in range [0,1]. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00058">58</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>                                                                    {</div>
-<div class="line"><span class="lineno">   59</span>  <span class="keywordtype">double</span> probability = 0.0;</div>
-<div class="line"><span class="lineno">   60</span>  probability = (double)(*next_word) / (double)(*word); <span class="comment">// Example calculation</span></div>
-<div class="line"><span class="lineno">   61</span>  <span class="keywordflow">return</span> probability;</div>
-<div class="line"><span class="lineno">   62</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00057">57</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                                                                    {</div>
+<div class="line"><span class="lineno">   58</span>  <span class="keywordtype">double</span> probability = 0.0;</div>
+<div class="line"><span class="lineno">   59</span>  probability = (double)(*next_word) / (double)(*word); <span class="comment">// Example calculation</span></div>
+<div class="line"><span class="lineno">   60</span>  <span class="keywordflow">return</span> probability;</div>
+<div class="line"><span class="lineno">   61</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a5864ea11a063d13bed6a1b528747f4d3_icgraph.png" border="0" usemap="#autils_8c_a5864ea11a063d13bed6a1b528747f4d3_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a5864ea11a063d13bed6a1b528747f4d3_icgraph" id="autils_8c_a5864ea11a063d13bed6a1b528747f4d3_icgraph">
-<area shape="rect" title="Estimate probability of a follower word." alt="" coords="887,104,1032,130"/>
-<area shape="rect" href="CSV__line__builder_8c.html#aabdbfd470415d59c0a775ff597904c32" title="Build a CSV line from a hash&#45;table item." alt="" coords="726,104,839,130"/>
-<area shape="poly" title=" " alt="" coords="871,120,839,120,839,114,871,114"/>
-<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="312,55,412,80"/>
-<area shape="poly" title=" " alt="" coords="710,111,412,76,412,71,711,106"/>
-<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="574,129,678,155"/>
-<area shape="poly" title=" " alt="" coords="711,131,679,136,678,131,710,126"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="194,5,261,31"/>
-<area shape="poly" title=" " alt="" coords="310,51,260,33,262,28,311,46"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="190,55,264,80"/>
-<area shape="poly" title=" " alt="" coords="297,70,265,70,265,65,297,65"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
-<area shape="poly" title=" " alt="" coords="194,42,192,44,142,82,139,78,188,40,191,38"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
-<area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
-<area shape="poly" title=" " alt="" coords="175,83,143,91,142,86,174,78"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="467,105,519,131"/>
-<area shape="poly" title=" " alt="" coords="558,133,519,125,520,120,559,127"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="460,155,526,180"/>
-<area shape="poly" title=" " alt="" coords="559,158,527,164,526,159,558,152"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="460,204,526,230"/>
-<area shape="poly" title=" " alt="" coords="590,165,519,206,516,201,587,161"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="323,105,401,131"/>
-<area shape="poly" title=" " alt="" coords="451,121,402,121,402,116,451,116"/>
-<area shape="poly" title=" " alt="" coords="307,115,142,97,143,92,308,110"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="336,156,388,182"/>
-<area shape="poly" title=" " alt="" coords="444,171,389,171,389,166,444,165"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="192,156,263,182"/>
-<area shape="poly" title=" " alt="" coords="320,172,263,172,263,166,320,166"/>
-<area shape="poly" title=" " alt="" coords="194,149,140,108,143,104,198,145"/>
-<area shape="poly" title=" " alt="" coords="444,202,388,181,390,176,446,197"/>
+<area shape="rect" title="Estimate probability of a follower word." alt="" coords="932,105,1098,133"/>
+<area shape="rect" href="CSV__line__builder_8c.html#aabdbfd470415d59c0a775ff597904c32" title="Build a CSV line from a hash&#45;table item." alt="" coords="761,105,884,133"/>
+<area shape="poly" title=" " alt="" coords="916,122,884,122,884,116,916,116"/>
+<area shape="rect" href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5" title="Serialize a hash table into a CSV file." alt="" coords="325,55,435,82"/>
+<area shape="poly" title=" " alt="" coords="746,113,435,77,436,72,746,108"/>
+<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="601,131,713,158"/>
+<area shape="poly" title=" " alt="" coords="747,133,714,139,713,133,746,128"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="202,5,274,33"/>
+<area shape="poly" title=" " alt="" coords="323,52,273,34,275,29,325,47"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="198,57,277,85"/>
+<area shape="poly" title=" " alt="" coords="309,72,278,73,278,68,309,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,83,150,110"/>
+<area shape="poly" title=" " alt="" coords="205,44,200,48,151,84,147,80,196,44,202,40"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,83,60,110"/>
+<area shape="poly" title=" " alt="" coords="92,99,60,99,60,94,92,94"/>
+<area shape="poly" title=" " alt="" coords="183,87,151,94,150,89,182,81"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="490,105,546,133"/>
+<area shape="poly" title=" " alt="" coords="585,134,546,127,547,122,586,129"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="483,157,553,185"/>
+<area shape="poly" title=" " alt="" coords="586,161,554,167,553,162,585,156"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="483,209,553,237"/>
+<area shape="poly" title=" " alt="" coords="619,169,545,211,543,207,616,164"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="337,107,423,134"/>
+<area shape="poly" title=" " alt="" coords="475,122,423,123,423,117,475,117"/>
+<area shape="poly" title=" " alt="" coords="322,118,150,101,151,96,322,112"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="352,159,408,186"/>
+<area shape="poly" title=" " alt="" coords="467,174,408,175,408,170,467,169"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="198,159,277,186"/>
+<area shape="poly" title=" " alt="" coords="337,175,277,175,277,170,337,170"/>
+<area shape="poly" title=" " alt="" coords="203,152,149,113,152,109,206,147"/>
+<area shape="poly" title=" " alt="" coords="467,207,407,185,409,180,469,202"/>
 </map>
 </div>
 
@@ -764,111 +738,111 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00064">64</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>                        {</div>
-<div class="line"><span class="lineno">   65</span>  <span class="keywordflow">if</span> (fd == NULL || *fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   67</span>  }</div>
-<div class="line"><span class="lineno">   68</span>  <span class="keywordflow">if</span> (close(*fd) &lt; 0) {</div>
-<div class="line"><span class="lineno">   69</span>    perror(<span class="stringliteral">&quot;safe_close&quot;</span>);</div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   71</span>  }</div>
-<div class="line"><span class="lineno">   72</span>  *fd = -1;</div>
-<div class="line"><span class="lineno">   73</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   74</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00063">63</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>                        {</div>
+<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">if</span> (fd == NULL || *fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   66</span>  }</div>
+<div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (close(*fd) &lt; 0) {</div>
+<div class="line"><span class="lineno">   68</span>    perror(<span class="stringliteral">&quot;safe_close&quot;</span>);</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   70</span>  }</div>
+<div class="line"><span class="lineno">   71</span>  *fd = -1;</div>
+<div class="line"><span class="lineno">   72</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   73</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_ad6d87adb1f10074bf9c114f9c0bdd040_icgraph.png" border="0" usemap="#autils_8c_ad6d87adb1f10074bf9c114f9c0bdd040_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_ad6d87adb1f10074bf9c114f9c0bdd040_icgraph" id="autils_8c_ad6d87adb1f10074bf9c114f9c0bdd040_icgraph">
-<area shape="rect" title="Close an fd safely." alt="" coords="654,505,738,531"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,148,263,174"/>
-<area shape="poly" title=" " alt="" coords="689,490,680,412,662,312,637,218,622,183,604,160,565,135,520,120,473,114,425,114,378,120,334,129,264,150,263,145,333,124,377,115,425,109,473,108,522,115,567,130,608,156,626,180,642,217,668,311,685,411,695,489"/>
-<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="319,155,438,196"/>
-<area shape="poly" title=" " alt="" coords="689,490,678,419,660,330,635,247,620,216,604,196,566,175,523,164,480,163,439,166,438,161,479,157,524,159,568,170,608,192,625,214,640,245,665,329,683,418,694,489"/>
-<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="319,5,438,31"/>
-<area shape="poly" title=" " alt="" coords="691,490,683,394,668,265,657,200,642,142,625,94,604,63,567,37,524,22,480,16,438,15,438,10,480,11,526,17,570,32,608,59,630,92,647,140,662,199,673,264,689,393,696,490"/>
-<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="490,657,604,683"/>
-<area shape="poly" title=" " alt="" coords="682,546,651,592,608,640,580,659,577,655,604,636,647,589,678,543"/>
-<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="316,607,441,632"/>
-<area shape="poly" title=" " alt="" coords="662,542,607,569,521,595,442,612,441,607,520,590,605,564,659,537"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,607,266,632"/>
-<area shape="poly" title=" " alt="" coords="694,547,684,619,666,710,641,795,625,827,607,848,585,856,548,858,453,854,362,842,315,831,292,810,273,784,248,727,234,673,229,633,234,632,239,672,253,725,278,781,296,806,318,826,363,837,454,848,548,853,584,851,605,844,621,824,636,793,661,709,678,618,689,546"/>
-<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="317,739,440,764"/>
-<area shape="poly" title=" " alt="" coords="696,547,690,593,675,648,649,703,630,727,608,747,587,759,565,767,518,775,472,774,431,768,431,762,472,768,518,769,563,762,585,754,604,743,626,723,644,700,670,646,684,592,691,546"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="521,707,574,732"/>
-<area shape="poly" title=" " alt="" coords="690,546,679,580,662,620,638,661,608,697,592,708,575,716,573,711,589,704,604,694,634,658,657,618,674,578,685,545"/>
-<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="521,207,574,232"/>
-<area shape="poly" title=" " alt="" coords="690,490,682,441,667,379,641,313,624,282,604,253,589,240,572,231,575,226,592,236,608,250,629,279,646,311,672,377,687,440,695,489"/>
-<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="352,909,405,935"/>
-<area shape="poly" title=" " alt="" coords="695,547,685,627,668,731,643,829,626,867,608,892,584,909,558,921,502,933,448,934,405,929,405,924,448,929,501,928,557,916,582,904,604,888,622,864,637,827,663,730,680,626,690,546"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="352,959,405,984"/>
-<area shape="poly" title=" " alt="" coords="696,547,687,636,671,754,660,813,645,866,628,909,608,939,585,956,559,968,503,981,448,983,405,979,405,973,448,977,502,976,557,963,582,951,604,935,624,907,640,864,654,811,666,753,682,635,690,546"/>
-<area shape="rect" href="task2__mp_8c.html#a463678e007fda00ee347521ff7788e28" title=" " alt="" coords="521,808,574,834"/>
-<area shape="poly" title=" " alt="" coords="695,547,687,597,672,661,646,729,629,761,608,791,593,804,575,814,573,809,589,800,604,787,625,758,642,727,667,660,682,596,690,547"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="352,331,405,356"/>
-<area shape="poly" title=" " alt="" coords="691,490,684,446,670,392,644,339,626,316,605,298,579,286,552,281,523,283,494,289,441,310,401,333,398,328,439,305,493,284,522,277,552,276,581,281,607,293,630,313,649,336,675,390,689,444,696,490"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="514,308,580,334"/>
-<area shape="poly" title=" " alt="" coords="685,491,656,420,633,381,604,347,579,332,582,327,608,343,638,378,661,418,690,489"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="514,357,580,383"/>
-<area shape="poly" title=" " alt="" coords="679,493,649,444,628,419,604,396,579,382,582,378,608,392,632,415,653,441,684,490"/>
-<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="521,407,574,432"/>
-<area shape="poly" title=" " alt="" coords="669,497,639,471,605,446,573,431,575,426,607,441,643,466,673,493"/>
-<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="521,1011,574,1036"/>
-<area shape="poly" title=" " alt="" coords="695,547,686,645,669,776,643,905,627,956,608,993,593,1008,575,1017,573,1013,590,1003,604,990,622,954,638,904,663,776,681,644,690,546"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="352,556,405,582"/>
-<area shape="poly" title=" " alt="" coords="640,538,607,546,495,562,405,570,405,565,494,557,605,541,639,533"/>
-<area shape="rect" href="both__mp_8c.html#a98efc3718da15b6ed4c625095422dc16" title=" " alt="" coords="521,456,574,482"/>
-<area shape="poly" title=" " alt="" coords="640,502,573,480,575,475,641,497"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="489,505,606,531"/>
-<area shape="poly" title=" " alt="" coords="638,521,607,521,607,516,638,516"/>
-<area shape="rect" href="file__writer_8c.html#aacc4ca64994b0da56133db65c1f30c21" title="Generate text and write it to a file (single process)." alt="" coords="322,55,435,80"/>
-<area shape="poly" title=" " alt="" coords="690,490,682,401,666,283,655,225,640,172,624,129,604,101,586,88,566,77,523,64,477,60,436,62,436,56,478,55,524,59,568,72,589,83,608,98,628,127,646,170,660,224,671,283,687,400,696,490"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,507,142,532"/>
-<area shape="poly" title=" " alt="" coords="222,189,130,507,125,505,217,188"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,507,55,532"/>
-<area shape="poly" title=" " alt="" coords="87,522,55,522,55,517,87,517"/>
-<area shape="poly" title=" " alt="" coords="303,171,263,167,263,161,303,165"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,456,265,482"/>
-<area shape="poly" title=" " alt="" coords="347,209,319,245,288,304,264,364,236,456,231,455,259,363,283,302,314,242,343,205"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,557,268,583"/>
-<area shape="poly" title=" " alt="" coords="363,211,319,319,304,368,296,407,287,446,271,495,240,558,236,556,266,493,282,445,291,406,299,367,314,317,358,209"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,69,266,95"/>
-<area shape="poly" title=" " alt="" coords="330,149,250,98,253,93,333,144"/>
-<area shape="poly" title=" " alt="" coords="188,491,143,513,141,508,186,486"/>
-<area shape="poly" title=" " alt="" coords="186,553,141,531,143,526,188,548"/>
-<area shape="poly" title=" " alt="" coords="209,109,192,137,173,189,158,245,139,354,129,447,127,506,121,506,124,446,133,353,153,244,168,188,188,134,204,106"/>
-<area shape="poly" title=" " alt="" coords="323,41,318,44,242,149,238,146,314,40,320,37"/>
-<area shape="poly" title=" " alt="" coords="329,40,317,45,259,71,257,66,315,40,327,35"/>
-<area shape="poly" title=" " alt="" coords="487,655,423,635,424,630,489,650"/>
-<area shape="poly" title=" " alt="" coords="317,599,314,596,303,570,290,525,265,398,230,174,235,174,270,397,296,523,308,568,319,593,321,595"/>
-<area shape="poly" title=" " alt="" coords="321,601,315,596,287,568,264,537,234,483,239,481,268,534,291,565,318,592,324,597"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,839,268,864"/>
-<area shape="poly" title=" " alt="" coords="363,647,241,840,236,837,359,644"/>
-<area shape="poly" title=" " alt="" coords="300,622,267,622,267,617,300,617"/>
-<area shape="poly" title=" " alt="" coords="216,824,125,534,130,532,222,823"/>
-<area shape="poly" title=" " alt="" coords="190,599,188,597,156,565,131,535,136,531,160,561,192,594,194,595"/>
-<area shape="poly" title=" " alt="" coords="359,727,314,646,266,546,235,483,240,481,271,544,319,644,364,724"/>
-<area shape="poly" title=" " alt="" coords="346,730,314,697,299,669,291,645,283,621,266,596,254,586,258,582,270,592,288,619,296,643,303,667,318,694,350,727"/>
-<area shape="poly" title=" " alt="" coords="347,776,251,840,248,836,344,771"/>
-<area shape="poly" title=" " alt="" coords="505,715,415,692,364,673,315,647,299,635,289,622,267,596,252,586,255,581,270,592,294,619,303,631,318,643,366,668,416,687,507,710"/>
-<area shape="poly" title=" " alt="" coords="507,231,464,243,414,262,364,287,318,320,288,354,265,392,237,457,232,455,260,390,284,351,315,316,361,283,412,257,462,238,505,226"/>
-<area shape="poly" title=" " alt="" coords="338,906,257,867,260,863,340,901"/>
-<area shape="poly" title=" " alt="" coords="337,962,315,950,290,930,268,907,237,866,241,863,273,903,294,926,318,945,339,957"/>
-<area shape="poly" title=" " alt="" coords="506,828,462,828,411,823,359,808,336,795,314,779,296,757,287,734,285,712,285,689,285,644,280,620,266,596,256,586,259,582,270,593,285,618,291,643,291,689,290,712,293,733,301,754,318,775,339,791,361,803,412,817,462,823,506,822"/>
-<area shape="poly" title=" " alt="" coords="352,369,248,458,244,453,348,365"/>
-<area shape="poly" title=" " alt="" coords="499,330,405,343,405,337,498,325"/>
-<area shape="poly" title=" " alt="" coords="498,365,405,350,406,345,499,360"/>
-<area shape="poly" title=" " alt="" coords="506,426,317,453,266,463,265,458,316,448,506,421"/>
-<area shape="poly" title=" " alt="" coords="506,1032,464,1034,414,1031,362,1021,315,999,282,969,258,931,241,894,231,866,237,864,246,892,262,929,286,965,318,995,364,1016,415,1026,464,1029,505,1026"/>
-<area shape="poly" title=" " alt="" coords="337,572,269,572,269,567,337,567"/>
-<area shape="poly" title=" " alt="" coords="505,472,265,472,265,466,505,466"/>
-<area shape="poly" title=" " alt="" coords="488,539,406,564,404,559,487,533"/>
-<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="352,507,405,532"/>
-<area shape="poly" title=" " alt="" coords="473,521,405,522,405,517,473,516"/>
-<area shape="poly" title=" " alt="" coords="337,509,265,483,266,478,339,504"/>
-<area shape="poly" title=" " alt="" coords="338,90,318,102,249,150,246,145,315,97,336,85"/>
-<area shape="poly" title=" " alt="" coords="306,77,267,81,266,76,306,72"/>
+<area shape="rect" title="Close an fd safely." alt="" coords="700,517,790,545"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,153,277,181"/>
+<area shape="poly" title=" " alt="" coords="738,502,728,422,710,319,684,222,668,186,650,162,607,135,558,119,506,113,453,114,402,121,354,132,278,155,276,150,353,127,401,116,453,109,506,108,559,114,609,130,654,159,673,183,689,221,716,317,734,421,744,502"/>
+<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="335,160,469,204"/>
+<area shape="poly" title=" " alt="" coords="738,502,726,429,708,337,682,251,667,219,650,198,631,185,609,176,562,165,514,164,470,169,469,164,514,159,563,160,611,171,633,181,654,195,671,216,687,249,713,335,732,428,743,501"/>
+<area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="338,5,466,33"/>
+<area shape="poly" title=" " alt="" coords="740,502,732,403,716,271,704,204,690,145,672,96,650,64,631,48,609,36,562,21,512,14,467,14,467,9,513,9,563,15,612,31,634,44,654,60,676,94,695,143,710,203,722,270,738,403,745,502"/>
+<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="523,669,650,697"/>
+<area shape="poly" title=" " alt="" coords="730,560,698,607,654,653,625,671,622,667,650,649,694,603,726,557"/>
+<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="331,620,473,648"/>
+<area shape="poly" title=" " alt="" coords="709,555,653,582,560,609,473,626,472,621,559,604,651,577,706,551"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,620,280,648"/>
+<area shape="poly" title=" " alt="" coords="743,561,732,634,713,726,687,810,672,843,653,864,628,872,587,875,481,868,380,854,330,843,307,822,288,797,262,741,247,688,241,648,246,647,252,687,267,739,293,794,311,818,333,838,381,849,481,862,587,869,627,867,651,860,667,840,682,808,708,724,727,633,738,560"/>
+<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="336,740,468,768"/>
+<area shape="poly" title=" " alt="" coords="745,561,738,607,723,663,711,692,696,719,677,743,653,763,628,776,601,784,544,789,489,782,443,771,445,766,490,777,544,784,600,779,626,771,651,758,673,739,692,716,706,689,718,661,733,606,739,560"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="559,721,614,749"/>
+<area shape="poly" title=" " alt="" coords="738,561,709,634,685,675,654,710,635,723,615,731,613,726,633,718,650,707,680,672,704,632,733,559"/>
+<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="559,208,614,236"/>
+<area shape="poly" title=" " alt="" coords="739,503,731,451,716,386,690,317,672,285,650,256,633,242,613,232,616,227,636,237,654,252,676,282,695,315,721,384,737,450,744,502"/>
+<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="374,923,430,950"/>
+<area shape="poly" title=" " alt="" coords="744,561,733,642,715,746,689,844,673,882,654,908,628,926,599,939,568,947,537,951,477,951,430,945,430,939,477,945,536,945,567,941,597,934,625,921,650,904,668,880,684,843,710,745,728,641,738,560"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="374,975,430,1002"/>
+<area shape="poly" title=" " alt="" coords="744,561,736,651,719,770,707,829,692,883,675,926,654,956,628,975,599,988,569,996,537,1001,477,1002,430,996,431,991,478,996,537,996,568,991,598,983,626,970,650,952,670,924,687,881,702,828,714,769,730,650,739,560"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="559,823,614,850"/>
+<area shape="poly" title=" " alt="" coords="744,561,736,612,721,677,694,745,676,777,654,806,636,821,616,831,613,826,633,817,650,803,671,774,689,742,715,675,731,611,739,560"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="374,341,430,369"/>
+<area shape="poly" title=" " alt="" coords="740,502,733,455,718,399,707,370,692,343,673,320,651,300,622,287,592,282,560,284,528,292,469,317,425,343,422,338,467,312,527,287,559,279,592,277,624,282,653,296,677,316,696,341,712,368,724,397,738,454,745,501"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="551,309,622,337"/>
+<area shape="poly" title=" " alt="" coords="734,503,722,469,704,429,681,388,650,352,621,335,623,330,654,348,685,385,709,426,727,467,739,502"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="551,361,622,389"/>
+<area shape="poly" title=" " alt="" coords="728,505,696,454,675,427,650,404,620,388,623,383,654,400,679,424,701,451,732,502"/>
+<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="559,413,614,441"/>
+<area shape="poly" title=" " alt="" coords="717,509,686,482,651,456,613,438,615,434,653,452,690,478,721,505"/>
+<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="559,1025,614,1053"/>
+<area shape="poly" title=" " alt="" coords="744,561,735,660,717,792,690,921,674,972,654,1009,636,1025,616,1034,613,1030,633,1020,650,1006,669,970,685,920,712,791,729,659,739,560"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="374,568,430,596"/>
+<area shape="poly" title=" " alt="" coords="685,552,652,559,528,576,430,583,430,578,528,571,652,554,684,546"/>
+<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="559,465,614,493"/>
+<area shape="poly" title=" " alt="" coords="685,514,613,491,615,486,687,509"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="521,517,652,545"/>
+<area shape="poly" title=" " alt="" coords="684,534,653,534,653,528,684,528"/>
+<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="339,57,465,85"/>
+<area shape="poly" title=" " alt="" coords="739,502,731,410,714,290,702,230,688,176,670,132,650,104,631,89,609,78,560,64,511,61,465,63,465,58,511,55,561,59,611,73,633,84,654,100,675,130,693,174,707,228,719,289,736,409,745,501"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,517,150,545"/>
+<area shape="poly" title=" " alt="" coords="233,197,137,518,132,516,228,195"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,517,60,545"/>
+<area shape="poly" title=" " alt="" coords="92,534,60,534,60,528,92,528"/>
+<area shape="poly" title=" " alt="" coords="319,177,277,173,278,168,319,172"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,465,280,493"/>
+<area shape="poly" title=" " alt="" coords="370,217,334,266,304,322,279,379,249,466,244,464,274,377,299,319,329,263,366,214"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,568,283,596"/>
+<area shape="poly" title=" " alt="" coords="384,219,359,271,334,331,319,379,311,418,302,457,286,506,253,569,249,566,281,503,297,456,305,417,314,378,329,329,354,269,379,217"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,72,280,100"/>
+<area shape="poly" title=" " alt="" coords="348,153,265,103,267,98,351,149"/>
+<area shape="poly" title=" " alt="" coords="196,503,152,524,149,519,194,498"/>
+<area shape="poly" title=" " alt="" coords="193,564,149,543,151,538,196,559"/>
+<area shape="poly" title=" " alt="" coords="218,114,200,143,181,196,165,251,145,361,136,455,133,517,128,517,130,455,140,361,160,250,176,194,196,141,214,111"/>
+<area shape="poly" title=" " alt="" coords="341,43,333,48,317,63,307,77,286,113,255,154,250,151,281,110,302,74,313,59,330,44,338,38"/>
+<area shape="poly" title=" " alt="" coords="349,42,332,48,274,74,272,69,330,43,347,37"/>
+<area shape="poly" title=" " alt="" coords="517,667,455,651,457,646,518,662"/>
+<area shape="poly" title=" " alt="" coords="332,612,329,609,317,583,305,537,278,409,241,182,247,181,284,408,310,536,322,581,334,606,336,608"/>
+<area shape="poly" title=" " alt="" coords="337,614,330,609,301,581,277,550,246,495,251,492,282,547,305,578,333,605,340,610"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,835,283,862"/>
+<area shape="poly" title=" " alt="" coords="383,662,255,836,250,833,379,659"/>
+<area shape="poly" title=" " alt="" coords="316,636,281,636,281,631,316,631"/>
+<area shape="poly" title=" " alt="" coords="227,821,133,546,138,544,232,819"/>
+<area shape="poly" title=" " alt="" coords="201,613,196,609,164,577,139,547,143,544,168,574,200,605,204,609"/>
+<area shape="poly" title=" " alt="" coords="378,730,329,661,304,610,281,558,247,495,252,492,286,555,309,607,334,658,382,727"/>
+<area shape="poly" title=" " alt="" coords="356,734,329,712,312,685,305,660,298,636,281,610,267,598,271,594,285,607,302,634,310,658,317,682,333,708,359,730"/>
+<area shape="poly" title=" " alt="" coords="365,778,267,837,264,832,362,774"/>
+<area shape="poly" title=" " alt="" coords="543,732,442,709,385,689,330,661,314,649,304,637,282,610,265,598,268,594,285,607,308,633,318,645,333,657,387,684,444,704,544,727"/>
+<area shape="poly" title=" " alt="" coords="544,234,497,247,442,267,385,295,333,332,303,365,279,402,249,466,245,464,274,400,299,362,330,328,382,291,440,262,496,242,543,228"/>
+<area shape="poly" title=" " alt="" coords="359,921,330,907,262,865,265,861,333,902,361,916"/>
+<area shape="poly" title=" " alt="" coords="358,979,330,964,303,940,279,912,248,864,252,861,284,909,306,936,333,960,361,974"/>
+<area shape="poly" title=" " alt="" coords="543,842,494,841,437,833,380,814,353,800,329,781,312,760,304,739,301,697,300,655,294,633,281,610,269,598,272,594,285,607,299,631,305,654,306,697,309,738,317,757,333,777,356,795,382,809,439,828,495,835,543,837"/>
+<area shape="poly" title=" " alt="" coords="371,381,333,411,262,467,258,463,330,406,368,377"/>
+<area shape="poly" title=" " alt="" coords="536,334,431,353,430,348,536,329"/>
+<area shape="poly" title=" " alt="" coords="536,372,430,361,431,355,536,367"/>
+<area shape="poly" title=" " alt="" coords="544,434,332,463,281,473,280,468,331,458,543,429"/>
+<area shape="poly" title=" " alt="" coords="543,1049,497,1053,441,1051,383,1040,356,1030,330,1016,310,1000,294,981,268,938,251,896,242,863,247,862,256,894,273,936,298,978,314,996,333,1012,358,1025,385,1035,441,1046,496,1047,543,1044"/>
+<area shape="poly" title=" " alt="" coords="359,584,283,584,283,579,359,579"/>
+<area shape="poly" title=" " alt="" coords="543,482,280,482,280,476,543,476"/>
+<area shape="poly" title=" " alt="" coords="519,552,431,577,429,572,518,547"/>
+<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="374,516,430,544"/>
+<area shape="poly" title=" " alt="" coords="505,533,430,533,430,527,505,528"/>
+<area shape="poly" title=" " alt="" coords="358,519,280,494,281,489,360,514"/>
+<area shape="poly" title=" " alt="" coords="354,94,333,105,261,155,258,151,330,101,351,90"/>
+<area shape="poly" title=" " alt="" coords="324,81,281,85,281,80,323,76"/>
 </map>
 </div>
 
@@ -903,19 +877,19 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00076">76</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span>                                             {</div>
-<div class="line"><span class="lineno">   77</span>  <span class="keywordflow">if</span> (fds == NULL || count == 0) {</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Nothing to close</span></div>
-<div class="line"><span class="lineno">   79</span>  }</div>
-<div class="line"><span class="lineno">   80</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; i++) {</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fds[i]) &lt; 0) {</div>
-<div class="line"><span class="lineno">   82</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error closing one of the pipes</span></div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span>  }</div>
-<div class="line"><span class="lineno">   85</span>  <span class="keywordflow">return</span> 0; <span class="comment">// All pipes closed successfully</span></div>
-<div class="line"><span class="lineno">   86</span>}</div>
-<div class="ttc" id="autils_8c_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00064">utils.c:64</a></div></div>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00075">75</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                             {</div>
+<div class="line"><span class="lineno">   76</span>  <span class="keywordflow">if</span> (fds == NULL || count == 0) {</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Nothing to close</span></div>
+<div class="line"><span class="lineno">   78</span>  }</div>
+<div class="line"><span class="lineno">   79</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; i++) {</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fds[i]) &lt; 0) {</div>
+<div class="line"><span class="lineno">   81</span>      <span class="keywordflow">return</span> -1; <span class="comment">// Error closing one of the pipes</span></div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="line"><span class="lineno">   83</span>  }</div>
+<div class="line"><span class="lineno">   84</span>  <span class="keywordflow">return</span> 0; <span class="comment">// All pipes closed successfully</span></div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="autils_8c_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -931,19 +905,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="utils_8c_a9e8583cecaa2142a642e0ffd5f25dfdd_icgraph.png" border="0" usemap="#autils_8c_a9e8583cecaa2142a642e0ffd5f25dfdd_icgraph" loading="lazy" alt=""/></div>
 <map name="autils_8c_a9e8583cecaa2142a642e0ffd5f25dfdd_icgraph" id="autils_8c_a9e8583cecaa2142a642e0ffd5f25dfdd_icgraph">
-<area shape="rect" title="Close a series of pipes safely." alt="" coords="316,55,439,80"/>
-<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,31"/>
-<area shape="poly" title=" " alt="" coords="321,52,264,32,266,27,323,47"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
-<area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,104,268,130"/>
-<area shape="poly" title=" " alt="" coords="323,88,270,106,268,101,321,83"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,55,142,80"/>
-<area shape="poly" title=" " alt="" coords="187,41,144,61,141,56,184,36"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
-<area shape="poly" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
-<area shape="poly" title=" " alt="" coords="175,70,143,70,143,65,175,65"/>
-<area shape="poly" title=" " alt="" coords="184,99,141,79,144,74,187,94"/>
+<area shape="rect" title="Close a series of pipes safely." alt="" coords="331,57,464,85"/>
+<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
+<area shape="poly" title=" " alt="" coords="338,54,279,35,281,29,340,49"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,57,283,85"/>
+<area shape="poly" title=" " alt="" coords="316,74,284,74,284,68,316,68"/>
+<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,109,283,137"/>
+<area shape="poly" title=" " alt="" coords="340,93,285,112,283,107,338,88"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,57,150,85"/>
+<area shape="poly" title=" " alt="" coords="196,43,152,64,149,59,194,38"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,57,60,85"/>
+<area shape="poly" title=" " alt="" coords="92,74,60,74,60,68,92,68"/>
+<area shape="poly" title=" " alt="" coords="182,74,150,74,150,68,182,68"/>
+<area shape="poly" title=" " alt="" coords="194,105,149,83,152,78,196,100"/>
 </map>
 </div>
 
