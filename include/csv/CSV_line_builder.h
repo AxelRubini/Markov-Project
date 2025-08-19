@@ -1,11 +1,7 @@
 #ifndef CSV_LINE_BUILDER_H
 #define CSV_LINE_BUILDER_H
-#include "hash_table.h"
 #include "ht_item.h"
-#include "linked_list.h"
-#include "utf8_tools.h"
-#include "utils.h"
-#include "word.h"
+
 #include <stddef.h>
 
 /**

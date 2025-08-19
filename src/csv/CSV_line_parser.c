@@ -1,6 +1,10 @@
 #include "CSV_line_parser.h"
+#include "next_word.h"
 #include "utf8_tools.h"
 #include "utils.h"
+
+#include <stdio.h>
+#include <string.h>
 
 ssize_t get_key_from_line(const char *line, int *key) {
 

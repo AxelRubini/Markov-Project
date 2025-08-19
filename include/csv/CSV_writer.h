@@ -2,11 +2,7 @@
 #define CSV_WRITER_H
 
 
-#include "CSV_line_builder.h"
-#include "utf8_tools.h"
-#include "utils.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "hash_table.h"
 
 
 /**

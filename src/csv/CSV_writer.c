@@ -3,11 +3,9 @@
 #include "CSV_line_builder.h"
 #include "frame.h"
 #include "utils.h"
-#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 int csv_build_file(const char *filename, hash_table_t *table) {
   if (!filename || !table) {

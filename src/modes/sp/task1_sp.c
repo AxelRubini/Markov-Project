@@ -5,8 +5,6 @@
 #include "utils.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <unistd.h>
 
 int task1_sp(const char *input_txt, const char *output_csv) {

@@ -1,8 +1,10 @@
 #include "file_reader.h"
 #include "utf8_tools.h"
+#include "word.h"
+#include "utils.h"
 
 #include <stdio.h>
-#include <sys/types.h>
+#include <string.h>
 #include <unistd.h>
 
 hash_table_t *build_word_hashtable_fd(int fd) {

@@ -1,13 +1,11 @@
 #include "task2_mp.h"
 #include "CSV_reader.h"
 #include "file_writer.h"
-#include "hash_table.h"
 #include "modes_utils.h"
 #include "utils.h"
 
 #include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>

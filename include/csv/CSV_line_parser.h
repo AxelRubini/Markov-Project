@@ -1,16 +1,10 @@
 #ifndef CSV_LINE_PARSER_H
 #define CSV_LINE_PARSER_H
 
-#include "ht_item.h"
 #include "linked_list.h"
-#include "next_word.h"
-#include "utf8_tools.h"
-#include "utils.h"
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+
+#include <stddef.h>
+#include <sys/types.h>
 
 
 enum read_nxt_word_st_t{
