@@ -3,21 +3,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Ensure the bucket at index exists, creating a linked list if necessary. */
+/* Ensure bucket at index exists, creating a list on demand.
+ * table: valid hash table.
+ * index: bucket index in [0, size).
+ */
 static linked_list_t *ensure_bucket(hash_table_t *table, int index) {
   if (table->buckets[index] == NULL) {
-    table->buckets[index] = create_linked_list();
+    table->buckets[index] = create_linked_list(); // allocate bucket list
   }
   return table->buckets[index];
 }
 
-/* Resize the table when the load factor exceeds the threshold. */
+/* Resize table when load factor exceeds threshold.
+ * Rehashes all items and frees old buckets.
+ */
 static void ht_resize(hash_table_t *table) {
   int new_size = next_prime(table->size * 2);
   linked_list_t **old_buckets = table->buckets;
   int old_size = table->size;
 
-  table->buckets = dmalloc(sizeof(linked_list_t *) * new_size);
+  table->buckets = dmalloc(sizeof(linked_list_t *) * new_size); // new array
   table->size = new_size;
   for (int i = 0; i < new_size; ++i) {
     table->buckets[i] = NULL;
@@ -40,9 +45,13 @@ static void ht_resize(hash_table_t *table) {
     /* Free the wrapper list; items are now in the new table. */
     free(bucket);
   }
-  free(old_buckets);
+  free(old_buckets); // release old bucket array
 }
 
+/* Create a hash table.
+ * initial_size: desired starting bucket count.
+ * hash_func/key_cmp: user-supplied callbacks (must be non-NULL).
+ */
 hash_table_t *create_hash_table(int initial_size,
                                 uint32_t (*hash_func)(const void *, int),
                                 int (*key_cmp)(const void *, const void *)) {
@@ -50,23 +59,28 @@ hash_table_t *create_hash_table(int initial_size,
     fprintf(stderr, "Hash function and key compare cannot be NULL\n");
     return NULL;
   }
-  hash_table_t *table = dmalloc(sizeof(hash_table_t));
+  hash_table_t *table = dmalloc(sizeof(hash_table_t)); // table struct
   table->size = next_prime(initial_size);
   table->count = 0;
   table->hash_func = hash_func;
   table->key_cmp = key_cmp;
 
-  table->buckets = dmalloc(sizeof(linked_list_t *) * table->size);
+  table->buckets = dmalloc(sizeof(linked_list_t *) * table->size); // buckets
   for (int i = 0; i < table->size; ++i) {
     table->buckets[i] = NULL;
   }
   return table;
 }
 
+/* Compute current load factor. */
 static double load_factor(const hash_table_t *table) {
   return (double)table->count / (double)table->size;
 }
 
+/* Insert item into table.
+ * Updates existing keys and triggers resize if needed.
+ * Ownership of item is taken by the table.
+ */
 void ht_insert(hash_table_t *table, ht_item *item) {
   if (!table || !item)
     return;
@@ -95,6 +109,7 @@ void ht_insert(hash_table_t *table, ht_item *item) {
   }
 }
 
+/* Search item by key; returns NULL if absent. */
 ht_item *ht_search(const hash_table_t *table, const void *key) {
   if (!table || !key)
     return NULL;
@@ -115,6 +130,10 @@ ht_item *ht_search(const hash_table_t *table, const void *key) {
   return NULL;
 }
 
+/* Remove item by key.
+ * Frees item via callback and adjusts count.
+ * Returns 1 on success, 0 if not found.
+ */
 int ht_remove(hash_table_t *table, const void *key) {
   if (!table || !key)
     return 0;
@@ -140,7 +159,7 @@ int ht_remove(hash_table_t *table, const void *key) {
           bucket->tail = previous;
       }
       if (it->free_item) {
-        it->free_item(it);
+        it->free_item(it); // release item resources
       }
       free(current);
       table->count--;
@@ -152,6 +171,7 @@ int ht_remove(hash_table_t *table, const void *key) {
   return 0; /* Not found. */
 }
 
+/* Free table and all contained items. */
 void free_hash_table(hash_table_t *table) {
   if (!table)
     return;
@@ -175,9 +195,14 @@ void free_hash_table(hash_table_t *table) {
   free(table->buckets);
   free(table);
 }
+
+/* Get number of stored items. */
 int ht_get_count(const hash_table_t *table) { return table ? table->count : 0; }
+
+/* Get current bucket array size. */
 int ht_get_size(const hash_table_t *table) { return table ? table->size : 0; }
 
+/* Print all items using provided file descriptor. */
 void print_hash_table(const hash_table_t *table, int fd) {
   if (!table || fd < 0) {
     fprintf(stderr, "Invalid table or file descriptor\n");
