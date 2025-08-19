@@ -2,14 +2,6 @@
 #define FILE_READER_H
 
 #include "hash_table.h"
-#include "ht_item.h"
-#include "linked_list.h"
-#include "utf8_tools.h"
-#include "utils.h"
-#include "word.h"
-
-#include <stdio.h>
-#include <string.h>
 
 #define HASH_TABLE_SIZE 97 // Initial size of the hash table for words
 

@@ -3,7 +3,8 @@
 
 #include "ht_item.h"
 #include "linked_list.h"
-#include "utf8_tools.h"
+
+#include <stdint.h>
 
 /*
  * The next_word_t structure represents a word as string of UTF-8 codepoints

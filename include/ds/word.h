@@ -2,10 +2,8 @@
 #define WORD_H
 
 #include "ht_item.h"
-#include "linked_list.h"
+
 #include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 /*This structure represents a word and its occurrence count*/
 

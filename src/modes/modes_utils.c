@@ -1,8 +1,12 @@
 #include "modes_utils.h"
 #include "utils.h"
 
+#include <fcntl.h>
 #include <signal.h>
+#include <stdio.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
+#include <unistd.h>
 static int read_from_stdin(const char *output_txt) {
   fprintf(stderr, "Reading from stdin \n"
                   "if you not redirect stdin, write on the console and press"

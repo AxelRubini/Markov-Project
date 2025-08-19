@@ -3,15 +3,11 @@
 #include "CSV_writer.h"
 #include "file_reader.h"
 #include "file_writer.h"
-#include "hash_table.h"
 #include "modes_utils.h"
+#include "utils.h"
 
 #include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <unistd.h>
 
 int both_sp(const char *input_txt, const char *output_csv,

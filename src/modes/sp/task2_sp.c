@@ -1,13 +1,9 @@
 #include "task2_sp.h"
 #include "CSV_reader.h"
 #include "file_writer.h"
-#include "hash_table.h"
 #include "modes_utils.h"
 
-#include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 
 int task2_sp(const char *input_csv, const char *output_txt, size_t n_words) {
