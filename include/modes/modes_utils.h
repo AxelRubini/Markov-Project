@@ -7,6 +7,16 @@
 #include <stdio.h>
 
 /**
+ * @brief Temporary file used to store data read from stdin when no input file is provided.
+ */
+#define TMP_STDIN_FILE "tmp_read_from_stdin.txt"
+
+/**
+ * @brief Temporary file used to capture output when no output file is provided.
+ */
+#define TMP_STDOUT_FILE "tmp_output.txt"
+
+/**
 * @brief Validate or read input file.
 *
 * When @p input_txt is NULL the function reads from standard input and

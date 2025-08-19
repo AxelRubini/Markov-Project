@@ -233,7 +233,7 @@ int both_mp(const char *input_txt, const char *output_csv,
   const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
 
   if (is_empty(output_txt)) {
-    output_txt = "tmp_output.txt";
+    output_txt = TMP_STDOUT_FILE;
     print_to_stdout = 1;
   }
 

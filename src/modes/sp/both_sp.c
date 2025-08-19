@@ -38,15 +38,15 @@ int both_sp(const char *input_txt, const char *output_csv,
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was
-                                       // created
+    remove(TMP_STDIN_FILE); // Remove the temporary file if it was
+                            // created
   }
 
   int print_to_stdout = 0;
   if (is_empty(output_txt)) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
-    output_txt = "tmp_output.txt"; // Temporary file for stdout
+    output_txt = TMP_STDOUT_FILE; // Temporary file for stdout
   }
   fprintf(stderr, "Output file: %s\n", output_txt);
 

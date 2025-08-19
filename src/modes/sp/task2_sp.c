@@ -15,7 +15,7 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words) {
   if (is_empty(output_txt)) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
-    output_txt = "tmp_output.txt"; // Temporary file for stdout
+    output_txt = TMP_STDOUT_FILE; // Temporary file for stdout
   }
 
   hash_table_t *ht = read_csv_file_sp(input_csv);
