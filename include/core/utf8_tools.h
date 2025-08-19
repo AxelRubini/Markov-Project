@@ -107,6 +107,12 @@ int *utf8_str_deepcopy(const int *str);
  */
 int utf8_get_codepoint(const char *buffer, int *offset);
 
+/** Convert raw UTF-8 bytes to a code-point array. */
+int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len);
+
+/** Read a word of code points from a UTF-8 byte buffer. */
+int *utf8_read_word_from_buf(const u8 *buf, size_t *offset);
+
 /**
  * @brief Encode code points into raw UTF-8 bytes.
  *
