@@ -15,7 +15,7 @@
 <area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="214,177,279,195,278,201,213,182"/>
 <area shape="rect" id="Node000009" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="286,252,397,278"/>
 <area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="183,177,222,208,272,238,283,243,280,248,270,243,219,212,180,182"/>
-<area shape="rect" id="Node000011" href="$file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="271,301,412,327"/>
+<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="271,301,412,327"/>
 <area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="176,178,213,231,241,261,273,288,279,292,276,297,269,292,237,265,209,234,171,181"/>
 <area shape="rect" id="Node000014" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="278,351,405,376"/>
 <area shape="poly" id="edge14_Node000003_Node000014" title=" " alt="" coords="173,179,185,211,206,254,235,298,273,337,277,341,274,345,269,342,231,302,202,256,181,213,168,181"/>

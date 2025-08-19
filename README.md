@@ -141,4 +141,30 @@ digraph Task2 {
 \enddot
 
 
+## Risorse usate per la realizzazione del progetto
+
+### Analisi del testo in UTF-8 :
+
+ * https://en.wikipedia.org/wiki/UTF-8
+ * https://www.youtube.com/watch?v=c_hfKgektt4
+ * https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math
+ * https://utf8everywhere.org/
+
+### Gestione IPC  
+ * https://stackoverflow.com/questions/19127398/socket-programming-read-is-reading-all-of-my-writes
+ * https://people.cs.rutgers.edu/~pxk/416/notes/c-tutorials/pipe.html
+ho bisogno di implementare questa versione di scrittura per evitare problemi di buffer pieno 
+ * https://stackoverflow.com/questions/8242318/trouble-when-trying-to-define-a-write-all-socket-function-in-c 
+
+### Hash table
+ * https://stackoverflow.com/questions/22437416/best-way-to-resize-a-hash-table
+ * https://blog.mischel.com/2008/10/16/optimizing-the-wrong-thing/
+ * https://dev.to/jihoonj/implementing-a-hash-table-3pa7 
+risolve problema di resize
+ * https://gist.github.com/cellularmitosis/9db34df37d3df91709ad3e4faf93c417
+
+### Funzione Hash
+ * http://www.cse.yorku.ca/~oz/hash.html
+
+
 

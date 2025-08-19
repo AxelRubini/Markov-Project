@@ -6,9 +6,9 @@
 <area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="884,172,840,140,788,109,761,98,763,93,790,104,843,135,887,168"/>
 <area shape="rect" id="Node000014" href="$file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="417,291,569,316"/>
 <area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="844,212,618,271,541,293,540,288,616,266,843,207"/>
-<area shape="rect" id="Node000018" href="$file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="632,180,774,206"/>
+<area shape="rect" id="Node000018" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="632,180,774,206"/>
 <area shape="poly" id="edge24_Node000001_Node000018" title=" " alt="" coords="822,196,774,196,774,190,822,190"/>
-<area shape="rect" id="Node000022" href="$file__writer_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word from a UTF&#45;8 byte buffer." alt="" coords="619,281,787,307"/>
+<area shape="rect" id="Node000022" href="$utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="619,281,787,307"/>
 <area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="879,216,790,265,745,283,743,278,788,260,876,212"/>
 <area shape="rect" id="Node000003" href="$CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="434,69,552,95"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="630,117,550,98,551,93,631,112"/>

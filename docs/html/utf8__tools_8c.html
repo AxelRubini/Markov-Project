@@ -147,6 +147,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac2077df025c715fd9f73ab86431d2de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two UTF-8 strings.  <br /></td></tr>
 <tr class="memitem:a74083c77770265ea3e47531cc0666d5d" id="r_a74083c77770265ea3e47531cc0666d5d"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74083c77770265ea3e47531cc0666d5d">utf8_str_deepcopy</a> (const int *str)</td></tr>
 <tr class="memdesc:a74083c77770265ea3e47531cc0666d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deep copy a UTF-8 string.  <br /></td></tr>
+<tr class="memitem:af874411f68b6b343eb327e0246ea5652" id="r_af874411f68b6b343eb327e0246ea5652"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af874411f68b6b343eb327e0246ea5652">utf8_rawbytes_to_cp</a> (const <a class="el" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *bytes, size_t len)</td></tr>
+<tr class="memdesc:af874411f68b6b343eb327e0246ea5652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert raw UTF-8 bytes to a code-point array.  <br /></td></tr>
+<tr class="memitem:aa7c2638eb69d2cab3fe2e95524ac206d" id="r_aa7c2638eb69d2cab3fe2e95524ac206d"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c2638eb69d2cab3fe2e95524ac206d">utf8_read_word_from_buf</a> (const <a class="el" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, size_t *offset)</td></tr>
+<tr class="memdesc:aa7c2638eb69d2cab3fe2e95524ac206d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a word of code points from a UTF-8 byte buffer.  <br /></td></tr>
 <tr class="memitem:a5e4b53100a7c7b94a90ec0c5091855ed" id="r_a5e4b53100a7c7b94a90ec0c5091855ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e4b53100a7c7b94a90ec0c5091855ed">utf8_cp_to_rawbytes</a> (const int *word, <a class="el" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf)</td></tr>
 <tr class="memdesc:a5e4b53100a7c7b94a90ec0c5091855ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode code points into raw UTF-8 bytes.  <br /></td></tr>
 <tr class="memitem:a41ce5668050a61259683558c82481871" id="r_a41ce5668050a61259683558c82481871"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41ce5668050a61259683558c82481871">is_punctuation</a> (int cp)</td></tr>
@@ -174,11 +178,11 @@ Functions</h2></td></tr>
 
 <p>Return non-zero if code point is ignorable punctuation. </p>
 
-<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00280">280</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  280</span>                           {</div>
-<div class="line"><span class="lineno">  281</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;,&#39;</span> || cp == <span class="charliteral">&#39;;&#39;</span> || cp == <span class="charliteral">&#39;:&#39;</span> || cp == <span class="charliteral">&#39;-&#39;</span> || cp == <span class="charliteral">&#39;\&quot;&#39;</span> ||</div>
-<div class="line"><span class="lineno">  282</span>          cp == <span class="charliteral">&#39;*&#39;</span>);</div>
-<div class="line"><span class="lineno">  283</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00335">335</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  335</span>                           {</div>
+<div class="line"><span class="lineno">  336</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;,&#39;</span> || cp == <span class="charliteral">&#39;;&#39;</span> || cp == <span class="charliteral">&#39;:&#39;</span> || cp == <span class="charliteral">&#39;-&#39;</span> || cp == <span class="charliteral">&#39;\&quot;&#39;</span> ||</div>
+<div class="line"><span class="lineno">  337</span>          cp == <span class="charliteral">&#39;*&#39;</span>);</div>
+<div class="line"><span class="lineno">  338</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -240,10 +244,10 @@ Here is the caller graph for this function:</div>
 
 <p>Return non-zero if code point terminates a sentence. </p>
 
-<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00285">285</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  285</span>                                   {</div>
-<div class="line"><span class="lineno">  286</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;.&#39;</span> || cp == <span class="charliteral">&#39;?&#39;</span> || cp == <span class="charliteral">&#39;!&#39;</span>);</div>
-<div class="line"><span class="lineno">  287</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00340">340</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  340</span>                                   {</div>
+<div class="line"><span class="lineno">  341</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;.&#39;</span> || cp == <span class="charliteral">&#39;?&#39;</span> || cp == <span class="charliteral">&#39;!&#39;</span>);</div>
+<div class="line"><span class="lineno">  342</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -296,12 +300,12 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Non-zero if typographic, zero otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00289">289</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  289</span>                           {</div>
-<div class="line"><span class="lineno">  290</span>  <span class="keywordflow">return</span> (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||</div>
-<div class="line"><span class="lineno">  291</span>          cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||</div>
-<div class="line"><span class="lineno">  292</span>          cp == 0x00BF);</div>
-<div class="line"><span class="lineno">  293</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00344">344</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  344</span>                           {</div>
+<div class="line"><span class="lineno">  345</span>  <span class="keywordflow">return</span> (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||</div>
+<div class="line"><span class="lineno">  346</span>          cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||</div>
+<div class="line"><span class="lineno">  347</span>          cp == 0x00BF);</div>
+<div class="line"><span class="lineno">  348</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -646,21 +650,21 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Bytes written or -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00265">265</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  265</span>                                                  {</div>
-<div class="line"><span class="lineno">  266</span>  <span class="keywordflow">if</span> (word == NULL || buf == NULL) {</div>
-<div class="line"><span class="lineno">  267</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_cp_to_rawbytes\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  268</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error</span></div>
-<div class="line"><span class="lineno">  269</span>  }</div>
-<div class="line"><span class="lineno">  270</span> </div>
-<div class="line"><span class="lineno">  271</span>  <span class="keywordtype">int</span> offset = 0;</div>
-<div class="line"><span class="lineno">  272</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
-<div class="line"><span class="lineno">  273</span>    <a class="code hl_function" href="#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], (<span class="keywordtype">char</span> *)buf, &amp;offset);</div>
-<div class="line"><span class="lineno">  274</span>  }</div>
-<div class="line"><span class="lineno">  275</span>  buf[offset] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the buffer</span></div>
-<div class="line"><span class="lineno">  276</span> </div>
-<div class="line"><span class="lineno">  277</span>  <span class="keywordflow">return</span> offset; <span class="comment">// Return the number of bytes written</span></div>
-<div class="line"><span class="lineno">  278</span>}</div>
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00320">320</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  320</span>                                                  {</div>
+<div class="line"><span class="lineno">  321</span>  <span class="keywordflow">if</span> (word == NULL || buf == NULL) {</div>
+<div class="line"><span class="lineno">  322</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_cp_to_rawbytes\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  323</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error</span></div>
+<div class="line"><span class="lineno">  324</span>  }</div>
+<div class="line"><span class="lineno">  325</span> </div>
+<div class="line"><span class="lineno">  326</span>  <span class="keywordtype">int</span> offset = 0;</div>
+<div class="line"><span class="lineno">  327</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
+<div class="line"><span class="lineno">  328</span>    <a class="code hl_function" href="#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], (<span class="keywordtype">char</span> *)buf, &amp;offset);</div>
+<div class="line"><span class="lineno">  329</span>  }</div>
+<div class="line"><span class="lineno">  330</span>  buf[offset] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the buffer</span></div>
+<div class="line"><span class="lineno">  331</span> </div>
+<div class="line"><span class="lineno">  332</span>  <span class="keywordflow">return</span> offset; <span class="comment">// Return the number of bytes written</span></div>
+<div class="line"><span class="lineno">  333</span>}</div>
 <div class="ttc" id="autf8__tools_8c_html_a32ed8f7d14fc89d5e13fe68c1c923ac4"><div class="ttname"><a href="#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a></div><div class="ttdeci">void utf8_append_char(uint32_t codepoint, char *buffer, int *offset)</div><div class="ttdoc">Append a code point to a UTF-8 buffer.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00212">utf8_tools.c:212</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -962,9 +966,9 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="884,172,840,140,788,109,761,98,763,93,790,104,843,135,887,168"/>
 <area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="417,291,569,316"/>
 <area shape="poly" title=" " alt="" coords="844,212,618,271,541,293,540,288,616,266,843,207"/>
-<area shape="rect" href="file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="632,180,774,206"/>
+<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="632,180,774,206"/>
 <area shape="poly" title=" " alt="" coords="822,196,774,196,774,190,822,190"/>
-<area shape="rect" href="file__writer_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word from a UTF&#45;8 byte buffer." alt="" coords="619,281,787,307"/>
+<area shape="rect" href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="619,281,787,307"/>
 <area shape="poly" title=" " alt="" coords="879,216,790,265,745,283,743,278,788,260,876,212"/>
 <area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="434,69,552,95"/>
 <area shape="poly" title=" " alt="" coords="630,117,550,98,551,93,631,112"/>
@@ -1100,9 +1104,9 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="844,330,805,335,804,329,843,325"/>
 <area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="432,229,584,255"/>
 <area shape="poly" title=" " alt="" coords="890,300,849,284,804,270,747,259,689,252,584,245,584,240,689,247,748,254,805,265,851,278,892,295"/>
-<area shape="rect" href="file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="648,379,789,404"/>
+<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="648,379,789,404"/>
 <area shape="poly" title=" " alt="" coords="889,338,805,370,771,381,769,376,803,365,887,333"/>
-<area shape="rect" href="file__writer_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word from a UTF&#45;8 byte buffer." alt="" coords="634,428,802,454"/>
+<area shape="rect" href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="634,428,802,454"/>
 <area shape="poly" title=" " alt="" coords="910,343,864,382,806,419,779,430,777,425,803,414,861,377,907,339"/>
 <area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="449,280,567,306"/>
 <area shape="poly" title=" " alt="" coords="639,296,568,296,568,290,639,290"/>
@@ -1406,6 +1410,162 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="af874411f68b6b343eb327e0246ea5652" name="af874411f68b6b343eb327e0246ea5652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af874411f68b6b343eb327e0246ea5652">&#9670;&#160;</a></span>utf8_rawbytes_to_cp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * utf8_rawbytes_to_cp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert raw UTF-8 bytes to a code-point array. </p>
+
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00265">265</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  265</span>                                                      {</div>
+<div class="line"><span class="lineno">  266</span>  <span class="keywordflow">if</span> (!bytes || len == 0) {</div>
+<div class="line"><span class="lineno">  267</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  268</span>  }</div>
+<div class="line"><span class="lineno">  269</span> </div>
+<div class="line"><span class="lineno">  270</span>  <span class="keywordtype">int</span> *word = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><span class="lineno">  271</span>  <span class="keywordflow">if</span> (!word) {</div>
+<div class="line"><span class="lineno">  272</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  273</span>  }</div>
+<div class="line"><span class="lineno">  274</span> </div>
+<div class="line"><span class="lineno">  275</span>  <span class="keywordtype">size_t</span> offset = 0;</div>
+<div class="line"><span class="lineno">  276</span>  <span class="keywordtype">int</span> word_index = 0;</div>
+<div class="line"><span class="lineno">  277</span> </div>
+<div class="line"><span class="lineno">  278</span>  <span class="keywordflow">while</span> (offset &lt; len &amp;&amp; word_index &lt; <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">  279</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>(bytes, &amp;offset);</div>
+<div class="line"><span class="lineno">  280</span>    <span class="keywordflow">if</span> (cp == EOF || cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
+<div class="line"><span class="lineno">  281</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  282</span>    }</div>
+<div class="line"><span class="lineno">  283</span>    word[word_index++] = cp;</div>
+<div class="line"><span class="lineno">  284</span>  }</div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>  word[word_index] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  287</span>  <span class="keywordflow">return</span> word;</div>
+<div class="line"><span class="lineno">  288</span>}</div>
+<div class="ttc" id="autf8__tools_8c_html_a7d9ae5e58ba301dd340e891e55d1d806"><div class="ttname"><a href="#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a></div><div class="ttdeci">int utf8_getchar_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Fetch a UTF-8 code point from a buffer at an offset.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00085">utf8_tools.c:85</a></div></div>
+<div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
+<div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utf8__tools_8c_af874411f68b6b343eb327e0246ea5652_cgraph.png" border="0" usemap="#autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_cgraph" loading="lazy" alt=""/></div>
+<map name="autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_cgraph" id="autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_cgraph">
+<area shape="rect" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="5,5,147,31"/>
+<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="195,5,346,31"/>
+<area shape="poly" title=" " alt="" coords="147,16,179,16,179,21,147,21"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="394,5,479,31"/>
+<area shape="poly" title=" " alt="" coords="346,16,378,16,378,21,346,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utf8__tools_8c_af874411f68b6b343eb327e0246ea5652_icgraph.png" border="0" usemap="#autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_icgraph" loading="lazy" alt=""/></div>
+<map name="autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_icgraph" id="autf8__tools_8c_af874411f68b6b343eb327e0246ea5652_icgraph">
+<area shape="rect" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="582,31,723,56"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="417,31,534,56"/>
+<area shape="poly" title=" " alt="" coords="567,46,534,46,534,41,567,41"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="316,5,369,31"/>
+<area shape="poly" title=" " alt="" coords="401,32,368,26,369,20,402,27"/>
+<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="316,55,369,80"/>
+<area shape="poly" title=" " alt="" coords="402,60,369,65,368,60,401,54"/>
+<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
+<area shape="poly" title=" " alt="" coords="176,34,143,41,142,36,174,28"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
+<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,55,265,80"/>
+<area shape="poly" title=" " alt="" coords="301,70,265,70,265,65,301,65"/>
+<area shape="poly" title=" " alt="" coords="178,59,142,50,143,45,179,53"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa7c2638eb69d2cab3fe2e95524ac206d" name="aa7c2638eb69d2cab3fe2e95524ac206d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c2638eb69d2cab3fe2e95524ac206d">&#9670;&#160;</a></span>utf8_read_word_from_buf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * utf8_read_word_from_buf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read a word of code points from a UTF-8 byte buffer. </p>
+
+<p class="definition">Definition at line <a class="el" href="utf8__tools_8c_source.html#l00290">290</a> of file <a class="el" href="utf8__tools_8c_source.html">utf8_tools.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  290</span>                                                            {</div>
+<div class="line"><span class="lineno">  291</span>  <span class="keywordflow">if</span> (!buf || !offset) {</div>
+<div class="line"><span class="lineno">  292</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_create_word_from_buf\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  293</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  294</span>  }</div>
+<div class="line"><span class="lineno">  295</span> </div>
+<div class="line"><span class="lineno">  296</span>  <span class="keywordtype">int</span> *word = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><span class="lineno">  297</span>  <span class="keywordflow">if</span> (!word) {</div>
+<div class="line"><span class="lineno">  298</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed for word\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  299</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  300</span>  }</div>
+<div class="line"><span class="lineno">  301</span> </div>
+<div class="line"><span class="lineno">  302</span>  <span class="keywordtype">size_t</span> i = 0;</div>
+<div class="line"><span class="lineno">  303</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  304</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>(buf, offset);</div>
+<div class="line"><span class="lineno">  305</span>    <span class="keywordflow">if</span> (cp == EOF || cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a> || cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  306</span>      <span class="keywordflow">break</span>; <span class="comment">// End of buffer or invalid UTF-8 sequence</span></div>
+<div class="line"><span class="lineno">  307</span>    }</div>
+<div class="line"><span class="lineno">  308</span>    <span class="keywordflow">if</span> (i &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">  309</span>      fprintf(stderr, <span class="stringliteral">&quot;Word exceeds maximum length\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  310</span>      free(word);</div>
+<div class="line"><span class="lineno">  311</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Exceeded max length</span></div>
+<div class="line"><span class="lineno">  312</span>    }</div>
+<div class="line"><span class="lineno">  313</span>    word[i++] = cp; <span class="comment">// Store codepoint in the word</span></div>
+<div class="line"><span class="lineno">  314</span>  }</div>
+<div class="line"><span class="lineno">  315</span>  word[i] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the word</span></div>
+<div class="line"><span class="lineno">  316</span> </div>
+<div class="line"><span class="lineno">  317</span>  <span class="keywordflow">return</span> word;</div>
+<div class="line"><span class="lineno">  318</span>}</div>
+<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="utf8__tools_8c_aa7c2638eb69d2cab3fe2e95524ac206d_cgraph.png" border="0" usemap="#autf8__tools_8c_aa7c2638eb69d2cab3fe2e95524ac206d_cgraph" loading="lazy" alt=""/></div>
+<map name="autf8__tools_8c_aa7c2638eb69d2cab3fe2e95524ac206d_cgraph" id="autf8__tools_8c_aa7c2638eb69d2cab3fe2e95524ac206d_cgraph">
+<area shape="rect" title="Read a word of code points from a UTF&#45;8 byte buffer." alt="" coords="5,31,174,56"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="264,5,330,31"/>
+<area shape="poly" title=" " alt="" coords="174,31,248,21,249,27,175,36"/>
+<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="222,55,373,80"/>
+<area shape="poly" title=" " alt="" coords="175,51,206,54,206,60,174,56"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="421,55,506,80"/>
+<area shape="poly" title=" " alt="" coords="373,65,405,65,405,70,373,70"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a74083c77770265ea3e47531cc0666d5d" name="a74083c77770265ea3e47531cc0666d5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74083c77770265ea3e47531cc0666d5d">&#9670;&#160;</a></span>utf8_str_deepcopy()</h2>
 
@@ -1449,7 +1609,6 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  261</span> </div>
 <div class="line"><span class="lineno">  262</span>  <span class="keywordflow">return</span> copy;</div>
 <div class="line"><span class="lineno">  263</span>}</div>
-<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

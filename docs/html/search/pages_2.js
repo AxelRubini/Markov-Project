@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['del_20progetto_0',['Struttura del progetto',['../index.html#autotoc_md1',1,'']]],
-  ['delle_20modalita_20multiprocesso_1',['Flowchart delle modalita multiprocesso',['../index.html#autotoc_md5',1,'']]]
+  ['analisi_20del_20testo_20in_20utf_208_20_3a_0',['Analisi del testo in UTF-8 :',['../index.html#autotoc_md10',1,'']]]
 ];

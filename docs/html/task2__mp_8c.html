@@ -450,7 +450,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="396,356,424,338,434,325,440,312,446,286,452,260,459,246,472,234,479,228,482,232,475,237,464,250,457,262,451,287,445,314,438,328,427,341,399,360"/>
 <area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="505,248,615,274"/>
 <area shape="poly" title=" " alt="" coords="391,356,424,337,438,324,447,310,456,296,472,283,489,274,491,279,475,287,460,300,451,313,442,327,427,342,393,360"/>
-<area shape="rect" href="file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="489,297,631,323"/>
+<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="489,297,631,323"/>
 <area shape="poly" title=" " alt="" coords="395,356,473,332,495,325,496,330,474,337,397,361"/>
 <area shape="poly" title=" " alt="" coords="617,321,648,332,704,359,752,386,749,391,701,363,646,337,615,326"/>
 </map>
@@ -625,7 +625,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   66</span>  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">   67</span>}</div>
 <div class="ttc" id="aCSV__reader_8h_html_a7404d1f70f2ae8cf3a3d055de7285500"><div class="ttname"><a href="CSV__reader_8h.html#a7404d1f70f2ae8cf3a3d055de7285500">read_lines_from_pipe</a></div><div class="ttdeci">hash_table_t * read_lines_from_pipe(int in_fd)</div><div class="ttdoc">Build a hash table from CSV lines read on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00182">CSV_reader.c:182</a></div></div>
-<div class="ttc" id="afile__writer_8h_html_a49154041d01ed32276ecb401ccd1048d"><div class="ttname"><a href="file__writer_8h.html#a49154041d01ed32276ecb401ccd1048d">send_output_mp</a></div><div class="ttdeci">int send_output_mp(int fd, hash_table_t *ht, const int num_words, const char *start_sym)</div><div class="ttdoc">Send generated words over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00305">file_writer.c:305</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_a49154041d01ed32276ecb401ccd1048d"><div class="ttname"><a href="file__writer_8h.html#a49154041d01ed32276ecb401ccd1048d">send_output_mp</a></div><div class="ttdeci">int send_output_mp(int fd, hash_table_t *ht, const int num_words, const char *start_sym)</div><div class="ttdoc">Send generated words over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00238">file_writer.c:238</a></div></div>
 <div class="ttc" id="ahash__table_8h_html_a48c22d52e879fb10712c37f9e16aefdb"><div class="ttname"><a href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a></div><div class="ttdeci">void free_hash_table(hash_table_t *table)</div><div class="ttdoc">Destroy a hash table and its contents.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00155">hash_table.c:155</a></div></div>
 <div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -827,7 +827,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   84</span>  }</div>
 <div class="line"><span class="lineno">   85</span>  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">   86</span>}</div>
-<div class="ttc" id="afile__writer_8h_html_a366461dc2bef9f344dd7135de8f2187d"><div class="ttname"><a href="file__writer_8h.html#a366461dc2bef9f344dd7135de8f2187d">write_output_mp</a></div><div class="ttdeci">int write_output_mp(int fd, const char *filename)</div><div class="ttdoc">Write frames from a descriptor to a UTF-8 file.</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00231">file_writer.c:231</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_a366461dc2bef9f344dd7135de8f2187d"><div class="ttname"><a href="file__writer_8h.html#a366461dc2bef9f344dd7135de8f2187d">write_output_mp</a></div><div class="ttdeci">int write_output_mp(int fd, const char *filename)</div><div class="ttdoc">Write frames from a descriptor to a UTF-8 file.</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00164">file_writer.c:164</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -849,7 +849,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="214,177,279,195,278,201,213,182"/>
 <area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="286,252,397,278"/>
 <area shape="poly" title=" " alt="" coords="183,177,222,208,272,238,283,243,280,248,270,243,219,212,180,182"/>
-<area shape="rect" href="file__writer_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to code points." alt="" coords="271,301,412,327"/>
+<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="271,301,412,327"/>
 <area shape="poly" title=" " alt="" coords="176,178,213,231,241,261,273,288,279,292,276,297,269,292,237,265,209,234,171,181"/>
 <area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="278,351,405,376"/>
 <area shape="poly" title=" " alt="" coords="173,179,185,211,206,254,235,298,273,337,277,341,274,345,269,342,231,302,202,256,181,213,168,181"/>
