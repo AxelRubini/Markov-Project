@@ -141,6 +141,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac7a990ac61c94569ccf103a3f6407f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate a word or generate a random symbol.  <br /></td></tr>
 <tr class="memitem:a4b45d13590e03924bf6d330c657b8c99" id="r_a4b45d13590e03924bf6d330c657b8c99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a> (pid_t pid)</td></tr>
 <tr class="memdesc:a4b45d13590e03924bf6d330c657b8c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminate a process and wait for its completion.  <br /></td></tr>
+<tr class="memitem:a690ba732eed5eefc67aef350946092a9" id="r_a690ba732eed5eefc67aef350946092a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a690ba732eed5eefc67aef350946092a9">is_empty</a> (const char *str)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="aeb6e97fc1ea3e5c032592c6aaa77f276" name="aeb6e97fc1ea3e5c032592c6aaa77f276"></a>
@@ -166,19 +167,19 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00083">83</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>                                      {</div>
-<div class="line"><span class="lineno">   84</span>  <span class="keywordtype">char</span> *symbol = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(2 * <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
-<div class="line"><span class="lineno">   85</span>  <span class="keywordflow">if</span> (symbol == NULL) {</div>
-<div class="line"><span class="lineno">   86</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> NULL; <span class="comment">// Memory allocation failed</span></div>
-<div class="line"><span class="lineno">   88</span>  }</div>
-<div class="line"><span class="lineno">   89</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> charset[] = <span class="stringliteral">&quot;.?!&quot;</span>;</div>
-<div class="line"><span class="lineno">   90</span>  <span class="keywordtype">int</span> index = rand() % (<span class="keyword">sizeof</span>(charset) - 1);</div>
-<div class="line"><span class="lineno">   91</span>  symbol[0] = charset[index];</div>
-<div class="line"><span class="lineno">   92</span>  symbol[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">return</span> symbol;</div>
-<div class="line"><span class="lineno">   94</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00077">77</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>                                      {</div>
+<div class="line"><span class="lineno">   78</span>  <span class="keywordtype">char</span> *symbol = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(2 * <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>));</div>
+<div class="line"><span class="lineno">   79</span>  <span class="keywordflow">if</span> (symbol == NULL) {</div>
+<div class="line"><span class="lineno">   80</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> NULL; <span class="comment">// Memory allocation failed</span></div>
+<div class="line"><span class="lineno">   82</span>  }</div>
+<div class="line"><span class="lineno">   83</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> charset[] = <span class="stringliteral">&quot;.?!&quot;</span>;</div>
+<div class="line"><span class="lineno">   84</span>  <span class="keywordtype">int</span> index = rand() % (<span class="keyword">sizeof</span>(charset) - 1);</div>
+<div class="line"><span class="lineno">   85</span>  symbol[0] = charset[index];</div>
+<div class="line"><span class="lineno">   86</span>  symbol[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">return</span> symbol;</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 <div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -201,11 +202,65 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="329,116,256,155,254,150,327,111"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
 <area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
 <area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
 <area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
 <area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
 <area shape="poly" title=" " alt="" coords="192,147,188,144,139,108,142,104,192,140,195,142"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a690ba732eed5eefc67aef350946092a9" name="a690ba732eed5eefc67aef350946092a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690ba732eed5eefc67aef350946092a9">&#9670;&#160;</a></span>is_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int is_empty </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00132">132</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  132</span>                              { </div>
+<div class="line"><span class="lineno">  133</span>  <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  134</span>}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="modes__utils_8c_a690ba732eed5eefc67aef350946092a9_icgraph.png" border="0" usemap="#amodes__utils_8c_a690ba732eed5eefc67aef350946092a9_icgraph" loading="lazy" alt=""/></div>
+<map name="amodes__utils_8c_a690ba732eed5eefc67aef350946092a9_icgraph" id="amodes__utils_8c_a690ba732eed5eefc67aef350946092a9_icgraph">
+<area shape="rect" title=" " alt="" coords="489,80,562,106"/>
+<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,105,265,131"/>
+<area shape="poly" title=" " alt="" coords="473,100,266,118,265,112,473,95"/>
+<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="339,5,418,31"/>
+<area shape="poly" title=" " alt="" coords="490,73,439,45,416,34,418,29,442,40,493,69"/>
+<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="341,55,416,80"/>
+<area shape="poly" title=" " alt="" coords="473,87,416,76,417,71,474,81"/>
+<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="316,156,441,182"/>
+<area shape="poly" title=" " alt="" coords="486,116,442,139,407,158,404,153,439,134,484,111"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,131,142,156"/>
+<area shape="poly" title=" " alt="" coords="179,133,143,142,142,136,178,128"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,131,55,156"/>
+<area shape="poly" title=" " alt="" coords="87,146,55,146,55,141,87,141"/>
+<area shape="poly" title=" " alt="" coords="325,25,258,39,224,51,191,67,173,82,157,99,133,132,129,129,153,95,169,78,189,63,222,46,257,34,324,20"/>
+<area shape="poly" title=" " alt="" coords="326,70,260,77,225,84,191,95,162,113,138,132,135,128,159,108,189,90,223,79,259,71,326,65"/>
+<area shape="poly" title=" " alt="" coords="323,153,264,133,266,128,325,148"/>
+<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,155,263,180"/>
+<area shape="poly" title=" " alt="" coords="301,171,263,170,263,165,301,165"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,204,268,230"/>
+<area shape="poly" title=" " alt="" coords="322,190,270,207,268,202,321,184"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,253,266,279"/>
+<area shape="poly" title=" " alt="" coords="347,193,270,244,253,255,250,251,267,240,344,188"/>
+<area shape="poly" title=" " alt="" coords="179,159,142,150,143,145,181,154"/>
+<area shape="poly" title=" " alt="" coords="192,197,188,195,139,159,142,155,192,191,195,193"/>
+<area shape="poly" title=" " alt="" coords="190,246,188,244,152,199,128,158,133,156,156,196,192,240,193,242"/>
 </map>
 </div>
 
@@ -234,13 +289,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00130">130</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  130</span>                              {</div>
-<div class="line"><span class="lineno">  131</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
-<div class="line"><span class="lineno">  132</span>    kill(pid, SIGTERM); <span class="comment">// Send termination signal to the process</span></div>
-<div class="line"><span class="lineno">  133</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
-<div class="line"><span class="lineno">  134</span>  }</div>
-<div class="line"><span class="lineno">  135</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00125">125</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>                              {</div>
+<div class="line"><span class="lineno">  126</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
+<div class="line"><span class="lineno">  127</span>    kill(pid, SIGTERM); <span class="comment">// Send termination signal to the process</span></div>
+<div class="line"><span class="lineno">  128</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
+<div class="line"><span class="lineno">  129</span>  }</div>
+<div class="line"><span class="lineno">  130</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +310,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="314,89,268,106,266,101,312,84"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,55,142,80"/>
 <area shape="poly" title=" " alt="" coords="187,41,144,61,141,56,184,36"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
 <area shape="poly" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
 <area shape="poly" title=" " alt="" coords="175,70,143,70,143,65,175,65"/>
 <area shape="poly" title=" " alt="" coords="184,99,141,79,144,74,187,94"/>
@@ -288,55 +343,66 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00052">52</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                       {</div>
-<div class="line"><span class="lineno">   53</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
-<div class="line"><span class="lineno">   54</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
-<div class="line"><span class="lineno">   56</span>  }</div>
-<div class="line"><span class="lineno">   57</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
-<div class="line"><span class="lineno">   58</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   59</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
-<div class="line"><span class="lineno">   61</span>  }</div>
-<div class="line"><span class="lineno">   62</span>  <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><span class="lineno">   63</span>  ssize_t bytes_read;</div>
-<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
-<div class="line"><span class="lineno">   66</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
-<div class="line"><span class="lineno">   67</span>      close(fd);</div>
-<div class="line"><span class="lineno">   68</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-<div class="line"><span class="lineno">   70</span>  }</div>
-<div class="line"><span class="lineno">   71</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
-<div class="line"><span class="lineno">   72</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   73</span>    close(fd);</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   75</span>  }</div>
-<div class="line"><span class="lineno">   76</span>  <span class="keywordflow">if</span> (close(fd) &lt; 0) {</div>
-<div class="line"><span class="lineno">   77</span>    perror(<span class="stringliteral">&quot;Failed to close output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   79</span>  }</div>
-<div class="line"><span class="lineno">   80</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   81</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00049">49</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>                                                       {</div>
+<div class="line"><span class="lineno">   50</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
+<div class="line"><span class="lineno">   51</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
+<div class="line"><span class="lineno">   53</span>  }</div>
+<div class="line"><span class="lineno">   54</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
+<div class="line"><span class="lineno">   55</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   56</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
+<div class="line"><span class="lineno">   58</span>  }</div>
+<div class="line"><span class="lineno">   59</span>  <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><span class="lineno">   60</span>  ssize_t bytes_read;</div>
+<div class="line"><span class="lineno">   61</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
+<div class="line"><span class="lineno">   63</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
+<div class="line"><span class="lineno">   64</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   65</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
+<div class="line"><span class="lineno">   67</span>  }</div>
+<div class="line"><span class="lineno">   68</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
+<div class="line"><span class="lineno">   69</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   72</span>  }</div>
+<div class="line"><span class="lineno">   73</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   74</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   75</span>}</div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00064">utils.c:64</a></div></div>
 </div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="modes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_cgraph.png" border="0" usemap="#amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_cgraph" loading="lazy" alt=""/></div>
+<map name="amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_cgraph" id="amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_cgraph">
+<area shape="rect" title="Print file content to stdout." alt="" coords="5,5,125,46"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="173,13,257,38"/>
+<area shape="poly" title=" " alt="" coords="125,23,157,23,157,28,125,28"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_icgraph.png" border="0" usemap="#amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_icgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_icgraph" id="amodes__utils_8c_a2dff2109ae72eeac63a2794542ea6d48_icgraph">
-<area shape="rect" title="Print file content to stdout." alt="" coords="316,47,436,88"/>
-<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,31"/>
-<area shape="poly" title=" " alt="" coords="301,45,263,32,264,27,302,40"/>
-<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,55,268,80"/>
-<area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
-<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,104,266,130"/>
-<area shape="poly" title=" " alt="" coords="303,95,268,107,266,102,301,90"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,55,142,80"/>
-<area shape="poly" title=" " alt="" coords="187,41,144,61,141,56,184,36"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,55,55,80"/>
-<area shape="poly" title=" " alt="" coords="87,70,55,70,55,65,87,65"/>
-<area shape="poly" title=" " alt="" coords="175,70,143,70,143,65,175,65"/>
-<area shape="poly" title=" " alt="" coords="184,99,141,79,144,74,187,94"/>
+<area shape="rect" title="Print file content to stdout." alt="" coords="316,72,436,113"/>
+<area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,31"/>
+<area shape="poly" title=" " alt="" coords="320,67,255,34,257,29,322,63"/>
+<area shape="rect" href="both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,55,263,80"/>
+<area shape="poly" title=" " alt="" coords="301,83,263,76,264,71,302,77"/>
+<area shape="rect" href="task2__mp_8c.html#a4582f4a49fcc43e0b3541db1e69f52cc" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,104,268,130"/>
+<area shape="poly" title=" " alt="" coords="301,108,269,113,268,108,301,102"/>
+<area shape="rect" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,153,266,179"/>
+<area shape="poly" title=" " alt="" coords="322,123,258,155,256,150,319,118"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
+<area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
+<area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
+<area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
+<area shape="poly" title=" " alt="" coords="192,147,188,144,139,108,142,104,192,140,195,142"/>
 </map>
 </div>
 
@@ -381,14 +447,24 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   18</span>  <span class="keywordflow">while</span> ((bytes_read = read(STDIN_FILENO, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
 <div class="line"><span class="lineno">   19</span>    <span class="keywordflow">if</span> (write(fd, buffer, bytes_read) &lt; 0) {</div>
 <div class="line"><span class="lineno">   20</span>      perror(<span class="stringliteral">&quot;Failed to write to temporary file&quot;</span>);</div>
-<div class="line"><span class="lineno">   21</span>      close(fd);</div>
+<div class="line"><span class="lineno">   21</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
 <div class="line"><span class="lineno">   22</span>      <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   23</span>    }</div>
 <div class="line"><span class="lineno">   24</span>  }</div>
-<div class="line"><span class="lineno">   25</span>  close(fd);</div>
+<div class="line"><span class="lineno">   25</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
 <div class="line"><span class="lineno">   26</span>  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">   27</span>}</div>
 </div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="modes__utils_8c_a12707c0ccc87dbce41af51f22016f413_cgraph.png" border="0" usemap="#amodes__utils_8c_a12707c0ccc87dbce41af51f22016f413_cgraph" loading="lazy" alt=""/></div>
+<map name="amodes__utils_8c_a12707c0ccc87dbce41af51f22016f413_cgraph" id="amodes__utils_8c_a12707c0ccc87dbce41af51f22016f413_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,120,31"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="168,5,252,31"/>
+<area shape="poly" title=" " alt="" coords="120,16,152,16,152,21,120,21"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8c_a12707c0ccc87dbce41af51f22016f413_icgraph.png" border="0" usemap="#amodes__utils_8c_a12707c0ccc87dbce41af51f22016f413_icgraph" loading="lazy" alt=""/></div>
@@ -406,7 +482,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="338,115,258,155,256,150,335,111"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
 <area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
 <area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
 <area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
 <area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
@@ -448,7 +524,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00029">29</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>                                                                      {</div>
-<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (input_txt == NULL) {</div>
+<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
 <div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<span class="stringliteral">&quot;tmp_read_from_stdin.txt&quot;</span>) != 0) {</div>
 <div class="line"><span class="lineno">   32</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
 <div class="line"><span class="lineno">   33</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
@@ -462,22 +538,25 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   41</span>      perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
 <div class="line"><span class="lineno">   42</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
 <div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (close(fd) &lt; 0) {</div>
-<div class="line"><span class="lineno">   45</span>      perror(<span class="stringliteral">&quot;Failed to close input file&quot;</span>);</div>
-<div class="line"><span class="lineno">   46</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error closing file</span></div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
-<div class="line"><span class="lineno">   49</span>  }</div>
-<div class="line"><span class="lineno">   50</span>}</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
+<div class="line"><span class="lineno">   46</span>  }</div>
+<div class="line"><span class="lineno">   47</span>}</div>
 <div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00006">modes_utils.c:6</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00132">modes_utils.c:132</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8c_a4ffd20871d062b35f02f8936e1de78b7_cgraph.png" border="0" usemap="#amodes__utils_8c_a4ffd20871d062b35f02f8936e1de78b7_cgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8c_a4ffd20871d062b35f02f8936e1de78b7_cgraph" id="amodes__utils_8c_a4ffd20871d062b35f02f8936e1de78b7_cgraph">
-<area shape="rect" title="Validate or read input file." alt="" coords="5,5,130,31"/>
-<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="178,5,292,31"/>
-<area shape="poly" title=" " alt="" coords="130,16,162,16,162,21,130,21"/>
+<area shape="rect" title="Validate or read input file." alt="" coords="5,55,130,80"/>
+<area shape="rect" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="198,5,272,31"/>
+<area shape="poly" title=" " alt="" coords="113,51,183,31,184,36,115,57"/>
+<area shape="rect" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="178,55,292,80"/>
+<area shape="poly" title=" " alt="" coords="130,65,162,65,162,70,130,70"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="340,80,424,106"/>
+<area shape="poly" title=" " alt="" coords="117,78,178,90,254,95,325,94,325,99,254,100,177,95,116,84"/>
+<area shape="poly" title=" " alt="" coords="293,75,325,80,324,86,292,80"/>
 </map>
 </div>
 <div class="dynheader">
@@ -496,7 +575,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="338,115,258,155,256,150,335,111"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
 <area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
 <area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
 <area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
 <area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
@@ -529,27 +608,28 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00096">96</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                 {</div>
-<div class="line"><span class="lineno">   97</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> valid_symbols[] = {<span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;?&#39;</span>, <span class="charliteral">&#39;!&#39;</span>};</div>
-<div class="line"><span class="lineno">   98</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; symbol[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <span class="keyword">sizeof</span>(valid_symbols) / <span class="keyword">sizeof</span>(valid_symbols[0]); j++) {</div>
-<div class="line"><span class="lineno">  100</span>      <span class="keywordflow">if</span> (symbol[i] == valid_symbols[j]) {</div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordtype">char</span> *result = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(2);</div>
-<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">if</span> (result == NULL) {</div>
-<div class="line"><span class="lineno">  103</span>          fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  104</span>          <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  105</span>        }</div>
-<div class="line"><span class="lineno">  106</span>        result[0] = symbol[i];</div>
-<div class="line"><span class="lineno">  107</span>        result[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><span class="lineno">  109</span>      }</div>
-<div class="line"><span class="lineno">  110</span>    }</div>
-<div class="line"><span class="lineno">  111</span>  }</div>
-<div class="line"><span class="lineno">  112</span>  fprintf(stderr, <span class="stringliteral">&quot;Invalid symbol: %s\n&quot;</span>, symbol);</div>
-<div class="line"><span class="lineno">  113</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a>();</div>
-<div class="line"><span class="lineno">  114</span>}</div>
-<div class="ttc" id="amodes__utils_8c_html_aeb6e97fc1ea3e5c032592c6aaa77f276"><div class="ttname"><a href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a></div><div class="ttdeci">static char * generate_random_symbol()</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00083">modes_utils.c:83</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00090">90</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>                                                 {</div>
+<div class="line"><span class="lineno">   91</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> valid_symbols[] = {<span class="charliteral">&#39;.&#39;</span>, <span class="charliteral">&#39;?&#39;</span>, <span class="charliteral">&#39;!&#39;</span>};</div>
+<div class="line"><span class="lineno">   92</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; symbol[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <span class="keyword">sizeof</span>(valid_symbols) / <span class="keyword">sizeof</span>(valid_symbols[0]); j++) {</div>
+<div class="line"><span class="lineno">   94</span>      <span class="keywordflow">if</span> (symbol[i] == valid_symbols[j]) {</div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordtype">char</span> *result = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(2);</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">if</span> (result == NULL) {</div>
+<div class="line"><span class="lineno">   97</span>          fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>          <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   99</span>        }</div>
+<div class="line"><span class="lineno">  100</span>        result[0] = symbol[i];</div>
+<div class="line"><span class="lineno">  101</span>        result[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">  103</span>      }</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="line"><span class="lineno">  105</span>  }</div>
+<div class="line"><span class="lineno">  106</span>  fprintf(stderr, <span class="stringliteral">&quot;Invalid symbol: %s\n&quot;</span>, symbol);</div>
+<div class="line"><span class="lineno">  107</span>  fprintf(stderr, <span class="stringliteral">&quot;Generating a random symbol instead\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  108</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a>();</div>
+<div class="line"><span class="lineno">  109</span>}</div>
+<div class="ttc" id="amodes__utils_8c_html_aeb6e97fc1ea3e5c032592c6aaa77f276"><div class="ttname"><a href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a></div><div class="ttdeci">static char * generate_random_symbol()</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00077">modes_utils.c:77</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -578,7 +658,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="329,116,256,155,254,150,327,111"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
 <area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
 <area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
 <area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
 <area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>
@@ -613,21 +693,21 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Newly allocated valid word or symbol, or NULL on failure. Caller is responsible for freeing the returned string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00116">116</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  116</span>                                      {</div>
-<div class="line"><span class="lineno">  117</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">char</span> *valid_word = <a class="code hl_function" href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a>();</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> valid_word; <span class="comment">// Generate a random symbol if word is NULL</span></div>
-<div class="line"><span class="lineno">  120</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  121</span>    <span class="comment">// Validate the input word</span></div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordtype">char</span> *valid_word = <a class="code hl_function" href="#ac7f082edde138494859074675f7afbdc">validate_symbol</a>(word);</div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span> (valid_word == NULL) {</div>
-<div class="line"><span class="lineno">  124</span>      <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  125</span>    }</div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">return</span> valid_word; <span class="comment">// Return the validated word</span></div>
-<div class="line"><span class="lineno">  127</span>  }</div>
-<div class="line"><span class="lineno">  128</span>}</div>
-<div class="ttc" id="amodes__utils_8c_html_ac7f082edde138494859074675f7afbdc"><div class="ttname"><a href="#ac7f082edde138494859074675f7afbdc">validate_symbol</a></div><div class="ttdeci">static char * validate_symbol(const char *symbol)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00096">modes_utils.c:96</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00111">111</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>                                      {</div>
+<div class="line"><span class="lineno">  112</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordtype">char</span> *valid_word = <a class="code hl_function" href="#aeb6e97fc1ea3e5c032592c6aaa77f276">generate_random_symbol</a>();</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">return</span> valid_word; <span class="comment">// Generate a random symbol if word is NULL</span></div>
+<div class="line"><span class="lineno">  115</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  116</span>    <span class="comment">// Validate the input word</span></div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordtype">char</span> *valid_word = <a class="code hl_function" href="#ac7f082edde138494859074675f7afbdc">validate_symbol</a>(word);</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (valid_word == NULL) {</div>
+<div class="line"><span class="lineno">  119</span>      <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  120</span>    }</div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">return</span> valid_word; <span class="comment">// Return the validated word</span></div>
+<div class="line"><span class="lineno">  122</span>  }</div>
+<div class="line"><span class="lineno">  123</span>}</div>
+<div class="ttc" id="amodes__utils_8c_html_ac7f082edde138494859074675f7afbdc"><div class="ttname"><a href="#ac7f082edde138494859074675f7afbdc">validate_symbol</a></div><div class="ttdeci">static char * validate_symbol(const char *symbol)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00090">modes_utils.c:90</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -657,7 +737,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="329,116,256,155,254,150,327,111"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,80,142,106"/>
 <area shape="poly" title=" " alt="" coords="195,42,192,44,142,82,139,77,188,40,192,38"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,80,55,106"/>
 <area shape="poly" title=" " alt="" coords="87,96,55,96,55,90,87,90"/>
 <area shape="poly" title=" " alt="" coords="181,82,143,91,142,86,179,77"/>
 <area shape="poly" title=" " alt="" coords="174,107,142,100,143,95,176,102"/>

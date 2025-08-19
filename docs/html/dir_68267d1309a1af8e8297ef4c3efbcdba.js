@@ -6,6 +6,5 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "ds", "dir_122f4add68bb94b3fee614989bbbd8f9.html", "dir_122f4add68bb94b3fee614989bbbd8f9" ],
     [ "io", "dir_c184e51c84f2c3f0345bbc8a0d75d3e1.html", "dir_c184e51c84f2c3f0345bbc8a0d75d3e1" ],
     [ "modes", "dir_56eae0215e05553a489738ed366f5701.html", "dir_56eae0215e05553a489738ed366f5701" ],
-    [ ".null-ls_532589_main.c", "_8null-ls__532589__main_8c.html", "_8null-ls__532589__main_8c" ],
     [ "main.c", "main_8c.html", "main_8c" ]
 ];

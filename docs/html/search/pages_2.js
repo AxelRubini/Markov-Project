@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['esempi_0',['Esempi',['../index.html#autotoc_md4',1,'']]]
+  ['del_20progetto_0',['Struttura del progetto',['../index.html#autotoc_md1',1,'']]],
+  ['delle_20modalita_20multiprocesso_1',['Flowchart delle modalita multiprocesso',['../index.html#autotoc_md5',1,'']]]
 ];

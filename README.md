@@ -66,3 +66,79 @@ Opzioni principali:
    ```
 
 
+## Flowchart delle modalita multiprocesso
+
+### Task-both process flow 
+\dot
+digraph Pipeline {
+  rankdir=LR; splines=true; nodesep=0.5; ranksep=0.6;
+  node [shape=box, style="rounded"];
+
+  I   [label="input_txt / stdin", shape=oval, style=""];
+  P1  [label="P1: w_p1"];
+  P2  [label="P2: w_p2\nHT word→freq"];
+  P2a [label="P2_1: w_p2_1"];
+  P2b [label="P2_2: w_p2_2"];
+  P3  [label="P3: w_p3"];
+  P4  [label="P4: w_p4\nHT key→next prob"];
+  P5  [label="P5: w_p5"];
+  CSV [label="output_csv", shape=oval, style=""];
+  TXT [label="output_txt", shape=oval, style=""];
+  OUT [label="stdout", shape=oval, style=""];
+
+  I  -> P1;
+  P1 -> P2  [label="pipe_read"];
+  P2 -> P2a [label="fork"];
+  P2 -> P2b [label="fork"];
+  P2a -> P3  [label="pipe_csv"];
+  P3  -> CSV [label="write"];
+  P2b -> P4  [label="pipe_freqtab"];
+  P4  -> P5  [label="pipe_out"];
+  P5  -> TXT [label="write"];
+  TXT -> OUT  [style=dashed, label="if empty"];
+}
+\enddot
+
+### Task1 process flow
+\dot
+digraph Task1 {
+  rankdir=LR; nodesep=0.6; ranksep=0.7; splines=true;
+  node [shape=box, style="rounded"];
+
+  I   [label="input_txt", shape=oval, style=""];
+  P1  [label="P1: w_p1\nopen → publish_word_on_pipe"];
+  P2  [label="P2: w_p2\nread_words → HT → csv_line_send"];
+  P3  [label="P3: w_p3\ncsv_line_recv → write"];
+  CSV [label="output_csv", shape=oval, style=""];
+
+  I -> P1;
+  P1 -> P2 [label="pipe12"];
+  P2 -> P3 [label="pipe23"];
+  P3 -> CSV;
+}
+\enddot
+
+### Task2 process flow
+
+\dot
+digraph Task2 {
+  rankdir=LR; nodesep=0.6; ranksep=0.7; splines=true;
+  node [shape=box, style="rounded"];
+
+  CSV [label="input_csv", shape=oval, style=""];
+  P1  [label="P1: w_p1\nopen → publish_line_on_pipe → close"];
+  P2  [label="P2: w_p2\nread_lines → HT → send_output_mp(n_words,word)"];
+  P3  [label="P3: w_p3\nwrite_output_mp(output_txt)"];
+  TXT [label="output_txt", shape=oval, style=""];
+  OUT [label="stdout (se output_txt empty)", shape=oval, style=""];
+
+  CSV -> P1;
+  P1  -> P2 [label="pipe12"];
+  P2  -> P3 [label="pipe23"];
+  P3  -> TXT;
+  TXT -> OUT [style=dashed];
+}
+\enddot
+
+
+

@@ -1,6 +1,7 @@
 var modes__utils_8c =
 [
     [ "generate_random_symbol", "modes__utils_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276", null ],
+    [ "is_empty", "modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9", null ],
     [ "kill_and_wait", "modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99", null ],
     [ "print_file_content_to_stdout", "modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48", null ],
     [ "read_from_stdin", "modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413", null ],

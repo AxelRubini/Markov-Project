@@ -1,0 +1,17 @@
+<map id="next_word_chooser_choose" name="next_word_chooser_choose">
+<area shape="rect" id="Node000001" title="Pick the next word according to probabilities." alt="" coords="5,66,188,91"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a5aa85f2acd1a248ebb3f009e8aa01fc5" title="Get the number of elements in a list." alt="" coords="502,10,595,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,63,170,36,235,14,302,5,369,3,486,11,486,16,369,8,302,10,236,20,172,41,121,67"/>
+<area shape="rect" id="Node000003" href="$next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="236,29,442,69"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,65,220,61,220,66,188,70"/>
+<area shape="rect" id="Node000005" href="$hash__table_8c.html#af61daf7645f441c335a455cb4ff9365a" title="Search an item by key." alt="" coords="300,143,378,169"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="130,89,236,129,285,142,284,147,235,134,128,94"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="275,94,402,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="188,86,260,95,260,100,188,92"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="442,33,486,28,486,33,443,38"/>
+<area shape="rect" id="Node000004" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="515,63,581,89"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="443,60,500,67,499,72,442,65"/>
+<area shape="rect" id="Node000006" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="490,143,606,169"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="379,153,475,153,475,158,379,158"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="402,94,499,80,500,85,403,100"/>
+</map>

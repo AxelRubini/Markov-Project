@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_2enull_2dls_5f532589_5fmain_2ec_0',['.null-ls_532589_main.c',['../_8null-ls__532589__main_8c.html',1,'']]]
+  ['_2enull_2dls_5f229517_5fnext_5fword_5fchooser_2eh_0',['.null-ls_229517_next_word_chooser.h',['../_8null-ls__229517__next__word__chooser_8h.html',1,'']]]
 ];

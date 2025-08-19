@@ -238,7 +238,7 @@ $(function(){initNavTree('CSV__line__parser_8c_source.html','',''); });
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      (*offset)++;</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39;\n&#39;</span> || ch == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="comment">// Fine della riga</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="comment">// end of line</span></div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">if</span> (p_index == 0) {</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>          fprintf(stderr, <span class="stringliteral">&quot;Empty probability encountered in line\n&quot;</span>);</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>          state = <a class="code hl_enumvalue" href="CSV__line__parser_8h.html#a0c572f4bc8ab2503517549c2da2e128fa012d16b93163b0058bde3f1035784786">READING_PROBABILITY_ERROR</a>;</div>

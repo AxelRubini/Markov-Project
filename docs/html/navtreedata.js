@@ -30,6 +30,11 @@ var NAVTREE =
     [ "Manuale utente", "index.html#autotoc_md3", [
       [ "Esempi", "index.html#autotoc_md4", null ]
     ] ],
+    [ "Flowchart delle modalita multiprocesso", "index.html#autotoc_md5", [
+      [ "Task-both process flow", "index.html#autotoc_md6", null ],
+      [ "Task1 process flow", "index.html#autotoc_md7", null ],
+      [ "Task2 process flow", "index.html#autotoc_md8", null ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -55,7 +60,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CSV__line__builder_8c.html",
-"linked__list_8h.html#aceaad5eeb408b648acbc06bdb1270663"
+"linked__list_8h.html",
+"word_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
