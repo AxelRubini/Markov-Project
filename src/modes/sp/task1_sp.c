@@ -36,7 +36,7 @@ int task1_sp(const char *input_txt, const char *output_csv) {
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was created
+    remove(TMP_STDIN_FILE); // Remove the temporary file if it was created
   }
   safe_close(&in_fd);
   return 0;

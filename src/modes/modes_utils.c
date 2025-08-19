@@ -28,12 +28,12 @@ static int read_from_stdin(const char *output_txt) {
 
 const char *validate_input_file(const char *input_txt, int *is_stdin) {
   if (is_empty(input_txt)) {
-    if (read_from_stdin("tmp_read_from_stdin.txt") != 0) {
+    if (read_from_stdin(TMP_STDIN_FILE) != 0) {
       fprintf(stderr, "Failed to read from stdin\n");
       return NULL; // Error reading from stdin
     }
     *is_stdin = 1;                    // Indicate that input is from stdin
-    return "tmp_read_from_stdin.txt"; // Return temporary file name
+    return TMP_STDIN_FILE; // Return temporary file name
   } else {
     *is_stdin = 0; // Indicate that input is from a file
     int fd = open(input_txt, O_RDONLY);

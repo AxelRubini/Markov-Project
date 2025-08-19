@@ -56,6 +56,11 @@ double next_word_probability(const int *word, const int *next_word);
 /**
  * @brief Allocate zeroed memory or abort.
  *
+ * Direct use of `malloc` is discouraged; this helper wraps `malloc` with
+ * error checking and zero-initialization. Prefer `dmalloc` in new code and
+ * rely on static analysis tools or code reviews to spot unintended uses of
+ * `malloc`.
+ *
  * @param size Bytes to allocate.
  * @return Pointer to cleared memory.
  */
