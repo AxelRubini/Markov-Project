@@ -10,10 +10,9 @@
 #include <string.h>
 #include <unistd.h>
 
-int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
-             const char *word) {
+int task2_sp(const char *input_csv, const char *output_txt, size_t n_words) {
   int print_to_stdout = 0;
-  if (is_empty(output_txt) ) {
+  if (is_empty(output_txt)) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
     output_txt = "tmp_output.txt"; // Temporary file for stdout
@@ -30,12 +29,7 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
     return -1;
   }
 
-  char *validated_word = validate_word(word);
-
-  int result = write_output_sp(output_txt, n_words, validated_word, ht);
-  if (validated_word && validated_word != word) {
-    free(validated_word);
-  }
+  int result = write_output_sp(output_txt, n_words, ht);
   if (result < 0) {
     fprintf(stderr, "Failed to send output: %d\n", result);
     free_hash_table(ht);
@@ -47,7 +41,7 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
   }
   fprintf(stderr, "Output written to %s\n", output_txt);
   free_hash_table(ht);
- 
+
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {

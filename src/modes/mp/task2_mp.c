@@ -36,8 +36,7 @@ static int w_p1(int pipe_to_write, const char *input_csv) {
   return 0;
 }
 
-static int w_p2(int pipe_to_read, int pipe_to_write, size_t n_words,
-                const char *word) {
+static int w_p2(int pipe_to_read, int pipe_to_write, size_t n_words) {
   if (pipe_to_read < 0 || pipe_to_write < 0) {
     fprintf(stderr, "Invalid pipe descriptors for reading or writing\n");
     return -1;
@@ -53,7 +52,7 @@ static int w_p2(int pipe_to_read, int pipe_to_write, size_t n_words,
     free_hash_table(ht);
     return -1;
   }
-  int result = send_output_mp(pipe_to_write, ht, n_words, word);
+  int result = send_output_mp(pipe_to_write, ht, n_words);
   if (result < 0) {
     fprintf(stderr, "Error writing lines to pipe\n");
     free_hash_table(ht);
@@ -71,8 +70,7 @@ static int w_p3(int pipe_to_read, const char *output_txt) {
     fprintf(stderr, "Invalid pipe descriptor for reading\n");
     return -1;
   }
-  int fd =
-      open(output_txt, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+  int fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
   if (fd < 0) {
     perror("Failed to open output file for writing");
     return -1;
@@ -85,18 +83,13 @@ static int w_p3(int pipe_to_read, const char *output_txt) {
   return 0;
 }
 
-int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
-             const char *word) {
+int task2_mp(const char *input_csv, const char *output_txt, size_t n_words) {
   int status = -1;
   int print_to_stdout = 0;
   if (is_empty(output_txt)) {
     output_txt = "tmp_output.txt";
     print_to_stdout = 1;
   }
-
-  char *validated_word = validate_word(word);
-  if (!validated_word)
-    goto done;
 
   int pipe12[2], pipe23[2];
   if (pipe(pipe12) < 0 || pipe(pipe23) < 0) {
@@ -124,7 +117,7 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
   if (p2 == 0) {
     int not_p2[] = {pipe12[1], pipe23[0]};
     safe_close_pipes(not_p2, ARR_SZ(not_p2));
-    if (w_p2(pipe12[0], pipe23[1], n_words, validated_word) < 0)
+    if (w_p2(pipe12[0], pipe23[1], n_words) < 0)
       _exit(1);
     _exit(0);
   }
@@ -158,8 +151,5 @@ fail_kill_p1:
 fail_pipes:
   safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
 done:
-  if (validated_word && validated_word != word)
-    free(validated_word);
   return status;
 }
-

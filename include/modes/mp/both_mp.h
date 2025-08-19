@@ -18,5 +18,5 @@
  * @return 0 on success, -1 on error.
  */
 int both_mp(const char *input_txt, const char *output_csv,
-            const char *output_txt, size_t n_words, const char *word);
+            const char *output_txt, size_t n_words);
 #endif // BOTH_MP_H

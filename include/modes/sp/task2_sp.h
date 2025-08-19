@@ -11,6 +11,6 @@
  * @param word       Optional starting word for generation.
  * @return 0 on success, negative value on error.
  */
-int task2_sp(const char *input_csv, const char *output_txt, size_t n_words, const char *word);
+int task2_sp(const char *input_csv, const char *output_txt, size_t n_words);
 
 #endif // TASK2_SP_H

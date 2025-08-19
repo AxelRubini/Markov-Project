@@ -1,1 +1,0 @@
-rendere piu generica la linked list per poterla usare anche con tipi allocati sullo stack

@@ -13,7 +13,6 @@
  * @param word Starting word for generation. NULL selects a random start.
  * @return 0 on success, -1 on error.
  */
-int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
-             const char *word);
+int task2_mp(const char *input_csv, const char *output_txt, size_t n_words);
 
 #endif // TASK2_MP_H

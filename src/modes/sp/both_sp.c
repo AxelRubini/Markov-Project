@@ -15,7 +15,7 @@
 #include <unistd.h>
 
 int both_sp(const char *input_txt, const char *output_csv,
-            const char *output_txt, size_t n_words, const char *word) {
+            const char *output_txt, size_t n_words) {
   int is_stdin = 0;
   const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
   if (validated_input_txt == NULL) {
@@ -38,7 +38,8 @@ int both_sp(const char *input_txt, const char *output_csv,
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was created
+    remove("tmp_read_from_stdin.txt"); // Remove the temporary file if it was
+                                       // created
   }
 
   int print_to_stdout = 0;
@@ -60,12 +61,8 @@ int both_sp(const char *input_txt, const char *output_csv,
     return -1;
   }
 
-  char *validated_word = validate_word(word);
+  int result = write_output_sp(output_txt, n_words, freq_table);
 
-  int result = write_output_sp(output_txt, n_words, validated_word, freq_table);
-  if (validated_word && validated_word != word) {
-    free(validated_word);
-  }
   if (result < 0) {
     fprintf(stderr, "Failed to send output: %d\n", result);
     free_hash_table(ht);
@@ -77,7 +74,7 @@ int both_sp(const char *input_txt, const char *output_csv,
   }
   fprintf(stderr, "Output written to %s\n", output_txt);
   free_hash_table(freq_table);
-  
+
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {

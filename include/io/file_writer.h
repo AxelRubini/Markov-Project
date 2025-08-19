@@ -1,17 +1,14 @@
 #ifndef FILE_WRITER_H
 #define FILE_WRITER_H
+#include "hash_table.h"
+#include "next_word_chooser.h"
 #include "utf8_tools.h"
 #include "utils.h"
-#include "next_word_chooser.h"
-#include "hash_table.h"
-
 
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-#define GENERATED_TEST_STARTERS {'.','!','?'}
+#define GENERATED_TEST_STARTERS {'.', '!', '?'}
 
 /**
  * @brief Generate text and write it to a file (single process).
@@ -22,7 +19,7 @@
  * @param table Hash table of word transitions.
  * @return 0 on success, -1 on error.
  */
-int write_output_sp(const char *filename, const int num_words, char *start_sym,
+int write_output_sp(const char *filename, const int num_words,
                     hash_table_t *table);
 
 /**
@@ -34,8 +31,7 @@ int write_output_sp(const char *filename, const int num_words, char *start_sym,
  * @param start_sym Starting symbol; must not be NULL.
  * @return 0 on success, -1 on error.
  */
-int send_output_mp(int fd, hash_table_t *ht, const int num_words,
-                   const char *start_sym);
+int send_output_mp(int fd, hash_table_t *ht, const int num_words);
 
 /**
  * @brief Write frames from a descriptor to a UTF-8 file.
@@ -46,8 +42,3 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words,
  */
 int write_output_mp(int fd, const char *filename);
 #endif // FILE_WRITER_H
-
-
-
-
-

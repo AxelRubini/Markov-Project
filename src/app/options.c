@@ -13,35 +13,32 @@ static void set_default_options(options_t *o) {
   o->output_txt = NULL;
   o->output_csv = NULL;
   o->n_words = 0;
-  o->word = NULL;
 }
 
-static char* make_csv_name_from_input(const char* input_txt) {
-    const char* prefix = "Analysis_";
-    // Extract the base name from the input file path
-    const char* base = strrchr(input_txt, '/');
-    base = base ? base + 1 : input_txt;
+static char *make_csv_name_from_input(const char *input_txt) {
+  const char *prefix = "Analysis_";
+  // Extract the base name from the input file path
+  const char *base = strrchr(input_txt, '/');
+  base = base ? base + 1 : input_txt;
 
-    // Delete the extension
-    const char* dot = strrchr(base, '.');
-    size_t stem_len = dot ? (size_t)(dot - base) : strlen(base);
+  // Delete the extension
+  const char *dot = strrchr(base, '.');
+  size_t stem_len = dot ? (size_t)(dot - base) : strlen(base);
 
-    // Compose the output file name
-    const char* suffix = ".csv";
-    size_t out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;
+  // Compose the output file name
+  const char *suffix = ".csv";
+  size_t out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;
 
-    char* out = malloc(out_len);
-    if (!out) return NULL;
+  char *out = malloc(out_len);
+  if (!out)
+    return NULL;
 
-    // Build the string
-    snprintf(out, out_len, "%s%.*s%s", prefix, (int)stem_len, base, suffix);
-    return out;
+  // Build the string
+  snprintf(out, out_len, "%s%.*s%s", prefix, (int)stem_len, base, suffix);
+  return out;
 }
 
-static int is_empty(const char *str) {
-  return str == NULL || str[0] == '\0';
-}
-
+static int is_empty(const char *str) { return str == NULL || str[0] == '\0'; }
 
 static int check_options(options_t *options) {
   // Check if input files are provided for task1 or task both, if not, ask for
@@ -67,22 +64,18 @@ static int check_options(options_t *options) {
     fprintf(stderr, "Output text file is not provided,\n produced test will be "
                     "printed on STDOUT\n");
   }
-  fprintf(stderr, " evaluating output_csv: %d\n", is_empty(options->output_csv));
+  fprintf(stderr, " evaluating output_csv: %d\n",
+          is_empty(options->output_csv));
   if (is_empty(options->output_csv) && options->task != TASK_2) {
     fprintf(stderr, "Output CSV file is not provided,\n produced test will be "
                     "in a file called Analysis_<input file>\n");
-    options->output_csv = make_csv_name_from_input((const char *)options->input_txt); 
-        
+    options->output_csv =
+        make_csv_name_from_input((const char *)options->input_txt);
   }
   // Check if n_words is set, if not, set it to a default value
   if (options->n_words == 0) {
     fprintf(stderr, "Number of words to process is not set, setting to 10\n");
     options->n_words = 10;
-  }
-  // Check if word is set, if not, set it to NULL
-  if (options->word == NULL) {
-    fprintf(stderr, "Word to process is not set, a random starter will be choose\n");
-    options->word = NULL;
   }
 
   return 0;
@@ -110,11 +103,11 @@ int parse_options(int argc, char **argv, options_t *out) {
 
   struct arg_int *n_words =
       arg_int0(NULL, "n-words", "<n>", "Number of words to process");
-  struct arg_str *word = arg_str0(NULL, "word", "<word>", 
-"Word to process");
   struct arg_end *end = arg_end(20);
 
-  void *argtable[] = {sp, mp, task1, task2, task_both, input_txt, input_csv, output_txt, output_csv, n_words, word, end};
+  void *argtable[] = {sp,         mp,        task1,     task2,
+                      task_both,  input_txt, input_csv, output_txt,
+                      output_csv, n_words,   end};
 
   // Parse the command line arguments
   int nerrors = arg_parse(argc, argv, argtable);
@@ -147,7 +140,6 @@ int parse_options(int argc, char **argv, options_t *out) {
 
   // Set number of words and word to process
   out->n_words = n_words->count > 0 ? n_words->ival[0] : 0;
-  out->word = word->sval[0];
 
   // Free the argument table
   arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));

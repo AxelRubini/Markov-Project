@@ -21,12 +21,11 @@ int run(const options_t *options) {
       res = task1_sp(options->input_txt, options->output_csv);
     } else if (options->task == TASK_2) {
       printf("Executing Task 2...\n");
-      res = task2_sp(options->input_csv, options->output_txt, options->n_words,
-                     options->word);
+      res = task2_sp(options->input_csv, options->output_txt, options->n_words);
     } else {
       printf("Executing both tasks...\n");
       res = both_sp(options->input_txt, options->output_csv,
-                    options->output_txt, options->n_words, options->word);
+                    options->output_txt, options->n_words);
     }
 
   } else {
@@ -36,15 +35,13 @@ int run(const options_t *options) {
       res = task1_mp(options->input_txt, options->output_csv);
     } else if (options->task == TASK_2) {
       printf("Executing Task 2...\n");
-      res = task2_mp(options->input_csv, options->output_txt, options->n_words,
-                     options->word);
+      res = task2_mp(options->input_csv, options->output_txt, options->n_words);
     } else {
       printf("Executing both tasks...\n");
       res = both_mp(options->input_txt, options->output_csv,
-                    options->output_txt, options->n_words, options->word);
+                    options->output_txt, options->n_words);
     }
   }
 
   return res;
-
 }

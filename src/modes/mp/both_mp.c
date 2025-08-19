@@ -187,8 +187,7 @@ static int w_p3(int pipe_to_read, const char *output_csv) {
 }
 
 // Process p4 build a hash table key-nxt_word prob and choose the word
-static int w_p4(int pipe_to_read, int pipe_to_write, size_t n_words,
-                const char *word) {
+static int w_p4(int pipe_to_read, int pipe_to_write, size_t n_words) {
   if (pipe_to_read < 0 || pipe_to_write < 0) {
     fprintf(stderr, "Invalid pipe descriptors for reading or writing\n");
     return -1;
@@ -199,7 +198,7 @@ static int w_p4(int pipe_to_read, int pipe_to_write, size_t n_words,
     return -1;
   }
   safe_close(&pipe_to_read);
-  int result = send_output_mp(pipe_to_write, ht, n_words, word);
+  int result = send_output_mp(pipe_to_write, ht, n_words);
   if (result < 0) {
     fprintf(stderr, "Error writing lines to pipe\n");
     free_hash_table(ht);
@@ -225,18 +224,13 @@ static int w_p5(int pipe_to_read, const char *output_txt) {
 }
 
 int both_mp(const char *input_txt, const char *output_csv,
-            const char *output_txt, size_t n_words, const char *word) {
+            const char *output_txt, size_t n_words) {
   int status = -1; // return value in case of error
   int print_to_stdout = 0;
 
   // --- Validazioni input/word
   int is_stdin = 0;
   const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
-  char *validated_word = validate_word(word);
-  if (!validated_input_txt || !validated_word) {
-    fprintf(stderr, "Invalid input/word\n");
-    goto fail_input_word;
-  }
 
   if (is_empty(output_txt)) {
     output_txt = "tmp_output.txt";
@@ -248,7 +242,6 @@ int both_mp(const char *input_txt, const char *output_csv,
   if (pipe(pipe_read) < 0 || pipe(pipe_csv) < 0 || pipe(pipe_freqtab) < 0 ||
       pipe(pipe_out) < 0) {
     perror("pipe");
-    goto fail_input_word;
   }
 
   int all_pipes[] = {pipe_read[0], pipe_read[1],    pipe_csv[0],
@@ -316,7 +309,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     int not_p4[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
                     pipe_csv[1],  pipe_out[0],  pipe_freqtab[1]};
     safe_close_pipes(not_p4, ARR_SZ(not_p4));
-    if (w_p4(pipe_freqtab[0], pipe_out[1], n_words, validated_word) < 0)
+    if (w_p4(pipe_freqtab[0], pipe_out[1], n_words) < 0)
       _exit(1);
     _exit(0);
   }
@@ -342,7 +335,8 @@ int both_mp(const char *input_txt, const char *output_csv,
 
   // Wait children
   int st;
-  while (waitpid(-1,&st,0) > 0);
+  while (waitpid(-1, &st, 0) > 0)
+    ;
 
   if (print_to_stdout) {
     // Print the content of the output file to stdout
@@ -367,9 +361,7 @@ fail_kill_p1:
   kill_and_wait(p1);
 fail_pipes:
   safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
-fail_input_word:; // no-op
 
 done:
-  free(validated_word);
   return status;
 }
