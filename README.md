@@ -49,7 +49,7 @@ Opzioni principali:
 - `--output-txt <file>` – file di testo prodotto da `task2` (default: stdout).
 - `--output-csv <file>` – file CSV prodotto da `task1` (default: `Analysis_<input>`).
 - `--n-words <n>` – numero di parole da generare (default: 10).
-Durante l'esecuzione di `task2` o `task-both` verrà richiesto di inserire la parola iniziale; premendo Invio verrà scelto un simbolo casuale.
+Durante l'esecuzione di `task2` o `task-both` verrà richiesto di inserire la parola iniziale da una lista stampata sul terminale; premendo Invio verrà scelto un simbolo casuale tra '.' '?' '!'.
 
 ### Esempi
 
@@ -65,7 +65,12 @@ Durante l'esecuzione di `task2` o `task-both` verrà richiesto di inserire la pa
    ./markov --mp --task2 --input-csv analisi.csv --output-txt output.txt --n-words 20
    ```
 
-   Durante l'esecuzione verrà richiesta la parola iniziale; premere Invio per una scelta casuale.
+   Durante l'esecuzione verrà richiesta la parola iniziale; premere Invio per una scelta casuale tra '.' '?' '!'.
+3. Eseguire entrambe le attività in sequenza:
+
+   ```bash
+   ./markov --mp --task-both --input-txt libro.txt --output-csv analisi.csv --output-txt output.txt --n-words 20
+   ```
 
 
 ## Flowchart delle modalita multiprocesso
