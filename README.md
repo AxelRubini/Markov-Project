@@ -49,7 +49,7 @@ Opzioni principali:
 - `--output-txt <file>` – file di testo prodotto da `task2` (default: stdout).
 - `--output-csv <file>` – file CSV prodotto da `task1` (default: `Analysis_<input>`).
 - `--n-words <n>` – numero di parole da generare (default: 10).
-- `--word <parola>` – parola iniziale; se omessa viene scelta casualmente.
+Durante l'esecuzione di `task2` o `task-both` verrà richiesto di inserire la parola iniziale; premendo Invio verrà scelto un simbolo casuale.
 
 ### Esempi
 
@@ -59,11 +59,13 @@ Opzioni principali:
    ./markov --sp --task1 --input-txt libro.txt --output-csv analisi.csv
    ```
 
-2. Generare 20 parole a partire da un CSV esistente, scegliendo "." come parola iniziale:
+2. Generare 20 parole a partire da un CSV esistente:
 
    ```bash
-   ./markov --mp --task2 --input-csv analisi.csv --output-txt output.txt --n-words 20 --word . 
+   ./markov --mp --task2 --input-csv analisi.csv --output-txt output.txt --n-words 20
    ```
+
+   Durante l'esecuzione verrà richiesta la parola iniziale; premere Invio per una scelta casuale.
 
 
 ## Flowchart delle modalita multiprocesso
@@ -127,7 +129,7 @@ digraph Task2 {
 
   CSV [label="input_csv", shape=oval, style=""];
   P1  [label="P1: w_p1\nopen → publish_line_on_pipe → close"];
-  P2  [label="P2: w_p2\nread_lines → HT → send_output_mp(n_words,word)"];
+  P2  [label="P2: w_p2\nread_lines → HT → send_output_mp(n_words)"];
   P3  [label="P3: w_p3\nwrite_output_mp(output_txt)"];
   TXT [label="output_txt", shape=oval, style=""];
   OUT [label="stdout (se output_txt empty)", shape=oval, style=""];
