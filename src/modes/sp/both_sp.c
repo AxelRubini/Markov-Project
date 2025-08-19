@@ -17,7 +17,7 @@
 int both_sp(const char *input_txt, const char *output_csv,
             const char *output_txt, size_t n_words, const char *word) {
   int is_stdin = 0;
-  char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
+  const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
   if (validated_input_txt == NULL) {
     fprintf(stderr, "Invalid input file\n");
     return -1;
@@ -31,10 +31,10 @@ int both_sp(const char *input_txt, const char *output_csv,
   hash_table_t *ht = build_word_hashtable_fd(in_fd);
   if (ht == NULL) {
     fprintf(stderr, "Failed to build hash table from input file\n");
-    close(in_fd);
+    safe_close(&in_fd);
     return -1;
   }
-  close(in_fd);
+  safe_close(&in_fd);
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
@@ -42,7 +42,6 @@ int both_sp(const char *input_txt, const char *output_csv,
   }
 
   int print_to_stdout = 0;
-  int out_fd = -1;
   if (output_txt == NULL) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
@@ -82,13 +81,13 @@ int both_sp(const char *input_txt, const char *output_csv,
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {
       fprintf(stderr, "Failed to print output to stdout\n");
-      remove(output_txt); // Remove the temporary file
+      unlink(output_txt); // Remove the temporary file
 
       return -1;
     }
     fprintf(stderr,
             "Output printed to stdout, temporary file will be removed\n");
-    remove(output_txt); // Remove the temporary file after printing
+    unlink(output_txt); // Remove the temporary file after printing
   }
   return 0;
 }

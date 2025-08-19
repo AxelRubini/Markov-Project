@@ -89,7 +89,7 @@ int task2_mp(const char *input_csv, const char *output_txt, size_t n_words,
              const char *word) {
   int status = -1;
   int print_to_stdout = 0;
-  if (!output_txt) {
+  if (is_empty(output_txt)) {
     output_txt = "tmp_output.txt";
     print_to_stdout = 1;
   }

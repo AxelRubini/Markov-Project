@@ -35,12 +35,6 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
   ht_item *item = ht_search(chooser->table, current_word);
   double *probabilities = ht_item_next_word_probabilities_array(item);
   if (probabilities == NULL) {
-    printf("\n");
-    fflush(stdout);
-    utf8_print_word(current_word, 1);
-    printf("\n");
-    fflush(stdout);
-    print_ht_item_next_word(item, 1);
     fprintf(stderr, "No next words found for the current word\n");
     return NULL;
   }

@@ -44,6 +44,7 @@ char *validate_word(const char *word);
 void kill_and_wait(pid_t pid);
 
 
+int is_empty(const char *str);
 
 
 

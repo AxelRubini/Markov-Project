@@ -13,8 +13,7 @@
 int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
              const char *word) {
   int print_to_stdout = 0;
-  int out_fd = -1;
-  if (output_txt == NULL) {
+  if (is_empty(output_txt) ) {
     fprintf(stderr, "No output file specified, writing to stdout\n");
     print_to_stdout = 1;
     output_txt = "tmp_output.txt"; // Temporary file for stdout
@@ -53,7 +52,7 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words,
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {
       fprintf(stderr, "Failed to print output to stdout\n");
-      remove(output_txt); // Remove the temporary file
+      unlink(output_txt); // Remove the temporary file
       return -1;
     }
     unlink(output_txt); // Remove the temporary file after printing
