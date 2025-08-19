@@ -32,15 +32,9 @@ static int w_p1(int pipe_to_write, const char *input_txt) {
     close(pipe_to_write);
     return -1;
   }
-  if (close(fd) < 0) {
-    perror("Failed to close input file");
-    close(pipe_to_write);
-    return -1;
-  }
-  if (close(pipe_to_write) < 0) {
-    perror("Failed to close pipe after writing");
-    return -1;
-  }
+  safe_close(&fd);
+  safe_close(&pipe_to_write);
+
   return 0;
 }
 
@@ -169,7 +163,8 @@ static int w_p2(int pipe_to_read, int pipe_to_write_csv,
 
   // Parent process waits for child processes to finish
   int st;
-  while (waitpid(-1, &st, 0) > 0);
+  while (waitpid(-1, &st, 0) > 0)
+    ;
   free_hash_table(ht);
   return 0;
 }
@@ -264,8 +259,9 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_input_word;
   }
 
-  int all_pipes[] = {pipe_read[0], pipe_read[1], pipe_csv[0], pipe_csv[1],
-                     pipe_freqtab[0], pipe_freqtab[1], pipe_out[0], pipe_out[1]};
+  int all_pipes[] = {pipe_read[0], pipe_read[1],    pipe_csv[0],
+                     pipe_csv[1],  pipe_freqtab[0], pipe_freqtab[1],
+                     pipe_out[0],  pipe_out[1]};
 
   // --- Forks
   pid_t p1 = -1, p2 = -1, p3 = -1, p4 = -1, p5 = -1;
@@ -279,7 +275,7 @@ int both_mp(const char *input_txt, const char *output_csv,
   if (p1 == 0) {
     // Child P1: read input -> pipe12[1]
     close(pipe_read[0]);
-    int not_p1[] = {pipe_csv[0], pipe_csv[1], pipe_freqtab[0],
+    int not_p1[] = {pipe_csv[0],     pipe_csv[1], pipe_freqtab[0],
                     pipe_freqtab[1], pipe_out[0], pipe_out[1]};
     safe_close_pipes(not_p1, ARR_SZ(not_p1));
     if (w_p1(pipe_read[1], validated_input_txt) < 0)
@@ -294,7 +290,8 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_kill_p1;
   }
   if (p2 == 0) {
-    int not_p2[] = {pipe_csv[0], pipe_freqtab[0],pipe_out[0], pipe_out[1],pipe_read[1]};
+    int not_p2[] = {pipe_csv[0], pipe_freqtab[0], pipe_out[0], pipe_out[1],
+                    pipe_read[1]};
     safe_close_pipes(not_p2, ARR_SZ(not_p2));
     if (w_p2(pipe_read[0], pipe_csv[1], pipe_freqtab[1]) < 0)
       _exit(1);
@@ -308,8 +305,9 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_kill_p1p2;
   }
   if (p3 == 0) {
-    int not_p3[] = {pipe_read[0], pipe_read[1], pipe_freqtab[0],
-                    pipe_freqtab[1], pipe_out[0], pipe_out[1],pipe_csv[1]};
+    int not_p3[] = {pipe_read[0],    pipe_read[1], pipe_freqtab[0],
+                    pipe_freqtab[1], pipe_out[0],  pipe_out[1],
+                    pipe_csv[1]};
     safe_close_pipes(not_p3, ARR_SZ(not_p3));
     if (w_p3(pipe_csv[0], output_csv) < 0)
       _exit(1);
@@ -323,8 +321,8 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_kill_p1p2p3;
   }
   if (p4 == 0) {
-    int not_p4[] = {pipe_read[0], pipe_read[1], pipe_csv[0], pipe_csv[1], pipe_out[0],
-     pipe_freqtab[1]};
+    int not_p4[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
+                    pipe_csv[1],  pipe_out[0],  pipe_freqtab[1]};
     safe_close_pipes(not_p4, ARR_SZ(not_p4));
     if (w_p4(pipe_freqtab[0], pipe_out[1], n_words, validated_word) < 0)
       _exit(1);
@@ -339,8 +337,8 @@ int both_mp(const char *input_txt, const char *output_csv,
   }
   if (p5 == 0) {
     // Child P5: read da pipe45[0] -> output_txt
-    int not_p5[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
-                    pipe_csv[1], pipe_freqtab[0], pipe_freqtab[1],pipe_out[1]};
+    int not_p5[] = {pipe_read[0],    pipe_read[1],    pipe_csv[0], pipe_csv[1],
+                    pipe_freqtab[0], pipe_freqtab[1], pipe_out[1]};
     safe_close_pipes(not_p5, ARR_SZ(not_p5));
     if (w_p5(pipe_out[0], output_txt) < 0)
       _exit(1);
@@ -352,8 +350,8 @@ int both_mp(const char *input_txt, const char *output_csv,
 
   // Wait children
   int st;
-  while (waitpid(-1,&st,0) > 0);
-
+  while (waitpid(-1, &st, 0) > 0)
+    ;
 
   // Print to stdout if requested
   if (print_to_stdout) {
