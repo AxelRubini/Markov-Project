@@ -26,11 +26,7 @@ ssize_t read_csv_line(int fd, char **buf, size_t *cap) {
   }
   if (*buf == NULL || *cap == 0) {
     *cap = 1024; // Initial capacity
-    *buf = (char *)malloc(*cap);
-    if (*buf == NULL) {
-      fprintf(stderr, "Memory allocation failed for buffer\n");
-      return -1;
-    }
+    *buf = (char *)dmalloc(*cap);
   }
   size_t len = 0;
   while (1) {

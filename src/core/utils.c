@@ -53,7 +53,6 @@ void *dmalloc(size_t size) {
   memset(ptr, 0, size); // Initialize allocated memory to zero
   return ptr;
 }
-#define malloc(x) dont_use_malloc_usedmalloc // Use dmalloc instead
 
 double next_word_probability(const int *word, const int *next_word) {
   double probability = 0.0;

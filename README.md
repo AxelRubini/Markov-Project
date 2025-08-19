@@ -30,6 +30,14 @@ make
 
 L'eseguibile risultante sarà `./markov`.
 
+## Linee guida di sviluppo
+
+Per l'allocazione dinamica viene fornita la funzione `dmalloc` che inizializza a
+zero la memoria e termina l'esecuzione in caso di errore. L'uso diretto di
+`malloc` è sconsigliato; preferire `dmalloc` e utilizzare strumenti di analisi
+statica (ad es. `clang-tidy`) o convenzioni di naming per individuare chiamate
+involontarie a `malloc`.
+
 ## Manuale utente
 
 Esecuzione generale:
