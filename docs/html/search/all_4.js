@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['data_0',['data',['../structll__item.html#a814e6fa74180bcb393c01fec8d461967',1,'ll_item']]],
-  ['default_5fcreate_5fht_5fitem_1',['default_create_ht_item',['../ht__item_8h.html#a0c315b9b33c33e9ebb11f0d9d90200f4',1,'default_create_ht_item(void *key, void *value):&#160;ht_item.c'],['../ht__item_8c.html#a0c315b9b33c33e9ebb11f0d9d90200f4',1,'default_create_ht_item(void *key, void *value):&#160;ht_item.c']]],
-  ['default_5ffree_5fht_5fitem_2',['default_free_ht_item',['../ht__item_8h.html#a08d9a68d69e59db693a9f98f022e0cb4',1,'default_free_ht_item(ht_item *item):&#160;ht_item.c'],['../ht__item_8c.html#a08d9a68d69e59db693a9f98f022e0cb4',1,'default_free_ht_item(ht_item *item):&#160;ht_item.c']]],
-  ['default_5fprint_5fht_5fitem_3',['default_print_ht_item',['../ht__item_8c.html#a23e7311974ac14d3d168da79759536d1',1,'ht_item.c']]],
-  ['default_5fupdate_5fvalue_4',['default_update_value',['../ht__item_8c.html#aa4b5fd3adf825447b8737855be9a208f',1,'ht_item.c']]],
-  ['del_20progetto_5',['Struttura del progetto',['../index.html#autotoc_md1',1,'']]],
-  ['dmalloc_6',['dmalloc',['../utils_8h.html#a78a9dba3711a7a17ad34044953f6937b',1,'dmalloc(size_t size):&#160;utils.c'],['../utils_8c.html#a78a9dba3711a7a17ad34044953f6937b',1,'dmalloc(size_t size):&#160;utils.c']]]
+  ['both_20process_20flow_0',['Task-both process flow',['../index.html#autotoc_md6',1,'']]],
+  ['both_5fmp_1',['both_mp',['../both__mp_8h.html#a10d24f9de80c49f6b8df4a8cc2e64aec',1,'both_mp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words, const char *word):&#160;both_mp.c'],['../both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec',1,'both_mp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words, const char *word):&#160;both_mp.c']]],
+  ['both_5fmp_2ec_2',['both_mp.c',['../both__mp_8c.html',1,'']]],
+  ['both_5fmp_2eh_3',['both_mp.h',['../both__mp_8h.html',1,'']]],
+  ['both_5fsp_4',['both_sp',['../both__sp_8h.html#a6298e80a485f9378b6e8140abdc8f7d5',1,'both_sp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words, const char *word):&#160;both_sp.c'],['../both__sp_8c.html#a6298e80a485f9378b6e8140abdc8f7d5',1,'both_sp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words, const char *word):&#160;both_sp.c']]],
+  ['both_5fsp_2ec_5',['both_sp.c',['../both__sp_8c.html',1,'']]],
+  ['both_5fsp_2eh_6',['both_sp.h',['../both__sp_8h.html',1,'']]],
+  ['buckets_7',['buckets',['../structhash__table__t.html#a5c87165b78a7b87fcfb01a0ccaf026e3',1,'hash_table_t']]],
+  ['build_5fword_5fhashtable_5ffd_8',['build_word_hashtable_fd',['../file__reader_8h.html#aec6071d291c922c4ac9de12fc3560b90',1,'build_word_hashtable_fd(int fd):&#160;file_reader.c'],['../file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90',1,'build_word_hashtable_fd(int fd):&#160;file_reader.c']]]
 ];

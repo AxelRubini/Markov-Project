@@ -16,19 +16,47 @@ static void set_default_options(options_t *o) {
   o->word = NULL;
 }
 
+static char* make_csv_name_from_input(const char* input_txt) {
+    const char* prefix = "Analysis_";
+    // Extract the base name from the input file path
+    const char* base = strrchr(input_txt, '/');
+    base = base ? base + 1 : input_txt;
+
+    // Delete the extension
+    const char* dot = strrchr(base, '.');
+    size_t stem_len = dot ? (size_t)(dot - base) : strlen(base);
+
+    // Compose the output file name
+    const char* suffix = ".csv";
+    size_t out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;
+
+    char* out = malloc(out_len);
+    if (!out) return NULL;
+
+    // Build the string
+    snprintf(out, out_len, "%s%.*s%s", prefix, (int)stem_len, base, suffix);
+    return out;
+}
+
+static int is_empty(const char *str) {
+  return str == NULL || str[0] == '\0';
+}
+
+
 static int check_options(options_t *options) {
   // Check if input files are provided for task1 or task both, if not, ask for
   // terminal input
-  if (options->input_txt == NULL && options->task != TASK_2) {
+  if (is_empty(options->input_txt) && options->task != TASK_2) {
     fprintf(stderr, "Input file is not provided, please provide an input "
                     "writing on the terminal\n");
-    if (options->output_csv == NULL) {
+    if (is_empty(options->output_csv)) {
+
       options->output_csv = "Analysis_STDIN_text.csv";
     }
   }
   // Check if intput files is provided for task2, if not return error,if
   // task_both, generate one file to write on.
-  if (options->input_csv == NULL && options->task == TASK_2) {
+  if (is_empty(options->input_csv) && options->task == TASK_2) {
     fprintf(
         stderr,
         "Input CSV file is not provided, please provide an input CSV file\n");
@@ -39,18 +67,12 @@ static int check_options(options_t *options) {
     fprintf(stderr, "Output text file is not provided,\n produced test will be "
                     "printed on STDOUT\n");
   }
-  if (options->output_csv == NULL && options->task != TASK_2) {
+  fprintf(stderr, " evaluating output_csv: %d\n", is_empty(options->output_csv));
+  if (is_empty(options->output_csv) && options->task != TASK_2) {
     fprintf(stderr, "Output CSV file is not provided,\n produced test will be "
                     "in a file called Analysis_<input file>\n");
-    const char *prefix = "Analysis_";
-    options->output_csv =
-        malloc(strlen(prefix) + strlen(options->input_txt) + 1);
-    if (options->output_csv == NULL) {
-      fprintf(stderr, "Memory allocation failed for output CSV file name\n");
-      return -1;
-    }
-    strcpy((char *)options->output_csv, prefix);
-    strcat((char *)options->output_csv, options->input_txt);
+    options->output_csv = make_csv_name_from_input((const char *)options->input_txt); 
+        
   }
   // Check if n_words is set, if not, set it to a default value
   if (options->n_words == 0) {

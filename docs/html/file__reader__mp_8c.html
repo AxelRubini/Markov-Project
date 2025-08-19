@@ -209,7 +209,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   21</span>  lseek(fd, -bytes_read, SEEK_CUR); <span class="comment">// Rewind to allow next read</span></div>
 <div class="line"><span class="lineno">   22</span>  <span class="keywordflow">return</span> 0;                         <span class="comment">// Successfully skipped</span></div>
 <div class="line"><span class="lineno">   23</span>}</div>
-<div class="ttc" id="autf8__tools_8h_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00288">utf8_tools.c:288</a></div></div>
+<div class="ttc" id="autf8__tools_8h_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00344">utf8_tools.c:344</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_ac215be68e83a7746e80824ba69a6a769"><div class="ttname"><a href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a></div><div class="ttdeci">int utf8_getchar_fd(int fd, int *bytes_read)</div><div class="ttdoc">Read a UTF-8 code point from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00056">utf8_tools.c:56</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -246,7 +246,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
@@ -332,7 +332,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
@@ -388,7 +388,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   49</span>  <span class="keywordflow">return</span> EOF; <span class="comment">// EOF or read error</span></div>
 <div class="line"><span class="lineno">   50</span>}</div>
 <div class="ttc" id="afile__reader__mp_8c_html_a59a255b23bf9be325ce58bf477bc0e7a"><div class="ttname"><a href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a></div><div class="ttdeci">static int check_next_typograph(int fd)</div><div class="ttdoc">Skip the next bytes if typographic character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00010">file_reader_mp.c:10</a></div></div>
-<div class="ttc" id="autf8__tools_8h_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00280">utf8_tools.c:280</a></div></div>
+<div class="ttc" id="autf8__tools_8h_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00335">utf8_tools.c:335</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -425,7 +425,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
@@ -609,7 +609,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
@@ -712,7 +712,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  137</span>  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><span class="lineno">  138</span>}</div>
 <div class="ttc" id="afile__reader__mp_8c_html_a4b80642798572fb224f6ea5dacd73412"><div class="ttname"><a href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a></div><div class="ttdeci">char move_to_next_word(int fd)</div><div class="ttdoc">Read and return the next non-space character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00031">file_reader_mp.c:31</a></div></div>
-<div class="ttc" id="autf8__tools_8h_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00284">utf8_tools.c:284</a></div></div>
+<div class="ttc" id="autf8__tools_8h_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00340">utf8_tools.c:340</a></div></div>
 <div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -754,7 +754,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="179,33,143,42,142,36,178,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,55,268,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,269,70,269,65,301,65"/>
@@ -1057,7 +1057,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
 <area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,56"/>
 <area shape="poly" title=" " alt="" coords="176,34,143,41,142,36,174,28"/>
-<area shape="rect" href="_8null-ls__532589__main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,56"/>
 <area shape="poly" title=" " alt="" coords="87,46,55,46,55,41,87,41"/>
 <area shape="rect" href="both__mp_8c.html#a10d24f9de80c49f6b8df4a8cc2e64aec" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,55,265,80"/>
 <area shape="poly" title=" " alt="" coords="301,70,265,70,265,65,301,65"/>

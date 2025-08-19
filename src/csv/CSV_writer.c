@@ -165,7 +165,6 @@ int csv_line_send(int fd, const hash_table_t *ht) {
     }
   }
 
-  fprintf(stdout, "Successfully sent %zu CSV lines\n", items_sent);
   return 0;
 }
 
@@ -258,7 +257,5 @@ int csv_line_recv(int fd, const char *filename) {
     return -1;
   }
 
-  fprintf(stdout, "Successfully received and wrote %zu CSV lines to %s\n",
-          lines_received, filename);
   return 0;
 }

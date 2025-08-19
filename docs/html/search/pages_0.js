@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['compilazione_0',['Compilazione',['../index.html#autotoc_md2',1,'']]]
+  ['8_20_3a_0',['Analisi del testo in UTF-8 :',['../index.html#autotoc_md10',1,'']]]
 ];

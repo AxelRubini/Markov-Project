@@ -28,13 +28,13 @@ static int w_p1(int pipe_to_write, const char *input_txt) {
   int pb_w_res = publish_word_on_pipe(fd, pipe_to_write);
   if (pb_w_res < 0) {
     fprintf(stderr, "Error reading input file\n");
-    close(fd);
-    close(pipe_to_write);
+
+    safe_close(&fd);
+    safe_close(&pipe_to_write);
     return -1;
   }
   safe_close(&fd);
   safe_close(&pipe_to_write);
-
   return 0;
 }
 
@@ -111,8 +111,8 @@ static int w_p2(int pipe_to_read, int pipe_to_write_csv,
   if (ht->size == 0) {
     fprintf(stderr, "Hash table is empty, nothing to write\n");
     free_hash_table(ht);
-    close(pipe_to_write_csv);
-    close(pipe_to_write_ts2);
+    safe_close(&pipe_to_write_csv);
+    safe_close(&pipe_to_write_ts2);
     return 0;
   }
 
@@ -178,11 +178,11 @@ static int w_p3(int pipe_to_read, const char *output_csv) {
 
   if (csv_line_recv(pipe_to_read, output_csv) < 0) {
     fprintf(stderr, "p3: csv_line_recv failed\n");
-    close(pipe_to_read);
+    safe_close(&pipe_to_read);
     return 2;
   }
 
-  close(pipe_to_read);
+  safe_close(&pipe_to_read);
   return 0;
 }
 
@@ -198,22 +198,14 @@ static int w_p4(int pipe_to_read, int pipe_to_write, size_t n_words,
     fprintf(stderr, "Error reading lines from pipe\n");
     return -1;
   }
-  if (close(pipe_to_read) < 0) {
-    perror("Failed to close pipe after reading");
-    free_hash_table(ht);
-    return -1;
-  }
+  safe_close(&pipe_to_read);
   int result = send_output_mp(pipe_to_write, ht, n_words, word);
   if (result < 0) {
     fprintf(stderr, "Error writing lines to pipe\n");
     free_hash_table(ht);
     return -1;
   }
-  if (close(pipe_to_write) < 0) {
-    perror("Failed to close pipe after writing");
-    free_hash_table(ht);
-    return -1;
-  }
+  safe_close(&pipe_to_write);
   free_hash_table(ht);
   return 0;
 }
@@ -246,7 +238,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_input_word;
   }
 
-  if (!output_txt) {
+  if (is_empty(output_txt)) {
     output_txt = "tmp_output.txt";
     print_to_stdout = 1;
   }
@@ -350,19 +342,16 @@ int both_mp(const char *input_txt, const char *output_csv,
 
   // Wait children
   int st;
-  while (waitpid(-1, &st, 0) > 0)
-    ;
+  while (waitpid(-1,&st,0) > 0);
 
-  // Print to stdout if requested
   if (print_to_stdout) {
-    FILE *f = fopen(output_txt, "r");
-    if (f) {
-      char buf[1024];
-      while (fgets(buf, sizeof buf, f))
-        fputs(buf, stdout);
-      fclose(f);
-      unlink(output_txt);
+    // Print the content of the output file to stdout
+    if (print_file_content_to_stdout(output_txt) < 0) {
+      fprintf(stderr, "Failed to print output to stdout\n");
+      unlink(output_txt); // Remove the temporary file
+      return -1;
     }
+    unlink(output_txt); // Remove the temporary file after printing
   }
 
   status = 0; // success

@@ -127,7 +127,7 @@ hash_table_t *read_csv_file_sp(const char *filename) {
       fprintf(stderr, "Error getting next words from line\n");
       free(line);
       free_hash_table(ht);
-      close(fd);
+      safe_close(&fd);
       return NULL;
     }
 

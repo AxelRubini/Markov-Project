@@ -1,4 +1,5 @@
 #include "file_writer.h"
+#include "utf8_tools.h"
 #include "frame.h"
 #include "next_word_chooser.h"
 #include "utils.h"
@@ -12,74 +13,6 @@
 #include <time.h>
 #include <unistd.h>
 
-/**
- * @brief Convert raw UTF-8 bytes to code points.
- *
- * @param bytes Input byte buffer.
- * @param len Number of bytes in buffer.
- * @return Newly allocated array of code points or NULL on error.
- */
-int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
-  if (!bytes || len == 0) {
-    return NULL;
-  }
-
-  int *word = malloc(sizeof(int) * MAX_WORD_LENGTH);
-  if (!word) {
-    return NULL;
-  }
-
-  size_t offset = 0;
-  int word_index = 0;
-
-  while (offset < len && word_index < MAX_WORD_LENGTH - 1) {
-    int cp = utf8_getchar_from_buf(bytes, &offset);
-    if (cp == EOF || cp == UTF8_ERROR) {
-      break;
-    }
-    word[word_index++] = cp;
-  }
-
-  word[word_index] = '\0';
-  return word;
-}
-
-/**
- * @brief Read a word from a UTF-8 byte buffer.
- *
- * @param buf Source buffer.
- * @param offset In/out byte offset.
- * @return Newly allocated word or NULL on error.
- */
-int *utf8_read_word_from_buf(const u8 *buf, size_t *offset) {
-  if (!buf || !offset) {
-    fprintf(stderr, "Invalid arguments to utf8_create_word_from_buf\n");
-    return NULL;
-  }
-
-  int *word = dmalloc(sizeof(int) * MAX_WORD_LENGTH);
-  if (!word) {
-    fprintf(stderr, "Memory allocation failed for word\n");
-    return NULL;
-  }
-
-  size_t i = 0;
-  while (1) {
-    int cp = utf8_getchar_from_buf(buf, offset);
-    if (cp == EOF || cp == UTF8_ERROR || cp == '\0') {
-      break; // End of buffer or invalid UTF-8 sequence
-    }
-    if (i >= MAX_WORD_LENGTH - 1) {
-      fprintf(stderr, "Word exceeds maximum length\n");
-      free(word);
-      return NULL; // Exceeded max length
-    }
-    word[i++] = cp; // Store codepoint in the word
-  }
-  word[i] = '\0'; // Null-terminate the word
-
-  return word;
-}
 /**
  * @brief Check if word is a sentence terminator.
  *

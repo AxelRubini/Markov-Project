@@ -1,7 +1,11 @@
 <map id="parse_options" name="parse_options">
-<area shape="rect" id="Node000001" title="Parse command line arguments into an options structure." alt="" coords="5,31,108,56"/>
-<area shape="rect" id="Node000002" href="$options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="170,5,276,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,33,154,26,155,31,109,38"/>
-<area shape="rect" id="Node000003" href="$options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="156,55,290,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,48,141,53,140,58,108,54"/>
+<area shape="rect" id="Node000001" title="Parse command line arguments into an options structure." alt="" coords="5,59,108,84"/>
+<area shape="rect" id="Node000002" href="$options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="170,33,276,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,61,154,54,155,59,109,66"/>
+<area shape="rect" id="Node000005" href="$options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="156,83,290,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="109,76,141,81,140,86,108,82"/>
+<area shape="rect" id="Node000003" href="$options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="378,5,451,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,36,362,23,363,28,276,41"/>
+<area shape="rect" id="Node000004" href="$options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="338,55,491,96"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="276,52,323,59,322,64,275,57"/>
 </map>

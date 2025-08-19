@@ -18,16 +18,16 @@ static int read_from_stdin(const char *output_txt) {
   while ((bytes_read = read(STDIN_FILENO, buffer, sizeof(buffer))) > 0) {
     if (write(fd, buffer, bytes_read) < 0) {
       perror("Failed to write to temporary file");
-      close(fd);
+      safe_close(&fd);
       return -1;
     }
   }
-  close(fd);
+  safe_close(&fd);
   return 0;
 }
 
 const char *validate_input_file(const char *input_txt, int *is_stdin) {
-  if (input_txt == NULL) {
+  if (is_empty(input_txt)) {
     if (read_from_stdin("tmp_read_from_stdin.txt") != 0) {
       fprintf(stderr, "Failed to read from stdin\n");
       return NULL; // Error reading from stdin
@@ -41,10 +41,7 @@ const char *validate_input_file(const char *input_txt, int *is_stdin) {
       perror("Failed to open input file");
       return NULL; // Error opening file
     }
-    if (close(fd) < 0) {
-      perror("Failed to close input file");
-      return NULL; // Error closing file
-    }
+    safe_close(&fd);
     return input_txt; // Return the original file name
   }
 }
@@ -64,19 +61,16 @@ int print_file_content_to_stdout(const char *filename) {
   while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
     if (write(STDOUT_FILENO, buffer, bytes_read) < 0) {
       perror("Failed to write to stdout");
-      close(fd);
+      safe_close(&fd);
       return -1;
     }
   }
   if (bytes_read < 0) {
     perror("Failed to read from output file");
-    close(fd);
+    safe_close(&fd);
     return -1;
   }
-  if (close(fd) < 0) {
-    perror("Failed to close output file");
-    return -1;
-  }
+  safe_close(&fd);
   return 0;
 }
 
@@ -110,6 +104,7 @@ static char *validate_symbol(const char *symbol) {
     }
   }
   fprintf(stderr, "Invalid symbol: %s\n", symbol);
+  fprintf(stderr, "Generating a random symbol instead\n");
   return generate_random_symbol();
 }
 
@@ -132,5 +127,9 @@ void kill_and_wait(pid_t pid) {
     kill(pid, SIGTERM); // Send termination signal to the process
     waitpid(pid, NULL, 0); // Wait for the process to terminate
   }
+}
+
+int is_empty(const char *str) { 
+  return str == NULL || *str == '\0';
 }
 

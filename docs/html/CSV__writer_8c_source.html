@@ -261,112 +261,109 @@ $(function(){initNavTree('CSV__writer_8c_source.html','',''); });
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  }</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  fprintf(stdout, <span class="stringliteral">&quot;Successfully sent %zu CSV lines\n&quot;</span>, items_sent);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>}</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>}</div>
 </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="foldopen" id="foldopen00172" data-start="{" data-end="}">
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="CSV__writer_8h.html#ad3aa6d121c0ccb81e85133366708da1f">  172</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename) {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  <span class="keywordflow">if</span> (fd &lt; 0 || !filename) {</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or filename\n&quot;</span>);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  }</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="comment">// Validate filename</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>  <span class="keywordflow">if</span> (strlen(filename) == 0) {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    fprintf(stderr, <span class="stringliteral">&quot;Empty filename provided\n&quot;</span>);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>  FILE *file = fopen(filename, <span class="stringliteral">&quot;w&quot;</span>);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  <span class="keywordflow">if</span> (!file) {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    perror(<span class="stringliteral">&quot;Failed to open file for writing&quot;</span>);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keywordtype">char</span> *line = NULL;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <span class="keywordtype">size_t</span> lines_received = 0;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(fd, &amp;line, &amp;cap);</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      perror(<span class="stringliteral">&quot;recv_frame failed&quot;</span>);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>      <span class="keywordflow">if</span> (line) {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        free(line);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      }</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      fclose(file);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      <span class="keywordflow">break</span>; <span class="comment">// EOF reached</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">// Skip completely empty frames</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">if</span> (line == NULL || line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="comment">// Write the received data to file</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordtype">size_t</span> bytes_to_write = (size_t)n;</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordtype">size_t</span> bytes_written = fwrite(line, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), bytes_to_write, file);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">if</span> (bytes_written &lt; bytes_to_write) {</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>      <span class="keywordflow">if</span> (ferror(file)) {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        fprintf(stderr, <span class="stringliteral">&quot;Error writing to file %s after %zu lines\n&quot;</span>, filename,</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                lines_received);</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        fprintf(stderr, <span class="stringliteral">&quot;Partial write to file %s: wrote %zu of %zu bytes\n&quot;</span>,</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                filename, bytes_written, bytes_to_write);</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      <span class="keywordflow">if</span> (line) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        free(line);</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>      fclose(file);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">// Flush to ensure data is written</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">if</span> (fflush(file) != 0) {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to flush file %s\n&quot;</span>, filename);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>      <span class="keywordflow">if</span> (line) {</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        free(line);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>      }</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>      fclose(file);</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    lines_received++;</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="comment">// Note: Don&#39;t free line here as recv_frame manages the buffer reallocation</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment">// The line buffer will be reused/reallocated by recv_frame in next</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="comment">// iteration</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  }</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  <span class="comment">// Clean up</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  <span class="keywordflow">if</span> (line) {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    free(line);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  <span class="keywordflow">if</span> (fclose(file) != 0) {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    perror(<span class="stringliteral">&quot;Failed to close file&quot;</span>);</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  }</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  fprintf(stdout, <span class="stringliteral">&quot;Successfully received and wrote %zu CSV lines to %s\n&quot;</span>,</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>          lines_received, filename);</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>}</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="foldopen" id="foldopen00171" data-start="{" data-end="}">
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="CSV__writer_8h.html#ad3aa6d121c0ccb81e85133366708da1f">  171</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename) {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="keywordflow">if</span> (fd &lt; 0 || !filename) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or filename\n&quot;</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="comment">// Validate filename</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="keywordflow">if</span> (strlen(filename) == 0) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    fprintf(stderr, <span class="stringliteral">&quot;Empty filename provided\n&quot;</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  FILE *file = fopen(filename, <span class="stringliteral">&quot;w&quot;</span>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>  <span class="keywordflow">if</span> (!file) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    perror(<span class="stringliteral">&quot;Failed to open file for writing&quot;</span>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  <span class="keywordtype">char</span> *line = NULL;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keywordtype">size_t</span> cap = 0;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  <span class="keywordtype">size_t</span> lines_received = 0;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(fd, &amp;line, &amp;cap);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      perror(<span class="stringliteral">&quot;recv_frame failed&quot;</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      <span class="keywordflow">if</span> (line) {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        free(line);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      fclose(file);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    }</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>      <span class="keywordflow">break</span>; <span class="comment">// EOF reached</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">// Skip completely empty frames</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">if</span> (line == NULL || line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="comment">// Write the received data to file</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordtype">size_t</span> bytes_to_write = (size_t)n;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordtype">size_t</span> bytes_written = fwrite(line, <span class="keyword">sizeof</span>(<span class="keywordtype">char</span>), bytes_to_write, file);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">if</span> (bytes_written &lt; bytes_to_write) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>      <span class="keywordflow">if</span> (ferror(file)) {</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        fprintf(stderr, <span class="stringliteral">&quot;Error writing to file %s after %zu lines\n&quot;</span>, filename,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                lines_received);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        fprintf(stderr, <span class="stringliteral">&quot;Partial write to file %s: wrote %zu of %zu bytes\n&quot;</span>,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                filename, bytes_written, bytes_to_write);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      <span class="keywordflow">if</span> (line) {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        free(line);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      fclose(file);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="comment">// Flush to ensure data is written</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">if</span> (fflush(file) != 0) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to flush file %s\n&quot;</span>, filename);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>      <span class="keywordflow">if</span> (line) {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        free(line);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>      }</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>      fclose(file);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    lines_received++;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// Note: Don&#39;t free line here as recv_frame manages the buffer reallocation</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="comment">// The line buffer will be reused/reallocated by recv_frame in next</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment">// iteration</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <span class="comment">// Clean up</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  <span class="keywordflow">if</span> (line) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    free(line);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>  <span class="keywordflow">if</span> (fclose(file) != 0) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    perror(<span class="stringliteral">&quot;Failed to close file&quot;</span>);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
 </div>
 <div class="ttc" id="aCSV__line__builder_8h_html"><div class="ttname"><a href="CSV__line__builder_8h.html">CSV_line_builder.h</a></div></div>
 <div class="ttc" id="aCSV__line__builder_8h_html_aabdbfd470415d59c0a775ff597904c32"><div class="ttname"><a href="CSV__line__builder_8h.html#aabdbfd470415d59c0a775ff597904c32">create_csv_line</a></div><div class="ttdeci">int create_csv_line(ht_item *item, char *buffer)</div><div class="ttdoc">Build a CSV line from a hash-table item.</div><div class="ttdef"><b>Definition</b> <a href="CSV__line__builder_8c_source.html#l00003">CSV_line_builder.c:3</a></div></div>
 <div class="ttc" id="aCSV__line__builder_8h_html_ae48a785eb93f0a85e556774ae5da83f3"><div class="ttname"><a href="CSV__line__builder_8h.html#ae48a785eb93f0a85e556774ae5da83f3">calculate_buffer_size</a></div><div class="ttdeci">size_t calculate_buffer_size(ht_item *item)</div><div class="ttdoc">Compute the buffer size required for an item&#39;s CSV line.</div><div class="ttdef"><b>Definition</b> <a href="CSV__line__builder_8c_source.html#l00093">CSV_line_builder.c:93</a></div></div>
 <div class="ttc" id="aCSV__writer_8c_html_a23ffde3f2f2df1f638dbeec09800daa2"><div class="ttname"><a href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2">csv_line_send</a></div><div class="ttdeci">int csv_line_send(int fd, const hash_table_t *ht)</div><div class="ttdoc">Send CSV lines for all table entries over a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="#l00074">CSV_writer.c:74</a></div></div>
 <div class="ttc" id="aCSV__writer_8c_html_aaaf0281d8535f6d2ca09764f3df55df5"><div class="ttname"><a href="CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5">csv_build_file</a></div><div class="ttdeci">int csv_build_file(const char *filename, hash_table_t *table)</div><div class="ttdoc">Serialize a hash table into a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="#l00012">CSV_writer.c:12</a></div></div>
-<div class="ttc" id="aCSV__writer_8c_html_ad3aa6d121c0ccb81e85133366708da1f"><div class="ttname"><a href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a></div><div class="ttdeci">int csv_line_recv(int fd, const char *filename)</div><div class="ttdoc">Receive CSV frames and write them to a file.</div><div class="ttdef"><b>Definition</b> <a href="#l00172">CSV_writer.c:172</a></div></div>
+<div class="ttc" id="aCSV__writer_8c_html_ad3aa6d121c0ccb81e85133366708da1f"><div class="ttname"><a href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a></div><div class="ttdeci">int csv_line_recv(int fd, const char *filename)</div><div class="ttdoc">Receive CSV frames and write them to a file.</div><div class="ttdef"><b>Definition</b> <a href="#l00171">CSV_writer.c:171</a></div></div>
 <div class="ttc" id="aCSV__writer_8h_html"><div class="ttname"><a href="CSV__writer_8h.html">CSV_writer.h</a></div></div>
 <div class="ttc" id="aframe_8h_html"><div class="ttname"><a href="frame_8h.html">frame.h</a></div></div>
 <div class="ttc" id="aframe_8h_html_a25f328b1efd54fde993d7060fdf970c8"><div class="ttname"><a href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a></div><div class="ttdeci">int send_frame(int fd, const char *data_to_send, size_t len)</div><div class="ttdoc">Send a length-prefixed frame over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00049">frame.c:49</a></div></div>

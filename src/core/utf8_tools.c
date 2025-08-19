@@ -42,10 +42,10 @@ int utf8_getchar(void) {
   for (unsigned i = 1; i < len; ++i) {
     int ci = getchar();
     if (ci == EOF)
-      return EOF; // End of input before completing the character
+      return EOF;
     u8 byte = (u8)ci;
     if ((byte >> 6) != 0x2)
-      return UTF8_ERROR; // invalid continuation byte
+      return UTF8_ERROR;
     codepoint =
         (codepoint << 6) | (byte & 0x3F); // append the continuation byte
   }
@@ -56,7 +56,7 @@ int utf8_getchar(void) {
 int utf8_getchar_fd(int fd, int *bytes_read) {
   u8 lead;
   if (read(fd, &lead, 1) != 1) {
-    return EOF; // end of input
+    return EOF;
   }
 
   *bytes_read = 1;
@@ -262,6 +262,61 @@ int *utf8_str_deepcopy(const int *str) {
   return copy;
 }
 
+int *utf8_rawbytes_to_cp(const u8 *bytes, size_t len) {
+  if (!bytes || len == 0) {
+    return NULL;
+  }
+
+  int *word = malloc(sizeof(int) * MAX_WORD_LENGTH);
+  if (!word) {
+    return NULL;
+  }
+
+  size_t offset = 0;
+  int word_index = 0;
+
+  while (offset < len && word_index < MAX_WORD_LENGTH - 1) {
+    int cp = utf8_getchar_from_buf(bytes, &offset);
+    if (cp == EOF || cp == UTF8_ERROR) {
+      break;
+    }
+    word[word_index++] = cp;
+  }
+
+  word[word_index] = '\0';
+  return word;
+}
+
+int *utf8_read_word_from_buf(const u8 *buf, size_t *offset) {
+  if (!buf || !offset) {
+    fprintf(stderr, "Invalid arguments to utf8_create_word_from_buf\n");
+    return NULL;
+  }
+
+  int *word = dmalloc(sizeof(int) * MAX_WORD_LENGTH);
+  if (!word) {
+    fprintf(stderr, "Memory allocation failed for word\n");
+    return NULL;
+  }
+
+  size_t i = 0;
+  while (1) {
+    int cp = utf8_getchar_from_buf(buf, offset);
+    if (cp == EOF || cp == UTF8_ERROR || cp == '\0') {
+      break; // End of buffer or invalid UTF-8 sequence
+    }
+    if (i >= MAX_WORD_LENGTH - 1) {
+      fprintf(stderr, "Word exceeds maximum length\n");
+      free(word);
+      return NULL; // Exceeded max length
+    }
+    word[i++] = cp; // Store codepoint in the word
+  }
+  word[i] = '\0'; // Null-terminate the word
+
+  return word;
+}
+
 int utf8_cp_to_rawbytes(const int *word, u8 *buf) {
   if (word == NULL || buf == NULL) {
     fprintf(stderr, "Invalid arguments to utf8_cp_to_rawbytes\n");
@@ -278,7 +333,8 @@ int utf8_cp_to_rawbytes(const int *word, u8 *buf) {
 }
 
 int is_punctuation(int cp) {
-  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"' ||cp == '*');
+  return (cp == ',' || cp == ';' || cp == ':' || cp == '-' || cp == '\"' ||
+          cp == '*');
 }
 
 int is_sentence_terminator(int cp) {
@@ -286,8 +342,7 @@ int is_sentence_terminator(int cp) {
 }
 
 int is_typographic(int cp) {
-  return (
-      cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||
-      cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||
-      cp == 0x00BF);
+  return (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||
+          cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||
+          cp == 0x00BF);
 }

@@ -107,63 +107,63 @@ $(function(){initNavTree('task2__sp_8c_source.html','',''); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="task2__sp_8h.html#a507ba6c68522a5fd79290b3296ecf49e">   13</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e">task2_sp</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *input_csv, <span class="keyword">const</span> <span class="keywordtype">char</span> *output_txt, <span class="keywordtype">size_t</span> n_words,</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>             <span class="keyword">const</span> <span class="keywordtype">char</span> *word) {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">int</span> print_to_stdout = 0;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keywordtype">int</span> out_fd = -1;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordflow">if</span> (output_txt == NULL) {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    fprintf(stderr, <span class="stringliteral">&quot;No output file specified, writing to stdout\n&quot;</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    print_to_stdout = 1;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    output_txt = <span class="stringliteral">&quot;tmp_output.txt&quot;</span>; <span class="comment">// Temporary file for stdout</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht = <a class="code hl_function" href="CSV__reader_8h.html#a71360bacc7e01a6c665df648bfc86ecc">read_csv_file_sp</a>(input_csv);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordflow">if</span> (ht == NULL) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to read CSV file into hash table\n&quot;</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordflow">if</span> (n_words == 0) {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    fprintf(stderr, <span class="stringliteral">&quot;Number of words to process cannot be zero\n&quot;</span>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">char</span> *validated_word = <a class="code hl_function" href="modes__utils_8h.html#ac7a990ac61c94569ccf103a3f6407f54">validate_word</a>(word);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">int</span> result = <a class="code hl_function" href="file__writer_8h.html#aacc4ca64994b0da56133db65c1f30c21">write_output_sp</a>(output_txt, n_words, validated_word, ht);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordflow">if</span> (validated_word &amp;&amp; validated_word != word) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    free(validated_word);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">if</span> (result &lt; 0) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to send output: %d\n&quot;</span>, result);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (output_txt != NULL) {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      remove(output_txt); <span class="comment">// Remove the output file if it was created</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  fprintf(stderr, <span class="stringliteral">&quot;Output written to %s\n&quot;</span>, output_txt);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Print the content of the output file to stdout</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      remove(output_txt); <span class="comment">// Remove the temporary file</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(output_txt) ) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    fprintf(stderr, <span class="stringliteral">&quot;No output file specified, writing to stdout\n&quot;</span>);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    print_to_stdout = 1;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    output_txt = <span class="stringliteral">&quot;tmp_output.txt&quot;</span>; <span class="comment">// Temporary file for stdout</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht = <a class="code hl_function" href="CSV__reader_8h.html#a71360bacc7e01a6c665df648bfc86ecc">read_csv_file_sp</a>(input_csv);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordflow">if</span> (ht == NULL) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to read CSV file into hash table\n&quot;</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordflow">if</span> (n_words == 0) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    fprintf(stderr, <span class="stringliteral">&quot;Number of words to process cannot be zero\n&quot;</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">char</span> *validated_word = <a class="code hl_function" href="modes__utils_8h.html#ac7a990ac61c94569ccf103a3f6407f54">validate_word</a>(word);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">int</span> result = <a class="code hl_function" href="file__writer_8h.html#aacc4ca64994b0da56133db65c1f30c21">write_output_sp</a>(output_txt, n_words, validated_word, ht);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordflow">if</span> (validated_word &amp;&amp; validated_word != word) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    free(validated_word);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">if</span> (result &lt; 0) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    fprintf(stderr, <span class="stringliteral">&quot;Failed to send output: %d\n&quot;</span>, result);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (output_txt != NULL) {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      remove(output_txt); <span class="comment">// Remove the output file if it was created</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  fprintf(stderr, <span class="stringliteral">&quot;Output written to %s\n&quot;</span>, output_txt);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// Print the content of the output file to stdout</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      unlink(output_txt); <span class="comment">// Remove the temporary file</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
 </div>
 <div class="ttc" id="aCSV__reader_8h_html"><div class="ttname"><a href="CSV__reader_8h.html">CSV_reader.h</a></div></div>
 <div class="ttc" id="aCSV__reader_8h_html_a71360bacc7e01a6c665df648bfc86ecc"><div class="ttname"><a href="CSV__reader_8h.html#a71360bacc7e01a6c665df648bfc86ecc">read_csv_file_sp</a></div><div class="ttdeci">hash_table_t * read_csv_file_sp(const char *filename)</div><div class="ttdoc">Populate a hash table by reading a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00083">CSV_reader.c:83</a></div></div>
 <div class="ttc" id="afile__writer_8h_html"><div class="ttname"><a href="file__writer_8h.html">file_writer.h</a></div></div>
-<div class="ttc" id="afile__writer_8h_html_aacc4ca64994b0da56133db65c1f30c21"><div class="ttname"><a href="file__writer_8h.html#aacc4ca64994b0da56133db65c1f30c21">write_output_sp</a></div><div class="ttdeci">int write_output_sp(const char *filename, const int num_words, char *start_sym, hash_table_t *table)</div><div class="ttdoc">Generate text and write it to a file (single process).</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00164">file_writer.c:164</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_aacc4ca64994b0da56133db65c1f30c21"><div class="ttname"><a href="file__writer_8h.html#aacc4ca64994b0da56133db65c1f30c21">write_output_sp</a></div><div class="ttdeci">int write_output_sp(const char *filename, const int num_words, char *start_sym, hash_table_t *table)</div><div class="ttdoc">Generate text and write it to a file (single process).</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00097">file_writer.c:97</a></div></div>
 <div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
 <div class="ttc" id="ahash__table_8h_html_a48c22d52e879fb10712c37f9e16aefdb"><div class="ttname"><a href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a></div><div class="ttdeci">void free_hash_table(hash_table_t *table)</div><div class="ttdoc">Destroy a hash table and its contents.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00155">hash_table.c:155</a></div></div>
 <div class="ttc" id="amodes__utils_8h_html"><div class="ttname"><a href="modes__utils_8h.html">modes_utils.h</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00052">modes_utils.c:52</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_ac7a990ac61c94569ccf103a3f6407f54"><div class="ttname"><a href="modes__utils_8h.html#ac7a990ac61c94569ccf103a3f6407f54">validate_word</a></div><div class="ttdeci">char * validate_word(const char *word)</div><div class="ttdoc">Validate a word or generate a random symbol.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00116">modes_utils.c:116</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00049">modes_utils.c:49</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00132">modes_utils.c:132</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_ac7a990ac61c94569ccf103a3f6407f54"><div class="ttname"><a href="modes__utils_8h.html#ac7a990ac61c94569ccf103a3f6407f54">validate_word</a></div><div class="ttdeci">char * validate_word(const char *word)</div><div class="ttdoc">Validate a word or generate a random symbol.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00111">modes_utils.c:111</a></div></div>
 <div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 <div class="ttc" id="atask2__sp_8c_html_a507ba6c68522a5fd79290b3296ecf49e"><div class="ttname"><a href="task2__sp_8c.html#a507ba6c68522a5fd79290b3296ecf49e">task2_sp</a></div><div class="ttdeci">int task2_sp(const char *input_csv, const char *output_txt, size_t n_words, const char *word)</div><div class="ttdoc">Generate text using a CSV dictionary produced by task1.</div><div class="ttdef"><b>Definition</b> <a href="#l00013">task2_sp.c:13</a></div></div>
 <div class="ttc" id="atask2__sp_8h_html"><div class="ttname"><a href="task2__sp_8h.html">task2_sp.h</a></div></div>

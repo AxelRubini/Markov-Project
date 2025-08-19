@@ -138,10 +138,10 @@ $(function(){initNavTree('utf8__tools_8c_source.html','',''); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 1; i &lt; len; ++i) {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> ci = getchar();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (ci == EOF)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="keywordflow">return</span> EOF; <span class="comment">// End of input before completing the character</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="keywordflow">return</span> EOF;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> <span class="keywordtype">byte</span> = (<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>)ci;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">if</span> ((<span class="keywordtype">byte</span> &gt;&gt; 6) != 0x2)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>; <span class="comment">// invalid continuation byte</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    codepoint =</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        (codepoint &lt;&lt; 6) | (<span class="keywordtype">byte</span> &amp; 0x3F); <span class="comment">// append the continuation byte</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
@@ -154,7 +154,7 @@ $(function(){initNavTree('utf8__tools_8c_source.html','',''); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">   56</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> *bytes_read) {</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> lead;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordflow">if</span> (read(fd, &amp;lead, 1) != 1) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> EOF; <span class="comment">// end of input</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> EOF;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  *bytes_read = 1;</div>
@@ -380,63 +380,126 @@ $(function(){initNavTree('utf8__tools_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="foldopen" id="foldopen00265" data-start="{" data-end="}">
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a5e4b53100a7c7b94a90ec0c5091855ed">  265</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed">utf8_cp_to_rawbytes</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf) {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  <span class="keywordflow">if</span> (word == NULL || buf == NULL) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_cp_to_rawbytes\n&quot;</span>);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>  }</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <span class="keywordtype">int</span> offset = 0;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <a class="code hl_function" href="utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], (<span class="keywordtype">char</span> *)buf, &amp;offset);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>  }</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  buf[offset] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the buffer</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  <span class="keywordflow">return</span> offset; <span class="comment">// Return the number of bytes written</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>}</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#af874411f68b6b343eb327e0246ea5652">  265</a></span><span class="keywordtype">int</span> *<a class="code hl_function" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652">utf8_rawbytes_to_cp</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *bytes, <span class="keywordtype">size_t</span> len) {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  <span class="keywordflow">if</span> (!bytes || len == 0) {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>  }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  <span class="keywordtype">int</span> *word = <a class="code hl_define" href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a>(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <span class="keywordflow">if</span> (!word) {</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  <span class="keywordtype">size_t</span> offset = 0;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  <span class="keywordtype">int</span> word_index = 0;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  <span class="keywordflow">while</span> (offset &lt; len &amp;&amp; word_index &lt; <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>(bytes, &amp;offset);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordflow">if</span> (cp == EOF || cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    }</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    word[word_index++] = cp;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>  }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>  word[word_index] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>  <span class="keywordflow">return</span> word;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>}</div>
 </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
-<div class="foldopen" id="foldopen00280" data-start="{" data-end="}">
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">  280</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(<span class="keywordtype">int</span> cp) {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;,&#39;</span> || cp == <span class="charliteral">&#39;;&#39;</span> || cp == <span class="charliteral">&#39;:&#39;</span> || cp == <span class="charliteral">&#39;-&#39;</span> || cp == <span class="charliteral">&#39;\&quot;&#39;</span> ||cp == <span class="charliteral">&#39;*&#39;</span>);</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>}</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="foldopen" id="foldopen00290" data-start="{" data-end="}">
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#aa7c2638eb69d2cab3fe2e95524ac206d">  290</a></span><span class="keywordtype">int</span> *<a class="code hl_function" href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d">utf8_read_word_from_buf</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, <span class="keywordtype">size_t</span> *offset) {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keywordflow">if</span> (!buf || !offset) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_create_word_from_buf\n&quot;</span>);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  }</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>  <span class="keywordtype">int</span> *word = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>  <span class="keywordflow">if</span> (!word) {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed for word\n&quot;</span>);</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>  }</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>  <span class="keywordtype">size_t</span> i = 0;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>(buf, offset);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keywordflow">if</span> (cp == EOF || cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a> || cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <span class="keywordflow">break</span>; <span class="comment">// End of buffer or invalid UTF-8 sequence</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordflow">if</span> (i &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      fprintf(stderr, <span class="stringliteral">&quot;Word exceeds maximum length\n&quot;</span>);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      free(word);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Exceeded max length</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    word[i++] = cp; <span class="comment">// Store codepoint in the word</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  word[i] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the word</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  <span class="keywordflow">return</span> word;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>}</div>
 </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="foldopen" id="foldopen00284" data-start="{" data-end="}">
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">  284</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(<span class="keywordtype">int</span> cp) {</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;.&#39;</span> || cp == <span class="charliteral">&#39;?&#39;</span> || cp == <span class="charliteral">&#39;!&#39;</span>);</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>}</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="foldopen" id="foldopen00320" data-start="{" data-end="}">
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a5e4b53100a7c7b94a90ec0c5091855ed">  320</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed">utf8_cp_to_rawbytes</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf) {</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  <span class="keywordflow">if</span> (word == NULL || buf == NULL) {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to utf8_cp_to_rawbytes\n&quot;</span>);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  }</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">int</span> offset = 0;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <a class="code hl_function" href="utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], (<span class="keywordtype">char</span> *)buf, &amp;offset);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>  }</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>  buf[offset] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the buffer</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>  <span class="keywordflow">return</span> offset; <span class="comment">// Return the number of bytes written</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>}</div>
 </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="foldopen" id="foldopen00288" data-start="{" data-end="}">
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">  288</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a>(<span class="keywordtype">int</span> cp) {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  <span class="keywordflow">return</span> (</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>      cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      cp == 0x00BF);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>}</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">  335</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(<span class="keywordtype">int</span> cp) {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;,&#39;</span> || cp == <span class="charliteral">&#39;;&#39;</span> || cp == <span class="charliteral">&#39;:&#39;</span> || cp == <span class="charliteral">&#39;-&#39;</span> || cp == <span class="charliteral">&#39;\&quot;&#39;</span> ||</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>          cp == <span class="charliteral">&#39;*&#39;</span>);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>}</div>
 </div>
-<div class="ttc" id="autf8__tools_8c_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="#l00288">utf8_tools.c:288</a></div></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="foldopen" id="foldopen00340" data-start="{" data-end="}">
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">  340</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(<span class="keywordtype">int</span> cp) {</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>  <span class="keywordflow">return</span> (cp == <span class="charliteral">&#39;.&#39;</span> || cp == <span class="charliteral">&#39;?&#39;</span> || cp == <span class="charliteral">&#39;!&#39;</span>);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}</div>
+</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="foldopen" id="foldopen00344" data-start="{" data-end="}">
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">  344</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a>(<span class="keywordtype">int</span> cp) {</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>  <span class="keywordflow">return</span> (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>          cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>          cp == 0x00BF);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>}</div>
+</div>
+<div class="ttc" id="autf8__tools_8c_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="#l00344">utf8_tools.c:344</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a313d6de63b64cc356d575851ac6c4161"><div class="ttname"><a href="utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161">utf8_char_to_upper</a></div><div class="ttdeci">int utf8_char_to_upper(int codepoint)</div><div class="ttdoc">Convert a code point to uppercase.</div><div class="ttdef"><b>Definition</b> <a href="#l00164">utf8_tools.c:164</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a32ed8f7d14fc89d5e13fe68c1c923ac4"><div class="ttname"><a href="utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a></div><div class="ttdeci">void utf8_append_char(uint32_t codepoint, char *buffer, int *offset)</div><div class="ttdoc">Append a code point to a UTF-8 buffer.</div><div class="ttdef"><b>Definition</b> <a href="#l00212">utf8_tools.c:212</a></div></div>
-<div class="ttc" id="autf8__tools_8c_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="#l00284">utf8_tools.c:284</a></div></div>
-<div class="ttc" id="autf8__tools_8c_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="#l00280">utf8_tools.c:280</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="#l00340">utf8_tools.c:340</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="#l00335">utf8_tools.c:335</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a555d99624bd659baa6b57ae703115871"><div class="ttname"><a href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871">utf8_length</a></div><div class="ttdeci">static unsigned utf8_length(u8 lead)</div><div class="ttdef"><b>Definition</b> <a href="#l00012">utf8_tools.c:12</a></div></div>
-<div class="ttc" id="autf8__tools_8c_html_a5e4b53100a7c7b94a90ec0c5091855ed"><div class="ttname"><a href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed">utf8_cp_to_rawbytes</a></div><div class="ttdeci">int utf8_cp_to_rawbytes(const int *word, u8 *buf)</div><div class="ttdoc">Encode code points into raw UTF-8 bytes.</div><div class="ttdef"><b>Definition</b> <a href="#l00265">utf8_tools.c:265</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_a5e4b53100a7c7b94a90ec0c5091855ed"><div class="ttname"><a href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed">utf8_cp_to_rawbytes</a></div><div class="ttdeci">int utf8_cp_to_rawbytes(const int *word, u8 *buf)</div><div class="ttdoc">Encode code points into raw UTF-8 bytes.</div><div class="ttdef"><b>Definition</b> <a href="#l00320">utf8_tools.c:320</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a74083c77770265ea3e47531cc0666d5d"><div class="ttname"><a href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d">utf8_str_deepcopy</a></div><div class="ttdeci">int * utf8_str_deepcopy(const int *str)</div><div class="ttdoc">Deep copy a UTF-8 string.</div><div class="ttdef"><b>Definition</b> <a href="#l00246">utf8_tools.c:246</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a7d9ae5e58ba301dd340e891e55d1d806"><div class="ttname"><a href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a></div><div class="ttdeci">int utf8_getchar_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Fetch a UTF-8 code point from a buffer at an offset.</div><div class="ttdef"><b>Definition</b> <a href="#l00085">utf8_tools.c:85</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a8d9bd8a2e0289dc111a092b194fe0b4e"><div class="ttname"><a href="utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a></div><div class="ttdeci">void utf8_putchar(int codepoint, int fd)</div><div class="ttdoc">Write a Unicode code point to a descriptor in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="#l00119">utf8_tools.c:119</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a942ec7ab0d62df1a4722b4ed3c86329f"><div class="ttname"><a href="utf8__tools_8c.html#a942ec7ab0d62df1a4722b4ed3c86329f">utf8_getchar</a></div><div class="ttdeci">int utf8_getchar(void)</div><div class="ttdoc">Read a UTF-8 code point from stdin.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">utf8_tools.c:24</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_aa7c2638eb69d2cab3fe2e95524ac206d"><div class="ttname"><a href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d">utf8_read_word_from_buf</a></div><div class="ttdeci">int * utf8_read_word_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Read a word of code points from a UTF-8 byte buffer.</div><div class="ttdef"><b>Definition</b> <a href="#l00290">utf8_tools.c:290</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_ac2077df025c715fd9f73ab86431d2de8"><div class="ttname"><a href="utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8">utf8_strcmp</a></div><div class="ttdeci">int utf8_strcmp(const int *str1, const int *str2)</div><div class="ttdoc">Compare two UTF-8 strings.</div><div class="ttdef"><b>Definition</b> <a href="#l00232">utf8_tools.c:232</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_ac215be68e83a7746e80824ba69a6a769"><div class="ttname"><a href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a></div><div class="ttdeci">int utf8_getchar_fd(int fd, int *bytes_read)</div><div class="ttdoc">Read a UTF-8 code point from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="#l00056">utf8_tools.c:56</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_ac74a4c380ae184714bb388ba615a9673"><div class="ttname"><a href="utf8__tools_8c.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a></div><div class="ttdeci">int * utf8_word_to_lower(const int *word, int word_length)</div><div class="ttdoc">Convert a word to lowercase and free the original.</div><div class="ttdef"><b>Definition</b> <a href="#l00193">utf8_tools.c:193</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_ac7a6b8431e3ba385a9fb06b10a125cc5"><div class="ttname"><a href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5">utf8_print_word</a></div><div class="ttdeci">void utf8_print_word(const int *word, int fd)</div><div class="ttdoc">Print a UTF-8 word to a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="#l00182">utf8_tools.c:182</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_ace1698a2dbf682bb3c231a23d81478d9"><div class="ttname"><a href="utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9">utf8_char_to_lower</a></div><div class="ttdeci">int utf8_char_to_lower(int codepoint)</div><div class="ttdoc">Convert a code point to lowercase.</div><div class="ttdef"><b>Definition</b> <a href="#l00146">utf8_tools.c:146</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_af874411f68b6b343eb327e0246ea5652"><div class="ttname"><a href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652">utf8_rawbytes_to_cp</a></div><div class="ttdeci">int * utf8_rawbytes_to_cp(const u8 *bytes, size_t len)</div><div class="ttdoc">Convert raw UTF-8 bytes to a code-point array.</div><div class="ttdef"><b>Definition</b> <a href="#l00265">utf8_tools.c:265</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html"><div class="ttname"><a href="utf8__tools_8h.html">utf8_tools.h</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a962553daff7763e6a05cd4e7c3ecd999"><div class="ttname"><a href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a></div><div class="ttdeci">#define UTF8_ERROR</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8h_source.html#l00007">utf8_tools.h:7</a></div></div>
+<div class="ttc" id="autils_8c_html_a5046e1cbf958143f3bf7aded35204202"><div class="ttname"><a href="utils_8c.html#a5046e1cbf958143f3bf7aded35204202">malloc</a></div><div class="ttdeci">#define malloc(x)</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00056">utils.c:56</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 <div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
 <div class="ttc" id="autils_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00019">utils.h:19</a></div></div>
+<div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

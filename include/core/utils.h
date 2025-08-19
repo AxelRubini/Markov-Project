@@ -75,4 +75,5 @@ int safe_close(int *fd);
  * @return 0 on success, -1 on error.
  */
 int safe_close_pipes(int *fds, size_t count);
+
 #endif

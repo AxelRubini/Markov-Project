@@ -1,13 +1,15 @@
 <map id="w_p1" name="w_p1">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,104,58,130"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,58,155"/>
 <area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="106,104,255,130"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,114,90,114,90,120,58,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,135,90,130,91,135,59,140"/>
+<area shape="rect" id="Node000014" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="138,153,222,179"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="59,144,123,154,122,160,58,149"/>
 <area shape="rect" id="Node000003" href="$file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b" title="Create a &quot;current next&quot; frame string." alt="" coords="303,55,461,80"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,101,311,82,313,87,237,106"/>
 <area shape="rect" id="Node000004" href="$file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="326,104,438,130"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="255,114,310,114,310,120,255,120"/>
 <area shape="rect" id="Node000012" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="338,179,427,204"/>
-<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="218,128,332,170,330,175,216,133"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="225,128,256,138,337,170,335,175,254,143,224,133"/>
 <area shape="rect" id="Node000005" href="$file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="714,29,864,55"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="438,101,460,91,474,78,482,64,492,50,508,38,560,23,614,17,667,18,715,23,714,29,667,23,615,22,561,28,510,43,495,54,487,67,478,81,463,95,440,106"/>
 <area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="736,79,842,104"/>
