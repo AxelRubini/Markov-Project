@@ -228,7 +228,6 @@ int both_mp(const char *input_txt, const char *output_csv,
   int status = -1; // return value in case of error
   int print_to_stdout = 0;
 
-  // --- Validazioni input/word
   int is_stdin = 0;
   const char *validated_input_txt = validate_input_file(input_txt, &is_stdin);
 
@@ -321,7 +320,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_kill_p1p2p3p4;
   }
   if (p5 == 0) {
-    // Child P5: read da pipe45[0] -> output_txt
+    // Child P5: read from pipe_out[0] -> output_txt
     int not_p5[] = {pipe_read[0],    pipe_read[1],    pipe_csv[0], pipe_csv[1],
                     pipe_freqtab[0], pipe_freqtab[1], pipe_out[1]};
     safe_close_pipes(not_p5, ARR_SZ(not_p5));
@@ -330,7 +329,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     _exit(0);
   }
 
-  // --- Padre: chiude tutto e attende
+  // --- Parent process closes all pipes
   safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
 
   // Wait children
