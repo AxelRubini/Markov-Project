@@ -1,5 +1,13 @@
 #include "file_reader_mp.h"
 #include "frame.h"
+#include "utf8_tools.h"
+#include "utils.h"
+#include "word.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /**
  * @brief Skip the next bytes if typographic character.

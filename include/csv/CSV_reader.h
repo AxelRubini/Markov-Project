@@ -3,15 +3,8 @@
 
 
 #include "hash_table.h"
-#include "ht_item.h"
-#include "linked_list.h"
-#include "next_word.h"
-#include "utf8_tools.h"
-#include "utils.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stddef.h>
 #include <sys/types.h>
 
 /**

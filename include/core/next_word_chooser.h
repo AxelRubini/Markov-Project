@@ -1,13 +1,7 @@
 #ifndef NEXT_WORD_CHOOSER_H
 #define NEXT_WORD_CHOOSER_H
 
-#include "next_word.h"
-#include "ht_item.h"
-#include "linked_list.h"
 #include "hash_table.h"
-
-#include <stdio.h>
-#include <time.h>
 
 typedef struct {
   hash_table_t *table; // Hash table containing next words

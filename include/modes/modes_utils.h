@@ -1,10 +1,7 @@
 #ifndef MODES_UTILS_H
 #define MODES_UTILS_H
 
-#include <stddef.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include <sys/types.h>
 
 /**
  * @brief Temporary file used to store data read from stdin when no input file is provided.

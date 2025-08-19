@@ -1,12 +1,6 @@
 #ifndef FILE_WRITER_H
 #define FILE_WRITER_H
 #include "hash_table.h"
-#include "next_word_chooser.h"
-#include "utf8_tools.h"
-#include "utils.h"
-
-#include <stdio.h>
-#include <stdlib.h>
 
 #define GENERATED_TEST_STARTERS {'.', '!', '?'}
 

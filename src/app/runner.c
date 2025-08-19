@@ -1,5 +1,4 @@
 #include "runner.h"
-#include "options.h"
 
 #include "both_mp.h"
 #include "both_sp.h"

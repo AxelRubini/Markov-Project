@@ -2,7 +2,6 @@
 #include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /* Create an empty linked list.
  * Allocates list structure; release with free_linked_list().

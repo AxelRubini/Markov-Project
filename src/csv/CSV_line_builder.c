@@ -1,4 +1,10 @@
 #include "CSV_line_builder.h"
+#include "linked_list.h"
+#include "utf8_tools.h"
+#include "word.h"
+#include "utils.h"
+
+#include <stdio.h>
 
 int create_csv_line(ht_item *item, char *buffer) {
   if (!item || !buffer) {
