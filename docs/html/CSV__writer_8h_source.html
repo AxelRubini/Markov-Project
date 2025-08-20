@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IlTuoProgetto: include/csv/CSV_writer.h Source File</title>
+<title>Markov: include/csv/CSV_writer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IlTuoProgetto
+   <div id="projectname">Markov
    </div>
   </td>
  </tr>
@@ -91,28 +91,32 @@ $(function(){initNavTree('CSV__writer_8h_source.html','',''); });
   <div class="headertitle"><div class="title">CSV_writer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CSV_WRITER_H</span></div>
+<a href="CSV__writer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CSV_WRITER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CSV_WRITER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;hash_table.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">int</span> csv_build_file(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *table);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">int</span> <a class="code hl_function" href="CSV__writer_8h.html#aaaf0281d8535f6d2ca09764f3df55df5">csv_build_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *table);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">int</span> csv_line_send(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">int</span> <a class="code hl_function" href="CSV__writer_8h.html#a23ffde3f2f2df1f638dbeec09800daa2">csv_line_send</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">int</span> csv_line_recv(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">int</span> <a class="code hl_function" href="CSV__writer_8h.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// CSV_WRITER_H</span></div>
-<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> hash_table.h:11</div></div>
+<div class="ttc" id="aCSV__writer_8h_html_a23ffde3f2f2df1f638dbeec09800daa2"><div class="ttname"><a href="CSV__writer_8h.html#a23ffde3f2f2df1f638dbeec09800daa2">csv_line_send</a></div><div class="ttdeci">int csv_line_send(int fd, const hash_table_t *ht)</div><div class="ttdoc">Send CSV lines for all table entries over a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="CSV__writer_8c_source.html#l00072">CSV_writer.c:72</a></div></div>
+<div class="ttc" id="aCSV__writer_8h_html_aaaf0281d8535f6d2ca09764f3df55df5"><div class="ttname"><a href="CSV__writer_8h.html#aaaf0281d8535f6d2ca09764f3df55df5">csv_build_file</a></div><div class="ttdeci">int csv_build_file(const char *filename, hash_table_t *table)</div><div class="ttdoc">Serialize a hash table into a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="CSV__writer_8c_source.html#l00010">CSV_writer.c:10</a></div></div>
+<div class="ttc" id="aCSV__writer_8h_html_ad3aa6d121c0ccb81e85133366708da1f"><div class="ttname"><a href="CSV__writer_8h.html#ad3aa6d121c0ccb81e85133366708da1f">csv_line_recv</a></div><div class="ttdeci">int csv_line_recv(int fd, const char *filename)</div><div class="ttdoc">Receive CSV frames and write them to a file.</div><div class="ttdef"><b>Definition</b> <a href="CSV__writer_8c_source.html#l00169">CSV_writer.c:169</a></div></div>
+<div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
+<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_76c73403417b5ead69b4adaff8510939.html">csv</a></li><li class="navelem"><b>CSV_writer.h</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_76c73403417b5ead69b4adaff8510939.html">csv</a></li><li class="navelem"><a href="CSV__writer_8h.html">CSV_writer.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

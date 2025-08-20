@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IlTuoProgetto: include/io/file_reader_mp.h Source File</title>
+<title>Markov: include/io/file_reader_mp.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IlTuoProgetto
+   <div id="projectname">Markov
    </div>
   </td>
  </tr>
@@ -91,20 +91,23 @@ $(function(){initNavTree('file__reader__mp_8h_source.html','',''); });
   <div class="headertitle"><div class="title">file_reader_mp.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;hash_table.h&quot;</span></div>
+<a href="file__reader__mp_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span> publish_word_on_pipe(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> wfd);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> wfd);</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> read_words_from_pipe(<span class="keywordtype">int</span> rfd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
-<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> hash_table.h:11</div></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a>(<span class="keywordtype">int</span> rfd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
+<div class="ttc" id="afile__reader__mp_8h_html_a20af8848b0728195f4d816c2b3131dd1"><div class="ttname"><a href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a></div><div class="ttdeci">int read_words_from_pipe(int rfd, hash_table_t *ht)</div><div class="ttdoc">Rebuild a hash table from word pairs received on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00243">file_reader_mp.c:243</a></div></div>
+<div class="ttc" id="afile__reader__mp_8h_html_a6ccb4bb41659046568cd0c2068362ed1"><div class="ttname"><a href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a></div><div class="ttdeci">int publish_word_on_pipe(int fd, int wfd)</div><div class="ttdoc">Send consecutive word pairs over a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00148">file_reader_mp.c:148</a></div></div>
+<div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
+<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_a00b633439466cbb1729245c7f66f564.html">io</a></li><li class="navelem"><b>file_reader_mp.h</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_a00b633439466cbb1729245c7f66f564.html">io</a></li><li class="navelem"><a href="file__reader__mp_8h.html">file_reader_mp.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

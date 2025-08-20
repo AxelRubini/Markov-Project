@@ -1,32 +1,34 @@
 <map id="w_p3" name="w_p3">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,128,58,154"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,58,179"/>
 <area shape="rect" id="Node000002" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="300,5,384,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,127,270,40,285,34,287,39,272,45,59,132"/>
-<area shape="rect" id="Node000003" href="$file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="106,153,223,179"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="58,143,91,149,90,155,57,148"/>
-<area shape="poly" id="edge6_Node000003_Node000002" title=" " alt="" coords="173,151,221,91,247,60,269,40,284,32,286,37,273,44,251,64,225,94,178,154"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,150,147,99,270,40,284,34,286,39,272,45,150,104,57,155"/>
+<area shape="rect" id="Node000003" href="$file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="106,179,223,204"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="58,168,91,175,90,180,57,174"/>
+<area shape="poly" id="edge7_Node000003_Node000002" title=" " alt="" coords="171,177,218,104,246,65,269,40,283,31,286,36,273,44,250,69,222,107,176,180"/>
 <area shape="rect" id="Node000004" href="$_8null-ls__947915__file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="280,55,404,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="180,151,219,120,270,89,280,84,283,89,272,94,222,125,183,155"/>
-<area shape="rect" id="Node000005" href="$frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="298,104,385,130"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="213,150,283,130,284,135,214,155"/>
-<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9" title="Convert a code point to lowercase." alt="" coords="276,153,407,179"/>
-<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="223,164,260,164,260,169,223,169"/>
-<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161" title="Convert a code point to uppercase." alt="" coords="276,203,408,228"/>
-<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="214,177,279,195,278,201,213,182"/>
-<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="286,252,397,278"/>
-<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="183,177,222,208,272,238,283,243,280,248,270,243,219,212,180,182"/>
-<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="271,301,412,327"/>
-<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="176,178,213,231,241,261,273,288,279,292,276,297,269,292,237,265,209,234,171,181"/>
-<area shape="rect" id="Node000014" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="278,351,405,376"/>
-<area shape="poly" id="edge14_Node000003_Node000014" title=" " alt="" coords="173,179,185,211,206,254,235,298,273,337,277,341,274,345,269,342,231,302,202,256,181,213,168,181"/>
-<area shape="rect" id="Node000006" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title=" " alt="" coords="503,104,569,130"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="385,114,487,114,487,120,385,120"/>
-<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="489,252,583,278"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="397,262,474,262,474,268,397,268"/>
-<area shape="rect" id="Node000012" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="460,301,612,327"/>
-<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="413,312,445,312,445,317,413,317"/>
-<area shape="rect" id="Node000013" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="660,301,745,327"/>
-<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="612,312,644,312,644,317,612,317"/>
-<area shape="rect" id="Node000015" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="503,351,569,376"/>
-<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="406,361,487,361,487,366,406,366"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="174,176,213,134,240,110,270,89,278,85,280,89,272,94,244,114,217,138,178,180"/>
+<area shape="rect" id="Node000005" href="$file__writer_8c.html#a439bd4b6310378a3f4f691176d8188fd" title="Check if word is a sentence terminator." alt="" coords="280,104,404,130"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="190,176,270,138,284,133,286,138,272,143,192,181"/>
+<area shape="rect" id="Node000006" href="$frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="298,153,385,179"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="223,180,283,172,284,177,224,186"/>
+<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9" title="Convert a code point to lowercase." alt="" coords="276,203,407,228"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="224,197,261,202,260,207,223,202"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161" title="Convert a code point to uppercase." alt="" coords="276,252,408,278"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="193,202,272,238,286,244,284,249,270,243,191,207"/>
+<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="286,301,397,327"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="179,203,218,245,244,268,272,288,280,292,278,297,270,292,240,272,214,248,175,207"/>
+<area shape="rect" id="Node000012" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="271,351,412,376"/>
+<area shape="poly" id="edge12_Node000003_Node000012" title=" " alt="" coords="174,203,210,267,238,305,273,337,278,341,275,345,269,342,234,308,205,270,169,206"/>
+<area shape="rect" id="Node000015" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="278,400,405,426"/>
+<area shape="poly" id="edge15_Node000003_Node000015" title=" " alt="" coords="172,204,183,240,203,289,233,341,251,366,273,387,276,390,273,394,269,391,247,369,228,344,198,292,178,242,167,205"/>
+<area shape="rect" id="Node000007" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title="Read all bytes from the file descriptor fd into buf." alt="" coords="503,153,569,179"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="385,164,487,164,487,169,385,169"/>
+<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="489,301,583,327"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="397,312,474,312,474,317,397,317"/>
+<area shape="rect" id="Node000013" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="460,351,612,376"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="413,361,445,361,445,366,413,366"/>
+<area shape="rect" id="Node000014" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="660,351,745,376"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="612,361,644,361,644,366,612,366"/>
+<area shape="rect" id="Node000016" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="503,400,569,426"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="406,410,487,410,487,416,406,416"/>
 </map>

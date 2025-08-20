@@ -33,7 +33,7 @@
 <area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="450,145,513,131,515,136,451,150"/>
 <area shape="rect" id="Node000011" href="$utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="529,153,654,179"/>
 <area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="450,159,514,161,514,166,450,164"/>
-<area shape="rect" id="Node000013" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="557,5,626,31"/>
+<area shape="rect" id="Node000013" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="557,5,626,31"/>
 <area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="439,21,541,17,541,23,439,26"/>
 <area shape="rect" id="Node000016" href="$word_8c.html#ad9211cc1d1d93a007b67c12c167c8662" title="Create a word object from code points." alt="" coords="754,1012,846,1038"/>
 <area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="194,582,205,637,229,719,266,811,291,856,320,896,365,946,406,979,454,1002,518,1022,575,1034,634,1038,690,1036,738,1032,739,1037,690,1042,634,1043,574,1039,517,1027,452,1007,403,983,361,950,316,900,286,858,261,813,223,720,200,638,189,583"/>
@@ -74,7 +74,7 @@
 <area shape="poly" id="edge31_Node000026_Node000021" title=" " alt="" coords="603,858,663,792,712,744,742,731,744,736,715,748,667,796,607,861"/>
 <area shape="poly" id="edge33_Node000026_Node000022" title=" " alt="" coords="627,857,664,839,688,820,712,801,740,788,743,793,715,806,691,824,667,843,629,862"/>
 <area shape="poly" id="edge34_Node000026_Node000024" title=" " alt="" coords="629,870,726,870,726,876,629,876"/>
-<area shape="rect" id="Node000029" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title=" " alt="" coords="558,304,625,330"/>
+<area shape="rect" id="Node000029" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title="Read all bytes from the file descriptor fd into buf." alt="" coords="558,304,625,330"/>
 <area shape="poly" id="edge38_Node000028_Node000029" title=" " alt="" coords="437,314,543,314,543,320,437,320"/>
 <area shape="rect" id="Node000031" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="549,353,634,379"/>
 <area shape="poly" id="edge40_Node000030_Node000031" title=" " alt="" coords="470,364,533,364,533,369,470,369"/>

@@ -1,10 +1,10 @@
 <map id="create_start_word" name="create_start_word">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,131,155"/>
-<area shape="rect" id="Node000002" href="$file__writer_8c.html#a77496d1ae6392df05a3d0abd254b3c5f" title=" " alt="" coords="179,5,348,31"/>
+<area shape="rect" id="Node000001" title="Create a start word from user input or random symbol." alt="" coords="5,129,131,155"/>
+<area shape="rect" id="Node000002" href="$file__writer_8c.html#a77496d1ae6392df05a3d0abd254b3c5f" title="Generate a random symbol from the predefined stat." alt="" coords="179,5,348,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,127,119,84,147,60,177,40,188,35,190,39,180,44,150,65,123,88,82,131"/>
 <area shape="rect" id="Node000004" href="$hash__table_8c.html#af61daf7645f441c335a455cb4ff9365a" title="Search an item by key." alt="" coords="224,104,302,130"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,131,209,121,209,126,131,137"/>
-<area shape="rect" id="Node000006" href="$file__writer_8c.html#a8136aa31b93b93715dd1761bdbe724ee" title=" " alt="" coords="190,153,336,179"/>
+<area shape="rect" id="Node000006" href="$file__writer_8c.html#a8136aa31b93b93715dd1761bdbe724ee" title="Print all available words in the hash table." alt="" coords="190,153,336,179"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="131,147,175,153,174,158,130,152"/>
 <area shape="rect" id="Node000007" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="416,179,527,204"/>
 <area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="93,153,132,173,179,189,237,198,295,201,400,197,401,202,295,206,236,203,178,194,130,178,90,158"/>

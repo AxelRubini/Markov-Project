@@ -26,7 +26,7 @@
 <area shape="poly" id="edge65_Node000001_Node000038" title=" " alt="" coords="1430,770,1425,869,1411,1002,1401,1069,1388,1131,1371,1182,1351,1217,1324,1236,1321,1232,1347,1214,1366,1180,1383,1130,1396,1068,1406,1001,1419,868,1425,769"/>
 <area shape="rect" id="Node000039" href="$_8null-ls__947915__file__writer_8c.html#aeb6e97fc1ea3e5c032592c6aaa77f276" title=" " alt="" coords="1161,349,1330,375"/>
 <area shape="poly" id="edge66_Node000001_Node000039" title=" " alt="" coords="1423,713,1413,639,1397,547,1374,459,1361,425,1347,401,1331,388,1311,378,1314,373,1334,383,1351,398,1366,422,1379,457,1402,545,1418,639,1428,712"/>
-<area shape="rect" id="Node000041" href="$file__writer_8c.html#a77496d1ae6392df05a3d0abd254b3c5f" title=" " alt="" coords="1161,144,1330,170"/>
+<area shape="rect" id="Node000041" href="$file__writer_8c.html#a77496d1ae6392df05a3d0abd254b3c5f" title="Generate a random symbol from the predefined stat." alt="" coords="1161,144,1330,170"/>
 <area shape="poly" id="edge70_Node000001_Node000041" title=" " alt="" coords="1426,713,1422,600,1410,445,1400,366,1387,293,1369,234,1347,193,1334,181,1318,173,1320,168,1337,177,1351,190,1374,232,1392,292,1405,365,1416,444,1427,600,1431,713"/>
 <area shape="rect" id="Node000043" href="$next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="1142,203,1349,244"/>
 <area shape="poly" id="edge74_Node000001_Node000043" title=" " alt="" coords="1425,713,1418,614,1405,481,1394,414,1381,352,1366,302,1347,267,1322,247,1326,243,1351,263,1370,299,1387,351,1400,413,1410,480,1424,614,1430,712"/>
@@ -124,7 +124,7 @@
 <area shape="poly" id="edge67_Node000039_Node000040" title=" " alt="" coords="1145,356,1066,348,1067,343,1146,350"/>
 <area shape="poly" id="edge68_Node000040_Node000031" title=" " alt="" coords="925,327,910,318,898,305,891,291,885,265,880,239,873,227,862,215,834,200,836,195,866,211,878,224,885,237,891,264,896,290,903,302,914,314,928,323"/>
 <area shape="poly" id="edge69_Node000040_Node000032" title=" " alt="" coords="927,324,911,318,846,286,795,254,798,249,849,281,913,313,929,319"/>
-<area shape="rect" id="Node000042" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="940,127,1066,152"/>
+<area shape="rect" id="Node000042" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="940,127,1066,152"/>
 <area shape="poly" id="edge71_Node000041_Node000042" title=" " alt="" coords="1145,152,1066,147,1067,141,1145,147"/>
 <area shape="poly" id="edge72_Node000042_Node000031" title=" " alt="" coords="926,159,836,179,834,174,925,154"/>
 <area shape="poly" id="edge73_Node000042_Node000032" title=" " alt="" coords="927,159,913,166,899,178,890,190,881,204,865,217,834,230,832,225,863,212,877,200,886,187,895,174,911,161,925,154"/>

@@ -24,8 +24,23 @@
 */
 var NAVTREE =
 [
-  [ "IlTuoProgetto", "index.html", [
-    [ "Markov", "index.html", "index" ],
+  [ "Markov", "index.html", [
+    [ "Struttura del progetto", "index.html#autotoc_md1", null ],
+    [ "Compilazione", "index.html#autotoc_md2", null ],
+    [ "Manuale utente", "index.html#autotoc_md3", [
+      [ "Esempi", "index.html#autotoc_md4", null ]
+    ] ],
+    [ "Flowchart delle modalita multiprocesso", "index.html#autotoc_md5", [
+      [ "Task-both process flow", "index.html#autotoc_md6", null ],
+      [ "Task1 process flow", "index.html#autotoc_md7", null ],
+      [ "Task2 process flow", "index.html#autotoc_md8", null ]
+    ] ],
+    [ "Risorse usate per la realizzazione del progetto", "index.html#autotoc_md9", [
+      [ "Analisi del testo in UTF-8 :", "index.html#autotoc_md10", null ],
+      [ "Gestione IPC", "index.html#autotoc_md11", null ],
+      [ "Hash table", "index.html#autotoc_md12", null ],
+      [ "Funzione Hash", "index.html#autotoc_md13", null ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -35,14 +50,24 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "Globals", "globals.html", [
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"CSV__line__builder_8h_source.html"
+"CSV__line__builder_8c.html",
+"linked__list_8c.html",
+"word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

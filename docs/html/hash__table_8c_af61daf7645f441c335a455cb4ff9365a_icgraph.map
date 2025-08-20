@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Search an item by key." alt="" coords="834,80,913,106"/>
 <area shape="rect" id="Node000002" href="$_8null-ls__947915__file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="632,31,758,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="819,80,786,70,747,60,749,54,787,65,820,74"/>
-<area shape="rect" id="Node000013" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="632,80,758,106"/>
+<area shape="rect" id="Node000013" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="632,80,758,106"/>
 <area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="819,96,758,96,758,90,819,90"/>
 <area shape="rect" id="Node000014" href="$next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="604,129,786,155"/>
 <area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="820,111,787,121,749,131,747,126,786,116,819,106"/>

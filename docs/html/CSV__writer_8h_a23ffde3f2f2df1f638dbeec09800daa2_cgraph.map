@@ -14,4 +14,6 @@
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="285,65,332,65,332,70,285,70"/>
 <area shape="rect" id="Node000006" href="$utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="358,104,483,130"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="283,78,354,97,353,102,281,84"/>
+<area shape="rect" id="Node000009" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="386,153,455,179"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="274,164,371,164,371,169,274,169"/>
 </map>

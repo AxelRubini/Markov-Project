@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['del_20progetto_0',['del progetto',['../index.html#autotoc_md9',1,'Risorse usate per la realizzazione del progetto'],['../index.html#autotoc_md1',1,'Struttura del progetto']]],
-  ['del_20testo_20in_20utf_208_20_3a_1',['Analisi del testo in UTF-8 :',['../index.html#autotoc_md10',1,'']]],
-  ['delle_20modalita_20multiprocesso_2',['Flowchart delle modalita multiprocesso',['../index.html#autotoc_md5',1,'']]]
+  ['calculate_5fbuffer_5fsize_0',['calculate_buffer_size',['../CSV__line__builder_8h.html#ae48a785eb93f0a85e556774ae5da83f3',1,'calculate_buffer_size(ht_item *item):&#160;CSV_line_builder.c'],['../CSV__line__builder_8c.html#ae48a785eb93f0a85e556774ae5da83f3',1,'calculate_buffer_size(ht_item *item):&#160;CSV_line_builder.c']]],
+  ['check_5fnext_5ftypograph_1',['check_next_typograph',['../file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a',1,'file_reader_mp.c']]],
+  ['check_5foptions_2',['check_options',['../options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578',1,'options.c']]],
+  ['compilazione_3',['Compilazione',['../index.html#autotoc_md2',1,'']]],
+  ['count_4',['count',['../structhash__table__t.html#a0f27b5b0897cdec47bad809454a5fd2e',1,'hash_table_t']]],
+  ['create_5fcsv_5fline_5',['create_csv_line',['../CSV__line__builder_8h.html#aabdbfd470415d59c0a775ff597904c32',1,'create_csv_line(ht_item *item, char *buffer):&#160;CSV_line_builder.c'],['../CSV__line__builder_8c.html#aabdbfd470415d59c0a775ff597904c32',1,'create_csv_line(ht_item *item, char *buffer):&#160;CSV_line_builder.c']]],
+  ['create_5fhash_5ftable_6',['create_hash_table',['../hash__table_8h.html#a171c1321047c08a2fcb270ebb50ac41d',1,'create_hash_table(int initial_size, uint32_t(*hash_func)(const void *, int), int(*key_cmp)(const void *, const void *)):&#160;hash_table.c'],['../hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d',1,'create_hash_table(int initial_size, uint32_t(*hash_func)(const void *, int), int(*key_cmp)(const void *, const void *)):&#160;hash_table.c']]],
+  ['create_5flinked_5flist_7',['create_linked_list',['../linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74',1,'create_linked_list():&#160;linked_list.c'],['../linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74',1,'create_linked_list():&#160;linked_list.c']]],
+  ['create_5fnext_5fword_8',['create_next_word',['../next__word_8h.html#a9f68c7b5fcfa21e62b7f19b79db4c0a2',1,'create_next_word(const int *word, double problability):&#160;next_word.c'],['../next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99',1,'create_next_word(const int *word, double probability):&#160;next_word.c']]],
+  ['create_5fnext_5fword_5fchooser_9',['create_next_word_chooser',['../next__word__chooser_8h.html#ad1a65960ac555c60063993a976e5839a',1,'create_next_word_chooser(hash_table_t *table):&#160;next_word_chooser.c'],['../next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a',1,'create_next_word_chooser(hash_table_t *table):&#160;next_word_chooser.c']]],
+  ['create_5fstart_5fword_10',['create_start_word',['../_8null-ls__947915__file__writer_8c.html#a2079af48fbd459bee650df5c78379241',1,'create_start_word(const hash_table_t *table):&#160;.null-ls_947915_file_writer.c'],['../file__writer_8c.html#a2079af48fbd459bee650df5c78379241',1,'create_start_word(const hash_table_t *table):&#160;file_writer.c']]],
+  ['create_5fstring_5ffor_5fframe_11',['create_string_for_frame',['../file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b',1,'file_reader_mp.c']]],
+  ['create_5fword_12',['create_word',['../word_8h.html#ad9211cc1d1d93a007b67c12c167c8662',1,'create_word(int *word):&#160;word.c'],['../word_8c.html#ad9211cc1d1d93a007b67c12c167c8662',1,'create_word(int *word):&#160;word.c']]],
+  ['csv_5fbuild_5ffile_13',['csv_build_file',['../CSV__writer_8h.html#aaaf0281d8535f6d2ca09764f3df55df5',1,'csv_build_file(const char *filename, hash_table_t *table):&#160;CSV_writer.c'],['../CSV__writer_8c.html#aaaf0281d8535f6d2ca09764f3df55df5',1,'csv_build_file(const char *filename, hash_table_t *table):&#160;CSV_writer.c']]],
+  ['csv_5fline_5fbuilder_2ec_14',['CSV_line_builder.c',['../CSV__line__builder_8c.html',1,'']]],
+  ['csv_5fline_5fbuilder_2eh_15',['CSV_line_builder.h',['../CSV__line__builder_8h.html',1,'']]],
+  ['csv_5fline_5fparser_2ec_16',['CSV_line_parser.c',['../CSV__line__parser_8c.html',1,'']]],
+  ['csv_5fline_5fparser_2eh_17',['CSV_line_parser.h',['../CSV__line__parser_8h.html',1,'']]],
+  ['csv_5fline_5frecv_18',['csv_line_recv',['../CSV__writer_8h.html#ad3aa6d121c0ccb81e85133366708da1f',1,'csv_line_recv(int fd, const char *filename):&#160;CSV_writer.c'],['../CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f',1,'csv_line_recv(int fd, const char *filename):&#160;CSV_writer.c']]],
+  ['csv_5fline_5fsend_19',['csv_line_send',['../CSV__writer_8h.html#a23ffde3f2f2df1f638dbeec09800daa2',1,'csv_line_send(int fd, const hash_table_t *ht):&#160;CSV_writer.c'],['../CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2',1,'csv_line_send(int fd, const hash_table_t *ht):&#160;CSV_writer.c']]],
+  ['csv_5freader_2ec_20',['CSV_reader.c',['../CSV__reader_8c.html',1,'']]],
+  ['csv_5freader_2eh_21',['CSV_reader.h',['../CSV__reader_8h.html',1,'']]],
+  ['csv_5fwriter_2ec_22',['CSV_writer.c',['../CSV__writer_8c.html',1,'']]],
+  ['csv_5fwriter_2eh_23',['CSV_writer.h',['../CSV__writer_8h.html',1,'']]],
+  ['current_24',['current',['../structlinked__list__iterator__t.html#a5094b3646e442304dfb4a0d674fb231e',1,'linked_list_iterator_t']]]
 ];

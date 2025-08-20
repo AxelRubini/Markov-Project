@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IlTuoProgetto: include/ds/linked_list.h Source File</title>
+<title>Markov: include/ds/linked_list.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IlTuoProgetto
+   <div id="projectname">Markov
    </div>
   </td>
  </tr>
@@ -91,53 +91,65 @@ $(function(){initNavTree('linked__list_8h_source.html','',''); });
   <div class="headertitle"><div class="title">linked_list.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LINKED_LIST_H</span></div>
+<a href="linked__list_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LINKED_LIST_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LINKED_LIST_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="structll__item.html">    6</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structll__item.html">ll_item</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keywordtype">void</span> *data;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keyword">struct </span><a class="code hl_struct" href="structll__item.html">ll_item</a> *next;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>} ll_item_t;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">    7</a></span>  <span class="keywordtype">void</span> *<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">    8</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structll__item.html">ll_item</a> *<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">    9</a></span>} <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a>;</div>
 </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structlinked__list__t.html">   11</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  ll_item_t *head;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  ll_item_t *tail;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">   12</a></span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *<a class="code hl_variable" href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">head</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structlinked__list__t.html#a28919a9a2970da5e3ba724d20d51d7ba">   13</a></span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *<a class="code hl_variable" href="structlinked__list__t.html#a28919a9a2970da5e3ba724d20d51d7ba">tail</a>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>} <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a>;</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structlinked__list__iterator__t.html">   16</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  ll_item_t *current;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structlinked__list__iterator__t.html#a5094b3646e442304dfb4a0d674fb231e">   17</a></span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *<a class="code hl_variable" href="structlinked__list__iterator__t.html#a5094b3646e442304dfb4a0d674fb231e">current</a>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>} <a class="code hl_struct" href="structlinked__list__iterator__t.html">linked_list_iterator_t</a>;</div>
 </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *create_linked_list();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *<a class="code hl_function" href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a>();</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> add_to_list(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> *data);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a>(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> *data);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> remove_from_list(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> *data);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="linked__list_8h.html#aceaad5eeb408b648acbc06bdb1270663">remove_from_list</a>(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> *data);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> free_linked_list(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> (*free_func)(<span class="keywordtype">void</span> *));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>(<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list, <span class="keywordtype">void</span> (*free_func)(<span class="keywordtype">void</span> *));</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">size_t</span> get_list_size(<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> **linked_list_to_array(<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> **<a class="code hl_function" href="linked__list_8h.html#ad4ccef7d656a8ede592bd45bfa37c944">linked_list_to_array</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *list);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astructlinked__list__iterator__t_html"><div class="ttname"><a href="structlinked__list__iterator__t.html">linked_list_iterator_t</a></div><div class="ttdef"><b>Definition</b> linked_list.h:16</div></div>
-<div class="ttc" id="astructlinked__list__t_html"><div class="ttname"><a href="structlinked__list__t.html">linked_list_t</a></div><div class="ttdef"><b>Definition</b> linked_list.h:11</div></div>
-<div class="ttc" id="astructll__item_html"><div class="ttname"><a href="structll__item.html">ll_item</a></div><div class="ttdef"><b>Definition</b> linked_list.h:6</div></div>
+<div class="ttc" id="alinked__list_8h_html_a07e3a2498e1c69f6da4f2a43e84e5257"><div class="ttname"><a href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a></div><div class="ttdeci">struct ll_item ll_item_t</div></div>
+<div class="ttc" id="alinked__list_8h_html_a571429872dd4128dfa88e460ccddcf12"><div class="ttname"><a href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a></div><div class="ttdeci">void free_linked_list(linked_list_t *list, void(*free_func)(void *))</div><div class="ttdoc">Free a list and its nodes.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00075">linked_list.c:75</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_a5aa85f2acd1a248ebb3f009e8aa01fc5"><div class="ttname"><a href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a></div><div class="ttdeci">size_t get_list_size(const linked_list_t *list)</div><div class="ttdoc">Get the number of elements in a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00096">linked_list.c:96</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_a821a82a131a69b3a5998b4504dd3741e"><div class="ttname"><a href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a></div><div class="ttdeci">void add_to_list(linked_list_t *list, void *data)</div><div class="ttdoc">Append data to the end of a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00020">linked_list.c:20</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_aa24f1dca34b888202a3918f8aaa4dd74"><div class="ttname"><a href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a></div><div class="ttdeci">linked_list_t * create_linked_list()</div><div class="ttdoc">Create an empty linked list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00009">linked_list.c:9</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_aceaad5eeb408b648acbc06bdb1270663"><div class="ttname"><a href="linked__list_8h.html#aceaad5eeb408b648acbc06bdb1270663">remove_from_list</a></div><div class="ttdeci">void remove_from_list(linked_list_t *list, void *data)</div><div class="ttdoc">Remove the first occurrence of data from a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00042">linked_list.c:42</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_ad4ccef7d656a8ede592bd45bfa37c944"><div class="ttname"><a href="linked__list_8h.html#ad4ccef7d656a8ede592bd45bfa37c944">linked_list_to_array</a></div><div class="ttdeci">void ** linked_list_to_array(const linked_list_t *list)</div><div class="ttdoc">Convert a list to an array of pointers.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00114">linked_list.c:114</a></div></div>
+<div class="ttc" id="astructlinked__list__iterator__t_html"><div class="ttname"><a href="structlinked__list__iterator__t.html">linked_list_iterator_t</a></div><div class="ttdef"><b>Definition</b> <a href="#l00016">linked_list.h:16</a></div></div>
+<div class="ttc" id="astructlinked__list__iterator__t_html_a5094b3646e442304dfb4a0d674fb231e"><div class="ttname"><a href="structlinked__list__iterator__t.html#a5094b3646e442304dfb4a0d674fb231e">linked_list_iterator_t::current</a></div><div class="ttdeci">ll_item_t * current</div><div class="ttdef"><b>Definition</b> <a href="#l00017">linked_list.h:17</a></div></div>
+<div class="ttc" id="astructlinked__list__t_html"><div class="ttname"><a href="structlinked__list__t.html">linked_list_t</a></div><div class="ttdef"><b>Definition</b> <a href="#l00011">linked_list.h:11</a></div></div>
+<div class="ttc" id="astructlinked__list__t_html_a28919a9a2970da5e3ba724d20d51d7ba"><div class="ttname"><a href="structlinked__list__t.html#a28919a9a2970da5e3ba724d20d51d7ba">linked_list_t::tail</a></div><div class="ttdeci">ll_item_t * tail</div><div class="ttdef"><b>Definition</b> <a href="#l00013">linked_list.h:13</a></div></div>
+<div class="ttc" id="astructlinked__list__t_html_a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a"><div class="ttname"><a href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">linked_list_t::head</a></div><div class="ttdeci">ll_item_t * head</div><div class="ttdef"><b>Definition</b> <a href="#l00012">linked_list.h:12</a></div></div>
+<div class="ttc" id="astructll__item_html"><div class="ttname"><a href="structll__item.html">ll_item</a></div><div class="ttdef"><b>Definition</b> <a href="#l00006">linked_list.h:6</a></div></div>
+<div class="ttc" id="astructll__item_html_a23b57be94fcf46ea3c0df84806f0a8bd"><div class="ttname"><a href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">ll_item::next</a></div><div class="ttdeci">struct ll_item * next</div><div class="ttdef"><b>Definition</b> <a href="#l00008">linked_list.h:8</a></div></div>
+<div class="ttc" id="astructll__item_html_a814e6fa74180bcb393c01fec8d461967"><div class="ttname"><a href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">ll_item::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="#l00007">linked_list.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_b9148fc9a2e8ee35527863418373429b.html">ds</a></li><li class="navelem"><b>linked_list.h</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_b9148fc9a2e8ee35527863418373429b.html">ds</a></li><li class="navelem"><a href="linked__list_8h.html">linked_list.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

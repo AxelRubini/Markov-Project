@@ -77,7 +77,7 @@
 <area shape="poly" id="edge42_Node000030_Node000009" title=" " alt="" coords="312,200,265,200,265,195,312,195"/>
 <area shape="rect" id="Node000032" href="$_8null-ls__947915__file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="662,334,788,360"/>
 <area shape="poly" id="edge44_Node000031_Node000032" title=" " alt="" coords="857,373,788,360,789,355,858,368"/>
-<area shape="rect" id="Node000035" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="662,383,788,409"/>
+<area shape="rect" id="Node000035" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="662,383,788,409"/>
 <area shape="poly" id="edge51_Node000031_Node000035" title=" " alt="" coords="858,392,788,396,788,390,858,387"/>
 <area shape="rect" id="Node000036" href="$file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="456,434,574,460"/>
 <area shape="poly" id="edge54_Node000031_Node000036" title=" " alt="" coords="887,406,812,424,685,440,574,448,574,442,684,435,811,419,886,401"/>

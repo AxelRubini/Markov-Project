@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1069,123,1030,88,983,52,951,34,954,29,986,48,1033,84,1073,119"/>
 <area shape="rect" id="Node000014" href="$_8null-ls__947915__file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="660,108,785,134"/>
 <area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1017,142,785,127,785,122,1017,137"/>
-<area shape="rect" id="Node000017" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="660,157,785,183"/>
+<area shape="rect" id="Node000017" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="660,157,785,183"/>
 <area shape="poly" id="edge23_Node000001_Node000017" title=" " alt="" coords="1017,153,785,169,785,163,1017,147"/>
 <area shape="rect" id="Node000018" href="$next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="631,207,813,232"/>
 <area shape="poly" id="edge26_Node000001_Node000018" title=" " alt="" coords="1018,163,791,209,790,203,1017,158"/>

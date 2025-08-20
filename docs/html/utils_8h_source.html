@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IlTuoProgetto: include/core/utils.h Source File</title>
+<title>Markov: include/core/utils.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IlTuoProgetto
+   <div id="projectname">Markov
    </div>
   </td>
  </tr>
@@ -91,49 +91,64 @@ $(function(){initNavTree('utils_8h_source.html','',''); });
   <div class="headertitle"><div class="title">utils.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UTILS_H</span></div>
+<a href="utils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UTILS_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UTILS_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define MAX_WORD_LENGTH_NO_BUF                                                 \</span></div>
+<div class="foldopen" id="foldopen00008" data-start="" data-end="">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="utils_8h.html#a577cc9cb2360a4189452bc236851a6cf">    8</a></span><span class="preprocessor">#define MAX_WORD_LENGTH_NO_BUF                                                 \</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">  30 </span><span class="comment">// Maximum length of a word in code points with null terminator</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define FLOATING_POINT_CHAR_SPACE 24</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define MAX_WORD_LENGTH                                                        \</span></div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">   10</a></span><span class="preprocessor">#define FLOATING_POINT_CHAR_SPACE 24</span></div>
+<div class="foldopen" id="foldopen00011" data-start="" data-end="">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">   11</a></span><span class="preprocessor">#define MAX_WORD_LENGTH                                                        \</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">  31 </span><span class="comment">// Maximum length of a word in code points without null terminator</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MAX_WORD_LENGTH_BYTES                                                  \</span></div>
+</div>
+<div class="foldopen" id="foldopen00013" data-start="" data-end="">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">   13</a></span><span class="preprocessor">#define MAX_WORD_LENGTH_BYTES                                                  \</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">  ((MAX_WORD_LENGTH - 1) * 4 +                                                 \</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">   1) </span><span class="comment">// Maximum length of a word in bytes (UTF-8) with null terminator</span></div>
+</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define ARR_SZ(arr) (sizeof(arr) / sizeof((arr)[0]))</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">   17</a></span><span class="preprocessor">#define ARR_SZ(arr) (sizeof(arr) / sizeof((arr)[0]))</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">typedef</span> uint8_t u8;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">typedef</span> uint32_t u32;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">   19</a></span><span class="keyword">typedef</span> uint8_t <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="utils_8h.html#afaa62991928fb9fb18ff0db62a040aba">   20</a></span><span class="keyword">typedef</span> uint32_t <a class="code hl_typedef" href="utils_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>uint32_t is_prime(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>uint32_t <a class="code hl_function" href="utils_8h.html#a1d8eddef9f888ac973de205c457bd89d">is_prime</a>(<span class="keywordtype">int</span> n);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>uint32_t next_prime(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>uint32_t <a class="code hl_function" href="utils_8h.html#a6a8b81a369ded1d2e86198541cba82bf">next_prime</a>(<span class="keywordtype">int</span> n);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>uint32_t hash_function(<span class="keyword">const</span> <span class="keywordtype">int</span> *key, <span class="keywordtype">int</span> table_size);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>uint32_t <a class="code hl_function" href="utils_8h.html#a3c20d7e2acdc0a0099f46371c8335ee4">hash_function</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *key, <span class="keywordtype">int</span> table_size);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">double</span> next_word_probability(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">double</span> <a class="code hl_function" href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *word, <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> *dmalloc(<span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> *<a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keywordtype">size_t</span> size);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">int</span> safe_close(<span class="keywordtype">int</span> *fd);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(<span class="keywordtype">int</span> *fd);</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">int</span> safe_close_pipes(<span class="keywordtype">int</span> *fds, <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">int</span> <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(<span class="keywordtype">int</span> *fds, <span class="keywordtype">size_t</span> count);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="autils_8h_html_a1d8eddef9f888ac973de205c457bd89d"><div class="ttname"><a href="utils_8h.html#a1d8eddef9f888ac973de205c457bd89d">is_prime</a></div><div class="ttdeci">uint32_t is_prime(int n)</div><div class="ttdoc">Check if a number is prime.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00009">utils.c:9</a></div></div>
+<div class="ttc" id="autils_8h_html_a3c20d7e2acdc0a0099f46371c8335ee4"><div class="ttname"><a href="utils_8h.html#a3c20d7e2acdc0a0099f46371c8335ee4">hash_function</a></div><div class="ttdeci">uint32_t hash_function(const int *key, int table_size)</div><div class="ttdoc">Hash a word for a table size.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00035">utils.c:35</a></div></div>
+<div class="ttc" id="autils_8h_html_a5864ea11a063d13bed6a1b528747f4d3"><div class="ttname"><a href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a></div><div class="ttdeci">double next_word_probability(const int *word, const int *next_word)</div><div class="ttdoc">Estimate probability of a follower word.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00057">utils.c:57</a></div></div>
+<div class="ttc" id="autils_8h_html_a6a8b81a369ded1d2e86198541cba82bf"><div class="ttname"><a href="utils_8h.html#a6a8b81a369ded1d2e86198541cba82bf">next_prime</a></div><div class="ttdeci">uint32_t next_prime(int n)</div><div class="ttdoc">Compute the next prime greater or equal to n.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00024">utils.c:24</a></div></div>
+<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
+<div class="ttc" id="autils_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition</b> <a href="#l00019">utils.h:19</a></div></div>
+<div class="ttc" id="autils_8h_html_a9e8583cecaa2142a642e0ffd5f25dfdd"><div class="ttname"><a href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a></div><div class="ttdeci">int safe_close_pipes(int *fds, size_t count)</div><div class="ttdoc">Close a series of pipes safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00075">utils.c:75</a></div></div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
+<div class="ttc" id="autils_8h_html_afaa62991928fb9fb18ff0db62a040aba"><div class="ttname"><a href="utils_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a></div><div class="ttdeci">uint32_t u32</div><div class="ttdef"><b>Definition</b> <a href="#l00020">utils.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><b>utils.h</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_3d69f64eaf81436fe2b22361382717e5.html">core</a></li><li class="navelem"><a href="utils_8h.html">utils.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

@@ -4,6 +4,8 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,30,179,25,180,31,147,36"/>
 <area shape="rect" id="Node000004" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="201,55,290,80"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,51,186,56,185,62,147,56"/>
-<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="344,5,410,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,16,328,16,328,21,297,21"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="346,5,412,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,16,330,16,330,21,296,21"/>
+<area shape="rect" id="Node000005" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="344,55,413,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,65,329,65,329,70,291,70"/>
 </map>

@@ -61,7 +61,7 @@
 <area shape="poly" id="edge22_Node000018_Node000013" title=" " alt="" coords="621,542,760,610,757,614,619,546"/>
 <area shape="poly" id="edge24_Node000018_Node000014" title=" " alt="" coords="628,519,731,494,733,499,629,524"/>
 <area shape="poly" id="edge25_Node000018_Node000016" title=" " alt="" coords="627,515,664,496,678,485,687,474,697,463,712,452,726,446,728,450,715,457,701,467,691,478,682,489,667,501,630,520"/>
-<area shape="rect" id="Node000021" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title=" " alt="" coords="558,66,625,91"/>
+<area shape="rect" id="Node000021" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title="Read all bytes from the file descriptor fd into buf." alt="" coords="558,66,625,91"/>
 <area shape="poly" id="edge29_Node000020_Node000021" title=" " alt="" coords="437,76,543,76,543,81,437,81"/>
 <area shape="rect" id="Node000023" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="549,115,634,141"/>
 <area shape="poly" id="edge31_Node000022_Node000023" title=" " alt="" coords="470,125,533,125,533,131,470,131"/>
@@ -115,7 +115,7 @@
 <area shape="poly" id="edge61_Node000043_Node000044" title=" " alt="" coords="649,1247,729,1266,728,1271,647,1252"/>
 <area shape="rect" id="Node000045" href="$utf8__tools_8c.html#a32ed8f7d14fc89d5e13fe68c1c923ac4" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="738,1223,862,1249"/>
 <area shape="poly" id="edge62_Node000043_Node000045" title=" " alt="" coords="648,1233,723,1233,723,1239,648,1239"/>
-<area shape="rect" id="Node000047" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="766,1124,835,1150"/>
+<area shape="rect" id="Node000047" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="766,1124,835,1150"/>
 <area shape="poly" id="edge65_Node000046_Node000047" title=" " alt="" coords="637,1088,752,1121,750,1126,636,1094"/>
 <area shape="poly" id="edge69_Node000048_Node000038" title=" " alt="" coords="221,1024,336,996,337,1001,222,1029"/>
 <area shape="poly" id="edge68_Node000048_Node000040" title=" " alt="" coords="222,1036,326,1049,325,1054,221,1041"/>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IlTuoProgetto: include/io/file_writer.h Source File</title>
+<title>Markov: include/io/file_writer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IlTuoProgetto
+   <div id="projectname">Markov
    </div>
   </td>
  </tr>
@@ -91,27 +91,31 @@ $(function(){initNavTree('file__writer_8h_source.html','',''); });
   <div class="headertitle"><div class="title">file_writer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FILE_WRITER_H</span></div>
+<a href="file__writer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FILE_WRITER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FILE_WRITER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;hash_table.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define GENERATED_TEST_STARTERS {&#39;.&#39;, &#39;!&#39;, &#39;?&#39;}</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="file__writer_8h.html#a2a8d469e99eded6fb3441702a80625c6">    5</a></span><span class="preprocessor">#define GENERATED_TEST_STARTERS {&#39;.&#39;, &#39;!&#39;, &#39;?&#39;}</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">int</span> write_output_sp(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <span class="keyword">const</span> <span class="keywordtype">int</span> num_words,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__writer_8h.html#a92953edab6e16d827c2f7e1bb08c7fb4">write_output_sp</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <span class="keyword">const</span> <span class="keywordtype">int</span> num_words,</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                    <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *table);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">int</span> send_output_mp(<span class="keywordtype">int</span> fd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht, <span class="keyword">const</span> <span class="keywordtype">int</span> num_words);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__writer_8h.html#afe9002c4a63d1c46da65f5dc88975940">send_output_mp</a>(<span class="keywordtype">int</span> fd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht, <span class="keyword">const</span> <span class="keywordtype">int</span> num_words);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">int</span> write_output_mp(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__writer_8h.html#a366461dc2bef9f344dd7135de8f2187d">write_output_mp</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">char</span> *filename);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif </span><span class="comment">// FILE_WRITER_H</span></div>
-<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> hash_table.h:11</div></div>
+<div class="ttc" id="afile__writer_8h_html_a366461dc2bef9f344dd7135de8f2187d"><div class="ttname"><a href="file__writer_8h.html#a366461dc2bef9f344dd7135de8f2187d">write_output_mp</a></div><div class="ttdeci">int write_output_mp(int fd, const char *filename)</div><div class="ttdoc">Write frames from a descriptor to a UTF-8 file.</div><div class="ttdef"><b>Definition</b> <a href="_8null-ls__947915__file__writer_8c_source.html#l00182">.null-ls_947915_file_writer.c:182</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_a92953edab6e16d827c2f7e1bb08c7fb4"><div class="ttname"><a href="file__writer_8h.html#a92953edab6e16d827c2f7e1bb08c7fb4">write_output_sp</a></div><div class="ttdeci">int write_output_sp(const char *filename, const int num_words, hash_table_t *table)</div><div class="ttdoc">Generate text and write it to a file (single process).</div><div class="ttdef"><b>Definition</b> <a href="_8null-ls__947915__file__writer_8c_source.html#l00126">.null-ls_947915_file_writer.c:126</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_afe9002c4a63d1c46da65f5dc88975940"><div class="ttname"><a href="file__writer_8h.html#afe9002c4a63d1c46da65f5dc88975940">send_output_mp</a></div><div class="ttdeci">int send_output_mp(int fd, hash_table_t *ht, const int num_words)</div><div class="ttdoc">Send generated words over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="_8null-ls__947915__file__writer_8c_source.html#l00256">.null-ls_947915_file_writer.c:256</a></div></div>
+<div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
+<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_a00b633439466cbb1729245c7f66f564.html">io</a></li><li class="navelem"><b>file_writer.h</b></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_a00b633439466cbb1729245c7f66f564.html">io</a></li><li class="navelem"><a href="file__writer_8h.html">file_writer.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

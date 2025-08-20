@@ -1,7 +1,10 @@
 <map id="validate_input_file" name="validate_input_file">
-<area shape="rect" id="Node000001" title="Validate or read input file." alt="" coords="5,31,130,56"/>
-<area shape="rect" id="Node000002" href="$modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="183,5,256,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,30,168,24,168,29,131,36"/>
-<area shape="rect" id="Node000003" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="178,55,262,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,51,163,56,162,61,130,56"/>
+<area shape="rect" id="Node000001" title="Validate or read input file." alt="" coords="5,55,130,80"/>
+<area shape="rect" id="Node000002" href="$modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="198,5,272,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,51,183,31,184,36,115,57"/>
+<area shape="rect" id="Node000003" href="$modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="178,55,292,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,65,162,65,162,70,130,70"/>
+<area shape="rect" id="Node000004" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="340,80,424,106"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="117,78,178,90,254,95,325,94,325,99,254,100,177,95,116,84"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="293,75,325,80,324,86,292,80"/>
 </map>

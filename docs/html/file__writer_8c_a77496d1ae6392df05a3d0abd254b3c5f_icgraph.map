@@ -1,6 +1,6 @@
 <map id="generate_random_symbol" name="generate_random_symbol">
-<area shape="rect" id="Node000001" title=" " alt="" coords="816,79,986,104"/>
-<area shape="rect" id="Node000002" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="643,79,768,104"/>
+<area shape="rect" id="Node000001" title="Generate a random symbol from the predefined stat." alt="" coords="816,79,986,104"/>
+<area shape="rect" id="Node000002" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="643,79,768,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="800,94,769,94,769,89,800,89"/>
 <area shape="rect" id="Node000003" href="$file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="478,53,595,79"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="627,83,595,78,596,72,628,77"/>

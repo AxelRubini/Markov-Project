@@ -1,5 +1,5 @@
 <map id="recv_frame" name="recv_frame">
 <area shape="rect" id="Node000001" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="5,5,92,31"/>
-<area shape="rect" id="Node000002" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title=" " alt="" coords="140,5,206,31"/>
+<area shape="rect" id="Node000002" href="$frame_8c.html#a7d95a53b7736bc25123292c2ceb064e0" title="Read all bytes from the file descriptor fd into buf." alt="" coords="140,5,206,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,16,124,16,124,21,92,21"/>
 </map>
