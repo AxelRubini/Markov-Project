@@ -92,46 +92,44 @@ $(function(){initNavTree('CSV__line__builder_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="CSV__line__builder_8h_source.html">CSV_line_builder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="linked__list_8h_source.html">linked_list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utf8__tools_8h_source.html">utf8_tools.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="word_8h_source.html">word.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CSV_line_builder.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="CSV__line__builder_8c__incl.png" border="0" usemap="#asrc_2csv_2CSV__line__builder_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2csv_2CSV__line__builder_8c" id="asrc_2csv_2CSV__line__builder_8c">
-<area shape="rect" title=" " alt="" coords="160,5,337,31"/>
-<area shape="rect" href="CSV__line__builder_8h.html" title=" " alt="" coords="183,79,314,105"/>
-<area shape="poly" title=" " alt="" coords="251,31,251,63,246,63,246,31"/>
-<area shape="rect" href="hash__table_8h.html" title=" " alt="" coords="117,153,212,178"/>
-<area shape="poly" title=" " alt="" coords="236,107,192,144,188,140,232,103"/>
-<area shape="rect" href="ht__item_8h.html" title=" " alt="" coords="200,226,275,252"/>
-<area shape="poly" title=" " alt="" coords="250,105,242,211,237,211,245,105"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="36,226,125,252"/>
-<area shape="poly" title=" " alt="" coords="190,108,146,126,125,138,108,154,92,182,85,211,80,210,87,180,104,151,122,134,143,121,188,103"/>
-<area shape="rect" title=" " alt="" coords="5,300,73,326"/>
-<area shape="poly" title=" " alt="" coords="196,108,141,126,87,155,49,185,36,203,26,227,23,257,30,285,25,286,17,257,20,226,32,200,45,182,84,150,139,121,194,103"/>
-<area shape="rect" href="utf8__tools_8h.html" title=" " alt="" coords="436,153,524,178"/>
-<area shape="poly" title=" " alt="" coords="288,103,427,145,426,150,287,108"/>
-<area shape="rect" href="utils_8h.html" title=" " alt="" coords="534,226,589,252"/>
-<area shape="poly" title=" " alt="" coords="314,96,442,115,499,131,522,140,538,151,549,164,556,179,563,211,558,212,551,181,544,167,535,155,519,145,498,136,441,120,313,102"/>
-<area shape="rect" href="word_8h.html" title=" " alt="" coords="292,153,351,178"/>
-<area shape="poly" title=" " alt="" coords="262,103,300,140,297,144,259,107"/>
-<area shape="poly" title=" " alt="" coords="178,177,216,214,213,217,175,180"/>
-<area shape="poly" title=" " alt="" coords="152,181,108,218,104,214,148,177"/>
-<area shape="rect" title=" " alt="" coords="363,300,427,326"/>
-<area shape="poly" title=" " alt="" coords="167,178,172,214,179,233,190,250,226,276,267,293,310,303,348,308,348,313,309,309,266,299,223,281,186,254,174,236,166,215,162,179"/>
-<area shape="poly" title=" " alt="" coords="76,254,56,288,51,285,71,251"/>
-<area shape="poly" title=" " alt="" coords="476,180,412,288,408,285,471,177"/>
-<area shape="poly" title=" " alt="" coords="496,177,538,214,535,218,492,181"/>
-<area shape="poly" title=" " alt="" coords="534,255,438,296,436,291,532,250"/>
-<area shape="rect" title=" " alt="" coords="537,300,597,326"/>
-<area shape="poly" title=" " alt="" coords="565,252,568,284,562,285,560,252"/>
-<area shape="rect" title=" " alt="" coords="450,300,513,326"/>
-<area shape="poly" title=" " alt="" coords="550,255,508,292,504,288,546,251"/>
-<area shape="poly" title=" " alt="" coords="309,181,265,218,262,214,306,177"/>
-<area shape="poly" title=" " alt="" coords="292,178,136,224,135,219,291,173"/>
-<area shape="poly" title=" " alt="" coords="336,177,354,198,372,225,384,255,392,284,387,285,379,257,367,228,350,201,331,180"/>
-<area shape="poly" title=" " alt="" coords="339,177,395,224,461,287,457,291,392,228,335,181"/>
-<area shape="rect" title=" " alt="" coords="299,226,358,252"/>
-<area shape="poly" title=" " alt="" coords="325,178,328,211,323,211,320,179"/>
+<area shape="rect" title=" " alt="" coords="254,5,432,31"/>
+<area shape="rect" href="CSV__line__builder_8h.html" title=" " alt="" coords="88,79,219,105"/>
+<area shape="poly" title=" " alt="" coords="312,34,201,76,199,71,310,29"/>
+<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="242,79,332,105"/>
+<area shape="poly" title=" " alt="" coords="336,33,308,68,304,65,332,30"/>
+<area shape="rect" href="utf8__tools_8h.html" title=" " alt="" coords="356,79,444,105"/>
+<area shape="poly" title=" " alt="" coords="355,30,383,65,379,68,350,33"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="398,153,453,178"/>
+<area shape="poly" title=" " alt="" coords="392,29,428,47,445,61,459,78,464,94,462,111,447,142,443,139,457,110,459,95,454,80,441,65,426,52,389,34"/>
+<area shape="rect" href="word_8h.html" title=" " alt="" coords="5,79,65,105"/>
+<area shape="poly" title=" " alt="" coords="285,34,80,81,79,76,284,29"/>
+<area shape="rect" title=" " alt="" coords="519,79,578,105"/>
+<area shape="poly" title=" " alt="" coords="379,29,505,73,503,78,377,34"/>
+<area shape="rect" href="ht__item_8h.html" title=" " alt="" coords="95,153,170,178"/>
+<area shape="poly" title=" " alt="" coords="153,106,143,138,138,137,148,104"/>
+<area shape="rect" title=" " alt="" coords="228,153,295,178"/>
+<area shape="poly" title=" " alt="" coords="173,103,232,141,229,146,171,107"/>
+<area shape="poly" title=" " alt="" coords="285,106,274,139,268,137,280,104"/>
+<area shape="poly" title=" " alt="" coords="407,104,419,137,414,139,402,106"/>
+<area shape="rect" title=" " alt="" coords="307,226,371,252"/>
+<area shape="poly" title=" " alt="" coords="398,106,352,213,348,211,393,104"/>
+<area shape="rect" title=" " alt="" coords="481,226,541,252"/>
+<area shape="poly" title=" " alt="" coords="442,177,487,214,484,218,438,181"/>
+<area shape="poly" title=" " alt="" coords="413,181,367,218,363,214,409,177"/>
+<area shape="rect" title=" " alt="" coords="394,226,457,252"/>
+<area shape="poly" title=" " alt="" coords="428,179,428,211,423,211,423,179"/>
+<area shape="poly" title=" " alt="" coords="53,103,106,141,102,146,50,107"/>
+<area shape="poly" title=" " alt="" coords="41,104,56,140,68,160,85,176,135,204,190,222,245,232,292,235,291,241,244,237,189,227,133,209,81,180,64,163,51,143,36,106"/>
 </map>
 </div>
 </div>
@@ -169,42 +167,42 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Required byte count. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CSV__line__builder_8c_source.html#l00093">93</a> of file <a class="el" href="CSV__line__builder_8c_source.html">CSV_line_builder.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   93</span>                                            {</div>
-<div class="line"><span class="lineno">   94</span>  <span class="keywordflow">if</span> (!item || !item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>) {</div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   96</span>  }</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>  <span class="keywordtype">size_t</span> total_size = 0;</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>  <span class="comment">// Size for key (assuming worst case UTF-8)</span></div>
-<div class="line"><span class="lineno">  101</span>  total_size += <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> * 4;</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>  <span class="comment">// Size for formatting around key</span></div>
-<div class="line"><span class="lineno">  104</span>  total_size += 10; <span class="comment">// Extra space for formatting</span></div>
+<p class="definition">Definition at line <a class="el" href="CSV__line__builder_8c_source.html#l00099">99</a> of file <a class="el" href="CSV__line__builder_8c_source.html">CSV_line_builder.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>                                            {</div>
+<div class="line"><span class="lineno">  100</span>  <span class="keywordflow">if</span> (!item || !item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>) {</div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  102</span>  }</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>  <span class="keywordtype">size_t</span> total_size = 0;</div>
 <div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = (<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>;</div>
-<div class="line"><span class="lineno">  107</span>  <span class="keywordtype">size_t</span> list_size = <a class="code hl_function" href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a>(next_words);</div>
+<div class="line"><span class="lineno">  106</span>  <span class="comment">// Size for key (assuming worst case UTF-8)</span></div>
+<div class="line"><span class="lineno">  107</span>  total_size += <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> * 4;</div>
 <div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>  <span class="keywordflow">if</span> (list_size == 0) {</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> total_size + 10; <span class="comment">// Minimum size with padding</span></div>
-<div class="line"><span class="lineno">  111</span>  }</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>  <span class="comment">// Calculate size for all next words and their metadata</span></div>
-<div class="line"><span class="lineno">  114</span>  <span class="keywordtype">size_t</span> words_section_size =</div>
-<div class="line"><span class="lineno">  115</span>      list_size * (<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> * 4 +       <span class="comment">// Word content (UTF-8)</span></div>
-<div class="line"><span class="lineno">  116</span>                   <a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a> + <span class="comment">// Probability value</span></div>
-<div class="line"><span class="lineno">  117</span>                   10                          <span class="comment">// Formatting characters</span></div>
-<div class="line"><span class="lineno">  118</span>                  );</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>  total_size += words_section_size;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>  <span class="comment">// Add padding (20% extra for safety)</span></div>
-<div class="line"><span class="lineno">  123</span>  total_size += total_size / 5;</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>  <span class="keywordflow">return</span> total_size;</div>
-<div class="line"><span class="lineno">  126</span>}</div>
-<div class="ttc" id="alinked__list_8h_html_a5aa85f2acd1a248ebb3f009e8aa01fc5"><div class="ttname"><a href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a></div><div class="ttdeci">size_t get_list_size(const linked_list_t *list)</div><div class="ttdoc">Get the number of elements in a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00097">linked_list.c:97</a></div></div>
+<div class="line"><span class="lineno">  109</span>  <span class="comment">// Size for formatting around key</span></div>
+<div class="line"><span class="lineno">  110</span>  total_size += 10; <span class="comment">// Extra space for formatting</span></div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = (<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>;</div>
+<div class="line"><span class="lineno">  113</span>  <span class="keywordtype">size_t</span> list_size = <a class="code hl_function" href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a>(next_words);</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>  <span class="keywordflow">if</span> (list_size == 0) {</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">return</span> total_size + 10; <span class="comment">// Minimum size with padding</span></div>
+<div class="line"><span class="lineno">  117</span>  }</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>  <span class="comment">// Calculate size for all next words and their metadata</span></div>
+<div class="line"><span class="lineno">  120</span>  <span class="keywordtype">size_t</span> words_section_size =</div>
+<div class="line"><span class="lineno">  121</span>      list_size * (<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> * 4 +       <span class="comment">// Word content (UTF-8)</span></div>
+<div class="line"><span class="lineno">  122</span>                   <a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a> + <span class="comment">// Probability value</span></div>
+<div class="line"><span class="lineno">  123</span>                   10                          <span class="comment">// Formatting characters</span></div>
+<div class="line"><span class="lineno">  124</span>                  );</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>  total_size += words_section_size;</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>  <span class="comment">// Add padding (20% extra for safety)</span></div>
+<div class="line"><span class="lineno">  129</span>  total_size += total_size / 5;</div>
+<div class="line"><span class="lineno">  130</span> </div>
+<div class="line"><span class="lineno">  131</span>  <span class="keywordflow">return</span> total_size;</div>
+<div class="line"><span class="lineno">  132</span>}</div>
+<div class="ttc" id="alinked__list_8h_html_a5aa85f2acd1a248ebb3f009e8aa01fc5"><div class="ttname"><a href="linked__list_8h.html#a5aa85f2acd1a248ebb3f009e8aa01fc5">get_list_size</a></div><div class="ttdeci">size_t get_list_size(const linked_list_t *list)</div><div class="ttdoc">Get the number of elements in a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00096">linked_list.c:96</a></div></div>
 <div class="ttc" id="astructht__item_html_a3057dd99e88a8d9966ac2d6ae867b528"><div class="ttname"><a href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">ht_item::value</a></div><div class="ttdeci">void * value</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00010">ht_item.h:10</a></div></div>
 <div class="ttc" id="astructlinked__list__t_html"><div class="ttname"><a href="structlinked__list__t.html">linked_list_t</a></div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00011">linked_list.h:11</a></div></div>
 <div class="ttc" id="autils_8h_html_aa9c4233ebea79faa571f9253fb8a0747"><div class="ttname"><a href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a></div><div class="ttdeci">#define FLOATING_POINT_CHAR_SPACE</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00010">utils.h:10</a></div></div>
@@ -287,93 +285,93 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="CSV__line__builder_8c_source.html#l00003">3</a> of file <a class="el" href="CSV__line__builder_8c_source.html">CSV_line_builder.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>                                                 {</div>
-<div class="line"><span class="lineno">    4</span>  <span class="keywordflow">if</span> (!item || !buffer) {</div>
-<div class="line"><span class="lineno">    5</span>    <span class="keywordflow">if</span> (!buffer) {</div>
-<div class="line"><span class="lineno">    6</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid buffer pointer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">    7</span>    }</div>
-<div class="line"><span class="lineno">    8</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">    9</span>  }</div>
-<div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>  <span class="keywordtype">int</span> offset = 0;</div>
-<div class="line"><span class="lineno">   12</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *key = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
-<div class="line"><span class="lineno">   13</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> *word = key-&gt;word;</div>
-<div class="line"><span class="lineno">   14</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = (<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>;</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>  <span class="comment">// sanity check</span></div>
-<div class="line"><span class="lineno">   17</span>  <span class="keywordflow">if</span> (!key || !word || !next_words) {</div>
-<div class="line"><span class="lineno">   18</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid item structure\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   20</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="CSV__line__builder_8c_source.html#l00009">9</a> of file <a class="el" href="CSV__line__builder_8c_source.html">CSV_line_builder.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                                 {</div>
+<div class="line"><span class="lineno">   10</span>  <span class="keywordflow">if</span> (!item || !buffer) {</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">if</span> (!buffer) {</div>
+<div class="line"><span class="lineno">   12</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid buffer pointer\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   13</span>    }</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   15</span>  }</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>  <span class="keywordtype">int</span> offset = 0;</div>
+<div class="line"><span class="lineno">   18</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *key = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
+<div class="line"><span class="lineno">   19</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> *word = key-&gt;word;</div>
+<div class="line"><span class="lineno">   20</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *next_words = (<span class="keyword">const</span> <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>;</div>
 <div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>  <span class="comment">// write key word</span></div>
-<div class="line"><span class="lineno">   23</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], buffer, &amp;offset);</div>
-<div class="line"><span class="lineno">   25</span>  }</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>  <span class="comment">// if no next words, terminate after key</span></div>
-<div class="line"><span class="lineno">   28</span>  <span class="keywordflow">if</span> (!next_words-&gt;head) {</div>
-<div class="line"><span class="lineno">   29</span>    fprintf(stderr, <span class="stringliteral">&quot;No next words found for key\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   30</span>    buffer[offset++] = <span class="charliteral">&#39;\n&#39;</span>; <span class="comment">// Newline at the end</span></div>
-<div class="line"><span class="lineno">   31</span>    buffer[offset] = <span class="charliteral">&#39;\0&#39;</span>;   <span class="comment">// Null-terminate</span></div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   33</span>  }</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>  buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// comma after key</span></div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>  <span class="comment">// process all list elements</span></div>
-<div class="line"><span class="lineno">   38</span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = next_words-&gt;head;</div>
-<div class="line"><span class="lineno">   39</span>  <span class="keywordflow">while</span> (current) {</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *next_word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (!next_word || !next_word-&gt;word) {</div>
-<div class="line"><span class="lineno">   43</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid next_word in list\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span>      current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
-<div class="line"><span class="lineno">   45</span>      <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   22</span>  <span class="comment">// sanity check</span></div>
+<div class="line"><span class="lineno">   23</span>  <span class="keywordflow">if</span> (!key || !word || !next_words) {</div>
+<div class="line"><span class="lineno">   24</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid item structure\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   26</span>  }</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>  <span class="comment">// write key word</span></div>
+<div class="line"><span class="lineno">   29</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; word[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(word[i], buffer, &amp;offset);</div>
+<div class="line"><span class="lineno">   31</span>  }</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>  <span class="comment">// if no next words, terminate after key</span></div>
+<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">if</span> (!next_words-&gt;head) {</div>
+<div class="line"><span class="lineno">   35</span>    fprintf(stderr, <span class="stringliteral">&quot;No next words found for key\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   36</span>    buffer[offset++] = <span class="charliteral">&#39;\n&#39;</span>; <span class="comment">// Newline at the end</span></div>
+<div class="line"><span class="lineno">   37</span>    buffer[offset] = <span class="charliteral">&#39;\0&#39;</span>;   <span class="comment">// Null-terminate</span></div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   39</span>  }</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>  buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// comma after key</span></div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>  <span class="comment">// process all list elements</span></div>
+<div class="line"><span class="lineno">   44</span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = next_words-&gt;head;</div>
+<div class="line"><span class="lineno">   45</span>  <span class="keywordflow">while</span> (current) {</div>
+<div class="line"><span class="lineno">   46</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *next_word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
 <div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word_codepoints = next_word-&gt;word;</div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   50</span>    <span class="comment">// write next word</span></div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; next_word_codepoints[j] != <span class="charliteral">&#39;\0&#39;</span>; j++) {</div>
-<div class="line"><span class="lineno">   52</span>      <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(next_word_codepoints[j], buffer, &amp;offset);</div>
-<div class="line"><span class="lineno">   53</span>    }</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// comma after word</span></div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>    <span class="comment">// compute and write probability</span></div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordtype">double</span> probability =</div>
-<div class="line"><span class="lineno">   59</span>        <a class="code hl_function" href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a>(&amp;key-&gt;occurrences, &amp;next_word-&gt;occurrences);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (probability &lt; 0.0 || probability &gt; 1.0) {</div>
-<div class="line"><span class="lineno">   61</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid probability value: %f\n&quot;</span>, probability);</div>
-<div class="line"><span class="lineno">   62</span>      probability = 0.0; <span class="comment">// clamp out-of-range probability</span></div>
-<div class="line"><span class="lineno">   63</span>      <span class="keywordflow">return</span> -1;         <span class="comment">// signal error</span></div>
-<div class="line"><span class="lineno">   64</span>    }</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordtype">char</span> prob_str[<a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a>];</div>
-<div class="line"><span class="lineno">   66</span>    snprintf(prob_str, <a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a>, <span class="stringliteral">&quot;%.6f&quot;</span>, probability);</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; prob_str[j] != <span class="charliteral">&#39;\0&#39;</span>; j++) {</div>
-<div class="line"><span class="lineno">   69</span>      <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(prob_str[j], buffer, &amp;offset);</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">if</span> (!next_word || !next_word-&gt;word) {</div>
+<div class="line"><span class="lineno">   49</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid next_word in list\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>      current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
+<div class="line"><span class="lineno">   51</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   52</span>    }</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> *next_word_codepoints = next_word-&gt;word;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="comment">// write next word</span></div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; next_word_codepoints[j] != <span class="charliteral">&#39;\0&#39;</span>; j++) {</div>
+<div class="line"><span class="lineno">   58</span>      <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(next_word_codepoints[j], buffer, &amp;offset);</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>    buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>; <span class="comment">// comma after word</span></div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <span class="comment">// compute and write probability</span></div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordtype">double</span> probability =</div>
+<div class="line"><span class="lineno">   65</span>        <a class="code hl_function" href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a>(&amp;key-&gt;occurrences, &amp;next_word-&gt;occurrences);</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (probability &lt; 0.0 || probability &gt; 1.0) {</div>
+<div class="line"><span class="lineno">   67</span>      fprintf(stderr, <span class="stringliteral">&quot;Invalid probability value: %f\n&quot;</span>, probability);</div>
+<div class="line"><span class="lineno">   68</span>      probability = 0.0; <span class="comment">// clamp out-of-range probability</span></div>
+<div class="line"><span class="lineno">   69</span>      <span class="keywordflow">return</span> -1;         <span class="comment">// signal error</span></div>
 <div class="line"><span class="lineno">   70</span>    }</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">char</span> prob_str[<a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a>];</div>
+<div class="line"><span class="lineno">   72</span>    snprintf(prob_str, <a class="code hl_define" href="utils_8h.html#aa9c4233ebea79faa571f9253fb8a0747">FLOATING_POINT_CHAR_SPACE</a>, <span class="stringliteral">&quot;%.6f&quot;</span>, probability);</div>
 <div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>    <span class="comment">// add comma if not last element</span></div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (current) {</div>
-<div class="line"><span class="lineno">   76</span>      buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>;</div>
-<div class="line"><span class="lineno">   77</span>    }</div>
-<div class="line"><span class="lineno">   78</span>  }</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; prob_str[j] != <span class="charliteral">&#39;\0&#39;</span>; j++) {</div>
+<div class="line"><span class="lineno">   75</span>      <a class="code hl_function" href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a>(prob_str[j], buffer, &amp;offset);</div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
 <div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>  buffer[offset++] = <span class="charliteral">&#39;\n&#39;</span>; <span class="comment">// newline at end</span></div>
-<div class="line"><span class="lineno">   81</span>  buffer[offset] = <span class="charliteral">&#39;\0&#39;</span>;   <span class="comment">// null-terminate</span></div>
-<div class="line"><span class="lineno">   82</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   83</span>}</div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">// add comma if not last element</span></div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (current) {</div>
+<div class="line"><span class="lineno">   82</span>      buffer[offset++] = <span class="charliteral">&#39;,&#39;</span>;</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>  }</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>  buffer[offset++] = <span class="charliteral">&#39;\n&#39;</span>; <span class="comment">// newline at end</span></div>
+<div class="line"><span class="lineno">   87</span>  buffer[offset] = <span class="charliteral">&#39;\0&#39;</span>;   <span class="comment">// null-terminate</span></div>
+<div class="line"><span class="lineno">   88</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   89</span>}</div>
 <div class="ttc" id="alinked__list_8h_html_a07e3a2498e1c69f6da4f2a43e84e5257"><div class="ttname"><a href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a></div><div class="ttdeci">struct ll_item ll_item_t</div></div>
 <div class="ttc" id="astructht__item_html_a9df5ae0ab8c2bef2998a6e5498656704"><div class="ttname"><a href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">ht_item::key</a></div><div class="ttdeci">void * key</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00009">ht_item.h:9</a></div></div>
 <div class="ttc" id="astructll__item_html_a23b57be94fcf46ea3c0df84806f0a8bd"><div class="ttname"><a href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">ll_item::next</a></div><div class="ttdeci">struct ll_item * next</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00008">linked_list.h:8</a></div></div>
 <div class="ttc" id="astructll__item_html_a814e6fa74180bcb393c01fec8d461967"><div class="ttname"><a href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">ll_item::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00007">linked_list.h:7</a></div></div>
-<div class="ttc" id="astructword__t_html"><div class="ttname"><a href="structword__t.html">word_t</a></div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00012">word.h:12</a></div></div>
+<div class="ttc" id="astructword__t_html"><div class="ttname"><a href="structword__t.html">word_t</a></div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00010">word.h:10</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a32ed8f7d14fc89d5e13fe68c1c923ac4"><div class="ttname"><a href="utf8__tools_8h.html#a32ed8f7d14fc89d5e13fe68c1c923ac4">utf8_append_char</a></div><div class="ttdeci">void utf8_append_char(uint32_t codepoint, char *buffer, int *offset)</div><div class="ttdoc">Append a code point to a UTF-8 buffer.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00212">utf8_tools.c:212</a></div></div>
 <div class="ttc" id="autils_8h_html_a5864ea11a063d13bed6a1b528747f4d3"><div class="ttname"><a href="utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3">next_word_probability</a></div><div class="ttdeci">double next_word_probability(const int *word, const int *next_word)</div><div class="ttdoc">Estimate probability of a follower word.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00057">utils.c:57</a></div></div>
 </div><!-- fragment --><div class="dynheader">

@@ -98,15 +98,71 @@ Struttura del progetto</h1>
 <ul>
 <li><b>Makefile</b> – script di compilazione principale; genera l'eseguibile <span class="tt">markov</span>.</li>
 <li><b>compile_flags.txt</b> – opzioni di compilazione utilizzate dagli editor.</li>
-<li><b>resources/</b> – risorse usate per la realizzazione del progetto.</li>
 <li><b>lib/argtable3/</b> – libreria statica per il parsing della riga di comando.</li>
 <li><b>include/</b> – file header suddivisi per sottosistemi:<ul>
-<li><span class="tt">app/</span> – dichiarazioni per il parser degli argomenti e il runner.</li>
-<li><span class="tt">core/</span> – funzioni di utilità generiche.</li>
-<li><span class="tt">csv/</span> – gestione della lettura e scrittura CSV.</li>
-<li><span class="tt">ds/</span> – strutture dati (linked list,hash table, ecc.).</li>
-<li><span class="tt">io/</span> – funzioni di input/output su file e pipe.</li>
-<li><span class="tt">modes/</span> – interfacce per le modalità <em>single process</em> (<span class="tt">sp</span>) e <em>multi process</em> (<span class="tt">mp</span>).</li>
+<li><span class="tt">app/</span> – dichiarazioni per il parser degli argomenti e il runner.<ul>
+<li><span class="tt">options.h</span> - definizione della struttura <span class="tt">options_t</span> per le opzioni di esecuzione.</li>
+<li><span class="tt">runner.h</span> - dichiarazione della funzione <span class="tt">run</span> per avviare la task selezionata.</li>
+</ul>
+</li>
+<li><span class="tt">core/</span> – funzioni di utilità generiche.<ul>
+<li><span class="tt">next_word_chooser.h</span> - dichiarazione della struct <span class="tt">next_word_chooser_t</span> e della funzione per la scelta della parola successive.</li>
+<li><span class="tt">utf8_tools.h</span> - funzioni per la gestione di stringhe UTF-8.</li>
+<li><span class="tt">utils.h</span> - funzioni generiche di utilita e wrapper funzioni di sistema.</li>
+</ul>
+</li>
+<li><span class="tt">csv/</span> – gestione della lettura e scrittura CSV.<ul>
+<li><span class="tt">CSV_line_builder.h</span> - funzioni per costruire le stringhe csv dalla tabella hash.</li>
+<li><span class="tt">CSV_line_parser.h</span> - funzioni per il parsing delle righe CSV.</li>
+<li><span class="tt">CSV_reader.h</span> - funzioni per la lettura di file CSV sia in singolo che multiprocesso.</li>
+<li><span class="tt">CSV_writer.h</span> - funzioni per la scrittura di file CSV sia in singolo che multiprocesso.</li>
+</ul>
+</li>
+<li><span class="tt">ds/</span> – strutture dati (linked list,hash table, ecc.).<ul>
+<li><span class="tt">hash_table.h</span> - dichiarazione della struttura <span class="tt">hash_table_t</span> e delle funzioni per la gestione della tabella hash.</li>
+<li><span class="tt">linked_list.h</span> - dichiarazione delle strutture <span class="tt">linked_list_t</span> e <span class="tt">ll_item_t</span> per la gestione delle linked list e relative funzioni per la gestione di esse.</li>
+<li><span class="tt">ht_item.h</span> - dichiarazione della struttura <span class="tt">ht_item</span> e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next_word. _ <span class="tt">word.h</span> - dichiarazione della struttura <span class="tt">word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole e i relativi <span class="tt">ht_item</span>. un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura: <div class="fragment"><div class="line">word_t {</div>
+<div class="line">    int *word;</div>
+<div class="line">    int occurrences;</div>
+<div class="line">    }</div>
+<div class="line">ht_item {</div>
+<div class="line">    word_t \*key;</div>
+<div class="line">    linked_list_t \*next_words; // lista di word_t successive </div>
+<div class="line">    }</div>
+</div><!-- fragment --></li>
+<li><span class="tt">next_word.h</span> - dichiarazione della struttura <span class="tt">next_word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole successive e i relativi <span class="tt">ht_item</span>. Un singolo elemento della hash table che utilizza la struct <span class="tt">next_word_t</span> rappresenta con una lista di code point la parola chiave e le parole successive useando la struct <span class="tt">next_word_t</span> che contiene la probabilità di transizione dalla parola chiave alla parola successiva creando quindi una struttura: <div class="fragment"><div class="line">next_word_t {</div>
+<div class="line">    int *next_word;</div>
+<div class="line">    double probability;</div>
+<div class="line">    }</div>
+<div class="line">ht_item {</div>
+<div class="line">    int \*key; // parola chiave</div>
+<div class="line">    linked_list_t \*next_words; // lista di next_word_t successive</div>
+<div class="line">    }</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li><span class="tt">io/</span> – funzioni di input/output su file e pipe.<ul>
+<li><span class="tt">file_reader.h</span> - contiene le funzione per la lettura di un testo UTF-8 e la creazione di una hash table di parole e leloro occorrenze sfruttando la struct <span class="tt">word_t</span>.</li>
+<li><span class="tt">file_reader_mp.h</span> - contiene le funzioni per la lettura di un testo UTF-8 e la creazione di una hash table di parole e le loro occorrenze sfruttando la struct <span class="tt">word_t</span> le funzioni presenti sono pensate per essere utilizzate in modalità multipocesso.</li>
+<li><span class="tt">file_writer.h</span> - contiene le funzione per la scrittura di un testo UTF-8 a partire da una hash table di parole e le probabilità di transizione tra di esse, sfruttando la struct <span class="tt">next_word_t</span> il file contiene sia le funzioni utilizzate in modaità singolo processo che quelle utilizzate in modalità multiprocesso.</li>
+<li><span class="tt">frame.h</span> - contiene le funzioni per la gestione delle pipe e della comunicazione tra processi.</li>
+</ul>
+</li>
+<li><span class="tt">modes/</span> – interfacce per le modalità <em>single process</em> (<span class="tt">sp</span>) e <em>multi process</em> (<span class="tt">mp</span>).<ul>
+<li><span class="tt">sp/</span> - implementazione delle modalità singolo processo.<ul>
+<li><span class="tt">task1.h</span> - dichiarazione della funzione <span class="tt">task1</span> per l' analisi di un testo e la generazione di un file CSV.</li>
+<li><span class="tt">task2.h</span> - dichiarazione della funzione <span class="tt">task2</span> per la generazione di un testo a partire da un CSV. _ <span class="tt">task_both.h</span> - dichiarazione della funzione <span class="tt">task_both</span> per l' esecuzione sequenziale di <span class="tt">task1</span> e <span class="tt">task2</span>.</li>
+</ul>
+</li>
+<li><span class="tt">mp/</span> - implementazione delle modalità multiprocesso.<ul>
+<li><span class="tt">task1.h</span> - dichiarazione della funzione <span class="tt">task1_mp</span> per l' analisi di un testo e la generazione di un file CSV.</li>
+<li><span class="tt">task2.h</span> - dichiarazione della funzione <span class="tt">task2_mp</span> per la generazione di un testo a partire da un CSV.</li>
+<li><span class="tt">task_both.h</span> - dichiarazione della funzione <span class="tt">task_both_mp</span> per l' esecuzione di <span class="tt">task1_mp</span> e <span class="tt">task2_mp</span>.</li>
+</ul>
+</li>
+<li><span class="tt">modes_utils.h</span> - funzioni comuni per le modalità <span class="tt">sp</span> e <span class="tt">mp</span>.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><b>src/</b> – sorgenti C organizzati come in <span class="tt">include/</span>:<ul>

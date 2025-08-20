@@ -159,84 +159,84 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task2__mp_8c_source.html#l00086">86</a> of file <a class="el" href="task2__mp_8c_source.html">task2_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                                            {</div>
-<div class="line"><span class="lineno">   87</span>  <span class="keywordtype">int</span> status = -1;</div>
-<div class="line"><span class="lineno">   88</span>  <span class="keywordtype">int</span> print_to_stdout = 0;</div>
-<div class="line"><span class="lineno">   89</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(output_txt)) {</div>
-<div class="line"><span class="lineno">   90</span>    output_txt = <a class="code hl_define" href="modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23">TMP_STDOUT_FILE</a>;</div>
-<div class="line"><span class="lineno">   91</span>    print_to_stdout = 1;</div>
-<div class="line"><span class="lineno">   92</span>  }</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>  <span class="keywordtype">int</span> pipe12[2], pipe23[2];</div>
-<div class="line"><span class="lineno">   95</span>  <span class="keywordflow">if</span> (pipe(pipe12) &lt; 0 || pipe(pipe23) &lt; 0) {</div>
-<div class="line"><span class="lineno">   96</span>    perror(<span class="stringliteral">&quot;pipe&quot;</span>);</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">goto</span> done;</div>
-<div class="line"><span class="lineno">   98</span>  }</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>  <span class="keywordtype">int</span> all_pipes[] = {pipe12[0], pipe12[1], pipe23[0], pipe23[1]};</div>
-<div class="line"><span class="lineno">  101</span>  pid_t p1 = -1, p2 = -1, p3 = -1;</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>  p1 = fork();</div>
-<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">if</span> (p1 &lt; 0)</div>
-<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">goto</span> fail_pipes;</div>
-<div class="line"><span class="lineno">  106</span>  <span class="keywordflow">if</span> (p1 == 0) {</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordtype">int</span> not_p1[] = {pipe12[0], pipe23[0], pipe23[1]};</div>
-<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p1, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p1));</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a">w_p1</a>(pipe12[1], input_csv) &lt; 0)</div>
-<div class="line"><span class="lineno">  110</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  111</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  112</span>  }</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>  p2 = fork();</div>
-<div class="line"><span class="lineno">  115</span>  <span class="keywordflow">if</span> (p2 &lt; 0)</div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">goto</span> fail_kill_p1;</div>
-<div class="line"><span class="lineno">  117</span>  <span class="keywordflow">if</span> (p2 == 0) {</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">int</span> not_p2[] = {pipe12[1], pipe23[0]};</div>
-<div class="line"><span class="lineno">  119</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p2, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p2));</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791">w_p2</a>(pipe12[0], pipe23[1], n_words) &lt; 0)</div>
-<div class="line"><span class="lineno">  121</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  122</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  123</span>  }</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>  p3 = fork();</div>
-<div class="line"><span class="lineno">  126</span>  <span class="keywordflow">if</span> (p3 &lt; 0)</div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">goto</span> fail_kill_p1p2;</div>
-<div class="line"><span class="lineno">  128</span>  <span class="keywordflow">if</span> (p3 == 0) {</div>
-<div class="line"><span class="lineno">  129</span>    <span class="keywordtype">int</span> not_p3[] = {pipe12[0], pipe12[1], pipe23[1]};</div>
-<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p3, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p3));</div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d">w_p3</a>(pipe23[0], output_txt) &lt; 0)</div>
-<div class="line"><span class="lineno">  132</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  133</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  134</span>  }</div>
-<div class="line"><span class="lineno">  135</span> </div>
-<div class="line"><span class="lineno">  136</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
-<div class="line"><span class="lineno">  137</span>  <span class="keywordtype">int</span> st;</div>
-<div class="line"><span class="lineno">  138</span>  <span class="keywordflow">while</span> (waitpid(-1, &amp;st, 0) &gt; 0)</div>
-<div class="line"><span class="lineno">  139</span>    ;</div>
-<div class="line"><span class="lineno">  140</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
-<div class="line"><span class="lineno">  141</span>    <a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt);</div>
-<div class="line"><span class="lineno">  142</span>    unlink(output_txt);</div>
-<div class="line"><span class="lineno">  143</span>  }</div>
-<div class="line"><span class="lineno">  144</span>  status = 0;</div>
-<div class="line"><span class="lineno">  145</span>  <span class="keywordflow">goto</span> done;</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>fail_kill_p1p2:</div>
-<div class="line"><span class="lineno">  148</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
-<div class="line"><span class="lineno">  149</span>fail_kill_p1:</div>
-<div class="line"><span class="lineno">  150</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
-<div class="line"><span class="lineno">  151</span>fail_pipes:</div>
-<div class="line"><span class="lineno">  152</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
-<div class="line"><span class="lineno">  153</span>done:</div>
-<div class="line"><span class="lineno">  154</span>  <span class="keywordflow">return</span> status;</div>
-<div class="line"><span class="lineno">  155</span>}</div>
-<div class="ttc" id="amodes__utils_8h_html_a18fcdb459ef3cccccc58263b0967fa23"><div class="ttname"><a href="modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23">TMP_STDOUT_FILE</a></div><div class="ttdeci">#define TMP_STDOUT_FILE</div><div class="ttdoc">Temporary file used to capture output when no output file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00017">modes_utils.h:17</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00049">modes_utils.c:49</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00077">modes_utils.c:77</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00084">modes_utils.c:84</a></div></div>
-<div class="ttc" id="atask2__mp_8c_html_a37e6e348be374093b169c7f6e38ad28d"><div class="ttname"><a href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d">w_p3</a></div><div class="ttdeci">static int w_p3(int pipe_to_read, const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00068">task2_mp.c:68</a></div></div>
-<div class="ttc" id="atask2__mp_8c_html_a54dfa064fcf10576a6058ecff9196791"><div class="ttname"><a href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791">w_p2</a></div><div class="ttdeci">static int w_p2(int pipe_to_read, int pipe_to_write, size_t n_words)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00039">task2_mp.c:39</a></div></div>
-<div class="ttc" id="atask2__mp_8c_html_aeb06ae19a10b6ea746dbf97644adc17a"><div class="ttname"><a href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a">w_p1</a></div><div class="ttdeci">static int w_p1(int pipe_to_write, const char *input_csv)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00015">task2_mp.c:15</a></div></div>
+<p class="definition">Definition at line <a class="el" href="task2__mp_8c_source.html#l00084">84</a> of file <a class="el" href="task2__mp_8c_source.html">task2_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                                            {</div>
+<div class="line"><span class="lineno">   85</span>  <span class="keywordtype">int</span> status = -1;</div>
+<div class="line"><span class="lineno">   86</span>  <span class="keywordtype">int</span> print_to_stdout = 0;</div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(output_txt)) {</div>
+<div class="line"><span class="lineno">   88</span>    output_txt = <a class="code hl_define" href="modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23">TMP_STDOUT_FILE</a>;</div>
+<div class="line"><span class="lineno">   89</span>    print_to_stdout = 1;</div>
+<div class="line"><span class="lineno">   90</span>  }</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>  <span class="keywordtype">int</span> pipe12[2], pipe23[2];</div>
+<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">if</span> (pipe(pipe12) &lt; 0 || pipe(pipe23) &lt; 0) {</div>
+<div class="line"><span class="lineno">   94</span>    perror(<span class="stringliteral">&quot;pipe&quot;</span>);</div>
+<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">goto</span> done;</div>
+<div class="line"><span class="lineno">   96</span>  }</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>  <span class="keywordtype">int</span> all_pipes[] = {pipe12[0], pipe12[1], pipe23[0], pipe23[1]};</div>
+<div class="line"><span class="lineno">   99</span>  pid_t p1 = -1, p2 = -1, p3 = -1;</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>  p1 = fork();</div>
+<div class="line"><span class="lineno">  102</span>  <span class="keywordflow">if</span> (p1 &lt; 0)</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">goto</span> fail_pipes;</div>
+<div class="line"><span class="lineno">  104</span>  <span class="keywordflow">if</span> (p1 == 0) {</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordtype">int</span> not_p1[] = {pipe12[0], pipe23[0], pipe23[1]};</div>
+<div class="line"><span class="lineno">  106</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p1, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p1));</div>
+<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a">w_p1</a>(pipe12[1], input_csv) &lt; 0)</div>
+<div class="line"><span class="lineno">  108</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  109</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  110</span>  }</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>  p2 = fork();</div>
+<div class="line"><span class="lineno">  113</span>  <span class="keywordflow">if</span> (p2 &lt; 0)</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">goto</span> fail_kill_p1;</div>
+<div class="line"><span class="lineno">  115</span>  <span class="keywordflow">if</span> (p2 == 0) {</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordtype">int</span> not_p2[] = {pipe12[1], pipe23[0]};</div>
+<div class="line"><span class="lineno">  117</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p2, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p2));</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791">w_p2</a>(pipe12[0], pipe23[1], n_words) &lt; 0)</div>
+<div class="line"><span class="lineno">  119</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  120</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  121</span>  }</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>  p3 = fork();</div>
+<div class="line"><span class="lineno">  124</span>  <span class="keywordflow">if</span> (p3 &lt; 0)</div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">goto</span> fail_kill_p1p2;</div>
+<div class="line"><span class="lineno">  126</span>  <span class="keywordflow">if</span> (p3 == 0) {</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordtype">int</span> not_p3[] = {pipe12[0], pipe12[1], pipe23[1]};</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p3, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p3));</div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d">w_p3</a>(pipe23[0], output_txt) &lt; 0)</div>
+<div class="line"><span class="lineno">  130</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  131</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  132</span>  }</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
+<div class="line"><span class="lineno">  135</span>  <span class="keywordtype">int</span> st;</div>
+<div class="line"><span class="lineno">  136</span>  <span class="keywordflow">while</span> (waitpid(-1, &amp;st, 0) &gt; 0)</div>
+<div class="line"><span class="lineno">  137</span>    ;</div>
+<div class="line"><span class="lineno">  138</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
+<div class="line"><span class="lineno">  139</span>    <a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt);</div>
+<div class="line"><span class="lineno">  140</span>    unlink(output_txt);</div>
+<div class="line"><span class="lineno">  141</span>  }</div>
+<div class="line"><span class="lineno">  142</span>  status = 0;</div>
+<div class="line"><span class="lineno">  143</span>  <span class="keywordflow">goto</span> done;</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>fail_kill_p1p2:</div>
+<div class="line"><span class="lineno">  146</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
+<div class="line"><span class="lineno">  147</span>fail_kill_p1:</div>
+<div class="line"><span class="lineno">  148</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
+<div class="line"><span class="lineno">  149</span>fail_pipes:</div>
+<div class="line"><span class="lineno">  150</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
+<div class="line"><span class="lineno">  151</span>done:</div>
+<div class="line"><span class="lineno">  152</span>  <span class="keywordflow">return</span> status;</div>
+<div class="line"><span class="lineno">  153</span>}</div>
+<div class="ttc" id="amodes__utils_8h_html_a18fcdb459ef3cccccc58263b0967fa23"><div class="ttname"><a href="modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23">TMP_STDOUT_FILE</a></div><div class="ttdeci">#define TMP_STDOUT_FILE</div><div class="ttdoc">Temporary file used to capture output when no output file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00014">modes_utils.h:14</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00053">modes_utils.c:53</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00081">modes_utils.c:81</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00088">modes_utils.c:88</a></div></div>
+<div class="ttc" id="atask2__mp_8c_html_a37e6e348be374093b169c7f6e38ad28d"><div class="ttname"><a href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d">w_p3</a></div><div class="ttdeci">static int w_p3(int pipe_to_read, const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00066">task2_mp.c:66</a></div></div>
+<div class="ttc" id="atask2__mp_8c_html_a54dfa064fcf10576a6058ecff9196791"><div class="ttname"><a href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791">w_p2</a></div><div class="ttdeci">static int w_p2(int pipe_to_read, int pipe_to_write, size_t n_words)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00037">task2_mp.c:37</a></div></div>
+<div class="ttc" id="atask2__mp_8c_html_aeb06ae19a10b6ea746dbf97644adc17a"><div class="ttname"><a href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a">w_p1</a></div><div class="ttdeci">static int w_p1(int pipe_to_write, const char *input_csv)</div><div class="ttdef"><b>Definition</b> <a href="task2__mp_8c_source.html#l00013">task2_mp.c:13</a></div></div>
 <div class="ttc" id="autils_8h_html_a98a2f36b5fa8afc4572149c13c17fc93"><div class="ttname"><a href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a></div><div class="ttdeci">#define ARR_SZ(arr)</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00017">utils.h:17</a></div></div>
 <div class="ttc" id="autils_8h_html_a9e8583cecaa2142a642e0ffd5f25dfdd"><div class="ttname"><a href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a></div><div class="ttdeci">int safe_close_pipes(int *fds, size_t count)</div><div class="ttdoc">Close a series of pipes safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00075">utils.c:75</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -244,139 +244,142 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="task2__mp_8h_a28939715d9ef0546abc14ddb047b1580_cgraph.png" border="0" usemap="#atask2__mp_8h_a28939715d9ef0546abc14ddb047b1580_cgraph" loading="lazy" alt=""/></div>
 <map name="atask2__mp_8h_a28939715d9ef0546abc14ddb047b1580_cgraph" id="atask2__mp_8h_a28939715d9ef0546abc14ddb047b1580_cgraph">
-<area shape="rect" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="5,159,91,186"/>
-<area shape="rect" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="152,5,233,33"/>
-<area shape="poly" title=" " alt="" coords="54,157,86,104,109,72,137,44,142,40,146,44,140,48,113,76,90,107,59,160"/>
-<area shape="rect" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99" title="Terminate a process and wait for its completion." alt="" coords="139,57,246,85"/>
-<area shape="poly" title=" " alt="" coords="65,156,137,101,152,91,155,96,140,105,68,160"/>
-<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="308,90,442,135"/>
-<area shape="poly" title=" " alt="" coords="91,161,138,151,292,124,293,129,139,156,92,166"/>
-<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="308,159,441,186"/>
-<area shape="poly" title=" " alt="" coords="91,170,293,170,293,175,91,175"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="165,209,220,237"/>
-<area shape="poly" title=" " alt="" coords="90,184,151,206,149,211,89,189"/>
-<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="165,719,220,746"/>
-<area shape="poly" title=" " alt="" coords="56,186,186,703,181,704,50,188"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="165,261,220,289"/>
-<area shape="poly" title=" " alt="" coords="65,185,99,214,140,246,152,254,149,258,137,251,95,219,62,189"/>
-<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="555,157,646,185"/>
-<area shape="poly" title=" " alt="" coords="443,127,541,153,540,158,442,133"/>
-<area shape="poly" title=" " alt="" coords="441,169,540,169,540,174,441,175"/>
-<area shape="poly" title=" " alt="" coords="220,219,323,210,455,195,540,181,541,186,456,200,324,215,221,224"/>
-<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="296,361,453,389"/>
-<area shape="poly" title=" " alt="" coords="221,232,248,248,307,299,354,348,350,352,304,303,244,252,219,237"/>
-<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="1254,443,1364,470"/>
-<area shape="poly" title=" " alt="" coords="445,359,454,353,464,343,470,332,476,309,482,286,490,275,502,265,562,235,617,220,668,216,717,223,768,236,821,254,947,295,1040,326,1130,364,1270,433,1268,437,1128,368,1038,331,945,300,820,259,766,241,716,228,668,222,618,225,564,240,505,269,494,278,487,288,481,310,475,334,468,346,457,357,448,363"/>
-<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="551,361,650,389"/>
-<area shape="poly" title=" " alt="" coords="453,372,536,372,536,378,453,378"/>
-<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="1455,1155,1528,1182"/>
-<area shape="poly" title=" " alt="" coords="1319,470,1360,574,1386,647,1409,722,1438,843,1461,962,1489,1139,1484,1140,1456,963,1433,844,1404,724,1381,648,1355,576,1314,472"/>
-<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="807,361,884,389"/>
-<area shape="poly" title=" " alt="" coords="650,372,791,372,791,378,650,378"/>
-<area shape="poly" title=" " alt="" coords="191,718,194,654,206,558,219,503,237,449,261,396,292,348,311,328,330,314,369,300,410,287,431,277,454,261,468,246,476,231,486,216,502,201,539,182,542,187,505,205,490,219,481,234,472,249,457,265,434,282,412,292,371,305,333,319,315,332,296,351,265,399,242,451,224,505,212,558,199,655,196,718"/>
-<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="538,937,663,965"/>
-<area shape="poly" title=" " alt="" coords="218,745,339,818,505,909,548,929,546,933,502,914,336,823,215,749"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="294,1229,455,1257"/>
-<area shape="poly" title=" " alt="" coords="201,746,366,1214,361,1215,196,748"/>
-<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="310,719,439,746"/>
-<area shape="poly" title=" " alt="" coords="221,730,294,730,294,735,221,735"/>
-<area shape="poly" title=" " alt="" coords="378,1228,394,1187,420,1130,456,1066,501,1008,526,987,552,970,555,975,529,991,505,1012,460,1069,425,1132,399,1189,383,1230"/>
-<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="776,1588,916,1616"/>
-<area shape="poly" title=" " alt="" coords="380,1257,388,1313,408,1392,424,1435,445,1476,472,1514,505,1546,534,1565,565,1580,631,1599,699,1607,760,1608,760,1613,699,1613,630,1605,563,1585,531,1570,502,1551,468,1518,441,1479,419,1437,403,1394,383,1314,375,1258"/>
-<area shape="rect" href="linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="786,1435,906,1462"/>
-<area shape="poly" title=" " alt="" coords="390,1256,438,1303,470,1329,505,1351,572,1382,643,1406,711,1423,771,1435,770,1440,710,1428,641,1411,570,1387,502,1356,467,1333,434,1307,387,1260"/>
-<area shape="rect" href="next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="785,1536,907,1564"/>
-<area shape="poly" title=" " alt="" coords="382,1256,395,1299,419,1358,455,1420,478,1448,505,1472,535,1491,568,1507,638,1530,707,1543,769,1548,769,1553,707,1548,637,1535,566,1512,533,1496,502,1476,474,1452,451,1423,414,1360,390,1301,377,1258"/>
-<area shape="rect" href="CSV__line__parser_8c.html#ac41412a9c9a5ea77fa5a8203b5925826" title="Extract the key from a CSV line." alt="" coords="775,771,916,798"/>
-<area shape="poly" title=" " alt="" coords="381,1228,425,1152,460,1106,502,1065,529,1046,555,1035,604,1024,650,1010,673,997,696,975,709,954,716,933,717,892,720,851,728,830,744,809,760,798,763,802,748,813,732,833,725,852,723,892,721,934,714,956,700,978,676,1001,653,1015,605,1029,557,1040,532,1051,505,1069,464,1110,430,1155,385,1230"/>
-<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="504,1204,697,1232"/>
-<area shape="poly" title=" " alt="" coords="456,1231,488,1228,489,1233,456,1237"/>
-<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="561,1079,640,1106"/>
-<area shape="poly" title=" " alt="" coords="396,1227,564,1113,567,1117,399,1231"/>
-<area shape="rect" href="next__word_8c.html#a91442a41c1fdbebf5c46a84964e8e797" title="Compare keys for next&#45;word table." alt="" coords="527,1315,674,1342"/>
-<area shape="poly" title=" " alt="" coords="411,1255,504,1293,543,1307,541,1312,502,1298,409,1260"/>
-<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="537,1256,664,1284"/>
-<area shape="poly" title=" " alt="" coords="456,1250,522,1258,521,1263,456,1255"/>
-<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="503,1435,698,1462"/>
-<area shape="poly" title=" " alt="" coords="386,1256,430,1327,464,1370,505,1408,536,1426,534,1431,502,1412,461,1374,426,1330,381,1259"/>
-<area shape="rect" href="frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="553,719,648,746"/>
-<area shape="poly" title=" " alt="" coords="374,1228,383,1158,403,1050,420,989,441,926,468,864,501,807,528,777,559,753,562,757,532,780,505,810,473,867,446,928,425,990,408,1051,388,1159,380,1229"/>
-<area shape="poly" title=" " alt="" coords="917,1612,1025,1623,1089,1624,1157,1619,1225,1608,1291,1588,1352,1558,1379,1539,1405,1516,1421,1493,1435,1458,1458,1368,1475,1273,1484,1197,1490,1198,1480,1274,1463,1370,1440,1460,1425,1495,1409,1520,1383,1543,1354,1563,1292,1593,1226,1613,1157,1625,1089,1629,1024,1628,916,1617"/>
-<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="1031,1536,1126,1564"/>
-<area shape="poly" title=" " alt="" coords="911,1585,1015,1561,1016,1566,912,1590"/>
-<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="994,771,1163,798"/>
-<area shape="poly" title=" " alt="" coords="917,782,979,782,979,787,917,787"/>
-<area shape="poly" title=" " alt="" coords="683,1230,700,1243,716,1265,724,1288,724,1333,725,1377,732,1399,747,1420,773,1436,770,1440,744,1424,727,1401,719,1378,719,1333,719,1289,712,1268,696,1246,679,1234"/>
-<area shape="poly" title=" " alt="" coords="683,1230,700,1243,720,1271,730,1299,732,1327,730,1355,727,1411,733,1441,748,1472,774,1502,805,1525,802,1530,770,1506,743,1475,728,1443,722,1412,725,1354,727,1327,725,1301,716,1274,696,1246,680,1234"/>
-<area shape="poly" title=" " alt="" coords="625,1201,686,1164,768,1109,858,1041,944,964,979,925,1011,883,1059,811,1063,813,1015,886,983,928,948,968,862,1045,771,1113,688,1168,628,1206"/>
-<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="1032,1231,1125,1258"/>
-<area shape="poly" title=" " alt="" coords="698,1221,1017,1238,1017,1244,697,1226"/>
-<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="1241,1155,1377,1182"/>
-<area shape="poly" title=" " alt="" coords="698,1208,1226,1172,1226,1177,698,1214"/>
-<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="777,927,914,954"/>
-<area shape="poly" title=" " alt="" coords="618,1201,657,1165,695,1116,705,1096,711,1077,714,1041,720,1006,729,989,744,971,762,957,765,962,748,974,733,992,725,1008,719,1042,716,1078,710,1098,700,1119,661,1169,622,1205"/>
-<area shape="poly" title=" " alt="" coords="1125,1237,1252,1220,1406,1191,1439,1182,1441,1188,1407,1196,1253,1225,1126,1242"/>
-<area shape="poly" title=" " alt="" coords="1377,1166,1439,1166,1439,1171,1377,1171"/>
-<area shape="poly" title=" " alt="" coords="889,952,1441,1148,1439,1153,887,957"/>
-<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="1008,669,1149,697"/>
-<area shape="poly" title=" " alt="" coords="914,930,930,922,944,912,959,894,967,876,972,840,975,802,980,780,992,758,1016,728,1042,705,1046,709,1019,732,996,761,985,782,980,802,978,841,972,878,964,897,948,916,933,927,916,934"/>
-<area shape="poly" title=" " alt="" coords="1150,692,1213,708,1283,733,1351,771,1382,795,1409,823,1435,861,1455,903,1471,948,1481,992,1492,1076,1494,1139,1488,1139,1487,1076,1476,993,1465,949,1450,905,1430,864,1405,826,1378,799,1348,776,1281,738,1212,713,1149,697"/>
-<area shape="poly" title=" " alt="" coords="641,1102,1019,1223,1017,1228,639,1107"/>
-<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="1021,1129,1136,1157"/>
-<area shape="poly" title=" " alt="" coords="640,1081,699,1069,776,1061,862,1059,905,1063,947,1071,1001,1092,1046,1118,1044,1123,998,1097,945,1076,904,1069,861,1065,777,1066,700,1075,641,1086"/>
-<area shape="rect" href="ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="1014,1332,1143,1360"/>
-<area shape="poly" title=" " alt="" coords="621,1105,660,1142,700,1191,710,1210,715,1229,718,1262,725,1291,733,1305,747,1318,775,1336,806,1349,872,1363,938,1365,998,1359,999,1365,939,1370,872,1368,805,1354,773,1341,744,1323,729,1308,720,1293,713,1263,709,1230,705,1212,695,1194,656,1145,617,1109"/>
-<area shape="rect" href="ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="775,823,917,850"/>
-<area shape="poly" title=" " alt="" coords="639,1081,669,1067,696,1045,710,1022,717,999,717,953,716,931,718,908,726,884,744,861,759,850,762,854,748,865,731,887,723,909,721,931,722,953,722,1000,715,1024,700,1049,672,1071,641,1085"/>
-<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="806,1281,886,1309"/>
-<area shape="poly" title=" " alt="" coords="621,1105,818,1269,814,1273,617,1109"/>
-<area shape="rect" href="hash__table_8c.html#ad0646f0cb7f70b230e7a4a718cbe5056" title=" " alt="" coords="799,875,893,902"/>
-<area shape="poly" title=" " alt="" coords="639,1080,669,1066,696,1045,708,1029,714,1012,718,979,722,946,730,930,744,913,762,901,782,893,784,898,765,906,747,917,734,933,727,948,723,980,719,1014,712,1031,700,1049,672,1071,641,1084"/>
-<area shape="poly" title=" " alt="" coords="1137,1147,1226,1157,1226,1162,1137,1152"/>
-<area shape="poly" title=" " alt="" coords="887,1296,982,1299,1114,1295,1187,1288,1261,1275,1335,1257,1406,1231,1437,1213,1464,1191,1468,1195,1440,1217,1408,1236,1337,1262,1262,1280,1187,1293,1114,1301,982,1305,886,1301"/>
-<area shape="poly" title=" " alt="" coords="871,1307,908,1335,948,1369,983,1408,1015,1450,1063,1521,1058,1524,1010,1453,979,1412,944,1373,905,1339,868,1312"/>
-<area shape="poly" title=" " alt="" coords="886,1284,1017,1255,1018,1260,887,1289"/>
-<area shape="poly" title=" " alt="" coords="867,1279,1042,1164,1045,1168,870,1283"/>
-<area shape="poly" title=" " alt="" coords="887,1301,1000,1326,998,1331,886,1306"/>
-<area shape="rect" href="utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="796,1383,896,1410"/>
-<area shape="poly" title=" " alt="" coords="654,1340,782,1376,780,1381,653,1345"/>
-<area shape="poly" title=" " alt="" coords="666,1460,725,1470,796,1478,871,1479,946,1471,1085,1445,1141,1432,1192,1416,1241,1396,1291,1370,1345,1335,1405,1289,1427,1268,1447,1243,1475,1195,1480,1198,1451,1246,1431,1271,1408,1293,1348,1339,1294,1374,1244,1401,1194,1421,1142,1437,1086,1450,946,1476,871,1485,795,1483,724,1476,665,1466"/>
-<area shape="poly" title=" " alt="" coords="698,1446,770,1446,770,1451,698,1451"/>
-<area shape="poly" title=" " alt="" coords="630,1461,747,1515,782,1528,780,1533,745,1520,628,1465"/>
-<area shape="poly" title=" " alt="" coords="617,1432,655,1397,696,1352,721,1311,743,1268,802,1183,852,1120,897,1055,920,1015,944,965,954,935,960,908,963,860,969,813,977,787,992,758,1015,728,1041,705,1045,709,1019,732,996,761,982,789,974,814,969,861,965,909,959,936,948,967,925,1017,902,1058,856,1123,806,1187,748,1271,725,1314,700,1355,659,1401,621,1436"/>
-<area shape="poly" title=" " alt="" coords="374,718,382,659,402,574,419,527,440,481,468,437,502,400,518,389,535,381,537,386,520,393,505,404,472,441,445,483,424,529,407,575,387,660,380,718"/>
-<area shape="rect" href="next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a" title="Create a chooser for next&#45;word selection." alt="" coords="1211,836,1407,864"/>
-<area shape="poly" title=" " alt="" coords="436,744,504,755,1164,757,1181,771,1190,788,1197,806,1211,825,1207,828,1193,809,1185,791,1177,774,1162,762,503,760,435,750"/>
-<area shape="rect" href="file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="531,567,670,594"/>
-<area shape="poly" title=" " alt="" coords="395,716,564,601,567,605,398,720"/>
-<area shape="rect" href="next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="746,669,946,697"/>
-<area shape="poly" title=" " alt="" coords="439,716,503,705,620,692,730,685,730,690,620,698,504,710,440,721"/>
-<area shape="rect" href="next__word__chooser_8c.html#aa00d20663f502e547db0653832f34b5c" title="Free a next word chooser." alt="" coords="510,820,691,848"/>
-<area shape="poly" title=" " alt="" coords="401,745,448,771,504,799,537,812,535,817,502,804,445,776,398,749"/>
-<area shape="rect" href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed" title="Encode code points into raw UTF&#45;8 bytes." alt="" coords="522,872,679,900"/>
-<area shape="poly" title=" " alt="" coords="390,745,448,806,480,837,505,857,518,863,515,868,502,861,476,841,444,810,387,748"/>
-<area shape="poly" title=" " alt="" coords="1323,863,1362,920,1409,997,1449,1073,1480,1139,1475,1141,1444,1076,1404,999,1357,923,1318,866"/>
-<area shape="poly" title=" " alt="" coords="670,574,730,573,800,577,874,586,947,603,1002,628,1048,658,1046,662,1000,633,945,608,873,591,800,582,730,579,670,579"/>
-<area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="784,516,908,544"/>
-<area shape="poly" title=" " alt="" coords="670,564,769,543,770,548,671,569"/>
-<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="768,617,924,645"/>
-<area shape="poly" title=" " alt="" coords="671,592,761,611,760,616,670,597"/>
-<area shape="poly" title=" " alt="" coords="920,643,947,656,963,667,974,679,996,707,1052,759,1048,762,992,710,970,683,960,671,945,660,918,648"/>
-<area shape="poly" title=" " alt="" coords="946,680,992,680,992,686,946,686"/>
-<area shape="poly" title=" " alt="" coords="220,268,323,249,455,218,502,201,540,188,542,193,504,206,456,223,325,254,221,273"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="309,413,440,441"/>
-<area shape="poly" title=" " alt="" coords="204,288,239,342,265,372,296,398,305,404,302,409,292,403,261,376,235,345,199,291"/>
-<area shape="poly" title=" " alt="" coords="437,411,453,399,467,381,475,364,481,330,484,293,490,274,501,252,530,219,563,192,566,196,534,222,506,255,495,276,489,294,486,331,480,366,472,384,457,402,440,415"/>
-<area shape="poly" title=" " alt="" coords="435,411,454,398,464,386,470,373,475,346,481,320,489,307,502,296,543,280,597,272,660,271,728,277,795,289,857,305,910,325,948,348,981,381,1007,420,1029,463,1046,506,1068,589,1077,653,1072,654,1062,590,1041,508,1024,465,1003,423,976,385,944,352,908,329,856,310,794,294,727,283,660,277,597,277,544,285,505,300,493,310,486,322,480,347,475,375,469,389,457,403,438,415"/>
-<area shape="poly" title=" " alt="" coords="384,440,429,532,464,591,505,648,536,680,568,707,565,711,533,684,501,652,460,594,424,534,380,442"/>
-<area shape="poly" title=" " alt="" coords="395,439,443,473,473,489,504,502,572,519,643,528,710,532,768,532,768,537,710,537,642,533,571,524,503,507,470,494,440,477,392,444"/>
-<area shape="poly" title=" " alt="" coords="384,441,399,476,424,521,460,567,481,587,505,604,534,618,565,628,629,641,693,644,752,642,752,647,693,650,629,646,563,633,532,622,502,608,478,591,456,571,420,524,394,478,379,443"/>
-<area shape="rect" href="file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="531,413,670,441"/>
-<area shape="poly" title=" " alt="" coords="441,424,515,424,515,430,441,430"/>
-<area shape="rect" href="utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9" title="Convert a code point to lowercase." alt="" coords="528,465,673,493"/>
-<area shape="poly" title=" " alt="" coords="439,439,523,459,521,464,438,444"/>
-<area shape="rect" href="utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161" title="Convert a code point to uppercase." alt="" coords="527,309,674,337"/>
-<area shape="poly" title=" " alt="" coords="429,410,454,398,468,386,477,373,486,360,502,348,514,341,517,346,505,352,490,364,481,376,472,390,457,403,432,415"/>
+<area shape="rect" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="5,156,84,182"/>
+<area shape="rect" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="143,5,216,31"/>
+<area shape="poly" title=" " alt="" coords="50,154,80,101,103,69,130,40,133,38,136,42,133,44,107,72,84,103,54,157"/>
+<area shape="rect" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99" title="Terminate a process and wait for its completion." alt="" coords="132,55,228,80"/>
+<area shape="poly" title=" " alt="" coords="60,154,130,97,144,87,147,91,133,102,63,158"/>
+<area shape="rect" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48" title="Print file content to stdout." alt="" coords="288,90,408,130"/>
+<area shape="poly" title=" " alt="" coords="84,158,131,148,273,121,274,126,132,153,85,163"/>
+<area shape="rect" href="utils_8c.html#a9e8583cecaa2142a642e0ffd5f25dfdd" title="Close a series of pipes safely." alt="" coords="287,155,409,180"/>
+<area shape="poly" title=" " alt="" coords="84,166,272,165,272,170,84,171"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="154,207,206,232"/>
+<area shape="poly" title=" " alt="" coords="82,180,140,202,138,207,80,185"/>
+<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="154,708,206,734"/>
+<area shape="poly" title=" " alt="" coords="52,181,174,693,169,694,46,183"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="154,256,206,282"/>
+<area shape="poly" title=" " alt="" coords="60,180,92,210,133,243,141,248,138,252,130,247,89,214,57,184"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="513,156,597,182"/>
+<area shape="poly" title=" " alt="" coords="409,124,499,150,497,155,407,130"/>
+<area shape="poly" title=" " alt="" coords="410,165,497,166,497,171,410,171"/>
+<area shape="poly" title=" " alt="" coords="206,215,420,190,497,177,498,182,421,195,207,220"/>
+<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="278,357,419,383"/>
+<area shape="poly" title=" " alt="" coords="208,228,230,241,286,293,330,343,326,347,283,297,226,246,205,233"/>
+<area shape="rect" href="CSV__reader_8c.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f" title="Read a line from a CSV descriptor." alt="" coords="1157,464,1258,490"/>
+<area shape="poly" title=" " alt="" coords="408,355,419,348,435,327,441,305,447,282,455,272,467,263,512,244,552,242,642,262,721,279,799,302,950,355,1078,410,1169,454,1166,459,1076,415,948,360,798,307,719,285,641,267,551,248,513,249,470,267,459,276,452,285,446,306,439,330,422,352,411,359"/>
+<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="510,456,600,482"/>
+<area shape="poly" title=" " alt="" coords="401,381,422,392,437,405,446,418,455,431,470,443,496,454,494,459,467,447,451,434,442,421,433,409,419,396,398,386"/>
+<area shape="rect" href="utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="1344,1159,1410,1184"/>
+<area shape="poly" title=" " alt="" coords="1216,489,1252,601,1298,764,1345,981,1374,1143,1368,1144,1340,982,1293,765,1247,603,1211,491"/>
+<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title=" " alt="" coords="746,456,816,482"/>
+<area shape="poly" title=" " alt="" coords="600,466,730,466,730,472,600,472"/>
+<area shape="poly" title=" " alt="" coords="178,707,181,645,193,551,205,498,222,444,245,391,274,343,291,324,308,310,342,293,379,279,419,253,432,239,441,226,451,212,467,199,497,183,500,187,470,203,455,216,446,229,437,242,422,258,381,284,344,298,311,314,294,327,278,346,249,394,227,445,210,499,199,552,186,646,184,707"/>
+<area shape="rect" href="hash__table_8c.html#a48c22d52e879fb10712c37f9e16aefdb" title="Destroy a hash table and its contents." alt="" coords="498,959,612,984"/>
+<area shape="poly" title=" " alt="" coords="196,732,238,774,303,831,382,892,470,945,485,952,483,957,467,950,379,896,299,835,235,777,192,736"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="276,1136,420,1162"/>
+<area shape="poly" title=" " alt="" coords="189,733,339,1120,334,1122,184,735"/>
+<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="290,708,407,734"/>
+<area shape="poly" title=" " alt="" coords="206,718,274,718,274,724,206,724"/>
+<area shape="poly" title=" " alt="" coords="355,1134,397,1071,429,1034,467,1001,489,989,492,993,470,1006,433,1038,401,1075,359,1137"/>
+<area shape="rect" href="hash__table_8c.html#a171c1321047c08a2fcb270ebb50ac41d" title="Create a hash table." alt="" coords="717,1664,844,1690"/>
+<area shape="poly" title=" " alt="" coords="354,1162,362,1220,383,1307,398,1356,417,1406,441,1455,470,1499,520,1556,567,1592,621,1619,691,1650,705,1656,703,1661,689,1655,618,1624,564,1596,516,1560,466,1502,437,1457,413,1408,393,1358,377,1309,357,1221,348,1162"/>
+<area shape="rect" href="linked__list_8c.html#a571429872dd4128dfa88e460ccddcf12" title="Free a list and its nodes." alt="" coords="727,1109,835,1135"/>
+<area shape="poly" title=" " alt="" coords="420,1147,525,1146,641,1140,711,1131,712,1136,642,1145,525,1151,421,1152"/>
+<area shape="rect" href="next__word_8c.html#ab97b73c49b36a3e241f563d1b68d7366" title="Free a next_word_t." alt="" coords="726,1060,836,1086"/>
+<area shape="poly" title=" " alt="" coords="421,1134,641,1096,711,1083,711,1088,642,1101,421,1139"/>
+<area shape="rect" href="CSV__line__parser_8c.html#ac41412a9c9a5ea77fa5a8203b5925826" title="Extract the key from a CSV line." alt="" coords="718,959,844,984"/>
+<area shape="poly" title=" " alt="" coords="359,1133,404,1090,434,1066,467,1045,510,1029,571,1012,702,983,703,989,572,1017,512,1034,470,1050,437,1070,407,1094,363,1137"/>
+<area shape="rect" href="CSV__line__parser_8c.html#a263f576987804b4eda2695908af61f6e" title="Parse next words and probabilities from a CSV line." alt="" coords="469,1261,641,1287"/>
+<area shape="poly" title=" " alt="" coords="363,1160,407,1203,437,1227,470,1248,480,1253,478,1258,467,1252,434,1232,404,1207,359,1164"/>
+<area shape="rect" href="hash__table_8c.html#a4d0789bb28431f8c9d03a0ecc71a0bf6" title="Insert an item into the table." alt="" coords="519,1463,591,1488"/>
+<area shape="poly" title=" " alt="" coords="359,1161,471,1347,538,1448,534,1451,466,1350,355,1163"/>
+<area shape="rect" href="next__word_8c.html#a91442a41c1fdbebf5c46a84964e8e797" title="Compare keys for next&#45;word table." alt="" coords="489,1311,621,1336"/>
+<area shape="poly" title=" " alt="" coords="358,1161,399,1226,431,1265,470,1297,476,1301,474,1306,467,1302,428,1268,395,1229,354,1163"/>
+<area shape="rect" href="next__word_8c.html#a9a0868a1187fd888c75486beef77eace" title="Hash function for next&#45;word keys." alt="" coords="497,1212,613,1238"/>
+<area shape="poly" title=" " alt="" coords="386,1160,504,1204,502,1209,385,1165"/>
+<area shape="rect" href="next__word_8c.html#ad82ef57b87f448d68286cd1d7c16e227" title="Create a hash&#45;table item storing followers." alt="" coords="468,1060,642,1086"/>
+<area shape="poly" title=" " alt="" coords="385,1133,502,1089,504,1094,386,1138"/>
+<area shape="rect" href="frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="512,759,598,784"/>
+<area shape="poly" title=" " alt="" coords="350,1135,362,1085,386,1011,420,927,442,885,466,846,492,816,520,792,524,796,496,820,470,849,446,888,425,929,391,1013,368,1087,355,1136"/>
+<area shape="poly" title=" " alt="" coords="844,1670,953,1653,1013,1638,1070,1617,1143,1585,1198,1554,1245,1514,1293,1453,1313,1421,1328,1387,1351,1316,1365,1250,1371,1199,1376,1200,1370,1251,1356,1317,1333,1389,1317,1423,1298,1456,1249,1518,1201,1558,1145,1589,1072,1622,1014,1643,954,1658,845,1675"/>
+<area shape="rect" href="utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="954,1581,1038,1607"/>
+<area shape="poly" title=" " alt="" coords="838,1661,871,1650,956,1612,958,1617,873,1655,840,1666"/>
+<area shape="rect" href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="920,959,1071,984"/>
+<area shape="poly" title=" " alt="" coords="844,969,904,969,904,974,844,974"/>
+<area shape="poly" title=" " alt="" coords="624,1258,640,1248,651,1236,658,1224,663,1198,669,1171,676,1157,688,1144,711,1131,714,1135,691,1148,680,1160,674,1173,668,1199,663,1225,655,1239,643,1252,627,1263"/>
+<area shape="poly" title=" " alt="" coords="625,1259,640,1248,654,1230,661,1212,663,1173,665,1134,673,1114,688,1095,710,1081,713,1085,691,1099,677,1117,670,1135,668,1174,666,1213,659,1233,644,1252,629,1263"/>
+<area shape="poly" title=" " alt="" coords="641,1259,773,1232,831,1214,870,1195,894,1174,914,1150,947,1096,970,1042,985,999,990,1000,975,1044,952,1098,918,1153,897,1177,874,1199,833,1219,774,1237,642,1264"/>
+<area shape="rect" href="linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="954,1373,1038,1399"/>
+<area shape="poly" title=" " alt="" coords="609,1285,939,1369,938,1374,608,1290"/>
+<area shape="rect" href="linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="1146,1260,1269,1286"/>
+<area shape="poly" title=" " alt="" coords="642,1271,1131,1270,1131,1276,642,1277"/>
+<area shape="rect" href="next__word_8c.html#ab5c2d7c0748d96b0cbe2dfe597768b99" title="Create a next_word_t with probability." alt="" coords="719,1159,842,1184"/>
+<area shape="poly" title=" " alt="" coords="617,1258,640,1248,655,1237,664,1226,673,1213,688,1201,714,1188,717,1193,691,1206,677,1217,668,1229,658,1241,643,1252,620,1263"/>
+<area shape="poly" title=" " alt="" coords="1038,1381,1093,1373,1160,1358,1230,1333,1263,1316,1294,1296,1317,1274,1336,1248,1363,1198,1367,1200,1341,1251,1321,1278,1297,1300,1266,1321,1232,1338,1162,1363,1094,1378,1039,1386"/>
+<area shape="poly" title=" " alt="" coords="1230,1257,1339,1190,1342,1195,1232,1262"/>
+<area shape="poly" title=" " alt="" coords="843,1169,1328,1169,1328,1174,843,1174"/>
+<area shape="rect" href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="932,708,1059,734"/>
+<area shape="poly" title=" " alt="" coords="842,1162,857,1155,870,1146,889,1122,901,1100,906,1078,908,1055,908,1006,911,977,917,945,952,835,982,747,987,749,957,836,923,947,916,978,914,1006,913,1055,911,1079,906,1102,894,1125,874,1149,860,1160,844,1167"/>
+<area shape="poly" title=" " alt="" coords="1055,732,1112,750,1178,779,1243,818,1272,842,1298,870,1320,903,1338,940,1362,1016,1374,1088,1378,1143,1373,1144,1369,1089,1357,1017,1334,942,1316,906,1294,873,1268,846,1240,822,1175,784,1110,755,1053,737"/>
+<area shape="poly" title=" " alt="" coords="591,1475,717,1472,794,1464,871,1448,919,1428,961,1405,964,1410,922,1433,873,1453,795,1469,717,1478,591,1480"/>
+<area shape="rect" href="hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="942,1311,1049,1336"/>
+<area shape="poly" title=" " alt="" coords="574,1460,625,1429,689,1397,751,1375,814,1357,927,1332,928,1337,815,1362,752,1380,691,1402,627,1433,577,1464"/>
+<area shape="rect" href="ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="938,1520,1054,1546"/>
+<area shape="poly" title=" " alt="" coords="575,1487,625,1520,657,1537,690,1549,751,1559,814,1560,873,1555,925,1547,926,1552,874,1560,814,1565,751,1564,689,1554,654,1542,622,1525,572,1491"/>
+<area shape="rect" href="ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="717,1615,844,1640"/>
+<area shape="poly" title=" " alt="" coords="570,1487,620,1538,654,1567,691,1593,718,1606,716,1611,688,1598,650,1572,616,1542,566,1491"/>
+<area shape="rect" href="hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="744,1513,818,1539"/>
+<area shape="poly" title=" " alt="" coords="592,1481,730,1512,729,1517,591,1486"/>
+<area shape="rect" href="hash__table_8c.html#ad0646f0cb7f70b230e7a4a718cbe5056" title=" " alt="" coords="738,1412,824,1438"/>
+<area shape="poly" title=" " alt="" coords="591,1465,722,1435,724,1440,592,1470"/>
+<area shape="poly" title=" " alt="" coords="1049,1308,1135,1287,1136,1292,1050,1313"/>
+<area shape="poly" title=" " alt="" coords="817,1517,926,1496,1068,1463,1139,1443,1204,1421,1257,1398,1294,1373,1311,1355,1326,1333,1348,1286,1362,1239,1370,1199,1375,1200,1367,1240,1353,1287,1331,1336,1316,1358,1297,1378,1260,1402,1206,1426,1141,1448,1069,1468,927,1501,818,1523"/>
+<area shape="poly" title=" " alt="" coords="819,1535,939,1574,938,1579,817,1540"/>
+<area shape="poly" title=" " alt="" coords="817,1515,844,1506,871,1492,885,1480,895,1469,918,1442,961,1406,965,1411,922,1445,899,1472,889,1484,873,1496,846,1510,819,1520"/>
+<area shape="poly" title=" " alt="" coords="800,1511,835,1484,870,1449,885,1425,892,1403,901,1382,918,1359,942,1342,945,1346,922,1363,905,1384,897,1405,889,1427,874,1452,838,1488,804,1515"/>
+<area shape="poly" title=" " alt="" coords="818,1525,922,1528,922,1533,818,1530"/>
+<area shape="poly" title=" " alt="" coords="614,1057,689,1045,781,1038,872,1045,1004,1067,1132,1096,1330,1153,1328,1159,1131,1101,1003,1072,872,1050,781,1044,690,1050,615,1062"/>
+<area shape="poly" title=" " alt="" coords="618,1084,712,1105,711,1110,617,1089"/>
+<area shape="poly" title=" " alt="" coords="642,1070,711,1070,711,1076,642,1076"/>
+<area shape="poly" title=" " alt="" coords="570,1058,640,995,663,969,688,944,761,883,837,826,960,740,963,745,840,830,765,887,691,948,667,973,644,999,574,1062"/>
+<area shape="poly" title=" " alt="" coords="355,706,399,634,431,588,466,543,523,490,526,494,470,547,435,591,403,637,359,709"/>
+<area shape="rect" href="next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a" title="Create a chooser for next&#45;word selection." alt="" coords="1119,884,1296,910"/>
+<area shape="poly" title=" " alt="" coords="367,732,411,764,439,781,469,794,553,821,639,843,727,860,813,873,974,888,1104,894,1104,899,974,894,813,878,726,865,638,848,551,826,467,799,437,786,408,769,364,736"/>
+<area shape="rect" href="_8null-ls__947915__file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="492,607,618,632"/>
+<area shape="poly" title=" " alt="" coords="375,705,513,637,515,642,378,710"/>
+<area shape="rect" href="file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title=" " alt="" coords="492,557,618,583"/>
+<area shape="poly" title=" " alt="" coords="356,706,399,651,431,619,467,592,477,587,479,591,470,596,434,623,403,654,360,709"/>
+<area shape="rect" href="next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="690,708,872,734"/>
+<area shape="poly" title=" " alt="" coords="407,718,674,718,674,724,407,724"/>
+<area shape="rect" href="next__word__chooser_8c.html#aa00d20663f502e547db0653832f34b5c" title="Free a next word chooser." alt="" coords="474,909,636,935"/>
+<area shape="poly" title=" " alt="" coords="357,733,372,767,396,811,429,857,470,896,475,900,473,904,467,900,425,860,391,813,367,769,352,735"/>
+<area shape="rect" href="utf8__tools_8c.html#a5e4b53100a7c7b94a90ec0c5091855ed" title="Encode code points into raw UTF&#45;8 bytes." alt="" coords="484,860,626,886"/>
+<area shape="poly" title=" " alt="" coords="362,732,405,783,436,813,470,839,494,851,491,856,467,843,432,817,401,787,357,736"/>
+<area shape="poly" title=" " alt="" coords="1223,908,1259,949,1298,1002,1339,1077,1367,1143,1362,1145,1334,1080,1293,1005,1254,952,1219,912"/>
+<area shape="poly" title=" " alt="" coords="618,614,738,618,806,627,873,644,925,668,968,696,965,701,922,672,871,649,805,632,737,623,618,619"/>
+<area shape="rect" href="utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="726,507,836,532"/>
+<area shape="poly" title=" " alt="" coords="610,604,641,593,696,566,744,539,747,543,699,571,643,598,612,609"/>
+<area shape="rect" href="utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="710,659,852,684"/>
+<area shape="poly" title=" " alt="" coords="614,630,708,652,706,657,613,635"/>
+<area shape="poly" title=" " alt="" coords="853,681,874,693,901,721,924,753,959,822,981,889,993,943,987,944,976,891,954,824,919,756,897,725,870,698,851,686"/>
+<area shape="poly" title=" " alt="" coords="618,565,674,567,739,574,808,587,873,610,904,628,932,650,976,694,972,698,929,654,901,633,871,615,806,593,738,579,674,573,618,571"/>
+<area shape="poly" title=" " alt="" coords="615,554,710,533,711,538,616,559"/>
+<area shape="poly" title=" " alt="" coords="612,581,643,592,699,619,748,648,745,652,697,624,641,597,611,586"/>
+<area shape="poly" title=" " alt="" coords="872,718,917,718,917,724,872,724"/>
+<area shape="poly" title=" " alt="" coords="206,262,300,242,420,213,504,185,505,190,421,218,302,248,207,267"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="290,407,407,432"/>
+<area shape="poly" title=" " alt="" coords="190,281,223,335,248,366,278,393,283,397,280,401,274,398,244,370,218,338,185,283"/>
+<area shape="poly" title=" " alt="" coords="404,404,418,394,432,376,440,360,446,327,450,291,455,271,466,250,493,217,522,190,526,194,497,220,471,253,460,273,455,292,451,327,445,362,437,379,422,397,407,408"/>
+<area shape="poly" title=" " alt="" coords="403,404,419,393,429,381,435,369,440,343,446,317,454,304,467,293,512,273,552,269,593,278,642,293,717,318,772,345,821,384,874,442,898,473,918,506,952,576,976,642,990,692,985,694,971,643,947,578,914,509,893,476,870,445,817,388,770,350,715,323,641,298,592,283,552,275,513,278,470,298,458,308,451,319,445,344,440,371,434,384,422,398,406,408"/>
+<area shape="poly" title=" " alt="" coords="356,432,395,542,428,616,471,687,498,720,527,747,523,750,494,723,466,690,424,618,390,544,351,434"/>
+<area shape="poly" title=" " alt="" coords="367,431,411,463,439,479,469,492,531,507,595,516,710,520,710,526,595,522,530,513,467,497,437,484,408,467,364,435"/>
+<area shape="poly" title=" " alt="" coords="354,432,365,475,386,533,402,564,420,594,443,621,470,643,496,657,523,668,582,681,640,685,694,682,695,688,640,690,581,686,522,673,493,662,467,647,439,624,416,597,397,567,381,535,360,476,349,433"/>
+<area shape="rect" href="_8null-ls__947915__file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="493,407,617,432"/>
+<area shape="poly" title=" " alt="" coords="407,417,477,417,477,422,407,422"/>
+<area shape="rect" href="utf8__tools_8c.html#ace1698a2dbf682bb3c231a23d81478d9" title="Convert a code point to lowercase." alt="" coords="489,308,621,334"/>
+<area shape="poly" title=" " alt="" coords="398,404,419,393,433,381,442,368,451,355,467,343,476,338,478,342,470,347,455,359,446,371,437,385,422,398,401,408"/>
+<area shape="rect" href="utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161" title="Convert a code point to uppercase." alt="" coords="489,357,621,383"/>
+<area shape="poly" title=" " alt="" coords="405,403,483,385,484,390,406,409"/>
 </map>
 </div>
 <div class="dynheader">

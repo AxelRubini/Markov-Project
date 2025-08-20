@@ -1,15 +1,7 @@
 <map id="include/ds/word.h" name="include/ds/word.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="187,5,309,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="28,5,150,31"/>
 <area shape="rect" id="Node000002" href="$ht__item_8h.html" title=" " alt="" coords="5,79,80,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,34,93,76,91,71,212,29"/>
-<area shape="rect" id="Node000003" href="$linked__list_8h.html" title=" " alt="" coords="103,79,192,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,34,179,72,176,67,229,29"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="216,79,280,105"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,31,250,63,245,63,245,31"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="304,79,363,105"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="264,29,309,67,306,71,261,34"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="387,79,450,105"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="278,29,377,70,375,75,276,34"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="114,153,182,178"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="150,105,150,137,145,137,145,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,33,61,67,56,64,79,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,79,168,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,30,122,64,117,67,95,33"/>
 </map>

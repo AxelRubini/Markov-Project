@@ -333,6 +333,9 @@ int both_mp(const char *input_txt, const char *output_csv,
   int st;
   while (waitpid(-1, &st, 0) > 0)
     ;
+  if (stdin) {
+    unlink(validated_input_txt);
+  }
 
   if (print_to_stdout) {
     // Print the content of the output file to stdout

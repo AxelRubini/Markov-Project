@@ -1,13 +1,15 @@
 <map id="include/io/file_writer.h" name="include/io/file_writer.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="359,5,504,31"/>
-<area shape="rect" id="Node000002" href="$file__writer_8c.html" title=" " alt="" coords="5,79,128,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="355,37,129,81,128,76,354,32"/>
-<area shape="rect" id="Node000003" href="$both__mp_8c.html" title=" " alt="" coords="152,79,320,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="385,39,270,81,268,76,383,34"/>
-<area shape="rect" id="Node000004" href="$task2__mp_8c.html" title=" " alt="" coords="344,79,520,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="434,46,434,79,429,79,429,46"/>
-<area shape="rect" id="Node000005" href="$both__sp_8c.html" title=" " alt="" coords="544,79,704,105"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="479,34,592,76,590,81,478,39"/>
-<area shape="rect" id="Node000006" href="$task2__sp_8c.html" title=" " alt="" coords="728,79,896,105"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="512,32,748,76,747,81,511,37"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="428,5,574,31"/>
+<area shape="rect" id="Node000002" href="$_8null-ls__947915__file__writer_8c.html" title=" " alt="" coords="5,79,149,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,36,162,82,149,84,148,79,160,76,412,31"/>
+<area shape="rect" id="Node000003" href="$file__writer_8c.html" title=" " alt="" coords="173,86,296,112"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="446,38,276,88,275,83,445,33"/>
+<area shape="rect" id="Node000004" href="$both__mp_8c.html" title=" " alt="" coords="320,86,488,112"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="476,43,420,88,417,84,473,39"/>
+<area shape="rect" id="Node000005" href="$task2__mp_8c.html" title=" " alt="" coords="512,86,687,112"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="529,39,586,84,583,88,526,43"/>
+<area shape="rect" id="Node000006" href="$both__sp_8c.html" title=" " alt="" coords="712,86,872,112"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="561,33,748,83,746,88,560,38"/>
+<area shape="rect" id="Node000007" href="$task2__sp_8c.html" title=" " alt="" coords="896,86,1063,112"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="590,30,884,76,921,83,920,88,883,82,589,35"/>
 </map>

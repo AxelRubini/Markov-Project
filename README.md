@@ -9,11 +9,62 @@ Il programma analizza un testo di input, costruisce le probabilità di transizio
 - **lib/argtable3/** – libreria statica per il parsing della riga di comando.
 - **include/** – file header suddivisi per sottosistemi:
   - `app/` – dichiarazioni per il parser degli argomenti e il runner.
+    - `options.h` - definizione della struttura `options_t` per le opzioni di esecuzione.
+    - `runner.h` - dichiarazione della funzione `run` per avviare la task selezionata.
   - `core/` – funzioni di utilità generiche.
+    - `next_word_chooser.h` - dichiarazione della struct `next_word_chooser_t` e della funzione per la scelta della parola successive.
+    - `utf8_tools.h` - funzioni per la gestione di stringhe UTF-8.
+    - `utils.h` - funzioni generiche di utilita e wrapper funzioni di sistema.
   - `csv/` – gestione della lettura e scrittura CSV.
+    - `CSV_line_builder.h` - funzioni per costruire le stringhe csv dalla tabella hash.
+    - `CSV_line_parser.h` - funzioni per il parsing delle righe CSV.
+    - `CSV_reader.h` - funzioni per la lettura di file CSV sia in singolo che multiprocesso.
+    - `CSV_writer.h` - funzioni per la scrittura di file CSV sia in singolo che multiprocesso.
   - `ds/` – strutture dati (linked list,hash table, ecc.).
+    - `hash_table.h` - dichiarazione della struttura `hash_table_t` e delle funzioni per la gestione della tabella hash.
+    - `linked_list.h` - dichiarazione delle strutture `linked_list_t` e `ll_item_t` per la gestione delle linked list e relative funzioni per la gestione di esse.
+    - `ht_item.h` - dichiarazione della struttura `ht_item` e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next_word.
+    _ `word.h` - dichiarazione della struttura `word_t` e delle funzioni per gestire la struct e funzioni per la specializzazione della `hash_table_t` per le parole e i relativi `ht_item`.
+    un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura:
+    ```markdown
+    word_t {
+        int *word;
+        int occurrences;
+        }
+    ht_item {
+        word_t \*key;
+        linked_list_t \*next_words; // lista di word_t successive 
+        }
+        ```
+    - `next_word.h` - dichiarazione della struttura `next_word_t` e delle funzioni per gestire la struct e funzioni per la specializzazione della `hash_table_t` per le parole successive e i relativi `ht_item`.
+    Un singolo elemento della hash table che utilizza la struct `next_word_t` rappresenta con una lista di code point la parola chiave e le parole successive useando la struct `next_word_t` che contiene la probabilità  di transizione dalla parola chiave alla parola successiva creando quindi una struttura:
+    ```markdown
+    next_word_t {
+        int *next_word;
+        double probability;
+        }
+    ht_item {
+        int \*key; // parola chiave
+        linked_list_t \*next_words; // lista di next_word_t successive
+        }
+    ```
+
   - `io/` – funzioni di input/output su file e pipe.
+    - `file_reader.h` - contiene le funzione per la lettura di un testo UTF-8 e la creazione di una hash table di parole e leloro occorrenze sfruttando la struct `word_t`.
+    - `file_reader_mp.h` - contiene le funzioni per la lettura di un testo UTF-8 e la creazione di una hash table di parole e le loro occorrenze sfruttando la struct `word_t` le funzioni presenti sono pensate per essere utilizzate in modalità multipocesso.
+    - `file_writer.h` - contiene le funzione per la scrittura di un testo UTF-8 a partire da una hash table di parole e le probabilità di transizione tra di esse, sfruttando la struct `next_word_t` il file contiene sia le funzioni utilizzate in modaità singolo processo che quelle utilizzate in modalità multiprocesso.
+    - `frame.h` - contiene le funzioni per la gestione delle pipe e della comunicazione tra processi.
+
   - `modes/` – interfacce per le modalità *single process* (`sp`) e *multi process* (`mp`).
+    - `sp/` - implementazione delle modalità singolo processo.
+        - `task1.h` - dichiarazione della funzione `task1` per l' analisi di un testo e la generazione di un file CSV.
+        - `task2.h` - dichiarazione della funzione `task2` per la generazione di un testo a partire da un CSV.
+        _ `task_both.h` - dichiarazione della funzione `task_both` per l' esecuzione sequenziale di `task1` e `task2`.
+    - `mp/` - implementazione delle modalità multiprocesso.
+        - `task1.h` - dichiarazione della funzione `task1_mp` per l' analisi di un testo e la generazione di un file CSV.
+        - `task2.h` - dichiarazione della funzione `task2_mp` per la generazione di un testo a partire da un CSV.
+        - `task_both.h` - dichiarazione della funzione `task_both_mp` per l' esecuzione di `task1_mp` e `task2_mp`.
+    - `modes_utils.h` - funzioni comuni per le modalità `sp` e `mp`.
 - **src/** – sorgenti C organizzati come in `include/`:
   - `app/` – `main.c`, parser delle opzioni e lancio delle attività.
   - `modes/sp/` e `modes/mp/` – implementazioni delle attività in modalità a processo singolo o multiplo.
@@ -29,13 +80,6 @@ make
 
 L'eseguibile risultante sarà `./markov`.
 
-## Linee guida di sviluppo
-
-Per l'allocazione dinamica viene fornita la funzione `dmalloc` che inizializza a
-zero la memoria e termina l'esecuzione in caso di errore. L'uso diretto di
-`malloc` è sconsigliato; preferire `dmalloc` e utilizzare strumenti di analisi
-statica (ad es. `clang-tidy`) o convenzioni di naming per individuare chiamate
-involontarie a `malloc`.
 
 ## Manuale utente
 

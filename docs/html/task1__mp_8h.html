@@ -152,81 +152,81 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="task1__mp_8c_source.html#l00087">87</a> of file <a class="el" href="task1__mp_8c_source.html">task1_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>                                                            {</div>
-<div class="line"><span class="lineno">   88</span>  <span class="keywordtype">int</span> status = -1;</div>
-<div class="line"><span class="lineno">   89</span>  <span class="keywordtype">int</span> is_stdin = 0;</div>
-<div class="line"><span class="lineno">   90</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> *validated_input_txt = <a class="code hl_function" href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a>(input_txt, &amp;is_stdin);</div>
-<div class="line"><span class="lineno">   91</span>  <span class="keywordflow">if</span> (!validated_input_txt) {</div>
-<div class="line"><span class="lineno">   92</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid input file\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">goto</span> done;</div>
-<div class="line"><span class="lineno">   94</span>  }</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>  <span class="keywordtype">int</span> pipe12[2], pipe23[2];</div>
-<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">if</span> (pipe(pipe12) &lt; 0 || pipe(pipe23) &lt; 0) {</div>
-<div class="line"><span class="lineno">   98</span>    perror(<span class="stringliteral">&quot;pipe&quot;</span>);</div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">goto</span> done;</div>
-<div class="line"><span class="lineno">  100</span>  }</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>  <span class="keywordtype">int</span> all_pipes[] = {pipe12[0], pipe12[1], pipe23[0], pipe23[1]};</div>
-<div class="line"><span class="lineno">  103</span>  pid_t p1 = -1, p2 = -1, p3 = -1;</div>
-<div class="line"><span class="lineno">  104</span> </div>
-<div class="line"><span class="lineno">  105</span>  p1 = fork();</div>
-<div class="line"><span class="lineno">  106</span>  <span class="keywordflow">if</span> (p1 &lt; 0)</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">goto</span> fail_pipes;</div>
-<div class="line"><span class="lineno">  108</span>  <span class="keywordflow">if</span> (p1 == 0) {</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordtype">int</span> not_p1[] = {pipe12[0], pipe23[0], pipe23[1]};</div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p1, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p1));</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de">w_p1</a>(pipe12[1], validated_input_txt) &lt; 0)</div>
-<div class="line"><span class="lineno">  112</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  113</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  114</span>  }</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>  p2 = fork();</div>
-<div class="line"><span class="lineno">  117</span>  <span class="keywordflow">if</span> (p2 &lt; 0)</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">goto</span> fail_kill_p1;</div>
-<div class="line"><span class="lineno">  119</span>  <span class="keywordflow">if</span> (p2 == 0) {</div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordtype">int</span> not_p2[] = {pipe12[1], pipe23[0]};</div>
-<div class="line"><span class="lineno">  121</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p2, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p2));</div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a">w_p2</a>(pipe12[0], pipe23[1]) &lt; 0)</div>
-<div class="line"><span class="lineno">  123</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  124</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  125</span>  }</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>  p3 = fork();</div>
-<div class="line"><span class="lineno">  128</span>  <span class="keywordflow">if</span> (p3 &lt; 0)</div>
-<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">goto</span> fail_kill_p1p2;</div>
-<div class="line"><span class="lineno">  130</span>  <span class="keywordflow">if</span> (p3 == 0) {</div>
-<div class="line"><span class="lineno">  131</span>    <span class="keywordtype">int</span> not_p3[] = {pipe12[0], pipe12[1], pipe23[1]};</div>
-<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p3, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p3));</div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4">w_p3</a>(pipe23[0], output_csv) &lt; 0)</div>
-<div class="line"><span class="lineno">  134</span>      _exit(1);</div>
-<div class="line"><span class="lineno">  135</span>    _exit(0);</div>
-<div class="line"><span class="lineno">  136</span>  }</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
-<div class="line"><span class="lineno">  139</span>  <span class="keywordtype">int</span> st;</div>
-<div class="line"><span class="lineno">  140</span>  <span class="keywordflow">while</span> (waitpid(-1, &amp;st, 0) &gt; 0)</div>
-<div class="line"><span class="lineno">  141</span>    ;</div>
-<div class="line"><span class="lineno">  142</span>  status = 0;</div>
-<div class="line"><span class="lineno">  143</span>  <span class="keywordflow">goto</span> done;</div>
-<div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>fail_kill_p1p2:</div>
-<div class="line"><span class="lineno">  146</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
-<div class="line"><span class="lineno">  147</span>fail_kill_p1:</div>
-<div class="line"><span class="lineno">  148</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
-<div class="line"><span class="lineno">  149</span>fail_pipes:</div>
-<div class="line"><span class="lineno">  150</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
-<div class="line"><span class="lineno">  151</span>done:</div>
-<div class="line"><span class="lineno">  152</span>  <span class="keywordflow">if</span> (is_stdin)</div>
-<div class="line"><span class="lineno">  153</span>    unlink(validated_input_txt);</div>
-<div class="line"><span class="lineno">  154</span>  <span class="keywordflow">return</span> status;</div>
-<div class="line"><span class="lineno">  155</span>}</div>
-<div class="ttc" id="amodes__utils_8h_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00077">modes_utils.c:77</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a4ffd20871d062b35f02f8936e1de78b7"><div class="ttname"><a href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a></div><div class="ttdeci">const char * validate_input_file(const char *input_txt, int *is_stdin)</div><div class="ttdoc">Validate or read input file.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00029">modes_utils.c:29</a></div></div>
-<div class="ttc" id="atask1__mp_8c_html_a61f7bdeb9d7d742fd842942538e241de"><div class="ttname"><a href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de">w_p1</a></div><div class="ttdeci">static int w_p1(int pipe_to_write, const char *input_txt)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00015">task1_mp.c:15</a></div></div>
-<div class="ttc" id="atask1__mp_8c_html_a9dc7b82538e4307926e5b85fa55c23d4"><div class="ttname"><a href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4">w_p3</a></div><div class="ttdeci">static int w_p3(int pipe_to_read, const char *output_csv)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00072">task1_mp.c:72</a></div></div>
-<div class="ttc" id="atask1__mp_8c_html_ad24a7c4eca25b6a0d56da799de46432a"><div class="ttname"><a href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a">w_p2</a></div><div class="ttdeci">static int w_p2(int pipe_to_read, int pipe_to_write)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00038">task1_mp.c:38</a></div></div>
+<p class="definition">Definition at line <a class="el" href="task1__mp_8c_source.html#l00086">86</a> of file <a class="el" href="task1__mp_8c_source.html">task1_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                            {</div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordtype">int</span> status = -1;</div>
+<div class="line"><span class="lineno">   88</span>  <span class="keywordtype">int</span> is_stdin = 0;</div>
+<div class="line"><span class="lineno">   89</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> *validated_input_txt = <a class="code hl_function" href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a>(input_txt, &amp;is_stdin);</div>
+<div class="line"><span class="lineno">   90</span>  <span class="keywordflow">if</span> (!validated_input_txt) {</div>
+<div class="line"><span class="lineno">   91</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid input file\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">goto</span> done;</div>
+<div class="line"><span class="lineno">   93</span>  }</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>  <span class="keywordtype">int</span> pipe12[2], pipe23[2];</div>
+<div class="line"><span class="lineno">   96</span>  <span class="keywordflow">if</span> (pipe(pipe12) &lt; 0 || pipe(pipe23) &lt; 0) {</div>
+<div class="line"><span class="lineno">   97</span>    perror(<span class="stringliteral">&quot;pipe&quot;</span>);</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">goto</span> done;</div>
+<div class="line"><span class="lineno">   99</span>  }</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>  <span class="keywordtype">int</span> all_pipes[] = {pipe12[0], pipe12[1], pipe23[0], pipe23[1]};</div>
+<div class="line"><span class="lineno">  102</span>  pid_t p1 = -1, p2 = -1, p3 = -1;</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>  p1 = fork();</div>
+<div class="line"><span class="lineno">  105</span>  <span class="keywordflow">if</span> (p1 &lt; 0)</div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">goto</span> fail_pipes;</div>
+<div class="line"><span class="lineno">  107</span>  <span class="keywordflow">if</span> (p1 == 0) {</div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordtype">int</span> not_p1[] = {pipe12[0], pipe23[0], pipe23[1]};</div>
+<div class="line"><span class="lineno">  109</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p1, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p1));</div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de">w_p1</a>(pipe12[1], validated_input_txt) &lt; 0)</div>
+<div class="line"><span class="lineno">  111</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  112</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  113</span>  }</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>  p2 = fork();</div>
+<div class="line"><span class="lineno">  116</span>  <span class="keywordflow">if</span> (p2 &lt; 0)</div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">goto</span> fail_kill_p1;</div>
+<div class="line"><span class="lineno">  118</span>  <span class="keywordflow">if</span> (p2 == 0) {</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordtype">int</span> not_p2[] = {pipe12[1], pipe23[0]};</div>
+<div class="line"><span class="lineno">  120</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p2, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p2));</div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a">w_p2</a>(pipe12[0], pipe23[1]) &lt; 0)</div>
+<div class="line"><span class="lineno">  122</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  123</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  124</span>  }</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>  p3 = fork();</div>
+<div class="line"><span class="lineno">  127</span>  <span class="keywordflow">if</span> (p3 &lt; 0)</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">goto</span> fail_kill_p1p2;</div>
+<div class="line"><span class="lineno">  129</span>  <span class="keywordflow">if</span> (p3 == 0) {</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordtype">int</span> not_p3[] = {pipe12[0], pipe12[1], pipe23[1]};</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(not_p3, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(not_p3));</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4">w_p3</a>(pipe23[0], output_csv) &lt; 0)</div>
+<div class="line"><span class="lineno">  133</span>      _exit(1);</div>
+<div class="line"><span class="lineno">  134</span>    _exit(0);</div>
+<div class="line"><span class="lineno">  135</span>  }</div>
+<div class="line"><span class="lineno">  136</span> </div>
+<div class="line"><span class="lineno">  137</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
+<div class="line"><span class="lineno">  138</span>  <span class="keywordtype">int</span> st;</div>
+<div class="line"><span class="lineno">  139</span>  <span class="keywordflow">while</span> (waitpid(-1, &amp;st, 0) &gt; 0)</div>
+<div class="line"><span class="lineno">  140</span>    ;</div>
+<div class="line"><span class="lineno">  141</span>  status = 0;</div>
+<div class="line"><span class="lineno">  142</span>  <span class="keywordflow">goto</span> done;</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>fail_kill_p1p2:</div>
+<div class="line"><span class="lineno">  145</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
+<div class="line"><span class="lineno">  146</span>fail_kill_p1:</div>
+<div class="line"><span class="lineno">  147</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
+<div class="line"><span class="lineno">  148</span>fail_pipes:</div>
+<div class="line"><span class="lineno">  149</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
+<div class="line"><span class="lineno">  150</span>done:</div>
+<div class="line"><span class="lineno">  151</span>  <span class="keywordflow">if</span> (is_stdin)</div>
+<div class="line"><span class="lineno">  152</span>    unlink(validated_input_txt);</div>
+<div class="line"><span class="lineno">  153</span>  <span class="keywordflow">return</span> status;</div>
+<div class="line"><span class="lineno">  154</span>}</div>
+<div class="ttc" id="amodes__utils_8h_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00081">modes_utils.c:81</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a4ffd20871d062b35f02f8936e1de78b7"><div class="ttname"><a href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a></div><div class="ttdeci">const char * validate_input_file(const char *input_txt, int *is_stdin)</div><div class="ttdoc">Validate or read input file.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00033">modes_utils.c:33</a></div></div>
+<div class="ttc" id="atask1__mp_8c_html_a61f7bdeb9d7d742fd842942538e241de"><div class="ttname"><a href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de">w_p1</a></div><div class="ttdeci">static int w_p1(int pipe_to_write, const char *input_txt)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00014">task1_mp.c:14</a></div></div>
+<div class="ttc" id="atask1__mp_8c_html_a9dc7b82538e4307926e5b85fa55c23d4"><div class="ttname"><a href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4">w_p3</a></div><div class="ttdeci">static int w_p3(int pipe_to_read, const char *output_csv)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00071">task1_mp.c:71</a></div></div>
+<div class="ttc" id="atask1__mp_8c_html_ad24a7c4eca25b6a0d56da799de46432a"><div class="ttname"><a href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a">w_p2</a></div><div class="ttdeci">static int w_p2(int pipe_to_read, int pipe_to_write)</div><div class="ttdef"><b>Definition</b> <a href="task1__mp_8c_source.html#l00037">task1_mp.c:37</a></div></div>
 <div class="ttc" id="autils_8h_html_a98a2f36b5fa8afc4572149c13c17fc93"><div class="ttname"><a href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a></div><div class="ttdeci">#define ARR_SZ(arr)</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00017">utils.h:17</a></div></div>
 <div class="ttc" id="autils_8h_html_a9e8583cecaa2142a642e0ffd5f25dfdd"><div class="ttname"><a href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a></div><div class="ttdeci">int safe_close_pipes(int *fds, size_t count)</div><div class="ttdoc">Close a series of pipes safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00075">utils.c:75</a></div></div>
 </div><!-- fragment --><div class="dynheader">

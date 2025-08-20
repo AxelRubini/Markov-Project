@@ -1,18 +1,7 @@
 <map id="include/csv/CSV_line_builder.h" name="include/csv/CSV_line_builder.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="282,5,428,46"/>
-<area shape="rect" id="Node000002" href="$CSV__writer_8h.html" title=" " alt="" coords="271,94,438,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="358,62,358,93,352,93,352,62"/>
-<area shape="rect" id="Node000003" href="$CSV__writer_8c.html" title=" " alt="" coords="5,168,150,193"/>
-<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="307,56,101,169,98,165,304,52"/>
-<area shape="rect" id="Node000008" href="$CSV__line__builder_8c.html" title=" " alt="" coords="462,94,640,120"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="419,50,522,91,520,96,417,55"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,126,125,170,124,164,293,121"/>
-<area shape="rect" id="Node000004" href="$both__mp_8c.html" title=" " alt="" coords="173,168,342,193"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="328,131,275,169,272,165,325,127"/>
-<area shape="rect" id="Node000005" href="$task1__mp_8c.html" title=" " alt="" coords="366,168,541,193"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="385,127,439,165,435,169,382,131"/>
-<area shape="rect" id="Node000006" href="$both__sp_8c.html" title=" " alt="" coords="565,168,726,193"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="420,121,597,164,595,170,418,126"/>
-<area shape="rect" id="Node000007" href="$task1__sp_8c.html" title=" " alt="" coords="750,168,917,193"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="452,120,752,164,751,170,451,125"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="113,5,259,46"/>
+<area shape="rect" id="Node000002" href="$CSV__line__builder_8c.html" title=" " alt="" coords="5,94,183,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,58,110,95,106,91,150,54"/>
+<area shape="rect" id="Node000003" href="$CSV__writer_8c.html" title=" " alt="" coords="207,94,352,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,54,267,91,263,95,219,58"/>
 </map>

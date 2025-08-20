@@ -1,6 +1,6 @@
 <map id="write_output_mp" name="write_output_mp">
 <area shape="rect" id="Node000001" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="5,179,123,204"/>
-<area shape="rect" id="Node000002" href="$file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="179,5,304,31"/>
+<area shape="rect" id="Node000002" href="$_8null-ls__947915__file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="179,5,304,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,177,105,112,134,74,169,40,175,36,178,41,172,44,138,77,109,115,74,180"/>
 <area shape="rect" id="Node000003" href="$frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="198,55,284,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,176,113,134,140,110,169,89,183,82,185,87,172,94,143,114,117,138,78,180"/>

@@ -92,26 +92,15 @@ $(function(){initNavTree('file__reader__mp_8h_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <a href="file__reader__mp_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="utf8__tools_8h.html">utf8_tools.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="word_8h.html">word.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> wfd);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a>(<span class="keywordtype">int</span> rfd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
-<div class="ttc" id="afile__reader__mp_8h_html_a20af8848b0728195f4d816c2b3131dd1"><div class="ttname"><a href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a></div><div class="ttdeci">int read_words_from_pipe(int rfd, hash_table_t *ht)</div><div class="ttdoc">Rebuild a hash table from word pairs received on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00235">file_reader_mp.c:235</a></div></div>
-<div class="ttc" id="afile__reader__mp_8h_html_a6ccb4bb41659046568cd0c2068362ed1"><div class="ttname"><a href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a></div><div class="ttdeci">int publish_word_on_pipe(int fd, int wfd)</div><div class="ttdoc">Send consecutive word pairs over a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00140">file_reader_mp.c:140</a></div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> wfd);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> <a class="code hl_function" href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a>(<span class="keywordtype">int</span> rfd, <a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *ht);</div>
+<div class="ttc" id="afile__reader__mp_8h_html_a20af8848b0728195f4d816c2b3131dd1"><div class="ttname"><a href="file__reader__mp_8h.html#a20af8848b0728195f4d816c2b3131dd1">read_words_from_pipe</a></div><div class="ttdeci">int read_words_from_pipe(int rfd, hash_table_t *ht)</div><div class="ttdoc">Rebuild a hash table from word pairs received on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00243">file_reader_mp.c:243</a></div></div>
+<div class="ttc" id="afile__reader__mp_8h_html_a6ccb4bb41659046568cd0c2068362ed1"><div class="ttname"><a href="file__reader__mp_8h.html#a6ccb4bb41659046568cd0c2068362ed1">publish_word_on_pipe</a></div><div class="ttdeci">int publish_word_on_pipe(int fd, int wfd)</div><div class="ttdoc">Send consecutive word pairs over a pipe.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00148">file_reader_mp.c:148</a></div></div>
 <div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
 <div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
-<div class="ttc" id="autf8__tools_8h_html"><div class="ttname"><a href="utf8__tools_8h.html">utf8_tools.h</a></div></div>
-<div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
-<div class="ttc" id="aword_8h_html"><div class="ttname"><a href="word_8h.html">word.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

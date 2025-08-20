@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,179,58,204"/>
 <area shape="rect" id="Node000002" href="$file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="106,179,223,204"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,189,90,189,90,194,58,194"/>
-<area shape="rect" id="Node000003" href="$file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="280,5,404,31"/>
+<area shape="rect" id="Node000003" href="$_8null-ls__947915__file__writer_8c.html#a480675f6c86ec4e75304c9c55f65903f" title="Check if word is a sentence terminator." alt="" coords="280,5,404,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,177,205,112,234,74,269,40,275,36,278,41,273,44,238,77,210,115,174,180"/>
 <area shape="rect" id="Node000004" href="$frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="298,55,385,80"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="174,176,213,134,240,110,270,89,283,82,285,87,272,94,244,114,217,138,178,180"/>

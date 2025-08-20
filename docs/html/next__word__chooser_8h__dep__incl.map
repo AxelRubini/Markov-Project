@@ -1,18 +1,9 @@
 <map id="include/core/next_word_chooser.h" name="include/core/next_word_chooser.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="256,5,410,46"/>
-<area shape="rect" id="Node000002" href="$file__writer_8h.html" title=" " alt="" coords="260,102,406,127"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="336,62,336,101,330,101,330,62"/>
-<area shape="rect" id="Node000003" href="$file__writer_8c.html" title=" " alt="" coords="5,183,128,208"/>
-<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="291,57,87,184,84,180,288,52"/>
-<area shape="rect" id="Node000008" href="$next__word__chooser_8c.html" title=" " alt="" coords="430,94,562,135"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="385,51,460,91,458,96,382,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="279,135,108,185,107,180,277,129"/>
-<area shape="rect" id="Node000004" href="$both__mp_8c.html" title=" " alt="" coords="152,183,320,208"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="309,139,252,184,249,180,305,135"/>
-<area shape="rect" id="Node000005" href="$task2__mp_8c.html" title=" " alt="" coords="344,183,520,208"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="361,135,418,180,415,184,358,139"/>
-<area shape="rect" id="Node000006" href="$both__sp_8c.html" title=" " alt="" coords="544,183,704,208"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="393,129,580,179,578,185,392,134"/>
-<area shape="rect" id="Node000007" href="$task2__sp_8c.html" title=" " alt="" coords="728,183,896,208"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="400,128,419,132,583,160,728,180,727,186,582,165,418,137,399,134"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="155,5,310,46"/>
+<area shape="rect" id="Node000002" href="$next__word__chooser_8c.html" title=" " alt="" coords="5,94,137,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,56,109,96,106,91,181,51"/>
+<area shape="rect" id="Node000003" href="$_8null-ls__947915__file__writer_8c.html" title=" " alt="" coords="161,94,304,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,62,235,94,230,94,230,62"/>
+<area shape="rect" id="Node000004" href="$file__writer_8c.html" title=" " alt="" coords="328,102,451,127"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,51,369,99,366,103,280,56"/>
 </map>

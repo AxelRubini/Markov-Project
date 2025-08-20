@@ -138,6 +138,7 @@ int task1_mp(const char *input_txt, const char *output_csv) {
   int st;
   while (waitpid(-1, &st, 0) > 0)
     ;
+
   status = 0;
   goto done;
 
@@ -149,7 +150,7 @@ fail_pipes:
   safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
 done:
   if (is_stdin)
-    unlink(validated_input_txt);
+    unlink(TMP_STDIN_FILE);
   return status;
 }
 

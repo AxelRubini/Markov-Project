@@ -91,24 +91,15 @@ $(function(){initNavTree('modes__utils_8h.html','',''); });
   <div class="headertitle"><div class="title">modes_utils.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &lt;fcntl.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;sys/types.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for modes_utils.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8h__incl.png" border="0" usemap="#ainclude_2modes_2modes__utils_8h" loading="lazy" alt=""/></div>
 <map name="ainclude_2modes_2modes__utils_8h" id="ainclude_2modes_2modes__utils_8h">
-<area shape="rect" title=" " alt="" coords="98,5,246,46"/>
-<area shape="rect" title=" " alt="" coords="5,94,73,120"/>
-<area shape="poly" title=" " alt="" coords="140,49,74,88,71,83,138,44"/>
-<area shape="rect" title=" " alt="" coords="96,94,163,120"/>
-<area shape="poly" title=" " alt="" coords="164,48,146,81,141,79,159,45"/>
-<area shape="rect" title=" " alt="" coords="187,94,243,120"/>
-<area shape="poly" title=" " alt="" coords="185,45,203,79,199,81,181,48"/>
-<area shape="rect" title=" " alt="" coords="267,94,326,120"/>
-<area shape="poly" title=" " alt="" coords="204,44,266,83,263,88,202,49"/>
+<area shape="rect" title=" " alt="" coords="5,5,154,46"/>
+<area shape="rect" title=" " alt="" coords="36,94,123,120"/>
+<area shape="poly" title=" " alt="" coords="82,46,82,78,77,78,77,46"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -170,7 +161,7 @@ Functions</h2></td></tr>
 
 <p>Temporary file used to store data read from stdin when no input file is provided. </p>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00012">12</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00009">9</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +179,7 @@ Functions</h2></td></tr>
 
 <p>Temporary file used to capture output when no output file is provided. </p>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00017">17</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00014">14</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
 
 </div>
 </div>
@@ -208,8 +199,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00084">84</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>{ <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00088">88</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>{ <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>; }</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -269,13 +260,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00077">77</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                              {</div>
-<div class="line"><span class="lineno">   78</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
-<div class="line"><span class="lineno">   79</span>    kill(pid, SIGTERM);    <span class="comment">// Send termination signal to the process</span></div>
-<div class="line"><span class="lineno">   80</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
-<div class="line"><span class="lineno">   81</span>  }</div>
-<div class="line"><span class="lineno">   82</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00081">81</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>                              {</div>
+<div class="line"><span class="lineno">   82</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
+<div class="line"><span class="lineno">   83</span>    kill(pid, SIGTERM);    <span class="comment">// Send termination signal to the process</span></div>
+<div class="line"><span class="lineno">   84</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
+<div class="line"><span class="lineno">   85</span>  }</div>
+<div class="line"><span class="lineno">   86</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -323,34 +314,34 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00049">49</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>                                                       {</div>
-<div class="line"><span class="lineno">   50</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
-<div class="line"><span class="lineno">   51</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
-<div class="line"><span class="lineno">   53</span>  }</div>
-<div class="line"><span class="lineno">   54</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
-<div class="line"><span class="lineno">   55</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   56</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
-<div class="line"><span class="lineno">   58</span>  }</div>
-<div class="line"><span class="lineno">   59</span>  <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><span class="lineno">   60</span>  ssize_t bytes_read;</div>
-<div class="line"><span class="lineno">   61</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
-<div class="line"><span class="lineno">   63</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
-<div class="line"><span class="lineno">   64</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   65</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   66</span>    }</div>
-<div class="line"><span class="lineno">   67</span>  }</div>
-<div class="line"><span class="lineno">   68</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
-<div class="line"><span class="lineno">   69</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   72</span>  }</div>
-<div class="line"><span class="lineno">   73</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   74</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   75</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00053">53</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>                                                       {</div>
+<div class="line"><span class="lineno">   54</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
+<div class="line"><span class="lineno">   55</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
+<div class="line"><span class="lineno">   57</span>  }</div>
+<div class="line"><span class="lineno">   58</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
+<div class="line"><span class="lineno">   59</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   60</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
+<div class="line"><span class="lineno">   62</span>  }</div>
+<div class="line"><span class="lineno">   63</span>  <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><span class="lineno">   64</span>  ssize_t bytes_read;</div>
+<div class="line"><span class="lineno">   65</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
+<div class="line"><span class="lineno">   67</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   69</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="line"><span class="lineno">   71</span>  }</div>
+<div class="line"><span class="lineno">   72</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
+<div class="line"><span class="lineno">   73</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   74</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   76</span>  }</div>
+<div class="line"><span class="lineno">   77</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   78</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   79</span>}</div>
 <div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -418,29 +409,29 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the validated file path on success, NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00029">29</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>                                                                      {</div>
-<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
-<div class="line"><span class="lineno">   32</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   33</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
-<div class="line"><span class="lineno">   34</span>    }</div>
-<div class="line"><span class="lineno">   35</span>    *is_stdin = 1;                    <span class="comment">// Indicate that input is from stdin</span></div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
-<div class="line"><span class="lineno">   37</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   38</span>    *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   41</span>      perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
-<div class="line"><span class="lineno">   42</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
-<div class="line"><span class="lineno">   46</span>  }</div>
-<div class="line"><span class="lineno">   47</span>}</div>
-<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00006">modes_utils.c:6</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00084">modes_utils.c:84</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00012">modes_utils.h:12</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00033">33</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>                                                                      {</div>
+<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
+<div class="line"><span class="lineno">   36</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   37</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
+<div class="line"><span class="lineno">   38</span>    }</div>
+<div class="line"><span class="lineno">   39</span>    *is_stdin = 1;                    <span class="comment">// Indicate that input is from stdin</span></div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
+<div class="line"><span class="lineno">   41</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   42</span>    *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   45</span>      perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
+<div class="line"><span class="lineno">   46</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
+<div class="line"><span class="lineno">   50</span>  }</div>
+<div class="line"><span class="lineno">   51</span>}</div>
+<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00010">modes_utils.c:10</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00088">modes_utils.c:88</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00009">modes_utils.h:9</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

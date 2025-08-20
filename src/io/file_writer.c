@@ -211,7 +211,7 @@ int write_output_mp(int fd, const char *filename) {
       perror("write_output_mp: recv_frame");
       free(buff);
       free(last_word);
-      close(file_fd);
+      safe_close(&file_fd);
       return -1;
     }
     if (frm_st == 0) {

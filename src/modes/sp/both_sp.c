@@ -71,17 +71,21 @@ int both_sp(const char *input_txt, const char *output_csv,
   fprintf(stderr, "Output written to %s\n", output_txt);
   free_hash_table(freq_table);
 
+  if (is_stdin) {
+    unlink(TMP_STDIN_FILE);
+  }
+
   if (print_to_stdout) {
     // Print the content of the output file to stdout
     if (print_file_content_to_stdout(output_txt) < 0) {
       fprintf(stderr, "Failed to print output to stdout\n");
-      unlink(output_txt); // Remove the temporary file
+      unlink(TMP_STDOUT_FILE); // Remove the temporary file
 
       return -1;
     }
     fprintf(stderr,
             "Output printed to stdout, temporary file will be removed\n");
-    unlink(output_txt); // Remove the temporary file after printing
+    unlink(TMP_STDOUT_FILE); // Remove the temporary file after printing
   }
   return 0;
 }
