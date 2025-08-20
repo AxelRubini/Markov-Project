@@ -1,9 +1,0 @@
-/home/axel/so2Proj/Markov-Project/include/csv/CSV_reader.h:23: warning: argument 'fd' of command @param is not found in the argument list of read_csv_file_sp(const char *filename)
-/home/axel/so2Proj/Markov-Project/include/csv/CSV_reader.h:23: warning: The following parameter of read_csv_file_sp(const char *filename) is not documented:
-  parameter 'filename'
-/home/axel/so2Proj/Markov-Project/include/io/file_writer.h:22: warning: argument 'start_sym' of command @param is not found in the argument list of send_output_mp(int fd, hash_table_t *ht, const int num_words)
-/home/axel/so2Proj/Markov-Project/include/io/file_writer.h:10: warning: argument 'start_sym' of command @param is not found in the argument list of write_output_sp(const char *filename, const int num_words, hash_table_t *table)
-/home/axel/so2Proj/Markov-Project/include/modes/mp/both_mp.h:9: warning: argument 'word' of command @param is not found in the argument list of both_mp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words)
-/home/axel/so2Proj/Markov-Project/include/modes/mp/task2_mp.h:9: warning: argument 'word' of command @param is not found in the argument list of task2_mp(const char *input_csv, const char *output_txt, size_t n_words)
-/home/axel/so2Proj/Markov-Project/include/modes/sp/both_sp.h:9: warning: argument 'word' of command @param is not found in the argument list of both_sp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words)
-/home/axel/so2Proj/Markov-Project/include/modes/sp/task2_sp.h:8: warning: argument 'word' of command @param is not found in the argument list of task2_sp(const char *input_csv, const char *output_txt, size_t n_words)

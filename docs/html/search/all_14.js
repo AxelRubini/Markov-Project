@@ -1,28 +1,4 @@
 var searchData=
 [
-  ['table_0',['table',['../index.html#autotoc_md12',1,'Hash table'],['../structnext__word__chooser__t.html#adac107ac1a5f57ea77763f8f68bde67b',1,'next_word_chooser_t::table']]],
-  ['tail_1',['tail',['../structlinked__list__t.html#a28919a9a2970da5e3ba724d20d51d7ba',1,'linked_list_t']]],
-  ['task_2',['task',['../structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075',1,'options_t']]],
-  ['task_20both_20process_20flow_3',['Task-both process flow',['../index.html#autotoc_md6',1,'']]],
-  ['task1_20process_20flow_4',['Task1 process flow',['../index.html#autotoc_md7',1,'']]],
-  ['task1_5fmp_5',['task1_mp',['../task1__mp_8h.html#a47463f768cc021dcf34b718d7a784362',1,'task1_mp(const char *input_txt, const char *output_csv):&#160;task1_mp.c'],['../task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362',1,'task1_mp(const char *input_txt, const char *output_csv):&#160;task1_mp.c']]],
-  ['task1_5fmp_2ec_6',['task1_mp.c',['../task1__mp_8c.html',1,'']]],
-  ['task1_5fmp_2eh_7',['task1_mp.h',['../task1__mp_8h.html',1,'']]],
-  ['task1_5fsp_8',['task1_sp',['../task1__sp_8h.html#ac4c91b6d3574787f024a67ea9b0f87d2',1,'task1_sp(const char *input_txt, const char *output_csv):&#160;task1_sp.c'],['../task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2',1,'task1_sp(const char *input_txt, const char *output_csv):&#160;task1_sp.c']]],
-  ['task1_5fsp_2ec_9',['task1_sp.c',['../task1__sp_8c.html',1,'']]],
-  ['task1_5fsp_2eh_10',['task1_sp.h',['../task1__sp_8h.html',1,'']]],
-  ['task2_20process_20flow_11',['Task2 process flow',['../index.html#autotoc_md8',1,'']]],
-  ['task2_5fmp_12',['task2_mp',['../task2__mp_8h.html#a28939715d9ef0546abc14ddb047b1580',1,'task2_mp(const char *input_csv, const char *output_txt, size_t n_words):&#160;task2_mp.c'],['../task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580',1,'task2_mp(const char *input_csv, const char *output_txt, size_t n_words):&#160;task2_mp.c']]],
-  ['task2_5fmp_2ec_13',['task2_mp.c',['../task2__mp_8c.html',1,'']]],
-  ['task2_5fmp_2eh_14',['task2_mp.h',['../task2__mp_8h.html',1,'']]],
-  ['task2_5fsp_15',['task2_sp',['../task2__sp_8h.html#a3119ac76193fcae4179179ea28dabad8',1,'task2_sp(const char *input_csv, const char *output_txt, size_t n_words):&#160;task2_sp.c'],['../task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8',1,'task2_sp(const char *input_csv, const char *output_txt, size_t n_words):&#160;task2_sp.c']]],
-  ['task2_5fsp_2ec_16',['task2_sp.c',['../task2__sp_8c.html',1,'']]],
-  ['task2_5fsp_2eh_17',['task2_sp.h',['../task2__sp_8h.html',1,'']]],
-  ['task_5f1_18',['TASK_1',['../options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c',1,'options.h']]],
-  ['task_5f2_19',['TASK_2',['../options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d',1,'options.h']]],
-  ['task_5fboth_20',['TASK_BOTH',['../options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897',1,'options.h']]],
-  ['task_5ft_21',['task_t',['../options_8h.html#a2134c58e6771263d48a50f8ffb480f66',1,'options.h']]],
-  ['testo_20in_20utf_208_20_3a_22',['Analisi del testo in UTF-8 :',['../index.html#autotoc_md10',1,'']]],
-  ['tmp_5fstdin_5ffile_23',['TMP_STDIN_FILE',['../modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924',1,'modes_utils.h']]],
-  ['tmp_5fstdout_5ffile_24',['TMP_STDOUT_FILE',['../modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23',1,'modes_utils.h']]]
+  ['word_5ft_0',['word_t',['../structword__t.html',1,'']]]
 ];
