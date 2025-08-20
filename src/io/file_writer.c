@@ -26,10 +26,10 @@ int is_last_terminator(const int *word) {
   return (word[0] == '.' || word[0] == '!' || word[0] == '?');
 }
 
-static char *generate_random_symbol() {
-  char *symbol = dmalloc(2 * sizeof(char));
-  const char charset[] = ".?!";
-  int index = rand() % (sizeof(charset) - 1);
+static int *generate_random_symbol() {
+  int *symbol = dmalloc(2 * sizeof(int));
+  const int charset[] = GENERATED_TEST_STARTERS;
+  int index = rand() % (ARR_SZ(charset));
   symbol[0] = charset[index];
   symbol[1] = '\0';
   return symbol;
@@ -69,7 +69,9 @@ static int *create_start_word(const hash_table_t *table) {
     fprintf(stderr, "Failed to print available words\n");
     return NULL; // Error printing words
   }
-  fprintf(stdout, "Enter a starting word (or press Enter for random): ");
+  fprintf(
+      stdout,
+      "Enter a starting word from the above list(or press Enter for random): ");
   fflush(stdout);
   // Read a UTF-8 word from stdin
   char *input_word = NULL;
@@ -97,18 +99,19 @@ static int *create_start_word(const hash_table_t *table) {
     utf8_print_word(word, STDOUT_FILENO);
     printf("\n");
     free(word); // Free the word if not found
-    char *random_symbol = generate_random_symbol();
-    if (random_symbol == NULL) {
-      fprintf(stderr, "Failed to generate random symbol\n");
-      return NULL; // Error generating random symbol
-    }
-    fprintf(stdout, "Using random symbol: %s\n", random_symbol);
-    int *start_word = utf8_str_deepcopy((int[]){random_symbol[0], '\0'});
-    free(random_symbol); // Free the random symbol
+  find_good_symbol:
+    fprintf(stdout, "Generating a random valid start word ...\n");
+    int *start_word = generate_random_symbol();
     if (start_word == NULL) {
       fprintf(stderr, "Failed to create start word from random symbol\n");
       return NULL; // Error creating start word
     }
+    if ((ht_item *)ht_search(table, start_word) == NULL) {
+      // symbol not found, try again
+      free(start_word);
+      goto find_good_symbol;
+    }
+
     return start_word; // Return the random symbol as the start word
   } else {
     // Word found in hash table, return it
