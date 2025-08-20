@@ -1,28 +1,11 @@
 <map id="ht_insert" name="ht_insert">
-<area shape="rect" id="Node000001" title="Insert an item into the table." alt="" coords="5,132,77,158"/>
-<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="316,5,400,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,130,80,95,100,76,123,61,168,42,214,30,300,17,301,23,215,35,169,47,126,66,104,81,83,99,54,133"/>
-<area shape="rect" id="Node000004" href="$hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="305,56,411,82"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="57,129,87,109,124,92,166,80,209,72,290,66,290,71,210,78,167,85,126,97,90,114,60,134"/>
-<area shape="rect" id="Node000006" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="300,207,416,232"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="78,151,286,200,285,205,77,156"/>
-<area shape="rect" id="Node000007" href="$ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="125,208,252,234"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="68,156,126,186,149,198,146,203,123,191,66,161"/>
-<area shape="rect" id="Node000008" href="$hash__table_8c.html#a6652bd6c45a64068c4365e69fb250705" title=" " alt="" coords="152,107,225,132"/>
-<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="77,136,136,126,137,131,77,141"/>
-<area shape="rect" id="Node000011" href="$hash__table_8c.html#ad0646f0cb7f70b230e7a4a718cbe5056" title=" " alt="" coords="146,257,231,283"/>
-<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="52,157,82,199,102,223,126,244,133,249,131,253,123,248,99,227,77,203,48,160"/>
-<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="635,56,701,82"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,18,487,25,587,41,620,50,619,55,586,46,487,31,401,23"/>
-<area shape="rect" id="Node000005" href="$linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="464,56,587,82"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="412,66,449,66,449,72,412,72"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="587,66,619,66,619,72,587,72"/>
-<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="205,104,247,74,299,41,309,36,312,40,301,46,250,78,209,108"/>
-<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="226,129,295,147,386,161,436,164,487,163,538,155,586,141,620,119,646,92,650,96,623,124,588,146,539,161,488,168,436,170,385,167,294,152,225,134"/>
-<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="225,106,297,84,299,89,226,111"/>
-<area shape="poly" id="edge12_Node000008_Node000006" title=" " alt="" coords="219,131,253,149,301,185,320,196,317,201,299,190,251,154,217,135"/>
-<area shape="rect" id="Node000009" href="$utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="316,105,400,131"/>
-<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="226,117,300,116,300,121,226,122"/>
-<area shape="rect" id="Node000010" href="$utils_8c.html#a1d8eddef9f888ac973de205c457bd89d" title="Check if a number is prime." alt="" coords="490,105,561,131"/>
-<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="401,116,475,116,475,121,401,121"/>
+<area shape="rect" id="Node000001" title="Insert an item into the table." alt="" coords="5,55,77,80"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="146,5,230,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,53,133,34,134,39,78,58"/>
+<area shape="rect" id="Node000004" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="130,55,246,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="77,65,115,65,115,70,77,70"/>
+<area shape="rect" id="Node000005" href="$ht__item_8c.html#a0c589076c5c9e0391e3011b4e01a0fbf" title="Get the value stored in an item." alt="" coords="125,104,252,130"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="78,77,134,96,133,101,76,82"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="300,5,366,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="231,16,284,16,284,21,231,21"/>
 </map>

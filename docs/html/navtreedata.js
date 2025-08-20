@@ -66,8 +66,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CSV__line__builder_8c.html",
-"linked__list_8c.html",
-"word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f"
+"next__word_8c.html#a853f57b435b8f7d8d606c06b0a92d3a9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

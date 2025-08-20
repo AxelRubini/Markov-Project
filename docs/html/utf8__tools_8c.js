@@ -10,7 +10,6 @@ var utf8__tools_8c =
     [ "utf8_getchar", "utf8__tools_8c.html#a942ec7ab0d62df1a4722b4ed3c86329f", null ],
     [ "utf8_getchar_fd", "utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769", null ],
     [ "utf8_getchar_from_buf", "utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806", null ],
-    [ "utf8_length", "utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871", null ],
     [ "utf8_print_word", "utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5", null ],
     [ "utf8_putchar", "utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e", null ],
     [ "utf8_rawbytes_to_cp", "utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652", null ],

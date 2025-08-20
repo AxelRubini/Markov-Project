@@ -1,13 +1,5 @@
 <map id="move_to_next_word" name="move_to_next_word">
-<area shape="rect" id="Node000001" title="Read and return the next non&#45;space character." alt="" coords="5,55,143,80"/>
-<area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="191,29,341,55"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,56,175,52,175,57,143,61"/>
-<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="213,79,318,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="143,73,198,80,197,86,143,79"/>
-<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="392,5,497,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,29,377,25,378,30,342,35"/>
-<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="389,55,500,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="342,50,374,55,373,60,341,55"/>
-<area shape="rect" id="Node000005" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="548,55,634,80"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="501,65,533,65,533,70,501,70"/>
+<area shape="rect" id="Node000001" title="Read and return the next non&#45;space character." alt="" coords="5,5,143,31"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="191,5,296,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,16,175,16,175,21,143,21"/>
 </map>

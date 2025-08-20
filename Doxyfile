@@ -1,27 +1,61 @@
+
+# --- Project ---
 PROJECT_NAME           = "Markov"
 OUTPUT_DIRECTORY       = docs
 INPUT                  = include src README.md
 FILE_PATTERNS          = *.h *.c *.md
 RECURSIVE              = YES
 
+# --- Extraction scope (tighten to only what’s documented) ---
 OPTIMIZE_OUTPUT_FOR_C  = YES
-EXTRACT_STATIC         = YES
-EXTRACT_PRIVATE        = YES
 EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+HIDE_UNDOC_MEMBERS     = YES
+HIDE_UNDOC_CLASSES     = YES
+
+# --- Parsing / brief handling ---
 JAVADOC_AUTOBRIEF      = YES
 MULTILINE_CPP_IS_BRIEF = YES
-INLINE_SOURCES         = YES
-SOURCE_BROWSER         = YES
+STRIP_CODE_COMMENTS    = YES
 
-WARNINGS               = YES
-WARN_IF_UNDOCUMENTED   = YES
-WARN_LOGFILE           = doxygen.warnings
+# --- Source embedding / browsing (major size cuts) ---
+INLINE_SOURCES         = NO
+SOURCE_BROWSER         = NO
+VERBATIM_HEADERS       = YES
+SHOW_INCLUDE_FILES     = NO
 
-HAVE_DOT               = YES
-CALL_GRAPH             = YES
-CALLER_GRAPH           = YES
+# --- Diagrams / graphs (disable DOT payload) ---
+HAVE_DOT               = YES 
+CALL_GRAPH             = YES 
+CALLER_GRAPH           = NO
+REFERENCES_RELATION    = NO
+REFERENCED_BY_RELATION = NO
 
+DOT_GRAPH_MAX_NODES  = 25
+DOT_TRANSPARENT      = YES
+UML_LOOK             = NO
+
+# --- Output formats ---
 GENERATE_HTML          = YES
 GENERATE_LATEX         = NO
+GENERATE_XML           = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_DOCSET        = NO
+
+# --- HTML weight reducers ---
+SEARCHENGINE           = NO
+HTML_DYNAMIC_SECTIONS  = NO
+GENERATE_TREEVIEW      = YES
+HTML_TIMESTAMP         = NO
+
+# --- Markdown / main page ---
 MARKDOWN_SUPPORT       = YES
 USE_MDFILE_AS_MAINPAGE = README.md
+
+# --- Quality gates (keep these) ---
+WARNINGS               = NO
+WARN_IF_UNDOCUMENTED   = NO
+WARN_LOGFILE           = doxygen.warnings
+

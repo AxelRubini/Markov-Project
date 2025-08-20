@@ -1,16 +1,13 @@
 <map id="update_ht_item_value" name="update_ht_item_value">
-<area shape="rect" id="Node000001" title="Update a hash&#45;table item with a new follower list." alt="" coords="5,80,154,106"/>
+<area shape="rect" id="Node000001" title="Update a hash&#45;table item with a new follower list." alt="" coords="5,55,154,80"/>
 <area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="246,5,330,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,77,201,40,230,30,232,35,203,45,111,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,51,231,29,232,34,138,57"/>
 <area shape="rect" id="Node000004" href="$word_8c.html#a0e868f17d208e84602274969f05bfeae" title="Increment the occurrence counter of a word." alt="" coords="202,55,375,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,81,186,77,186,83,154,86"/>
-<area shape="rect" id="Node000005" href="$word_8c.html#a538516353f7d77bdf23dfad46051d02b" title="Create a deep copy of a word." alt="" coords="229,104,348,130"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="154,99,214,106,213,111,154,104"/>
-<area shape="rect" id="Node000006" href="$word_8c.html#a62140fcceec37578888d60a4cadaa20e" title="Compare two words." alt="" coords="251,153,326,179"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="112,104,203,140,237,150,235,155,201,145,110,109"/>
-<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="435,55,501,80"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,27,421,52,419,57,330,32"/>
-<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="337,101,419,78,421,83,339,106"/>
-<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="423,153,513,179"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="326,164,407,164,407,169,326,169"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,65,186,65,186,70,154,70"/>
+<area shape="rect" id="Node000005" href="$word_8c.html#a62140fcceec37578888d60a4cadaa20e" title="Compare two words." alt="" coords="251,104,326,130"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="138,78,237,102,235,107,137,84"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="435,5,501,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,16,420,16,420,21,331,21"/>
+<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#ac2077df025c715fd9f73ab86431d2de8" title="Compare two UTF&#45;8 strings." alt="" coords="423,104,513,130"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="326,114,407,114,407,120,326,120"/>
 </map>
