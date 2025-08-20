@@ -7,13 +7,22 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * @brief Write all bytes from buf to the file descriptor fd.
+ *
+ * @param fd File descriptor to write to.
+ * @param buf Buffer containing data to write.
+ * @param len Length of data to write.
+ * @return 0 on success, -1 on error.
+ */
+
 static int write_all(int fd, const void *buf, size_t len) {
   const char *ptr = buf;
   size_t left = len;
   while (left > 0) {
     ssize_t written = write(fd, ptr, left);
     if (written < 0) {
-      if (errno == EINTR) {
+      if (errno == EINTR) { // Interrupted by a signal, retry
         continue;
       }
       perror("write_all");
@@ -25,13 +34,21 @@ static int write_all(int fd, const void *buf, size_t len) {
   return 0;
 }
 
+/**
+ * @brief Read all bytes from the file descriptor fd into buf.
+ *
+ * @param fd File descriptor to read from.
+ * @param buf Buffer to store readed data.
+ * @param len Length of data to read.
+ * @return number of bytes read on success, 0 on EOF, -1 on error.
+ */
 static ssize_t read_all(int fd, void *buf, size_t len) {
   char *ptr = buf;
   size_t left = len;
   while (left > 0) {
     ssize_t read_bytes = read(fd, ptr, left);
     if (read_bytes < 0) {
-      if (errno == EINTR) {
+      if (errno == EINTR) { // Interrupted by a signal, retry
         continue;
       }
       perror("read_all");

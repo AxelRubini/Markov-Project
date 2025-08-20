@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['both_20process_20flow_0',['Task-both process flow',['../index.html#autotoc_md7',1,'']]],
+  ['both_20process_20flow_0',['Task-both process flow',['../index.html#autotoc_md6',1,'']]],
   ['both_5fmp_1',['both_mp',['../both__mp_8h.html#ad293cdae5f4359d9496c75593f62224d',1,'both_mp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words):&#160;both_mp.c'],['../both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d',1,'both_mp(const char *input_txt, const char *output_csv, const char *output_txt, size_t n_words):&#160;both_mp.c']]],
   ['both_5fmp_2ec_2',['both_mp.c',['../both__mp_8c.html',1,'']]],
   ['both_5fmp_2eh_3',['both_mp.h',['../both__mp_8h.html',1,'']]],

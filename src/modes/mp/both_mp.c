@@ -254,7 +254,7 @@ int both_mp(const char *input_txt, const char *output_csv,
     goto fail_pipes;
   }
   if (p1 == 0) {
-    // Child P1: read input -> pipe12[1]
+    // P1 -> read from input_txt and write to pipe_read[1]
     close(pipe_read[0]);
     int not_p1[] = {pipe_csv[0],     pipe_csv[1], pipe_freqtab[0],
                     pipe_freqtab[1], pipe_out[0], pipe_out[1]};
@@ -264,12 +264,12 @@ int both_mp(const char *input_txt, const char *output_csv,
     _exit(0);
   }
 
-  // P2
   p2 = fork();
   if (p2 < 0) {
     perror("fork p2");
     goto fail_kill_p1;
   }
+  // P2 -> read from pipe_read[0] and write to pipe_csv[1] and pipe_freqtab[1] using 2 other children
   if (p2 == 0) {
     int not_p2[] = {pipe_csv[0], pipe_freqtab[0], pipe_out[0], pipe_out[1],
                     pipe_read[1]};
@@ -279,12 +279,12 @@ int both_mp(const char *input_txt, const char *output_csv,
     _exit(0);
   }
 
-  // P3
   p3 = fork();
   if (p3 < 0) {
     perror("fork p3");
     goto fail_kill_p1p2;
   }
+  // P3 -> read from pipe_csv[0] and write to output_csv
   if (p3 == 0) {
     int not_p3[] = {pipe_read[0],    pipe_read[1], pipe_freqtab[0],
                     pipe_freqtab[1], pipe_out[0],  pipe_out[1],
@@ -295,12 +295,12 @@ int both_mp(const char *input_txt, const char *output_csv,
     _exit(0);
   }
 
-  // P4
   p4 = fork();
   if (p4 < 0) {
     perror("fork p4");
     goto fail_kill_p1p2p3;
   }
+  // P4 -> read from pipe_freqtab[0] and write to pipe_out[1]
   if (p4 == 0) {
     int not_p4[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
                     pipe_csv[1],  pipe_out[0],  pipe_freqtab[1]};
@@ -310,7 +310,6 @@ int both_mp(const char *input_txt, const char *output_csv,
     _exit(0);
   }
 
-  // P5
   p5 = fork();
   if (p5 < 0) {
     perror("fork p5");

@@ -178,9 +178,6 @@ Compilazione</h1>
 <div class="fragment"><div class="line">make</div>
 </div><!-- fragment --><p>L'eseguibile risultante sarà <span class="tt">./markov</span>.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Linee guida di sviluppo</h1>
-<p>Per l'allocazione dinamica viene fornita la funzione <span class="tt">dmalloc</span> che inizializza a zero la memoria e termina l'esecuzione in caso di errore. L'uso diretto di <span class="tt">malloc</span> è sconsigliato; preferire <span class="tt">dmalloc</span> e utilizzare strumenti di analisi statica (ad es. <span class="tt">clang-tidy</span>) o convenzioni di naming per individuare chiamate involontarie a <span class="tt">malloc</span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Manuale utente</h1>
 <p>Esecuzione generale:</p>
 <div class="fragment"><div class="line">./markov [opzioni]</div>
@@ -196,7 +193,7 @@ Manuale utente</h1>
 <li><span class="tt">--output-csv &lt;file&gt;</span> – file CSV prodotto da <span class="tt">task1</span> (default: <span class="tt">Analysis_&lt;input&gt;</span>).</li>
 <li><span class="tt">--n-words &lt;n&gt;</span> – numero di parole da generare (default: 10). Durante l'esecuzione di <span class="tt">task2</span> o <span class="tt">task-both</span> verrà richiesto di inserire la parola iniziale da una lista stampata sul terminale; premendo Invio verrà scelto un simbolo casuale tra '.' '?' '!'.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Esempi</h2>
 <ol type="1">
 <li><p class="startli">Analizzare un testo e salvare le transizioni in CSV:</p>
@@ -210,26 +207,26 @@ Esempi</h2>
 <div class="fragment"><div class="line">./markov --mp --task-both --input-txt libro.txt --output-csv analisi.csv --output-txt output.txt --n-words 20</div>
 </div><!-- fragment --></li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Flowchart delle modalita multiprocesso</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Task-both process flow</h2>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
 </div>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Task1 process flow</h2>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
 </div>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Task2 process flow</h2>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_3.png" alt="dot_inline_dotgraph_3.png" border="0" usemap="#dot_inline_dotgraph_3.map"/>
 </div>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Risorse usate per la realizzazione del progetto</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Analisi del testo in UTF-8 :</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/UTF-8">https://en.wikipedia.org/wiki/UTF-8</a></li>
@@ -237,14 +234,14 @@ Analisi del testo in UTF-8 :</h2>
 <li><a href="https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math">https://stackoverflow.com/questions/68835028/utf-8-hex-to-unicode-code-point-only-math</a></li>
 <li><a href="https://utf8everywhere.org/">https://utf8everywhere.org/</a></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Gestione IPC</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/19127398/socket-programming-read-is-reading-all-of-my-writes">https://stackoverflow.com/questions/19127398/socket-programming-read-is-reading-all-of-my-writes</a></li>
 <li><a href="https://people.cs.rutgers.edu/~pxk/416/notes/c-tutorials/pipe.html">https://people.cs.rutgers.edu/~pxk/416/notes/c-tutorials/pipe.html</a> ho bisogno di implementare questa versione di scrittura per evitare problemi di buffer pieno</li>
 <li><a href="https://stackoverflow.com/questions/8242318/trouble-when-trying-to-define-a-write-all-socket-function-in-c">https://stackoverflow.com/questions/8242318/trouble-when-trying-to-define-a-write-all-socket-function-in-c</a></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Hash table</h2>
 <ul>
 <li><a href="https://stackoverflow.com/questions/22437416/best-way-to-resize-a-hash-table">https://stackoverflow.com/questions/22437416/best-way-to-resize-a-hash-table</a></li>
@@ -252,7 +249,7 @@ Hash table</h2>
 <li><a href="https://dev.to/jihoonj/implementing-a-hash-table-3pa7">https://dev.to/jihoonj/implementing-a-hash-table-3pa7</a> risolve problema di resize</li>
 <li><a href="https://gist.github.com/cellularmitosis/9db34df37d3df91709ad3e4faf93c417">https://gist.github.com/cellularmitosis/9db34df37d3df91709ad3e4faf93c417</a></li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Funzione Hash</h2>
 <ul>
 <li><a href="http://www.cse.yorku.ca/~oz/hash.html">http://www.cse.yorku.ca/~oz/hash.html</a> </li>

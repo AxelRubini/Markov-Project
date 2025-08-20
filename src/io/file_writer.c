@@ -17,7 +17,7 @@
  * @param word Code-point word.
  * @return Non-zero if word is '.', '!' or '?'.
  */
-int is_last_terminator(const int *word) {
+static int is_last_terminator(const int *word) {
   if (word == NULL) {
     fprintf(stderr, "Word is NULL\n");
     return 0; // Not a terminator
@@ -26,6 +26,11 @@ int is_last_terminator(const int *word) {
   return (word[0] == '.' || word[0] == '!' || word[0] == '?');
 }
 
+/**
+ * @brief Generate a random symbol from the predefined stat
+ *
+ * @return Pointer to an array of integers representing the symbol.
+ */
 static int *generate_random_symbol() {
   int *symbol = dmalloc(2 * sizeof(int));
   const int charset[] = GENERATED_TEST_STARTERS;
@@ -35,6 +40,12 @@ static int *generate_random_symbol() {
   return symbol;
 }
 
+/**
+ * @brief Print all available words in the hash table.
+ *
+ * @param table Hash table to print words from.
+ * @return 0 on success, -1 on error.
+ */
 static int print_available_words(const hash_table_t *table) {
   if (table == NULL || table->size == 0) {
     fprintf(stderr, "Hash table is NULL or empty\n");
@@ -58,6 +69,12 @@ static int print_available_words(const hash_table_t *table) {
   return 0; // Success
 }
 
+/**
+ * @brief Create a start word from user input or random symbol.
+ *
+ * @param table Hash table to search for the word.
+ * @return Pointer to an array of integers representing the start word or NULL on error.
+ */
 static int *create_start_word(const hash_table_t *table) {
   if (table == NULL || table->size == 0) {
     fprintf(stderr, "Hash table is NULL or empty\n");

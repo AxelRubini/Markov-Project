@@ -441,34 +441,37 @@ $(function(){initNavTree('both__mp_8c_source.html','',''); });
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>  <span class="keywordtype">int</span> st;</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>  <span class="keywordflow">while</span> (waitpid(-1, &amp;st, 0) &gt; 0)</div>
 <div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    ;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="comment">// Print the content of the output file to stdout</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>      unlink(output_txt); <span class="comment">// Remove the temporary file</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>  }</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>  status = 0; <span class="comment">// success</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  <span class="keywordflow">goto</span> done;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>  <span class="keywordflow">if</span> (stdin) {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    unlink(validated_input_txt);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>  }</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>  <span class="keywordflow">if</span> (print_to_stdout) {</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="comment">// Print the content of the output file to stdout</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>      unlink(output_txt); <span class="comment">// Remove the temporary file</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    }</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  }</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>fail_kill_p1p2p3p4:</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p4);</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>fail_kill_p1p2p3:</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p3);</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>fail_kill_p1p2:</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>fail_kill_p1:</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>fail_pipes:</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>done:</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  <span class="keywordflow">return</span> status;</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>}</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>  status = 0; <span class="comment">// success</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  <span class="keywordflow">goto</span> done;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>fail_kill_p1p2p3p4:</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p4);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>fail_kill_p1p2p3:</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p3);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>fail_kill_p1p2:</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p2);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>fail_kill_p1:</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>  <a class="code hl_function" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(p1);</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>fail_pipes:</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  <a class="code hl_function" href="utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd">safe_close_pipes</a>(all_pipes, <a class="code hl_define" href="utils_8h.html#a98a2f36b5fa8afc4572149c13c17fc93">ARR_SZ</a>(all_pipes));</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>done:</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>  <span class="keywordflow">return</span> status;</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>}</div>
 </div>
 <div class="ttc" id="aCSV__reader_8h_html"><div class="ttname"><a href="CSV__reader_8h.html">CSV_reader.h</a></div></div>
 <div class="ttc" id="aCSV__reader_8h_html_a7404d1f70f2ae8cf3a3d055de7285500"><div class="ttname"><a href="CSV__reader_8h.html#a7404d1f70f2ae8cf3a3d055de7285500">read_lines_from_pipe</a></div><div class="ttdeci">hash_table_t * read_lines_from_pipe(int in_fd)</div><div class="ttdoc">Build a hash table from CSV lines read on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00178">CSV_reader.c:178</a></div></div>
