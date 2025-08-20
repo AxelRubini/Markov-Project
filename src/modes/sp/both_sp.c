@@ -34,7 +34,7 @@ int both_sp(const char *input_txt, const char *output_csv,
   csv_build_file(output_csv, ht);
   free_hash_table(ht);
   if (is_stdin) {
-    remove(TMP_STDIN_FILE); // Remove the temporary file if it was
+    unlink(TMP_STDIN_FILE); // Remove the temporary file if it was
                             // created
   }
 
@@ -71,9 +71,6 @@ int both_sp(const char *input_txt, const char *output_csv,
   fprintf(stderr, "Output written to %s\n", output_txt);
   free_hash_table(freq_table);
 
-  if (is_stdin) {
-    unlink(TMP_STDIN_FILE);
-  }
 
   if (print_to_stdout) {
     // Print the content of the output file to stdout
