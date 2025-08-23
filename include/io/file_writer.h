@@ -14,7 +14,7 @@
  * @return 0 on success, -1 on error.
  */
 int write_output_sp(const char *filename, const int num_words,
-                    hash_table_t *table);
+		    hash_table_t *table);
 
 /**
  * @brief Send generated words over a file descriptor.

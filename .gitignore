@@ -24,7 +24,8 @@ vgcore.*
 
 # File core dump
 core
-.cl*
+.clang-tidy
+.clang-format
 
 # Cartelle di build e distribuzione
 /build/

@@ -4,7 +4,7 @@
 #include "hash_table.h"
 
 typedef struct {
-  hash_table_t *table; // Hash table containing next words
+	hash_table_t *table; // Hash table containing next words
 } next_word_chooser_t;
 
 /**
@@ -23,7 +23,7 @@ next_word_chooser_t *create_next_word_chooser(hash_table_t *table);
  * @return Newly allocated next word or NULL if unavailable.
  */
 int *next_word_chooser_choose(next_word_chooser_t *chooser,
-                              const int *current_word);
+			      const int *current_word);
 
 /**
  * @brief Free a next word chooser.

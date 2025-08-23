@@ -1,6 +1,5 @@
 #include "hash_table.h"
 
-
 /**
  * @brief Send consecutive word pairs over a pipe.
  *

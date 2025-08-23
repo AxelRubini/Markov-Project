@@ -18,8 +18,8 @@
 typedef struct next_word_t next_word_t;
 
 struct next_word_t {
-  int *word;
-  double probability;
+	int *word;
+	double probability;
 };
 
 /**

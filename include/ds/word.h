@@ -8,9 +8,9 @@
 /*This structure represents a word and its occurrence count*/
 
 typedef struct {
-  int *word; // pointer to the first character(code point) of the word (integer
-             // array)
-  int occurrences; // number of occurrences of the word
+	int *word; // pointer to the first character(code point) of the word
+		   // (integer array)
+	int occurrences; // number of occurrences of the word
 } word_t;
 
 /**

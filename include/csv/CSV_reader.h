@@ -1,10 +1,10 @@
 #ifndef CSV_READER_H
 #define CSV_READER_H
 
-
 #include "hash_table.h"
 
 #include <stddef.h>
+
 #include <sys/types.h>
 
 /**
@@ -41,6 +41,5 @@ int publish_line_on_pipe(int in_fd, int out_fd);
  * @return Populated hash table or NULL on error.
  */
 hash_table_t *read_lines_from_pipe(int in_fd);
-
 
 #endif // CSV_READER_H

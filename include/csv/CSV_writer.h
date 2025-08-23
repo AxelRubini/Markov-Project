@@ -1,9 +1,7 @@
 #ifndef CSV_WRITER_H
 #define CSV_WRITER_H
 
-
 #include "hash_table.h"
-
 
 /**
  * @brief Serialize a hash table into a CSV file.

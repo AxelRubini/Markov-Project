@@ -14,6 +14,6 @@
  * @return 0 on success, negative value on error.
  */
 int both_sp(const char *input_txt, const char *output_csv,
-            const char *output_txt, size_t n_words);
+	    const char *output_txt, size_t n_words);
 
 #endif // BOTH_SP_H

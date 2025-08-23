@@ -4,17 +4,17 @@
 #include <stddef.h>
 
 typedef struct ll_item {
-  void *data;
-  struct ll_item *next;
+	void *data;
+	struct ll_item *next;
 } ll_item_t;
 
 typedef struct {
-  ll_item_t *head;
-  ll_item_t *tail;
+	ll_item_t *head;
+	ll_item_t *tail;
 } linked_list_t;
 
 typedef struct {
-  ll_item_t *current;
+	ll_item_t *current;
 } linked_list_iterator_t;
 
 /**

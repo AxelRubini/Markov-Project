@@ -7,17 +7,17 @@
  * @brief Execution mode of the application.
  */
 typedef enum {
-  MODE_SP, /**< Run in single-process mode. */
-  MODE_MP  /**< Run in multi-process mode. */
+	MODE_SP, /**< Run in single-process mode. */
+	MODE_MP /**< Run in multi-process mode. */
 } run_mode_t;
 
 /**
  * @brief Available tasks that can be executed.
  */
 typedef enum {
-  TASK_1,   /**< Execute only Task 1. */
-  TASK_2,   /**< Execute only Task 2. */
-  TASK_BOTH /**< Execute both tasks sequentially. */
+	TASK_1, /**< Execute only Task 1. */
+	TASK_2, /**< Execute only Task 2. */
+	TASK_BOTH /**< Execute both tasks sequentially. */
 } task_t;
 
 /**
@@ -27,13 +27,14 @@ typedef enum {
  * supplied by the user.
  */
 typedef struct {
-  run_mode_t mode;        /**< Selected run mode. */
-  task_t task;            /**< Task to execute. */
-  const char *input_txt;  /**< Path to input text file. */
-  const char *input_csv;  /**< Path to input CSV file. */
-  const char *output_txt; /**< Path to output text file, or NULL for STDOUT. */
-  const char *output_csv; /**< Path to output CSV file. */
-  size_t n_words;         /**< Number of words to process. */
+	run_mode_t mode; /**< Selected run mode. */
+	task_t task; /**< Task to execute. */
+	const char *input_txt; /**< Path to input text file. */
+	const char *input_csv; /**< Path to input CSV file. */
+	const char *output_txt; /**< Path to output text file, or NULL for
+				   STDOUT. */
+	const char *output_csv; /**< Path to output CSV file. */
+	size_t n_words; /**< Number of words to process. */
 
 } options_t;
 

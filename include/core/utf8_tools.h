@@ -1,6 +1,7 @@
 #ifndef UTF8_TOOLS_H
 #define UTF8_TOOLS_H
 #include "utils.h"
+
 #include <stdint.h>
 
 // error codes for UTF-8 reading bad formats
