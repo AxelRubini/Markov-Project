@@ -24,6 +24,7 @@ vgcore.*
 
 # File core dump
 core
+.cl*
 
 # Cartelle di build e distribuzione
 /build/
