@@ -353,7 +353,7 @@ int both_mp(const char *input_txt, const char *output_csv,
 	int st;
 	while (waitpid(-1, &st, 0) > 0)
 
-		if (stdin) {
+		if (is_stdin) {
 			unlink(validated_input_txt);
 		}
 
