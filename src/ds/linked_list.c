@@ -56,12 +56,14 @@ void remove_from_list(linked_list_t *list, void *data)
 		if (current->data == data) {
 			if (previous) {
 				previous->next = current->next;
-				if (!current->next)
+				if (!current->next) {
 					list->tail = previous;
+				}
 			} else {
 				list->head = current->next;
-				if (!list->head)
+				if (!list->head) {
 					list->tail = NULL;
+				}
 			}
 			free(current); // free node memory
 			return;

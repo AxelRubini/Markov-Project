@@ -1,6 +1,7 @@
 #include "utf8_tools.h"
 #include "utils.h"
 
+#include <stddef.h>
 #include <stdio.h>
 
 #include <unistd.h>
@@ -13,14 +14,18 @@
  */
 static unsigned utf8_length(u8 lead)
 {
-	if (lead < 0x80)
+	if (lead < 0x80) {
 		return 1; // 0xxxxxxx
-	if ((lead >> 5) == 0x6)
+	}
+	if ((lead >> 5) == 0x6) {
 		return 2; // 110xxxxx
-	if ((lead >> 4) == 0xE)
+	}
+	if ((lead >> 4) == 0xE) {
 		return 3; // 1110xxxx
-	if ((lead >> 3) == 0x1E)
+	}
+	if ((lead >> 3) == 0x1E) {
 		return 4; // 11110xxx
+	}
 	return 0; // invalid
 }
 
@@ -45,11 +50,13 @@ int utf8_getchar(void)
 		lead & ((1u << (7 - len)) - 1); // Mask to get the leading bits
 	for (unsigned i = 1; i < len; ++i) {
 		int ci = getchar();
-		if (ci == EOF)
+		if (ci == EOF) {
 			return EOF;
+		}
 		u8 byte = (u8)ci;
-		if ((byte >> 6) != 0x2)
+		if ((byte >> 6) != 0x2) {
 			return UTF8_ERROR;
+		}
 		codepoint = (codepoint << 6) |
 			    (byte & 0x3F); // append the continuation byte
 	}
@@ -76,10 +83,12 @@ int utf8_getchar_fd(int fd, int *bytes_read)
 
 	uint32_t codepoint = lead & ((1u << (7 - len)) - 1);
 	for (unsigned i = 1; i < len; ++i) {
-		if (read(fd, &lead, 1) != 1)
+		if (read(fd, &lead, 1) != 1) {
 			return EOF;
-		if ((lead >> 6) != 0x2)
+		}
+		if ((lead >> 6) != 0x2) {
 			return UTF8_ERROR;
+		}
 		codepoint = (codepoint << 6) | (lead & 0x3F);
 		(*bytes_read)++;
 	}
@@ -89,16 +98,19 @@ int utf8_getchar_fd(int fd, int *bytes_read)
 
 int utf8_getchar_from_buf(const u8 *buf, size_t *offset)
 {
-	if (!buf || !offset)
+	if (!buf || !offset) {
 		return UTF8_ERROR;
+	}
 
 	u8 lead = buf[*offset];
-	if (lead == '\0')
+	if (lead == '\0') {
 		return EOF; // end of buffer
+	}
 
 	uint32_t len = utf8_length(lead); // expect 1..4
-	if (len < 1 || len > 4)
+	if (len < 1 || len > 4) {
 		return UTF8_ERROR;
+	}
 
 	// Fast path: ASCII
 	if (len == 1) {
@@ -111,10 +123,12 @@ int utf8_getchar_from_buf(const u8 *buf, size_t *offset)
 	// Validate continuation bytes and assemble code point
 	for (unsigned i = 1; i < len; ++i) {
 		u8 c = buf[*offset + i];
-		if (c == '\0')
+		if (c == '\0') {
 			return EOF; // truncated at end
-		if ((c & 0xC0) != 0x80)
+		}
+		if ((c & 0xC0) != 0x80) {
 			return UTF8_ERROR; // not 10xxxxxx
+		}
 		cp = (cp << 6) | (uint32_t)(c & 0x3F);
 	}
 
@@ -225,7 +239,7 @@ int *utf8_word_to_lower(const int *word, int word_length)
 	return lower_word;
 }
 
-void utf8_append_char(uint32_t codepoint, char *buffer, int *offset)
+void utf8_append_char(uint32_t codepoint, u8 *buffer, size_t *offset)
 {
 	if (codepoint < 0x80) {
 		buffer[(*offset)++] = (u8)codepoint; // 1-byte sequence
@@ -342,16 +356,16 @@ int *utf8_read_word_from_buf(const u8 *buf, size_t *offset)
 	return word;
 }
 
-int utf8_cp_to_rawbytes(const int *word, u8 *buf)
+size_t utf8_cp_to_rawbytes(const int *word, u8 *buf)
 {
 	if (word == NULL || buf == NULL) {
 		fprintf(stderr, "Invalid arguments to utf8_cp_to_rawbytes\n");
 		return -1; // Error
 	}
 
-	int offset = 0;
+	size_t offset = 0;
 	for (int i = 0; word[i] != '\0'; i++) {
-		utf8_append_char(word[i], (char *)buf, &offset);
+		utf8_append_char(word[i], buf, &offset);
 	}
 	buf[offset] = '\0'; // Null-terminate the buffer
 

@@ -4,6 +4,7 @@
 #include "utils.h"
 #include "word.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -79,16 +80,19 @@ int wordcmp(const word_t *word1, const word_t *word2)
 
 int word_str_cmp(const int *word, const int *str)
 {
-	if (!word || !str)
+	if (!word || !str) {
 		return 0;
+	}
 
 	int *lower_word = utf8_word_to_lower(word, MAX_WORD_LENGTH);
 	int *lower_str = utf8_word_to_lower(str, MAX_WORD_LENGTH);
 	if (!lower_word || !lower_str) { /* minimal error handling */
-		if (lower_word)
+		if (lower_word) {
 			free(lower_word);
-		if (lower_str)
+		}
+		if (lower_str) {
 			free(lower_str);
+		}
 		return 0;
 	}
 
@@ -139,7 +143,7 @@ void update_ht_item_value(const void *item, const void *follower_to_add)
 	add_to_list(af_list, new_word); // Add the new word to the linked list
 }
 
-uint32_t word_hash(const void *key, int size)
+uint32_t word_hash(const void *key, uint32_t size)
 {
 	if (key == NULL) {
 		fprintf(stderr, "Key is NULL\n");
@@ -238,8 +242,9 @@ static word_t *word_deep_copy(const word_t *original)
 
 	word_t *copy = dmalloc(sizeof(word_t));
 	copy->word = dmalloc((len + 1) * sizeof(int));
-	if (len)
+	if (len) {
 		memcpy(copy->word, original->word, len * sizeof(int));
+	}
 	copy->word[len] = '\0';
 	copy->occurrences = original->occurrences;
 	return copy;

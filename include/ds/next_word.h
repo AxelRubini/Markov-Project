@@ -94,7 +94,7 @@ int keycmp_next_word(const void *key1, const void *key2);
  * @param table_size Number of buckets.
  * @return Hash index.
  */
-uint32_t next_word_hash(const void *key, int table_size);
+uint32_t next_word_hash(const void *key, uint32_t table_size);
 
 /**
  * @brief Build an array of probabilities from an item.

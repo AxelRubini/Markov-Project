@@ -25,7 +25,7 @@ typedef uint32_t u32;
  * @param n Value to test.
  * @return 1 if prime, 0 otherwise.
  */
-uint32_t is_prime(int n);
+uint32_t is_prime(uint32_t n);
 
 /**
  * @brief Compute the next prime greater or equal to n.
@@ -33,7 +33,7 @@ uint32_t is_prime(int n);
  * @param n Starting value.
  * @return Next prime.
  */
-uint32_t next_prime(int n);
+uint32_t next_prime(uint32_t n);
 
 /**
  * @brief Hash a word for a table size.
@@ -42,7 +42,7 @@ uint32_t next_prime(int n);
  * @param table_size Number of buckets.
  * @return Hash index.
  */
-uint32_t hash_function(const int *key, int table_size);
+uint32_t hash_function(const int *key, uint32_t table_size);
 
 /**
  * @brief Estimate probability of a follower word.

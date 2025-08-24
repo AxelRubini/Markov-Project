@@ -11,9 +11,9 @@
 
 typedef struct {
 	linked_list_t **buckets; /* array of bucket lists of ht_item* */
-	int size; /* current number of buckets */
-	int count; /* number of stored items  */
-	uint32_t (*hash_func)(const void *key, int size); /* key -> hash */
+	uint32_t size; /* current number of buckets */
+	uint32_t count; /* number of stored items  */
+	uint32_t (*hash_func)(const void *key, uint32_t size); /* key -> hash */
 	int (*key_cmp)(const void *key1, const void *key2); /* key compare */
 } hash_table_t;
 
@@ -26,7 +26,7 @@ typedef struct {
  * @return Newly allocated table or NULL on error.
  */
 hash_table_t *create_hash_table(int initial_size,
-				uint32_t (*hash_func)(const void *, int),
+				uint32_t (*hash_func)(const void *, uint32_t),
 				int (*key_cmp)(const void *, const void *));
 
 /**
@@ -68,7 +68,7 @@ void free_hash_table(hash_table_t *table);
  * @param table Hash table.
  * @return Item count.
  */
-int ht_get_count(const hash_table_t *table);
+uint32_t ht_get_count(const hash_table_t *table);
 
 /**
  * @brief Get the current number of buckets.
@@ -76,7 +76,7 @@ int ht_get_count(const hash_table_t *table);
  * @param table Hash table.
  * @return Bucket count.
  */
-int ht_get_size(const hash_table_t *table);
+uint32_t ht_get_size(const hash_table_t *table);
 
 /**
  * @brief Print all items using their callbacks.

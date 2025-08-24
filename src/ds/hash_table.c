@@ -1,6 +1,8 @@
 #include "hash_table.h"
 #include "utils.h"
 
+#include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,7 +10,7 @@
  * table: valid hash table.
  * index: bucket index in [0, size).
  */
-static linked_list_t *ensure_bucket(hash_table_t *table, int index)
+static linked_list_t *ensure_bucket(hash_table_t *table, uint32_t index)
 {
 	if (table->buckets[index] == NULL) {
 		table->buckets[index] =
@@ -22,28 +24,29 @@ static linked_list_t *ensure_bucket(hash_table_t *table, int index)
  */
 static void ht_resize(hash_table_t *table)
 {
-	int new_size = next_prime(table->size * 2);
+	uint32_t new_size = next_prime(table->size * 2);
 	linked_list_t **old_buckets = table->buckets;
-	int old_size = table->size;
+	uint32_t old_size = table->size;
 
 	table->buckets =
 		dmalloc(sizeof(linked_list_t *) * new_size); // new array
 	table->size = new_size;
-	for (int i = 0; i < new_size; ++i) {
+	for (size_t i = 0; i < new_size; ++i) {
 		table->buckets[i] = NULL;
 	}
 
 	/* Re‑hash every element into the new bucket array. */
-	for (int i = 0; i < old_size; ++i) {
+	for (size_t i = 0; i < old_size; ++i) {
 		linked_list_t *bucket = old_buckets[i];
-		if (bucket == NULL)
+		if (bucket == NULL) {
 			continue;
+		}
 
 		ll_item_t *current = bucket->head;
 		while (current) {
 			ht_item *it = (ht_item *)current->data;
-			int index = table->hash_func(get_ht_item_key(it),
-						     table->size);
+			uint32_t index = table->hash_func(get_ht_item_key(it),
+							  table->size);
 			linked_list_t *dest = ensure_bucket(table, index);
 			add_to_list(dest, it);
 			current = current->next;
@@ -59,7 +62,7 @@ static void ht_resize(hash_table_t *table)
  * hash_func/key_cmp: user-supplied callbacks (must be non-NULL).
  */
 hash_table_t *create_hash_table(int initial_size,
-				uint32_t (*hash_func)(const void *, int),
+				uint32_t (*hash_func)(const void *, uint32_t),
 				int (*key_cmp)(const void *, const void *))
 {
 	if (!hash_func || !key_cmp) {
@@ -75,7 +78,7 @@ hash_table_t *create_hash_table(int initial_size,
 
 	table->buckets =
 		dmalloc(sizeof(linked_list_t *) * table->size); // buckets
-	for (int i = 0; i < table->size; ++i) {
+	for (size_t i = 0; i < table->size; ++i) {
 		table->buckets[i] = NULL;
 	}
 	return table;
@@ -93,10 +96,11 @@ static double load_factor(const hash_table_t *table)
  */
 void ht_insert(hash_table_t *table, ht_item *item)
 {
-	if (!table || !item)
+	if (!table || !item) {
 		return;
+	}
 
-	int index = table->hash_func(get_ht_item_key(item), table->size);
+	uint32_t index = table->hash_func(get_ht_item_key(item), table->size);
 	linked_list_t *bucket = ensure_bucket(table, index);
 
 	ll_item_t *current = bucket->head;
@@ -126,13 +130,15 @@ void ht_insert(hash_table_t *table, ht_item *item)
 /* Search item by key; returns NULL if absent. */
 ht_item *ht_search(const hash_table_t *table, const void *key)
 {
-	if (!table || !key)
+	if (!table || !key) {
 		return NULL;
+	}
 
-	int index = table->hash_func(key, table->size);
+	uint32_t index = table->hash_func(key, table->size);
 	linked_list_t *bucket = table->buckets[index];
-	if (bucket == NULL)
+	if (bucket == NULL) {
 		return NULL;
+	}
 
 	ll_item_t *current = bucket->head;
 	while (current) {
@@ -151,13 +157,15 @@ ht_item *ht_search(const hash_table_t *table, const void *key)
  */
 int ht_remove(hash_table_t *table, const void *key)
 {
-	if (!table || !key)
+	if (!table || !key) {
 		return 0;
+	}
 
-	int index = table->hash_func(key, table->size);
+	uint32_t index = table->hash_func(key, table->size);
 	linked_list_t *bucket = table->buckets[index];
-	if (bucket == NULL)
+	if (bucket == NULL) {
 		return 0;
+	}
 
 	ll_item_t *current = bucket->head;
 	ll_item_t *previous = NULL;
@@ -167,12 +175,14 @@ int ht_remove(hash_table_t *table, const void *key)
 			/* Unlink current. */
 			if (previous == NULL) {
 				bucket->head = current->next;
-				if (bucket->head == NULL)
+				if (bucket->head == NULL) {
 					bucket->tail = NULL;
+				}
 			} else {
 				previous->next = current->next;
-				if (current->next == NULL)
+				if (current->next == NULL) {
 					bucket->tail = previous;
+				}
 			}
 			if (it->free_item) {
 				it->free_item(it); // release item resources
@@ -190,20 +200,23 @@ int ht_remove(hash_table_t *table, const void *key)
 /* Free table and all contained items. */
 void free_hash_table(hash_table_t *table)
 {
-	if (!table)
+	if (!table) {
 		return;
+	}
 
-	for (int i = 0; i < table->size; ++i) {
+	for (size_t i = 0; i < table->size; ++i) {
 		linked_list_t *bucket = table->buckets[i];
-		if (bucket == NULL)
+		if (bucket == NULL) {
 			continue;
+		}
 
 		ll_item_t *current = bucket->head;
 		while (current) {
 			ll_item_t *next = current->next;
 			ht_item *item = (ht_item *)current->data;
-			if (item->free_item)
+			if (item->free_item) {
 				item->free_item((ht_item *)current->data);
+			}
 			free(current);
 			current = next;
 		}
@@ -214,13 +227,13 @@ void free_hash_table(hash_table_t *table)
 }
 
 /* Get number of stored items. */
-int ht_get_count(const hash_table_t *table)
+uint32_t ht_get_count(const hash_table_t *table)
 {
 	return table ? table->count : 0;
 }
 
 /* Get current bucket array size. */
-int ht_get_size(const hash_table_t *table)
+uint32_t ht_get_size(const hash_table_t *table)
 {
 	return table ? table->size : 0;
 }
@@ -233,10 +246,11 @@ void print_hash_table(const hash_table_t *table, int fd)
 		return;
 	}
 
-	for (int i = 0; i < table->size; ++i) {
+	for (size_t i = 0; i < table->size; ++i) {
 		linked_list_t *bucket = table->buckets[i];
-		if (bucket == NULL)
+		if (bucket == NULL) {
 			continue;
+		}
 
 		ll_item_t *current = bucket->head;
 		while (current) {

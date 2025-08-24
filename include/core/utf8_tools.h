@@ -80,7 +80,7 @@ int *utf8_word_to_lower(const int *word, int word_length);
  * @param buffer Destination buffer.
  * @param offset In/out byte offset.
  */
-void utf8_append_char(uint32_t codepoint, char *buffer, int *offset);
+void utf8_append_char(uint32_t codepoint, u8 *buffer, size_t *offset);
 
 /**
  * @brief Compare two UTF-8 strings.
@@ -121,7 +121,7 @@ int *utf8_read_word_from_buf(const u8 *buf, size_t *offset);
  * @param buf Output byte buffer.
  * @return Bytes written or -1 on error.
  */
-int utf8_cp_to_rawbytes(const int *word, u8 *buf);
+size_t utf8_cp_to_rawbytes(const int *word, u8 *buf);
 
 /**
  * @brief Return non-zero if code point is ignorable punctuation.

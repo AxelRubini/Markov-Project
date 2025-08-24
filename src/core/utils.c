@@ -1,18 +1,21 @@
 #include "utils.h"
 
 #include <math.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include <unistd.h>
 
-uint32_t is_prime(int n)
+uint32_t is_prime(uint32_t n)
 {
-	if (n <= 1)
+	if (n <= 1){
 		return 0;
-	if (n <= 3)
+  }
+	if (n <= 3){
 		return 1;
+  }
 	int max_to_divide = (int)sqrt(n);
 	for (int i = 2; i <= max_to_divide; i++) {
 		if (n % i == 0) {
@@ -22,19 +25,21 @@ uint32_t is_prime(int n)
 	return 1; // prime
 }
 
-uint32_t next_prime(int n)
+uint32_t next_prime(uint32_t n)
 {
-	if (n <= 1)
+	if (n <= 1){
 		return 2;
-	if (n % 2 == 0)
+  }
+	if (n % 2 == 0){
 		n++; // make it odd
+  }
 	while (!is_prime(n)) {
 		n += 2; // check only odd numbers
 	}
 	return n;
 }
 
-uint32_t hash_function(const int *key, int table_size)
+uint32_t hash_function(const int *key, uint32_t table_size)
 {
 	uint32_t hash = 5381;
 	int c;

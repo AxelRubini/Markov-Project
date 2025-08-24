@@ -32,8 +32,9 @@ static char *make_csv_name_from_input(const char *input_txt)
 	size_t out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;
 
 	char *out = malloc(out_len);
-	if (!out)
+	if (!out) {
 		return NULL;
+	}
 
 	// Build the string
 	snprintf(out, out_len, "%s%.*s%s", prefix, (int)stem_len, base, suffix);

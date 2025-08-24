@@ -2,6 +2,7 @@
 #include "utf8_tools.h"
 #include "utils.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -162,7 +163,7 @@ int keycmp_next_word(const void *key1, const void *key2)
 	return utf8_strcmp(word1, word2); // Compare the two words
 }
 
-uint32_t next_word_hash(const void *key, int table_size)
+uint32_t next_word_hash(const void *key, uint32_t table_size)
 {
 	if (key == NULL) {
 		fprintf(stderr, "Key is NULL\n");

@@ -3,6 +3,7 @@
 #include "ht_item.h"
 
 #include <stddef.h>
+#include <utils.h>
 
 /**
  * @brief Build a CSV line from a hash-table item.
@@ -11,7 +12,7 @@
  * @param buffer Destination buffer.
  * @return 0 on success, -1 on error.
  */
-int create_csv_line(ht_item *item, char *buffer);
+int create_csv_line(ht_item *item, u8 *buffer);
 
 /**
  * @brief Compute the buffer size required for an item's CSV line.

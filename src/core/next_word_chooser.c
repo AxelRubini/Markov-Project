@@ -3,6 +3,7 @@
 #include "utf8_tools.h"
 #include "utils.h"
 
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -42,11 +43,11 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
 		fprintf(stderr, "No next words found for the current word\n");
 		return NULL;
 	}
-	int num_next_words = get_list_size((linked_list_t *)item->value);
+	size_t num_next_words = get_list_size((linked_list_t *)item->value);
 	double r = (double)rand() / RAND_MAX;
 	double cumulative = 0.0;
-	int chosen_index = 0;
-	for (int i = 0; i < num_next_words; i++) {
+	size_t chosen_index = 0;
+	for (size_t i = 0; i < num_next_words; i++) {
 		cumulative += probabilities[i];
 		if (r <= cumulative) {
 			chosen_index = i;
@@ -55,11 +56,11 @@ int *next_word_chooser_choose(next_word_chooser_t *chooser,
 	}
 	free(probabilities);
 	ll_item_t *current = ((linked_list_t *)item->value)->head;
-	for (int i = 0; i < chosen_index && current != NULL; i++) {
+	for (size_t i = 0; i < chosen_index && current != NULL; i++) {
 		current = current->next;
 	}
 	if (current == NULL) {
-		fprintf(stderr, "No next word found at index %d\n",
+		fprintf(stderr, "No next word found at index %zu\n",
 			chosen_index);
 		return NULL;
 	}

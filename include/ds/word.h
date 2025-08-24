@@ -78,7 +78,7 @@ ht_item *word_ht_item_create(word_t *key, word_t *value);
  * @param size Table size.
  * @return Hash index.
  */
-uint32_t word_hash(const void *key, int size);
+uint32_t word_hash(const void *key, uint32_t size);
 
 /**
  * @brief Print a word in UTF-8.
