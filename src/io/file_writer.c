@@ -4,6 +4,7 @@
 #include "utf8_tools.h"
 #include "utils.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,7 +38,7 @@ static int *generate_random_symbol()
 {
 	int *symbol = dmalloc(2 * sizeof(int));
 	const int charset[] = GENERATED_TEST_STARTERS;
-	int index = rand() % (ARR_SZ(charset));
+	size_t index = rand() % (ARR_SZ(charset));
 	symbol[0] = charset[index];
 	symbol[1] = '\0';
 	return symbol;
@@ -290,7 +291,7 @@ int write_output_mp(int fd, const char *filename)
 	return 0;
 }
 
-int send_output_mp(int fd, hash_table_t *ht, const int num_words)
+int send_output_mp(int fd, hash_table_t *ht, const uint32_t num_words)
 {
 	if (fd < 0 || num_words <= 0) {
 		fprintf(stderr, "Invalid file descriptor, number of words, or "
@@ -305,7 +306,7 @@ int send_output_mp(int fd, hash_table_t *ht, const int num_words)
 
 	int *current_word = create_start_word(ht);
 
-	int words_written = 0;
+	uint32_t words_written = 0;
 	char frm_buf[(MAX_WORD_LENGTH - 1) * sizeof(int) + 1] = {
 		0}; // Buffer for the frame
 	while (words_written < num_words) {

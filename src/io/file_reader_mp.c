@@ -44,7 +44,7 @@ char move_to_next_word(int fd)
 		return -1;
 	}
 	char buf[1] = {0};
-	int rd_st;
+	long rd_st;
 	check_next_typograph(fd); // Check if next is typographic
 
 	while ((rd_st = read(fd, buf, 1)) > 0) {
@@ -108,8 +108,9 @@ int read_next_word(int fd, char *nxt_buf, size_t *len)
 	size_t b_index = 0;
 	*len = 0;
 	char c = move_to_next_word(fd);
-	if (c == EOF)
+	if (c == EOF) {
 		return 1;
+	}
 
 	if (is_sentence_terminator(c)) {
 		nxt_buf[0] = c;
@@ -127,10 +128,12 @@ int read_next_word(int fd, char *nxt_buf, size_t *len)
 			lseek(fd, -1, SEEK_CUR);
 			break;
 		}
-		if (c == ' ' || c == '\n')
+		if (c == ' ' || c == '\n') {
 			break;
-		if (is_punctuation(c))
+		}
+		if (is_punctuation(c)) {
 			continue;
+		}
 		if (b_index >= MAX_WORD_LENGTH - 2) {
 			fprintf(stderr, "Word exceeds maximum length\n");
 			return -1;

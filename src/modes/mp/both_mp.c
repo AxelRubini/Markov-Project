@@ -7,6 +7,7 @@
 #include "utils.h"
 #include "word.h"
 
+#include <stdint.h>
 #include <stdio.h>
 
 #include <fcntl.h>
@@ -172,8 +173,8 @@ static int w_p2(int pipe_to_read, int pipe_to_write_csv, int pipe_to_write_ts2)
 
 	// Parent process waits for child processes to finish
 	int st;
-	while (waitpid(-1, &st, 0) > 0)
-		;
+	while (waitpid(-1, &st, 0) > 0) {
+	}
 	free_hash_table(ht);
 	return 0;
 }
@@ -197,7 +198,7 @@ static int w_p3(int pipe_to_read, const char *output_csv)
 }
 
 // Process p4 build a hash table key-nxt_word prob and choose the word
-static int w_p4(int pipe_to_read, int pipe_to_write, size_t n_words)
+static int w_p4(int pipe_to_read, int pipe_to_write, uint32_t n_words)
 {
 	if (pipe_to_read < 0 || pipe_to_write < 0) {
 		fprintf(stderr,
@@ -238,7 +239,7 @@ static int w_p5(int pipe_to_read, const char *output_txt)
 }
 
 int both_mp(const char *input_txt, const char *output_csv,
-	    const char *output_txt, size_t n_words)
+	    const char *output_txt, uint32_t n_words)
 {
 	int status = -1; // return value in case of error
 	int print_to_stdout = 0;
@@ -278,8 +279,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 		int not_p1[] = {pipe_csv[0],	 pipe_csv[1], pipe_freqtab[0],
 				pipe_freqtab[1], pipe_out[0], pipe_out[1]};
 		safe_close_pipes(not_p1, ARR_SZ(not_p1));
-		if (w_p1(pipe_read[1], validated_input_txt) < 0)
+		if (w_p1(pipe_read[1], validated_input_txt) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
@@ -294,8 +296,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 		int not_p2[] = {pipe_csv[0], pipe_freqtab[0], pipe_out[0],
 				pipe_out[1], pipe_read[1]};
 		safe_close_pipes(not_p2, ARR_SZ(not_p2));
-		if (w_p2(pipe_read[0], pipe_csv[1], pipe_freqtab[1]) < 0)
+		if (w_p2(pipe_read[0], pipe_csv[1], pipe_freqtab[1]) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
@@ -310,8 +313,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 				pipe_freqtab[1], pipe_out[0],  pipe_out[1],
 				pipe_csv[1]};
 		safe_close_pipes(not_p3, ARR_SZ(not_p3));
-		if (w_p3(pipe_csv[0], output_csv) < 0)
+		if (w_p3(pipe_csv[0], output_csv) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
@@ -325,8 +329,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 		int not_p4[] = {pipe_read[0], pipe_read[1], pipe_csv[0],
 				pipe_csv[1],  pipe_out[0],  pipe_freqtab[1]};
 		safe_close_pipes(not_p4, ARR_SZ(not_p4));
-		if (w_p4(pipe_freqtab[0], pipe_out[1], n_words) < 0)
+		if (w_p4(pipe_freqtab[0], pipe_out[1], n_words) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
@@ -341,8 +346,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 				pipe_csv[1],  pipe_freqtab[0], pipe_freqtab[1],
 				pipe_out[1]};
 		safe_close_pipes(not_p5, ARR_SZ(not_p5));
-		if (w_p5(pipe_out[0], output_txt) < 0)
+		if (w_p5(pipe_out[0], output_txt) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
@@ -351,11 +357,12 @@ int both_mp(const char *input_txt, const char *output_csv,
 
 	// Wait children
 	int st;
-	while (waitpid(-1, &st, 0) > 0)
+	while (waitpid(-1, &st, 0) > 0) {
+	}
 
-		if (is_stdin) {
-			unlink(validated_input_txt);
-		}
+	if (is_stdin) {
+		unlink(validated_input_txt);
+	}
 
 	if (print_to_stdout) {
 		// Print the content of the output file to stdout

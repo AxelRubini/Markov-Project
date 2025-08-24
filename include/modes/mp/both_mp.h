@@ -2,6 +2,7 @@
 #define BOTH_MP_H
 
 #include <stddef.h>
+#include <stdint.h>
 
 /**
  * @brief Execute both tasks in multi-process mode.
@@ -18,5 +19,5 @@
  * @return 0 on success, -1 on error.
  */
 int both_mp(const char *input_txt, const char *output_csv,
-            const char *output_txt, size_t n_words);
+	    const char *output_txt, uint32_t n_words);
 #endif // BOTH_MP_H

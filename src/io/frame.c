@@ -95,19 +95,23 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap)
 	}
 	uint32_t be_len = 0;
 	ssize_t st = read_all(fd, &be_len, sizeof(be_len));
-	if (st == 0)
+	if (st == 0) {
 		return 0;
-	if (st < (ssize_t)sizeof(be_len))
+	}
+	if (st < (ssize_t)sizeof(be_len)) {
 		return 0;
-	if (st < 0)
+	}
+	if (st < 0) {
 		return -1;
+	}
 
 	size_t need = (size_t)ntohl(be_len);
 	if (*buf == NULL || *cap < need + 1) {
 		size_t ncap = need + 1;
 		char *nb = realloc(*buf, ncap);
-		if (!nb)
+		if (!nb) {
 			return -1;
+		}
 		*buf = nb;
 		*cap = ncap;
 	}
@@ -116,10 +120,12 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap)
 		return 0;
 	}
 	st = read_all(fd, *buf, need);
-	if (st < 0)
+	if (st < 0) {
 		return -1;
-	if ((size_t)st < need)
+	}
+	if ((size_t)st < need) {
 		return -1;
+	}
 
 	(*buf)[need] = '\0';
 	return (ssize_t)need;

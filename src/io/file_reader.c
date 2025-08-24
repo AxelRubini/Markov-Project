@@ -50,8 +50,9 @@ hash_table_t *build_word_hashtable_fd(int fd)
 			// empty word, attempt to read next
 			move_cursor_to_next_word(fd);
 			status = f_get_next_word(fd, current_word);
-			if (status != 0)
+			if (status != 0) {
 				break;
+			}
 			continue;
 		}
 
@@ -63,8 +64,9 @@ hash_table_t *build_word_hashtable_fd(int fd)
 			// skip and try next word
 			move_cursor_to_next_word(fd);
 			status = f_get_next_word(fd, current_word);
-			if (status != 0)
+			if (status != 0) {
 				break;
+			}
 			continue;
 		}
 
@@ -110,8 +112,9 @@ hash_table_t *build_word_hashtable_fd(int fd)
 			memset(current_word, 0, sizeof(current_word));
 			move_cursor_to_next_word(fd);
 			status = f_get_next_word(fd, current_word);
-			if (status != 0)
+			if (status != 0) {
 				break;
+			}
 			continue;
 		}
 

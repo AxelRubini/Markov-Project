@@ -2,6 +2,8 @@
 #define FILE_WRITER_H
 #include "hash_table.h"
 
+#include <stdint.h>
+
 #define GENERATED_TEST_STARTERS {'.', '!', '?'}
 
 /**
@@ -25,7 +27,7 @@ int write_output_sp(const char *filename, const int num_words,
  * @param start_sym Starting symbol; must not be NULL.
  * @return 0 on success, -1 on error.
  */
-int send_output_mp(int fd, hash_table_t *ht, const int num_words);
+int send_output_mp(int fd, hash_table_t *ht, const uint32_t num_words);
 
 /**
  * @brief Write frames from a descriptor to a UTF-8 file.

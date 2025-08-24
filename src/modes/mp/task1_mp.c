@@ -29,10 +29,12 @@ static int w_p1(int pipe_to_write, const char *input_txt)
 		safe_close(&pipe_to_write);
 		return -1;
 	}
-	if (safe_close(&fd) < 0)
+	if (safe_close(&fd) < 0) {
 		return -1;
-	if (safe_close(&pipe_to_write) < 0)
+	}
+	if (safe_close(&pipe_to_write) < 0) {
 		return -1;
+	}
 	return 0;
 }
 
@@ -67,8 +69,9 @@ static int w_p2(int pipe_to_read, int pipe_to_write)
 		return -1;
 	}
 	free_hash_table(ht);
-	if (safe_close(&pipe_to_write) < 0)
+	if (safe_close(&pipe_to_write) < 0) {
 		return -1;
+	}
 	return 0;
 }
 
@@ -83,8 +86,9 @@ static int w_p3(int pipe_to_read, const char *output_csv)
 		safe_close(&pipe_to_read);
 		return -1;
 	}
-	if (safe_close(&pipe_to_read) < 0)
+	if (safe_close(&pipe_to_read) < 0) {
 		return -1;
+	}
 	return 0;
 }
 
@@ -109,42 +113,48 @@ int task1_mp(const char *input_txt, const char *output_csv)
 	pid_t p1 = -1, p2 = -1, p3 = -1;
 
 	p1 = fork();
-	if (p1 < 0)
+	if (p1 < 0) {
 		goto fail_pipes;
+	}
 	if (p1 == 0) {
 		int not_p1[] = {pipe12[0], pipe23[0], pipe23[1]};
 		safe_close_pipes(not_p1, ARR_SZ(not_p1));
-		if (w_p1(pipe12[1], validated_input_txt) < 0)
+		if (w_p1(pipe12[1], validated_input_txt) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
 	p2 = fork();
-	if (p2 < 0)
+	if (p2 < 0) {
 		goto fail_kill_p1;
+	}
 	if (p2 == 0) {
 		int not_p2[] = {pipe12[1], pipe23[0]};
 		safe_close_pipes(not_p2, ARR_SZ(not_p2));
-		if (w_p2(pipe12[0], pipe23[1]) < 0)
+		if (w_p2(pipe12[0], pipe23[1]) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
 	p3 = fork();
-	if (p3 < 0)
+	if (p3 < 0) {
 		goto fail_kill_p1p2;
+	}
 	if (p3 == 0) {
 		int not_p3[] = {pipe12[0], pipe12[1], pipe23[1]};
 		safe_close_pipes(not_p3, ARR_SZ(not_p3));
-		if (w_p3(pipe23[0], output_csv) < 0)
+		if (w_p3(pipe23[0], output_csv) < 0) {
 			_exit(1);
+		}
 		_exit(0);
 	}
 
 	safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
 	int st;
-	while (waitpid(-1, &st, 0) > 0)
-		;
+	while (waitpid(-1, &st, 0) > 0) {
+	}
 
 	status = 0;
 	goto done;
@@ -156,7 +166,8 @@ fail_kill_p1:
 fail_pipes:
 	safe_close_pipes(all_pipes, ARR_SZ(all_pipes));
 done:
-	if (is_stdin)
+	if (is_stdin) {
 		unlink(TMP_STDIN_FILE);
+	}
 	return status;
 }
