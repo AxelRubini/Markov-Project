@@ -1,9 +1,12 @@
 #include "argtable3.h"
 #include "options.h"
+#include "utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <sys/stat.h>
 
 static void set_default_options(options_t *o)
 {
@@ -45,6 +48,18 @@ static int is_empty(const char *str)
 {
 	return str == NULL || str[0] == '\0';
 }
+static int check_csv_format(const char *filename)
+{
+	size_t len = strlen(filename);
+	if (len < 4) {
+		return 0;
+	}
+	const char *ext = filename + len - 4;
+	if (strcmp(ext, ".csv") != 0) {
+		return 0;
+	}
+	return 1;
+}
 
 static int check_options(options_t *options)
 {
@@ -54,8 +69,15 @@ static int check_options(options_t *options)
 		fprintf(stderr,
 			"Input file is not provided, please provide an input "
 			"writing on the terminal\n");
+		fprintf(stderr, "If you meant to provide a file check "
+				"arguments provided as input\n");
 		if (is_empty(options->output_csv)) {
 			options->output_csv = "Analysis_STDIN_text.csv";
+		}
+	} else if (options->task != TASK_2) {
+		if (check_file_is_empty(options->input_txt)) {
+			fprintf(stderr, "Input file is empty\n");
+			return -1;
 		}
 	}
 	// Check if intput files is provided for task2, if not return error,if
@@ -64,9 +86,18 @@ static int check_options(options_t *options)
 		fprintf(stderr, "Input CSV file is not provided, please "
 				"provide an input CSV file\n");
 		return -1;
+	} else if (options->task == TASK_2) {
+		if (!check_csv_format(options->input_csv) ||
+		    check_file_is_empty(options->input_csv)) {
+			fprintf(stderr, "Input CSV file is not in the correct "
+					"extension or is empty "
+					"\n");
+			return -1;
+		}
 	}
-	// Check if output files are provided, if not, set them to default
-	// values
+
+	// Check if output files are provided, if not, set them to
+	// default values
 	if (options->output_txt == NULL && options->task != TASK_1) {
 		fprintf(stderr, "Output text file is not provided,\n produced "
 				"test will be "

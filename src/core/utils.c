@@ -6,16 +6,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <sys/stat.h>
 #include <unistd.h>
 
 uint32_t is_prime(uint32_t n)
 {
-	if (n <= 1){
+	if (n <= 1) {
 		return 0;
-  }
-	if (n <= 3){
+	}
+	if (n <= 3) {
 		return 1;
-  }
+	}
 	int max_to_divide = (int)sqrt(n);
 	for (int i = 2; i <= max_to_divide; i++) {
 		if (n % i == 0) {
@@ -27,12 +28,12 @@ uint32_t is_prime(uint32_t n)
 
 uint32_t next_prime(uint32_t n)
 {
-	if (n <= 1){
+	if (n <= 1) {
 		return 2;
-  }
-	if (n % 2 == 0){
+	}
+	if (n % 2 == 0) {
 		n++; // make it odd
-  }
+	}
 	while (!is_prime(n)) {
 		n += 2; // check only odd numbers
 	}
@@ -94,4 +95,14 @@ int safe_close_pipes(int *fds, size_t count)
 		}
 	}
 	return 0; // All pipes closed successfully
+}
+
+int check_file_is_empty(const char *filename)
+{
+	struct stat st;
+	if (stat(filename, &st) != 0) {
+		// Errore: file non accessibile
+		return -1;
+	}
+	return (st.st_size == 0);
 }

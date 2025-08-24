@@ -371,6 +371,9 @@ int both_mp(const char *input_txt, const char *output_csv,
 			unlink(output_txt); // Remove the temporary file
 			return -1;
 		}
+		fprintf(stdout,
+			"\nOutput printed to stdout, temporary file will "
+			"be removed\n");
 		unlink(output_txt); // Remove the temporary file after printing
 	}
 

@@ -129,7 +129,7 @@ static int *search_start_word(const hash_table_t *table)
 				}
 			}
 		}
-		printf("\n Search again or exit");
+		printf("\nSearch again or exit: ");
 	}
 	return NULL;
 }
@@ -175,7 +175,7 @@ static int *create_start_word(const hash_table_t *table)
 	return NULL;
 }
 
-int write_output_sp(const char *filename, const int num_words,
+int write_output_sp(const char *filename, const uint32_t num_words,
 		    hash_table_t *table)
 {
 	if (filename == NULL || num_words <= 0) {
@@ -204,7 +204,7 @@ int write_output_sp(const char *filename, const int num_words,
 		return -1;
 	}
 
-	int words_written = 0;
+	uint32_t words_written = 0;
 	while (words_written < num_words) {
 		int *next_word =
 			next_word_chooser_choose(chooser, current_word);
@@ -216,10 +216,10 @@ int write_output_sp(const char *filename, const int num_words,
 			safe_close(&fd);
 			return -1;
 		}
-		if (is_last_terminator(current_word)) {
+		if (is_last_terminator(current_word) || words_written == 0) {
 			next_word[0] = utf8_char_to_upper(next_word[0]);
 		}
-		if (!is_last_terminator(next_word)) {
+		if (!is_last_terminator(next_word) && words_written > 0) {
 			write(fd, " ", 1); // Write a space after each word
 		}
 		utf8_print_word(next_word, fd);

@@ -49,6 +49,9 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words)
 			unlink(output_txt); // Remove the temporary file
 			return -1;
 		}
+		fprintf(stdout,
+			"\nOutput printed to stdout, temporary file will "
+			"be removed\n");
 		unlink(output_txt); // Remove the temporary file after printing
 	}
 	return 0;

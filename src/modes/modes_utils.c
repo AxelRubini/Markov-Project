@@ -1,4 +1,5 @@
 #include "modes_utils.h"
+#include "utf8_tools.h"
 #include "utils.h"
 
 #include <signal.h>
@@ -6,14 +7,15 @@
 
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
 static int read_from_stdin(const char *output_txt)
 {
 	fprintf(stderr,
 		"Reading from stdin \n"
-		"if you not redirect stdin, write on the console and press"
-		"Ctrl+D to finish input\n");
+		"if you not redirect stdin, write on the console and press "
+		" Enter and Ctrl+D to finish input\n");
 	int fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC,
 		      S_IRUSR | S_IWUSR);
 	if (fd < 0) {
@@ -30,8 +32,25 @@ static int read_from_stdin(const char *output_txt)
 			return -1;
 		}
 	}
+	if (check_file_is_empty(output_txt)) {
+		unlink(output_txt);
+		fprintf(stderr, "Input file is empty\n");
+		return -1;
+	}
 	safe_close(&fd);
-	return 0;
+	// check if writed input could be valid
+	int fd2 = open(output_txt, O_RDONLY);
+	int byr = 0;
+	int cp;
+	lseek(fd2, 0, SEEK_SET);
+	while ((cp = utf8_getchar_fd(fd2, &byr)) != EOF) {
+		if (cp != ' ' && cp != '\n' && cp != '\t') {
+			return 0;
+		}
+	}
+	unlink(output_txt);
+	fprintf(stderr, "Input file is not valid\n");
+	return -1;
 }
 
 const char *validate_input_file(const char *input_txt, int *is_stdin)

@@ -81,4 +81,12 @@ int safe_close(int *fd);
  */
 int safe_close_pipes(int *fds, size_t count);
 
+/**
+ * @brief Check if a file is empty.
+ *
+ * @param filename File name.
+ * @return 1 if empty, 0 otherwise.
+ */
+int check_file_is_empty(const char *filename);
+
 #endif

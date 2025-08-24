@@ -15,7 +15,7 @@
  * @param table Hash table of word transitions.
  * @return 0 on success, -1 on error.
  */
-int write_output_sp(const char *filename, const int num_words,
+int write_output_sp(const char *filename, const uint32_t num_words,
 		    hash_table_t *table);
 
 /**

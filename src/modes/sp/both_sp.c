@@ -79,13 +79,14 @@ int both_sp(const char *input_txt, const char *output_csv,
 	if (print_to_stdout) {
 		// Print the content of the output file to stdout
 		if (print_file_content_to_stdout(output_txt) < 0) {
-			fprintf(stderr, "Failed to print output to stdout\n");
+			fprintf(stdout, "Failed to print output to stdout\n");
 			unlink(TMP_STDOUT_FILE); // Remove the temporary file
 
 			return -1;
 		}
-		fprintf(stderr, "Output printed to stdout, temporary file will "
-				"be removed\n");
+		fprintf(stderr,
+			"\nOutput printed to stdout, temporary file will "
+			"be removed\n");
 		unlink(TMP_STDOUT_FILE); // Remove the temporary file after
 					 // printing
 	}
