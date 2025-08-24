@@ -1,0 +1,56 @@
+<map id="send_output_mp" name="send_output_mp">
+<area shape="rect" id="Node000001" title="Send generated words over a file descriptor." alt="" coords="5,399,123,425"/>
+<area shape="rect" id="Node000002" href="$next__word__chooser_8c.html#ad1a65960ac555c60063993a976e5839a" title="Create a chooser for next&#45;word selection." alt="" coords="174,373,351,400"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,402,158,397,159,403,123,407"/>
+<area shape="rect" id="Node000004" href="$file__writer_8c.html#a2079af48fbd459bee650df5c78379241" title="Create a start word from user input or random symbol." alt="" coords="200,155,325,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="74,397,239,192,243,195,78,400"/>
+<area shape="rect" id="Node000017" href="$next__word__chooser_8c.html#ac078d1092f8f2ba03ed5d4f8fce97acb" title="Pick the next word according to probabilities." alt="" coords="171,315,354,341"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="91,396,170,359,206,345,208,350,172,364,93,401"/>
+<area shape="rect" id="Node000020" href="$next__word__chooser_8c.html#aa00d20663f502e547db0653832f34b5c" title="Free a next word chooser." alt="" coords="181,424,344,451"/>
+<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="123,417,166,422,165,428,123,422"/>
+<area shape="rect" id="Node000021" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="218,475,307,501"/>
+<area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="92,423,172,460,204,471,202,476,170,465,90,428"/>
+<area shape="rect" id="Node000023" href="$utf8__tools_8c.html#a9e4153e32afc3c470682aaace08386a0" title="Encode code points into raw UTF&#45;8 bytes." alt="" coords="191,525,334,552"/>
+<area shape="poly" id="edge29_Node000001_Node000023" title=" " alt="" coords="78,424,116,467,143,491,172,511,183,517,181,522,169,516,139,495,113,471,74,427"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="890,259,956,285"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="352,396,466,408,596,417,715,417,763,412,799,402,833,381,862,354,886,324,904,298,909,301,891,328,866,357,836,385,801,406,764,417,715,422,595,423,466,414,351,401"/>
+<area shape="rect" id="Node000005" href="$file__writer_8c.html#a77496d1ae6392df05a3d0abd254b3c5f" title="Generate a random symbol from the predefined stat." alt="" coords="420,155,591,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="326,165,405,165,405,171,326,171"/>
+<area shape="rect" id="Node000006" href="$hash__table_8c.html#af61daf7645f441c335a455cb4ff9365a" title="Search an item by key." alt="" coords="466,256,545,283"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="298,179,459,247,457,252,296,184"/>
+<area shape="rect" id="Node000008" href="$file__writer_8c.html#a7ef01b9be51cc3ef26b76d1b627555ab" title="Provide an interface to choose a word from the hash table." alt="" coords="442,104,570,131"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="325,152,426,131,427,136,326,158"/>
+<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="673,5,784,32"/>
+<area shape="poly" id="edge18_Node000004_Node000011" title=" " alt="" coords="283,152,335,121,401,90,468,67,536,50,657,26,658,31,537,55,469,73,403,94,338,125,286,157"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="591,163,693,170,747,179,801,193,852,218,895,247,892,251,850,223,799,199,746,184,692,175,591,169"/>
+<area shape="rect" id="Node000007" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="670,259,787,285"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="545,267,654,268,654,274,545,272"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e" title="Check if a string is a substring of another string." alt="" coords="665,56,792,83"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="570,101,649,84,650,89,571,106"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="532,101,656,42,671,35,673,40,658,46,534,106"/>
+<area shape="rect" id="Node000013" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="657,107,800,133"/>
+<area shape="poly" id="edge13_Node000008_Node000013" title=" " alt="" coords="570,115,641,116,641,122,570,121"/>
+<area shape="rect" id="Node000016" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="664,208,793,235"/>
+<area shape="poly" id="edge16_Node000008_Node000016" title=" " alt="" coords="571,127,610,140,659,167,701,196,698,201,657,172,608,145,570,132"/>
+<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051" title=" " alt="" coords="879,56,968,83"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="793,67,863,67,863,72,793,72"/>
+<area shape="rect" id="Node000012" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="877,5,970,32"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="784,16,861,16,861,21,784,21"/>
+<area shape="rect" id="Node000014" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="848,107,999,133"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="800,117,832,117,832,123,800,123"/>
+<area shape="rect" id="Node000015" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="1047,107,1132,133"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="999,117,1031,117,1031,123,999,123"/>
+<area shape="poly" id="edge17_Node000016_Node000003" title=" " alt="" coords="784,233,876,257,874,262,782,238"/>
+<area shape="poly" id="edge24_Node000017_Node000006" title=" " alt="" coords="320,312,451,280,452,285,321,317"/>
+<area shape="poly" id="edge25_Node000017_Node000016" title=" " alt="" coords="279,312,331,275,365,256,401,241,465,226,530,217,649,214,649,219,531,223,466,231,403,247,367,261,334,280,282,316"/>
+<area shape="rect" id="Node000018" href="$linked__list_8c.html#a5aa85f2acd1a248ebb3f009e8aa01fc5" title="Get the number of elements in a list." alt="" coords="681,365,776,392"/>
+<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="312,339,402,359,544,372,666,376,666,381,544,377,402,364,311,345"/>
+<area shape="rect" id="Node000019" href="$next__word_8c.html#a756149c3c0e489907306266de351191c" title="Build an array of probabilities from an item." alt="" coords="402,307,609,349"/>
+<area shape="poly" id="edge21_Node000017_Node000019" title=" " alt="" coords="355,325,386,325,386,331,355,331"/>
+<area shape="poly" id="edge22_Node000019_Node000003" title=" " alt="" coords="610,317,799,295,875,280,876,285,800,300,610,322"/>
+<area shape="poly" id="edge23_Node000019_Node000018" title=" " alt="" coords="603,347,667,362,666,367,602,353"/>
+<area shape="rect" id="Node000022" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="471,475,540,501"/>
+<area shape="poly" id="edge28_Node000021_Node000022" title=" " alt="" coords="307,485,455,485,455,491,307,491"/>
+<area shape="rect" id="Node000024" href="$utf8__tools_8c.html#af22425cba37ca5ab15ac3791ad8cd31d" title="Append a code point to a UTF&#45;8 buffer." alt="" coords="444,525,568,552"/>
+<area shape="poly" id="edge30_Node000023_Node000024" title=" " alt="" coords="334,536,428,536,428,541,334,541"/>
+</map>

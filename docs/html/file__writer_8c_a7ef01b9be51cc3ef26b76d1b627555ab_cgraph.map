@@ -1,0 +1,21 @@
+<map id="search_start_word" name="search_start_word">
+<area shape="rect" id="Node000001" title="Provide an interface to choose a word from the hash table." alt="" coords="5,81,134,108"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e" title="Check if a string is a substring of another string." alt="" coords="189,5,316,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,78,181,42,196,35,198,40,183,46,101,83"/>
+<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#ac7a6b8431e3ba385a9fb06b10a125cc5" title="Print a UTF&#45;8 word to a descriptor." alt="" coords="198,56,308,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="134,83,182,76,183,82,134,88"/>
+<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#af874411f68b6b343eb327e0246ea5652" title="Convert raw UTF&#45;8 bytes to a code&#45;point array." alt="" coords="182,107,324,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="134,101,166,105,166,111,134,106"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d" title="Deep copy a UTF&#45;8 string." alt="" coords="189,157,317,184"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="101,106,183,143,198,149,196,154,181,148,99,111"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051" title=" " alt="" coords="403,5,492,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,16,388,16,388,21,317,21"/>
+<area shape="rect" id="Node000005" href="$utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e" title="Write a Unicode code point to a descriptor in UTF&#45;8." alt="" coords="401,56,494,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="308,67,385,67,385,72,308,72"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806" title="Fetch a UTF&#45;8 code point from a buffer at an offset." alt="" coords="372,107,523,133"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="325,117,356,117,356,123,325,123"/>
+<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="571,107,657,133"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="524,117,556,117,556,123,524,123"/>
+<area shape="rect" id="Node000010" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="414,157,481,184"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="318,168,399,168,399,173,318,173"/>
+</map>

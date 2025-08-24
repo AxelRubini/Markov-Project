@@ -8,9 +8,9 @@ var utils_8h =
     [ "u32", "utils_8h.html#afaa62991928fb9fb18ff0db62a040aba", null ],
     [ "u8", "utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca", null ],
     [ "dmalloc", "utils_8h.html#a78a9dba3711a7a17ad34044953f6937b", null ],
-    [ "hash_function", "utils_8h.html#a3c20d7e2acdc0a0099f46371c8335ee4", null ],
-    [ "is_prime", "utils_8h.html#a1d8eddef9f888ac973de205c457bd89d", null ],
-    [ "next_prime", "utils_8h.html#a6a8b81a369ded1d2e86198541cba82bf", null ],
+    [ "hash_function", "utils_8h.html#ad599527823f3d135836d6f352e691483", null ],
+    [ "is_prime", "utils_8h.html#a4bb904556a9270d49ad91d7086487c99", null ],
+    [ "next_prime", "utils_8h.html#ac5d50bd9fcce49c9454314ed62d499b4", null ],
     [ "next_word_probability", "utils_8h.html#a5864ea11a063d13bed6a1b528747f4d3", null ],
     [ "safe_close", "utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040", null ],
     [ "safe_close_pipes", "utils_8h.html#a9e8583cecaa2142a642e0ffd5f25dfdd", null ]

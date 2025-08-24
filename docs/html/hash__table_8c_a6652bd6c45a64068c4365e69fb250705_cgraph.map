@@ -1,19 +1,19 @@
 <map id="ht_resize" name="ht_resize">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,79,132"/>
-<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="310,5,394,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,104,84,75,125,48,168,33,213,23,294,15,295,20,214,28,170,38,128,53,87,79,57,108"/>
-<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="461,56,528,82"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="78,104,126,92,214,79,302,71,446,66,446,71,303,76,215,84,127,97,80,109"/>
-<area shape="rect" id="Node000004" href="$hash__table_8c.html#aed455b86e99f82165d2b3682edb8e430" title=" " alt="" coords="132,107,238,132"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="79,117,116,117,116,122,79,122"/>
-<area shape="rect" id="Node000006" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="127,156,243,182"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="80,130,132,148,130,153,78,135"/>
-<area shape="rect" id="Node000007" href="$utils_8c.html#a6a8b81a369ded1d2e86198541cba82bf" title="Compute the next prime greater or equal to n." alt="" coords="143,205,227,231"/>
-<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="57,131,88,161,128,192,135,196,132,200,125,196,84,165,53,134"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="391,29,448,49,446,54,390,34"/>
-<area shape="rect" id="Node000005" href="$linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="291,107,413,132"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="238,117,275,117,275,122,238,122"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="390,104,446,83,448,88,391,109"/>
-<area shape="rect" id="Node000008" href="$utils_8c.html#a1d8eddef9f888ac973de205c457bd89d" title="Check if a number is prime." alt="" coords="317,205,387,231"/>
-<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="227,216,301,216,301,221,227,221"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,80,133"/>
+<area shape="rect" id="Node000002" href="$linked__list_8c.html#a821a82a131a69b3a5998b4504dd3741e" title="Append data to the end of a list." alt="" coords="312,5,396,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,104,85,75,126,48,169,33,214,23,296,16,297,21,215,29,171,38,129,53,88,79,58,108"/>
+<area shape="rect" id="Node000003" href="$utils_8c.html#a78a9dba3711a7a17ad34044953f6937b" title="Allocate zeroed memory or abort." alt="" coords="463,56,530,83"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="79,105,127,92,215,79,304,72,448,67,448,72,304,77,216,85,128,97,81,110"/>
+<area shape="rect" id="Node000004" href="$hash__table_8c.html#a48e6f36d037fe3c41c25cdfedb4796e6" title=" " alt="" coords="133,107,240,133"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="80,117,118,117,118,123,80,123"/>
+<area shape="rect" id="Node000006" href="$ht__item_8c.html#a17945d25d9ab2c50379932181610b858" title="Get the key stored in an item." alt="" coords="128,157,245,184"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="81,131,133,149,131,154,79,136"/>
+<area shape="rect" id="Node000007" href="$utils_8c.html#ac5d50bd9fcce49c9454314ed62d499b4" title="Compute the next prime greater or equal to n." alt="" coords="144,208,229,235"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="58,132,89,162,129,194,137,198,134,203,126,198,86,166,55,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="395,30,450,50,448,55,393,35"/>
+<area shape="rect" id="Node000005" href="$linked__list_8c.html#aa24f1dca34b888202a3918f8aaa4dd74" title="Create an empty linked list." alt="" coords="293,107,415,133"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="240,117,278,117,278,123,240,123"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="393,104,448,84,450,89,395,109"/>
+<area shape="rect" id="Node000008" href="$utils_8c.html#a4bb904556a9270d49ad91d7086487c99" title="Check if a number is prime." alt="" coords="319,208,389,235"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="229,219,303,219,303,224,229,224"/>
 </map>

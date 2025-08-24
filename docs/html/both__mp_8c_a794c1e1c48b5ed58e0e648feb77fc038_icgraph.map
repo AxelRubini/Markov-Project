@@ -1,9 +1,9 @@
 <map id="w_p2" name="w_p2">
-<area shape="rect" id="Node000001" title=" " alt="" coords="324,5,380,33"/>
-<area shape="rect" id="Node000002" href="$both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="198,5,276,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,22,277,22,277,16,309,16"/>
-<area shape="rect" id="Node000003" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,5,150,33"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,22,150,22,150,16,183,16"/>
-<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,33"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="92,22,60,22,60,16,92,16"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="309,5,362,32"/>
+<area shape="rect" id="Node000002" href="$both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="190,5,261,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,21,262,21,262,16,294,16"/>
+<area shape="rect" id="Node000003" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,5,142,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="175,21,142,21,142,16,175,16"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>

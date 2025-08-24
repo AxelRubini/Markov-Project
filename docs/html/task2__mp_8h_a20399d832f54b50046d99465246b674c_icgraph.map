@@ -1,0 +1,7 @@
+<map id="task2_mp" name="task2_mp">
+<area shape="rect" id="Node000001" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,32"/>
+<area shape="rect" id="Node000002" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,5,142,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,21,143,21,143,16,175,16"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

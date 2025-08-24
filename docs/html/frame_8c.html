@@ -92,36 +92,36 @@ $(function(){initNavTree('frame_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="frame_8h_source.html">frame.h</a>&quot;</code><br />
-<code>#include &lt;arpa/inet.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for frame.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c__incl.png" border="0" usemap="#asrc_2io_2frame_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2io_2frame_8c" id="asrc_2io_2frame_8c">
-<area shape="rect" title=" " alt="" coords="317,5,417,31"/>
-<area shape="rect" href="frame_8h.html" title=" " alt="" coords="58,79,122,105"/>
-<area shape="poly" title=" " alt="" coords="321,34,138,81,136,76,319,29"/>
-<area shape="rect" title=" " alt="" coords="146,79,228,105"/>
-<area shape="poly" title=" " alt="" coords="337,34,233,75,231,70,335,29"/>
-<area shape="rect" title=" " alt="" coords="252,79,312,105"/>
-<area shape="poly" title=" " alt="" coords="354,34,309,71,306,67,351,29"/>
-<area shape="rect" title=" " alt="" coords="335,79,399,105"/>
-<area shape="poly" title=" " alt="" coords="370,31,370,63,364,63,364,31"/>
-<area shape="rect" title=" " alt="" coords="423,79,482,105"/>
-<area shape="poly" title=" " alt="" coords="383,29,428,67,425,71,380,34"/>
-<area shape="rect" title=" " alt="" coords="506,79,569,105"/>
-<area shape="poly" title=" " alt="" coords="397,29,496,70,494,75,395,34"/>
-<area shape="rect" title=" " alt="" coords="592,79,659,105"/>
-<area shape="poly" title=" " alt="" coords="412,29,578,75,577,80,410,34"/>
-<area shape="rect" title=" " alt="" coords="5,153,73,178"/>
-<area shape="poly" title=" " alt="" coords="83,106,58,141,54,138,79,103"/>
-<area shape="rect" title=" " alt="" coords="97,153,184,178"/>
-<area shape="poly" title=" " alt="" coords="100,103,125,138,121,141,96,106"/>
+<area shape="rect" title=" " alt="" coords="301,5,402,32"/>
+<area shape="rect" href="frame_8h.html" title=" " alt="" coords="58,80,123,107"/>
+<area shape="poly" title=" " alt="" coords="307,35,138,81,137,76,305,30"/>
+<area shape="rect" title=" " alt="" coords="148,80,209,107"/>
+<area shape="poly" title=" " alt="" coords="322,35,224,76,221,71,320,30"/>
+<area shape="rect" title=" " alt="" coords="233,80,297,107"/>
+<area shape="poly" title=" " alt="" coords="338,35,293,72,290,68,335,30"/>
+<area shape="rect" title=" " alt="" coords="321,80,382,107"/>
+<area shape="poly" title=" " alt="" coords="354,33,354,64,349,64,349,33"/>
+<area shape="rect" title=" " alt="" coords="405,80,468,107"/>
+<area shape="poly" title=" " alt="" coords="368,31,413,68,409,72,365,35"/>
+<area shape="rect" title=" " alt="" coords="493,80,575,107"/>
+<area shape="poly" title=" " alt="" coords="384,30,489,71,487,76,382,35"/>
+<area shape="rect" title=" " alt="" coords="599,80,666,107"/>
+<area shape="poly" title=" " alt="" coords="402,30,585,77,584,82,401,35"/>
+<area shape="rect" title=" " alt="" coords="5,155,74,181"/>
+<area shape="poly" title=" " alt="" coords="84,109,59,144,55,141,79,106"/>
+<area shape="rect" title=" " alt="" coords="98,155,187,181"/>
+<area shape="poly" title=" " alt="" coords="101,106,127,141,122,144,97,109"/>
 </map>
 </div>
 </div>
@@ -182,76 +182,76 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of bytes read on success, 0 on EOF, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00045">45</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>                                                       {</div>
-<div class="line"><span class="lineno">   46</span>  <span class="keywordtype">char</span> *ptr = buf;</div>
-<div class="line"><span class="lineno">   47</span>  <span class="keywordtype">size_t</span> left = len;</div>
-<div class="line"><span class="lineno">   48</span>  <span class="keywordflow">while</span> (left &gt; 0) {</div>
-<div class="line"><span class="lineno">   49</span>    ssize_t read_bytes = read(fd, ptr, left);</div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">if</span> (read_bytes &lt; 0) {</div>
-<div class="line"><span class="lineno">   51</span>      <span class="keywordflow">if</span> (errno == EINTR) { <span class="comment">// Interrupted by a signal, retry</span></div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   53</span>      }</div>
-<div class="line"><span class="lineno">   54</span>      perror(<span class="stringliteral">&quot;read_all&quot;</span>);</div>
-<div class="line"><span class="lineno">   55</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (read_bytes == 0) {</div>
-<div class="line"><span class="lineno">   58</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span>    left -= read_bytes;</div>
-<div class="line"><span class="lineno">   61</span>    ptr += read_bytes;</div>
-<div class="line"><span class="lineno">   62</span>  }</div>
-<div class="line"><span class="lineno">   63</span>  <span class="keywordflow">return</span> (ssize_t)(len - left);</div>
-<div class="line"><span class="lineno">   64</span>}</div>
+<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00047">47</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>{</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">char</span> *ptr = buf;</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordtype">size_t</span> left = len;</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">while</span> (left &gt; 0) {</div>
+<div class="line"><span class="lineno">   52</span>        ssize_t read_bytes = read(fd, ptr, left);</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">if</span> (read_bytes &lt; 0) {</div>
+<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">if</span> (errno == EINTR) { <span class="comment">// Interrupted by a signal, retry</span></div>
+<div class="line"><span class="lineno">   55</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   56</span>            }</div>
+<div class="line"><span class="lineno">   57</span>            perror(<span class="stringliteral">&quot;read_all&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   59</span>        }</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">if</span> (read_bytes == 0) {</div>
+<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   62</span>        }</div>
+<div class="line"><span class="lineno">   63</span>        left -= read_bytes;</div>
+<div class="line"><span class="lineno">   64</span>        ptr += read_bytes;</div>
+<div class="line"><span class="lineno">   65</span>    }</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> (ssize_t)(len - left);</div>
+<div class="line"><span class="lineno">   67</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c_a7d95a53b7736bc25123292c2ceb064e0_icgraph.png" border="0" usemap="#aframe_8c_a7d95a53b7736bc25123292c2ceb064e0_icgraph" loading="lazy" alt=""/></div>
 <map name="aframe_8c_a7d95a53b7736bc25123292c2ceb064e0_icgraph" id="aframe_8c_a7d95a53b7736bc25123292c2ceb064e0_icgraph">
-<area shape="rect" title="Read all bytes from the file descriptor fd into buf." alt="" coords="751,179,818,204"/>
-<area shape="rect" href="frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="617,179,703,204"/>
-<area shape="poly" title=" " alt="" coords="736,194,704,194,704,189,736,189"/>
-<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="442,55,544,80"/>
-<area shape="poly" title=" " alt="" coords="628,171,510,83,513,79,631,167"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="421,301,565,327"/>
-<area shape="poly" title=" " alt="" coords="631,216,514,303,511,299,628,211"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="417,153,569,179"/>
-<area shape="poly" title=" " alt="" coords="601,185,569,180,570,175,602,180"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="434,203,552,228"/>
-<area shape="poly" title=" " alt="" coords="602,202,552,210,552,204,601,197"/>
-<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,55,369,80"/>
-<area shape="poly" title=" " alt="" coords="426,70,369,70,369,65,426,65"/>
-<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,5,369,31"/>
-<area shape="poly" title=" " alt="" coords="436,52,368,29,370,24,438,47"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,177,265,203"/>
-<area shape="poly" title=" " alt="" coords="319,93,243,179,239,175,315,90"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,177,142,203"/>
-<area shape="poly" title=" " alt="" coords="178,193,142,193,142,188,178,188"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,177,55,203"/>
-<area shape="poly" title=" " alt="" coords="87,193,55,193,55,188,87,188"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,104,268,130"/>
-<area shape="poly" title=" " alt="" coords="317,43,247,105,244,101,313,39"/>
-<area shape="poly" title=" " alt="" coords="198,141,144,179,141,175,195,137"/>
-<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="316,351,369,376"/>
-<area shape="poly" title=" " alt="" coords="438,335,370,358,368,352,436,330"/>
-<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="316,301,369,327"/>
-<area shape="poly" title=" " alt="" coords="405,317,369,317,369,312,405,312"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,252,268,278"/>
-<area shape="poly" title=" " alt="" coords="313,342,244,280,247,276,317,338"/>
-<area shape="poly" title=" " alt="" coords="196,245,141,206,144,201,199,241"/>
-<area shape="poly" title=" " alt="" coords="315,292,239,205,243,202,319,288"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="316,104,369,130"/>
-<area shape="poly" title=" " alt="" coords="436,151,368,128,370,123,438,145"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="316,153,369,179"/>
-<area shape="poly" title=" " alt="" coords="401,169,369,169,369,164,401,164"/>
-<area shape="poly" title=" " alt="" coords="301,120,269,120,269,114,301,114"/>
-<area shape="poly" title=" " alt="" coords="302,177,266,185,265,180,301,172"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="316,252,369,278"/>
-<area shape="poly" title=" " alt="" coords="438,236,370,259,368,254,436,231"/>
-<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="316,203,369,228"/>
-<area shape="poly" title=" " alt="" coords="419,218,369,218,369,213,419,213"/>
-<area shape="poly" title=" " alt="" coords="301,268,269,268,269,262,301,262"/>
-<area shape="poly" title=" " alt="" coords="301,209,265,201,266,196,302,204"/>
+<area shape="rect" title="Read all bytes from the file descriptor fd into buf." alt="" coords="751,183,818,209"/>
+<area shape="rect" href="frame_8c.html#aae8ca2c798542f0fc049ccdc5e833d20" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="617,183,703,209"/>
+<area shape="poly" title=" " alt="" coords="736,199,704,199,704,193,736,193"/>
+<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="442,56,544,83"/>
+<area shape="poly" title=" " alt="" coords="628,175,511,85,514,81,631,171"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="421,309,565,336"/>
+<area shape="poly" title=" " alt="" coords="631,221,514,311,511,307,628,217"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="417,157,569,184"/>
+<area shape="poly" title=" " alt="" coords="601,190,569,185,570,180,602,185"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="434,208,552,235"/>
+<area shape="poly" title=" " alt="" coords="602,207,552,215,552,210,601,202"/>
+<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,56,369,83"/>
+<area shape="poly" title=" " alt="" coords="426,72,369,72,369,67,426,67"/>
+<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,5,369,32"/>
+<area shape="poly" title=" " alt="" coords="436,53,368,30,370,25,438,48"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,183,265,209"/>
+<area shape="poly" title=" " alt="" coords="319,96,318,96,243,184,239,181,314,93,315,92"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,183,142,209"/>
+<area shape="poly" title=" " alt="" coords="178,199,142,199,142,193,178,193"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,183,55,209"/>
+<area shape="poly" title=" " alt="" coords="87,199,55,199,55,193,87,193"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="317,44,247,108,244,104,313,40"/>
+<area shape="poly" title=" " alt="" coords="198,145,144,184,141,180,195,141"/>
+<area shape="rect" href="task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="316,360,369,387"/>
+<area shape="poly" title=" " alt="" coords="438,344,370,367,368,362,436,339"/>
+<area shape="rect" href="both__mp_8c.html#a567a53d0200911f30791885eeeacc7d7" title=" " alt="" coords="316,309,369,336"/>
+<area shape="poly" title=" " alt="" coords="405,325,369,325,369,320,405,320"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,259,268,285"/>
+<area shape="poly" title=" " alt="" coords="313,352,244,288,247,284,317,348"/>
+<area shape="poly" title=" " alt="" coords="195,251,141,212,144,208,198,247"/>
+<area shape="poly" title=" " alt="" coords="315,300,314,299,239,211,243,208,318,296,319,296"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="316,107,369,133"/>
+<area shape="poly" title=" " alt="" coords="436,154,368,131,370,126,438,149"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="316,157,369,184"/>
+<area shape="poly" title=" " alt="" coords="401,173,369,173,369,168,401,168"/>
+<area shape="poly" title=" " alt="" coords="301,123,269,123,269,117,301,117"/>
+<area shape="poly" title=" " alt="" coords="302,182,266,191,265,185,301,177"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="316,259,369,285"/>
+<area shape="poly" title=" " alt="" coords="438,243,370,266,368,261,436,238"/>
+<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="316,208,369,235"/>
+<area shape="poly" title=" " alt="" coords="419,224,369,224,369,219,419,219"/>
+<area shape="poly" title=" " alt="" coords="301,275,269,275,269,269,301,269"/>
+<area shape="poly" title=" " alt="" coords="301,215,265,207,266,201,302,210"/>
 </map>
 </div>
 
@@ -293,44 +293,50 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes read on success; 0 on EOF or empty frame; -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00086">86</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                    {</div>
-<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">if</span> (!buf || !cap) {</div>
-<div class="line"><span class="lineno">   88</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to recv_frame\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   90</span>  }</div>
-<div class="line"><span class="lineno">   91</span>  uint32_t be_len = 0;</div>
-<div class="line"><span class="lineno">   92</span>  ssize_t st = <a class="code hl_function" href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a>(fd, &amp;be_len, <span class="keyword">sizeof</span>(be_len));</div>
-<div class="line"><span class="lineno">   93</span>  <span class="keywordflow">if</span> (st == 0)</div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   95</span>  <span class="keywordflow">if</span> (st &lt; (ssize_t)<span class="keyword">sizeof</span>(be_len))</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">if</span> (st &lt; 0)</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>  <span class="keywordtype">size_t</span> need = (size_t)ntohl(be_len);</div>
-<div class="line"><span class="lineno">  101</span>  <span class="keywordflow">if</span> (*buf == NULL || *cap &lt; need + 1) {</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordtype">size_t</span> ncap = need + 1;</div>
-<div class="line"><span class="lineno">  103</span>    <span class="keywordtype">char</span> *nb = realloc(*buf, ncap);</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!nb)</div>
-<div class="line"><span class="lineno">  105</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  106</span>    *buf = nb;</div>
-<div class="line"><span class="lineno">  107</span>    *cap = ncap;</div>
-<div class="line"><span class="lineno">  108</span>  }</div>
-<div class="line"><span class="lineno">  109</span>  <span class="keywordflow">if</span> (need == 0) {</div>
-<div class="line"><span class="lineno">  110</span>    (*buf)[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  112</span>  }</div>
-<div class="line"><span class="lineno">  113</span>  st = <a class="code hl_function" href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a>(fd, *buf, need);</div>
-<div class="line"><span class="lineno">  114</span>  <span class="keywordflow">if</span> (st &lt; 0)</div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  116</span>  <span class="keywordflow">if</span> ((<span class="keywordtype">size_t</span>)st &lt; need)</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>  (*buf)[need] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  120</span>  <span class="keywordflow">return</span> (ssize_t)need;</div>
-<div class="line"><span class="lineno">  121</span>}</div>
-<div class="ttc" id="aframe_8c_html_a7d95a53b7736bc25123292c2ceb064e0"><div class="ttname"><a href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a></div><div class="ttdeci">static ssize_t read_all(int fd, void *buf, size_t len)</div><div class="ttdoc">Read all bytes from the file descriptor fd into buf.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00045">frame.c:45</a></div></div>
+<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00090">90</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (!buf || !cap) {</div>
+<div class="line"><span class="lineno">   93</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid arguments to recv_frame\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   95</span>    }</div>
+<div class="line"><span class="lineno">   96</span>    uint32_t be_len = 0;</div>
+<div class="line"><span class="lineno">   97</span>    ssize_t st = <a class="code hl_function" href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a>(fd, &amp;be_len, <span class="keyword">sizeof</span>(be_len));</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">if</span> (st == 0) {</div>
+<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  100</span>    }</div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">if</span> (st &lt; (ssize_t)<span class="keyword">sizeof</span>(be_len)) {</div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  103</span>    }</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (st &lt; 0) {</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  106</span>    }</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordtype">size_t</span> need = (size_t)ntohl(be_len);</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (*buf == NULL || *cap &lt; need + 1) {</div>
+<div class="line"><span class="lineno">  110</span>        <span class="keywordtype">size_t</span> ncap = need + 1;</div>
+<div class="line"><span class="lineno">  111</span>        <span class="keywordtype">char</span> *nb = realloc(*buf, ncap);</div>
+<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">if</span> (!nb) {</div>
+<div class="line"><span class="lineno">  113</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  114</span>        }</div>
+<div class="line"><span class="lineno">  115</span>        *buf = nb;</div>
+<div class="line"><span class="lineno">  116</span>        *cap = ncap;</div>
+<div class="line"><span class="lineno">  117</span>    }</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (need == 0) {</div>
+<div class="line"><span class="lineno">  119</span>        (*buf)[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span>    st = <a class="code hl_function" href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a>(fd, *buf, need);</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span> (st &lt; 0) {</div>
+<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  125</span>    }</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> ((<span class="keywordtype">size_t</span>)st &lt; need) {</div>
+<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    (*buf)[need] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">return</span> (ssize_t)need;</div>
+<div class="line"><span class="lineno">  132</span>}</div>
+<div class="ttc" id="aframe_8c_html_a7d95a53b7736bc25123292c2ceb064e0"><div class="ttname"><a href="#a7d95a53b7736bc25123292c2ceb064e0">read_all</a></div><div class="ttdeci">static ssize_t read_all(int fd, void *buf, size_t len)</div><div class="ttdoc">Read all bytes from the file descriptor fd into buf.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00047">frame.c:47</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -346,48 +352,48 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c_aae8ca2c798542f0fc049ccdc5e833d20_icgraph.png" border="0" usemap="#aframe_8c_aae8ca2c798542f0fc049ccdc5e833d20_icgraph" loading="lazy" alt=""/></div>
 <map name="aframe_8c_aae8ca2c798542f0fc049ccdc5e833d20_icgraph" id="aframe_8c_aae8ca2c798542f0fc049ccdc5e833d20_icgraph">
-<area shape="rect" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="652,188,747,216"/>
-<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="465,57,574,85"/>
-<area shape="poly" title=" " alt="" coords="665,181,538,87,541,83,668,176"/>
-<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="439,317,600,345"/>
-<area shape="poly" title=" " alt="" coords="668,227,542,319,539,315,665,223"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="435,161,604,189"/>
-<area shape="poly" title=" " alt="" coords="636,195,604,190,605,185,637,190"/>
-<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="454,213,585,241"/>
-<area shape="poly" title=" " alt="" coords="637,213,586,221,585,215,636,208"/>
-<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="331,57,387,85"/>
-<area shape="poly" title=" " alt="" coords="449,74,387,74,387,68,449,68"/>
-<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="331,5,387,33"/>
-<area shape="poly" title=" " alt="" coords="459,55,386,31,388,26,461,49"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,188,280,216"/>
-<area shape="poly" title=" " alt="" coords="334,99,333,100,256,189,252,186,329,96,330,95"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,188,150,216"/>
-<area shape="poly" title=" " alt="" coords="186,204,150,204,150,199,186,199"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,188,60,216"/>
-<area shape="poly" title=" " alt="" coords="92,204,60,204,60,199,92,199"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="332,45,260,111,256,107,329,41"/>
-<area shape="poly" title=" " alt="" coords="209,148,152,190,149,185,206,144"/>
-<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="331,369,387,397"/>
-<area shape="poly" title=" " alt="" coords="461,353,388,377,386,372,459,348"/>
-<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="331,317,387,345"/>
-<area shape="poly" title=" " alt="" coords="423,334,387,334,387,328,423,328"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,265,283,293"/>
-<area shape="poly" title=" " alt="" coords="329,361,256,295,260,292,332,357"/>
-<area shape="poly" title=" " alt="" coords="205,258,149,218,152,214,208,254"/>
-<area shape="poly" title=" " alt="" coords="331,308,329,306,252,218,256,214,333,303,335,305"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="331,109,387,137"/>
-<area shape="poly" title=" " alt="" coords="459,159,386,135,388,130,461,153"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="331,161,387,189"/>
-<area shape="poly" title=" " alt="" coords="419,178,387,178,387,172,419,172"/>
-<area shape="poly" title=" " alt="" coords="316,126,284,126,284,120,316,120"/>
-<area shape="poly" title=" " alt="" coords="317,187,281,196,279,190,316,182"/>
-<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="331,265,387,293"/>
-<area shape="poly" title=" " alt="" coords="461,249,388,273,386,268,459,244"/>
-<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="331,213,387,241"/>
-<area shape="poly" title=" " alt="" coords="438,230,387,230,387,224,438,224"/>
-<area shape="poly" title=" " alt="" coords="316,282,284,282,284,276,316,276"/>
-<area shape="poly" title=" " alt="" coords="316,221,280,213,281,208,317,215"/>
+<area shape="rect" title="Receive a length&#45;prefixed frame from a file descriptor." alt="" coords="617,183,703,209"/>
+<area shape="rect" href="CSV__writer_8c.html#ad3aa6d121c0ccb81e85133366708da1f" title="Receive CSV frames and write them to a file." alt="" coords="442,56,544,83"/>
+<area shape="poly" title=" " alt="" coords="628,175,511,85,514,81,631,171"/>
+<area shape="rect" href="CSV__reader_8c.html#a7404d1f70f2ae8cf3a3d055de7285500" title="Build a hash table from CSV lines read on a pipe." alt="" coords="421,309,565,336"/>
+<area shape="poly" title=" " alt="" coords="631,221,514,311,511,307,628,217"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="417,157,569,184"/>
+<area shape="poly" title=" " alt="" coords="601,190,569,185,570,180,602,185"/>
+<area shape="rect" href="file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d" title="Write frames from a descriptor to a UTF&#45;8 file." alt="" coords="434,208,552,235"/>
+<area shape="poly" title=" " alt="" coords="602,207,552,215,552,210,601,202"/>
+<area shape="rect" href="both__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,56,369,83"/>
+<area shape="poly" title=" " alt="" coords="426,72,369,72,369,67,426,67"/>
+<area shape="rect" href="task1__mp_8c.html#a9dc7b82538e4307926e5b85fa55c23d4" title=" " alt="" coords="316,5,369,32"/>
+<area shape="poly" title=" " alt="" coords="436,53,368,30,370,25,438,48"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,183,265,209"/>
+<area shape="poly" title=" " alt="" coords="319,96,318,96,243,184,239,181,314,93,315,92"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,183,142,209"/>
+<area shape="poly" title=" " alt="" coords="178,199,142,199,142,193,178,193"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,183,55,209"/>
+<area shape="poly" title=" " alt="" coords="87,199,55,199,55,193,87,193"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="317,44,247,108,244,104,313,40"/>
+<area shape="poly" title=" " alt="" coords="198,145,144,184,141,180,195,141"/>
+<area shape="rect" href="task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="316,360,369,387"/>
+<area shape="poly" title=" " alt="" coords="438,344,370,367,368,362,436,339"/>
+<area shape="rect" href="both__mp_8c.html#a567a53d0200911f30791885eeeacc7d7" title=" " alt="" coords="316,309,369,336"/>
+<area shape="poly" title=" " alt="" coords="405,325,369,325,369,320,405,320"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,259,268,285"/>
+<area shape="poly" title=" " alt="" coords="313,352,244,288,247,284,317,348"/>
+<area shape="poly" title=" " alt="" coords="195,251,141,212,144,208,198,247"/>
+<area shape="poly" title=" " alt="" coords="315,300,314,299,239,211,243,208,318,296,319,296"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="316,107,369,133"/>
+<area shape="poly" title=" " alt="" coords="436,154,368,131,370,126,438,149"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="316,157,369,184"/>
+<area shape="poly" title=" " alt="" coords="401,173,369,173,369,168,401,168"/>
+<area shape="poly" title=" " alt="" coords="301,123,269,123,269,117,301,117"/>
+<area shape="poly" title=" " alt="" coords="302,182,266,191,265,185,301,177"/>
+<area shape="rect" href="task2__mp_8c.html#a37e6e348be374093b169c7f6e38ad28d" title=" " alt="" coords="316,259,369,285"/>
+<area shape="poly" title=" " alt="" coords="438,243,370,266,368,261,436,238"/>
+<area shape="rect" href="both__mp_8c.html#a8e99ec45398c044a1850ff49b9bba078" title=" " alt="" coords="316,208,369,235"/>
+<area shape="poly" title=" " alt="" coords="419,224,369,224,369,219,419,219"/>
+<area shape="poly" title=" " alt="" coords="301,275,269,275,269,269,301,269"/>
+<area shape="poly" title=" " alt="" coords="301,215,265,207,266,201,302,210"/>
 </map>
 </div>
 
@@ -429,27 +435,27 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success; -1 if writing fails or arguments are invalid. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00066">66</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                             {</div>
-<div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (!data_to_send &amp;&amp; len != 0) {</div>
-<div class="line"><span class="lineno">   68</span>    fprintf(stderr, <span class="stringliteral">&quot;Invalid data to send or length is zero\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   70</span>  }</div>
-<div class="line"><span class="lineno">   71</span>  uint32_t frame_length = htonl((uint32_t)len);</div>
-<div class="line"><span class="lineno">   72</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a>(fd, &amp;frame_length, <span class="keyword">sizeof</span>(frame_length)) &lt; 0) {</div>
-<div class="line"><span class="lineno">   73</span>    perror(<span class="stringliteral">&quot;send_frame: write frame length&quot;</span>);</div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   75</span>  }</div>
-<div class="line"><span class="lineno">   76</span>  <span class="keywordflow">if</span> (len == 0) {</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   78</span>  }</div>
-<div class="line"><span class="lineno">   79</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a>(fd, data_to_send, len) &lt; 0) {</div>
-<div class="line"><span class="lineno">   80</span>    perror(<span class="stringliteral">&quot;send_frame: write data&quot;</span>);</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   82</span>  }</div>
-<div class="line"><span class="lineno">   83</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   84</span>}</div>
-<div class="ttc" id="aframe_8c_html_ac3a1375a1f72d7bc755e629be3d4defc"><div class="ttname"><a href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a></div><div class="ttdeci">static int write_all(int fd, const void *buf, size_t len)</div><div class="ttdoc">Write all bytes from buf to the file descriptor fd.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00019">frame.c:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00069">69</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>{</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (!data_to_send &amp;&amp; len != 0) {</div>
+<div class="line"><span class="lineno">   72</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid data to send or length is zero\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
+<div class="line"><span class="lineno">   75</span>    uint32_t frame_length = htonl((uint32_t)len);</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a>(fd, &amp;frame_length, <span class="keyword">sizeof</span>(frame_length)) &lt; 0) {</div>
+<div class="line"><span class="lineno">   77</span>        perror(<span class="stringliteral">&quot;send_frame: write frame length&quot;</span>);</div>
+<div class="line"><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   79</span>    }</div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (len == 0) {</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   82</span>    }</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a>(fd, data_to_send, len) &lt; 0) {</div>
+<div class="line"><span class="lineno">   84</span>        perror(<span class="stringliteral">&quot;send_frame: write data&quot;</span>);</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+<div class="ttc" id="aframe_8c_html_ac3a1375a1f72d7bc755e629be3d4defc"><div class="ttname"><a href="#ac3a1375a1f72d7bc755e629be3d4defc">write_all</a></div><div class="ttdeci">static int write_all(int fd, const void *buf, size_t len)</div><div class="ttdoc">Write all bytes from buf to the file descriptor fd.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00020">frame.c:20</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -465,50 +471,50 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c_a25f328b1efd54fde993d7060fdf970c8_icgraph.png" border="0" usemap="#aframe_8c_a25f328b1efd54fde993d7060fdf970c8_icgraph" loading="lazy" alt=""/></div>
 <map name="aframe_8c_a25f328b1efd54fde993d7060fdf970c8_icgraph" id="aframe_8c_a25f328b1efd54fde993d7060fdf970c8_icgraph">
-<area shape="rect" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="789,211,888,238"/>
-<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="602,184,715,212"/>
-<area shape="poly" title=" " alt="" coords="773,218,715,209,716,204,774,212"/>
-<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="580,339,737,366"/>
-<area shape="poly" title=" " alt="" coords="811,250,743,303,685,340,682,336,740,298,807,246"/>
-<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="576,56,741,84"/>
-<area shape="poly" title=" " alt="" coords="808,202,675,86,678,82,811,198"/>
-<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="594,261,723,289"/>
-<area shape="poly" title=" " alt="" coords="775,245,711,263,709,258,774,240"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="465,107,520,134"/>
-<area shape="poly" title=" " alt="" coords="612,179,520,136,522,131,614,175"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="458,211,528,238"/>
-<area shape="poly" title=" " alt="" coords="588,212,529,222,528,216,587,207"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="458,159,528,186"/>
-<area shape="poly" title=" " alt="" coords="587,190,528,180,529,175,588,184"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="324,105,410,133"/>
-<area shape="poly" title=" " alt="" coords="449,123,410,122,410,117,450,117"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,209,150,237"/>
-<area shape="poly" title=" " alt="" coords="320,142,151,217,149,212,318,137"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,209,60,237"/>
-<area shape="poly" title=" " alt="" coords="92,226,60,226,60,220,92,220"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="339,209,395,237"/>
-<area shape="poly" title=" " alt="" coords="442,227,395,226,395,221,442,221"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="198,209,276,237"/>
-<area shape="poly" title=" " alt="" coords="324,226,277,226,277,220,324,220"/>
-<area shape="poly" title=" " alt="" coords="183,226,150,226,150,220,183,220"/>
-<area shape="poly" title=" " alt="" coords="444,195,396,215,394,210,442,190"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="465,364,520,392"/>
-<area shape="poly" title=" " alt="" coords="565,369,522,376,521,371,564,364"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="324,313,410,341"/>
-<area shape="poly" title=" " alt="" coords="450,364,402,344,404,339,452,359"/>
-<area shape="poly" title=" " alt="" coords="318,309,149,234,151,230,320,304"/>
-<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="339,157,395,185"/>
-<area shape="poly" title=" " alt="" coords="561,72,509,80,459,98,444,108,434,119,425,132,411,147,394,159,391,155,408,142,421,129,430,116,440,104,456,93,507,75,560,67"/>
-<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="465,5,520,33"/>
-<area shape="poly" title=" " alt="" coords="596,53,520,30,522,25,597,48"/>
-<area shape="poly" title=" " alt="" coords="326,190,275,211,273,206,324,185"/>
-<area shape="poly" title=" " alt="" coords="464,45,388,107,384,103,461,41"/>
-<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="465,312,520,340"/>
-<area shape="poly" title=" " alt="" coords="597,297,522,320,520,315,596,292"/>
-<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="339,261,395,289"/>
-<area shape="poly" title=" " alt="" coords="578,278,395,278,395,272,578,272"/>
-<area shape="poly" title=" " alt="" coords="450,329,410,329,410,324,449,324"/>
-<area shape="poly" title=" " alt="" coords="324,261,273,240,275,235,326,256"/>
+<area shape="rect" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="747,208,837,235"/>
+<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="572,183,677,209"/>
+<area shape="poly" title=" " alt="" coords="732,215,677,206,677,201,733,210"/>
+<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="554,335,695,361"/>
+<area shape="poly" title=" " alt="" coords="765,247,701,299,648,336,645,332,698,295,762,243"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="550,56,699,83"/>
+<area shape="poly" title=" " alt="" coords="763,200,639,85,643,81,767,196"/>
+<area shape="rect" href="file__writer_8c.html#a0f225aae507126a1c4c9dd9e20200b91" title="Send generated words over a file descriptor." alt="" coords="566,259,683,285"/>
+<area shape="poly" title=" " alt="" coords="733,242,672,261,670,256,732,237"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="443,107,495,133"/>
+<area shape="poly" title=" " alt="" coords="580,178,494,135,497,130,583,173"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="436,208,502,235"/>
+<area shape="poly" title=" " alt="" coords="557,210,503,219,502,213,557,204"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="436,157,502,184"/>
+<area shape="poly" title=" " alt="" coords="557,188,502,179,503,173,557,182"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="309,107,388,133"/>
+<area shape="poly" title=" " alt="" coords="427,123,388,123,388,117,427,117"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,208,142,235"/>
+<area shape="poly" title=" " alt="" coords="304,142,143,215,141,211,302,138"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,208,55,235"/>
+<area shape="poly" title=" " alt="" coords="87,224,55,224,55,219,87,219"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="322,208,375,235"/>
+<area shape="poly" title=" " alt="" coords="420,224,375,224,375,219,420,219"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="190,208,261,235"/>
+<area shape="poly" title=" " alt="" coords="307,224,262,224,262,219,307,219"/>
+<area shape="poly" title=" " alt="" coords="175,224,142,224,142,219,175,219"/>
+<area shape="poly" title=" " alt="" coords="422,193,376,213,374,208,420,188"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="443,360,495,387"/>
+<area shape="poly" title=" " alt="" coords="539,365,496,372,495,367,538,359"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="309,309,388,336"/>
+<area shape="poly" title=" " alt="" coords="428,359,381,339,383,334,430,354"/>
+<area shape="poly" title=" " alt="" coords="302,305,141,232,143,227,304,300"/>
+<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="322,157,375,184"/>
+<area shape="poly" title=" " alt="" coords="535,72,485,80,437,97,422,108,412,119,403,133,389,147,374,159,371,155,386,143,399,129,408,116,418,104,434,92,483,75,534,67"/>
+<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="443,5,495,32"/>
+<area shape="poly" title=" " alt="" coords="566,53,495,30,496,25,568,48"/>
+<area shape="poly" title=" " alt="" coords="309,190,261,210,259,205,307,185"/>
+<area shape="poly" title=" " alt="" coords="442,44,368,108,364,104,439,40"/>
+<area shape="rect" href="task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="443,309,495,336"/>
+<area shape="poly" title=" " alt="" coords="568,293,496,317,495,312,566,288"/>
+<area shape="rect" href="both__mp_8c.html#a567a53d0200911f30791885eeeacc7d7" title=" " alt="" coords="322,259,375,285"/>
+<area shape="poly" title=" " alt="" coords="551,275,375,275,375,269,551,269"/>
+<area shape="poly" title=" " alt="" coords="427,325,388,325,388,320,427,320"/>
+<area shape="poly" title=" " alt="" coords="307,258,259,238,261,233,309,253"/>
 </map>
 </div>
 
@@ -557,75 +563,75 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00019">19</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                          {</div>
-<div class="line"><span class="lineno">   20</span>  <span class="keyword">const</span> <span class="keywordtype">char</span> *ptr = buf;</div>
-<div class="line"><span class="lineno">   21</span>  <span class="keywordtype">size_t</span> left = len;</div>
-<div class="line"><span class="lineno">   22</span>  <span class="keywordflow">while</span> (left &gt; 0) {</div>
-<div class="line"><span class="lineno">   23</span>    ssize_t written = write(fd, ptr, left);</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> (written &lt; 0) {</div>
-<div class="line"><span class="lineno">   25</span>      <span class="keywordflow">if</span> (errno == EINTR) { <span class="comment">// Interrupted by a signal, retry</span></div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   27</span>      }</div>
-<div class="line"><span class="lineno">   28</span>      perror(<span class="stringliteral">&quot;write_all&quot;</span>);</div>
-<div class="line"><span class="lineno">   29</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   30</span>    }</div>
-<div class="line"><span class="lineno">   31</span>    left -= written;</div>
-<div class="line"><span class="lineno">   32</span>    ptr += written;</div>
-<div class="line"><span class="lineno">   33</span>  }</div>
-<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   35</span>}</div>
+<p class="definition">Definition at line <a class="el" href="frame_8c_source.html#l00020">20</a> of file <a class="el" href="frame_8c_source.html">frame.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *ptr = buf;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordtype">size_t</span> left = len;</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">while</span> (left &gt; 0) {</div>
+<div class="line"><span class="lineno">   25</span>        ssize_t written = write(fd, ptr, left);</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span> (written &lt; 0) {</div>
+<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">if</span> (errno == EINTR) { <span class="comment">// Interrupted by a signal, retry</span></div>
+<div class="line"><span class="lineno">   28</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   29</span>            }</div>
+<div class="line"><span class="lineno">   30</span>            perror(<span class="stringliteral">&quot;write_all&quot;</span>);</div>
+<div class="line"><span class="lineno">   31</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   32</span>        }</div>
+<div class="line"><span class="lineno">   33</span>        left -= written;</div>
+<div class="line"><span class="lineno">   34</span>        ptr += written;</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="frame_8c_ac3a1375a1f72d7bc755e629be3d4defc_icgraph.png" border="0" usemap="#aframe_8c_ac3a1375a1f72d7bc755e629be3d4defc_icgraph" loading="lazy" alt=""/></div>
 <map name="aframe_8c_ac3a1375a1f72d7bc755e629be3d4defc_icgraph" id="aframe_8c_ac3a1375a1f72d7bc755e629be3d4defc_icgraph">
-<area shape="rect" title="Write all bytes from buf to the file descriptor fd." alt="" coords="885,231,954,256"/>
-<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="747,231,837,256"/>
-<area shape="poly" title=" " alt="" coords="870,246,837,246,837,241,870,241"/>
-<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="572,181,677,207"/>
-<area shape="poly" title=" " alt="" coords="732,229,670,210,672,205,733,224"/>
-<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="554,331,695,356"/>
-<area shape="poly" title=" " alt="" coords="757,267,649,333,646,328,754,263"/>
-<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="550,56,699,82"/>
-<area shape="poly" title=" " alt="" coords="766,221,637,84,640,80,770,218"/>
-<area shape="rect" href="file__writer_8c.html#afe9002c4a63d1c46da65f5dc88975940" title="Send generated words over a file descriptor." alt="" coords="566,256,683,282"/>
-<area shape="poly" title=" " alt="" coords="733,255,684,263,683,257,732,250"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="443,107,495,132"/>
-<area shape="poly" title=" " alt="" coords="581,177,494,134,496,129,583,172"/>
-<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="436,205,502,231"/>
-<area shape="poly" title=" " alt="" coords="557,207,503,216,502,210,557,202"/>
-<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="436,156,502,182"/>
-<area shape="poly" title=" " alt="" coords="557,186,502,177,503,172,557,181"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="309,107,388,132"/>
-<area shape="poly" title=" " alt="" coords="427,122,388,122,388,117,427,117"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,205,142,231"/>
-<area shape="poly" title=" " alt="" coords="304,141,143,212,141,208,302,136"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,205,55,231"/>
-<area shape="poly" title=" " alt="" coords="87,221,55,221,55,216,87,216"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="322,205,375,231"/>
-<area shape="poly" title=" " alt="" coords="420,221,375,221,375,216,420,216"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="190,205,261,231"/>
-<area shape="poly" title=" " alt="" coords="307,221,262,221,262,216,307,216"/>
-<area shape="poly" title=" " alt="" coords="175,221,142,221,142,216,175,216"/>
-<area shape="poly" title=" " alt="" coords="422,191,376,210,374,205,420,186"/>
-<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="443,356,495,382"/>
-<area shape="poly" title=" " alt="" coords="539,360,496,367,495,362,538,355"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="309,307,388,332"/>
-<area shape="poly" title=" " alt="" coords="428,355,381,335,383,330,430,350"/>
-<area shape="poly" title=" " alt="" coords="303,302,141,229,143,224,305,297"/>
-<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="322,156,375,182"/>
-<area shape="poly" title=" " alt="" coords="535,71,485,79,437,97,422,107,412,119,403,132,389,147,374,158,371,153,386,143,399,129,408,116,418,103,434,92,483,74,534,66"/>
-<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="443,5,495,31"/>
-<area shape="poly" title=" " alt="" coords="567,53,495,29,496,24,569,48"/>
-<area shape="poly" title=" " alt="" coords="309,188,261,207,259,202,307,183"/>
-<area shape="poly" title=" " alt="" coords="443,43,367,108,363,104,439,39"/>
-<area shape="rect" href="task2__mp_8c.html#a54dfa064fcf10576a6058ecff9196791" title=" " alt="" coords="443,307,495,332"/>
-<area shape="poly" title=" " alt="" coords="569,290,496,314,495,309,567,285"/>
-<area shape="rect" href="both__mp_8c.html#abf59eecb70e4900b1bb0a76e4bf15470" title=" " alt="" coords="322,256,375,282"/>
-<area shape="poly" title=" " alt="" coords="551,272,375,272,375,266,551,266"/>
-<area shape="poly" title=" " alt="" coords="427,322,388,322,388,317,427,317"/>
-<area shape="poly" title=" " alt="" coords="307,255,258,234,260,229,309,250"/>
+<area shape="rect" title="Write all bytes from buf to the file descriptor fd." alt="" coords="885,208,954,235"/>
+<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="747,208,837,235"/>
+<area shape="poly" title=" " alt="" coords="870,224,837,224,837,219,870,219"/>
+<area shape="rect" href="CSV__writer_8c.html#a23ffde3f2f2df1f638dbeec09800daa2" title="Send CSV lines for all table entries over a descriptor." alt="" coords="572,183,677,209"/>
+<area shape="poly" title=" " alt="" coords="732,215,677,206,677,201,733,210"/>
+<area shape="rect" href="CSV__reader_8c.html#a08d3417ba6161c27d6b34b5ceacd23d7" title="Forward a parsed CSV line from one descriptor to another." alt="" coords="554,335,695,361"/>
+<area shape="poly" title=" " alt="" coords="765,247,701,299,648,336,645,332,698,295,762,243"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="550,56,699,83"/>
+<area shape="poly" title=" " alt="" coords="763,200,639,85,643,81,767,196"/>
+<area shape="rect" href="file__writer_8c.html#a0f225aae507126a1c4c9dd9e20200b91" title="Send generated words over a file descriptor." alt="" coords="566,259,683,285"/>
+<area shape="poly" title=" " alt="" coords="733,242,672,261,670,256,732,237"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="443,107,495,133"/>
+<area shape="poly" title=" " alt="" coords="580,178,494,135,497,130,583,173"/>
+<area shape="rect" href="both__mp_8c.html#aef48ff5dec2c3267c16b85945d8512a9" title=" " alt="" coords="436,208,502,235"/>
+<area shape="poly" title=" " alt="" coords="557,210,503,219,502,213,557,204"/>
+<area shape="rect" href="both__mp_8c.html#a53d164406c59818b31fc4dc9962e08a3" title=" " alt="" coords="436,157,502,184"/>
+<area shape="poly" title=" " alt="" coords="557,188,502,179,503,173,557,182"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="309,107,388,133"/>
+<area shape="poly" title=" " alt="" coords="427,123,388,123,388,117,427,117"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,208,142,235"/>
+<area shape="poly" title=" " alt="" coords="304,142,143,215,141,211,302,138"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,208,55,235"/>
+<area shape="poly" title=" " alt="" coords="87,224,55,224,55,219,87,219"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="322,208,375,235"/>
+<area shape="poly" title=" " alt="" coords="420,224,375,224,375,219,420,219"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="190,208,261,235"/>
+<area shape="poly" title=" " alt="" coords="307,224,262,224,262,219,307,219"/>
+<area shape="poly" title=" " alt="" coords="175,224,142,224,142,219,175,219"/>
+<area shape="poly" title=" " alt="" coords="422,193,376,213,374,208,420,188"/>
+<area shape="rect" href="task2__mp_8c.html#aeb06ae19a10b6ea746dbf97644adc17a" title=" " alt="" coords="443,360,495,387"/>
+<area shape="poly" title=" " alt="" coords="539,365,496,372,495,367,538,359"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="309,309,388,336"/>
+<area shape="poly" title=" " alt="" coords="428,359,381,339,383,334,430,354"/>
+<area shape="poly" title=" " alt="" coords="302,305,141,232,143,227,304,300"/>
+<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="322,157,375,184"/>
+<area shape="poly" title=" " alt="" coords="535,72,485,80,437,97,422,108,412,119,403,133,389,147,374,159,371,155,386,143,399,129,408,116,418,104,434,92,483,75,534,67"/>
+<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="443,5,495,32"/>
+<area shape="poly" title=" " alt="" coords="566,53,495,30,496,25,568,48"/>
+<area shape="poly" title=" " alt="" coords="309,190,261,210,259,205,307,185"/>
+<area shape="poly" title=" " alt="" coords="442,44,368,108,364,104,439,40"/>
+<area shape="rect" href="task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="443,309,495,336"/>
+<area shape="poly" title=" " alt="" coords="568,293,496,317,495,312,566,288"/>
+<area shape="rect" href="both__mp_8c.html#a567a53d0200911f30791885eeeacc7d7" title=" " alt="" coords="322,259,375,285"/>
+<area shape="poly" title=" " alt="" coords="551,275,375,275,375,269,551,269"/>
+<area shape="poly" title=" " alt="" coords="427,325,388,325,388,320,427,320"/>
+<area shape="poly" title=" " alt="" coords="307,258,259,238,261,233,309,253"/>
 </map>
 </div>
 

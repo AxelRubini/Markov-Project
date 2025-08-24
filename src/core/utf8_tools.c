@@ -389,3 +389,40 @@ int is_typographic(int cp)
 		cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||
 		cp == 0x00BF);
 }
+
+size_t utf8_str_len(const int *str)
+{
+	if (str == NULL) {
+		return 0;
+	}
+	size_t len = 0;
+	while (str[len] != '\0') {
+		len++;
+	}
+	return len;
+}
+
+int utf8_is_sub_string(const int *str, const int *sub)
+{
+	size_t sub_len = utf8_str_len(sub);
+	if (sub_len == 0) {
+		return 0;
+	}
+	size_t str_len = utf8_str_len(str);
+	if (str_len < sub_len) {
+		return 0;
+	}
+	if (sub_len > str_len) {
+		return 0;
+	}
+	for (size_t i = 0; i <= str_len - sub_len; i++) {
+		size_t j = 0;
+		while (j < sub_len && str[i + j] == sub[j]) {
+			j++;
+		}
+		if (j == sub_len) {
+			return 1; // Found a substirng
+		}
+	}
+	return 0;
+}

@@ -118,28 +118,36 @@ Struttura del progetto</h1>
 <li><span class="tt">CSV_writer.h</span> - funzioni per la scrittura di file CSV sia in singolo che multiprocesso.</li>
 </ul>
 </li>
-<li><span class="tt">ds/</span> – strutture dati (linked list,hash table, ecc.).<ul>
+<li><p class="startli"><span class="tt">ds/</span> – strutture dati (linked list,hash table, ecc.).</p><ul>
 <li><span class="tt">hash_table.h</span> - dichiarazione della struttura <span class="tt">hash_table_t</span> e delle funzioni per la gestione della tabella hash.</li>
 <li><span class="tt">linked_list.h</span> - dichiarazione delle strutture <span class="tt">linked_list_t</span> e <span class="tt">ll_item_t</span> per la gestione delle linked list e relative funzioni per la gestione di esse.</li>
-<li><span class="tt">ht_item.h</span> - dichiarazione della struttura <span class="tt">ht_item</span> e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next_word. _ <span class="tt">word.h</span> - dichiarazione della struttura <span class="tt">word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole e i relativi <span class="tt">ht_item</span>. un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura: <div class="fragment"><div class="line">word_t {</div>
-<div class="line">    int *word;</div>
-<div class="line">    int occurrences;</div>
-<div class="line">    }</div>
-<div class="line">ht_item {</div>
-<div class="line">    word_t \*key;</div>
-<div class="line">    linked_list_t \*next_words; // lista di word_t successive </div>
-<div class="line">    }</div>
-</div><!-- fragment --></li>
-<li><span class="tt">next_word.h</span> - dichiarazione della struttura <span class="tt">next_word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole successive e i relativi <span class="tt">ht_item</span>. Un singolo elemento della hash table che utilizza la struct <span class="tt">next_word_t</span> rappresenta con una lista di code point la parola chiave e le parole successive useando la struct <span class="tt">next_word_t</span> che contiene la probabilità di transizione dalla parola chiave alla parola successiva creando quindi una struttura: <div class="fragment"><div class="line">next_word_t {</div>
-<div class="line">    int *next_word;</div>
-<div class="line">    double probability;</div>
-<div class="line">    }</div>
-<div class="line">ht_item {</div>
-<div class="line">    int \*key; // parola chiave</div>
-<div class="line">    linked_list_t \*next_words; // lista di next_word_t successive</div>
-<div class="line">    }</div>
-</div><!-- fragment --></li>
+<li><span class="tt">ht_item.h</span> - dichiarazione della struttura <span class="tt">ht_item</span> e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next*word.<ul>
+<li><span class="tt">word.h</span> - dichiarazione della struttura <span class="tt">word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole e i relativi <span class="tt">ht_item</span>. un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura:</li>
 </ul>
+</li>
+</ul>
+<p class="startli"><span class="tt">markdown
+    word_t {
+    int \*word;
+    int occurrences;
+    }
+    ht_item {
+    word_t \*key;
+    linked_list_t \*next_words; // lista di word_t successive
+    }
+    </span></p><ul>
+<li><span class="tt">next_word.h</span> - dichiarazione della struttura <span class="tt">next_word_t</span> e delle funzioni per gestire la struct e funzioni per la specializzazione della <span class="tt">hash_table_t</span> per le parole successive e i relativi <span class="tt">ht_item</span>. Un singolo elemento della hash table che utilizza la struct <span class="tt">next_word_t</span> rappresenta con una lista di code point la parola chiave e le parole successive useando la struct <span class="tt">next_word_t</span> che contiene la probabilità di transizione dalla parola chiave alla parola successiva creando quindi una struttura:</li>
+</ul>
+<p class="startli"><span class="tt">markdown
+    next_word_t {
+    int \*next_word;
+    double probability;
+    }
+    ht_item {
+    int \*key; // parola chiave
+    linked_list_t \*next_words; // lista di next_word_t successive
+    }
+    </span>`</p>
 </li>
 <li><span class="tt">io/</span> – funzioni di input/output su file e pipe.<ul>
 <li><span class="tt">file_reader.h</span> - contiene le funzione per la lettura di un testo UTF-8 e la creazione di una hash table di parole e leloro occorrenze sfruttando la struct <span class="tt">word_t</span>.</li>
@@ -191,7 +199,7 @@ Manuale utente</h1>
 <li><span class="tt">--input-csv &lt;file&gt;</span> – CSV di input per <span class="tt">task2</span>(obbligatorio se <span class="tt">task2</span> è eseguita da sola).</li>
 <li><span class="tt">--output-txt &lt;file&gt;</span> – file di testo prodotto da <span class="tt">task2</span> (default: stdout).</li>
 <li><span class="tt">--output-csv &lt;file&gt;</span> – file CSV prodotto da <span class="tt">task1</span> (default: <span class="tt">Analysis_&lt;input&gt;</span>).</li>
-<li><span class="tt">--n-words &lt;n&gt;</span> – numero di parole da generare (default: 10). Durante l'esecuzione di <span class="tt">task2</span> o <span class="tt">task-both</span> verrà richiesto di inserire la parola iniziale da una lista stampata sul terminale; premendo Invio verrà scelto un simbolo casuale tra '.' '?' '!'.</li>
+<li><span class="tt">--n-words &lt;n&gt;</span> – numero di parole da generare (default: 10). Durante l'esecuzione di <span class="tt">task2</span> o <span class="tt">task-both</span> verrà richiesto di inserire inserire una parola o parte di esse, il programma quindi stampera' a schermo tutte le parole che contengono l' input come sotto stringa, se non si vuole cercare alcuna parola premere exit, se viene eseguita una ricerca ma non si vuole scegliere tra le parole proposte premere invio perricominciare la ricerca oppure uscire, sen non verrà scelta alcuna parola uno starter randomico tra quelli seguenti verra selezionato '.' '?' '!'.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Esempi</h2>

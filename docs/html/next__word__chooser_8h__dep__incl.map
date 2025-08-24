@@ -1,9 +1,7 @@
 <map id="include/core/next_word_chooser.h" name="include/core/next_word_chooser.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="155,5,310,46"/>
-<area shape="rect" id="Node000002" href="$next__word__chooser_8c.html" title=" " alt="" coords="5,94,137,135"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,56,109,96,106,91,181,51"/>
-<area shape="rect" id="Node000003" href="$_8null-ls__947915__file__writer_8c.html" title=" " alt="" coords="161,94,304,135"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,62,235,94,230,94,230,62"/>
-<area shape="rect" id="Node000004" href="$file__writer_8c.html" title=" " alt="" coords="328,102,451,127"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,51,369,99,366,103,280,56"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,225,48"/>
+<area shape="rect" id="Node000002" href="$next__word__chooser_8c.html" title=" " alt="" coords="5,96,138,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,62,91,97,87,94,118,58"/>
+<area shape="rect" id="Node000003" href="$file__writer_8c.html" title=" " alt="" coords="161,104,286,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,58,215,102,211,105,173,62"/>
 </map>

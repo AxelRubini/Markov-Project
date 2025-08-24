@@ -141,4 +141,13 @@ int is_sentence_terminator(int cp);
  */
 int is_typographic(int cp);
 
+/**
+ * @brief Check if a string is a substring of another string.
+ *
+ * @param str String to check.
+ * @param sub Substring to check.
+ * @return Non-zero if a substring, zero otherwise.
+ */
+int utf8_is_sub_string(const int *str, const int *sub);
+
 #endif

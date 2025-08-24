@@ -93,28 +93,27 @@ $(function(){initNavTree('main_8c_source.html','',''); });
 <div class="contents">
 <a href="main_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="options_8h.html">options.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="runner_8h.html">runner.h</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">    7</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <a class="code hl_struct" href="structoptions__t.html">options_t</a> options = {0};</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a>(argc,argv, &amp;options) &lt; 0) {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    fprintf(stderr, <span class="stringliteral">&quot;Error parsing options\n&quot;</span>);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  }</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordtype">int</span> result = <a class="code hl_function" href="runner_8h.html#a632c18351b8eb8158132b5be8f604d78">run</a>(&amp;options);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordflow">return</span> result &lt; 0 ? EXIT_FAILURE : EXIT_SUCCESS;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">    7</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_struct" href="structoptions__t.html">options_t</a> options = {0};</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a>(argc, argv, &amp;options) &lt; 0) {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        fprintf(stderr, <span class="stringliteral">&quot;Error parsing options\n&quot;</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">int</span> result = <a class="code hl_function" href="runner_8h.html#a632c18351b8eb8158132b5be8f604d78">run</a>(&amp;options);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> result &lt; 0 ? EXIT_FAILURE : EXIT_SUCCESS;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
 </div>
 <div class="ttc" id="amain_8c_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition</b> <a href="#l00007">main.c:7</a></div></div>
 <div class="ttc" id="aoptions_8h_html"><div class="ttname"><a href="options_8h.html">options.h</a></div></div>
-<div class="ttc" id="aoptions_8h_html_aa3dea22abd024052e9168eb410d1015e"><div class="ttname"><a href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a></div><div class="ttdeci">int parse_options(int argc, char **argv, options_t *out)</div><div class="ttdoc">Parse command line arguments into an options structure.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00084">options.c:84</a></div></div>
+<div class="ttc" id="aoptions_8h_html_aa3dea22abd024052e9168eb410d1015e"><div class="ttname"><a href="options_8h.html#aa3dea22abd024052e9168eb410d1015e">parse_options</a></div><div class="ttdeci">int parse_options(int argc, char **argv, options_t *out)</div><div class="ttdoc">Parse command line arguments into an options structure.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00094">options.c:94</a></div></div>
 <div class="ttc" id="arunner_8h_html"><div class="ttname"><a href="runner_8h.html">runner.h</a></div></div>
-<div class="ttc" id="arunner_8h_html_a632c18351b8eb8158132b5be8f604d78"><div class="ttname"><a href="runner_8h.html#a632c18351b8eb8158132b5be8f604d78">run</a></div><div class="ttdeci">int run(const options_t *options)</div><div class="ttdoc">Run the application with the provided options.</div><div class="ttdef"><b>Definition</b> <a href="runner_8c_source.html#l00012">runner.c:12</a></div></div>
+<div class="ttc" id="arunner_8h_html_a632c18351b8eb8158132b5be8f604d78"><div class="ttname"><a href="runner_8h.html#a632c18351b8eb8158132b5be8f604d78">run</a></div><div class="ttdeci">int run(const options_t *options)</div><div class="ttdoc">Run the application with the provided options.</div><div class="ttdef"><b>Definition</b> <a href="runner_8c_source.html#l00011">runner.c:11</a></div></div>
 <div class="ttc" id="astructoptions__t_html"><div class="ttname"><a href="structoptions__t.html">options_t</a></div><div class="ttdoc">Aggregates command line options for the program.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00029">options.h:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

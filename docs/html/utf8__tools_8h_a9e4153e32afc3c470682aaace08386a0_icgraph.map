@@ -1,0 +1,18 @@
+<map id="utf8_cp_to_rawbytes" name="utf8_cp_to_rawbytes">
+<area shape="rect" id="Node000001" title="Encode code points into raw UTF&#45;8 bytes." alt="" coords="582,31,724,57"/>
+<area shape="rect" id="Node000002" href="$file__writer_8c.html#a0f225aae507126a1c4c9dd9e20200b91" title="Send generated words over a file descriptor." alt="" coords="417,31,534,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="566,47,535,47,535,41,566,41"/>
+<area shape="rect" id="Node000003" href="$task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="316,5,369,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,32,368,26,369,21,402,27"/>
+<area shape="rect" id="Node000007" href="$both__mp_8c.html#a567a53d0200911f30791885eeeacc7d7" title=" " alt="" coords="316,56,369,83"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="402,61,369,67,368,62,401,56"/>
+<area shape="rect" id="Node000004" href="$task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,5,268,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="301,21,269,21,269,16,301,16"/>
+<area shape="rect" id="Node000005" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="176,34,143,42,142,37,174,29"/>
+<area shape="rect" id="Node000006" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="87,47,55,47,55,41,87,41"/>
+<area shape="rect" id="Node000008" href="$both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,56,265,83"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="301,72,265,72,265,67,301,67"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="178,60,142,51,143,46,179,55"/>
+</map>

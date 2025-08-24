@@ -94,10 +94,10 @@ $(function(){initNavTree('CSV__reader_8h_source.html','',''); });
 <a href="CSV__reader_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CSV_READER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CSV_READER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="hash__table_8h.html">hash_table.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>ssize_t <a class="code hl_function" href="CSV__reader_8h.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">char</span> **buf, <span class="keywordtype">size_t</span> *cap);</div>
@@ -108,14 +108,13 @@ $(function(){initNavTree('CSV__reader_8h_source.html','',''); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><a class="code hl_struct" href="structhash__table__t.html">hash_table_t</a> *<a class="code hl_function" href="CSV__reader_8h.html#a7404d1f70f2ae8cf3a3d055de7285500">read_lines_from_pipe</a>(<span class="keywordtype">int</span> in_fd);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// CSV_READER_H</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">// CSV_READER_H</span></div>
 <div class="ttc" id="aCSV__reader_8h_html_a08d3417ba6161c27d6b34b5ceacd23d7"><div class="ttname"><a href="CSV__reader_8h.html#a08d3417ba6161c27d6b34b5ceacd23d7">publish_line_on_pipe</a></div><div class="ttdeci">int publish_line_on_pipe(int in_fd, int out_fd)</div><div class="ttdoc">Forward a parsed CSV line from one descriptor to another.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00148">CSV_reader.c:148</a></div></div>
 <div class="ttc" id="aCSV__reader_8h_html_a3476ca0a6bfb1cf6045c0344a6f4ef1f"><div class="ttname"><a href="CSV__reader_8h.html#a3476ca0a6bfb1cf6045c0344a6f4ef1f">read_csv_line</a></div><div class="ttdeci">ssize_t read_csv_line(int fd, char **buf, size_t *cap)</div><div class="ttdoc">Read a line from a CSV descriptor.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00022">CSV_reader.c:22</a></div></div>
 <div class="ttc" id="aCSV__reader_8h_html_a71360bacc7e01a6c665df648bfc86ecc"><div class="ttname"><a href="CSV__reader_8h.html#a71360bacc7e01a6c665df648bfc86ecc">read_csv_file_sp</a></div><div class="ttdeci">hash_table_t * read_csv_file_sp(const char *filename)</div><div class="ttdoc">Populate a hash table by reading a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00079">CSV_reader.c:79</a></div></div>
 <div class="ttc" id="aCSV__reader_8h_html_a7404d1f70f2ae8cf3a3d055de7285500"><div class="ttname"><a href="CSV__reader_8h.html#a7404d1f70f2ae8cf3a3d055de7285500">read_lines_from_pipe</a></div><div class="ttdeci">hash_table_t * read_lines_from_pipe(int in_fd)</div><div class="ttdoc">Build a hash table from CSV lines read on a pipe.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00178">CSV_reader.c:178</a></div></div>
 <div class="ttc" id="ahash__table_8h_html"><div class="ttname"><a href="hash__table_8h.html">hash_table.h</a></div></div>
-<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00011">hash_table.h:11</a></div></div>
+<div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00012">hash_table.h:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

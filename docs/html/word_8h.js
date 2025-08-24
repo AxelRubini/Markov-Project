@@ -8,7 +8,7 @@ var word_8h =
     [ "print_utf8_word", "word_8h.html#a86cf11bbcc696d1368d33b0f4615c823", null ],
     [ "update_ht_item_value", "word_8h.html#a0dd9c5256ad15b48050281c1ea7e5e56", null ],
     [ "update_word_occurrences", "word_8h.html#a0e868f17d208e84602274969f05bfeae", null ],
-    [ "word_hash", "word_8h.html#a54fad11816a4a1797849e959d310fa0d", null ],
+    [ "word_hash", "word_8h.html#afc9a2356889e5590b0586e6a18197097", null ],
     [ "word_hashtable_keycmp", "word_8h.html#a16fe504f96eba0865f4d74b53ea71695", null ],
     [ "word_ht_item_create", "word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f", null ],
     [ "word_ht_item_print", "word_8h.html#a23c94ee9adecbe7ae34cd5582c88c158", null ],

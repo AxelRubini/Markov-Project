@@ -1,5 +1,7 @@
 <map id="include/modes/mp/task2_mp.h" name="include/modes/mp/task2_mp.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,204,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="71,79,138,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,31,107,63,102,63,102,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,205,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="26,80,94,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,34,78,68,73,65,95,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="118,80,182,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,31,137,65,132,68,111,34"/>
 </map>

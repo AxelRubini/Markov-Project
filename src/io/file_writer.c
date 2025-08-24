@@ -1,5 +1,6 @@
 #include "file_writer.h"
 #include "frame.h"
+#include "hash_table.h"
 #include "next_word_chooser.h"
 #include "utf8_tools.h"
 #include "utils.h"
@@ -45,33 +46,92 @@ static int *generate_random_symbol()
 }
 
 /**
- * @brief Print all available words in the hash table.
+ * @brief Provide an interface to choose a word from the hash table
  *
- * @param table Hash table to print words from.
- * @return 0 on success, -1 on error.
+ * @param Hash table to search for the word.
+ * @return pointer to an array of codepoints or null.
  */
-static int print_available_words(const hash_table_t *table)
+static int *search_start_word(const hash_table_t *table)
 {
 	if (table == NULL || table->size == 0) {
 		fprintf(stderr, "Hash table is NULL or empty\n");
-		return -1; // No valid words to print
+		return NULL; // No valid start word
 	}
-	for (int i = 0; i < table->size; i++) {
-		linked_list_t *bucket = table->buckets[i];
-		if (bucket == NULL) {
-			continue; // Skip empty buckets
+	char search_term[MAX_WORD_LENGTH_BYTES] = {0};
+	printf("Enter char of the word to search: ");
+	fflush(stdout);
+	// Read a UTF-8 word from stdin
+	while (fgets(search_term, sizeof(search_term), stdin)) {
+		if (search_term[0] == '\n') {
+			printf("No input found, please enter a word or type "
+			       "exit \n");
+			continue;
 		}
-		ll_item_t *current = bucket->head;
-		while (current != NULL) {
-			ht_item *item = (ht_item *)current->data;
-			utf8_print_word(item->key, STDOUT_FILENO);
-			printf("\n");
-			current = current->next;
+		search_term[strcspn(search_term, "\n")] = '\0';
+		if (strcmp(search_term, "exit") == 0) {
+			return NULL;
 		}
-	}
-	fflush(stdout); // Ensure all output is flushed
+		int *word = utf8_rawbytes_to_cp((const u8 *)search_term,
+						strlen(search_term));
+		if (word == NULL) {
+			fprintf(stderr,
+				"Failed to convert input to UTF-8 word\n");
+			return NULL; // Error converting input
+		}
 
-	return 0; // Success
+		printf("Founded Words\n");
+		size_t found_count = 0;
+		ht_item *matches[50];
+		for (size_t i = 0; i < table->size && found_count < 50; i++) {
+			linked_list_t *bucket = table->buckets[i];
+			if (bucket == NULL) {
+				continue;
+			}
+			ll_item_t *current = bucket->head;
+			while (current != NULL && found_count < 50) {
+				ht_item *item = (ht_item *)current->data;
+				if (utf8_is_sub_string(item->key, word)) {
+					matches[found_count++] = item;
+					printf("%zu.", found_count);
+					fflush(stdout);
+					utf8_print_word(item->key,
+							STDOUT_FILENO);
+					printf("\n");
+				}
+				current = current->next;
+			}
+		}
+		if (found_count == 0) {
+			printf("No match found\n");
+		} else {
+			printf("\nSelect a word from (1-%zu) or research: ",
+			       found_count);
+			char choice_str[16];
+			if (fgets(choice_str, sizeof(choice_str), stdin)) {
+				size_t choiche = strtoul(choice_str, NULL, 10);
+				if (choiche > 0 && choiche <= found_count) {
+					int *selected_word = utf8_str_deepcopy(
+						matches[choiche - 1]->key);
+					if (selected_word == NULL) {
+						fprintf(stderr,
+							"Failed to create "
+							"selected word from "
+							"input\n");
+						return NULL; // Error converting
+							     // input
+					}
+					printf("selected word: ");
+					fflush(stdout);
+					utf8_print_word(selected_word,
+							STDOUT_FILENO);
+					printf("\n");
+					return selected_word;
+				}
+			}
+		}
+		printf("\n Search again or exit");
+	}
+	return NULL;
 }
 
 /**
@@ -87,68 +147,32 @@ static int *create_start_word(const hash_table_t *table)
 		fprintf(stderr, "Hash table is NULL or empty\n");
 		return NULL; // No valid start word
 	}
-	fprintf(stdout, "Available words:\n");
-	fflush(stdout);
-	if (print_available_words(table) < 0) {
-		fprintf(stderr, "Failed to print available words\n");
-		return NULL; // Error printing words
-	}
-	fprintf(stdout, "Enter a starting word from the above list(or press "
-			"Enter for random): ");
-	fflush(stdout);
-	// Read a UTF-8 word from stdin
-	char *input_word = NULL;
-	size_t len = 0;
-	ssize_t read = getline(&input_word, &len, stdin);
-	if (read < 0) {
-		perror("getline");
-		free(input_word);
-		return NULL; // Error reading input
-	}
-	// Remove trailing newline character
-	if (input_word[read - 1] == '\n') {
-		input_word[read - 1] = '\0';
-		len--;
-	}
-	int *word = utf8_rawbytes_to_cp((const u8 *)input_word, len);
-	free(input_word); // Free the input buffer
+	printf("=== Choose a starting word ===\n");
+	printf("Write a substring of a word and too choose one\n");
+	printf("Otherwise write \"exit\" to generate_random_start_word\n\n");
+	int *word = search_start_word(table);
 	if (word == NULL) {
-		fprintf(stderr, "Failed to convert input to UTF-8 word\n");
-		return NULL; // Error converting input
-	}
-	ht_item *item = ht_search(table, word);
-	if (item == NULL) {
-		fprintf(stderr, "Word not found in hash table: ");
-		utf8_print_word(word, STDOUT_FILENO);
-		printf("\n");
-		free(word); // Free the word if not found
-	find_good_symbol:
-		fprintf(stdout, "Generating a random valid start word ...\n");
-		int *start_word = generate_random_symbol();
-		if (start_word == NULL) {
-			fprintf(stderr, "Failed to create start word from "
-					"random symbol\n");
-			return NULL; // Error creating start word
+		printf("Generating a random valid start word ...\n");
+		const size_t max_tries = 50;
+		for (size_t tries = 0; tries < max_tries; ++tries) {
+			word = generate_random_symbol();
+			if (word == NULL) {
+				fprintf(stderr, "Failed to create start word "
+						"from random symbol\n");
+				return NULL; // Error creating start word
+			}
+			if ((ht_item *)ht_search(table, word) != NULL) {
+				utf8_print_word(word, STDOUT_FILENO);
+				printf("\n");
+				return word;
+			}
+			free(word);
 		}
-		if ((ht_item *)ht_search(table, start_word) == NULL) {
-			// symbol not found, try again
-			free(start_word);
-			goto find_good_symbol;
-		}
-
-		return start_word; // Return the random symbol as the start word
 	} else {
-		// Word found in hash table, return it
-		int *start_word = utf8_str_deepcopy(item->key);
-		if (start_word == NULL) {
-			fprintf(stderr,
-				"Failed to create start word from input\n");
-			free(word); // Free the word if not found
-			return NULL;
-		}
-		free(word); // Free the word after copying
-		return start_word; // Return the found word
+		return word;
 	}
+	fprintf(stderr, "Failed to create start word from input\n");
+	return NULL;
 }
 
 int write_output_sp(const char *filename, const int num_words,

@@ -94,108 +94,121 @@ $(function(){initNavTree('modes__utils_8c_source.html','',''); });
 <a href="modes__utils_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="modes__utils_8h.html">modes_utils.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fcntl.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sys/wait.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">   10</a></span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *output_txt) {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  fprintf(stderr, <span class="stringliteral">&quot;Reading from stdin \n&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                  <span class="stringliteral">&quot;if you not redirect stdin, write on the console and press&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>                  <span class="stringliteral">&quot;Ctrl+D to finish input\n&quot;</span>);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordtype">int</span> fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  ssize_t bytes_read;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordflow">while</span> ((bytes_read = read(STDIN_FILENO, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> (write(fd, buffer, bytes_read) &lt; 0) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      perror(<span class="stringliteral">&quot;Failed to write to temporary file&quot;</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;fcntl.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;sys/wait.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">   11</a></span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *output_txt)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    fprintf(stderr,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="stringliteral">&quot;Reading from stdin \n&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="stringliteral">&quot;if you not redirect stdin, write on the console and press&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="stringliteral">&quot;Ctrl+D to finish input\n&quot;</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> fd = open(output_txt, O_WRONLY | O_CREAT | O_TRUNC,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>              S_IRUSR | S_IWUSR);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    ssize_t bytes_read;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">while</span> ((bytes_read = read(STDIN_FILENO, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">if</span> (write(fd, buffer, bytes_read) &lt; 0) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            perror(<span class="stringliteral">&quot;Failed to write to temporary file&quot;</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">   33</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *input_txt, <span class="keywordtype">int</span> *is_stdin) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    *is_stdin = 1;                    <span class="comment">// Indicate that input is from stdin</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a4ffd20871d062b35f02f8936e1de78b7">   37</a></span><span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *input_txt, <span class="keywordtype">int</span> *is_stdin)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        *is_stdin = 1; <span class="comment">// Indicate that input is from stdin</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
 </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">   53</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  ssize_t bytes_read;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
-</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">   81</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(pid_t pid) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    kill(pid, SIGTERM);    <span class="comment">// Send termination signal to the process</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">   58</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (filename == NULL) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        fprintf(stderr,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    ssize_t bytes_read;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
 </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">   88</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str) { <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>; }</div>
-<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="#l00010">modes_utils.c:10</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="#l00053">modes_utils.c:53</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="#l00081">modes_utils.c:81</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a4ffd20871d062b35f02f8936e1de78b7"><div class="ttname"><a href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a></div><div class="ttdeci">const char * validate_input_file(const char *input_txt, int *is_stdin)</div><div class="ttdoc">Validate or read input file.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">modes_utils.c:33</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00088">modes_utils.c:88</a></div></div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a4b45d13590e03924bf6d330c657b8c99">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a>(pid_t pid)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (pid &gt; 0) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        kill(pid, SIGTERM); <span class="comment">// Send termination signal to the process</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">   96</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+</div>
+<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="#l00011">modes_utils.c:11</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8c.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">modes_utils.c:58</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a4b45d13590e03924bf6d330c657b8c99"><div class="ttname"><a href="modes__utils_8c.html#a4b45d13590e03924bf6d330c657b8c99">kill_and_wait</a></div><div class="ttdeci">void kill_and_wait(pid_t pid)</div><div class="ttdoc">Terminate a process and wait for its completion.</div><div class="ttdef"><b>Definition</b> <a href="#l00088">modes_utils.c:88</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a4ffd20871d062b35f02f8936e1de78b7"><div class="ttname"><a href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7">validate_input_file</a></div><div class="ttdeci">const char * validate_input_file(const char *input_txt, int *is_stdin)</div><div class="ttdoc">Validate or read input file.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">modes_utils.c:37</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00096">modes_utils.c:96</a></div></div>
 <div class="ttc" id="amodes__utils_8h_html"><div class="ttname"><a href="modes__utils_8h.html">modes_utils.h</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00009">modes_utils.h:9</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="modes__utils_8h.html#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00010">modes_utils.h:10</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
-<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00073">utils.c:73</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

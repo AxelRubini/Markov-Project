@@ -1,5 +1,7 @@
 <map id="include/modes/mp/both_mp.h" name="include/modes/mp/both_mp.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,197,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="67,79,135,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,31,104,63,98,63,98,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,198,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,80,90,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,34,74,68,70,65,91,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="115,80,179,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,31,133,65,129,68,107,34"/>
 </map>

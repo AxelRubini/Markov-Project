@@ -1,0 +1,5 @@
+<map id="word_hash" name="word_hash">
+<area shape="rect" id="Node000001" title="Hash function for word keys." alt="" coords="5,5,90,32"/>
+<area shape="rect" id="Node000002" href="$utils_8c.html#ad599527823f3d135836d6f352e691483" title="Hash a word for a table size." alt="" coords="138,5,240,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,16,122,16,122,21,90,21"/>
+</map>

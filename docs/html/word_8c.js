@@ -8,7 +8,7 @@ var word_8c =
     [ "update_ht_item_value", "word_8c.html#ac72d968fe238c5ee7516f96982f96b6a", null ],
     [ "update_word_occurrences", "word_8c.html#a0e868f17d208e84602274969f05bfeae", null ],
     [ "word_deep_copy", "word_8c.html#a538516353f7d77bdf23dfad46051d02b", null ],
-    [ "word_hash", "word_8c.html#a54fad11816a4a1797849e959d310fa0d", null ],
+    [ "word_hash", "word_8c.html#afc9a2356889e5590b0586e6a18197097", null ],
     [ "word_hashtable_keycmp", "word_8c.html#a16fe504f96eba0865f4d74b53ea71695", null ],
     [ "word_ht_item_create", "word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f", null ],
     [ "word_ht_item_print", "word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158", null ],

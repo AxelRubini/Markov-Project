@@ -161,7 +161,7 @@ Functions</h2></td></tr>
 
 <p>Temporary file used to store data read from stdin when no input file is provided. </p>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00009">9</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00010">10</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
 
 </div>
 </div>
@@ -179,7 +179,7 @@ Functions</h2></td></tr>
 
 <p>Temporary file used to capture output when no output file is provided. </p>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00014">14</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8h_source.html#l00015">15</a> of file <a class="el" href="modes__utils_8h_source.html">modes_utils.h</a>.</p>
 
 </div>
 </div>
@@ -199,39 +199,41 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00088">88</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   88</span>{ <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>; }</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00096">96</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>{</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">return</span> str == NULL || *str == <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   99</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8h_a690ba732eed5eefc67aef350946092a9_icgraph.png" border="0" usemap="#amodes__utils_8h_a690ba732eed5eefc67aef350946092a9_icgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8h_a690ba732eed5eefc67aef350946092a9_icgraph" id="amodes__utils_8h_a690ba732eed5eefc67aef350946092a9_icgraph">
-<area shape="rect" title=" " alt="" coords="521,109,602,137"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
-<area shape="poly" title=" " alt="" coords="527,103,472,72,421,55,369,42,280,26,281,21,370,37,423,50,474,67,530,98"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,57,277,85"/>
-<area shape="poly" title=" " alt="" coords="505,109,472,100,366,84,277,76,278,71,367,79,473,95,507,103"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="359,173,445,201"/>
-<area shape="poly" title=" " alt="" coords="512,146,439,175,437,170,510,141"/>
-<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="362,249,442,277"/>
-<area shape="poly" title=" " alt="" coords="539,150,474,215,426,251,423,247,471,210,536,146"/>
-<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="331,109,473,137"/>
-<area shape="poly" title=" " alt="" coords="505,126,473,126,473,120,505,120"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,136,150,164"/>
-<area shape="poly" title=" " alt="" coords="203,44,200,48,163,94,139,137,135,134,159,91,196,44,200,41"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,136,60,164"/>
-<area shape="poly" title=" " alt="" coords="92,152,60,152,60,147,92,147"/>
-<area shape="poly" title=" " alt="" coords="205,96,200,100,149,138,146,134,196,96,202,92"/>
-<area shape="poly" title=" " alt="" coords="345,205,273,213,235,211,197,203,166,186,142,166,145,162,169,182,199,198,235,206,273,208,344,199"/>
-<area shape="poly" title=" " alt="" coords="347,261,273,247,234,234,197,217,163,192,139,166,143,162,167,188,199,213,236,229,275,242,348,256"/>
-<area shape="poly" title=" " alt="" coords="365,103,282,48,263,36,266,31,285,44,368,98"/>
-<area shape="poly" title=" " alt="" coords="341,106,277,85,278,80,343,101"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="316,126,284,126,284,120,316,120"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="343,145,281,165,280,160,341,140"/>
-<area shape="poly" title=" " alt="" coords="183,140,151,147,150,142,182,134"/>
-<area shape="poly" title=" " alt="" coords="185,165,150,157,151,152,187,160"/>
+<area shape="rect" title=" " alt="" coords="490,107,564,133"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,32"/>
+<area shape="poly" title=" " alt="" coords="494,100,441,69,394,53,347,40,265,25,266,20,348,35,396,48,443,64,497,95"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,56,263,83"/>
+<area shape="poly" title=" " alt="" coords="474,106,441,97,344,82,263,74,264,69,345,77,442,92,475,100"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="340,169,418,196"/>
+<area shape="poly" title=" " alt="" coords="481,142,414,171,411,166,479,137"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="342,245,416,272"/>
+<area shape="poly" title=" " alt="" coords="505,147,443,210,400,247,396,243,440,206,501,143"/>
+<area shape="rect" href="modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="316,107,442,133"/>
+<area shape="poly" title=" " alt="" coords="474,123,442,123,442,117,474,117"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,132,142,159"/>
+<area shape="poly" title=" " alt="" coords="194,44,192,46,156,92,133,133,128,130,152,89,188,42,190,40"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,132,55,159"/>
+<area shape="poly" title=" " alt="" coords="87,148,55,148,55,143,87,143"/>
+<area shape="poly" title=" " alt="" coords="196,94,192,97,143,134,139,130,188,93,192,90"/>
+<area shape="poly" title=" " alt="" coords="325,200,259,208,224,206,189,198,158,182,135,161,138,157,161,177,191,194,224,201,259,202,324,195"/>
+<area shape="poly" title=" " alt="" coords="326,256,259,241,223,229,189,213,156,187,132,161,136,157,159,184,191,208,225,224,260,236,327,250"/>
+<area shape="poly" title=" " alt="" coords="344,100,267,46,250,35,253,30,270,42,347,95"/>
+<area shape="poly" title=" " alt="" coords="322,104,262,83,264,78,324,99"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="301,123,269,123,269,117,301,117"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,157,266,184"/>
+<area shape="poly" title=" " alt="" coords="323,141,268,161,266,156,322,136"/>
+<area shape="poly" title=" " alt="" coords="176,135,143,143,142,138,174,130"/>
+<area shape="poly" title=" " alt="" coords="176,161,142,153,143,147,177,156"/>
 </map>
 </div>
 
@@ -260,31 +262,31 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00081">81</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>                              {</div>
-<div class="line"><span class="lineno">   82</span>  <span class="keywordflow">if</span> (pid &gt; 0) {</div>
-<div class="line"><span class="lineno">   83</span>    kill(pid, SIGTERM);    <span class="comment">// Send termination signal to the process</span></div>
-<div class="line"><span class="lineno">   84</span>    waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
-<div class="line"><span class="lineno">   85</span>  }</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00088">88</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span> (pid &gt; 0) {</div>
+<div class="line"><span class="lineno">   91</span>        kill(pid, SIGTERM); <span class="comment">// Send termination signal to the process</span></div>
+<div class="line"><span class="lineno">   92</span>        waitpid(pid, NULL, 0); <span class="comment">// Wait for the process to terminate</span></div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8h_a4b45d13590e03924bf6d330c657b8c99_icgraph.png" border="0" usemap="#amodes__utils_8h_a4b45d13590e03924bf6d330c657b8c99_icgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8h_a4b45d13590e03924bf6d330c657b8c99_icgraph" id="amodes__utils_8h_a4b45d13590e03924bf6d330c657b8c99_icgraph">
-<area shape="rect" title="Terminate a process and wait for its completion." alt="" coords="331,57,439,85"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
-<area shape="poly" title=" " alt="" coords="329,54,279,36,281,31,331,49"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,57,283,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,284,74,284,68,316,68"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="331,93,282,111,280,106,329,88"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,57,150,85"/>
-<area shape="poly" title=" " alt="" coords="196,43,152,64,149,59,194,38"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,57,60,85"/>
-<area shape="poly" title=" " alt="" coords="92,74,60,74,60,68,92,68"/>
-<area shape="poly" title=" " alt="" coords="182,74,150,74,150,68,182,68"/>
-<area shape="poly" title=" " alt="" coords="194,105,149,83,152,78,196,100"/>
+<area shape="rect" title="Terminate a process and wait for its completion." alt="" coords="316,56,413,83"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,32"/>
+<area shape="poly" title=" " alt="" coords="312,52,264,34,266,29,313,47"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,56,268,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,269,72,269,67,301,67"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="313,91,268,109,266,104,312,86"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,56,142,83"/>
+<area shape="poly" title=" " alt="" coords="187,41,144,63,141,58,185,37"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,55,83"/>
+<area shape="poly" title=" " alt="" coords="87,72,55,72,55,67,87,67"/>
+<area shape="poly" title=" " alt="" coords="175,72,143,72,143,67,175,67"/>
+<area shape="poly" title=" " alt="" coords="185,102,141,81,144,76,187,97"/>
 </map>
 </div>
 
@@ -314,35 +316,36 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00053">53</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   53</span>                                                       {</div>
-<div class="line"><span class="lineno">   54</span>  <span class="keywordflow">if</span> (filename == NULL) {</div>
-<div class="line"><span class="lineno">   55</span>    fprintf(stderr, <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
-<div class="line"><span class="lineno">   57</span>  }</div>
-<div class="line"><span class="lineno">   58</span>  <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
-<div class="line"><span class="lineno">   59</span>  <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   60</span>    perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
-<div class="line"><span class="lineno">   62</span>  }</div>
-<div class="line"><span class="lineno">   63</span>  <span class="keywordtype">char</span> buffer[1024];</div>
-<div class="line"><span class="lineno">   64</span>  ssize_t bytes_read;</div>
-<div class="line"><span class="lineno">   65</span>  <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
-<div class="line"><span class="lineno">   67</span>      perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
-<div class="line"><span class="lineno">   68</span>      <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   69</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="line"><span class="lineno">   71</span>  }</div>
-<div class="line"><span class="lineno">   72</span>  <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
-<div class="line"><span class="lineno">   73</span>    perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
-<div class="line"><span class="lineno">   74</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   76</span>  }</div>
-<div class="line"><span class="lineno">   77</span>  <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   78</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   79</span>}</div>
-<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00063">utils.c:63</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00058">58</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (filename == NULL) {</div>
+<div class="line"><span class="lineno">   61</span>        fprintf(stderr,</div>
+<div class="line"><span class="lineno">   62</span>            <span class="stringliteral">&quot;No file from read specified, to write to stdout\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> 1; <span class="comment">// Use stdout</span></div>
+<div class="line"><span class="lineno">   64</span>    }</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordtype">int</span> fd = open(filename, O_RDONLY);</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   67</span>        perror(<span class="stringliteral">&quot;Failed to open output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error opening file</span></div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordtype">char</span> buffer[1024];</div>
+<div class="line"><span class="lineno">   71</span>    ssize_t bytes_read;</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">while</span> ((bytes_read = read(fd, buffer, <span class="keyword">sizeof</span>(buffer))) &gt; 0) {</div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">if</span> (write(STDOUT_FILENO, buffer, bytes_read) &lt; 0) {</div>
+<div class="line"><span class="lineno">   74</span>            perror(<span class="stringliteral">&quot;Failed to write to stdout&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span>            <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   77</span>        }</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span> (bytes_read &lt; 0) {</div>
+<div class="line"><span class="lineno">   80</span>        perror(<span class="stringliteral">&quot;Failed to read from output file&quot;</span>);</div>
+<div class="line"><span class="lineno">   81</span>        <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   86</span>}</div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00073">utils.c:73</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -358,22 +361,22 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8h_a2dff2109ae72eeac63a2794542ea6d48_icgraph.png" border="0" usemap="#amodes__utils_8h_a2dff2109ae72eeac63a2794542ea6d48_icgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8h_a2dff2109ae72eeac63a2794542ea6d48_icgraph" id="amodes__utils_8h_a2dff2109ae72eeac63a2794542ea6d48_icgraph">
-<area shape="rect" title="Print file content to stdout." alt="" coords="331,76,466,120"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
-<area shape="poly" title=" " alt="" coords="337,70,269,36,272,31,340,66"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,57,277,85"/>
-<area shape="poly" title=" " alt="" coords="316,87,277,80,278,75,317,81"/>
-<area shape="rect" href="task2__mp_8c.html#a28939715d9ef0546abc14ddb047b1580" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="316,114,284,119,283,114,315,108"/>
-<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="201,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="339,130,272,163,269,159,337,125"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="190,86,151,95,150,90,189,81"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Print file content to stdout." alt="" coords="316,73,437,116"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,32"/>
+<area shape="poly" title=" " alt="" coords="319,68,256,35,258,30,321,63"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,56,263,83"/>
+<area shape="poly" title=" " alt="" coords="301,84,263,78,264,72,301,79"/>
+<area shape="rect" href="task2__mp_8c.html#a20399d832f54b50046d99465246b674c" title="Generate text from a CSV frequency table using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="301,110,269,116,268,111,300,105"/>
+<area shape="rect" href="task2__sp_8c.html#a3119ac76193fcae4179179ea28dabad8" title="Generate text using a CSV dictionary produced by task1." alt="" coords="192,157,266,184"/>
+<area shape="poly" title=" " alt="" coords="321,126,258,159,256,155,319,121"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="181,84,143,93,142,88,179,78"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -409,29 +412,29 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the validated file path on success, NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00033">33</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   33</span>                                                                      {</div>
-<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
-<div class="line"><span class="lineno">   36</span>      fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   37</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="line"><span class="lineno">   39</span>    *is_stdin = 1;                    <span class="comment">// Indicate that input is from stdin</span></div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
-<div class="line"><span class="lineno">   41</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   42</span>    *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
-<div class="line"><span class="lineno">   43</span>    <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   45</span>      perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
-<div class="line"><span class="lineno">   46</span>      <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
-<div class="line"><span class="lineno">   50</span>  }</div>
-<div class="line"><span class="lineno">   51</span>}</div>
-<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00010">modes_utils.c:10</a></div></div>
-<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00088">modes_utils.c:88</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00009">modes_utils.h:9</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modes__utils_8c_source.html#l00037">37</a> of file <a class="el" href="modes__utils_8c_source.html">modes_utils.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a>(input_txt)) {</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a>(<a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>) != 0) {</div>
+<div class="line"><span class="lineno">   41</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to read from stdin\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   42</span>            <span class="keywordflow">return</span> NULL; <span class="comment">// Error reading from stdin</span></div>
+<div class="line"><span class="lineno">   43</span>        }</div>
+<div class="line"><span class="lineno">   44</span>        *is_stdin = 1; <span class="comment">// Indicate that input is from stdin</span></div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> <a class="code hl_define" href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a>; <span class="comment">// Return temporary file name</span></div>
+<div class="line"><span class="lineno">   46</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   47</span>        *is_stdin = 0; <span class="comment">// Indicate that input is from a file</span></div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordtype">int</span> fd = open(input_txt, O_RDONLY);</div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   50</span>            perror(<span class="stringliteral">&quot;Failed to open input file&quot;</span>);</div>
+<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">return</span> NULL; <span class="comment">// Error opening file</span></div>
+<div class="line"><span class="lineno">   52</span>        }</div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> input_txt; <span class="comment">// Return the original file name</span></div>
+<div class="line"><span class="lineno">   55</span>    }</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="amodes__utils_8c_html_a12707c0ccc87dbce41af51f22016f413"><div class="ttname"><a href="modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413">read_from_stdin</a></div><div class="ttdeci">static int read_from_stdin(const char *output_txt)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00011">modes_utils.c:11</a></div></div>
+<div class="ttc" id="amodes__utils_8c_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00096">modes_utils.c:96</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a3dd9f789cdec29c4b6f8a92aaf831924"><div class="ttname"><a href="#a3dd9f789cdec29c4b6f8a92aaf831924">TMP_STDIN_FILE</a></div><div class="ttdeci">#define TMP_STDIN_FILE</div><div class="ttdoc">Temporary file used to store data read from stdin when no input file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00010">modes_utils.h:10</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -452,22 +455,22 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="modes__utils_8h_a4ffd20871d062b35f02f8936e1de78b7_icgraph.png" border="0" usemap="#amodes__utils_8h_a4ffd20871d062b35f02f8936e1de78b7_icgraph" loading="lazy" alt=""/></div>
 <map name="amodes__utils_8h_a4ffd20871d062b35f02f8936e1de78b7_icgraph" id="amodes__utils_8h_a4ffd20871d062b35f02f8936e1de78b7_icgraph">
-<area shape="rect" title="Validate or read input file." alt="" coords="331,84,473,112"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,5,280,33"/>
-<area shape="poly" title=" " alt="" coords="357,79,270,36,272,31,359,74"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,57,277,85"/>
-<area shape="poly" title=" " alt="" coords="316,86,277,80,278,74,317,81"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="317,114,284,119,283,114,316,109"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="359,121,272,163,270,158,356,116"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="190,86,151,95,150,90,189,81"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Validate or read input file." alt="" coords="316,81,442,108"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,32"/>
+<area shape="poly" title=" " alt="" coords="336,76,256,35,259,30,339,71"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,56,263,83"/>
+<area shape="poly" title=" " alt="" coords="300,84,263,78,264,72,301,79"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="301,111,269,116,268,111,300,105"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,157,266,184"/>
+<area shape="poly" title=" " alt="" coords="339,118,259,159,256,154,336,113"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="181,84,143,93,142,88,179,78"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 

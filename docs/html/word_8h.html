@@ -148,8 +148,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0dd9c5256ad15b48050281c1ea7e5e56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a hash-table item with a new follower list.  <br /></td></tr>
 <tr class="memitem:a36a6a00a1dccc7be37093ad28eda6a2f" id="r_a36a6a00a1dccc7be37093ad28eda6a2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structht__item.html">ht_item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36a6a00a1dccc7be37093ad28eda6a2f">word_ht_item_create</a> (<a class="el" href="structword__t.html">word_t</a> *key, <a class="el" href="structword__t.html">word_t</a> *value)</td></tr>
 <tr class="memdesc:a36a6a00a1dccc7be37093ad28eda6a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a hash-table item for a word pair.  <br /></td></tr>
-<tr class="memitem:a54fad11816a4a1797849e959d310fa0d" id="r_a54fad11816a4a1797849e959d310fa0d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54fad11816a4a1797849e959d310fa0d">word_hash</a> (const void *key, int size)</td></tr>
-<tr class="memdesc:a54fad11816a4a1797849e959d310fa0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash function for word keys.  <br /></td></tr>
+<tr class="memitem:afc9a2356889e5590b0586e6a18197097" id="r_afc9a2356889e5590b0586e6a18197097"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc9a2356889e5590b0586e6a18197097">word_hash</a> (const void *key, uint32_t size)</td></tr>
+<tr class="memdesc:afc9a2356889e5590b0586e6a18197097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash function for word keys.  <br /></td></tr>
 <tr class="memitem:a86cf11bbcc696d1368d33b0f4615c823" id="r_a86cf11bbcc696d1368d33b0f4615c823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a> (const <a class="el" href="structword__t.html">word_t</a> *word, int fd)</td></tr>
 <tr class="memdesc:a86cf11bbcc696d1368d33b0f4615c823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a word in UTF-8.  <br /></td></tr>
 <tr class="memitem:af8abc1d2b681b3064c6e5801bb30bedc" id="r_af8abc1d2b681b3064c6e5801bb30bedc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8abc1d2b681b3064c6e5801bb30bedc">word_print</a> (const <a class="el" href="structword__t.html">word_t</a> *word, int fd, int *between_char)</td></tr>
@@ -188,25 +188,25 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Allocated word or NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00013">13</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   13</span>                               {</div>
-<div class="line"><span class="lineno">   14</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">   15</span>    fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   17</span>  }</div>
-<div class="line"><span class="lineno">   18</span> </div>
-<div class="line"><span class="lineno">   19</span>  <a class="code hl_struct" href="structword__t.html">word_t</a> *new_word = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structword__t.html">word_t</a>));</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>  new_word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(word, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
-<div class="line"><span class="lineno">   22</span>  new_word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a> = 1;</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>  <span class="keywordflow">return</span> new_word;</div>
-<div class="line"><span class="lineno">   25</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00016">16</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
+<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">   19</span>        fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   21</span>    }</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_struct" href="structword__t.html">word_t</a> *new_word = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structword__t.html">word_t</a>));</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    new_word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(word, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><span class="lineno">   26</span>    new_word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a> = 1;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> new_word;</div>
+<div class="line"><span class="lineno">   29</span>}</div>
 <div class="ttc" id="astructword__t_html"><div class="ttname"><a href="structword__t.html">word_t</a></div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00010">word.h:10</a></div></div>
 <div class="ttc" id="astructword__t_html_a5edbc664a344638955af19089d72c11c"><div class="ttname"><a href="structword__t.html#a5edbc664a344638955af19089d72c11c">word_t::word</a></div><div class="ttdeci">int * word</div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00011">word.h:11</a></div></div>
 <div class="ttc" id="astructword__t_html_ab8a001c0b18aaba268f2d09b6e452a77"><div class="ttname"><a href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">word_t::occurrences</a></div><div class="ttdeci">int occurrences</div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00013">word.h:13</a></div></div>
-<div class="ttc" id="autf8__tools_8h_html_ac74a4c380ae184714bb388ba615a9673"><div class="ttname"><a href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a></div><div class="ttdeci">int * utf8_word_to_lower(const int *word, int word_length)</div><div class="ttdoc">Convert a word to lowercase and free the original.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00193">utf8_tools.c:193</a></div></div>
-<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00047">utils.c:47</a></div></div>
+<div class="ttc" id="autf8__tools_8h_html_ac74a4c380ae184714bb388ba615a9673"><div class="ttname"><a href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a></div><div class="ttdeci">int * utf8_word_to_lower(const int *word, int word_length)</div><div class="ttdoc">Convert a word to lowercase and free the original.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00221">utf8_tools.c:221</a></div></div>
+<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00054">utils.c:54</a></div></div>
 <div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -228,30 +228,30 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_ad9211cc1d1d93a007b67c12c167c8662_icgraph.png" border="0" usemap="#aword_8h_ad9211cc1d1d93a007b67c12c167c8662_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_ad9211cc1d1d93a007b67c12c167c8662_icgraph" id="aword_8h_ad9211cc1d1d93a007b67c12c167c8662_icgraph">
-<area shape="rect" title="Create a word object from code points." alt="" coords="780,84,881,112"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,96,515,80,515,74,765,91"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,110,733,114,732,109,764,104"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Create a word object from code points." alt="" coords="729,81,821,108"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,93,481,77,481,72,713,88"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,106,682,111,681,106,713,101"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -280,53 +280,53 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00167">167</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  167</span>                             {</div>
-<div class="line"><span class="lineno">  168</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  170</span>  }</div>
-<div class="line"><span class="lineno">  171</span>  <span class="keywordflow">if</span> (word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> != NULL) {</div>
-<div class="line"><span class="lineno">  172</span>    free((<span class="keywordtype">void</span> *)word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>); <span class="comment">// Free the word array</span></div>
-<div class="line"><span class="lineno">  173</span>    word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> = NULL;        <span class="comment">// Set to NULL to avoid dangling pointer</span></div>
-<div class="line"><span class="lineno">  174</span>  }</div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>  free(word);</div>
-<div class="line"><span class="lineno">  177</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00190">190</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>{</div>
+<div class="line"><span class="lineno">  192</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  194</span>    }</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">if</span> (word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> != NULL) {</div>
+<div class="line"><span class="lineno">  196</span>        free((<span class="keywordtype">void</span> *)word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>); <span class="comment">// Free the word array</span></div>
+<div class="line"><span class="lineno">  197</span>        word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a> = NULL; <span class="comment">// Set to NULL to avoid dangling pointer</span></div>
+<div class="line"><span class="lineno">  198</span>    }</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>    free(word);</div>
+<div class="line"><span class="lineno">  201</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a0335ce93a939befe544176deae07ff1d_icgraph.png" border="0" usemap="#aword_8h_a0335ce93a939befe544176deae07ff1d_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a0335ce93a939befe544176deae07ff1d_icgraph" id="aword_8h_a0335ce93a939befe544176deae07ff1d_icgraph">
-<area shape="rect" title="Free a word object." alt="" coords="1088,92,1174,120"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="459,48,642,76"/>
-<area shape="poly" title=" " alt="" coords="1072,90,1039,83,933,70,826,64,642,62,642,56,826,58,934,65,1040,78,1073,85"/>
-<area shape="rect" href="word_8c.html#a91180306fc1da339720907964039dd14" title="Free a hash&#45;table item storing words." alt="" coords="896,92,1040,120"/>
-<area shape="poly" title=" " alt="" coords="1072,108,1040,108,1040,103,1072,103"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="466,131,635,158"/>
-<area shape="poly" title=" " alt="" coords="1073,127,1040,134,931,146,822,152,636,151,636,146,821,146,931,141,1039,129,1072,122"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="443,50,277,27,278,21,444,45"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="331,55,411,82"/>
-<area shape="poly" title=" " alt="" coords="443,68,411,70,411,64,443,63"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,81,150,109"/>
-<area shape="poly" title=" " alt="" coords="208,44,152,83,149,79,205,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,60,109"/>
-<area shape="poly" title=" " alt="" coords="92,98,60,98,60,92,92,92"/>
-<area shape="poly" title=" " alt="" coords="316,77,150,96,150,90,316,72"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="690,92,848,120"/>
-<area shape="poly" title=" " alt="" coords="881,108,849,108,849,103,881,103"/>
-<area shape="poly" title=" " alt="" coords="682,91,622,79,623,74,683,86"/>
-<area shape="poly" title=" " alt="" coords="675,125,633,133,632,127,674,120"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="343,107,399,134"/>
-<area shape="poly" title=" " alt="" coords="450,134,399,127,400,122,451,128"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="343,159,399,186"/>
-<area shape="poly" title=" " alt="" coords="451,163,400,171,399,166,450,158"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,107,283,134"/>
-<area shape="poly" title=" " alt="" coords="328,123,284,123,284,118,328,118"/>
-<area shape="poly" title=" " alt="" coords="182,110,150,102,151,97,183,105"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,159,280,186"/>
-<area shape="poly" title=" " alt="" coords="328,175,280,175,280,170,328,170"/>
-<area shape="poly" title=" " alt="" coords="202,152,196,148,147,111,150,107,200,144,205,148"/>
+<area shape="rect" title="Free a word object." alt="" coords="1018,93,1096,120"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="439,49,603,76"/>
+<area shape="poly" title=" " alt="" coords="1002,91,969,84,871,72,773,65,604,63,604,57,773,60,872,66,970,79,1003,86"/>
+<area shape="rect" href="word_8c.html#a91180306fc1da339720907964039dd14" title="Free a hash&#45;table item storing words." alt="" coords="841,93,970,120"/>
+<area shape="poly" title=" " alt="" coords="1002,109,970,109,970,104,1002,104"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="445,119,597,145"/>
+<area shape="poly" title=" " alt="" coords="1003,127,970,135,869,144,768,147,597,141,598,136,768,142,869,139,969,129,1002,122"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="423,51,263,26,264,21,424,45"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="316,56,391,83"/>
+<area shape="poly" title=" " alt="" coords="423,69,391,71,391,65,423,64"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="198,44,144,83,141,79,195,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="301,78,143,95,142,90,301,72"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="651,93,793,120"/>
+<area shape="poly" title=" " alt="" coords="826,109,794,109,794,104,826,104"/>
+<area shape="poly" title=" " alt="" coords="643,92,585,79,586,74,644,87"/>
+<area shape="poly" title=" " alt="" coords="636,120,598,125,597,120,635,115"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="327,107,380,133"/>
+<area shape="poly" title=" " alt="" coords="429,128,380,125,380,119,429,123"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="327,157,380,184"/>
+<area shape="poly" title=" " alt="" coords="446,152,381,167,380,162,445,147"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="312,123,269,123,269,117,312,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="312,173,265,173,265,168,312,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -356,50 +356,50 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of occurrences. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00054">54</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>                                             {</div>
-<div class="line"><span class="lineno">   55</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">   56</span>    fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   58</span>  }</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>  <span class="keywordflow">return</span> word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a>;</div>
-<div class="line"><span class="lineno">   61</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00062">62</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">   65</span>        fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   67</span>    }</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a>;</div>
+<div class="line"><span class="lineno">   70</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a9f12560cca650c40e1483b6f7280326a_icgraph.png" border="0" usemap="#aword_8h_a9f12560cca650c40e1483b6f7280326a_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a9f12560cca650c40e1483b6f7280326a_icgraph" id="aword_8h_a9f12560cca650c40e1483b6f7280326a_icgraph">
-<area shape="rect" title="Get the occurrence count of a word." alt="" coords="1320,84,1486,112"/>
-<area shape="rect" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc" title="Print word and optional separator then occurrences." alt="" coords="1182,84,1272,112"/>
-<area shape="poly" title=" " alt="" coords="1304,100,1272,100,1272,95,1304,95"/>
-<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="986,84,1134,112"/>
-<area shape="poly" title=" " alt="" coords="1166,100,1134,100,1134,95,1166,95"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Get the occurrence count of a word." alt="" coords="1228,81,1380,108"/>
+<area shape="rect" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc" title="Print word and optional separator then occurrences." alt="" coords="1099,81,1180,108"/>
+<area shape="poly" title=" " alt="" coords="1212,97,1181,97,1181,92,1212,92"/>
+<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="919,81,1051,108"/>
+<area shape="poly" title=" " alt="" coords="1083,97,1051,97,1051,92,1083,92"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -428,26 +428,26 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00179">179</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  179</span>                                      {</div>
-<div class="line"><span class="lineno">  180</span>  <span class="keywordflow">if</span> (item == NULL) {</div>
-<div class="line"><span class="lineno">  181</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  182</span>  }</div>
-<div class="line"><span class="lineno">  183</span>  <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> != NULL) {</div>
-<div class="line"><span class="lineno">  184</span>    <a class="code hl_function" href="word_8c.html#a0335ce93a939befe544176deae07ff1d">free_word</a>((<a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>); <span class="comment">// Free the key word</span></div>
-<div class="line"><span class="lineno">  185</span>  }</div>
-<div class="line"><span class="lineno">  186</span>  <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> != NULL) {</div>
-<div class="line"><span class="lineno">  187</span>    <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>((<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>,</div>
-<div class="line"><span class="lineno">  188</span>                     (void (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="#a0335ce93a939befe544176deae07ff1d">free_word</a>);</div>
-<div class="line"><span class="lineno">  189</span>  }</div>
-<div class="line"><span class="lineno">  190</span>  free(item);</div>
-<div class="line"><span class="lineno">  191</span>}</div>
-<div class="ttc" id="alinked__list_8h_html_a571429872dd4128dfa88e460ccddcf12"><div class="ttname"><a href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a></div><div class="ttdeci">void free_linked_list(linked_list_t *list, void(*free_func)(void *))</div><div class="ttdoc">Free a list and its nodes.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00075">linked_list.c:75</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00203">203</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  204</span>{</div>
+<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">if</span> (item == NULL) {</div>
+<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  207</span>    }</div>
+<div class="line"><span class="lineno">  208</span>    <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> != NULL) {</div>
+<div class="line"><span class="lineno">  209</span>        <a class="code hl_function" href="word_8c.html#a0335ce93a939befe544176deae07ff1d">free_word</a>((<a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>); <span class="comment">// Free the key word</span></div>
+<div class="line"><span class="lineno">  210</span>    }</div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> != NULL) {</div>
+<div class="line"><span class="lineno">  212</span>        <a class="code hl_function" href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a>((<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>,</div>
+<div class="line"><span class="lineno">  213</span>                 (void (*)(<span class="keywordtype">void</span> *))<a class="code hl_function" href="#a0335ce93a939befe544176deae07ff1d">free_word</a>);</div>
+<div class="line"><span class="lineno">  214</span>    }</div>
+<div class="line"><span class="lineno">  215</span>    free(item);</div>
+<div class="line"><span class="lineno">  216</span>}</div>
+<div class="ttc" id="alinked__list_8h_html_a571429872dd4128dfa88e460ccddcf12"><div class="ttname"><a href="linked__list_8h.html#a571429872dd4128dfa88e460ccddcf12">free_linked_list</a></div><div class="ttdeci">void free_linked_list(linked_list_t *list, void(*free_func)(void *))</div><div class="ttdoc">Free a list and its nodes.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00081">linked_list.c:81</a></div></div>
 <div class="ttc" id="astructht__item_html_a3057dd99e88a8d9966ac2d6ae867b528"><div class="ttname"><a href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">ht_item::value</a></div><div class="ttdeci">void * value</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00010">ht_item.h:10</a></div></div>
 <div class="ttc" id="astructht__item_html_a9df5ae0ab8c2bef2998a6e5498656704"><div class="ttname"><a href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">ht_item::key</a></div><div class="ttdeci">void * key</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00009">ht_item.h:9</a></div></div>
 <div class="ttc" id="astructlinked__list__t_html"><div class="ttname"><a href="structlinked__list__t.html">linked_list_t</a></div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00011">linked_list.h:11</a></div></div>
-<div class="ttc" id="aword_8c_html_a0335ce93a939befe544176deae07ff1d"><div class="ttname"><a href="word_8c.html#a0335ce93a939befe544176deae07ff1d">free_word</a></div><div class="ttdeci">void free_word(word_t *word)</div><div class="ttdoc">Free a word object.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00167">word.c:167</a></div></div>
-<div class="ttc" id="aword_8h_html_a0335ce93a939befe544176deae07ff1d"><div class="ttname"><a href="#a0335ce93a939befe544176deae07ff1d">free_word</a></div><div class="ttdeci">void free_word(word_t *word)</div><div class="ttdoc">Free a word object.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00167">word.c:167</a></div></div>
+<div class="ttc" id="aword_8c_html_a0335ce93a939befe544176deae07ff1d"><div class="ttname"><a href="word_8c.html#a0335ce93a939befe544176deae07ff1d">free_word</a></div><div class="ttdeci">void free_word(word_t *word)</div><div class="ttdoc">Free a word object.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00190">word.c:190</a></div></div>
+<div class="ttc" id="aword_8h_html_a0335ce93a939befe544176deae07ff1d"><div class="ttname"><a href="#a0335ce93a939befe544176deae07ff1d">free_word</a></div><div class="ttdeci">void free_word(word_t *word)</div><div class="ttdoc">Free a word object.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00190">word.c:190</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -465,32 +465,32 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a91180306fc1da339720907964039dd14_icgraph.png" border="0" usemap="#aword_8h_a91180306fc1da339720907964039dd14_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a91180306fc1da339720907964039dd14_icgraph" id="aword_8h_a91180306fc1da339720907964039dd14_icgraph">
-<area shape="rect" title="Free a hash&#45;table item storing words." alt="" coords="986,84,1130,112"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Free a hash&#45;table item storing words." alt="" coords="919,81,1048,108"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -524,15 +524,15 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00138">138</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                 {</div>
-<div class="line"><span class="lineno">  139</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">  140</span>    fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  142</span>  }</div>
-<div class="line"><span class="lineno">  143</span>  <a class="code hl_function" href="utf8__tools_8h.html#ac7a6b8431e3ba385a9fb06b10a125cc5">utf8_print_word</a>(word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, fd);</div>
-<div class="line"><span class="lineno">  144</span>}</div>
-<div class="ttc" id="autf8__tools_8h_html_ac7a6b8431e3ba385a9fb06b10a125cc5"><div class="ttname"><a href="utf8__tools_8h.html#ac7a6b8431e3ba385a9fb06b10a125cc5">utf8_print_word</a></div><div class="ttdeci">void utf8_print_word(const int *word, int fd)</div><div class="ttdoc">Print a UTF-8 word to a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00182">utf8_tools.c:182</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00156">156</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  157</span>{</div>
+<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">  159</span>        fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  161</span>    }</div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_function" href="utf8__tools_8h.html#ac7a6b8431e3ba385a9fb06b10a125cc5">utf8_print_word</a>(word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, fd);</div>
+<div class="line"><span class="lineno">  163</span>}</div>
+<div class="ttc" id="autf8__tools_8h_html_ac7a6b8431e3ba385a9fb06b10a125cc5"><div class="ttname"><a href="utf8__tools_8h.html#ac7a6b8431e3ba385a9fb06b10a125cc5">utf8_print_word</a></div><div class="ttdeci">void utf8_print_word(const int *word, int fd)</div><div class="ttdoc">Print a UTF-8 word to a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00209">utf8_tools.c:209</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -550,37 +550,37 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a86cf11bbcc696d1368d33b0f4615c823_icgraph.png" border="0" usemap="#aword_8h_a86cf11bbcc696d1368d33b0f4615c823_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a86cf11bbcc696d1368d33b0f4615c823_icgraph" id="aword_8h_a86cf11bbcc696d1368d33b0f4615c823_icgraph">
-<area shape="rect" title="Print a word in UTF&#45;8." alt="" coords="1320,84,1443,112"/>
-<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="986,84,1134,112"/>
-<area shape="poly" title=" " alt="" coords="1305,100,1134,100,1134,95,1305,95"/>
-<area shape="rect" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc" title="Print word and optional separator then occurrences." alt="" coords="1182,109,1272,137"/>
-<area shape="poly" title=" " alt="" coords="1305,113,1273,118,1272,113,1304,108"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
-<area shape="poly" title=" " alt="" coords="1166,117,1134,112,1135,106,1166,111"/>
+<area shape="rect" title="Print a word in UTF&#45;8." alt="" coords="1228,81,1338,108"/>
+<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="919,81,1051,108"/>
+<area shape="poly" title=" " alt="" coords="1212,97,1051,97,1051,92,1212,92"/>
+<area shape="rect" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc" title="Print word and optional separator then occurrences." alt="" coords="1099,107,1180,133"/>
+<area shape="poly" title=" " alt="" coords="1213,110,1181,115,1180,110,1212,104"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
+<area shape="poly" title=" " alt="" coords="1083,114,1051,108,1052,103,1084,108"/>
 </map>
 </div>
 
@@ -614,42 +614,44 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00102">102</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                         {</div>
-<div class="line"><span class="lineno">  103</span>  <span class="keywordflow">if</span> (item == NULL || follower_to_add == NULL) {</div>
-<div class="line"><span class="lineno">  104</span>    fprintf(stderr, <span class="stringliteral">&quot;Item or new value is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  106</span>  }</div>
-<div class="line"><span class="lineno">  107</span>  <a class="code hl_struct" href="structht__item.html">ht_item</a> *htItem = (<a class="code hl_struct" href="structht__item.html">ht_item</a> *)item;</div>
-<div class="line"><span class="lineno">  108</span>  <a class="code hl_struct" href="structword__t.html">word_t</a> *key_word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)htItem-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
-<div class="line"><span class="lineno">  109</span>  <a class="code hl_function" href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a>(key_word); <span class="comment">// Update occurrences of the keyword</span></div>
-<div class="line"><span class="lineno">  110</span>  <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *af_list = (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)htItem-&gt;value;</div>
-<div class="line"><span class="lineno">  111</span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = af_list-&gt;head;</div>
-<div class="line"><span class="lineno">  112</span>  <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *ftad_list =</div>
-<div class="line"><span class="lineno">  113</span>      (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)follower_to_add; <span class="comment">// list of word_t followers</span></div>
-<div class="line"><span class="lineno">  114</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *nw = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)ftad_list-&gt;<a class="code hl_variable" href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">head</a>-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>; <span class="comment">// Get the new word to add</span></div>
-<div class="line"><span class="lineno">  115</span>  <span class="keywordflow">while</span> (current != NULL) {</div>
-<div class="line"><span class="lineno">  116</span>    <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a>(word, nw) == 0) {</div>
-<div class="line"><span class="lineno">  118</span>      <span class="comment">// If the word already exists, update its occurrences</span></div>
-<div class="line"><span class="lineno">  119</span>      <a class="code hl_function" href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a>(word);</div>
-<div class="line"><span class="lineno">  120</span>      <span class="keywordflow">return</span>;</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00116">116</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  117</span>{</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (item == NULL || follower_to_add == NULL) {</div>
+<div class="line"><span class="lineno">  119</span>        fprintf(stderr, <span class="stringliteral">&quot;Item or new value is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  121</span>    }</div>
-<div class="line"><span class="lineno">  122</span>    current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
-<div class="line"><span class="lineno">  123</span>  }</div>
-<div class="line"><span class="lineno">  124</span>  <span class="comment">// If the word does not exist, add it to the linked list</span></div>
-<div class="line"><span class="lineno">  125</span>  <a class="code hl_struct" href="structword__t.html">word_t</a> *new_word = <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(nw); <span class="comment">// Create a deep copy of the new word</span></div>
-<div class="line"><span class="lineno">  126</span>  <a class="code hl_function" href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a>(af_list, new_word);        <span class="comment">// Add the new word to the linked list</span></div>
-<div class="line"><span class="lineno">  127</span>}</div>
+<div class="line"><span class="lineno">  122</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *htItem = (<a class="code hl_struct" href="structht__item.html">ht_item</a> *)item;</div>
+<div class="line"><span class="lineno">  123</span>    <a class="code hl_struct" href="structword__t.html">word_t</a> *key_word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)htItem-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a>(key_word); <span class="comment">// Update occurrences of the keyword</span></div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *af_list = (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)htItem-&gt;value;</div>
+<div class="line"><span class="lineno">  126</span>    <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = af_list-&gt;head;</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *ftad_list =</div>
+<div class="line"><span class="lineno">  128</span>        (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)follower_to_add; <span class="comment">// list of word_t followers</span></div>
+<div class="line"><span class="lineno">  129</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *nw =</div>
+<div class="line"><span class="lineno">  130</span>        (<a class="code hl_struct" href="structword__t.html">word_t</a> *)ftad_list-&gt;<a class="code hl_variable" href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">head</a>-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>; <span class="comment">// Get the new word to add</span></div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordflow">while</span> (current != NULL) {</div>
+<div class="line"><span class="lineno">  132</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a>(word, nw) == 0) {</div>
+<div class="line"><span class="lineno">  134</span>            <span class="comment">// If the word already exists, update its occurrences</span></div>
+<div class="line"><span class="lineno">  135</span>            <a class="code hl_function" href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a>(word);</div>
+<div class="line"><span class="lineno">  136</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  137</span>        }</div>
+<div class="line"><span class="lineno">  138</span>        current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;</div>
+<div class="line"><span class="lineno">  139</span>    }</div>
+<div class="line"><span class="lineno">  140</span>    <span class="comment">// If the word does not exist, add it to the linked list</span></div>
+<div class="line"><span class="lineno">  141</span>    <a class="code hl_struct" href="structword__t.html">word_t</a> *new_word =</div>
+<div class="line"><span class="lineno">  142</span>        <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(nw); <span class="comment">// Create a deep copy of the new word</span></div>
+<div class="line"><span class="lineno">  143</span>    <a class="code hl_function" href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a>(af_list, new_word); <span class="comment">// Add the new word to the linked list</span></div>
+<div class="line"><span class="lineno">  144</span>}</div>
 <div class="ttc" id="alinked__list_8h_html_a07e3a2498e1c69f6da4f2a43e84e5257"><div class="ttname"><a href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a></div><div class="ttdeci">struct ll_item ll_item_t</div></div>
-<div class="ttc" id="alinked__list_8h_html_a821a82a131a69b3a5998b4504dd3741e"><div class="ttname"><a href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a></div><div class="ttdeci">void add_to_list(linked_list_t *list, void *data)</div><div class="ttdoc">Append data to the end of a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00020">linked_list.c:20</a></div></div>
+<div class="ttc" id="alinked__list_8h_html_a821a82a131a69b3a5998b4504dd3741e"><div class="ttname"><a href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a></div><div class="ttdeci">void add_to_list(linked_list_t *list, void *data)</div><div class="ttdoc">Append data to the end of a list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00022">linked_list.c:22</a></div></div>
 <div class="ttc" id="astructht__item_html"><div class="ttname"><a href="structht__item.html">ht_item</a></div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00008">ht_item.h:8</a></div></div>
 <div class="ttc" id="astructlinked__list__t_html_a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a"><div class="ttname"><a href="structlinked__list__t.html#a68cd7bf9dcbebfadfb8f9bcfdb9d8b8a">linked_list_t::head</a></div><div class="ttdeci">ll_item_t * head</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00012">linked_list.h:12</a></div></div>
 <div class="ttc" id="astructll__item_html_a23b57be94fcf46ea3c0df84806f0a8bd"><div class="ttname"><a href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">ll_item::next</a></div><div class="ttdeci">struct ll_item * next</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00008">linked_list.h:8</a></div></div>
 <div class="ttc" id="astructll__item_html_a814e6fa74180bcb393c01fec8d461967"><div class="ttname"><a href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">ll_item::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8h_source.html#l00007">linked_list.h:7</a></div></div>
-<div class="ttc" id="aword_8c_html_a0e868f17d208e84602274969f05bfeae"><div class="ttname"><a href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a></div><div class="ttdeci">void update_word_occurrences(word_t *word)</div><div class="ttdoc">Increment the occurrence counter of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00045">word.c:45</a></div></div>
-<div class="ttc" id="aword_8c_html_a538516353f7d77bdf23dfad46051d02b"><div class="ttname"><a href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a></div><div class="ttdeci">static word_t * word_deep_copy(const word_t *original)</div><div class="ttdoc">Create a deep copy of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00207">word.c:207</a></div></div>
-<div class="ttc" id="aword_8c_html_a62140fcceec37578888d60a4cadaa20e"><div class="ttname"><a href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a></div><div class="ttdeci">int wordcmp(const word_t *word1, const word_t *word2)</div><div class="ttdoc">Compare two words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00063">word.c:63</a></div></div>
+<div class="ttc" id="aword_8c_html_a0e868f17d208e84602274969f05bfeae"><div class="ttname"><a href="word_8c.html#a0e868f17d208e84602274969f05bfeae">update_word_occurrences</a></div><div class="ttdeci">void update_word_occurrences(word_t *word)</div><div class="ttdoc">Increment the occurrence counter of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00052">word.c:52</a></div></div>
+<div class="ttc" id="aword_8c_html_a538516353f7d77bdf23dfad46051d02b"><div class="ttname"><a href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a></div><div class="ttdeci">static word_t * word_deep_copy(const word_t *original)</div><div class="ttdoc">Create a deep copy of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00233">word.c:233</a></div></div>
+<div class="ttc" id="aword_8c_html_a62140fcceec37578888d60a4cadaa20e"><div class="ttname"><a href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a></div><div class="ttdeci">int wordcmp(const word_t *word1, const word_t *word2)</div><div class="ttdoc">Compare two words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00072">word.c:72</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -676,32 +678,32 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a0dd9c5256ad15b48050281c1ea7e5e56_icgraph.png" border="0" usemap="#aword_8h_a0dd9c5256ad15b48050281c1ea7e5e56_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a0dd9c5256ad15b48050281c1ea7e5e56_icgraph" id="aword_8h_a0dd9c5256ad15b48050281c1ea7e5e56_icgraph">
-<area shape="rect" title="Update a hash&#45;table item with a new follower list." alt="" coords="986,84,1153,112"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Update a hash&#45;table item with a new follower list." alt="" coords="919,81,1068,108"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -730,55 +732,55 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00045">45</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>                                           {</div>
-<div class="line"><span class="lineno">   46</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">   47</span>    fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   49</span>  }</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>  word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a>++;</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00052">52</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">   55</span>        fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   57</span>    }</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    word-&gt;<a class="code hl_variable" href="structword__t.html#ab8a001c0b18aaba268f2d09b6e452a77">occurrences</a>++;</div>
+<div class="line"><span class="lineno">   60</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a0e868f17d208e84602274969f05bfeae_icgraph.png" border="0" usemap="#aword_8h_a0e868f17d208e84602274969f05bfeae_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a0e868f17d208e84602274969f05bfeae_icgraph" id="aword_8h_a0e868f17d208e84602274969f05bfeae_icgraph">
-<area shape="rect" title="Increment the occurrence counter of a word." alt="" coords="1201,84,1391,112"/>
-<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="986,84,1153,112"/>
-<area shape="poly" title=" " alt="" coords="1185,100,1153,100,1153,95,1185,95"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Increment the occurrence counter of a word." alt="" coords="1116,81,1289,108"/>
+<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="919,81,1068,108"/>
+<area shape="poly" title=" " alt="" coords="1100,97,1068,97,1068,92,1100,92"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a54fad11816a4a1797849e959d310fa0d" name="a54fad11816a4a1797849e959d310fa0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54fad11816a4a1797849e959d310fa0d">&#9670;&#160;</a></span>word_hash()</h2>
+<a id="afc9a2356889e5590b0586e6a18197097" name="afc9a2356889e5590b0586e6a18197097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc9a2356889e5590b0586e6a18197097">&#9670;&#160;</a></span>word_hash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -791,7 +793,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -806,53 +808,53 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Hash index. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00129">129</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  129</span>                                              {</div>
-<div class="line"><span class="lineno">  130</span>  <span class="keywordflow">if</span> (key == NULL) {</div>
-<div class="line"><span class="lineno">  131</span>    fprintf(stderr, <span class="stringliteral">&quot;Key is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  133</span>  }</div>
-<div class="line"><span class="lineno">  134</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key;</div>
-<div class="line"><span class="lineno">  135</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="utils_8h.html#a3c20d7e2acdc0a0099f46371c8335ee4">hash_function</a>(word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, size);</div>
-<div class="line"><span class="lineno">  136</span>}</div>
-<div class="ttc" id="autils_8h_html_a3c20d7e2acdc0a0099f46371c8335ee4"><div class="ttname"><a href="utils_8h.html#a3c20d7e2acdc0a0099f46371c8335ee4">hash_function</a></div><div class="ttdeci">uint32_t hash_function(const int *key, int table_size)</div><div class="ttdoc">Hash a word for a table size.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00035">utils.c:35</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00146">146</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  147</span>{</div>
+<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">if</span> (key == NULL) {</div>
+<div class="line"><span class="lineno">  149</span>        fprintf(stderr, <span class="stringliteral">&quot;Key is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  151</span>    }</div>
+<div class="line"><span class="lineno">  152</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key;</div>
+<div class="line"><span class="lineno">  153</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="utils_8h.html#ad599527823f3d135836d6f352e691483">hash_function</a>(word-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, size);</div>
+<div class="line"><span class="lineno">  154</span>}</div>
+<div class="ttc" id="autils_8h_html_ad599527823f3d135836d6f352e691483"><div class="ttname"><a href="utils_8h.html#ad599527823f3d135836d6f352e691483">hash_function</a></div><div class="ttdeci">uint32_t hash_function(const int *key, uint32_t table_size)</div><div class="ttdoc">Hash a word for a table size.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00042">utils.c:42</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="word_8h_a54fad11816a4a1797849e959d310fa0d_cgraph.png" border="0" usemap="#aword_8h_a54fad11816a4a1797849e959d310fa0d_cgraph" loading="lazy" alt=""/></div>
-<map name="aword_8h_a54fad11816a4a1797849e959d310fa0d_cgraph" id="aword_8h_a54fad11816a4a1797849e959d310fa0d_cgraph">
-<area shape="rect" title="Hash function for word keys." alt="" coords="5,5,90,31"/>
-<area shape="rect" href="utils_8c.html#a3c20d7e2acdc0a0099f46371c8335ee4" title="Hash a word for a table size." alt="" coords="138,5,240,31"/>
+<div class="center"><img src="word_8h_afc9a2356889e5590b0586e6a18197097_cgraph.png" border="0" usemap="#aword_8h_afc9a2356889e5590b0586e6a18197097_cgraph" loading="lazy" alt=""/></div>
+<map name="aword_8h_afc9a2356889e5590b0586e6a18197097_cgraph" id="aword_8h_afc9a2356889e5590b0586e6a18197097_cgraph">
+<area shape="rect" title="Hash function for word keys." alt="" coords="5,5,90,32"/>
+<area shape="rect" href="utils_8c.html#ad599527823f3d135836d6f352e691483" title="Hash a word for a table size." alt="" coords="138,5,240,32"/>
 <area shape="poly" title=" " alt="" coords="90,16,122,16,122,21,90,21"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="word_8h_a54fad11816a4a1797849e959d310fa0d_icgraph.png" border="0" usemap="#aword_8h_a54fad11816a4a1797849e959d310fa0d_icgraph" loading="lazy" alt=""/></div>
-<map name="aword_8h_a54fad11816a4a1797849e959d310fa0d_icgraph" id="aword_8h_a54fad11816a4a1797849e959d310fa0d_icgraph">
-<area shape="rect" title="Hash function for word keys." alt="" coords="563,109,654,137"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="547,109,474,88,476,83,549,104"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="549,143,452,170,450,165,547,137"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<div class="center"><img src="word_8h_afc9a2356889e5590b0586e6a18197097_icgraph.png" border="0" usemap="#aword_8h_afc9a2356889e5590b0586e6a18197097_icgraph" loading="lazy" alt=""/></div>
+<map name="aword_8h_afc9a2356889e5590b0586e6a18197097_icgraph" id="aword_8h_afc9a2356889e5590b0586e6a18197097_icgraph">
+<area shape="rect" title="Hash function for word keys." alt="" coords="529,107,613,133"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="513,106,446,86,447,81,515,101"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="515,139,426,166,424,161,513,134"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -887,14 +889,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if equal, non-zero otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00193">193</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  193</span>                                                              {</div>
-<div class="line"><span class="lineno">  194</span>  <span class="keywordflow">if</span> (key1 == NULL || key2 == NULL) {</div>
-<div class="line"><span class="lineno">  195</span>    fprintf(stderr, <span class="stringliteral">&quot;One or both keys are NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  197</span>  }</div>
-<div class="line"><span class="lineno">  198</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a>((<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key1, (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key2);</div>
-<div class="line"><span class="lineno">  199</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00218">218</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>{</div>
+<div class="line"><span class="lineno">  220</span>    <span class="keywordflow">if</span> (key1 == NULL || key2 == NULL) {</div>
+<div class="line"><span class="lineno">  221</span>        fprintf(stderr, <span class="stringliteral">&quot;One or both keys are NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  223</span>    }</div>
+<div class="line"><span class="lineno">  224</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="word_8c.html#a62140fcceec37578888d60a4cadaa20e">wordcmp</a>((<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key1, (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)key2);</div>
+<div class="line"><span class="lineno">  225</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -912,28 +914,28 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a16fe504f96eba0865f4d74b53ea71695_icgraph.png" border="0" usemap="#aword_8h_a16fe504f96eba0865f4d74b53ea71695_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a16fe504f96eba0865f4d74b53ea71695_icgraph" id="aword_8h_a16fe504f96eba0865f4d74b53ea71695_icgraph">
-<area shape="rect" title="Compare keys for a word hash table." alt="" coords="563,109,745,137"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="574,108,487,88,489,83,575,103"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="575,144,452,172,451,166,574,138"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Compare keys for a word hash table." alt="" coords="529,107,694,133"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="536,105,457,86,458,81,538,100"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="538,140,426,167,425,162,537,135"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -968,31 +970,33 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Allocated item or NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00027">27</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>                                                         {</div>
-<div class="line"><span class="lineno">   28</span>  <span class="keywordflow">if</span> (key == NULL || value == NULL) {</div>
-<div class="line"><span class="lineno">   29</span>    fprintf(stderr, <span class="stringliteral">&quot;Key or value is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   31</span>  }</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>  <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structht__item.html">ht_item</a>));</div>
-<div class="line"><span class="lineno">   34</span>  item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> = <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(key);           <span class="comment">// Create a deep copy of the key</span></div>
-<div class="line"><span class="lineno">   35</span>  item-&gt;<a class="code hl_variable" href="structht__item.html#a6c6bc1a8891d95741c462e6b26591953">update_value</a> = <a class="code hl_function" href="#a0dd9c5256ad15b48050281c1ea7e5e56">update_ht_item_value</a>; <span class="comment">// Set the update function</span></div>
-<div class="line"><span class="lineno">   36</span>  item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> = <a class="code hl_function" href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a>(); <span class="comment">// Initialize value to the word_t pointer</span></div>
-<div class="line"><span class="lineno">   37</span>  <a class="code hl_function" href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a>((<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>,</div>
-<div class="line"><span class="lineno">   38</span>              <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(value));    <span class="comment">// Add the value to the linked list</span></div>
-<div class="line"><span class="lineno">   39</span>  item-&gt;<a class="code hl_variable" href="structht__item.html#a9b41de7351512ec95a33263711854a01">free_item</a> = <a class="code hl_function" href="#a91180306fc1da339720907964039dd14">ht_item_free_word</a>;   <span class="comment">// Set the free function to free_word</span></div>
-<div class="line"><span class="lineno">   40</span>  item-&gt;<a class="code hl_variable" href="structht__item.html#af29e2b67813943e7047317619f5f96c8">print_item</a> = <a class="code hl_function" href="#a23c94ee9adecbe7ae34cd5582c88c158">word_ht_item_print</a>; <span class="comment">// Set the print function</span></div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>  <span class="keywordflow">return</span> item;</div>
-<div class="line"><span class="lineno">   43</span>}</div>
-<div class="ttc" id="alinked__list_8h_html_aa24f1dca34b888202a3918f8aaa4dd74"><div class="ttname"><a href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a></div><div class="ttdeci">linked_list_t * create_linked_list()</div><div class="ttdoc">Create an empty linked list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00009">linked_list.c:9</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00031">31</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>{</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">if</span> (key == NULL || value == NULL) {</div>
+<div class="line"><span class="lineno">   34</span>        fprintf(stderr, <span class="stringliteral">&quot;Key or value is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   36</span>    }</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a>(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structht__item.html">ht_item</a>));</div>
+<div class="line"><span class="lineno">   39</span>    item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> = <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(key); <span class="comment">// Create a deep copy of the key</span></div>
+<div class="line"><span class="lineno">   40</span>    item-&gt;<a class="code hl_variable" href="structht__item.html#a6c6bc1a8891d95741c462e6b26591953">update_value</a> = <a class="code hl_function" href="#a0dd9c5256ad15b48050281c1ea7e5e56">update_ht_item_value</a>; <span class="comment">// Set the update function</span></div>
+<div class="line"><span class="lineno">   41</span>    item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> =</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_function" href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a>(); <span class="comment">// Initialize value to the word_t pointer</span></div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_function" href="linked__list_8h.html#a821a82a131a69b3a5998b4504dd3741e">add_to_list</a>((<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>,</div>
+<div class="line"><span class="lineno">   44</span>            <a class="code hl_function" href="word_8c.html#a538516353f7d77bdf23dfad46051d02b">word_deep_copy</a>(value)); <span class="comment">// Add the value to the linked list</span></div>
+<div class="line"><span class="lineno">   45</span>    item-&gt;<a class="code hl_variable" href="structht__item.html#a9b41de7351512ec95a33263711854a01">free_item</a> =</div>
+<div class="line"><span class="lineno">   46</span>        <a class="code hl_function" href="#a91180306fc1da339720907964039dd14">ht_item_free_word</a>; <span class="comment">// Set the free function to free_word</span></div>
+<div class="line"><span class="lineno">   47</span>    item-&gt;<a class="code hl_variable" href="structht__item.html#af29e2b67813943e7047317619f5f96c8">print_item</a> = <a class="code hl_function" href="#a23c94ee9adecbe7ae34cd5582c88c158">word_ht_item_print</a>; <span class="comment">// Set the print function</span></div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> item;</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="alinked__list_8h_html_aa24f1dca34b888202a3918f8aaa4dd74"><div class="ttname"><a href="linked__list_8h.html#aa24f1dca34b888202a3918f8aaa4dd74">create_linked_list</a></div><div class="ttdeci">linked_list_t * create_linked_list()</div><div class="ttdoc">Create an empty linked list.</div><div class="ttdef"><b>Definition</b> <a href="linked__list_8c_source.html#l00010">linked_list.c:10</a></div></div>
 <div class="ttc" id="astructht__item_html_a6c6bc1a8891d95741c462e6b26591953"><div class="ttname"><a href="structht__item.html#a6c6bc1a8891d95741c462e6b26591953">ht_item::update_value</a></div><div class="ttdeci">update_value_func_t update_value</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00011">ht_item.h:11</a></div></div>
 <div class="ttc" id="astructht__item_html_a9b41de7351512ec95a33263711854a01"><div class="ttname"><a href="structht__item.html#a9b41de7351512ec95a33263711854a01">ht_item::free_item</a></div><div class="ttdeci">free_item_func_t free_item</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00012">ht_item.h:12</a></div></div>
 <div class="ttc" id="astructht__item_html_af29e2b67813943e7047317619f5f96c8"><div class="ttname"><a href="structht__item.html#af29e2b67813943e7047317619f5f96c8">ht_item::print_item</a></div><div class="ttdeci">print_item_func_t print_item</div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00013">ht_item.h:13</a></div></div>
-<div class="ttc" id="aword_8h_html_a0dd9c5256ad15b48050281c1ea7e5e56"><div class="ttname"><a href="#a0dd9c5256ad15b48050281c1ea7e5e56">update_ht_item_value</a></div><div class="ttdeci">void update_ht_item_value(const void *item, const void *new_value)</div><div class="ttdoc">Update a hash-table item with a new follower list.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00102">word.c:102</a></div></div>
-<div class="ttc" id="aword_8h_html_a23c94ee9adecbe7ae34cd5582c88c158"><div class="ttname"><a href="#a23c94ee9adecbe7ae34cd5582c88c158">word_ht_item_print</a></div><div class="ttdeci">void word_ht_item_print(const ht_item *item, int fd)</div><div class="ttdoc">Print a hash-table item containing words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00225">word.c:225</a></div></div>
-<div class="ttc" id="aword_8h_html_a91180306fc1da339720907964039dd14"><div class="ttname"><a href="#a91180306fc1da339720907964039dd14">ht_item_free_word</a></div><div class="ttdeci">void ht_item_free_word(ht_item *item)</div><div class="ttdoc">Free a hash-table item storing words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00179">word.c:179</a></div></div>
+<div class="ttc" id="aword_8h_html_a0dd9c5256ad15b48050281c1ea7e5e56"><div class="ttname"><a href="#a0dd9c5256ad15b48050281c1ea7e5e56">update_ht_item_value</a></div><div class="ttdeci">void update_ht_item_value(const void *item, const void *new_value)</div><div class="ttdoc">Update a hash-table item with a new follower list.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00116">word.c:116</a></div></div>
+<div class="ttc" id="aword_8h_html_a23c94ee9adecbe7ae34cd5582c88c158"><div class="ttname"><a href="#a23c94ee9adecbe7ae34cd5582c88c158">word_ht_item_print</a></div><div class="ttdeci">void word_ht_item_print(const ht_item *item, int fd)</div><div class="ttdoc">Print a hash-table item containing words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00253">word.c:253</a></div></div>
+<div class="ttc" id="aword_8h_html_a91180306fc1da339720907964039dd14"><div class="ttname"><a href="#a91180306fc1da339720907964039dd14">ht_item_free_word</a></div><div class="ttdeci">void ht_item_free_word(ht_item *item)</div><div class="ttdoc">Free a hash-table item storing words.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00203">word.c:203</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1048,30 +1052,30 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a36a6a00a1dccc7be37093ad28eda6a2f_icgraph.png" border="0" usemap="#aword_8h_a36a6a00a1dccc7be37093ad28eda6a2f_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a36a6a00a1dccc7be37093ad28eda6a2f_icgraph" id="aword_8h_a36a6a00a1dccc7be37093ad28eda6a2f_icgraph">
-<area shape="rect" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -1105,39 +1109,42 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00225">225</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  225</span>                                                     {</div>
-<div class="line"><span class="lineno">  226</span>  <span class="keywordflow">if</span> (item == NULL) {</div>
-<div class="line"><span class="lineno">  227</span>    fprintf(stderr, <span class="stringliteral">&quot;ht_item is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  228</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  229</span>  }</div>
-<div class="line"><span class="lineno">  230</span>  <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> == NULL || item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> == NULL) {</div>
-<div class="line"><span class="lineno">  231</span>    fprintf(stderr, <span class="stringliteral">&quot;ht_item key or value is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  232</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  233</span>  }</div>
-<div class="line"><span class="lineno">  234</span>  <span class="keywordtype">char</span> occ_buf[32];</div>
-<div class="line"><span class="lineno">  235</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
-<div class="line"><span class="lineno">  236</span>  <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
-<div class="line"><span class="lineno">  237</span>  write(fd, <span class="stringliteral">&quot;:&quot;</span>, 1); <span class="comment">// Print a colon after the word</span></div>
-<div class="line"><span class="lineno">  238</span>  <span class="comment">// Print the occurrences of the word</span></div>
-<div class="line"><span class="lineno">  239</span>  <span class="keywordtype">int</span> occurrences = word-&gt;occurrences;</div>
-<div class="line"><span class="lineno">  240</span>  snprintf(occ_buf, <span class="keyword">sizeof</span>(occ_buf), <span class="stringliteral">&quot;%d&quot;</span>, occurrences);</div>
-<div class="line"><span class="lineno">  241</span>  write(fd, occ_buf, strlen(occ_buf)); <span class="comment">// Write occurrences to the file descriptor</span></div>
-<div class="line"><span class="lineno">  242</span>  <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(<span class="charliteral">&#39;\t&#39;</span>, fd); <span class="comment">// Print a colon after the word</span></div>
-<div class="line"><span class="lineno">  243</span>  <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *followers_list =</div>
-<div class="line"><span class="lineno">  244</span>      (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>; <span class="comment">// Get the linked list of followers</span></div>
-<div class="line"><span class="lineno">  245</span>  <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = followers_list-&gt;head;</div>
-<div class="line"><span class="lineno">  246</span>  <span class="keywordtype">int</span> between_char[2] = {<span class="charliteral">&#39;,&#39;</span>, <span class="charliteral">&#39;\0&#39;</span>}; <span class="comment">// Character to print between words</span></div>
-<div class="line"><span class="lineno">  247</span>  <span class="keywordflow">while</span> (current != NULL) {</div>
-<div class="line"><span class="lineno">  248</span>    <a class="code hl_struct" href="structword__t.html">word_t</a> *follower_word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
-<div class="line"><span class="lineno">  249</span>    <a class="code hl_function" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc">word_print</a>(follower_word, fd, between_char); <span class="comment">// Print each follower word</span></div>
-<div class="line"><span class="lineno">  250</span>    current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>;                     <span class="comment">// Move to the next follower</span></div>
-<div class="line"><span class="lineno">  251</span>  }</div>
-<div class="line"><span class="lineno">  252</span>  <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(<span class="charliteral">&#39;\n&#39;</span>, fd); <span class="comment">// Print a newline after all followers</span></div>
-<div class="line"><span class="lineno">  253</span>}</div>
-<div class="ttc" id="autf8__tools_8h_html_a8d9bd8a2e0289dc111a092b194fe0b4e"><div class="ttname"><a href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a></div><div class="ttdeci">void utf8_putchar(int codepoint, int fd)</div><div class="ttdoc">Write a Unicode code point to a descriptor in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00119">utf8_tools.c:119</a></div></div>
-<div class="ttc" id="aword_8c_html_a86cf11bbcc696d1368d33b0f4615c823"><div class="ttname"><a href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a></div><div class="ttdeci">void print_utf8_word(const word_t *word, int fd)</div><div class="ttdoc">Print a word in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00138">word.c:138</a></div></div>
-<div class="ttc" id="aword_8c_html_af8abc1d2b681b3064c6e5801bb30bedc"><div class="ttname"><a href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc">word_print</a></div><div class="ttdeci">void word_print(const word_t *word, int fd, int *between_char)</div><div class="ttdoc">Print word and optional separator then occurrences.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00146">word.c:146</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00253">253</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  254</span>{</div>
+<div class="line"><span class="lineno">  255</span>    <span class="keywordflow">if</span> (item == NULL) {</div>
+<div class="line"><span class="lineno">  256</span>        fprintf(stderr, <span class="stringliteral">&quot;ht_item is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  258</span>    }</div>
+<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">if</span> (item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a> == NULL || item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a> == NULL) {</div>
+<div class="line"><span class="lineno">  260</span>        fprintf(stderr, <span class="stringliteral">&quot;ht_item key or value is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  262</span>    }</div>
+<div class="line"><span class="lineno">  263</span>    <span class="keywordtype">char</span> occ_buf[32];</div>
+<div class="line"><span class="lineno">  264</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *word = (<span class="keyword">const</span> <a class="code hl_struct" href="structword__t.html">word_t</a> *)item-&gt;<a class="code hl_variable" href="structht__item.html#a9df5ae0ab8c2bef2998a6e5498656704">key</a>;</div>
+<div class="line"><span class="lineno">  265</span>    <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
+<div class="line"><span class="lineno">  266</span>    write(fd, <span class="stringliteral">&quot;:&quot;</span>, 1); <span class="comment">// Print a colon after the word</span></div>
+<div class="line"><span class="lineno">  267</span>    <span class="comment">// Print the occurrences of the word</span></div>
+<div class="line"><span class="lineno">  268</span>    <span class="keywordtype">int</span> occurrences = word-&gt;occurrences;</div>
+<div class="line"><span class="lineno">  269</span>    snprintf(occ_buf, <span class="keyword">sizeof</span>(occ_buf), <span class="stringliteral">&quot;%d&quot;</span>, occurrences);</div>
+<div class="line"><span class="lineno">  270</span>    write(fd, occ_buf,</div>
+<div class="line"><span class="lineno">  271</span>          strlen(occ_buf)); <span class="comment">// Write occurrences to the file descriptor</span></div>
+<div class="line"><span class="lineno">  272</span>    <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(<span class="charliteral">&#39;\t&#39;</span>, fd); <span class="comment">// Print a colon after the word</span></div>
+<div class="line"><span class="lineno">  273</span>    <a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *followers_list =</div>
+<div class="line"><span class="lineno">  274</span>        (<a class="code hl_struct" href="structlinked__list__t.html">linked_list_t</a> *)</div>
+<div class="line"><span class="lineno">  275</span>            item-&gt;<a class="code hl_variable" href="structht__item.html#a3057dd99e88a8d9966ac2d6ae867b528">value</a>; <span class="comment">// Get the linked list of followers</span></div>
+<div class="line"><span class="lineno">  276</span>    <a class="code hl_typedef" href="linked__list_8h.html#a07e3a2498e1c69f6da4f2a43e84e5257">ll_item_t</a> *current = followers_list-&gt;head;</div>
+<div class="line"><span class="lineno">  277</span>    <span class="keywordtype">int</span> between_char[2] = {<span class="charliteral">&#39;,&#39;</span>, <span class="charliteral">&#39;\0&#39;</span>}; <span class="comment">// Character to print between words</span></div>
+<div class="line"><span class="lineno">  278</span>    <span class="keywordflow">while</span> (current != NULL) {</div>
+<div class="line"><span class="lineno">  279</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *follower_word = (<a class="code hl_struct" href="structword__t.html">word_t</a> *)current-&gt;<a class="code hl_variable" href="structll__item.html#a814e6fa74180bcb393c01fec8d461967">data</a>;</div>
+<div class="line"><span class="lineno">  280</span>        <a class="code hl_function" href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc">word_print</a>(follower_word, fd,</div>
+<div class="line"><span class="lineno">  281</span>               between_char); <span class="comment">// Print each follower word</span></div>
+<div class="line"><span class="lineno">  282</span>        current = current-&gt;<a class="code hl_variable" href="structll__item.html#a23b57be94fcf46ea3c0df84806f0a8bd">next</a>; <span class="comment">// Move to the next follower</span></div>
+<div class="line"><span class="lineno">  283</span>    }</div>
+<div class="line"><span class="lineno">  284</span>    <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(<span class="charliteral">&#39;\n&#39;</span>, fd); <span class="comment">// Print a newline after all followers</span></div>
+<div class="line"><span class="lineno">  285</span>}</div>
+<div class="ttc" id="autf8__tools_8h_html_a8d9bd8a2e0289dc111a092b194fe0b4e"><div class="ttname"><a href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a></div><div class="ttdeci">void utf8_putchar(int codepoint, int fd)</div><div class="ttdoc">Write a Unicode code point to a descriptor in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00139">utf8_tools.c:139</a></div></div>
+<div class="ttc" id="aword_8c_html_a86cf11bbcc696d1368d33b0f4615c823"><div class="ttname"><a href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a></div><div class="ttdeci">void print_utf8_word(const word_t *word, int fd)</div><div class="ttdoc">Print a word in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00156">word.c:156</a></div></div>
+<div class="ttc" id="aword_8c_html_af8abc1d2b681b3064c6e5801bb30bedc"><div class="ttname"><a href="word_8c.html#af8abc1d2b681b3064c6e5801bb30bedc">word_print</a></div><div class="ttdeci">void word_print(const word_t *word, int fd, int *between_char)</div><div class="ttdoc">Print word and optional separator then occurrences.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00165">word.c:165</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1164,32 +1171,32 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a23c94ee9adecbe7ae34cd5582c88c158_icgraph.png" border="0" usemap="#aword_8h_a23c94ee9adecbe7ae34cd5582c88c158_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a23c94ee9adecbe7ae34cd5582c88c158_icgraph" id="aword_8h_a23c94ee9adecbe7ae34cd5582c88c158_icgraph">
-<area shape="rect" title="Print a hash&#45;table item containing words." alt="" coords="986,84,1134,112"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Print a hash&#45;table item containing words." alt="" coords="919,81,1051,108"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -1229,28 +1236,31 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00146">146</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  146</span>                                                               {</div>
-<div class="line"><span class="lineno">  147</span>  <span class="keywordflow">if</span> (word == NULL) {</div>
-<div class="line"><span class="lineno">  148</span>    fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  150</span>  }</div>
-<div class="line"><span class="lineno">  151</span>  <span class="keywordtype">char</span> occ_buf[32];</div>
-<div class="line"><span class="lineno">  152</span>  <span class="keywordtype">int</span> occurrences = <a class="code hl_function" href="word_8c.html#a9f12560cca650c40e1483b6f7280326a">get_word_occurrences</a>(word);</div>
-<div class="line"><span class="lineno">  153</span>  snprintf(occ_buf, <span class="keyword">sizeof</span>(occ_buf), <span class="stringliteral">&quot;%d&quot;</span>, occurrences);</div>
-<div class="line"><span class="lineno">  154</span>  <span class="keywordflow">if</span> (between_char != NULL) {</div>
-<div class="line"><span class="lineno">  155</span>    <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
-<div class="line"><span class="lineno">  156</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; between_char[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
-<div class="line"><span class="lineno">  157</span>      <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(between_char[i], fd); <span class="comment">// Print the character between words</span></div>
-<div class="line"><span class="lineno">  158</span>    }</div>
-<div class="line"><span class="lineno">  159</span>    write(fd, occ_buf, strlen(occ_buf)); <span class="comment">// Write the occurrences to the file descriptor</span></div>
-<div class="line"><span class="lineno">  160</span>    <span class="keywordflow">return</span>;                               <span class="comment">// Print the occurrences of the word</span></div>
-<div class="line"><span class="lineno">  161</span>  }</div>
-<div class="line"><span class="lineno">  162</span>  <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
-<div class="line"><span class="lineno">  163</span>  write(fd, <span class="stringliteral">&quot;:&quot;</span>, 1); <span class="comment">// Print a colon after the word</span></div>
-<div class="line"><span class="lineno">  164</span>  write(fd, occ_buf, strlen(occ_buf)); <span class="comment">// Write occurrences to the file descriptor</span></div>
-<div class="line"><span class="lineno">  165</span>}</div>
-<div class="ttc" id="aword_8c_html_a9f12560cca650c40e1483b6f7280326a"><div class="ttname"><a href="word_8c.html#a9f12560cca650c40e1483b6f7280326a">get_word_occurrences</a></div><div class="ttdeci">int get_word_occurrences(const word_t *word)</div><div class="ttdoc">Get the occurrence count of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00054">word.c:54</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00165">165</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
+<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">if</span> (word == NULL) {</div>
+<div class="line"><span class="lineno">  168</span>        fprintf(stderr, <span class="stringliteral">&quot;Word is NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  170</span>    }</div>
+<div class="line"><span class="lineno">  171</span>    <span class="keywordtype">char</span> occ_buf[32];</div>
+<div class="line"><span class="lineno">  172</span>    <span class="keywordtype">int</span> occurrences = <a class="code hl_function" href="word_8c.html#a9f12560cca650c40e1483b6f7280326a">get_word_occurrences</a>(word);</div>
+<div class="line"><span class="lineno">  173</span>    snprintf(occ_buf, <span class="keyword">sizeof</span>(occ_buf), <span class="stringliteral">&quot;%d&quot;</span>, occurrences);</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (between_char != NULL) {</div>
+<div class="line"><span class="lineno">  175</span>        <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; between_char[i] != <span class="charliteral">&#39;\0&#39;</span>; i++) {</div>
+<div class="line"><span class="lineno">  177</span>            <a class="code hl_function" href="utf8__tools_8h.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a>(between_char[i],</div>
+<div class="line"><span class="lineno">  178</span>                     fd); <span class="comment">// Print the character between words</span></div>
+<div class="line"><span class="lineno">  179</span>        }</div>
+<div class="line"><span class="lineno">  180</span>        write(fd, occ_buf, strlen(occ_buf)); <span class="comment">// Write the occurrences to</span></div>
+<div class="line"><span class="lineno">  181</span>                             <span class="comment">// the file descriptor</span></div>
+<div class="line"><span class="lineno">  182</span>        <span class="keywordflow">return</span>; <span class="comment">// Print the occurrences of the word</span></div>
+<div class="line"><span class="lineno">  183</span>    }</div>
+<div class="line"><span class="lineno">  184</span>    <a class="code hl_function" href="word_8c.html#a86cf11bbcc696d1368d33b0f4615c823">print_utf8_word</a>(word, fd);</div>
+<div class="line"><span class="lineno">  185</span>    write(fd, <span class="stringliteral">&quot;:&quot;</span>, 1); <span class="comment">// Print a colon after the word</span></div>
+<div class="line"><span class="lineno">  186</span>    write(fd, occ_buf,</div>
+<div class="line"><span class="lineno">  187</span>          strlen(occ_buf)); <span class="comment">// Write occurrences to the file descriptor</span></div>
+<div class="line"><span class="lineno">  188</span>}</div>
+<div class="ttc" id="aword_8c_html_a9f12560cca650c40e1483b6f7280326a"><div class="ttname"><a href="word_8c.html#a9f12560cca650c40e1483b6f7280326a">get_word_occurrences</a></div><div class="ttdeci">int get_word_occurrences(const word_t *word)</div><div class="ttdoc">Get the occurrence count of a word.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00062">word.c:62</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1273,34 +1283,34 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_af8abc1d2b681b3064c6e5801bb30bedc_icgraph.png" border="0" usemap="#aword_8h_af8abc1d2b681b3064c6e5801bb30bedc_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_af8abc1d2b681b3064c6e5801bb30bedc_icgraph" id="aword_8h_af8abc1d2b681b3064c6e5801bb30bedc_icgraph">
-<area shape="rect" title="Print word and optional separator then occurrences." alt="" coords="1182,84,1272,112"/>
-<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="986,84,1134,112"/>
-<area shape="poly" title=" " alt="" coords="1166,100,1134,100,1134,95,1166,95"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="780,84,938,112"/>
-<area shape="poly" title=" " alt="" coords="971,100,939,100,939,95,971,95"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,57,515,85"/>
-<area shape="poly" title=" " alt="" coords="764,95,515,79,515,74,765,89"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="563,109,732,137"/>
-<area shape="poly" title=" " alt="" coords="765,112,733,116,732,110,764,106"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,5,277,33"/>
-<area shape="poly" title=" " alt="" coords="356,55,276,32,278,27,358,50"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="316,74,281,74,281,68,316,68"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,95,150,90,185,82"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,109,451,137"/>
-<area shape="poly" title=" " alt="" coords="547,126,451,126,451,120,547,120"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,161,451,189"/>
-<area shape="poly" title=" " alt="" coords="570,144,452,172,450,166,569,139"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,109,283,137"/>
-<area shape="poly" title=" " alt="" coords="380,126,284,126,284,120,380,120"/>
-<area shape="poly" title=" " alt="" coords="182,113,150,105,151,100,183,107"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="380,178,280,178,280,172,380,172"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
+<area shape="rect" title="Print word and optional separator then occurrences." alt="" coords="1099,81,1180,108"/>
+<area shape="rect" href="word_8c.html#a23c94ee9adecbe7ae34cd5582c88c158" title="Print a hash&#45;table item containing words." alt="" coords="919,81,1051,108"/>
+<area shape="poly" title=" " alt="" coords="1083,97,1051,97,1051,92,1083,92"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="729,81,871,108"/>
+<area shape="poly" title=" " alt="" coords="904,97,872,97,872,92,904,92"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,56,481,83"/>
+<area shape="poly" title=" " alt="" coords="713,92,481,77,481,72,713,87"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="529,107,681,133"/>
+<area shape="poly" title=" " alt="" coords="714,109,681,113,681,108,713,103"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,5,263,32"/>
+<area shape="poly" title=" " alt="" coords="336,53,262,31,264,26,337,48"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,56,266,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,267,72,267,67,301,67"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="177,84,143,93,142,87,176,79"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,107,425,133"/>
+<area shape="poly" title=" " alt="" coords="513,123,425,123,425,117,513,117"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,157,425,184"/>
+<area shape="poly" title=" " alt="" coords="533,140,426,167,424,162,532,135"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,107,268,133"/>
+<area shape="poly" title=" " alt="" coords="357,123,268,123,268,117,357,117"/>
+<area shape="poly" title=" " alt="" coords="174,110,142,102,143,97,176,105"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,157,265,184"/>
+<area shape="poly" title=" " alt="" coords="357,173,265,173,265,168,357,168"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
 </map>
 </div>
 
@@ -1335,37 +1345,40 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Difference as in strcmp. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00071">71</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                  {</div>
-<div class="line"><span class="lineno">   72</span>  <span class="keywordflow">if</span> (!word || !str)</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>  <span class="keywordtype">int</span> *lower_word = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(word, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
-<div class="line"><span class="lineno">   76</span>  <span class="keywordtype">int</span> *lower_str = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(str, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
-<div class="line"><span class="lineno">   77</span>  <span class="keywordflow">if</span> (!lower_word || !lower_str) { <span class="comment">/* minimal error handling */</span></div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (lower_word)</div>
-<div class="line"><span class="lineno">   79</span>      free(lower_word);</div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (lower_str)</div>
-<div class="line"><span class="lineno">   81</span>      free(lower_str);</div>
-<div class="line"><span class="lineno">   82</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   83</span>  }</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>  <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><span class="lineno">   86</span>  <span class="keywordflow">while</span> (lower_word[i] != 0 &amp;&amp; lower_str[i] != 0) {</div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">if</span> (lower_word[i] != lower_str[i]) {</div>
-<div class="line"><span class="lineno">   88</span>      <span class="keywordtype">int</span> diff = lower_word[i] - lower_str[i];</div>
-<div class="line"><span class="lineno">   89</span>      free(lower_word);</div>
-<div class="line"><span class="lineno">   90</span>      free(lower_str);</div>
-<div class="line"><span class="lineno">   91</span>      <span class="keywordflow">return</span> diff;</div>
-<div class="line"><span class="lineno">   92</span>    }</div>
-<div class="line"><span class="lineno">   93</span>    i++;</div>
-<div class="line"><span class="lineno">   94</span>  }</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>  <span class="keywordtype">int</span> diff = lower_word[i] - lower_str[i];</div>
-<div class="line"><span class="lineno">   97</span>  free(lower_word);</div>
-<div class="line"><span class="lineno">   98</span>  free(lower_str);</div>
-<div class="line"><span class="lineno">   99</span>  <span class="keywordflow">return</span> diff;</div>
-<div class="line"><span class="lineno">  100</span>}</div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00081">81</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span> (!word || !str) {</div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   85</span>    }</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordtype">int</span> *lower_word = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(word, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordtype">int</span> *lower_str = <a class="code hl_function" href="utf8__tools_8h.html#ac74a4c380ae184714bb388ba615a9673">utf8_word_to_lower</a>(str, <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>);</div>
+<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">if</span> (!lower_word || !lower_str) { <span class="comment">/* minimal error handling */</span></div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">if</span> (lower_word) {</div>
+<div class="line"><span class="lineno">   91</span>            free(lower_word);</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> (lower_str) {</div>
+<div class="line"><span class="lineno">   94</span>            free(lower_str);</div>
+<div class="line"><span class="lineno">   95</span>        }</div>
+<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   97</span>    }</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">while</span> (lower_word[i] != 0 &amp;&amp; lower_str[i] != 0) {</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (lower_word[i] != lower_str[i]) {</div>
+<div class="line"><span class="lineno">  102</span>            <span class="keywordtype">int</span> diff = lower_word[i] - lower_str[i];</div>
+<div class="line"><span class="lineno">  103</span>            free(lower_word);</div>
+<div class="line"><span class="lineno">  104</span>            free(lower_str);</div>
+<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> diff;</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">  107</span>        i++;</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    <span class="keywordtype">int</span> diff = lower_word[i] - lower_str[i];</div>
+<div class="line"><span class="lineno">  111</span>    free(lower_word);</div>
+<div class="line"><span class="lineno">  112</span>    free(lower_str);</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">return</span> diff;</div>
+<div class="line"><span class="lineno">  114</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1412,15 +1425,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if equal, non-zero otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00063">63</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                                                      {</div>
-<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">if</span> (word1 == NULL || word2 == NULL) {</div>
-<div class="line"><span class="lineno">   65</span>    fprintf(stderr, <span class="stringliteral">&quot;One or both words are NULL\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   67</span>  }</div>
-<div class="line"><span class="lineno">   68</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="utf8__tools_8h.html#ac2077df025c715fd9f73ab86431d2de8">utf8_strcmp</a>(word1-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, word2-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>);</div>
-<div class="line"><span class="lineno">   69</span>}</div>
-<div class="ttc" id="autf8__tools_8h_html_ac2077df025c715fd9f73ab86431d2de8"><div class="ttname"><a href="utf8__tools_8h.html#ac2077df025c715fd9f73ab86431d2de8">utf8_strcmp</a></div><div class="ttdeci">int utf8_strcmp(const int *str1, const int *str2)</div><div class="ttdoc">Compare two UTF-8 strings.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00232">utf8_tools.c:232</a></div></div>
+<p class="definition">Definition at line <a class="el" href="word_8c_source.html#l00072">72</a> of file <a class="el" href="word_8c_source.html">word.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>{</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">if</span> (word1 == NULL || word2 == NULL) {</div>
+<div class="line"><span class="lineno">   75</span>        fprintf(stderr, <span class="stringliteral">&quot;One or both words are NULL\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   77</span>    }</div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="utf8__tools_8h.html#ac2077df025c715fd9f73ab86431d2de8">utf8_strcmp</a>(word1-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>, word2-&gt;<a class="code hl_variable" href="structword__t.html#a5edbc664a344638955af19089d72c11c">word</a>);</div>
+<div class="line"><span class="lineno">   79</span>}</div>
+<div class="ttc" id="autf8__tools_8h_html_ac2077df025c715fd9f73ab86431d2de8"><div class="ttname"><a href="utf8__tools_8h.html#ac2077df025c715fd9f73ab86431d2de8">utf8_strcmp</a></div><div class="ttdeci">int utf8_strcmp(const int *str1, const int *str2)</div><div class="ttdoc">Compare two UTF-8 strings.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00266">utf8_tools.c:266</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1436,39 +1449,39 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h_a62140fcceec37578888d60a4cadaa20e_icgraph.png" border="0" usemap="#aword_8h_a62140fcceec37578888d60a4cadaa20e_icgraph" loading="lazy" alt=""/></div>
 <map name="aword_8h_a62140fcceec37578888d60a4cadaa20e_icgraph" id="aword_8h_a62140fcceec37578888d60a4cadaa20e_icgraph">
-<area shape="rect" title="Compare two words." alt="" coords="1214,33,1295,61"/>
-<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="999,8,1166,36"/>
-<area shape="poly" title=" " alt="" coords="1198,42,1166,37,1167,32,1199,36"/>
-<area shape="rect" href="word_8c.html#a16fe504f96eba0865f4d74b53ea71695" title="Compare keys for a word hash table." alt="" coords="563,59,745,86"/>
-<area shape="poly" title=" " alt="" coords="1199,52,746,71,745,66,1198,47"/>
-<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="793,8,951,36"/>
-<area shape="poly" title=" " alt="" coords="984,24,952,24,952,19,984,19"/>
-<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="331,109,515,137"/>
-<area shape="poly" title=" " alt="" coords="843,47,799,76,746,100,687,115,627,124,515,130,515,124,626,119,686,110,744,95,796,72,840,43"/>
-<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="569,7,738,34"/>
-<area shape="poly" title=" " alt="" coords="777,24,739,24,739,18,777,19"/>
-<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="204,109,277,137"/>
-<area shape="poly" title=" " alt="" coords="316,126,277,126,277,120,316,120"/>
-<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="201,161,280,189"/>
-<area shape="poly" title=" " alt="" coords="358,144,282,166,280,161,356,139"/>
-<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="108,84,150,112"/>
-<area shape="poly" title=" " alt="" coords="189,114,150,105,151,100,190,109"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,84,60,112"/>
-<area shape="poly" title=" " alt="" coords="92,100,60,100,60,95,92,95"/>
-<area shape="poly" title=" " alt="" coords="202,155,196,151,147,114,150,110,200,146,205,150"/>
-<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="395,5,451,33"/>
-<area shape="poly" title=" " alt="" coords="554,23,451,22,451,17,554,17"/>
-<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="395,57,451,85"/>
-<area shape="poly" title=" " alt="" coords="574,41,452,68,450,63,572,36"/>
-<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="198,5,283,33"/>
-<area shape="poly" title=" " alt="" coords="380,22,284,22,284,16,380,16"/>
-<area shape="poly" title=" " alt="" coords="205,44,200,48,149,86,146,82,196,44,202,40"/>
-<area shape="rect" href="both__mp_8c.html#ad293cdae5f4359d9496c75593f62224d" title="Execute both tasks in multi&#45;process mode." alt="" coords="202,57,280,85"/>
-<area shape="poly" title=" " alt="" coords="380,74,280,74,280,68,380,68"/>
-<area shape="poly" title=" " alt="" coords="187,87,151,96,149,90,186,81"/>
-<area shape="poly" title=" " alt="" coords="573,93,490,111,489,106,572,88"/>
-<area shape="poly" title=" " alt="" coords="575,57,450,28,452,23,576,52"/>
-<area shape="poly" title=" " alt="" coords="547,75,451,74,451,69,547,69"/>
+<area shape="rect" title="Compare two words." alt="" coords="1129,31,1203,57"/>
+<area shape="rect" href="word_8c.html#ac72d968fe238c5ee7516f96982f96b6a" title="Update a hash&#45;table item with a new follower list." alt="" coords="932,5,1081,32"/>
+<area shape="poly" title=" " alt="" coords="1113,38,1081,33,1081,28,1114,33"/>
+<area shape="rect" href="word_8c.html#a16fe504f96eba0865f4d74b53ea71695" title="Compare keys for a word hash table." alt="" coords="529,56,694,83"/>
+<area shape="poly" title=" " alt="" coords="1113,49,695,68,695,63,1113,44"/>
+<area shape="rect" href="word_8c.html#a36a6a00a1dccc7be37093ad28eda6a2f" title="Create a hash&#45;table item for a word pair." alt="" coords="742,5,884,32"/>
+<area shape="poly" title=" " alt="" coords="917,21,885,21,885,16,917,16"/>
+<area shape="rect" href="file__reader_8c.html#aec6071d291c922c4ac9de12fc3560b90" title="Build a hash table of words read from a file descriptor." alt="" coords="316,107,481,133"/>
+<area shape="poly" title=" " alt="" coords="786,44,745,73,695,97,641,112,585,121,481,126,481,121,584,115,640,107,693,92,742,68,783,40"/>
+<area shape="rect" href="file__reader__mp_8c.html#a20af8848b0728195f4d816c2b3131dd1" title="Rebuild a hash table from word pairs received on a pipe." alt="" coords="535,5,688,32"/>
+<area shape="poly" title=" " alt="" coords="726,21,688,21,688,16,726,16"/>
+<area shape="rect" href="both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="196,107,263,133"/>
+<area shape="poly" title=" " alt="" coords="301,123,263,123,263,117,301,117"/>
+<area shape="rect" href="task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="192,157,266,184"/>
+<area shape="poly" title=" " alt="" coords="338,141,268,162,266,157,336,136"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,81,142,108"/>
+<area shape="poly" title=" " alt="" coords="179,111,142,102,143,97,181,106"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" title=" " alt="" coords="87,97,55,97,55,92,87,92"/>
+<area shape="poly" title=" " alt="" coords="192,150,188,147,139,110,143,106,192,143,196,146"/>
+<area shape="rect" href="task1__mp_8c.html#ad24a7c4eca25b6a0d56da799de46432a" title=" " alt="" coords="372,5,425,32"/>
+<area shape="poly" title=" " alt="" coords="520,21,425,21,425,16,520,16"/>
+<area shape="rect" href="both__mp_8c.html#a794c1e1c48b5ed58e0e648feb77fc038" title=" " alt="" coords="372,56,425,83"/>
+<area shape="poly" title=" " alt="" coords="538,39,426,66,425,61,537,34"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,5,268,32"/>
+<area shape="poly" title=" " alt="" coords="357,21,268,21,268,16,357,16"/>
+<area shape="poly" title=" " alt="" coords="196,43,192,46,143,83,139,79,188,42,192,39"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,56,265,83"/>
+<area shape="poly" title=" " alt="" coords="357,72,265,72,265,67,357,67"/>
+<area shape="poly" title=" " alt="" coords="179,84,143,93,142,88,178,79"/>
+<area shape="poly" title=" " alt="" coords="538,90,458,109,457,103,536,84"/>
+<area shape="poly" title=" " alt="" coords="537,54,425,27,426,22,538,49"/>
+<area shape="poly" title=" " alt="" coords="513,72,425,72,425,67,513,67"/>
 </map>
 </div>
 

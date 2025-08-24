@@ -110,14 +110,14 @@ Collaboration diagram for hash_table_t:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a5c87165b78a7b87fcfb01a0ccaf026e3" id="r_a5c87165b78a7b87fcfb01a0ccaf026e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlinked__list__t.html">linked_list_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c87165b78a7b87fcfb01a0ccaf026e3">buckets</a></td></tr>
-<tr class="memitem:a98ccd82c09995136d487020e30891da8" id="r_a98ccd82c09995136d487020e30891da8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98ccd82c09995136d487020e30891da8">size</a></td></tr>
-<tr class="memitem:a0f27b5b0897cdec47bad809454a5fd2e" id="r_a0f27b5b0897cdec47bad809454a5fd2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f27b5b0897cdec47bad809454a5fd2e">count</a></td></tr>
-<tr class="memitem:ae7aea3133da628e58a520a926d13918b" id="r_ae7aea3133da628e58a520a926d13918b"><td class="memItemLeft" align="right" valign="top">uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7aea3133da628e58a520a926d13918b">hash_func</a> )(const void *key, int <a class="el" href="#a98ccd82c09995136d487020e30891da8">size</a>)</td></tr>
+<tr class="memitem:a2eccfe8b1cf95bb9743b5a6ca7e40b62" id="r_a2eccfe8b1cf95bb9743b5a6ca7e40b62"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eccfe8b1cf95bb9743b5a6ca7e40b62">size</a></td></tr>
+<tr class="memitem:a9a15271fcd5027299871bac46e304e3a" id="r_a9a15271fcd5027299871bac46e304e3a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a15271fcd5027299871bac46e304e3a">count</a></td></tr>
+<tr class="memitem:aff50f32c4bf26965b1dc07ca63fbddf4" id="r_aff50f32c4bf26965b1dc07ca63fbddf4"><td class="memItemLeft" align="right" valign="top">uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff50f32c4bf26965b1dc07ca63fbddf4">hash_func</a> )(const void *key, uint32_t <a class="el" href="#a2eccfe8b1cf95bb9743b5a6ca7e40b62">size</a>)</td></tr>
 <tr class="memitem:a7bcb4e3f748b0208329bd3284b75e112" id="r_a7bcb4e3f748b0208329bd3284b75e112"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bcb4e3f748b0208329bd3284b75e112">key_cmp</a> )(const void *key1, const void *key2)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00011">11</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00012">12</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a5c87165b78a7b87fcfb01a0ccaf026e3" name="a5c87165b78a7b87fcfb01a0ccaf026e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5c87165b78a7b87fcfb01a0ccaf026e3">&#9670;&#160;</a></span>buckets</h2>
@@ -131,39 +131,39 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00012">12</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00013">13</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
 
 </div>
 </div>
-<a id="a0f27b5b0897cdec47bad809454a5fd2e" name="a0f27b5b0897cdec47bad809454a5fd2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f27b5b0897cdec47bad809454a5fd2e">&#9670;&#160;</a></span>count</h2>
+<a id="a9a15271fcd5027299871bac46e304e3a" name="a9a15271fcd5027299871bac46e304e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a15271fcd5027299871bac46e304e3a">&#9670;&#160;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hash_table_t::count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00014">14</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
-
-</div>
-</div>
-<a id="ae7aea3133da628e58a520a926d13918b" name="ae7aea3133da628e58a520a926d13918b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7aea3133da628e58a520a926d13918b">&#9670;&#160;</a></span>hash_func</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t(* hash_table_t::hash_func) (const void *key, int <a class="el" href="#a98ccd82c09995136d487020e30891da8">size</a>)</td>
+          <td class="memname">uint32_t hash_table_t::count</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00015">15</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
+
+</div>
+</div>
+<a id="aff50f32c4bf26965b1dc07ca63fbddf4" name="aff50f32c4bf26965b1dc07ca63fbddf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff50f32c4bf26965b1dc07ca63fbddf4">&#9670;&#160;</a></span>hash_func</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t(* hash_table_t::hash_func) (const void *key, uint32_t <a class="el" href="#a2eccfe8b1cf95bb9743b5a6ca7e40b62">size</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00016">16</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
 
 </div>
 </div>
@@ -179,23 +179,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00016">16</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00017">17</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
 
 </div>
 </div>
-<a id="a98ccd82c09995136d487020e30891da8" name="a98ccd82c09995136d487020e30891da8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98ccd82c09995136d487020e30891da8">&#9670;&#160;</a></span>size</h2>
+<a id="a2eccfe8b1cf95bb9743b5a6ca7e40b62" name="a2eccfe8b1cf95bb9743b5a6ca7e40b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eccfe8b1cf95bb9743b5a6ca7e40b62">&#9670;&#160;</a></span>size</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int hash_table_t::size</td>
+          <td class="memname">uint32_t hash_table_t::size</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00013">13</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hash__table_8h_source.html#l00014">14</a> of file <a class="el" href="hash__table_8h_source.html">hash_table.h</a>.</p>
 
 </div>
 </div>
