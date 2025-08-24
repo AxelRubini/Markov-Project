@@ -1,12 +1,15 @@
 #include "argtable3.h"
 #include "options.h"
+#include "utf8_tools.h"
 #include "utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include <fcntl.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 static void set_default_options(options_t *o)
 {
@@ -77,6 +80,22 @@ static int check_options(options_t *options)
 	} else if (options->task != TASK_2) {
 		if (check_file_is_empty(options->input_txt)) {
 			fprintf(stderr, "Input file is empty\n");
+			return -1;
+		}
+		int fd = open(options->input_txt, O_RDONLY);
+		int cp;
+		int byr = 0;
+		lseek(fd, 0, SEEK_SET);
+		short valid = 0;
+		while ((cp = utf8_getchar_fd(fd, &byr)) != EOF) {
+			if (cp != ' ' && cp != '\n' && cp != '\t') {
+				valid = 1;
+				break;
+			}
+		}
+		safe_close(&fd);
+		if (!valid) {
+			fprintf(stderr, "Input file is not valid\n");
 			return -1;
 		}
 	}
