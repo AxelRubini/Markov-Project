@@ -73,7 +73,6 @@ int both_sp(const char *input_txt, const char *output_csv,
 		free_hash_table(freq_table);
 		return result;
 	}
-	fprintf(stderr, "Output written to %s\n", output_txt);
 	free_hash_table(freq_table);
 
 	if (print_to_stdout) {
@@ -84,9 +83,6 @@ int both_sp(const char *input_txt, const char *output_csv,
 
 			return -1;
 		}
-		fprintf(stderr,
-			"\nOutput printed to stdout, temporary file will "
-			"be removed\n");
 		unlink(TMP_STDOUT_FILE); // Remove the temporary file after
 					 // printing
 	}

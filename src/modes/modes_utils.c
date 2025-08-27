@@ -88,6 +88,7 @@ int print_file_content_to_stdout(const char *filename)
 	}
 	char buffer[1024];
 	ssize_t bytes_read;
+	printf("\n");
 	while ((bytes_read = read(fd, buffer, sizeof(buffer))) > 0) {
 		if (write(STDOUT_FILENO, buffer, bytes_read) < 0) {
 			perror("Failed to write to stdout");

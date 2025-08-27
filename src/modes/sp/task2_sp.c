@@ -39,7 +39,6 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words)
 		free_hash_table(ht);
 		return result;
 	}
-	fprintf(stderr, "Output written to %s\n", output_txt);
 	free_hash_table(ht);
 
 	if (print_to_stdout) {
@@ -49,9 +48,6 @@ int task2_sp(const char *input_csv, const char *output_txt, size_t n_words)
 			unlink(output_txt); // Remove the temporary file
 			return -1;
 		}
-		fprintf(stdout,
-			"\nOutput printed to stdout, temporary file will "
-			"be removed\n");
 		unlink(output_txt); // Remove the temporary file after printing
 	}
 	return 0;

@@ -155,9 +155,6 @@ int task2_mp(const char *input_csv, const char *output_txt, uint32_t n_words)
 	}
 	if (print_to_stdout) {
 		print_file_content_to_stdout(output_txt);
-		fprintf(stdout,
-			"\nOutput printed to stdout, temporary file will "
-			"be removed\n");
 		unlink(output_txt);
 	}
 	status = 0;

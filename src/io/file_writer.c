@@ -79,7 +79,7 @@ static int *search_start_word(const hash_table_t *table)
 			return NULL; // Error converting input
 		}
 
-		printf("Founded Words\n");
+		printf("Founded Words, just the first 50 matches are shown\n");
 		size_t found_count = 0;
 		ht_item *matches[50];
 		for (size_t i = 0; i < table->size && found_count < 50; i++) {
@@ -147,12 +147,11 @@ static int *create_start_word(const hash_table_t *table)
 		fprintf(stderr, "Hash table is NULL or empty\n");
 		return NULL; // No valid start word
 	}
-	printf("=== Choose a starting word ===\n");
+	printf("\nChoose a starting word\n");
 	printf("Write a substring of a word and too choose one\n");
 	printf("Otherwise write \"exit\" to generate_random_start_word\n\n");
 	int *word = search_start_word(table);
 	if (word == NULL) {
-		printf("Generating a random valid start word ...\n");
 		const size_t max_tries = 50;
 		for (size_t tries = 0; tries < max_tries; ++tries) {
 			word = generate_random_symbol();
