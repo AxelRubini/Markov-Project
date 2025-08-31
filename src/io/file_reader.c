@@ -220,6 +220,7 @@ int f_get_next_word(int fd, int *word_buffer)
 					lseek(fd, -1, SEEK_CUR);
 					continue;
 				}
+				lseek(fd, -1, SEEK_CUR);
 			}
 			word_buffer[index++] = cp; // keep apostrophe
 			word_buffer[index] = 0; // null-terminate
