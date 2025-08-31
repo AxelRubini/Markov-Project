@@ -513,62 +513,61 @@ $(function(){initNavTree('utf8__tools_8c_source.html','',''); });
 <div class="foldopen" id="foldopen00386" data-start="{" data-end="}">
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">  386</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a>(<span class="keywordtype">int</span> cp)</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>{</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">return</span> (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        cp == 0x00BF);</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>}</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">return</span> (cp == 0x2018 || cp == 0x201C || cp == 0x201D || cp == 0x2026 ||</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 || cp == 0x00BF);</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>}</div>
 </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
-<div class="foldopen" id="foldopen00393" data-start="{" data-end="}">
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">  393</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *str)</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>{</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordflow">if</span> (str == NULL) {</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    }</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordtype">size_t</span> len = 0;</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordflow">while</span> (str[len] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        len++;</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    }</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keywordflow">return</span> len;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>}</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="foldopen" id="foldopen00392" data-start="{" data-end="}">
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">  392</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *str)</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>{</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordflow">if</span> (str == NULL) {</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    }</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keywordtype">size_t</span> len = 0;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordflow">while</span> (str[len] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        len++;</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    }</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordflow">return</span> len;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>}</div>
 </div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="foldopen" id="foldopen00405" data-start="{" data-end="}">
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a53e608a47aa9df7d3cb6ceab79c9a60e">  405</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e">utf8_is_sub_string</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *str, <span class="keyword">const</span> <span class="keywordtype">int</span> *sub)</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>{</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keywordtype">size_t</span> sub_len = <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(sub);</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keywordflow">if</span> (sub_len == 0) {</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    }</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordtype">size_t</span> str_len = <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(str);</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordflow">if</span> (str_len &lt; sub_len) {</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    }</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keywordflow">if</span> (sub_len &gt; str_len) {</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    }</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt;= str_len - sub_len; i++) {</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keywordtype">size_t</span> j = 0;</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordflow">while</span> (j &lt; sub_len &amp;&amp; str[i + j] == sub[j]) {</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            j++;</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        }</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>        <span class="keywordflow">if</span> (j == sub_len) {</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>            <span class="keywordflow">return</span> 1; <span class="comment">// Found a substirng</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        }</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    }</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>}</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="foldopen" id="foldopen00404" data-start="{" data-end="}">
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="utf8__tools_8h.html#a53e608a47aa9df7d3cb6ceab79c9a60e">  404</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e">utf8_is_sub_string</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *str, <span class="keyword">const</span> <span class="keywordtype">int</span> *sub)</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>{</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keywordtype">size_t</span> sub_len = <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(sub);</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keywordflow">if</span> (sub_len == 0) {</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    }</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    <span class="keywordtype">size_t</span> str_len = <a class="code hl_function" href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a>(str);</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordflow">if</span> (str_len &lt; sub_len) {</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    }</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <span class="keywordflow">if</span> (sub_len &gt; str_len) {</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    }</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt;= str_len - sub_len; i++) {</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>        <span class="keywordtype">size_t</span> j = 0;</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keywordflow">while</span> (j &lt; sub_len &amp;&amp; str[i + j] == sub[j]) {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            j++;</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        }</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordflow">if</span> (j == sub_len) {</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            <span class="keywordflow">return</span> 1; <span class="comment">// Found a substirng</span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        }</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    }</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>}</div>
 </div>
 <div class="ttc" id="autf8__tools_8c_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="#l00386">utf8_tools.c:386</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a313d6de63b64cc356d575851ac6c4161"><div class="ttname"><a href="utf8__tools_8c.html#a313d6de63b64cc356d575851ac6c4161">utf8_char_to_upper</a></div><div class="ttdeci">int utf8_char_to_upper(int codepoint)</div><div class="ttdoc">Convert a code point to uppercase.</div><div class="ttdef"><b>Definition</b> <a href="#l00190">utf8_tools.c:190</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="#l00381">utf8_tools.c:381</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="#l00375">utf8_tools.c:375</a></div></div>
-<div class="ttc" id="autf8__tools_8c_html_a53e608a47aa9df7d3cb6ceab79c9a60e"><div class="ttname"><a href="utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e">utf8_is_sub_string</a></div><div class="ttdeci">int utf8_is_sub_string(const int *str, const int *sub)</div><div class="ttdoc">Check if a string is a substring of another string.</div><div class="ttdef"><b>Definition</b> <a href="#l00405">utf8_tools.c:405</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_a53e608a47aa9df7d3cb6ceab79c9a60e"><div class="ttname"><a href="utf8__tools_8c.html#a53e608a47aa9df7d3cb6ceab79c9a60e">utf8_is_sub_string</a></div><div class="ttdeci">int utf8_is_sub_string(const int *str, const int *sub)</div><div class="ttdoc">Check if a string is a substring of another string.</div><div class="ttdef"><b>Definition</b> <a href="#l00404">utf8_tools.c:404</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a555d99624bd659baa6b57ae703115871"><div class="ttname"><a href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871">utf8_length</a></div><div class="ttdeci">static unsigned utf8_length(u8 lead)</div><div class="ttdef"><b>Definition</b> <a href="#l00015">utf8_tools.c:15</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a74083c77770265ea3e47531cc0666d5d"><div class="ttname"><a href="utf8__tools_8c.html#a74083c77770265ea3e47531cc0666d5d">utf8_str_deepcopy</a></div><div class="ttdeci">int * utf8_str_deepcopy(const int *str)</div><div class="ttdoc">Deep copy a UTF-8 string.</div><div class="ttdef"><b>Definition</b> <a href="#l00281">utf8_tools.c:281</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a7d9ae5e58ba301dd340e891e55d1d806"><div class="ttname"><a href="utf8__tools_8c.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a></div><div class="ttdeci">int utf8_getchar_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Fetch a UTF-8 code point from a buffer at an offset.</div><div class="ttdef"><b>Definition</b> <a href="#l00099">utf8_tools.c:99</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a8d9bd8a2e0289dc111a092b194fe0b4e"><div class="ttname"><a href="utf8__tools_8c.html#a8d9bd8a2e0289dc111a092b194fe0b4e">utf8_putchar</a></div><div class="ttdeci">void utf8_putchar(int codepoint, int fd)</div><div class="ttdoc">Write a Unicode code point to a descriptor in UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="#l00139">utf8_tools.c:139</a></div></div>
-<div class="ttc" id="autf8__tools_8c_html_a8e53c121fe58b9a0c52409e790653051"><div class="ttname"><a href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a></div><div class="ttdeci">size_t utf8_str_len(const int *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00393">utf8_tools.c:393</a></div></div>
+<div class="ttc" id="autf8__tools_8c_html_a8e53c121fe58b9a0c52409e790653051"><div class="ttname"><a href="utf8__tools_8c.html#a8e53c121fe58b9a0c52409e790653051">utf8_str_len</a></div><div class="ttdeci">size_t utf8_str_len(const int *str)</div><div class="ttdef"><b>Definition</b> <a href="#l00392">utf8_tools.c:392</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a942ec7ab0d62df1a4722b4ed3c86329f"><div class="ttname"><a href="utf8__tools_8c.html#a942ec7ab0d62df1a4722b4ed3c86329f">utf8_getchar</a></div><div class="ttdeci">int utf8_getchar(void)</div><div class="ttdoc">Read a UTF-8 code point from stdin.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">utf8_tools.c:32</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_a9e4153e32afc3c470682aaace08386a0"><div class="ttname"><a href="utf8__tools_8c.html#a9e4153e32afc3c470682aaace08386a0">utf8_cp_to_rawbytes</a></div><div class="ttdeci">size_t utf8_cp_to_rawbytes(const int *word, u8 *buf)</div><div class="ttdoc">Encode code points into raw UTF-8 bytes.</div><div class="ttdef"><b>Definition</b> <a href="#l00359">utf8_tools.c:359</a></div></div>
 <div class="ttc" id="autf8__tools_8c_html_aa7c2638eb69d2cab3fe2e95524ac206d"><div class="ttname"><a href="utf8__tools_8c.html#aa7c2638eb69d2cab3fe2e95524ac206d">utf8_read_word_from_buf</a></div><div class="ttdeci">int * utf8_read_word_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Read a word of code points from a UTF-8 byte buffer.</div><div class="ttdef"><b>Definition</b> <a href="#l00327">utf8_tools.c:327</a></div></div>
@@ -582,7 +581,7 @@ $(function(){initNavTree('utf8__tools_8c_source.html','',''); });
 <div class="ttc" id="autf8__tools_8h_html"><div class="ttname"><a href="utf8__tools_8h.html">utf8_tools.h</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a962553daff7763e6a05cd4e7c3ecd999"><div class="ttname"><a href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a></div><div class="ttdeci">#define UTF8_ERROR</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8h_source.html#l00008">utf8_tools.h:8</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
-<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00054">utils.c:54</a></div></div>
+<div class="ttc" id="autils_8h_html_a78a9dba3711a7a17ad34044953f6937b"><div class="ttname"><a href="utils_8h.html#a78a9dba3711a7a17ad34044953f6937b">dmalloc</a></div><div class="ttdeci">void * dmalloc(size_t size)</div><div class="ttdoc">Allocate zeroed memory or abort.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00055">utils.c:55</a></div></div>
 <div class="ttc" id="autils_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00019">utils.h:19</a></div></div>
 <div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

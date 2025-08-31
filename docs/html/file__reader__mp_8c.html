@@ -96,6 +96,7 @@ $(function(){initNavTree('file__reader__mp_8c.html','',''); });
 <code>#include &quot;<a class="el" href="utf8__tools_8h_source.html">utf8_tools.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="word_8h_source.html">word.h</a>&quot;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -105,46 +106,47 @@ Include dependency graph for file_reader_mp.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__reader__mp_8c__incl.png" border="0" usemap="#asrc_2io_2file__reader__mp_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2io_2file__reader__mp_8c" id="asrc_2io_2file__reader__mp_8c">
-<area shape="rect" title=" " alt="" coords="326,5,478,31"/>
-<area shape="rect" href="file__reader__mp_8h.html" title=" " alt="" coords="36,79,152,105"/>
-<area shape="poly" title=" " alt="" coords="350,34,162,78,161,72,349,29"/>
-<area shape="rect" href="frame_8h.html" title=" " alt="" coords="439,79,504,105"/>
-<area shape="poly" title=" " alt="" coords="415,29,451,66,447,70,412,33"/>
-<area shape="rect" href="utf8__tools_8h.html" title=" " alt="" coords="226,79,314,105"/>
-<area shape="poly" title=" " alt="" coords="381,34,307,74,304,69,378,29"/>
-<area shape="rect" href="utils_8h.html" title=" " alt="" coords="306,153,362,178"/>
-<area shape="poly" title=" " alt="" coords="399,32,348,140,344,137,394,30"/>
-<area shape="rect" title=" " alt="" coords="388,226,450,252"/>
-<area shape="poly" title=" " alt="" coords="406,31,420,211,415,211,400,31"/>
-<area shape="rect" href="word_8h.html" title=" " alt="" coords="166,153,225,178"/>
-<area shape="poly" title=" " alt="" coords="327,28,267,46,240,61,216,81,202,108,197,137,192,137,197,106,212,77,237,56,265,41,325,23"/>
-<area shape="rect" title=" " alt="" coords="527,79,586,105"/>
-<area shape="poly" title=" " alt="" coords="429,29,518,70,516,75,427,34"/>
-<area shape="rect" title=" " alt="" coords="610,79,674,105"/>
-<area shape="poly" title=" " alt="" coords="443,29,596,74,594,79,442,34"/>
-<area shape="rect" title=" " alt="" coords="698,79,764,105"/>
-<area shape="poly" title=" " alt="" coords="464,29,683,76,682,81,463,34"/>
-<area shape="rect" href="hash__table_8h.html" title=" " alt="" coords="47,153,141,178"/>
-<area shape="poly" title=" " alt="" coords="97,105,97,137,91,137,91,105"/>
-<area shape="rect" href="ht__item_8h.html" title=" " alt="" coords="118,226,192,252"/>
-<area shape="poly" title=" " alt="" coords="106,177,137,213,133,216,102,180"/>
-<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="5,226,95,252"/>
-<area shape="poly" title=" " alt="" coords="89,180,68,214,63,211,84,177"/>
-<area shape="rect" title=" " alt="" coords="217,226,280,252"/>
-<area shape="poly" title=" " alt="" coords="121,176,210,217,208,222,119,181"/>
-<area shape="rect" title=" " alt="" coords="271,300,338,326"/>
-<area shape="poly" title=" " alt="" coords="94,250,257,295,256,301,92,255"/>
-<area shape="poly" title=" " alt="" coords="493,103,512,117,530,135,541,156,539,179,525,206,505,228,482,248,457,264,404,289,354,304,353,299,402,284,454,260,479,244,501,225,520,203,534,178,536,157,526,138,509,121,490,107"/>
-<area shape="rect" title=" " alt="" coords="439,153,525,178"/>
-<area shape="poly" title=" " alt="" coords="476,104,481,137,475,138,470,105"/>
-<area shape="poly" title=" " alt="" coords="271,105,255,211,250,211,266,105"/>
-<area shape="poly" title=" " alt="" coords="283,103,315,139,311,143,279,107"/>
-<area shape="poly" title=" " alt="" coords="321,181,276,218,273,214,318,177"/>
-<area shape="rect" title=" " alt="" coords="304,226,364,252"/>
-<area shape="poly" title=" " alt="" coords="337,179,337,211,331,211,331,179"/>
-<area shape="poly" title=" " alt="" coords="350,177,395,214,392,218,347,181"/>
-<area shape="poly" title=" " alt="" coords="191,180,172,214,167,212,186,177"/>
-<area shape="poly" title=" " alt="" coords="206,177,233,212,228,215,202,180"/>
+<area shape="rect" title=" " alt="" coords="376,5,530,32"/>
+<area shape="rect" href="file__reader__mp_8h.html" title=" " alt="" coords="174,80,292,107"/>
+<area shape="poly" title=" " alt="" coords="415,35,287,77,285,72,414,30"/>
+<area shape="rect" title=" " alt="" coords="5,304,74,331"/>
+<area shape="poly" title=" " alt="" coords="376,25,293,31,204,41,126,58,96,69,75,82,56,103,43,129,34,157,30,186,30,243,36,289,31,289,25,243,25,185,29,155,38,127,51,100,71,78,93,64,124,53,204,36,293,26,375,20"/>
+<area shape="rect" href="frame_8h.html" title=" " alt="" coords="84,80,150,107"/>
+<area shape="poly" title=" " alt="" coords="387,35,165,82,164,77,386,30"/>
+<area shape="rect" href="utf8__tools_8h.html" title=" " alt="" coords="367,80,456,107"/>
+<area shape="poly" title=" " alt="" coords="448,34,428,68,424,65,443,31"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="445,155,501,181"/>
+<area shape="poly" title=" " alt="" coords="460,32,471,80,476,139,470,139,466,80,454,33"/>
+<area shape="rect" title=" " alt="" coords="513,229,576,256"/>
+<area shape="poly" title=" " alt="" coords="464,31,491,79,520,151,540,213,535,215,515,153,486,81,459,34"/>
+<area shape="rect" href="word_8h.html" title=" " alt="" coords="309,155,370,181"/>
+<area shape="poly" title=" " alt="" coords="420,35,386,54,371,66,358,81,346,110,342,140,336,139,341,109,353,79,367,63,383,49,417,30"/>
+<area shape="rect" title=" " alt="" coords="583,80,643,107"/>
+<area shape="poly" title=" " alt="" coords="482,30,572,71,570,76,480,35"/>
+<area shape="rect" title=" " alt="" coords="667,80,732,107"/>
+<area shape="poly" title=" " alt="" coords="497,30,653,76,652,81,495,35"/>
+<area shape="rect" title=" " alt="" coords="755,80,822,107"/>
+<area shape="poly" title=" " alt="" coords="520,30,740,77,739,82,519,35"/>
+<area shape="rect" href="hash__table_8h.html" title=" " alt="" coords="190,155,286,181"/>
+<area shape="poly" title=" " alt="" coords="236,107,239,139,233,139,231,107"/>
+<area shape="rect" href="ht__item_8h.html" title=" " alt="" coords="204,229,280,256"/>
+<area shape="poly" title=" " alt="" coords="242,182,243,214,238,214,236,182"/>
+<area shape="rect" href="linked__list_8h.html" title=" " alt="" coords="86,229,177,256"/>
+<area shape="poly" title=" " alt="" coords="221,184,164,222,161,218,218,180"/>
+<area shape="rect" title=" " alt="" coords="321,229,385,256"/>
+<area shape="poly" title=" " alt="" coords="260,180,321,218,318,223,257,184"/>
+<area shape="poly" title=" " alt="" coords="117,259,69,297,65,292,114,254"/>
+<area shape="poly" title=" " alt="" coords="105,109,85,130,69,156,56,190,48,226,42,289,37,288,43,225,51,189,64,153,81,126,101,105"/>
+<area shape="rect" title=" " alt="" coords="78,155,167,181"/>
+<area shape="poly" title=" " alt="" coords="120,107,123,139,117,139,115,107"/>
+<area shape="poly" title=" " alt="" coords="410,108,385,182,369,216,364,214,380,180,405,106"/>
+<area shape="poly" title=" " alt="" coords="424,105,455,141,451,145,420,109"/>
+<area shape="poly" title=" " alt="" coords="453,184,388,223,385,219,451,180"/>
+<area shape="rect" title=" " alt="" coords="428,229,489,256"/>
+<area shape="poly" title=" " alt="" coords="473,182,466,215,461,214,468,181"/>
+<area shape="poly" title=" " alt="" coords="487,180,524,216,520,220,483,184"/>
+<area shape="poly" title=" " alt="" coords="324,184,272,222,269,218,321,180"/>
+<area shape="poly" title=" " alt="" coords="344,181,350,214,345,215,339,182"/>
 </map>
 </div>
 </div>
@@ -152,6 +154,7 @@ Include dependency graph for file_reader_mp.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5e408a300bc92e935a3145d3a05ecd0d" id="r_a5e408a300bc92e935a3145d3a05ecd0d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e408a300bc92e935a3145d3a05ecd0d">check_apostrophe</a> (int fd, char c)</td></tr>
 <tr class="memitem:a59a255b23bf9be325ce58bf477bc0e7a" id="r_a59a255b23bf9be325ce58bf477bc0e7a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a> (int fd)</td></tr>
 <tr class="memdesc:a59a255b23bf9be325ce58bf477bc0e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skip the next bytes if typographic character.  <br /></td></tr>
 <tr class="memitem:a4b80642798572fb224f6ea5dacd73412" id="r_a4b80642798572fb224f6ea5dacd73412"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a> (int fd)</td></tr>
@@ -166,6 +169,97 @@ Functions</h2></td></tr>
 <tr class="memdesc:a20af8848b0728195f4d816c2b3131dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild a hash table from word pairs received on a pipe.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a5e408a300bc92e935a3145d3a05ecd0d" name="a5e408a300bc92e935a3145d3a05ecd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e408a300bc92e935a3145d3a05ecd0d">&#9670;&#160;</a></span>check_apostrophe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_apostrophe </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00014">14</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span>    off_t pos = lseek(fd, 0, SEEK_CUR);</div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">if</span> ((<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>)c == 0xE2) {</div>
+<div class="line"><span class="lineno">   18</span>        lseek(fd, -1, SEEK_CUR);</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordtype">int</span> bytes_read = 0;</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordtype">int</span> cp = <a class="code hl_function" href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a>(fd, &amp;bytes_read);</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">if</span> (cp == 0x2019) {</div>
+<div class="line"><span class="lineno">   22</span>            <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> buf;</div>
+<div class="line"><span class="lineno">   23</span>            ssize_t r = read(fd, &amp;buf, 1);</div>
+<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">if</span> (r == 1 &amp;&amp; buf == <span class="charliteral">&#39; &#39;</span>) {</div>
+<div class="line"><span class="lineno">   25</span>                lseek(fd, -1, SEEK_CUR);</div>
+<div class="line"><span class="lineno">   26</span>                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   27</span>            }</div>
+<div class="line"><span class="lineno">   28</span>            lseek(fd, pos, SEEK_SET);</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   30</span>        }</div>
+<div class="line"><span class="lineno">   31</span>        lseek(fd, pos, SEEK_SET);</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   33</span>    }</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   35</span>}</div>
+<div class="ttc" id="autf8__tools_8h_html_ac215be68e83a7746e80824ba69a6a769"><div class="ttname"><a href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a></div><div class="ttdeci">int utf8_getchar_fd(int fd, int *bytes_read)</div><div class="ttdoc">Read a UTF-8 code point from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00067">utf8_tools.c:67</a></div></div>
+<div class="ttc" id="autils_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00019">utils.h:19</a></div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="file__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_cgraph.png" border="0" usemap="#afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_cgraph" loading="lazy" alt=""/></div>
+<map name="afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_cgraph" id="afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,133,32"/>
+<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="181,5,292,32"/>
+<area shape="poly" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="340,5,425,32"/>
+<area shape="poly" title=" " alt="" coords="292,16,325,16,325,21,292,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="file__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_icgraph.png" border="0" usemap="#afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_icgraph" loading="lazy" alt=""/></div>
+<map name="afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_icgraph" id="afile__reader__mp_8c_a5e408a300bc92e935a3145d3a05ecd0d_icgraph">
+<area shape="rect" title=" " alt="" coords="775,31,903,57"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="614,31,727,57"/>
+<area shape="poly" title=" " alt="" coords="760,47,728,47,728,41,760,41"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="417,31,566,57"/>
+<area shape="poly" title=" " alt="" coords="598,47,566,47,566,41,598,41"/>
+<area shape="rect" href="both__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="316,5,369,32"/>
+<area shape="poly" title=" " alt="" coords="401,31,369,26,370,20,402,26"/>
+<area shape="rect" href="task1__mp_8c.html#a61f7bdeb9d7d742fd842942538e241de" title=" " alt="" coords="316,56,369,83"/>
+<area shape="poly" title=" " alt="" coords="402,62,370,68,369,62,401,57"/>
+<area shape="rect" href="both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="194,5,265,32"/>
+<area shape="poly" title=" " alt="" coords="301,21,265,21,265,16,301,16"/>
+<area shape="rect" href="runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="103,31,142,57"/>
+<area shape="poly" title=" " alt="" coords="179,33,143,42,142,37,178,28"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" title=" " alt="" coords="87,47,55,47,55,41,87,41"/>
+<area shape="rect" href="task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="190,56,268,83"/>
+<area shape="poly" title=" " alt="" coords="301,72,269,72,269,67,301,67"/>
+<area shape="poly" title=" " alt="" coords="174,59,142,51,143,46,176,54"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a59a255b23bf9be325ce58bf477bc0e7a" name="a59a255b23bf9be325ce58bf477bc0e7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59a255b23bf9be325ce58bf477bc0e7a">&#9670;&#160;</a></span>check_next_typograph()</h2>
 
@@ -198,22 +292,21 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00019">19</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   22</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span> bytes_read = 0;</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a>(fd, &amp;bytes_read);</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a>(cp)) {</div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   29</span>    }</div>
-<div class="line"><span class="lineno">   30</span>    lseek(fd, -bytes_read, SEEK_CUR); <span class="comment">// Rewind to allow next read</span></div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Successfully skipped</span></div>
-<div class="line"><span class="lineno">   32</span>}</div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00043">43</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   46</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   48</span>    }</div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordtype">int</span> bytes_read = 0;</div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordtype">int</span> cp = <a class="code hl_function" href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a>(fd, &amp;bytes_read);</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a>(cp)) {</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+<div class="line"><span class="lineno">   54</span>    lseek(fd, -bytes_read, SEEK_CUR); <span class="comment">// Rewind to allow next read</span></div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Successfully skipped</span></div>
+<div class="line"><span class="lineno">   56</span>}</div>
 <div class="ttc" id="autf8__tools_8h_html_a166d4e7d923cc5e37d586a08550b8107"><div class="ttname"><a href="utf8__tools_8h.html#a166d4e7d923cc5e37d586a08550b8107">is_typographic</a></div><div class="ttdeci">int is_typographic(int cp)</div><div class="ttdoc">Check if a code point is a typographic.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00386">utf8_tools.c:386</a></div></div>
-<div class="ttc" id="autf8__tools_8h_html_ac215be68e83a7746e80824ba69a6a769"><div class="ttname"><a href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a></div><div class="ttdeci">int utf8_getchar_fd(int fd, int *bytes_read)</div><div class="ttdoc">Read a UTF-8 code point from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00067">utf8_tools.c:67</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -300,24 +393,24 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Newly allocated frame or NULL on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00072">72</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (cw_len == 0 || nxw_len == 0) {</div>
-<div class="line"><span class="lineno">   76</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid word lengths\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   78</span>    }</div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordtype">size_t</span> total_len = cw_len + nxw_len + 2; <span class="comment">// space + null terminator</span></div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordtype">char</span> *frame = malloc(total_len);</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (!frame) {</div>
-<div class="line"><span class="lineno">   82</span>        fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   84</span>    }</div>
-<div class="line"><span class="lineno">   85</span>    memcpy(frame, cw_data, cw_len);</div>
-<div class="line"><span class="lineno">   86</span>    frame[cw_len] = <span class="charliteral">&#39; &#39;</span>;</div>
-<div class="line"><span class="lineno">   87</span>    memcpy(frame + cw_len + 1, nxw_data, nxw_len);</div>
-<div class="line"><span class="lineno">   88</span>    frame[total_len - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">return</span> frame;</div>
-<div class="line"><span class="lineno">   90</span>}</div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00096">96</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>{</div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span> (cw_len == 0 || nxw_len == 0) {</div>
+<div class="line"><span class="lineno">  100</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid word lengths\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  102</span>    }</div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordtype">size_t</span> total_len = cw_len + nxw_len + 2; <span class="comment">// space + null terminator</span></div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordtype">char</span> *frame = malloc(total_len);</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">if</span> (!frame) {</div>
+<div class="line"><span class="lineno">  106</span>        fprintf(stderr, <span class="stringliteral">&quot;Memory allocation failed\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  108</span>    }</div>
+<div class="line"><span class="lineno">  109</span>    memcpy(frame, cw_data, cw_len);</div>
+<div class="line"><span class="lineno">  110</span>    frame[cw_len] = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><span class="lineno">  111</span>    memcpy(frame + cw_len + 1, nxw_data, nxw_len);</div>
+<div class="line"><span class="lineno">  112</span>    frame[total_len - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">return</span> frame;</div>
+<div class="line"><span class="lineno">  114</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -368,29 +461,29 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Character found or EOF on error/end. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00040">40</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><span class="lineno">   43</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   45</span>    }</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordtype">char</span> buf[1] = {0};</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordtype">long</span> rd_st;</div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
-<div class="line"><span class="lineno">   49</span> </div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">while</span> ((rd_st = read(fd, buf, 1)) &gt; 0) {</div>
-<div class="line"><span class="lineno">   51</span>        <span class="comment">// Read until finding a character that is not space or newline</span></div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">if</span> (buf[0] == <span class="charliteral">&#39; &#39;</span> || buf[0] == <span class="charliteral">&#39;\n&#39;</span> || <a class="code hl_function" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(buf[0])) {</div>
-<div class="line"><span class="lineno">   53</span>            <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(</div>
-<div class="line"><span class="lineno">   54</span>                fd); <span class="comment">// Check if next is typographic</span></div>
-<div class="line"><span class="lineno">   55</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   56</span>        }</div>
-<div class="line"><span class="lineno">   57</span>        <span class="comment">// If we find a valid character, return it</span></div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> buf[0];</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">return</span> EOF; <span class="comment">// EOF or read error</span></div>
-<div class="line"><span class="lineno">   61</span>}</div>
-<div class="ttc" id="afile__reader__mp_8c_html_a59a255b23bf9be325ce58bf477bc0e7a"><div class="ttname"><a href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a></div><div class="ttdeci">static int check_next_typograph(int fd)</div><div class="ttdoc">Skip the next bytes if typographic character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00019">file_reader_mp.c:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00064">64</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
+<div class="line"><span class="lineno">   67</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordtype">char</span> buf[1] = {0};</div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">long</span> rd_st;</div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">while</span> ((rd_st = read(fd, buf, 1)) &gt; 0) {</div>
+<div class="line"><span class="lineno">   75</span>        <span class="comment">// Read until finding a character that is not space or newline</span></div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">if</span> (buf[0] == <span class="charliteral">&#39; &#39;</span> || buf[0] == <span class="charliteral">&#39;\n&#39;</span> || <a class="code hl_function" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(buf[0])) {</div>
+<div class="line"><span class="lineno">   77</span>            <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(</div>
+<div class="line"><span class="lineno">   78</span>                fd); <span class="comment">// Check if next is typographic</span></div>
+<div class="line"><span class="lineno">   79</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   80</span>        }</div>
+<div class="line"><span class="lineno">   81</span>        <span class="comment">// If we find a valid character, return it</span></div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span> buf[0];</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> EOF; <span class="comment">// EOF or read error</span></div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="afile__reader__mp_8c_html_a59a255b23bf9be325ce58bf477bc0e7a"><div class="ttname"><a href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a></div><div class="ttdeci">static int check_next_typograph(int fd)</div><div class="ttdoc">Skip the next bytes if typographic character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00043">file_reader_mp.c:43</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a41ce5668050a61259683558c82481871"><div class="ttname"><a href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a></div><div class="ttdeci">int is_punctuation(int cp)</div><div class="ttdoc">Return non-zero if code point is ignorable punctuation.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00375">utf8_tools.c:375</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -467,106 +560,106 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00156">156</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  157</span>{</div>
-<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">if</span> (fd &lt; 0 || wfd &lt; 0) {</div>
-<div class="line"><span class="lineno">  159</span>        fprintf(stderr,</div>
-<div class="line"><span class="lineno">  160</span>            <span class="stringliteral">&quot;Invalid file descriptors to publish_word_on_pipe\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  162</span>    }</div>
-<div class="line"><span class="lineno">  163</span> </div>
-<div class="line"><span class="lineno">  164</span>    <span class="keywordtype">size_t</span> cw_ln = 0;</div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordtype">size_t</span> nxw_ln = 0;</div>
-<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">size_t</span> first_word_ln = 0;</div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordtype">char</span> current_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0};</div>
-<div class="line"><span class="lineno">  168</span>    <span class="keywordtype">char</span> next_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0};</div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordtype">char</span> first_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0}; <span class="comment">// Store the first word</span></div>
-<div class="line"><span class="lineno">  170</span> </div>
-<div class="line"><span class="lineno">  171</span>    <span class="comment">// Read first word</span></div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordtype">int</span> rd_st = <a class="code hl_function" href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a>(fd, current_word, &amp;cw_ln);</div>
-<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">if</span> (rd_st != 0) {</div>
-<div class="line"><span class="lineno">  174</span>        <span class="comment">// No words to read or error</span></div>
-<div class="line"><span class="lineno">  175</span>        <span class="keywordflow">return</span> (rd_st == 1)</div>
-<div class="line"><span class="lineno">  176</span>                   ? 0</div>
-<div class="line"><span class="lineno">  177</span>                   : -1; <span class="comment">// Return success if EOF, error otherwise</span></div>
-<div class="line"><span class="lineno">  178</span>    }</div>
-<div class="line"><span class="lineno">  179</span> </div>
-<div class="line"><span class="lineno">  180</span>    <span class="comment">// Save the first word for circular pairing</span></div>
-<div class="line"><span class="lineno">  181</span>    memcpy(first_word, current_word, cw_ln);</div>
-<div class="line"><span class="lineno">  182</span>    first_word[cw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  183</span>    first_word_ln = cw_ln;</div>
-<div class="line"><span class="lineno">  184</span> </div>
-<div class="line"><span class="lineno">  185</span>    <span class="comment">// Process pairs of words</span></div>
-<div class="line"><span class="lineno">  186</span>    <span class="keywordflow">while</span> ((rd_st = <a class="code hl_function" href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a>(fd, next_word, &amp;nxw_ln)) == 0) {</div>
-<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">if</span> (cw_ln == 0 || nxw_ln == 0) {</div>
-<div class="line"><span class="lineno">  188</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty word encountered\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  189</span>            <span class="comment">// Move next word to current and continue</span></div>
-<div class="line"><span class="lineno">  190</span>            memset(current_word, 0, <span class="keyword">sizeof</span>(current_word));</div>
-<div class="line"><span class="lineno">  191</span>            <span class="keywordflow">if</span> (nxw_ln &gt; 0) {</div>
-<div class="line"><span class="lineno">  192</span>                memcpy(current_word, next_word, nxw_ln);</div>
-<div class="line"><span class="lineno">  193</span>                current_word[nxw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  194</span>                cw_ln = nxw_ln;</div>
-<div class="line"><span class="lineno">  195</span>            }</div>
-<div class="line"><span class="lineno">  196</span>            memset(next_word, 0, <span class="keyword">sizeof</span>(next_word));</div>
-<div class="line"><span class="lineno">  197</span>            nxw_ln = 0;</div>
-<div class="line"><span class="lineno">  198</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  199</span>        }</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>        <span class="keywordtype">char</span> *frame = <a class="code hl_function" href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a>(current_word, cw_ln,</div>
-<div class="line"><span class="lineno">  202</span>                              next_word, nxw_ln);</div>
-<div class="line"><span class="lineno">  203</span>        <span class="keywordflow">if</span> (!frame) {</div>
-<div class="line"><span class="lineno">  204</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create frame for words\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  205</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating frame</span></div>
-<div class="line"><span class="lineno">  206</span>        }</div>
-<div class="line"><span class="lineno">  207</span> </div>
-<div class="line"><span class="lineno">  208</span>        <span class="keywordtype">size_t</span> frame_len = strlen(frame);</div>
-<div class="line"><span class="lineno">  209</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(wfd, frame, frame_len) &lt; 0) {</div>
-<div class="line"><span class="lineno">  210</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to send frame on pipe\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  211</span>            free(frame);</div>
-<div class="line"><span class="lineno">  212</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error sending frame</span></div>
-<div class="line"><span class="lineno">  213</span>        }</div>
-<div class="line"><span class="lineno">  214</span> </div>
-<div class="line"><span class="lineno">  215</span>        free(frame); <span class="comment">// Free frame after sending</span></div>
-<div class="line"><span class="lineno">  216</span> </div>
-<div class="line"><span class="lineno">  217</span>        <span class="comment">// Prepare for next iteration</span></div>
-<div class="line"><span class="lineno">  218</span>        memset(current_word, 0, <span class="keyword">sizeof</span>(current_word));</div>
-<div class="line"><span class="lineno">  219</span>        memcpy(current_word, next_word, nxw_ln);</div>
-<div class="line"><span class="lineno">  220</span>        current_word[nxw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  221</span>        cw_ln = nxw_ln;</div>
-<div class="line"><span class="lineno">  222</span> </div>
-<div class="line"><span class="lineno">  223</span>        memset(next_word, 0, <span class="keyword">sizeof</span>(next_word));</div>
-<div class="line"><span class="lineno">  224</span>        nxw_ln = 0;</div>
-<div class="line"><span class="lineno">  225</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00198">198</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  199</span>{</div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">if</span> (fd &lt; 0 || wfd &lt; 0) {</div>
+<div class="line"><span class="lineno">  201</span>        fprintf(stderr,</div>
+<div class="line"><span class="lineno">  202</span>            <span class="stringliteral">&quot;Invalid file descriptors to publish_word_on_pipe\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  204</span>    }</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>    <span class="keywordtype">size_t</span> cw_ln = 0;</div>
+<div class="line"><span class="lineno">  207</span>    <span class="keywordtype">size_t</span> nxw_ln = 0;</div>
+<div class="line"><span class="lineno">  208</span>    <span class="keywordtype">size_t</span> first_word_ln = 0;</div>
+<div class="line"><span class="lineno">  209</span>    <span class="keywordtype">char</span> current_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0};</div>
+<div class="line"><span class="lineno">  210</span>    <span class="keywordtype">char</span> next_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0};</div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordtype">char</span> first_word[<a class="code hl_define" href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a>] = {0}; <span class="comment">// Store the first word</span></div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>    <span class="comment">// Read first word</span></div>
+<div class="line"><span class="lineno">  214</span>    <span class="keywordtype">int</span> rd_st = <a class="code hl_function" href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a>(fd, current_word, &amp;cw_ln);</div>
+<div class="line"><span class="lineno">  215</span>    <span class="keywordflow">if</span> (rd_st != 0) {</div>
+<div class="line"><span class="lineno">  216</span>        <span class="comment">// No words to read or error</span></div>
+<div class="line"><span class="lineno">  217</span>        <span class="keywordflow">return</span> (rd_st == 1)</div>
+<div class="line"><span class="lineno">  218</span>                   ? 0</div>
+<div class="line"><span class="lineno">  219</span>                   : -1; <span class="comment">// Return success if EOF, error otherwise</span></div>
+<div class="line"><span class="lineno">  220</span>    }</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>    <span class="comment">// Save the first word for circular pairing</span></div>
+<div class="line"><span class="lineno">  223</span>    memcpy(first_word, current_word, cw_ln);</div>
+<div class="line"><span class="lineno">  224</span>    first_word[cw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  225</span>    first_word_ln = cw_ln;</div>
 <div class="line"><span class="lineno">  226</span> </div>
-<div class="line"><span class="lineno">  227</span>    <span class="keywordflow">if</span> (rd_st &lt; 0) {</div>
-<div class="line"><span class="lineno">  228</span>        fprintf(stderr, <span class="stringliteral">&quot;Error reading next word\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error reading word</span></div>
-<div class="line"><span class="lineno">  230</span>    }</div>
-<div class="line"><span class="lineno">  231</span> </div>
-<div class="line"><span class="lineno">  232</span>    <span class="comment">// rd_st == 1 means EOF reached</span></div>
-<div class="line"><span class="lineno">  233</span>    <span class="comment">// Now create final frame: last_word + first_word</span></div>
-<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">if</span> (cw_ln &gt; 0 &amp;&amp; first_word_ln &gt; 0) {</div>
-<div class="line"><span class="lineno">  235</span>        <span class="keywordtype">char</span> *final_frame = <a class="code hl_function" href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a>(</div>
-<div class="line"><span class="lineno">  236</span>            current_word, cw_ln, first_word, first_word_ln);</div>
-<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">if</span> (!final_frame) {</div>
-<div class="line"><span class="lineno">  238</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create final frame\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  239</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  240</span>        }</div>
-<div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>        <span class="keywordtype">size_t</span> final_frame_len = strlen(final_frame);</div>
-<div class="line"><span class="lineno">  243</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(wfd, final_frame, final_frame_len) &lt; 0) {</div>
-<div class="line"><span class="lineno">  244</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to send final frame on pipe\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  245</span>            free(final_frame);</div>
-<div class="line"><span class="lineno">  246</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  247</span>        }</div>
-<div class="line"><span class="lineno">  248</span> </div>
-<div class="line"><span class="lineno">  249</span>        free(final_frame);</div>
-<div class="line"><span class="lineno">  250</span>    }</div>
-<div class="line"><span class="lineno">  251</span> </div>
-<div class="line"><span class="lineno">  252</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Success</span></div>
-<div class="line"><span class="lineno">  253</span>}</div>
-<div class="ttc" id="afile__reader__mp_8c_html_a6161e16edc5121f59e24e4a0332396b5"><div class="ttname"><a href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a></div><div class="ttdeci">int read_next_word(int fd, char *nxt_buf, size_t *len)</div><div class="ttdoc">Read the next word from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00102">file_reader_mp.c:102</a></div></div>
-<div class="ttc" id="afile__reader__mp_8c_html_a74dc0589c6fc2d95d472a84acd90281b"><div class="ttname"><a href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a></div><div class="ttdeci">char * create_string_for_frame(const char *cw_data, size_t cw_len, const char *nxw_data, size_t nxw_len)</div><div class="ttdoc">Create a &quot;current next&quot; frame string.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00072">file_reader_mp.c:72</a></div></div>
+<div class="line"><span class="lineno">  227</span>    <span class="comment">// Process pairs of words</span></div>
+<div class="line"><span class="lineno">  228</span>    <span class="keywordflow">while</span> ((rd_st = <a class="code hl_function" href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a>(fd, next_word, &amp;nxw_ln)) == 0) {</div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">if</span> (cw_ln == 0 || nxw_ln == 0) {</div>
+<div class="line"><span class="lineno">  230</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty word encountered\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  231</span>            <span class="comment">// Move next word to current and continue</span></div>
+<div class="line"><span class="lineno">  232</span>            memset(current_word, 0, <span class="keyword">sizeof</span>(current_word));</div>
+<div class="line"><span class="lineno">  233</span>            <span class="keywordflow">if</span> (nxw_ln &gt; 0) {</div>
+<div class="line"><span class="lineno">  234</span>                memcpy(current_word, next_word, nxw_ln);</div>
+<div class="line"><span class="lineno">  235</span>                current_word[nxw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  236</span>                cw_ln = nxw_ln;</div>
+<div class="line"><span class="lineno">  237</span>            }</div>
+<div class="line"><span class="lineno">  238</span>            memset(next_word, 0, <span class="keyword">sizeof</span>(next_word));</div>
+<div class="line"><span class="lineno">  239</span>            nxw_ln = 0;</div>
+<div class="line"><span class="lineno">  240</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  241</span>        }</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>        <span class="keywordtype">char</span> *frame = <a class="code hl_function" href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a>(current_word, cw_ln,</div>
+<div class="line"><span class="lineno">  244</span>                              next_word, nxw_ln);</div>
+<div class="line"><span class="lineno">  245</span>        <span class="keywordflow">if</span> (!frame) {</div>
+<div class="line"><span class="lineno">  246</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create frame for words\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  247</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating frame</span></div>
+<div class="line"><span class="lineno">  248</span>        }</div>
+<div class="line"><span class="lineno">  249</span> </div>
+<div class="line"><span class="lineno">  250</span>        <span class="keywordtype">size_t</span> frame_len = strlen(frame);</div>
+<div class="line"><span class="lineno">  251</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(wfd, frame, frame_len) &lt; 0) {</div>
+<div class="line"><span class="lineno">  252</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to send frame on pipe\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  253</span>            free(frame);</div>
+<div class="line"><span class="lineno">  254</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error sending frame</span></div>
+<div class="line"><span class="lineno">  255</span>        }</div>
+<div class="line"><span class="lineno">  256</span> </div>
+<div class="line"><span class="lineno">  257</span>        free(frame); <span class="comment">// Free frame after sending</span></div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>        <span class="comment">// Prepare for next iteration</span></div>
+<div class="line"><span class="lineno">  260</span>        memset(current_word, 0, <span class="keyword">sizeof</span>(current_word));</div>
+<div class="line"><span class="lineno">  261</span>        memcpy(current_word, next_word, nxw_ln);</div>
+<div class="line"><span class="lineno">  262</span>        current_word[nxw_ln] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  263</span>        cw_ln = nxw_ln;</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>        memset(next_word, 0, <span class="keyword">sizeof</span>(next_word));</div>
+<div class="line"><span class="lineno">  266</span>        nxw_ln = 0;</div>
+<div class="line"><span class="lineno">  267</span>    }</div>
+<div class="line"><span class="lineno">  268</span> </div>
+<div class="line"><span class="lineno">  269</span>    <span class="keywordflow">if</span> (rd_st &lt; 0) {</div>
+<div class="line"><span class="lineno">  270</span>        fprintf(stderr, <span class="stringliteral">&quot;Error reading next word\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  271</span>        <span class="keywordflow">return</span> -1; <span class="comment">// Error reading word</span></div>
+<div class="line"><span class="lineno">  272</span>    }</div>
+<div class="line"><span class="lineno">  273</span> </div>
+<div class="line"><span class="lineno">  274</span>    <span class="comment">// rd_st == 1 means EOF reached</span></div>
+<div class="line"><span class="lineno">  275</span>    <span class="comment">// Now create final frame: last_word + first_word</span></div>
+<div class="line"><span class="lineno">  276</span>    <span class="keywordflow">if</span> (cw_ln &gt; 0 &amp;&amp; first_word_ln &gt; 0) {</div>
+<div class="line"><span class="lineno">  277</span>        <span class="keywordtype">char</span> *final_frame = <a class="code hl_function" href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a>(</div>
+<div class="line"><span class="lineno">  278</span>            current_word, cw_ln, first_word, first_word_ln);</div>
+<div class="line"><span class="lineno">  279</span>        <span class="keywordflow">if</span> (!final_frame) {</div>
+<div class="line"><span class="lineno">  280</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create final frame\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  281</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  282</span>        }</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>        <span class="keywordtype">size_t</span> final_frame_len = strlen(final_frame);</div>
+<div class="line"><span class="lineno">  285</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a>(wfd, final_frame, final_frame_len) &lt; 0) {</div>
+<div class="line"><span class="lineno">  286</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to send final frame on pipe\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  287</span>            free(final_frame);</div>
+<div class="line"><span class="lineno">  288</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  289</span>        }</div>
+<div class="line"><span class="lineno">  290</span> </div>
+<div class="line"><span class="lineno">  291</span>        free(final_frame);</div>
+<div class="line"><span class="lineno">  292</span>    }</div>
+<div class="line"><span class="lineno">  293</span> </div>
+<div class="line"><span class="lineno">  294</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Success</span></div>
+<div class="line"><span class="lineno">  295</span>}</div>
+<div class="ttc" id="afile__reader__mp_8c_html_a6161e16edc5121f59e24e4a0332396b5"><div class="ttname"><a href="#a6161e16edc5121f59e24e4a0332396b5">read_next_word</a></div><div class="ttdeci">int read_next_word(int fd, char *nxt_buf, size_t *len)</div><div class="ttdoc">Read the next word from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00126">file_reader_mp.c:126</a></div></div>
+<div class="ttc" id="afile__reader__mp_8c_html_a74dc0589c6fc2d95d472a84acd90281b"><div class="ttname"><a href="#a74dc0589c6fc2d95d472a84acd90281b">create_string_for_frame</a></div><div class="ttdeci">char * create_string_for_frame(const char *cw_data, size_t cw_len, const char *nxw_data, size_t nxw_len)</div><div class="ttdoc">Create a &quot;current next&quot; frame string.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00096">file_reader_mp.c:96</a></div></div>
 <div class="ttc" id="aframe_8h_html_a25f328b1efd54fde993d7060fdf970c8"><div class="ttname"><a href="frame_8h.html#a25f328b1efd54fde993d7060fdf970c8">send_frame</a></div><div class="ttdeci">int send_frame(int fd, const char *data_to_send, size_t len)</div><div class="ttdoc">Send a length-prefixed frame over a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00069">frame.c:69</a></div></div>
 <div class="ttc" id="autils_8h_html_ab881c668261102426a3d993cf562bbb7"><div class="ttname"><a href="utils_8h.html#ab881c668261102426a3d993cf562bbb7">MAX_WORD_LENGTH_BYTES</a></div><div class="ttdeci">#define MAX_WORD_LENGTH_BYTES</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00013">utils.h:13</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -574,31 +667,34 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__reader__mp_8c_a6ccb4bb41659046568cd0c2068362ed1_cgraph.png" border="0" usemap="#afile__reader__mp_8c_a6ccb4bb41659046568cd0c2068362ed1_cgraph" loading="lazy" alt=""/></div>
 <map name="afile__reader__mp_8c_a6ccb4bb41659046568cd0c2068362ed1_cgraph" id="afile__reader__mp_8c_a6ccb4bb41659046568cd0c2068362ed1_cgraph">
-<area shape="rect" title="Send consecutive word pairs over a pipe." alt="" coords="5,104,155,130"/>
-<area shape="rect" href="file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b" title="Create a &quot;current next&quot; frame string." alt="" coords="203,55,361,80"/>
-<area shape="poly" title=" " alt="" coords="135,101,211,82,212,87,136,106"/>
-<area shape="rect" href="file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="226,104,338,130"/>
-<area shape="poly" title=" " alt="" coords="155,114,210,114,210,120,155,120"/>
-<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="237,179,326,204"/>
-<area shape="poly" title=" " alt="" coords="118,128,232,170,230,175,116,133"/>
-<area shape="rect" href="file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="613,29,764,55"/>
-<area shape="poly" title=" " alt="" coords="337,101,360,91,374,78,382,64,391,50,408,38,460,23,514,17,567,18,614,23,614,29,566,23,514,22,461,28,410,43,395,54,386,67,378,81,362,95,340,106"/>
-<area shape="rect" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="636,79,741,104"/>
-<area shape="poly" title=" " alt="" coords="338,111,620,93,621,98,339,116"/>
-<area shape="rect" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="409,155,565,180"/>
-<area shape="poly" title=" " alt="" coords="338,128,418,148,417,153,336,133"/>
-<area shape="rect" href="file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="418,53,556,79"/>
-<area shape="poly" title=" " alt="" coords="336,101,417,81,418,86,338,106"/>
-<area shape="rect" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="815,5,920,31"/>
-<area shape="poly" title=" " alt="" coords="764,29,800,25,800,30,764,35"/>
-<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="812,55,923,80"/>
-<area shape="poly" title=" " alt="" coords="764,50,796,55,796,60,764,55"/>
-<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="971,55,1056,80"/>
-<area shape="poly" title=" " alt="" coords="923,65,956,65,956,70,923,70"/>
-<area shape="poly" title=" " alt="" coords="556,55,598,50,598,56,557,61"/>
-<area shape="poly" title=" " alt="" coords="557,72,621,80,620,86,556,77"/>
-<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="452,204,522,230"/>
-<area shape="poly" title=" " alt="" coords="327,194,437,208,437,213,327,200"/>
+<area shape="rect" title="Send consecutive word pairs over a pipe." alt="" coords="5,132,155,159"/>
+<area shape="rect" href="file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b" title="Create a &quot;current next&quot; frame string." alt="" coords="203,81,361,108"/>
+<area shape="poly" title=" " alt="" coords="136,129,210,110,212,115,137,134"/>
+<area shape="rect" href="file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="225,132,338,159"/>
+<area shape="poly" title=" " alt="" coords="155,143,209,143,209,148,155,148"/>
+<area shape="rect" href="frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="237,208,326,235"/>
+<area shape="poly" title=" " alt="" coords="119,157,231,199,229,204,117,162"/>
+<area shape="rect" href="file__reader__mp_8c.html#a5e408a300bc92e935a3145d3a05ecd0d" title=" " alt="" coords="626,5,753,32"/>
+<area shape="poly" title=" " alt="" coords="338,129,359,118,374,104,382,90,391,75,408,62,457,40,510,26,562,18,610,15,610,20,563,23,511,31,459,45,410,66,395,79,387,93,378,107,363,122,340,134"/>
+<area shape="rect" href="file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="613,56,766,83"/>
+<area shape="poly" title=" " alt="" coords="330,129,360,118,383,104,408,92,456,81,505,73,598,66,598,71,506,78,457,86,410,97,386,109,362,122,331,134"/>
+<area shape="rect" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="637,132,742,159"/>
+<area shape="poly" title=" " alt="" coords="339,143,622,143,622,148,339,148"/>
+<area shape="rect" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="409,208,565,235"/>
+<area shape="poly" title=" " alt="" coords="321,157,435,200,434,205,319,162"/>
+<area shape="rect" href="file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="418,107,556,133"/>
+<area shape="poly" title=" " alt="" coords="339,136,403,128,403,133,339,141"/>
+<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="814,5,925,32"/>
+<area shape="poly" title=" " alt="" coords="754,16,798,16,798,21,754,21"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="973,5,1058,32"/>
+<area shape="poly" title=" " alt="" coords="925,16,958,16,958,21,925,21"/>
+<area shape="poly" title=" " alt="" coords="739,53,804,34,806,39,740,58"/>
+<area shape="rect" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="817,56,922,83"/>
+<area shape="poly" title=" " alt="" coords="766,67,801,67,801,72,766,72"/>
+<area shape="poly" title=" " alt="" coords="543,103,618,84,619,90,544,109"/>
+<area shape="poly" title=" " alt="" coords="557,126,622,134,622,140,556,131"/>
+<area shape="rect" href="frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="452,259,522,285"/>
+<area shape="poly" title=" " alt="" coords="328,230,438,257,437,262,326,235"/>
 </map>
 </div>
 <div class="dynheader">
@@ -667,60 +763,79 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00102">102</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (fd &lt; 0 || !nxt_buf || !len) {</div>
-<div class="line"><span class="lineno">  105</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or buffer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  107</span>    }</div>
-<div class="line"><span class="lineno">  108</span>    <span class="keywordtype">size_t</span> b_index = 0;</div>
-<div class="line"><span class="lineno">  109</span>    *len = 0;</div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordtype">char</span> c = <a class="code hl_function" href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a>(fd);</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">if</span> (c == EOF) {</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  113</span>    }</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(c)) {</div>
-<div class="line"><span class="lineno">  116</span>        nxt_buf[0] = c;</div>
-<div class="line"><span class="lineno">  117</span>        nxt_buf[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  118</span>        *len = 1;</div>
-<div class="line"><span class="lineno">  119</span>        <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  121</span>    }</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    nxt_buf[b_index++] = c;</div>
-<div class="line"><span class="lineno">  124</span>    (*len)++;</div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">while</span> (read(fd, &amp;c, 1) &gt; 0) {</div>
-<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(c)) {</div>
-<div class="line"><span class="lineno">  128</span>            lseek(fd, -1, SEEK_CUR);</div>
-<div class="line"><span class="lineno">  129</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  130</span>        }</div>
-<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39; &#39;</span> || c == <span class="charliteral">&#39;\n&#39;</span>) {</div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(c)) {</div>
-<div class="line"><span class="lineno">  135</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  136</span>        }</div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">if</span> (b_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 2) {</div>
-<div class="line"><span class="lineno">  138</span>            fprintf(stderr, <span class="stringliteral">&quot;Word exceeds maximum length\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  139</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  140</span>        }</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\&#39;&#39;</span>) {</div>
-<div class="line"><span class="lineno">  142</span>            <span class="comment">// Keep apostrophe in the word</span></div>
-<div class="line"><span class="lineno">  143</span>            nxt_buf[b_index++] = c;</div>
-<div class="line"><span class="lineno">  144</span>            (*len)++;</div>
-<div class="line"><span class="lineno">  145</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  146</span>        }</div>
-<div class="line"><span class="lineno">  147</span>        nxt_buf[b_index++] = c;</div>
-<div class="line"><span class="lineno">  148</span>        (*len)++;</div>
-<div class="line"><span class="lineno">  149</span>        <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
-<div class="line"><span class="lineno">  150</span>    }</div>
-<div class="line"><span class="lineno">  151</span> </div>
-<div class="line"><span class="lineno">  152</span>    nxt_buf[b_index] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  153</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  154</span>}</div>
-<div class="ttc" id="afile__reader__mp_8c_html_a4b80642798572fb224f6ea5dacd73412"><div class="ttname"><a href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a></div><div class="ttdeci">char move_to_next_word(int fd)</div><div class="ttdoc">Read and return the next non-space character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00040">file_reader_mp.c:40</a></div></div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00126">126</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>{</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (fd &lt; 0 || !nxt_buf || !len) {</div>
+<div class="line"><span class="lineno">  129</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or buffer\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  131</span>    }</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordtype">size_t</span> b_index = 0;</div>
+<div class="line"><span class="lineno">  133</span>    *len = 0;</div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordtype">char</span> c = <a class="code hl_function" href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a>(fd);</div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span> (c == EOF) {</div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  137</span>    }</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(c)) {</div>
+<div class="line"><span class="lineno">  140</span>        nxt_buf[0] = c;</div>
+<div class="line"><span class="lineno">  141</span>        nxt_buf[1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  142</span>        *len = 1;</div>
+<div class="line"><span class="lineno">  143</span>        <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
+<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  145</span>    }</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>    nxt_buf[b_index++] = c;</div>
+<div class="line"><span class="lineno">  148</span>    (*len)++;</div>
+<div class="line"><span class="lineno">  149</span> </div>
+<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">while</span> (read(fd, &amp;c, 1) &gt; 0) {</div>
+<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a>(c)) {</div>
+<div class="line"><span class="lineno">  152</span>            lseek(fd, -1, SEEK_CUR);</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  154</span>        }</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39; &#39;</span> || c == <span class="charliteral">&#39;\n&#39;</span>) {</div>
+<div class="line"><span class="lineno">  156</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  157</span>        }</div>
+<div class="line"><span class="lineno">  158</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="utf8__tools_8h.html#a41ce5668050a61259683558c82481871">is_punctuation</a>(c)) {</div>
+<div class="line"><span class="lineno">  159</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  160</span>        }</div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (b_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 2) {</div>
+<div class="line"><span class="lineno">  162</span>            fprintf(stderr, <span class="stringliteral">&quot;Word exceeds maximum length\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  164</span>        }</div>
+<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;\&#39;&#39;</span>) {</div>
+<div class="line"><span class="lineno">  166</span>            <span class="comment">// Keep apostrophe in the word</span></div>
+<div class="line"><span class="lineno">  167</span>            nxt_buf[b_index++] = c;</div>
+<div class="line"><span class="lineno">  168</span>            (*len)++;</div>
+<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  170</span>        }</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordtype">int</span> is_apostrophe = <a class="code hl_function" href="#a5e408a300bc92e935a3145d3a05ecd0d">check_apostrophe</a>(fd, c);</div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">if</span> (is_apostrophe == 1) {</div>
+<div class="line"><span class="lineno">  174</span>            nxt_buf[b_index++] = c;</div>
+<div class="line"><span class="lineno">  175</span>            (*len)++;</div>
+<div class="line"><span class="lineno">  176</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> idx = 0; idx &lt; 2; idx++) {</div>
+<div class="line"><span class="lineno">  177</span>                <a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> by_buf;</div>
+<div class="line"><span class="lineno">  178</span>                ssize_t r = read(fd, &amp;by_buf, 1);</div>
+<div class="line"><span class="lineno">  179</span>                <span class="keywordflow">if</span> (r &lt; 0) {</div>
+<div class="line"><span class="lineno">  180</span>                    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  181</span>                }</div>
+<div class="line"><span class="lineno">  182</span>                nxt_buf[b_index++] = by_buf;</div>
+<div class="line"><span class="lineno">  183</span>                (*len)++;</div>
+<div class="line"><span class="lineno">  184</span>            }</div>
+<div class="line"><span class="lineno">  185</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  186</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (is_apostrophe == -1) {</div>
+<div class="line"><span class="lineno">  187</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  188</span>        }</div>
+<div class="line"><span class="lineno">  189</span>        nxt_buf[b_index++] = c;</div>
+<div class="line"><span class="lineno">  190</span>        (*len)++;</div>
+<div class="line"><span class="lineno">  191</span>        <a class="code hl_function" href="#a59a255b23bf9be325ce58bf477bc0e7a">check_next_typograph</a>(fd); <span class="comment">// Check if next is typographic</span></div>
+<div class="line"><span class="lineno">  192</span>    }</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>    nxt_buf[b_index] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  196</span>}</div>
+<div class="ttc" id="afile__reader__mp_8c_html_a4b80642798572fb224f6ea5dacd73412"><div class="ttname"><a href="#a4b80642798572fb224f6ea5dacd73412">move_to_next_word</a></div><div class="ttdeci">char move_to_next_word(int fd)</div><div class="ttdoc">Read and return the next non-space character.</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00064">file_reader_mp.c:64</a></div></div>
+<div class="ttc" id="afile__reader__mp_8c_html_a5e408a300bc92e935a3145d3a05ecd0d"><div class="ttname"><a href="#a5e408a300bc92e935a3145d3a05ecd0d">check_apostrophe</a></div><div class="ttdeci">static int check_apostrophe(int fd, char c)</div><div class="ttdef"><b>Definition</b> <a href="file__reader__mp_8c_source.html#l00014">file_reader_mp.c:14</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a410032576791ab4aeb6fc141284d2bab"><div class="ttname"><a href="utf8__tools_8h.html#a410032576791ab4aeb6fc141284d2bab">is_sentence_terminator</a></div><div class="ttdeci">int is_sentence_terminator(int cp)</div><div class="ttdoc">Return non-zero if code point terminates a sentence.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00381">utf8_tools.c:381</a></div></div>
 <div class="ttc" id="autils_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00011">utils.h:11</a></div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -728,23 +843,26 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="file__reader__mp_8c_a6161e16edc5121f59e24e4a0332396b5_cgraph.png" border="0" usemap="#afile__reader__mp_8c_a6161e16edc5121f59e24e4a0332396b5_cgraph" loading="lazy" alt=""/></div>
 <map name="afile__reader__mp_8c_a6161e16edc5121f59e24e4a0332396b5_cgraph" id="afile__reader__mp_8c_a6161e16edc5121f59e24e4a0332396b5_cgraph">
-<area shape="rect" title="Read the next word from a descriptor." alt="" coords="5,80,118,106"/>
-<area shape="rect" href="file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="370,29,520,55"/>
-<area shape="poly" title=" " alt="" coords="82,77,119,56,165,40,213,31,263,28,355,29,354,35,263,33,214,37,166,45,121,61,84,82"/>
-<area shape="rect" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="392,104,498,130"/>
-<area shape="poly" title=" " alt="" coords="85,104,122,124,166,140,222,147,279,146,333,140,380,131,381,136,334,145,279,152,222,152,165,145,120,129,82,109"/>
-<area shape="rect" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="166,104,322,130"/>
-<area shape="poly" title=" " alt="" coords="119,98,151,102,150,107,118,103"/>
-<area shape="rect" href="file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="175,55,312,80"/>
-<area shape="poly" title=" " alt="" coords="118,82,159,77,160,82,119,88"/>
-<area shape="rect" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="572,5,676,31"/>
-<area shape="poly" title=" " alt="" coords="520,29,556,25,557,30,521,35"/>
-<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="568,55,680,80"/>
-<area shape="poly" title=" " alt="" coords="521,50,553,55,552,60,520,55"/>
-<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="728,55,813,80"/>
-<area shape="poly" title=" " alt="" coords="680,65,712,65,712,70,680,70"/>
-<area shape="poly" title=" " alt="" coords="313,56,354,51,355,56,313,61"/>
-<area shape="poly" title=" " alt="" coords="300,78,378,98,377,103,299,84"/>
+<area shape="rect" title="Read the next word from a descriptor." alt="" coords="5,107,119,133"/>
+<area shape="rect" href="file__reader__mp_8c.html#a5e408a300bc92e935a3145d3a05ecd0d" title=" " alt="" coords="384,5,511,32"/>
+<area shape="poly" title=" " alt="" coords="84,104,121,83,166,64,270,38,367,23,368,28,271,43,168,69,124,88,87,108"/>
+<area shape="rect" href="file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="371,56,523,83"/>
+<area shape="poly" title=" " alt="" coords="113,103,166,92,264,79,356,71,356,77,264,84,167,97,114,109"/>
+<area shape="rect" href="utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="394,157,500,184"/>
+<area shape="poly" title=" " alt="" coords="78,131,115,165,140,181,167,193,225,205,284,205,340,197,389,186,390,191,341,202,285,210,224,210,166,199,138,186,112,169,74,135"/>
+<area shape="rect" href="utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="167,157,323,184"/>
+<area shape="poly" title=" " alt="" coords="114,131,180,150,179,155,112,137"/>
+<area shape="rect" href="file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="176,107,314,133"/>
+<area shape="poly" title=" " alt="" coords="119,117,160,117,160,123,119,123"/>
+<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="571,5,683,32"/>
+<area shape="poly" title=" " alt="" coords="511,16,556,16,556,21,511,21"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="731,5,816,32"/>
+<area shape="poly" title=" " alt="" coords="683,16,715,16,715,21,683,21"/>
+<area shape="poly" title=" " alt="" coords="497,53,562,34,563,39,498,58"/>
+<area shape="rect" href="utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="574,56,680,83"/>
+<area shape="poly" title=" " alt="" coords="524,67,559,67,559,72,524,72"/>
+<area shape="poly" title=" " alt="" coords="301,103,375,84,377,90,302,109"/>
+<area shape="poly" title=" " alt="" coords="302,131,380,151,378,156,301,137"/>
 </map>
 </div>
 <div class="dynheader">
@@ -802,172 +920,171 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on error. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00255">255</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  256</span>{</div>
-<div class="line"><span class="lineno">  257</span>    <span class="keywordflow">if</span> (rfd &lt; 0 || ht == NULL) {</div>
-<div class="line"><span class="lineno">  258</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or hash table\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  259</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  260</span>    }</div>
-<div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>    <span class="keywordtype">char</span> *line = NULL;</div>
-<div class="line"><span class="lineno">  263</span>    <span class="keywordtype">size_t</span> cap = 0;</div>
-<div class="line"><span class="lineno">  264</span>    <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0}; <span class="comment">// Buffer for the key</span></div>
-<div class="line"><span class="lineno">  265</span>    <span class="keywordtype">int</span> nxt_word[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0}; <span class="comment">// Buffer for next words</span></div>
-<div class="line"><span class="lineno">  266</span>    <span class="keywordtype">int</span> cp;</div>
-<div class="line"><span class="lineno">  267</span> </div>
-<div class="line"><span class="lineno">  268</span>    <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><span class="lineno">  269</span>        ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(rfd, &amp;line, &amp;cap);</div>
-<div class="line"><span class="lineno">  270</span>        <span class="keywordflow">if</span> (n &lt; 0) {</div>
-<div class="line"><span class="lineno">  271</span>            perror(<span class="stringliteral">&quot;recv_frame&quot;</span>);</div>
-<div class="line"><span class="lineno">  272</span>            free(line);</div>
-<div class="line"><span class="lineno">  273</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error receiving frame</span></div>
-<div class="line"><span class="lineno">  274</span>        }</div>
-<div class="line"><span class="lineno">  275</span> </div>
-<div class="line"><span class="lineno">  276</span>        <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><span class="lineno">  277</span>            <span class="keywordflow">break</span>; <span class="comment">// EOF reached</span></div>
-<div class="line"><span class="lineno">  278</span>        }</div>
-<div class="line"><span class="lineno">  279</span> </div>
-<div class="line"><span class="lineno">  280</span>        <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  281</span>            <span class="keywordflow">continue</span>; <span class="comment">// Skip empty lines</span></div>
-<div class="line"><span class="lineno">  282</span>        }</div>
-<div class="line"><span class="lineno">  283</span> </div>
-<div class="line"><span class="lineno">  284</span>        <span class="comment">// Reset variables for each frame</span></div>
-<div class="line"><span class="lineno">  285</span>        <span class="keywordtype">int</span> key_index = 0;</div>
-<div class="line"><span class="lineno">  286</span>        <span class="keywordtype">int</span> nxt_word_index = 0;</div>
-<div class="line"><span class="lineno">  287</span>        <span class="keywordtype">size_t</span> off = 0; <span class="comment">// Reset offset for each new line</span></div>
-<div class="line"><span class="lineno">  288</span> </div>
-<div class="line"><span class="lineno">  289</span>        <span class="comment">// Clear buffers</span></div>
-<div class="line"><span class="lineno">  290</span>        memset(key, 0, <span class="keyword">sizeof</span>(key));</div>
-<div class="line"><span class="lineno">  291</span>        memset(nxt_word, 0, <span class="keyword">sizeof</span>(nxt_word));</div>
-<div class="line"><span class="lineno">  292</span> </div>
-<div class="line"><span class="lineno">  293</span>        <span class="comment">// Parse the first word (key)</span></div>
-<div class="line"><span class="lineno">  294</span>        <span class="keywordflow">while</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] != <span class="charliteral">&#39; &#39;</span> &amp;&amp;</div>
-<div class="line"><span class="lineno">  295</span>               line[off] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  296</span>            <span class="keywordflow">if</span> (key_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
-<div class="line"><span class="lineno">  297</span>                fprintf(stderr, <span class="stringliteral">&quot;Key exceeds maximum length\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  298</span>                free(line);</div>
-<div class="line"><span class="lineno">  299</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: key too long</span></div>
-<div class="line"><span class="lineno">  300</span>            }</div>
-<div class="line"><span class="lineno">  301</span> </div>
-<div class="line"><span class="lineno">  302</span>            cp = <a class="code hl_function" href="utf8__tools_8h.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>((<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *)line, &amp;off);</div>
-<div class="line"><span class="lineno">  303</span>            <span class="keywordflow">if</span> (cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
-<div class="line"><span class="lineno">  304</span>                fprintf(stderr, <span class="stringliteral">&quot;Error reading UTF-8 character &quot;</span></div>
-<div class="line"><span class="lineno">  305</span>                        <span class="stringliteral">&quot;from line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  306</span>                free(line);</div>
-<div class="line"><span class="lineno">  307</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error reading character</span></div>
-<div class="line"><span class="lineno">  308</span>            }</div>
-<div class="line"><span class="lineno">  309</span>            <span class="keywordflow">if</span> (cp == EOF) {</div>
-<div class="line"><span class="lineno">  310</span>                fprintf(stderr,</div>
-<div class="line"><span class="lineno">  311</span>                    <span class="stringliteral">&quot;Unexpected EOF while reading key\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  312</span>                free(line);</div>
-<div class="line"><span class="lineno">  313</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: unexpected EOF</span></div>
-<div class="line"><span class="lineno">  314</span>            }</div>
-<div class="line"><span class="lineno">  315</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  316</span>                <span class="keywordflow">break</span>; <span class="comment">// End of string</span></div>
-<div class="line"><span class="lineno">  317</span>            }</div>
-<div class="line"><span class="lineno">  318</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39; &#39;</span>) {</div>
-<div class="line"><span class="lineno">  319</span>                <span class="keywordflow">break</span>; <span class="comment">// End of key - space found</span></div>
-<div class="line"><span class="lineno">  320</span>            }</div>
-<div class="line"><span class="lineno">  321</span>            key[key_index++] = cp; <span class="comment">// Store character in key buffer</span></div>
-<div class="line"><span class="lineno">  322</span>        }</div>
-<div class="line"><span class="lineno">  323</span> </div>
-<div class="line"><span class="lineno">  324</span>        <span class="keywordflow">if</span> (key_index == 0) {</div>
-<div class="line"><span class="lineno">  325</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty key found in line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  326</span>            free(line);</div>
-<div class="line"><span class="lineno">  327</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error: empty key</span></div>
-<div class="line"><span class="lineno">  328</span>        }</div>
-<div class="line"><span class="lineno">  329</span>        key[key_index] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the key</span></div>
+<p class="definition">Definition at line <a class="el" href="file__reader__mp_8c_source.html#l00297">297</a> of file <a class="el" href="file__reader__mp_8c_source.html">file_reader_mp.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  298</span>{</div>
+<div class="line"><span class="lineno">  299</span>    <span class="keywordflow">if</span> (rfd &lt; 0 || ht == NULL) {</div>
+<div class="line"><span class="lineno">  300</span>        fprintf(stderr, <span class="stringliteral">&quot;Invalid file descriptor or hash table\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  301</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  302</span>    }</div>
+<div class="line"><span class="lineno">  303</span> </div>
+<div class="line"><span class="lineno">  304</span>    <span class="keywordtype">char</span> *line = NULL;</div>
+<div class="line"><span class="lineno">  305</span>    <span class="keywordtype">size_t</span> cap = 0;</div>
+<div class="line"><span class="lineno">  306</span>    <span class="keywordtype">int</span> key[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0}; <span class="comment">// Buffer for the key</span></div>
+<div class="line"><span class="lineno">  307</span>    <span class="keywordtype">int</span> nxt_word[<a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>] = {0}; <span class="comment">// Buffer for next words</span></div>
+<div class="line"><span class="lineno">  308</span>    <span class="keywordtype">int</span> cp;</div>
+<div class="line"><span class="lineno">  309</span> </div>
+<div class="line"><span class="lineno">  310</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><span class="lineno">  311</span>        ssize_t n = <a class="code hl_function" href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a>(rfd, &amp;line, &amp;cap);</div>
+<div class="line"><span class="lineno">  312</span>        <span class="keywordflow">if</span> (n &lt; 0) {</div>
+<div class="line"><span class="lineno">  313</span>            perror(<span class="stringliteral">&quot;recv_frame&quot;</span>);</div>
+<div class="line"><span class="lineno">  314</span>            free(line);</div>
+<div class="line"><span class="lineno">  315</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error receiving frame</span></div>
+<div class="line"><span class="lineno">  316</span>        }</div>
+<div class="line"><span class="lineno">  317</span> </div>
+<div class="line"><span class="lineno">  318</span>        <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><span class="lineno">  319</span>            <span class="keywordflow">break</span>; <span class="comment">// EOF reached</span></div>
+<div class="line"><span class="lineno">  320</span>        }</div>
+<div class="line"><span class="lineno">  321</span> </div>
+<div class="line"><span class="lineno">  322</span>        <span class="keywordflow">if</span> (line[0] == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  323</span>            <span class="keywordflow">continue</span>; <span class="comment">// Skip empty lines</span></div>
+<div class="line"><span class="lineno">  324</span>        }</div>
+<div class="line"><span class="lineno">  325</span> </div>
+<div class="line"><span class="lineno">  326</span>        <span class="comment">// Reset variables for each frame</span></div>
+<div class="line"><span class="lineno">  327</span>        <span class="keywordtype">int</span> key_index = 0;</div>
+<div class="line"><span class="lineno">  328</span>        <span class="keywordtype">int</span> nxt_word_index = 0;</div>
+<div class="line"><span class="lineno">  329</span>        <span class="keywordtype">size_t</span> off = 0; <span class="comment">// Reset offset for each new line</span></div>
 <div class="line"><span class="lineno">  330</span> </div>
-<div class="line"><span class="lineno">  331</span>        <span class="comment">// Skip the space character</span></div>
-<div class="line"><span class="lineno">  332</span>        <span class="keywordflow">if</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] == <span class="charliteral">&#39; &#39;</span>) {</div>
-<div class="line"><span class="lineno">  333</span>            off++;</div>
-<div class="line"><span class="lineno">  334</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  335</span>            fprintf(stderr,</div>
-<div class="line"><span class="lineno">  336</span>                <span class="stringliteral">&quot;Expected space between key and next word\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  337</span>            free(line);</div>
-<div class="line"><span class="lineno">  338</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  339</span>        }</div>
-<div class="line"><span class="lineno">  340</span> </div>
-<div class="line"><span class="lineno">  341</span>        <span class="comment">// Parse the second word (next word)</span></div>
-<div class="line"><span class="lineno">  342</span>        <span class="keywordflow">while</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  343</span>            <span class="keywordflow">if</span> (nxt_word_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
-<div class="line"><span class="lineno">  344</span>                fprintf(stderr,</div>
-<div class="line"><span class="lineno">  345</span>                    <span class="stringliteral">&quot;Next word exceeds maximum length\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  346</span>                free(line);</div>
-<div class="line"><span class="lineno">  347</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: next word too long</span></div>
-<div class="line"><span class="lineno">  348</span>            }</div>
-<div class="line"><span class="lineno">  349</span> </div>
-<div class="line"><span class="lineno">  350</span>            cp = <a class="code hl_function" href="utf8__tools_8h.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>((<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *)line, &amp;off);</div>
-<div class="line"><span class="lineno">  351</span>            <span class="keywordflow">if</span> (cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
-<div class="line"><span class="lineno">  352</span>                fprintf(stderr, <span class="stringliteral">&quot;Error reading UTF-8 character &quot;</span></div>
-<div class="line"><span class="lineno">  353</span>                        <span class="stringliteral">&quot;from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  331</span>        <span class="comment">// Clear buffers</span></div>
+<div class="line"><span class="lineno">  332</span>        memset(key, 0, <span class="keyword">sizeof</span>(key));</div>
+<div class="line"><span class="lineno">  333</span>        memset(nxt_word, 0, <span class="keyword">sizeof</span>(nxt_word));</div>
+<div class="line"><span class="lineno">  334</span> </div>
+<div class="line"><span class="lineno">  335</span>        <span class="comment">// Parse the first word (key)</span></div>
+<div class="line"><span class="lineno">  336</span>        <span class="keywordflow">while</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] != <span class="charliteral">&#39; &#39;</span> &amp;&amp;</div>
+<div class="line"><span class="lineno">  337</span>               line[off] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  338</span>            <span class="keywordflow">if</span> (key_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">  339</span>                fprintf(stderr, <span class="stringliteral">&quot;Key exceeds maximum length\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  340</span>                free(line);</div>
+<div class="line"><span class="lineno">  341</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: key too long</span></div>
+<div class="line"><span class="lineno">  342</span>            }</div>
+<div class="line"><span class="lineno">  343</span> </div>
+<div class="line"><span class="lineno">  344</span>            cp = <a class="code hl_function" href="utf8__tools_8h.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>((<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *)line, &amp;off);</div>
+<div class="line"><span class="lineno">  345</span>            <span class="keywordflow">if</span> (cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
+<div class="line"><span class="lineno">  346</span>                fprintf(stderr, <span class="stringliteral">&quot;Error reading UTF-8 character &quot;</span></div>
+<div class="line"><span class="lineno">  347</span>                        <span class="stringliteral">&quot;from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  348</span>                free(line);</div>
+<div class="line"><span class="lineno">  349</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error reading character</span></div>
+<div class="line"><span class="lineno">  350</span>            }</div>
+<div class="line"><span class="lineno">  351</span>            <span class="keywordflow">if</span> (cp == EOF) {</div>
+<div class="line"><span class="lineno">  352</span>                fprintf(stderr,</div>
+<div class="line"><span class="lineno">  353</span>                    <span class="stringliteral">&quot;Unexpected EOF while reading key\n&quot;</span>);</div>
 <div class="line"><span class="lineno">  354</span>                free(line);</div>
-<div class="line"><span class="lineno">  355</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error reading character</span></div>
+<div class="line"><span class="lineno">  355</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: unexpected EOF</span></div>
 <div class="line"><span class="lineno">  356</span>            }</div>
-<div class="line"><span class="lineno">  357</span>            <span class="keywordflow">if</span> (cp == EOF) {</div>
-<div class="line"><span class="lineno">  358</span>                <span class="keywordflow">break</span>; <span class="comment">// End of input</span></div>
+<div class="line"><span class="lineno">  357</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  358</span>                <span class="keywordflow">break</span>; <span class="comment">// End of string</span></div>
 <div class="line"><span class="lineno">  359</span>            }</div>
-<div class="line"><span class="lineno">  360</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><span class="lineno">  361</span>                <span class="keywordflow">break</span>; <span class="comment">// End of string</span></div>
+<div class="line"><span class="lineno">  360</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39; &#39;</span>) {</div>
+<div class="line"><span class="lineno">  361</span>                <span class="keywordflow">break</span>; <span class="comment">// End of key - space found</span></div>
 <div class="line"><span class="lineno">  362</span>            }</div>
-<div class="line"><span class="lineno">  363</span>            nxt_word[nxt_word_index++] =</div>
-<div class="line"><span class="lineno">  364</span>                cp; <span class="comment">// Store character in next word buffer</span></div>
-<div class="line"><span class="lineno">  365</span>        }</div>
-<div class="line"><span class="lineno">  366</span> </div>
-<div class="line"><span class="lineno">  367</span>        <span class="comment">// Check if next word is empty</span></div>
-<div class="line"><span class="lineno">  368</span>        <span class="keywordflow">if</span> (nxt_word_index == 0) {</div>
-<div class="line"><span class="lineno">  369</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty next word found in line\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  370</span>            free(line);</div>
-<div class="line"><span class="lineno">  371</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error: empty next word</span></div>
-<div class="line"><span class="lineno">  372</span>        }</div>
-<div class="line"><span class="lineno">  373</span>        nxt_word[nxt_word_index] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the next word</span></div>
-<div class="line"><span class="lineno">  374</span> </div>
-<div class="line"><span class="lineno">  375</span>        <span class="comment">// Create word objects</span></div>
-<div class="line"><span class="lineno">  376</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *key_word = <a class="code hl_function" href="word_8h.html#ad9211cc1d1d93a007b67c12c167c8662">create_word</a>(key);</div>
-<div class="line"><span class="lineno">  377</span>        <span class="keywordflow">if</span> (!key_word) {</div>
-<div class="line"><span class="lineno">  378</span>            fprintf(stderr,</div>
-<div class="line"><span class="lineno">  379</span>                <span class="stringliteral">&quot;Failed to create word from key buffer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  380</span>            free(line);</div>
-<div class="line"><span class="lineno">  381</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating word</span></div>
-<div class="line"><span class="lineno">  382</span>        }</div>
-<div class="line"><span class="lineno">  383</span> </div>
-<div class="line"><span class="lineno">  384</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *value_word = <a class="code hl_function" href="word_8h.html#ad9211cc1d1d93a007b67c12c167c8662">create_word</a>(nxt_word);</div>
-<div class="line"><span class="lineno">  385</span>        <span class="keywordflow">if</span> (!value_word) {</div>
-<div class="line"><span class="lineno">  386</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create word from next word &quot;</span></div>
-<div class="line"><span class="lineno">  387</span>                    <span class="stringliteral">&quot;buffer\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  388</span>            <span class="comment">// Note: Need to free key_word properly - this depends</span></div>
-<div class="line"><span class="lineno">  389</span>            <span class="comment">// on implementation Assuming create_word allocates</span></div>
-<div class="line"><span class="lineno">  390</span>            <span class="comment">// memory that needs to be freed</span></div>
-<div class="line"><span class="lineno">  391</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
-<div class="line"><span class="lineno">  392</span>            free(line);</div>
-<div class="line"><span class="lineno">  393</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating word</span></div>
-<div class="line"><span class="lineno">  394</span>        }</div>
-<div class="line"><span class="lineno">  395</span> </div>
-<div class="line"><span class="lineno">  396</span>        <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f">word_ht_item_create</a>(key_word, value_word);</div>
-<div class="line"><span class="lineno">  397</span>        <span class="keywordflow">if</span> (!item) {</div>
-<div class="line"><span class="lineno">  398</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create hash table item\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  399</span>            <span class="comment">// Free the word objects - implementation dependent</span></div>
-<div class="line"><span class="lineno">  400</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
-<div class="line"><span class="lineno">  401</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(value_word);</div>
-<div class="line"><span class="lineno">  402</span>            free(line);</div>
-<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating hash table item</span></div>
-<div class="line"><span class="lineno">  404</span>        }</div>
-<div class="line"><span class="lineno">  405</span> </div>
-<div class="line"><span class="lineno">  406</span>        <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(ht, item); <span class="comment">// Insert item into hash table</span></div>
-<div class="line"><span class="lineno">  407</span>        <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
-<div class="line"><span class="lineno">  408</span>        <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(value_word);</div>
-<div class="line"><span class="lineno">  409</span>    }</div>
-<div class="line"><span class="lineno">  410</span> </div>
-<div class="line"><span class="lineno">  411</span>    free(line); <span class="comment">// Free the line buffer</span></div>
-<div class="line"><span class="lineno">  412</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Success</span></div>
-<div class="line"><span class="lineno">  413</span>}</div>
-<div class="ttc" id="aframe_8h_html_aae8ca2c798542f0fc049ccdc5e833d20"><div class="ttname"><a href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a></div><div class="ttdeci">ssize_t recv_frame(int fd, char **buf, size_t *cap)</div><div class="ttdoc">Receive a length-prefixed frame from a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00090">frame.c:90</a></div></div>
+<div class="line"><span class="lineno">  363</span>            key[key_index++] = cp; <span class="comment">// Store character in key buffer</span></div>
+<div class="line"><span class="lineno">  364</span>        }</div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>        <span class="keywordflow">if</span> (key_index == 0) {</div>
+<div class="line"><span class="lineno">  367</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty key found in line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  368</span>            free(line);</div>
+<div class="line"><span class="lineno">  369</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error: empty key</span></div>
+<div class="line"><span class="lineno">  370</span>        }</div>
+<div class="line"><span class="lineno">  371</span>        key[key_index] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the key</span></div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>        <span class="comment">// Skip the space character</span></div>
+<div class="line"><span class="lineno">  374</span>        <span class="keywordflow">if</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] == <span class="charliteral">&#39; &#39;</span>) {</div>
+<div class="line"><span class="lineno">  375</span>            off++;</div>
+<div class="line"><span class="lineno">  376</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  377</span>            fprintf(stderr,</div>
+<div class="line"><span class="lineno">  378</span>                <span class="stringliteral">&quot;Expected space between key and next word\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  379</span>            free(line);</div>
+<div class="line"><span class="lineno">  380</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  381</span>        }</div>
+<div class="line"><span class="lineno">  382</span> </div>
+<div class="line"><span class="lineno">  383</span>        <span class="comment">// Parse the second word (next word)</span></div>
+<div class="line"><span class="lineno">  384</span>        <span class="keywordflow">while</span> (off &lt; (<span class="keywordtype">size_t</span>)n &amp;&amp; line[off] != <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  385</span>            <span class="keywordflow">if</span> (nxt_word_index &gt;= <a class="code hl_define" href="utils_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">  386</span>                fprintf(stderr,</div>
+<div class="line"><span class="lineno">  387</span>                    <span class="stringliteral">&quot;Next word exceeds maximum length\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  388</span>                free(line);</div>
+<div class="line"><span class="lineno">  389</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error: next word too long</span></div>
+<div class="line"><span class="lineno">  390</span>            }</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>            cp = <a class="code hl_function" href="utf8__tools_8h.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a>((<a class="code hl_typedef" href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *)line, &amp;off);</div>
+<div class="line"><span class="lineno">  393</span>            <span class="keywordflow">if</span> (cp == <a class="code hl_define" href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a>) {</div>
+<div class="line"><span class="lineno">  394</span>                fprintf(stderr, <span class="stringliteral">&quot;Error reading UTF-8 character &quot;</span></div>
+<div class="line"><span class="lineno">  395</span>                        <span class="stringliteral">&quot;from line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  396</span>                free(line);</div>
+<div class="line"><span class="lineno">  397</span>                <span class="keywordflow">return</span> -1; <span class="comment">// Error reading character</span></div>
+<div class="line"><span class="lineno">  398</span>            }</div>
+<div class="line"><span class="lineno">  399</span>            <span class="keywordflow">if</span> (cp == EOF) {</div>
+<div class="line"><span class="lineno">  400</span>                <span class="keywordflow">break</span>; <span class="comment">// End of input</span></div>
+<div class="line"><span class="lineno">  401</span>            }</div>
+<div class="line"><span class="lineno">  402</span>            <span class="keywordflow">if</span> (cp == <span class="charliteral">&#39;\0&#39;</span>) {</div>
+<div class="line"><span class="lineno">  403</span>                <span class="keywordflow">break</span>; <span class="comment">// End of string</span></div>
+<div class="line"><span class="lineno">  404</span>            }</div>
+<div class="line"><span class="lineno">  405</span>            nxt_word[nxt_word_index++] =</div>
+<div class="line"><span class="lineno">  406</span>                cp; <span class="comment">// Store character in next word buffer</span></div>
+<div class="line"><span class="lineno">  407</span>        }</div>
+<div class="line"><span class="lineno">  408</span> </div>
+<div class="line"><span class="lineno">  409</span>        <span class="comment">// Check if next word is empty</span></div>
+<div class="line"><span class="lineno">  410</span>        <span class="keywordflow">if</span> (nxt_word_index == 0) {</div>
+<div class="line"><span class="lineno">  411</span>            fprintf(stderr, <span class="stringliteral">&quot;Empty next word found in line\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  412</span>            free(line);</div>
+<div class="line"><span class="lineno">  413</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error: empty next word</span></div>
+<div class="line"><span class="lineno">  414</span>        }</div>
+<div class="line"><span class="lineno">  415</span>        nxt_word[nxt_word_index] = <span class="charliteral">&#39;\0&#39;</span>; <span class="comment">// Null-terminate the next word</span></div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>        <span class="comment">// Create word objects</span></div>
+<div class="line"><span class="lineno">  418</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *key_word = <a class="code hl_function" href="word_8h.html#ad9211cc1d1d93a007b67c12c167c8662">create_word</a>(key);</div>
+<div class="line"><span class="lineno">  419</span>        <span class="keywordflow">if</span> (!key_word) {</div>
+<div class="line"><span class="lineno">  420</span>            fprintf(stderr,</div>
+<div class="line"><span class="lineno">  421</span>                <span class="stringliteral">&quot;Failed to create word from key buffer\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  422</span>            free(line);</div>
+<div class="line"><span class="lineno">  423</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating word</span></div>
+<div class="line"><span class="lineno">  424</span>        }</div>
+<div class="line"><span class="lineno">  425</span> </div>
+<div class="line"><span class="lineno">  426</span>        <a class="code hl_struct" href="structword__t.html">word_t</a> *value_word = <a class="code hl_function" href="word_8h.html#ad9211cc1d1d93a007b67c12c167c8662">create_word</a>(nxt_word);</div>
+<div class="line"><span class="lineno">  427</span>        <span class="keywordflow">if</span> (!value_word) {</div>
+<div class="line"><span class="lineno">  428</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create word from next word &quot;</span></div>
+<div class="line"><span class="lineno">  429</span>                    <span class="stringliteral">&quot;buffer\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  430</span>            <span class="comment">// Note: Need to free key_word properly - this depends</span></div>
+<div class="line"><span class="lineno">  431</span>            <span class="comment">// on implementation Assuming create_word allocates</span></div>
+<div class="line"><span class="lineno">  432</span>            <span class="comment">// memory that needs to be freed</span></div>
+<div class="line"><span class="lineno">  433</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
+<div class="line"><span class="lineno">  434</span>            free(line);</div>
+<div class="line"><span class="lineno">  435</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating word</span></div>
+<div class="line"><span class="lineno">  436</span>        }</div>
+<div class="line"><span class="lineno">  437</span> </div>
+<div class="line"><span class="lineno">  438</span>        <a class="code hl_struct" href="structht__item.html">ht_item</a> *item = <a class="code hl_function" href="word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f">word_ht_item_create</a>(key_word, value_word);</div>
+<div class="line"><span class="lineno">  439</span>        <span class="keywordflow">if</span> (!item) {</div>
+<div class="line"><span class="lineno">  440</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to create hash table item\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  441</span>            <span class="comment">// Free the word objects - implementation dependent</span></div>
+<div class="line"><span class="lineno">  442</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
+<div class="line"><span class="lineno">  443</span>            <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(value_word);</div>
+<div class="line"><span class="lineno">  444</span>            free(line);</div>
+<div class="line"><span class="lineno">  445</span>            <span class="keywordflow">return</span> -1; <span class="comment">// Error creating hash table item</span></div>
+<div class="line"><span class="lineno">  446</span>        }</div>
+<div class="line"><span class="lineno">  447</span> </div>
+<div class="line"><span class="lineno">  448</span>        <a class="code hl_function" href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a>(ht, item); <span class="comment">// Insert item into hash table</span></div>
+<div class="line"><span class="lineno">  449</span>        <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(key_word);</div>
+<div class="line"><span class="lineno">  450</span>        <a class="code hl_function" href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a>(value_word);</div>
+<div class="line"><span class="lineno">  451</span>    }</div>
+<div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>    free(line); <span class="comment">// Free the line buffer</span></div>
+<div class="line"><span class="lineno">  454</span>    <span class="keywordflow">return</span> 0; <span class="comment">// Success</span></div>
+<div class="line"><span class="lineno">  455</span>}</div>
+<div class="ttc" id="aframe_8h_html_aae8ca2c798542f0fc049ccdc5e833d20"><div class="ttname"><a href="frame_8h.html#aae8ca2c798542f0fc049ccdc5e833d20">recv_frame</a></div><div class="ttdeci">ssize_t recv_frame(int fd, char **buf, size_t *cap)</div><div class="ttdoc">Receive a length-prefixed frame from a file descriptor.</div><div class="ttdef"><b>Definition</b> <a href="frame_8c_source.html#l00091">frame.c:91</a></div></div>
 <div class="ttc" id="ahash__table_8h_html_a4d0789bb28431f8c9d03a0ecc71a0bf6"><div class="ttname"><a href="hash__table_8h.html#a4d0789bb28431f8c9d03a0ecc71a0bf6">ht_insert</a></div><div class="ttdeci">void ht_insert(hash_table_t *table, ht_item *item)</div><div class="ttdoc">Insert an item into the table.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00097">hash_table.c:97</a></div></div>
 <div class="ttc" id="astructht__item_html"><div class="ttname"><a href="structht__item.html">ht_item</a></div><div class="ttdef"><b>Definition</b> <a href="ht__item_8h_source.html#l00008">ht_item.h:8</a></div></div>
 <div class="ttc" id="astructword__t_html"><div class="ttname"><a href="structword__t.html">word_t</a></div><div class="ttdef"><b>Definition</b> <a href="word_8h_source.html#l00010">word.h:10</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a7d9ae5e58ba301dd340e891e55d1d806"><div class="ttname"><a href="utf8__tools_8h.html#a7d9ae5e58ba301dd340e891e55d1d806">utf8_getchar_from_buf</a></div><div class="ttdeci">int utf8_getchar_from_buf(const u8 *buf, size_t *offset)</div><div class="ttdoc">Fetch a UTF-8 code point from a buffer at an offset.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00099">utf8_tools.c:99</a></div></div>
 <div class="ttc" id="autf8__tools_8h_html_a962553daff7763e6a05cd4e7c3ecd999"><div class="ttname"><a href="utf8__tools_8h.html#a962553daff7763e6a05cd4e7c3ecd999">UTF8_ERROR</a></div><div class="ttdeci">#define UTF8_ERROR</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8h_source.html#l00008">utf8_tools.h:8</a></div></div>
-<div class="ttc" id="autils_8h_html_a92c50087ca0e64fa93fc59402c55f8ca"><div class="ttname"><a href="utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a></div><div class="ttdeci">uint8_t u8</div><div class="ttdef"><b>Definition</b> <a href="utils_8h_source.html#l00019">utils.h:19</a></div></div>
 <div class="ttc" id="aword_8h_html_a0335ce93a939befe544176deae07ff1d"><div class="ttname"><a href="word_8h.html#a0335ce93a939befe544176deae07ff1d">free_word</a></div><div class="ttdeci">void free_word(word_t *word)</div><div class="ttdoc">Free a word object.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00190">word.c:190</a></div></div>
 <div class="ttc" id="aword_8h_html_a36a6a00a1dccc7be37093ad28eda6a2f"><div class="ttname"><a href="word_8h.html#a36a6a00a1dccc7be37093ad28eda6a2f">word_ht_item_create</a></div><div class="ttdeci">ht_item * word_ht_item_create(word_t *key, word_t *value)</div><div class="ttdoc">Create a hash-table item for a word pair.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00031">word.c:31</a></div></div>
 <div class="ttc" id="aword_8h_html_ad9211cc1d1d93a007b67c12c167c8662"><div class="ttname"><a href="word_8h.html#ad9211cc1d1d93a007b67c12c167c8662">create_word</a></div><div class="ttdeci">word_t * create_word(int *word)</div><div class="ttdoc">Create a word object from code points.</div><div class="ttdef"><b>Definition</b> <a href="word_8c_source.html#l00016">word.c:16</a></div></div>

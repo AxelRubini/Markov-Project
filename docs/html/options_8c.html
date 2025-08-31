@@ -93,27 +93,49 @@ $(function(){initNavTree('options_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;argtable3.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utf8__tools_8h_source.html">utf8_tools.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for options.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="options_8c__incl.png" border="0" usemap="#asrc_2app_2options_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2app_2options_8c" id="asrc_2app_2options_8c">
-<area shape="rect" title=" " alt="" coords="183,5,305,32"/>
+<area shape="rect" title=" " alt="" coords="365,5,486,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,91,107"/>
-<area shape="poly" title=" " alt="" coords="211,35,98,77,96,72,209,30"/>
+<area shape="poly" title=" " alt="" coords="365,33,106,82,105,77,364,28"/>
 <area shape="rect" href="options_8h.html" title=" " alt="" coords="115,80,189,107"/>
-<area shape="poly" title=" " alt="" coords="230,35,181,73,178,68,226,30"/>
-<area shape="rect" title=" " alt="" coords="214,80,274,107"/>
-<area shape="poly" title=" " alt="" coords="247,33,247,64,241,64,241,33"/>
-<area shape="rect" title=" " alt="" coords="298,80,361,107"/>
-<area shape="poly" title=" " alt="" coords="261,31,305,68,302,72,257,35"/>
-<area shape="rect" title=" " alt="" coords="385,80,450,107"/>
-<area shape="poly" title=" " alt="" coords="275,30,374,71,372,76,273,35"/>
+<area shape="poly" title=" " alt="" coords="378,35,205,81,203,76,377,30"/>
+<area shape="rect" href="utf8__tools_8h.html" title=" " alt="" coords="265,80,354,107"/>
+<area shape="poly" title=" " alt="" coords="407,35,344,74,341,69,404,30"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="216,155,272,181"/>
+<area shape="poly" title=" " alt="" coords="365,28,335,34,306,45,278,60,255,82,248,95,244,109,243,139,237,139,239,108,243,93,251,78,275,56,303,40,334,29,364,23"/>
+<area shape="rect" title=" " alt="" coords="360,229,424,256"/>
+<area shape="poly" title=" " alt="" coords="426,33,399,215,393,214,421,32"/>
+<area shape="rect" title=" " alt="" coords="430,80,490,107"/>
+<area shape="poly" title=" " alt="" coords="434,31,450,65,445,67,429,34"/>
+<area shape="rect" title=" " alt="" coords="514,80,579,107"/>
+<area shape="poly" title=" " alt="" coords="448,30,514,69,511,74,445,35"/>
+<area shape="rect" title=" " alt="" coords="603,80,661,107"/>
+<area shape="poly" title=" " alt="" coords="462,30,590,74,588,80,460,35"/>
+<area shape="rect" title=" " alt="" coords="684,80,764,107"/>
+<area shape="poly" title=" " alt="" coords="478,30,670,76,668,81,477,35"/>
+<area shape="rect" title=" " alt="" coords="788,80,855,107"/>
+<area shape="poly" title=" " alt="" coords="487,26,615,47,773,77,772,82,614,52,486,31"/>
 <area shape="rect" title=" " alt="" coords="118,155,186,181"/>
 <area shape="poly" title=" " alt="" coords="155,107,155,139,149,139,149,107"/>
+<area shape="poly" title=" " alt="" coords="300,109,267,145,263,141,296,105"/>
+<area shape="rect" title=" " alt="" coords="272,229,336,256"/>
+<area shape="poly" title=" " alt="" coords="312,107,308,214,302,214,306,107"/>
+<area shape="rect" title=" " alt="" coords="187,229,248,256"/>
+<area shape="poly" title=" " alt="" coords="242,183,230,216,225,214,237,181"/>
+<area shape="poly" title=" " alt="" coords="256,180,286,216,282,219,252,184"/>
+<area shape="poly" title=" " alt="" coords="271,179,354,220,351,224,269,184"/>
 </map>
 </div>
 </div>
@@ -124,11 +146,64 @@ Functions</h2></td></tr>
 <tr class="memitem:ad28ab90fb9a66789a00b3033a220e816" id="r_ad28ab90fb9a66789a00b3033a220e816"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad28ab90fb9a66789a00b3033a220e816">set_default_options</a> (<a class="el" href="structoptions__t.html">options_t</a> *o)</td></tr>
 <tr class="memitem:a7e78f0420033ef4459633a15540b66ef" id="r_a7e78f0420033ef4459633a15540b66ef"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e78f0420033ef4459633a15540b66ef">make_csv_name_from_input</a> (const char *input_txt)</td></tr>
 <tr class="memitem:a0336311d8cbbc8c2a4b0753286f94191" id="r_a0336311d8cbbc8c2a4b0753286f94191"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a> (const char *str)</td></tr>
+<tr class="memitem:a60322f6b3e1d901c742d98fa3bd02ae9" id="r_a60322f6b3e1d901c742d98fa3bd02ae9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60322f6b3e1d901c742d98fa3bd02ae9">check_csv_format</a> (const char *filename)</td></tr>
 <tr class="memitem:a5b6cab7432014b9db9a820c0ebb7e578" id="r_a5b6cab7432014b9db9a820c0ebb7e578"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b6cab7432014b9db9a820c0ebb7e578">check_options</a> (<a class="el" href="structoptions__t.html">options_t</a> *options)</td></tr>
 <tr class="memitem:aa3dea22abd024052e9168eb410d1015e" id="r_aa3dea22abd024052e9168eb410d1015e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3dea22abd024052e9168eb410d1015e">parse_options</a> (int argc, char **argv, <a class="el" href="structoptions__t.html">options_t</a> *out)</td></tr>
 <tr class="memdesc:aa3dea22abd024052e9168eb410d1015e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments into an options structure.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a60322f6b3e1d901c742d98fa3bd02ae9" name="a60322f6b3e1d901c742d98fa3bd02ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60322f6b3e1d901c742d98fa3bd02ae9">&#9670;&#160;</a></span>check_csv_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_csv_format </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00054">54</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordtype">size_t</span> len = strlen(filename);</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (len &lt; 4) {</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   59</span>    }</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *ext = filename + len - 4;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (strcmp(ext, <span class="stringliteral">&quot;.csv&quot;</span>) != 0) {</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   65</span>}</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="options_8c_a60322f6b3e1d901c742d98fa3bd02ae9_icgraph.png" border="0" usemap="#aoptions_8c_a60322f6b3e1d901c742d98fa3bd02ae9_icgraph" loading="lazy" alt=""/></div>
+<map name="aoptions_8c_a60322f6b3e1d901c742d98fa3bd02ae9_icgraph" id="aoptions_8c_a60322f6b3e1d901c742d98fa3bd02ae9_icgraph">
+<area shape="rect" title=" " alt="" coords="406,5,535,32"/>
+<area shape="rect" href="options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="253,5,358,32"/>
+<area shape="poly" title=" " alt="" coords="391,21,359,21,359,16,391,16"/>
+<area shape="rect" href="options_8c.html#aa3dea22abd024052e9168eb410d1015e" title="Parse command line arguments into an options structure." alt="" coords="103,5,205,32"/>
+<area shape="poly" title=" " alt="" coords="238,21,205,21,205,16,238,16"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a5b6cab7432014b9db9a820c0ebb7e578" name="a5b6cab7432014b9db9a820c0ebb7e578"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b6cab7432014b9db9a820c0ebb7e578">&#9670;&#160;</a></span>check_options()</h2>
 
@@ -152,52 +227,85 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00049">49</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
-<div class="line"><span class="lineno">   51</span>    <span class="comment">// Check if input files are provided for task1 or task both, if not, ask</span></div>
-<div class="line"><span class="lineno">   52</span>    <span class="comment">// for terminal input</span></div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
-<div class="line"><span class="lineno">   54</span>        fprintf(stderr,</div>
-<div class="line"><span class="lineno">   55</span>            <span class="stringliteral">&quot;Input file is not provided, please provide an input &quot;</span></div>
-<div class="line"><span class="lineno">   56</span>            <span class="stringliteral">&quot;writing on the terminal\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>)) {</div>
-<div class="line"><span class="lineno">   58</span>            options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = <span class="stringliteral">&quot;Analysis_STDIN_text.csv&quot;</span>;</div>
-<div class="line"><span class="lineno">   59</span>        }</div>
-<div class="line"><span class="lineno">   60</span>    }</div>
-<div class="line"><span class="lineno">   61</span>    <span class="comment">// Check if intput files is provided for task2, if not return error,if</span></div>
-<div class="line"><span class="lineno">   62</span>    <span class="comment">// task_both, generate one file to write on.</span></div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> == <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
-<div class="line"><span class="lineno">   64</span>        fprintf(stderr, <span class="stringliteral">&quot;Input CSV file is not provided, please &quot;</span></div>
-<div class="line"><span class="lineno">   65</span>                <span class="stringliteral">&quot;provide an input CSV file\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   67</span>    }</div>
-<div class="line"><span class="lineno">   68</span>    <span class="comment">// Check if output files are provided, if not, set them to default</span></div>
-<div class="line"><span class="lineno">   69</span>    <span class="comment">// values</span></div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> == NULL &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c">TASK_1</a>) {</div>
-<div class="line"><span class="lineno">   71</span>        fprintf(stderr, <span class="stringliteral">&quot;Output text file is not provided,\n produced &quot;</span></div>
-<div class="line"><span class="lineno">   72</span>                <span class="stringliteral">&quot;test will be &quot;</span></div>
-<div class="line"><span class="lineno">   73</span>                <span class="stringliteral">&quot;printed on STDOUT\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   74</span>    }</div>
-<div class="line"><span class="lineno">   75</span>    fprintf(stderr, <span class="stringliteral">&quot; evaluating output_csv: %d\n&quot;</span>,</div>
-<div class="line"><span class="lineno">   76</span>        <a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>));</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
-<div class="line"><span class="lineno">   78</span>        fprintf(stderr, <span class="stringliteral">&quot;Output CSV file is not provided,\n produced &quot;</span></div>
-<div class="line"><span class="lineno">   79</span>                <span class="stringliteral">&quot;test will be &quot;</span></div>
-<div class="line"><span class="lineno">   80</span>                <span class="stringliteral">&quot;in a file called Analysis_&lt;input file&gt;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   81</span>        options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = <a class="code hl_function" href="#a7e78f0420033ef4459633a15540b66ef">make_csv_name_from_input</a>(</div>
-<div class="line"><span class="lineno">   82</span>            (<span class="keyword">const</span> <span class="keywordtype">char</span> *)options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>);</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span>    <span class="comment">// Check if n_words is set, if not, set it to a default value</span></div>
-<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> == 0) {</div>
-<div class="line"><span class="lineno">   86</span>        fprintf(stderr, <span class="stringliteral">&quot;Number of words to process is not set, &quot;</span></div>
-<div class="line"><span class="lineno">   87</span>                <span class="stringliteral">&quot;setting to 10\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   88</span>        options-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = 10;</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   92</span>}</div>
-<div class="ttc" id="aoptions_8c_html_a0336311d8cbbc8c2a4b0753286f94191"><div class="ttname"><a href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a></div><div class="ttdeci">static int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00044">options.c:44</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a7e78f0420033ef4459633a15540b66ef"><div class="ttname"><a href="#a7e78f0420033ef4459633a15540b66ef">make_csv_name_from_input</a></div><div class="ttdeci">static char * make_csv_name_from_input(const char *input_txt)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00019">options.c:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00067">67</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
+<div class="line"><span class="lineno">   69</span>    <span class="comment">// Check if input files are provided for task1 or task both, if not, ask</span></div>
+<div class="line"><span class="lineno">   70</span>    <span class="comment">// for terminal input</span></div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
+<div class="line"><span class="lineno">   72</span>        fprintf(stderr,</div>
+<div class="line"><span class="lineno">   73</span>            <span class="stringliteral">&quot;Input file is not provided, please provide an input &quot;</span></div>
+<div class="line"><span class="lineno">   74</span>            <span class="stringliteral">&quot;writing on the terminal\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   75</span>        fprintf(stderr, <span class="stringliteral">&quot;If you meant to provide a file check &quot;</span></div>
+<div class="line"><span class="lineno">   76</span>                <span class="stringliteral">&quot;arguments provided as input\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>)) {</div>
+<div class="line"><span class="lineno">   78</span>            options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = <span class="stringliteral">&quot;Analysis_STDIN_text.csv&quot;</span>;</div>
+<div class="line"><span class="lineno">   79</span>        }</div>
+<div class="line"><span class="lineno">   80</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8h.html#a9c2abaf362c73cdbb9b053ba36dd4ad6">check_file_is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>)) {</div>
+<div class="line"><span class="lineno">   82</span>            fprintf(stderr, <span class="stringliteral">&quot;Input file is empty\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   84</span>        }</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordtype">int</span> fd = open(options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>, O_RDONLY);</div>
+<div class="line"><span class="lineno">   86</span>        <span class="keywordtype">int</span> cp;</div>
+<div class="line"><span class="lineno">   87</span>        <span class="keywordtype">int</span> byr = 0;</div>
+<div class="line"><span class="lineno">   88</span>        lseek(fd, 0, SEEK_SET);</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordtype">short</span> valid = 0;</div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">while</span> ((cp = <a class="code hl_function" href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a>(fd, &amp;byr)) != EOF) {</div>
+<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">if</span> (cp != <span class="charliteral">&#39; &#39;</span> &amp;&amp; cp != <span class="charliteral">&#39;\n&#39;</span> &amp;&amp; cp != <span class="charliteral">&#39;\t&#39;</span>) {</div>
+<div class="line"><span class="lineno">   92</span>                valid = 1;</div>
+<div class="line"><span class="lineno">   93</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   94</span>            }</div>
+<div class="line"><span class="lineno">   95</span>        }</div>
+<div class="line"><span class="lineno">   96</span>        <a class="code hl_function" href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a>(&amp;fd);</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">if</span> (!valid) {</div>
+<div class="line"><span class="lineno">   98</span>            fprintf(stderr, <span class="stringliteral">&quot;Input file is not valid\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   99</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  100</span>        }</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span>    <span class="comment">// Check if intput files is provided for task2, if not return error,if</span></div>
+<div class="line"><span class="lineno">  103</span>    <span class="comment">// task_both, generate one file to write on.</span></div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> == <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
+<div class="line"><span class="lineno">  105</span>        fprintf(stderr, <span class="stringliteral">&quot;Input CSV file is not provided, please &quot;</span></div>
+<div class="line"><span class="lineno">  106</span>                <span class="stringliteral">&quot;provide an input CSV file\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  108</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> == <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="#a60322f6b3e1d901c742d98fa3bd02ae9">check_csv_format</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a>) ||</div>
+<div class="line"><span class="lineno">  110</span>            <a class="code hl_function" href="utils_8h.html#a9c2abaf362c73cdbb9b053ba36dd4ad6">check_file_is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a>)) {</div>
+<div class="line"><span class="lineno">  111</span>            fprintf(stderr, <span class="stringliteral">&quot;Input CSV file is not in the correct &quot;</span></div>
+<div class="line"><span class="lineno">  112</span>                    <span class="stringliteral">&quot;extension or is empty &quot;</span></div>
+<div class="line"><span class="lineno">  113</span>                    <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  114</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  115</span>        }</div>
+<div class="line"><span class="lineno">  116</span>    }</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="comment">// Check if output files are provided, if not, set them to</span></div>
+<div class="line"><span class="lineno">  119</span>    <span class="comment">// default values</span></div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> == NULL &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c">TASK_1</a>) {</div>
+<div class="line"><span class="lineno">  121</span>        fprintf(stderr, <span class="stringliteral">&quot;Output text file is not provided,\n produced &quot;</span></div>
+<div class="line"><span class="lineno">  122</span>                <span class="stringliteral">&quot;test will be &quot;</span></div>
+<div class="line"><span class="lineno">  123</span>                <span class="stringliteral">&quot;printed on STDOUT\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
+<div class="line"><span class="lineno">  125</span>    fprintf(stderr, <span class="stringliteral">&quot; evaluating output_csv: %d\n&quot;</span>,</div>
+<div class="line"><span class="lineno">  126</span>        <a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>));</div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a>(options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a>) &amp;&amp; options-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> != <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>) {</div>
+<div class="line"><span class="lineno">  128</span>        fprintf(stderr, <span class="stringliteral">&quot;Output CSV file is not provided,\n produced &quot;</span></div>
+<div class="line"><span class="lineno">  129</span>                <span class="stringliteral">&quot;test will be &quot;</span></div>
+<div class="line"><span class="lineno">  130</span>                <span class="stringliteral">&quot;in a file called Analysis_&lt;input file&gt;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  131</span>        options-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = <a class="code hl_function" href="#a7e78f0420033ef4459633a15540b66ef">make_csv_name_from_input</a>(</div>
+<div class="line"><span class="lineno">  132</span>            (<span class="keyword">const</span> <span class="keywordtype">char</span> *)options-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a>);</div>
+<div class="line"><span class="lineno">  133</span>    }</div>
+<div class="line"><span class="lineno">  134</span>    <span class="comment">// Check if n_words is set, if not, set it to a default value</span></div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span> (options-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> == 0) {</div>
+<div class="line"><span class="lineno">  136</span>        fprintf(stderr, <span class="stringliteral">&quot;Number of words to process is not set, &quot;</span></div>
+<div class="line"><span class="lineno">  137</span>                <span class="stringliteral">&quot;setting to 10\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  138</span>        options-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = 10;</div>
+<div class="line"><span class="lineno">  139</span>    }</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  142</span>}</div>
+<div class="ttc" id="aoptions_8c_html_a0336311d8cbbc8c2a4b0753286f94191"><div class="ttname"><a href="#a0336311d8cbbc8c2a4b0753286f94191">is_empty</a></div><div class="ttdeci">static int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00050">options.c:50</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a60322f6b3e1d901c742d98fa3bd02ae9"><div class="ttname"><a href="#a60322f6b3e1d901c742d98fa3bd02ae9">check_csv_format</a></div><div class="ttdeci">static int check_csv_format(const char *filename)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00054">options.c:54</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a7e78f0420033ef4459633a15540b66ef"><div class="ttname"><a href="#a7e78f0420033ef4459633a15540b66ef">make_csv_name_from_input</a></div><div class="ttdeci">static char * make_csv_name_from_input(const char *input_txt)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00025">options.c:25</a></div></div>
 <div class="ttc" id="aoptions_8h_html_a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c"><div class="ttname"><a href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c">TASK_1</a></div><div class="ttdeci">@ TASK_1</div><div class="ttdoc">Execute only Task 1.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00018">options.h:18</a></div></div>
 <div class="ttc" id="aoptions_8h_html_a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d"><div class="ttname"><a href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a></div><div class="ttdeci">@ TASK_2</div><div class="ttdoc">Execute only Task 2.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00019">options.h:19</a></div></div>
 <div class="ttc" id="astructoptions__t_html_a5bf1020030ff6f9a1a4a30cb715c766f"><div class="ttname"><a href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">options_t::n_words</a></div><div class="ttdeci">size_t n_words</div><div class="ttdoc">Number of words to process.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00037">options.h:37</a></div></div>
@@ -206,16 +314,29 @@ Functions</h2></td></tr>
 <div class="ttc" id="astructoptions__t_html_ac5615da1d5273ca96d743147a7f9c543"><div class="ttname"><a href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">options_t::input_txt</a></div><div class="ttdeci">const char * input_txt</div><div class="ttdoc">Path to input text file.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00032">options.h:32</a></div></div>
 <div class="ttc" id="astructoptions__t_html_ae0a953788fce9057a712a280a017f0ae"><div class="ttname"><a href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">options_t::output_txt</a></div><div class="ttdeci">const char * output_txt</div><div class="ttdoc">Path to output text file, or NULL for STDOUT.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00034">options.h:34</a></div></div>
 <div class="ttc" id="astructoptions__t_html_aece323239286d591c286291a0e58cfc0"><div class="ttname"><a href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">options_t::output_csv</a></div><div class="ttdeci">const char * output_csv</div><div class="ttdoc">Path to output CSV file.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00036">options.h:36</a></div></div>
+<div class="ttc" id="autf8__tools_8h_html_ac215be68e83a7746e80824ba69a6a769"><div class="ttname"><a href="utf8__tools_8h.html#ac215be68e83a7746e80824ba69a6a769">utf8_getchar_fd</a></div><div class="ttdeci">int utf8_getchar_fd(int fd, int *bytes_read)</div><div class="ttdoc">Read a UTF-8 code point from a descriptor.</div><div class="ttdef"><b>Definition</b> <a href="utf8__tools_8c_source.html#l00067">utf8_tools.c:67</a></div></div>
+<div class="ttc" id="autils_8h_html_a9c2abaf362c73cdbb9b053ba36dd4ad6"><div class="ttname"><a href="utils_8h.html#a9c2abaf362c73cdbb9b053ba36dd4ad6">check_file_is_empty</a></div><div class="ttdeci">int check_file_is_empty(const char *filename)</div><div class="ttdoc">Check if a file is empty.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00100">utils.c:100</a></div></div>
+<div class="ttc" id="autils_8h_html_ad6d87adb1f10074bf9c114f9c0bdd040"><div class="ttname"><a href="utils_8h.html#ad6d87adb1f10074bf9c114f9c0bdd040">safe_close</a></div><div class="ttdeci">int safe_close(int *fd)</div><div class="ttdoc">Close an fd safely.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00074">utils.c:74</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="options_8c_a5b6cab7432014b9db9a820c0ebb7e578_cgraph.png" border="0" usemap="#aoptions_8c_a5b6cab7432014b9db9a820c0ebb7e578_cgraph" loading="lazy" alt=""/></div>
 <map name="aoptions_8c_a5b6cab7432014b9db9a820c0ebb7e578_cgraph" id="aoptions_8c_a5b6cab7432014b9db9a820c0ebb7e578_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,111,60"/>
-<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="199,5,272,31"/>
-<area shape="poly" title=" " alt="" coords="111,36,183,24,184,29,112,41"/>
-<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="159,55,312,96"/>
-<area shape="poly" title=" " alt="" coords="112,53,144,58,143,64,111,58"/>
+<area shape="rect" title=" " alt="" coords="5,136,111,163"/>
+<area shape="rect" href="options_8c.html#a60322f6b3e1d901c742d98fa3bd02ae9" title=" " alt="" coords="171,5,300,32"/>
+<area shape="poly" title=" " alt="" coords="67,134,103,89,128,64,157,42,166,37,169,41,160,46,132,68,107,93,71,137"/>
+<area shape="rect" href="utils_8c.html#a9c2abaf362c73cdbb9b053ba36dd4ad6" title="Check if a file is empty." alt="" coords="165,56,306,83"/>
+<area shape="poly" title=" " alt="" coords="80,133,158,92,173,86,175,91,160,97,83,138"/>
+<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="198,107,272,133"/>
+<area shape="poly" title=" " alt="" coords="111,138,182,126,183,131,112,143"/>
+<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="159,157,312,200"/>
+<area shape="poly" title=" " alt="" coords="112,155,144,161,143,166,111,161"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="193,224,278,251"/>
+<area shape="poly" title=" " alt="" coords="80,161,116,185,160,210,180,218,178,223,157,214,113,190,77,165"/>
+<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="180,275,291,301"/>
+<area shape="poly" title=" " alt="" coords="70,162,106,210,131,237,160,260,168,265,166,270,157,265,128,241,102,213,66,165"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="360,275,445,301"/>
+<area shape="poly" title=" " alt="" coords="291,285,345,285,345,291,291,291"/>
 </map>
 </div>
 <div class="dynheader">
@@ -256,10 +377,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00044">44</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> str == NULL || str[0] == <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">   47</span>}</div>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00050">50</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> str == NULL || str[0] == <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="lineno">   53</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -300,30 +421,30 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00019">19</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *prefix = <span class="stringliteral">&quot;Analysis_&quot;</span>;</div>
-<div class="line"><span class="lineno">   22</span>    <span class="comment">// Extract the base name from the input file path</span></div>
-<div class="line"><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *base = strrchr(input_txt, <span class="charliteral">&#39;/&#39;</span>);</div>
-<div class="line"><span class="lineno">   24</span>    base = base ? base + 1 : input_txt;</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    <span class="comment">// Delete the extension</span></div>
-<div class="line"><span class="lineno">   27</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *dot = strrchr(base, <span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">size_t</span> stem_len = dot ? (size_t)(dot - base) : strlen(base);</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <span class="comment">// Compose the output file name</span></div>
-<div class="line"><span class="lineno">   31</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *suffix = <span class="stringliteral">&quot;.csv&quot;</span>;</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordtype">size_t</span> out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">char</span> *out = malloc(out_len);</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (!out) {</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">   37</span>    }</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>    <span class="comment">// Build the string</span></div>
-<div class="line"><span class="lineno">   40</span>    snprintf(out, out_len, <span class="stringliteral">&quot;%s%.*s%s&quot;</span>, prefix, (<span class="keywordtype">int</span>)stem_len, base, suffix);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><span class="lineno">   42</span>}</div>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00025">25</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *prefix = <span class="stringliteral">&quot;Analysis_&quot;</span>;</div>
+<div class="line"><span class="lineno">   28</span>    <span class="comment">// Extract the base name from the input file path</span></div>
+<div class="line"><span class="lineno">   29</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *base = strrchr(input_txt, <span class="charliteral">&#39;/&#39;</span>);</div>
+<div class="line"><span class="lineno">   30</span>    base = base ? base + 1 : input_txt;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="comment">// Delete the extension</span></div>
+<div class="line"><span class="lineno">   33</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *dot = strrchr(base, <span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">size_t</span> stem_len = dot ? (size_t)(dot - base) : strlen(base);</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="comment">// Compose the output file name</span></div>
+<div class="line"><span class="lineno">   37</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *suffix = <span class="stringliteral">&quot;.csv&quot;</span>;</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">size_t</span> out_len = strlen(prefix) + stem_len + strlen(suffix) + 1;</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordtype">char</span> *out = malloc(out_len);</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (!out) {</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <span class="comment">// Build the string</span></div>
+<div class="line"><span class="lineno">   46</span>    snprintf(out, out_len, <span class="stringliteral">&quot;%s%.*s%s&quot;</span>, prefix, (<span class="keywordtype">int</span>)stem_len, base, suffix);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><span class="lineno">   48</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -383,74 +504,74 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>define the argument table</p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00094">94</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
-<div class="line"><span class="lineno">   96</span>    <a class="code hl_function" href="#ad28ab90fb9a66789a00b3033a220e816">set_default_options</a>(out);</div>
-<div class="line"><span class="lineno">   97</span></div>
-<div class="line"><span class="lineno">   99</span>    <span class="keyword">struct </span>arg_lit *sp = arg_lit0(NULL, <span class="stringliteral">&quot;sp&quot;</span>, <span class="stringliteral">&quot;Single Process mode&quot;</span>);</div>
-<div class="line"><span class="lineno">  100</span>    <span class="keyword">struct </span>arg_lit *mp = arg_lit0(NULL, <span class="stringliteral">&quot;mp&quot;</span>, <span class="stringliteral">&quot;Multi Process mode&quot;</span>);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    <span class="keyword">struct </span>arg_lit *task1 = arg_lit0(NULL, <span class="stringliteral">&quot;task1&quot;</span>, <span class="stringliteral">&quot;Run Task 1&quot;</span>);</div>
-<div class="line"><span class="lineno">  103</span>    <span class="keyword">struct </span>arg_lit *task2 = arg_lit0(NULL, <span class="stringliteral">&quot;task2&quot;</span>, <span class="stringliteral">&quot;Run Task 2&quot;</span>);</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keyword">struct </span>arg_lit *task_both =</div>
-<div class="line"><span class="lineno">  105</span>        arg_lit0(NULL, <span class="stringliteral">&quot;task-both&quot;</span>, <span class="stringliteral">&quot;Run both tasks&quot;</span>);</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>    <span class="keyword">struct </span>arg_file *input_txt =</div>
-<div class="line"><span class="lineno">  108</span>        arg_file0(NULL, <span class="stringliteral">&quot;input-txt&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Input text file&quot;</span>);</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keyword">struct </span>arg_file *input_csv =</div>
-<div class="line"><span class="lineno">  110</span>        arg_file0(NULL, <span class="stringliteral">&quot;input-csv&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Input CSV file&quot;</span>);</div>
-<div class="line"><span class="lineno">  111</span>    <span class="keyword">struct </span>arg_file *output_txt =</div>
-<div class="line"><span class="lineno">  112</span>        arg_file0(NULL, <span class="stringliteral">&quot;output-txt&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Output text file&quot;</span>);</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keyword">struct </span>arg_file *output_csv =</div>
-<div class="line"><span class="lineno">  114</span>        arg_file0(NULL, <span class="stringliteral">&quot;output-csv&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Output CSV file&quot;</span>);</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    <span class="keyword">struct </span>arg_int *n_words =</div>
-<div class="line"><span class="lineno">  117</span>        arg_int0(NULL, <span class="stringliteral">&quot;n-words&quot;</span>, <span class="stringliteral">&quot;&lt;n&gt;&quot;</span>, <span class="stringliteral">&quot;Number of words to process&quot;</span>);</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keyword">struct </span>arg_end *end = arg_end(20);</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordtype">void</span> *argtable[] = {sp,     mp,    task1,     task2,</div>
-<div class="line"><span class="lineno">  121</span>                task_both,  input_txt, input_csv, output_txt,</div>
-<div class="line"><span class="lineno">  122</span>                output_csv, n_words,   end};</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>    <span class="comment">// Parse the command line arguments</span></div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordtype">int</span> nerrors = arg_parse(argc, argv, argtable);</div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> (nerrors &gt; 0) {</div>
-<div class="line"><span class="lineno">  127</span>        arg_print_errors(stderr, end, <span class="stringliteral">&quot;Error parsing options&quot;</span>);</div>
-<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  129</span>    }</div>
-<div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>    <span class="comment">// Set run mode</span></div>
-<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (sp-&gt;count &gt; 0) {</div>
-<div class="line"><span class="lineno">  133</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605">MODE_SP</a>;</div>
-<div class="line"><span class="lineno">  134</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (mp-&gt;count &gt; 0) {</div>
-<div class="line"><span class="lineno">  135</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfa209e6edd37dd43fe3af4ef10d5f79e10">MODE_MP</a>;</div>
-<div class="line"><span class="lineno">  136</span>    }</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>    <span class="comment">// Set task</span></div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span> (task1-&gt;count &gt; 0) {</div>
-<div class="line"><span class="lineno">  140</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c">TASK_1</a>;</div>
-<div class="line"><span class="lineno">  141</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (task2-&gt;count &gt; 0) {</div>
-<div class="line"><span class="lineno">  142</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>;</div>
-<div class="line"><span class="lineno">  143</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (task_both-&gt;count &gt; 0) {</div>
-<div class="line"><span class="lineno">  144</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897">TASK_BOTH</a>;</div>
-<div class="line"><span class="lineno">  145</span>    }</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>    <span class="comment">// Set input and output files</span></div>
-<div class="line"><span class="lineno">  148</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a> = input_txt-&gt;filename[0];</div>
-<div class="line"><span class="lineno">  149</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a> = input_csv-&gt;filename[0];</div>
-<div class="line"><span class="lineno">  150</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> = output_txt-&gt;filename[0];</div>
-<div class="line"><span class="lineno">  151</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = output_csv-&gt;filename[0];</div>
-<div class="line"><span class="lineno">  152</span> </div>
-<div class="line"><span class="lineno">  153</span>    <span class="comment">// Set number of words and word to process</span></div>
-<div class="line"><span class="lineno">  154</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = n_words-&gt;count &gt; 0 ? n_words-&gt;ival[0] : 0;</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>    <span class="comment">// Free the argument table</span></div>
-<div class="line"><span class="lineno">  157</span>    arg_freetable(argtable, <span class="keyword">sizeof</span>(argtable) / <span class="keyword">sizeof</span>(argtable[0]));</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a5b6cab7432014b9db9a820c0ebb7e578">check_options</a>(out);</div>
-<div class="line"><span class="lineno">  160</span>}</div>
-<div class="ttc" id="aoptions_8c_html_a5b6cab7432014b9db9a820c0ebb7e578"><div class="ttname"><a href="#a5b6cab7432014b9db9a820c0ebb7e578">check_options</a></div><div class="ttdeci">static int check_options(options_t *options)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00049">options.c:49</a></div></div>
-<div class="ttc" id="aoptions_8c_html_ad28ab90fb9a66789a00b3033a220e816"><div class="ttname"><a href="#ad28ab90fb9a66789a00b3033a220e816">set_default_options</a></div><div class="ttdeci">static void set_default_options(options_t *o)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00008">options.c:8</a></div></div>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00144">144</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  145</span>{</div>
+<div class="line"><span class="lineno">  146</span>    <a class="code hl_function" href="#ad28ab90fb9a66789a00b3033a220e816">set_default_options</a>(out);</div>
+<div class="line"><span class="lineno">  147</span></div>
+<div class="line"><span class="lineno">  149</span>    <span class="keyword">struct </span>arg_lit *sp = arg_lit0(NULL, <span class="stringliteral">&quot;sp&quot;</span>, <span class="stringliteral">&quot;Single Process mode&quot;</span>);</div>
+<div class="line"><span class="lineno">  150</span>    <span class="keyword">struct </span>arg_lit *mp = arg_lit0(NULL, <span class="stringliteral">&quot;mp&quot;</span>, <span class="stringliteral">&quot;Multi Process mode&quot;</span>);</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>    <span class="keyword">struct </span>arg_lit *task1 = arg_lit0(NULL, <span class="stringliteral">&quot;task1&quot;</span>, <span class="stringliteral">&quot;Run Task 1&quot;</span>);</div>
+<div class="line"><span class="lineno">  153</span>    <span class="keyword">struct </span>arg_lit *task2 = arg_lit0(NULL, <span class="stringliteral">&quot;task2&quot;</span>, <span class="stringliteral">&quot;Run Task 2&quot;</span>);</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keyword">struct </span>arg_lit *task_both =</div>
+<div class="line"><span class="lineno">  155</span>        arg_lit0(NULL, <span class="stringliteral">&quot;task-both&quot;</span>, <span class="stringliteral">&quot;Run both tasks&quot;</span>);</div>
+<div class="line"><span class="lineno">  156</span> </div>
+<div class="line"><span class="lineno">  157</span>    <span class="keyword">struct </span>arg_file *input_txt =</div>
+<div class="line"><span class="lineno">  158</span>        arg_file0(NULL, <span class="stringliteral">&quot;input-txt&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Input text file&quot;</span>);</div>
+<div class="line"><span class="lineno">  159</span>    <span class="keyword">struct </span>arg_file *input_csv =</div>
+<div class="line"><span class="lineno">  160</span>        arg_file0(NULL, <span class="stringliteral">&quot;input-csv&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Input CSV file&quot;</span>);</div>
+<div class="line"><span class="lineno">  161</span>    <span class="keyword">struct </span>arg_file *output_txt =</div>
+<div class="line"><span class="lineno">  162</span>        arg_file0(NULL, <span class="stringliteral">&quot;output-txt&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Output text file&quot;</span>);</div>
+<div class="line"><span class="lineno">  163</span>    <span class="keyword">struct </span>arg_file *output_csv =</div>
+<div class="line"><span class="lineno">  164</span>        arg_file0(NULL, <span class="stringliteral">&quot;output-csv&quot;</span>, <span class="stringliteral">&quot;&lt;file&gt;&quot;</span>, <span class="stringliteral">&quot;Output CSV file&quot;</span>);</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>    <span class="keyword">struct </span>arg_int *n_words =</div>
+<div class="line"><span class="lineno">  167</span>        arg_int0(NULL, <span class="stringliteral">&quot;n-words&quot;</span>, <span class="stringliteral">&quot;&lt;n&gt;&quot;</span>, <span class="stringliteral">&quot;Number of words to process&quot;</span>);</div>
+<div class="line"><span class="lineno">  168</span>    <span class="keyword">struct </span>arg_end *end = arg_end(20);</div>
+<div class="line"><span class="lineno">  169</span> </div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordtype">void</span> *argtable[] = {sp,     mp,    task1,     task2,</div>
+<div class="line"><span class="lineno">  171</span>                task_both,  input_txt, input_csv, output_txt,</div>
+<div class="line"><span class="lineno">  172</span>                output_csv, n_words,   end};</div>
+<div class="line"><span class="lineno">  173</span> </div>
+<div class="line"><span class="lineno">  174</span>    <span class="comment">// Parse the command line arguments</span></div>
+<div class="line"><span class="lineno">  175</span>    <span class="keywordtype">int</span> nerrors = arg_parse(argc, argv, argtable);</div>
+<div class="line"><span class="lineno">  176</span>    <span class="keywordflow">if</span> (nerrors &gt; 0) {</div>
+<div class="line"><span class="lineno">  177</span>        arg_print_errors(stderr, end, <span class="stringliteral">&quot;Error parsing options&quot;</span>);</div>
+<div class="line"><span class="lineno">  178</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  179</span>    }</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>    <span class="comment">// Set run mode</span></div>
+<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">if</span> (sp-&gt;count &gt; 0) {</div>
+<div class="line"><span class="lineno">  183</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605">MODE_SP</a>;</div>
+<div class="line"><span class="lineno">  184</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (mp-&gt;count &gt; 0) {</div>
+<div class="line"><span class="lineno">  185</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfa209e6edd37dd43fe3af4ef10d5f79e10">MODE_MP</a>;</div>
+<div class="line"><span class="lineno">  186</span>    }</div>
+<div class="line"><span class="lineno">  187</span> </div>
+<div class="line"><span class="lineno">  188</span>    <span class="comment">// Set task</span></div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (task1-&gt;count &gt; 0) {</div>
+<div class="line"><span class="lineno">  190</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a241b91417e1a06aba928fcd5b6a4fd3c">TASK_1</a>;</div>
+<div class="line"><span class="lineno">  191</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (task2-&gt;count &gt; 0) {</div>
+<div class="line"><span class="lineno">  192</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a51febcb3d9963465c477b9dacca90c0d">TASK_2</a>;</div>
+<div class="line"><span class="lineno">  193</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (task_both-&gt;count &gt; 0) {</div>
+<div class="line"><span class="lineno">  194</span>        out-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897">TASK_BOTH</a>;</div>
+<div class="line"><span class="lineno">  195</span>    }</div>
+<div class="line"><span class="lineno">  196</span> </div>
+<div class="line"><span class="lineno">  197</span>    <span class="comment">// Set input and output files</span></div>
+<div class="line"><span class="lineno">  198</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a> = input_txt-&gt;filename[0];</div>
+<div class="line"><span class="lineno">  199</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a> = input_csv-&gt;filename[0];</div>
+<div class="line"><span class="lineno">  200</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> = output_txt-&gt;filename[0];</div>
+<div class="line"><span class="lineno">  201</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = output_csv-&gt;filename[0];</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>    <span class="comment">// Set number of words and word to process</span></div>
+<div class="line"><span class="lineno">  204</span>    out-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = n_words-&gt;count &gt; 0 ? n_words-&gt;ival[0] : 0;</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>    <span class="comment">// Free the argument table</span></div>
+<div class="line"><span class="lineno">  207</span>    arg_freetable(argtable, <span class="keyword">sizeof</span>(argtable) / <span class="keyword">sizeof</span>(argtable[0]));</div>
+<div class="line"><span class="lineno">  208</span> </div>
+<div class="line"><span class="lineno">  209</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="#a5b6cab7432014b9db9a820c0ebb7e578">check_options</a>(out);</div>
+<div class="line"><span class="lineno">  210</span>}</div>
+<div class="ttc" id="aoptions_8c_html_a5b6cab7432014b9db9a820c0ebb7e578"><div class="ttname"><a href="#a5b6cab7432014b9db9a820c0ebb7e578">check_options</a></div><div class="ttdeci">static int check_options(options_t *options)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00067">options.c:67</a></div></div>
+<div class="ttc" id="aoptions_8c_html_ad28ab90fb9a66789a00b3033a220e816"><div class="ttname"><a href="#ad28ab90fb9a66789a00b3033a220e816">set_default_options</a></div><div class="ttdeci">static void set_default_options(options_t *o)</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00014">options.c:14</a></div></div>
 <div class="ttc" id="aoptions_8h_html_a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897"><div class="ttname"><a href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897">TASK_BOTH</a></div><div class="ttdeci">@ TASK_BOTH</div><div class="ttdoc">Execute both tasks sequentially.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00020">options.h:20</a></div></div>
 <div class="ttc" id="aoptions_8h_html_ab7d9043cd339ce50c3582b04c5fbb4dfa209e6edd37dd43fe3af4ef10d5f79e10"><div class="ttname"><a href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfa209e6edd37dd43fe3af4ef10d5f79e10">MODE_MP</a></div><div class="ttdeci">@ MODE_MP</div><div class="ttdoc">Run in multi-process mode.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00011">options.h:11</a></div></div>
 <div class="ttc" id="aoptions_8h_html_ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605"><div class="ttname"><a href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605">MODE_SP</a></div><div class="ttdeci">@ MODE_SP</div><div class="ttdoc">Run in single-process mode.</div><div class="ttdef"><b>Definition</b> <a href="options_8h_source.html#l00010">options.h:10</a></div></div>
@@ -460,15 +581,25 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="options_8c_aa3dea22abd024052e9168eb410d1015e_cgraph.png" border="0" usemap="#aoptions_8c_aa3dea22abd024052e9168eb410d1015e_cgraph" loading="lazy" alt=""/></div>
 <map name="aoptions_8c_aa3dea22abd024052e9168eb410d1015e_cgraph" id="aoptions_8c_aa3dea22abd024052e9168eb410d1015e_cgraph">
-<area shape="rect" title="Parse command line arguments into an options structure." alt="" coords="5,59,108,84"/>
-<area shape="rect" href="options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="170,33,276,59"/>
-<area shape="poly" title=" " alt="" coords="108,61,154,54,155,59,109,66"/>
-<area shape="rect" href="options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="156,83,290,108"/>
-<area shape="poly" title=" " alt="" coords="109,76,141,81,140,86,108,82"/>
-<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="378,5,451,31"/>
-<area shape="poly" title=" " alt="" coords="275,36,362,23,363,28,276,41"/>
-<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="338,55,491,96"/>
-<area shape="poly" title=" " alt="" coords="276,52,323,59,322,64,275,57"/>
+<area shape="rect" title="Parse command line arguments into an options structure." alt="" coords="5,161,108,188"/>
+<area shape="rect" href="options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="170,136,276,163"/>
+<area shape="poly" title=" " alt="" coords="108,164,154,157,155,162,109,169"/>
+<area shape="rect" href="options_8c.html#ad28ab90fb9a66789a00b3033a220e816" title=" " alt="" coords="156,187,290,213"/>
+<area shape="poly" title=" " alt="" coords="109,180,141,185,140,190,108,185"/>
+<area shape="rect" href="options_8c.html#a60322f6b3e1d901c742d98fa3bd02ae9" title=" " alt="" coords="350,5,479,32"/>
+<area shape="poly" title=" " alt="" coords="234,134,276,89,305,64,337,42,347,36,349,41,339,46,308,68,280,93,238,137"/>
+<area shape="rect" href="utils_8c.html#a9c2abaf362c73cdbb9b053ba36dd4ad6" title="Check if a file is empty." alt="" coords="344,56,485,83"/>
+<area shape="poly" title=" " alt="" coords="250,133,337,92,354,86,356,91,339,97,252,138"/>
+<area shape="rect" href="options_8c.html#a0336311d8cbbc8c2a4b0753286f94191" title=" " alt="" coords="378,107,452,133"/>
+<area shape="poly" title=" " alt="" coords="275,139,362,125,363,131,276,144"/>
+<area shape="rect" href="options_8c.html#a7e78f0420033ef4459633a15540b66ef" title=" " alt="" coords="338,157,491,200"/>
+<area shape="poly" title=" " alt="" coords="276,155,323,162,322,167,275,160"/>
+<area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="372,224,457,251"/>
+<area shape="poly" title=" " alt="" coords="267,161,291,172,316,191,339,210,359,219,357,224,337,214,312,196,289,177,265,166"/>
+<area shape="rect" href="utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="359,275,470,301"/>
+<area shape="poly" title=" " alt="" coords="274,161,292,173,309,196,316,218,323,240,340,261,347,266,344,270,336,265,318,242,311,220,304,198,288,177,271,166"/>
+<area shape="rect" href="utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="539,275,625,301"/>
+<area shape="poly" title=" " alt="" coords="471,285,524,285,524,291,471,291"/>
 </map>
 </div>
 <div class="dynheader">
@@ -507,16 +638,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00008">8</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
-<div class="line"><span class="lineno">   10</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605">MODE_SP</a>;</div>
-<div class="line"><span class="lineno">   11</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897">TASK_BOTH</a>;</div>
-<div class="line"><span class="lineno">   12</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a> = NULL;</div>
-<div class="line"><span class="lineno">   13</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a> = NULL;</div>
-<div class="line"><span class="lineno">   14</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> = NULL;</div>
-<div class="line"><span class="lineno">   15</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = NULL;</div>
-<div class="line"><span class="lineno">   16</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = 0;</div>
-<div class="line"><span class="lineno">   17</span>}</div>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00014">14</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a4a49f0b79f002f799acefee394eefa9e">mode</a> = <a class="code hl_enumvalue" href="options_8h.html#ab7d9043cd339ce50c3582b04c5fbb4dfaf0c33ef1543ad85cb6edce73a6399605">MODE_SP</a>;</div>
+<div class="line"><span class="lineno">   17</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#abe47deb9f940ee8d83a372e05c8f3075">task</a> = <a class="code hl_enumvalue" href="options_8h.html#a2134c58e6771263d48a50f8ffb480f66a2bd0f7da1c64def4b271dd32c0e89897">TASK_BOTH</a>;</div>
+<div class="line"><span class="lineno">   18</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#ac5615da1d5273ca96d743147a7f9c543">input_txt</a> = NULL;</div>
+<div class="line"><span class="lineno">   19</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a7ff37a0a30d66ea153c759be38984138">input_csv</a> = NULL;</div>
+<div class="line"><span class="lineno">   20</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#ae0a953788fce9057a712a280a017f0ae">output_txt</a> = NULL;</div>
+<div class="line"><span class="lineno">   21</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#aece323239286d591c286291a0e58cfc0">output_csv</a> = NULL;</div>
+<div class="line"><span class="lineno">   22</span>    o-&gt;<a class="code hl_variable" href="structoptions__t.html#a5bf1020030ff6f9a1a4a30cb715c766f">n_words</a> = 0;</div>
+<div class="line"><span class="lineno">   23</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

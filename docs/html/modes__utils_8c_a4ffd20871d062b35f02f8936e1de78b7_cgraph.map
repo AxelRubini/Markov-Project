@@ -1,10 +1,16 @@
 <map id="validate_input_file" name="validate_input_file">
-<area shape="rect" id="Node000001" title="Validate or read input file." alt="" coords="5,55,130,80"/>
-<area shape="rect" id="Node000002" href="$modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="198,5,272,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,51,183,31,184,36,115,57"/>
-<area shape="rect" id="Node000003" href="$modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="178,55,292,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,65,162,65,162,70,130,70"/>
-<area shape="rect" id="Node000004" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="340,80,424,106"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="117,78,178,90,254,95,325,94,325,99,254,100,177,95,116,84"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="293,75,325,80,324,86,292,80"/>
+<area shape="rect" id="Node000001" title="Validate or read input file." alt="" coords="5,56,131,83"/>
+<area shape="rect" id="Node000002" href="$modes__utils_8c.html#a690ba732eed5eefc67aef350946092a9" title=" " alt="" coords="199,5,273,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,53,183,32,185,37,116,58"/>
+<area shape="rect" id="Node000003" href="$modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="179,56,293,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,67,163,67,163,72,131,72"/>
+<area shape="rect" id="Node000005" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="369,107,453,133"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="124,81,179,92,271,105,354,113,353,118,270,110,178,97,123,86"/>
+<area shape="rect" id="Node000004" href="$utils_8c.html#a9c2abaf362c73cdbb9b053ba36dd4ad6" title="Check if a file is empty." alt="" coords="341,5,481,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="284,53,347,34,348,39,286,58"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="286,81,355,101,354,106,284,86"/>
+<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="356,56,467,83"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="293,67,340,67,340,72,293,72"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="529,56,615,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="467,67,514,67,514,72,467,72"/>
 </map>

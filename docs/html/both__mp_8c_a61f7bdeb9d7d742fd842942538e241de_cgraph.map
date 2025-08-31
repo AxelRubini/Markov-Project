@@ -1,31 +1,34 @@
 <map id="w_p1" name="w_p1">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,58,155"/>
-<area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="106,104,255,130"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,135,90,130,91,135,59,140"/>
-<area shape="rect" id="Node000014" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="138,153,222,179"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="59,144,123,154,122,160,58,149"/>
-<area shape="rect" id="Node000003" href="$file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b" title="Create a &quot;current next&quot; frame string." alt="" coords="303,55,461,80"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,101,311,82,313,87,237,106"/>
-<area shape="rect" id="Node000004" href="$file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="326,104,438,130"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="255,114,310,114,310,120,255,120"/>
-<area shape="rect" id="Node000012" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="338,179,427,204"/>
-<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="225,128,256,138,337,170,335,175,254,143,224,133"/>
-<area shape="rect" id="Node000005" href="$file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="714,29,864,55"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="438,101,460,91,474,78,482,64,492,50,508,38,560,23,614,17,667,18,715,23,714,29,667,23,615,22,561,28,510,43,495,54,487,67,478,81,463,95,440,106"/>
-<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="736,79,842,104"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="439,111,721,93,721,98,439,116"/>
-<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="509,155,666,180"/>
-<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="438,128,519,148,517,153,437,133"/>
-<area shape="rect" id="Node000011" href="$file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="519,53,656,79"/>
-<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="437,101,517,81,519,86,438,106"/>
-<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="916,5,1020,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="864,29,900,25,901,30,865,35"/>
-<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="912,55,1023,80"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="865,50,897,55,896,60,864,55"/>
-<area shape="rect" id="Node000008" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="1071,55,1157,80"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1024,65,1056,65,1056,70,1024,70"/>
-<area shape="poly" id="edge11_Node000011_Node000005" title=" " alt="" coords="656,55,698,50,699,56,657,61"/>
-<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="657,72,721,80,721,86,656,77"/>
-<area shape="rect" id="Node000013" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="553,204,622,230"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="428,194,538,208,537,213,427,200"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,157,58,184"/>
+<area shape="rect" id="Node000002" href="$file__reader__mp_8c.html#a6ccb4bb41659046568cd0c2068362ed1" title="Send consecutive word pairs over a pipe." alt="" coords="106,132,255,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,164,90,158,91,163,59,169"/>
+<area shape="rect" id="Node000015" href="$utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="138,183,222,209"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="59,172,123,184,122,189,58,178"/>
+<area shape="rect" id="Node000003" href="$file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b" title="Create a &quot;current next&quot; frame string." alt="" coords="303,81,461,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,129,311,110,312,115,237,134"/>
+<area shape="rect" id="Node000004" href="$file__reader__mp_8c.html#a6161e16edc5121f59e24e4a0332396b5" title="Read the next word from a descriptor." alt="" coords="326,132,439,159"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="255,143,310,143,310,148,255,148"/>
+<area shape="rect" id="Node000013" href="$frame_8c.html#a25f328b1efd54fde993d7060fdf970c8" title="Send a length&#45;prefixed frame over a file descriptor." alt="" coords="338,208,427,235"/>
+<area shape="poly" id="edge15_Node000002_Node000013" title=" " alt="" coords="224,157,256,168,335,199,333,204,254,173,222,162"/>
+<area shape="rect" id="Node000005" href="$file__reader__mp_8c.html#a5e408a300bc92e935a3145d3a05ecd0d" title=" " alt="" coords="726,5,854,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="438,129,460,118,474,104,483,90,492,75,508,62,558,40,610,26,663,18,710,15,711,20,663,23,612,31,559,45,511,66,496,79,487,93,478,107,463,122,440,134"/>
+<area shape="rect" id="Node000008" href="$file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a" title="Skip the next bytes if typographic character." alt="" coords="714,56,866,83"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="430,129,460,118,484,104,508,92,556,81,606,73,698,66,699,71,606,78,557,86,510,97,486,109,462,122,432,134"/>
+<area shape="rect" id="Node000010" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="737,132,842,159"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="439,143,722,143,722,148,439,148"/>
+<area shape="rect" id="Node000011" href="$utf8__tools_8c.html#a410032576791ab4aeb6fc141284d2bab" title="Return non&#45;zero if code point terminates a sentence." alt="" coords="509,208,666,235"/>
+<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="422,157,536,200,534,205,420,162"/>
+<area shape="rect" id="Node000012" href="$file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412" title="Read and return the next non&#45;space character." alt="" coords="518,107,657,133"/>
+<area shape="poly" id="edge12_Node000004_Node000012" title=" " alt="" coords="439,136,503,128,504,133,440,141"/>
+<area shape="rect" id="Node000006" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="914,5,1025,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="854,16,899,16,899,21,854,21"/>
+<area shape="rect" id="Node000007" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="1073,5,1159,32"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1026,16,1058,16,1058,21,1026,21"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="839,53,904,34,906,39,841,58"/>
+<area shape="rect" id="Node000009" href="$utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="917,56,1022,83"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="866,67,901,67,901,72,866,72"/>
+<area shape="poly" id="edge13_Node000012_Node000008" title=" " alt="" coords="643,103,718,84,719,90,645,109"/>
+<area shape="poly" id="edge14_Node000012_Node000010" title=" " alt="" coords="657,126,723,134,722,140,657,131"/>
+<area shape="rect" id="Node000014" href="$frame_8c.html#ac3a1375a1f72d7bc755e629be3d4defc" title="Write all bytes from buf to the file descriptor fd." alt="" coords="553,259,622,285"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="428,230,538,257,537,262,427,235"/>
 </map>

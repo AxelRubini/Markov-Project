@@ -39,7 +39,7 @@
 <area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="859,253,827,252,827,247,859,247"/>
 <area shape="rect" id="Node000017" href="$file__writer_8c.html#a0f225aae507126a1c4c9dd9e20200b91" title="Send generated words over a file descriptor." alt="" coords="478,208,595,235"/>
 <area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="627,236,595,232,596,227,628,231"/>
-<area shape="rect" id="Node000021" href="$file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="316,259,430,285"/>
+<area shape="rect" id="Node000021" href="$file__writer_8c.html#ac4a11069aa4a8bd8912c8e00dbf2bc35" title="Generate text and write it to a file (single process)." alt="" coords="316,259,430,285"/>
 <area shape="poly" id="edge26_Node000016_Node000021" title=" " alt="" coords="628,258,430,271,430,266,627,252"/>
 <area shape="rect" id="Node000018" href="$task2__mp_8c.html#a630833dcf7dc9e59c6ef5748b589e205" title=" " alt="" coords="347,208,399,235"/>
 <area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="462,224,400,224,400,219,462,219"/>

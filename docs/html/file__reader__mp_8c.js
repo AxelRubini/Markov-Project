@@ -1,5 +1,6 @@
 var file__reader__mp_8c =
 [
+    [ "check_apostrophe", "file__reader__mp_8c.html#a5e408a300bc92e935a3145d3a05ecd0d", null ],
     [ "check_next_typograph", "file__reader__mp_8c.html#a59a255b23bf9be325ce58bf477bc0e7a", null ],
     [ "create_string_for_frame", "file__reader__mp_8c.html#a74dc0589c6fc2d95d472a84acd90281b", null ],
     [ "move_to_next_word", "file__reader__mp_8c.html#a4b80642798572fb224f6ea5dacd73412", null ],

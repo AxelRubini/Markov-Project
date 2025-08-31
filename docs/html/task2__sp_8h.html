@@ -180,7 +180,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   29</span>    }</div>
 <div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordtype">int</span> result = <a class="code hl_function" href="file__writer_8h.html#a92953edab6e16d827c2f7e1bb08c7fb4">write_output_sp</a>(output_txt, n_words, ht);</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordtype">int</span> result = <a class="code hl_function" href="file__writer_8h.html#ac4a11069aa4a8bd8912c8e00dbf2bc35">write_output_sp</a>(output_txt, n_words, ht);</div>
 <div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> (result &lt; 0) {</div>
 <div class="line"><span class="lineno">   33</span>        fprintf(stderr, <span class="stringliteral">&quot;Failed to send output: %d\n&quot;</span>, result);</div>
 <div class="line"><span class="lineno">   34</span>        <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
@@ -191,26 +191,25 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   39</span>        <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
 <div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><span class="lineno">   41</span>    }</div>
-<div class="line"><span class="lineno">   42</span>    fprintf(stderr, <span class="stringliteral">&quot;Output written to %s\n&quot;</span>, output_txt);</div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">if</span> (print_to_stdout) {</div>
-<div class="line"><span class="lineno">   46</span>        <span class="comment">// Print the content of the output file to stdout</span></div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
-<div class="line"><span class="lineno">   48</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   49</span>            unlink(output_txt); <span class="comment">// Remove the temporary file</span></div>
-<div class="line"><span class="lineno">   50</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   51</span>        }</div>
-<div class="line"><span class="lineno">   52</span>        unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
-<div class="line"><span class="lineno">   53</span>    }</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_function" href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a>(ht);</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (print_to_stdout) {</div>
+<div class="line"><span class="lineno">   45</span>        <span class="comment">// Print the content of the output file to stdout</span></div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a>(output_txt) &lt; 0) {</div>
+<div class="line"><span class="lineno">   47</span>            fprintf(stderr, <span class="stringliteral">&quot;Failed to print output to stdout\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   48</span>            unlink(output_txt); <span class="comment">// Remove the temporary file</span></div>
+<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   50</span>        }</div>
+<div class="line"><span class="lineno">   51</span>        unlink(output_txt); <span class="comment">// Remove the temporary file after printing</span></div>
+<div class="line"><span class="lineno">   52</span>    }</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="aCSV__reader_8h_html_a71360bacc7e01a6c665df648bfc86ecc"><div class="ttname"><a href="CSV__reader_8h.html#a71360bacc7e01a6c665df648bfc86ecc">read_csv_file_sp</a></div><div class="ttdeci">hash_table_t * read_csv_file_sp(const char *filename)</div><div class="ttdoc">Populate a hash table by reading a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="CSV__reader_8c_source.html#l00079">CSV_reader.c:79</a></div></div>
-<div class="ttc" id="afile__writer_8h_html_a92953edab6e16d827c2f7e1bb08c7fb4"><div class="ttname"><a href="file__writer_8h.html#a92953edab6e16d827c2f7e1bb08c7fb4">write_output_sp</a></div><div class="ttdeci">int write_output_sp(const char *filename, const int num_words, hash_table_t *table)</div><div class="ttdoc">Generate text and write it to a file (single process).</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00178">file_writer.c:178</a></div></div>
+<div class="ttc" id="afile__writer_8h_html_ac4a11069aa4a8bd8912c8e00dbf2bc35"><div class="ttname"><a href="file__writer_8h.html#ac4a11069aa4a8bd8912c8e00dbf2bc35">write_output_sp</a></div><div class="ttdeci">int write_output_sp(const char *filename, const uint32_t num_words, hash_table_t *table)</div><div class="ttdoc">Generate text and write it to a file (single process).</div><div class="ttdef"><b>Definition</b> <a href="file__writer_8c_source.html#l00177">file_writer.c:177</a></div></div>
 <div class="ttc" id="ahash__table_8h_html_a48c22d52e879fb10712c37f9e16aefdb"><div class="ttname"><a href="hash__table_8h.html#a48c22d52e879fb10712c37f9e16aefdb">free_hash_table</a></div><div class="ttdeci">void free_hash_table(hash_table_t *table)</div><div class="ttdoc">Destroy a hash table and its contents.</div><div class="ttdef"><b>Definition</b> <a href="hash__table_8c_source.html#l00201">hash_table.c:201</a></div></div>
 <div class="ttc" id="amodes__utils_8h_html_a18fcdb459ef3cccccc58263b0967fa23"><div class="ttname"><a href="modes__utils_8h.html#a18fcdb459ef3cccccc58263b0967fa23">TMP_STDOUT_FILE</a></div><div class="ttdeci">#define TMP_STDOUT_FILE</div><div class="ttdoc">Temporary file used to capture output when no output file is provided.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8h_source.html#l00015">modes_utils.h:15</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00058">modes_utils.c:58</a></div></div>
-<div class="ttc" id="amodes__utils_8h_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00096">modes_utils.c:96</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a2dff2109ae72eeac63a2794542ea6d48"><div class="ttname"><a href="modes__utils_8h.html#a2dff2109ae72eeac63a2794542ea6d48">print_file_content_to_stdout</a></div><div class="ttdeci">int print_file_content_to_stdout(const char *filename)</div><div class="ttdoc">Print file content to stdout.</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00077">modes_utils.c:77</a></div></div>
+<div class="ttc" id="amodes__utils_8h_html_a690ba732eed5eefc67aef350946092a9"><div class="ttname"><a href="modes__utils_8h.html#a690ba732eed5eefc67aef350946092a9">is_empty</a></div><div class="ttdeci">int is_empty(const char *str)</div><div class="ttdef"><b>Definition</b> <a href="modes__utils_8c_source.html#l00116">modes_utils.c:116</a></div></div>
 <div class="ttc" id="astructhash__table__t_html"><div class="ttname"><a href="structhash__table__t.html">hash_table_t</a></div><div class="ttdef"><b>Definition</b> <a href="hash__table_8h_source.html#l00012">hash_table.h:12</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -226,7 +225,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="80,1105,112,1105,112,1111,80,1111"/>
 <area shape="rect" href="CSV__reader_8c.html#a71360bacc7e01a6c665df648bfc86ecc" title="Populate a hash table by reading a CSV file." alt="" coords="128,639,248,665"/>
 <area shape="poly" title=" " alt="" coords="46,1094,175,679,180,681,51,1095"/>
-<area shape="rect" href="file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4" title="Generate text and write it to a file (single process)." alt="" coords="131,1339,244,1365"/>
+<area shape="rect" href="file__writer_8c.html#ac4a11069aa4a8bd8912c8e00dbf2bc35" title="Generate text and write it to a file (single process)." alt="" coords="131,1339,244,1365"/>
 <area shape="poly" title=" " alt="" coords="54,1120,173,1324,169,1327,50,1123"/>
 <area shape="rect" href="utils_8c.html#ad6d87adb1f10074bf9c114f9c0bdd040" title="Close an fd safely." alt="" coords="346,1095,430,1121"/>
 <area shape="poly" title=" " alt="" coords="248,1105,330,1105,330,1111,248,1111"/>

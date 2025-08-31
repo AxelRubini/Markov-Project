@@ -1,0 +1,7 @@
+<map id="check_apostrophe" name="check_apostrophe">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,133,32"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="181,5,292,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="340,5,425,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,16,325,16,325,21,292,21"/>
+</map>

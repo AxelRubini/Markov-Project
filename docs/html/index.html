@@ -147,7 +147,7 @@ Struttura del progetto</h1>
     int \*key; // parola chiave
     linked_list_t \*next_words; // lista di next_word_t successive
     }
-    </span>`</p>
+    </span></p>
 </li>
 <li><span class="tt">io/</span> – funzioni di input/output su file e pipe.<ul>
 <li><span class="tt">file_reader.h</span> - contiene le funzione per la lettura di un testo UTF-8 e la creazione di una hash table di parole e leloro occorrenze sfruttando la struct <span class="tt">word_t</span>.</li>
@@ -215,6 +215,7 @@ Esempi</h2>
 <div class="fragment"><div class="line">./markov --mp --task-both --input-txt libro.txt --output-csv analisi.csv --output-txt output.txt --n-words 20</div>
 </div><!-- fragment --></li>
 </ol>
+<p><span class="tt">NOTA</span>: Il carattere tipografico apostrofo chiuso a destra viene considerato tale se e solo se no e' presente alcuno spazio successivo adesso, altrimenti viene considerato come una chiusura di single quote e quindi ignorato</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Flowchart delle modalita multiprocesso</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>

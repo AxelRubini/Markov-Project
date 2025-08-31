@@ -1,0 +1,27 @@
+<map id="check_file_is_empty" name="check_file_is_empty">
+<area shape="rect" id="Node000001" title="Check if a file is empty." alt="" coords="715,56,855,83"/>
+<area shape="rect" id="Node000002" href="$options_8c.html#a5b6cab7432014b9db9a820c0ebb7e578" title=" " alt="" coords="557,5,662,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="721,54,658,35,659,30,722,48"/>
+<area shape="rect" id="Node000005" href="$modes__utils_8c.html#a12707c0ccc87dbce41af51f22016f413" title=" " alt="" coords="553,81,667,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="700,84,668,89,667,84,699,79"/>
+<area shape="rect" id="Node000003" href="$options_8c.html#aa3dea22abd024052e9168eb410d1015e" title="Parse command line arguments into an options structure." alt="" coords="103,19,205,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="542,23,206,33,206,28,542,18"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,69,55,96"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,54,56,75,54,70,104,49"/>
+<area shape="rect" id="Node000006" href="$modes__utils_8c.html#a4ffd20871d062b35f02f8936e1de78b7" title="Validate or read input file." alt="" coords="379,95,505,121"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="537,103,505,106,505,100,537,98"/>
+<area shape="rect" id="Node000007" href="$both__mp_8c.html#a3927f38b935091674d504f1096ba5b5d" title="Execute both tasks in multi&#45;process mode." alt="" coords="256,44,328,71"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="385,92,328,72,329,67,387,87"/>
+<area shape="rect" id="Node000009" href="$both__sp_8c.html#a42ca805c6ac345cc5c6db2253b215a5b" title="Execute both single&#45;process tasks: build a CSV from text and generate output text from the CSV." alt="" coords="258,95,326,121"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="364,111,326,111,326,105,364,105"/>
+<area shape="rect" id="Node000010" href="$task1__mp_8c.html#a47463f768cc021dcf34b718d7a784362" title="Build a word frequency table from a text file using multiple processes." alt="" coords="253,145,331,172"/>
+<area shape="poly" id="edge11_Node000006_Node000010" title=" " alt="" coords="387,129,333,148,331,143,385,124"/>
+<area shape="rect" id="Node000011" href="$task1__sp_8c.html#ac4c91b6d3574787f024a67ea9b0f87d2" title="Build a word&#45;frequency CSV file from an input text." alt="" coords="255,196,329,223"/>
+<area shape="poly" id="edge13_Node000006_Node000011" title=" " alt="" coords="410,133,333,186,316,198,313,193,330,182,407,128"/>
+<area shape="rect" id="Node000008" href="$runner_8c.html#a632c18351b8eb8158132b5be8f604d78" title="Run the application with the provided options." alt="" coords="134,95,174,121"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="243,78,175,103,173,98,241,73"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="118,104,55,90,56,85,119,98"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="243,111,174,111,174,105,243,105"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="239,142,173,118,175,113,241,137"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="255,189,251,186,171,124,174,120,255,182,259,185"/>
+</map>

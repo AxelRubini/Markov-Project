@@ -7,6 +7,7 @@ var utils_8h =
     [ "MAX_WORD_LENGTH_NO_BUF", "utils_8h.html#a577cc9cb2360a4189452bc236851a6cf", null ],
     [ "u32", "utils_8h.html#afaa62991928fb9fb18ff0db62a040aba", null ],
     [ "u8", "utils_8h.html#a92c50087ca0e64fa93fc59402c55f8ca", null ],
+    [ "check_file_is_empty", "utils_8h.html#a9c2abaf362c73cdbb9b053ba36dd4ad6", null ],
     [ "dmalloc", "utils_8h.html#a78a9dba3711a7a17ad34044953f6937b", null ],
     [ "hash_function", "utils_8h.html#ad599527823f3d135836d6f352e691483", null ],
     [ "is_prime", "utils_8h.html#a4bb904556a9270d49ad91d7086487c99", null ],

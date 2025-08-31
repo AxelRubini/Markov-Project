@@ -6,5 +6,5 @@ var file__writer_8c =
     [ "search_start_word", "file__writer_8c.html#a7ef01b9be51cc3ef26b76d1b627555ab", null ],
     [ "send_output_mp", "file__writer_8c.html#a0f225aae507126a1c4c9dd9e20200b91", null ],
     [ "write_output_mp", "file__writer_8c.html#a366461dc2bef9f344dd7135de8f2187d", null ],
-    [ "write_output_sp", "file__writer_8c.html#a92953edab6e16d827c2f7e1bb08c7fb4", null ]
+    [ "write_output_sp", "file__writer_8c.html#ac4a11069aa4a8bd8912c8e00dbf2bc35", null ]
 ];

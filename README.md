@@ -23,9 +23,9 @@ Il programma analizza un testo di input, costruisce le probabilità di transizio
   - `ds/` – strutture dati (linked list,hash table, ecc.).
     - `hash_table.h` - dichiarazione della struttura `hash_table_t` e delle funzioni per la gestione della tabella hash.
     - `linked_list.h` - dichiarazione delle strutture `linked_list_t` e `ll_item_t` per la gestione delle linked list e relative funzioni per la gestione di esse.
-    - `ht_item.h` - dichiarazione della struttura `ht_item` e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next*word.
-      * `word.h` - dichiarazione della struttura `word_t` e delle funzioni per gestire la struct e funzioni per la specializzazione della `hash_table_t` per le parole e i relativi `ht_item`.
-      un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura:
+    - `ht_item.h` - dichiarazione della struttura `ht_item` e delle funzioni per la gestione degli elementi della tabella hash, il suo scopo e' quello di fornire un' interfaccia generica per oggetti piu' specializzati come word e next\*word.
+      - `word.h` - dichiarazione della struttura `word_t` e delle funzioni per gestire la struct e funzioni per la specializzazione della `hash_table_t` per le parole e i relativi `ht_item`.
+        un singolo elemento della hash table che rappresenta una parola e le sue occorrenze piu' le parole successive e le occorrenze come tali rispetto alla parola chiave avrà la seguente struttura:
 
     ```markdown
     word_t {
@@ -50,7 +50,7 @@ Il programma analizza un testo di input, costruisce le probabilità di transizio
     int \*key; // parola chiave
     linked_list_t \*next_words; // lista di next_word_t successive
     }
-    ````
+    ```
 
   - `io/` – funzioni di input/output su file e pipe.
     - `file_reader.h` - contiene le funzione per la lettura di un testo UTF-8 e la creazione di una hash table di parole e leloro occorrenze sfruttando la struct `word_t`.
@@ -125,7 +125,10 @@ Opzioni principali:
 
    ```bash
    ./markov --mp --task-both --input-txt libro.txt --output-csv analisi.csv --output-txt output.txt --n-words 20
+
    ```
+
+`NOTA`: Il carattere tipografico apostrofo chiuso a destra viene considerato tale se e solo se no e' presente alcuno spazio successivo adesso, altrimenti viene considerato come una chiusura di single quote e quindi ignorato
 
 ## Flowchart delle modalita multiprocesso
 

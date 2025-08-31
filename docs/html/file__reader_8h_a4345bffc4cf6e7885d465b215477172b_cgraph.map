@@ -1,9 +1,11 @@
 <map id="f_get_next_word" name="f_get_next_word">
-<area shape="rect" id="Node000001" title="Read the next word from a descriptor." alt="" coords="5,31,122,56"/>
-<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="173,5,278,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,32,157,26,158,31,123,37"/>
-<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="170,55,281,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,50,155,54,154,60,122,55"/>
-<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="329,55,414,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,65,314,65,314,70,281,70"/>
+<area shape="rect" id="Node000001" title="Read the next word from a descriptor." alt="" coords="5,56,123,83"/>
+<area shape="rect" id="Node000002" href="$utf8__tools_8c.html#a41ce5668050a61259683558c82481871" title="Return non&#45;zero if code point is ignorable punctuation." alt="" coords="174,5,279,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,53,166,35,168,40,110,58"/>
+<area shape="rect" id="Node000003" href="$utf8__tools_8c.html#a166d4e7d923cc5e37d586a08550b8107" title="Check if a code point is a typographic." alt="" coords="174,56,279,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,67,158,67,158,72,123,72"/>
+<area shape="rect" id="Node000004" href="$utf8__tools_8c.html#ac215be68e83a7746e80824ba69a6a769" title="Read a UTF&#45;8 code point from a descriptor." alt="" coords="171,107,282,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="110,81,168,99,166,104,109,86"/>
+<area shape="rect" id="Node000005" href="$utf8__tools_8c.html#a555d99624bd659baa6b57ae703115871" title=" " alt="" coords="330,107,415,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="282,117,315,117,315,123,282,123"/>
 </map>
