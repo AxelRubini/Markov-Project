@@ -4,11 +4,35 @@
 #include "utils.h"
 #include "word.h"
 
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include <unistd.h>
+
+static int check_apostrophe(int fd, char c)
+{
+	off_t pos = lseek(fd, 0, SEEK_CUR);
+	if ((u8)c == 0xE2) {
+		lseek(fd, -1, SEEK_CUR);
+		int bytes_read = 0;
+		int cp = utf8_getchar_fd(fd, &bytes_read);
+		if (cp == 0x2019) {
+			u8 buf;
+			ssize_t r = read(fd, &buf, 1);
+			if (r == 1 && buf == ' ') {
+				lseek(fd, -1, SEEK_CUR);
+				return -1;
+			}
+			lseek(fd, pos, SEEK_SET);
+			return 1;
+		}
+		lseek(fd, pos, SEEK_SET);
+		return 0;
+	}
+	return 0;
+}
 
 /**
  * @brief Skip the next bytes if typographic character.
@@ -142,6 +166,22 @@ int read_next_word(int fd, char *nxt_buf, size_t *len)
 			// Keep apostrophe in the word
 			nxt_buf[b_index++] = c;
 			(*len)++;
+			break;
+		}
+
+		int is_apostrophe = check_apostrophe(fd, c);
+		if (is_apostrophe == 1) {
+			nxt_buf[b_index++] = c;
+			(*len)++;
+			for (size_t idx = 0; idx < 2; idx++) {
+				u8 by_buf;
+				ssize_t r = read(fd, &by_buf, 1);
+				if (r < 0) {
+					return -1;
+				}
+				nxt_buf[b_index++] = by_buf;
+				(*len)++;
+			}
 			break;
 		}
 		nxt_buf[b_index++] = c;

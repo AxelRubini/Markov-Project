@@ -32,11 +32,9 @@ hash_table_t *build_word_hashtable_fd(int fd)
 	int status = f_get_next_word(fd, current_word);
 
 	if (status == 1) {
-		// empty file
 		return table;
 	}
 	if (status == -1) {
-		// read error
 		free_hash_table(table);
 		return NULL;
 	}
@@ -47,7 +45,6 @@ hash_table_t *build_word_hashtable_fd(int fd)
 	while (1) {
 		// ensure current_word is valid
 		if (current_word[0] == 0) {
-			// empty word, attempt to read next
 			move_cursor_to_next_word(fd);
 			status = f_get_next_word(fd, current_word);
 			if (status != 0) {
@@ -99,16 +96,12 @@ hash_table_t *build_word_hashtable_fd(int fd)
 		}
 
 		if (next_status == -1) {
-			// error reading following word
 			free_word(word);
 			break;
 		}
 
-		// ensure next_word is valid
 		if (next_word[0] == 0) {
-			// empty next word, discard current and continue
 			free_word(word);
-			// move current_word forward for next iteration
 			memset(current_word, 0, sizeof(current_word));
 			move_cursor_to_next_word(fd);
 			status = f_get_next_word(fd, current_word);
@@ -205,7 +198,6 @@ int f_get_next_word(int fd, int *word_buffer)
 			return -1;
 		}
 
-		// stop on space or newline
 		if (cp == ' ' || cp == '\n') {
 			break;
 		}
@@ -217,24 +209,21 @@ int f_get_next_word(int fd, int *word_buffer)
 		}
 
 		// stop at apostrophe
-		if (cp == '\'') {
+		if (cp == '\'' || cp == 0x2019) {
 			word_buffer[index++] = cp; // keep apostrophe
 			word_buffer[index] = 0; // null-terminate
 			return 0; // word complete
 		}
 
-		// skip ignorable punctuation
-		if (is_punctuation(cp)) {
+		if (is_punctuation(cp) || is_typographic(cp)) {
 			continue;
 		}
 
-		// enforce maximum length
 		if (index >= MAX_WORD_LENGTH - 1) {
 			fprintf(stderr, "Word exceeds maximum length\n");
 			return -1;
 		}
 
-		// append character
 		word_buffer[index++] = cp;
 	}
 

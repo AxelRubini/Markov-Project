@@ -385,9 +385,8 @@ int is_sentence_terminator(int cp)
 
 int is_typographic(int cp)
 {
-	return (cp == 0x2018 || cp == 0x2019 || cp == 0x201C || cp == 0x201D ||
-		cp == 0x2026 || cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 ||
-		cp == 0x00BF);
+	return (cp == 0x2018 || cp == 0x201C || cp == 0x201D || cp == 0x2026 ||
+		cp == 0x00AB || cp == 0x00BB || cp == 0x00A1 || cp == 0x00BF);
 }
 
 size_t utf8_str_len(const int *str)
