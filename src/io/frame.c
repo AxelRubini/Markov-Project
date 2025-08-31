@@ -72,8 +72,9 @@ int send_frame(int fd, const char *data_to_send, size_t len)
 		fprintf(stderr, "Invalid data to send or length is zero\n");
 		return -1;
 	}
-	uint32_t frame_length = htonl((uint32_t)len);
-	if (write_all(fd, &frame_length, sizeof(frame_length)) < 0) {
+	uint32_t be_len = (uint32_t)len;
+	if (write_all(fd, &be_len, sizeof(be_len)) <
+	    0) { // write the frame length
 		perror("send_frame: write frame length");
 		return -1;
 	}
@@ -94,7 +95,8 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap)
 		return -1;
 	}
 	uint32_t be_len = 0;
-	ssize_t st = read_all(fd, &be_len, sizeof(be_len));
+	ssize_t st =
+		read_all(fd, &be_len, sizeof(be_len)); // read the frame length
 	if (st == 0) {
 		return 0;
 	}
@@ -105,9 +107,9 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap)
 		return -1;
 	}
 
-	size_t need = (size_t)ntohl(be_len);
-	if (*buf == NULL || *cap < need + 1) {
-		size_t ncap = need + 1;
+	if (*buf == NULL ||
+	    *cap < be_len + 1) { // resize if more space is needed
+		size_t ncap = be_len + 1;
 		char *nb = realloc(*buf, ncap);
 		if (!nb) {
 			return -1;
@@ -115,18 +117,18 @@ ssize_t recv_frame(int fd, char **buf, size_t *cap)
 		*buf = nb;
 		*cap = ncap;
 	}
-	if (need == 0) {
+	if (be_len == 0) {
 		(*buf)[0] = '\0';
 		return 0;
 	}
-	st = read_all(fd, *buf, need);
+	st = read_all(fd, *buf, be_len); // read till the end of the frame
 	if (st < 0) {
 		return -1;
 	}
-	if ((size_t)st < need) {
+	if ((size_t)st < be_len) {
 		return -1;
 	}
 
-	(*buf)[need] = '\0';
-	return (ssize_t)need;
+	(*buf)[be_len] = '\0';
+	return (ssize_t)be_len;
 }
