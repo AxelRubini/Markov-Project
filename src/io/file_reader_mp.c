@@ -183,6 +183,8 @@ int read_next_word(int fd, char *nxt_buf, size_t *len)
 				(*len)++;
 			}
 			break;
+		} else if (is_apostrophe == -1) {
+			continue;
 		}
 		nxt_buf[b_index++] = c;
 		(*len)++;
