@@ -210,6 +210,17 @@ int f_get_next_word(int fd, int *word_buffer)
 
 		// stop at apostrophe
 		if (cp == '\'' || cp == 0x2019) {
+			if (cp == 0x2019) {
+				u8 buf;
+				ssize_t r = read(fd, &buf, 1);
+				if (r < 0) {
+					return -1;
+				}
+				if (buf == ' ') {
+					lseek(fd, -1, SEEK_CUR);
+					continue;
+				}
+			}
 			word_buffer[index++] = cp; // keep apostrophe
 			word_buffer[index] = 0; // null-terminate
 			return 0; // word complete
